@@ -1,409 +1,466 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Join Now | GeneAcademy</title>
- <meta name="description" content="Join GeneAcademy — Select your path as a Doctor, High School Student, Molecular Researcher, or Healthcare Partner.">
- <link rel="preconnect" href="https://fonts.googleapis.com">
- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
- <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600;700&family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
- <style>
- :root {
- --bg: #04080F;
- --card-bg: rgba(11, 19, 43, 0.85);
- --card-border: rgba(0, 242, 254, 0.18);
- --cyan: #00F2FE;
- --cyan-glow: rgba(0, 242, 254, 0.25);
- --gold: #B48028;
- --text: #FFFFFF;
- --text-muted: #94A3B8;
- --font-sans: 'Times New Roman', 'Inter', 'Cairo', serif;
- --font-mono: 'IBM Plex Mono', monospace;
- }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الانضمام للمنظومة السيادية | إصدار المعرف GA# ورصيد 500 GP</title>
+  <meta name="description" content="سجل هويتك الطبية أو البحثية أو المؤسسية، واستلم رقم المعرف السيادي GA# فوراً مع إنشاء خزينة Google Drive المخصصة لك ورصيد 500 GP.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-dark: #04080F;
+      --bg-card: rgba(11, 19, 38, 0.8);
+      --border-card: rgba(0, 242, 254, 0.2);
+      --cyan: #00F2FE;
+      --cyan-glow: rgba(0, 242, 254, 0.35);
+      --gold: #B48028;
+      --gold-light: #FDE68A;
+      --gold-glow: rgba(180, 128, 40, 0.35);
+      --emerald: #10B981;
+      --text-main: #FFFFFF;
+      --text-muted: #94A3B8;
+      --font-main: 'Outfit', sans-serif;
+      --font-mono: 'IBM Plex Mono', monospace;
+    }
 
- * {
- margin: 0;
- padding: 0;
- box-sizing: border-box;
- }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg-dark);
+      background-image: 
+        radial-gradient(circle at 10% 10%, rgba(0, 242, 254, 0.12) 0%, transparent 50%),
+        radial-gradient(circle at 90% 90%, rgba(180, 128, 40, 0.1) 0%, transparent 50%);
+      color: var(--text-main);
+      font-family: var(--font-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      -webkit-font-smoothing: antialiased;
+    }
 
- body {
- background-color: var(--bg);
- background-image: 
- radial-gradient(circle at 20% 10%, rgba(0, 242, 254, 0.08) 0%, transparent 40%),
- radial-gradient(circle at 80% 90%, rgba(180, 128, 40, 0.06) 0%, transparent 40%);
- color: var(--text);
- font-family: var(--font-sans);
- min-height: 100vh;
- display: flex;
- flex-direction: column;
- justify-content: space-between;
- -webkit-font-smoothing: antialiased;
- }
+    a { color: inherit; text-decoration: none; }
+    .container { width: 100%; max-width: 900px; margin: 30px auto 60px; padding: 0 20px; }
 
- .nav-simple {
- padding: 18px 28px;
- display: flex;
- justify-content: space-between;
- align-items: center;
- border-bottom: 1px solid rgba(255, 255, 255, 0.06);
- }
- .brand-link {
- display: flex;
- align-items: center;
- gap: 10px;
- text-decoration: none;
- color: #FFFFFF;
- font-weight: 800;
- font-size: 18px;
- }
- .brand-icon {
- width: 36px;
- height: 36px;
- border-radius: 8px;
- background: linear-gradient(135deg, var(--cyan), #1E0A38);
- display: flex;
- align-items: center;
- justify-content: center;
- font-family: var(--font-mono);
- font-weight: 800;
- color: #FFFFFF;
- border: 1px solid var(--cyan);
- }
+    .top-nav {
+      padding: 16px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(4, 8, 15, 0.85);
+      backdrop-filter: blur(16px);
+    }
+    .brand-link { display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 1.15rem; }
+    .brand-badge {
+      background: linear-gradient(135deg, #00F2FE 0%, #4FACFE 100%);
+      color: #04080F; font-weight: 900; font-size: 0.9rem;
+      padding: 4px 10px; border-radius: 6px; font-family: var(--font-mono);
+    }
 
- .container {
- width: 100%;
- max-width: 860px;
- margin: 40px auto 60px;
- padding: 0 20px;
- }
+    .join-header { text-align: center; margin-bottom: 30px; }
+    .join-header h1 {
+      font-size: clamp(2rem, 3.8vw, 2.8rem); font-weight: 900; margin-bottom: 10px;
+      background: linear-gradient(135deg, #FFFFFF 0%, var(--cyan) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .join-header p { font-size: 1.05rem; color: var(--text-muted); line-height: 1.6; }
 
- .join-header {
- text-align: center;
- margin-bottom: 35px;
- }
- .join-header h1 {
- font-size: 38px;
- font-weight: 900;
- margin-bottom: 10px;
- }
- .join-header p {
- font-size: 16px;
- color: var(--text-muted);
- }
+    /* 3-Door Persona Tabs */
+    .persona-tabs-join {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 28px;
+    }
+    @media (max-width: 680px) { .persona-tabs-join { grid-template-columns: 1fr; } }
 
- /* Role Selector Grid */
- .role-grid {
- display: grid;
- grid-template-columns: repeat(2, 1fr);
- gap: 16px;
- margin-bottom: 30px;
- }
- @media (max-width: 640px) {
- .role-grid { grid-template-columns: 1fr; }
- }
+    .p-tab {
+      background: rgba(255, 255, 255, 0.03); border: 1.5px solid rgba(255, 255, 255, 0.1); border-radius: 14px;
+      padding: 16px 14px; cursor: pointer; text-align: center; color: #CBD5E1;
+      font-size: 0.92rem; font-weight: 800; transition: all 0.25s ease;
+    }
+    .p-tab:hover { border-color: var(--cyan); color: #FFFFFF; transform: translateY(-2px); }
+    .p-tab.active {
+      border-color: var(--cyan); background: rgba(0, 242, 254, 0.12);
+      color: #FFFFFF; box-shadow: 0 0 25px var(--cyan-glow);
+    }
+    .p-tab.active.gold-tab {
+      border-color: var(--gold); background: rgba(180, 128, 40, 0.15);
+      box-shadow: 0 0 25px var(--gold-glow);
+    }
+    .p-tab.active.emerald-tab {
+      border-color: var(--emerald); background: rgba(16, 185, 129, 0.15);
+      box-shadow: 0 0 25px rgba(16, 185, 129, 0.3);
+    }
+    .p-tab-icon { font-size: 1.6rem; display: block; margin-bottom: 6px; }
 
- .role-card {
- background: var(--card-bg);
- border: 1.5px solid var(--card-border);
- border-radius: 14px;
- padding: 22px;
- cursor: pointer;
- display: flex;
- align-items: center;
- gap: 16px;
- transition: all 0.2s ease;
- }
- .role-card:hover {
- border-color: var(--cyan);
- transform: translateY(-2px);
- box-shadow: 0 10px 25px rgba(0, 242, 254, 0.1);
- }
- .role-card.active {
- border-color: var(--cyan);
- background: rgba(0, 242, 254, 0.08);
- box-shadow: 0 0 0 2px var(--cyan);
- }
+    /* Form Container */
+    .form-box {
+      background: var(--bg-card); border: 1px solid var(--border-card); border-radius: 20px;
+      padding: 38px 32px; box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7); backdrop-filter: blur(20px);
+    }
+    .form-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 18px; }
+    @media (max-width: 640px) { .form-grid-2 { grid-template-columns: 1fr; } }
 
- .role-icon {
- font-size: 36px;
- flex-shrink: 0;
- }
- .role-info h3 {
- font-size: 17px;
- font-weight: 800;
- color: #FFFFFF;
- margin-bottom: 4px;
- }
- .role-info p {
- font-size: 13px;
- color: var(--text-muted);
- line-height: 1.4;
- }
+    .form-group { margin-bottom: 18px; }
+    .form-group label {
+      display: block; font-size: 0.85rem; font-weight: 700; color: var(--cyan); margin-bottom: 8px;
+      font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.04em;
+    }
+    .form-input, .form-select {
+      width: 100%; background: rgba(4, 8, 15, 0.85); border: 1.5px solid rgba(0, 242, 254, 0.25);
+      border-radius: 10px; padding: 14px 16px; font-family: var(--font-main);
+      font-size: 0.98rem; color: #FFFFFF; outline: none; transition: all .2s;
+    }
+    .form-input:focus, .form-select:focus {
+      border-color: var(--cyan); box-shadow: 0 0 16px var(--cyan-glow);
+    }
 
- /* Dynamic Form Box */
- .form-box {
- background: var(--card-bg);
- border: 1.5px solid var(--card-border);
- border-radius: 16px;
- padding: 32px;
- box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
- animation: fadeIn 0.3s ease;
- }
+    .btn-submit-join {
+      width: 100%; background: linear-gradient(135deg, #00F2FE 0%, #4FACFE 100%);
+      color: #04080F; border: none; border-radius: 10px; padding: 16px; font-family: var(--font-mono);
+      font-size: 0.98rem; font-weight: 900; letter-spacing: 0.05em; text-transform: uppercase;
+      cursor: pointer; transition: all 0.25s; margin-top: 12px; box-shadow: 0 10px 30px var(--cyan-glow);
+    }
+    .btn-submit-join:hover {
+      transform: translateY(-2px); box-shadow: 0 15px 40px rgba(0, 242, 254, 0.5);
+    }
 
- .form-group {
- margin-bottom: 18px;
- }
- .form-group label {
- display: block;
- font-size: 13.5px;
- font-weight: 700;
- color: #E2E8F0;
- margin-bottom: 6px;
- }
- .form-input, .form-select {
- width: 100%;
- background: rgba(4, 8, 15, 0.75);
- border: 1.5px solid rgba(255, 255, 255, 0.15);
- border-radius: 8px;
- padding: 12px 14px;
- font-family: var(--font-sans);
- font-size: 14.5px;
- color: #FFFFFF;
- outline: none;
- transition: all 0.2s;
- }
- .form-input:focus, .form-select:focus {
- border-color: var(--cyan);
- box-shadow: 0 0 15px var(--cyan-glow);
- }
+    /* Transition Screen */
+    .transition-card {
+      display: none;
+      background: rgba(11, 19, 38, 0.95);
+      border: 2px solid var(--cyan);
+      border-radius: 20px;
+      padding: 40px 32px;
+      text-align: center;
+      animation: cardPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 40px var(--cyan-glow);
+    }
+    .transition-card.active { display: block; }
 
- .btn-submit {
- width: 100%;
- background: var(--cyan);
- color: #04080F;
- border: none;
- border-radius: 8px;
- padding: 14px;
- font-size: 15px;
- font-weight: 800;
- cursor: pointer;
- transition: all 0.2s;
- margin-top: 10px;
- }
- .btn-submit:hover {
- background: #38BDF8;
- box-shadow: 0 0 25px var(--cyan);
- transform: translateY(-1px);
- }
+    @keyframes cardPop {
+      0% { opacity: 0; transform: scale(0.92) translateY(10px); }
+      100% { opacity: 1; transform: scale(1) translateY(0); }
+    }
 
- /* Success Card */
- .success-card {
- display: none;
- background: linear-gradient(135deg, rgba(0, 242, 254, 0.1), rgba(180, 128, 40, 0.1));
- border: 1.5px solid var(--cyan);
- border-radius: 16px;
- padding: 30px;
- text-align: center;
- margin-top: 20px;
- animation: fadeIn 0.4s ease;
- }
- .success-card.active { display: block; }
- .success-id {
- font-family: var(--font-mono);
- font-size: 26px;
- font-weight: 800;
- color: var(--cyan);
- margin: 12px 0 6px;
- }
+    .sovereign-badge-issued {
+      display: inline-block;
+      background: rgba(0, 242, 254, 0.15); border: 1px solid var(--cyan);
+      color: var(--cyan); font-family: var(--font-mono); font-size: 0.85rem;
+      font-weight: 800; padding: 6px 18px; border-radius: 9999px; margin-bottom: 18px;
+      text-transform: uppercase; letter-spacing: 0.08em;
+    }
 
- footer {
- text-align: center;
- padding: 24px;
- font-size: 13px;
- color: #64748B;
- }
+    .digital-card-preview {
+      background: linear-gradient(135deg, #04080F 0%, #0D1A33 50%, #B48028 100%);
+      border: 1.5px solid var(--gold-light);
+      border-radius: 16px;
+      padding: 26px 28px;
+      color: #FFFFFF;
+      text-align: right;
+      margin: 22px auto 28px;
+      max-width: 480px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+    }
+    .dc-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; }
+    .dc-chip { width: 36px; height: 26px; border-radius: 6px; background: linear-gradient(135deg, #FDE68A, #D97706); }
+    .dc-id { font-family: var(--font-mono); font-size: 1.6rem; font-weight: 900; color: var(--cyan); margin-bottom: 4px; }
+    .dc-name { font-size: 1.25rem; font-weight: 800; color: #FFFFFF; margin-bottom: 14px; }
+    .dc-foot { display: flex; justify-content: space-between; align-items: flex-end; border-top: 1px solid rgba(255, 255, 255, 0.15); padding-top: 14px; }
+    .dc-gp { font-family: var(--font-mono); font-size: 1.35rem; font-weight: 900; color: var(--gold-light); }
 
- @keyframes fadeIn {
- from { opacity: 0; transform: translateY(8px); }
- to { opacity: 1; transform: translateY(0); }
- }
- </style>
+    .credentials-info-box {
+      background: rgba(0, 0, 0, 0.4); border: 1px solid rgba(0, 242, 254, 0.2); border-radius: 12px;
+      padding: 20px; margin: 20px 0; text-align: right;
+    }
+    .cred-row { display: flex; justify-content: space-between; font-size: 0.92rem; margin-bottom: 10px; }
+    .cred-row:last-child { margin-bottom: 0; }
+    .cred-val { font-family: var(--font-mono); font-weight: 700; color: var(--cyan); }
+
+    .drive-vault-box {
+      background: rgba(16, 185, 129, 0.12); border: 1px solid var(--emerald); border-radius: 10px;
+      padding: 14px 18px; margin-bottom: 20px; text-align: right;
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    }
+
+    .btn-enter-portal {
+      display: block; width: 100%; background: linear-gradient(135deg, #00F2FE 0%, #4FACFE 100%);
+      color: #04080F; padding: 16px; border-radius: 10px; font-family: var(--font-mono); font-weight: 900;
+      font-size: 1rem; text-transform: uppercase; letter-spacing: 0.05em; transition: all .25s; text-align: center;
+    }
+    .btn-enter-portal:hover { transform: translateY(-2px); box-shadow: 0 15px 40px rgba(0, 242, 254, 0.6); }
+
+    footer { text-align: center; padding: 24px; font-size: 0.82rem; color: var(--text-muted); }
+  </style>
 </head>
 <body>
 
- <!-- Minimal Nav -->
- <nav class="nav-simple">
- <a href="index.html" class="brand-link">
- <div class="brand-icon">GA</div>
- <span>GeneAcademy</span>
- </a>
- <div style="display: flex; gap: 16px; align-items: center;">
- <a href="auth.html" style="color: var(--text-muted); text-decoration: none; font-size: 13.5px;">Already a member? <strong>Sign In</strong></a>
- <a href="index.html" style="color: var(--text-muted); text-decoration: none; font-size: 13.5px;">→ Home</a>
- </div>
- </nav>
+  <!-- Top Nav -->
+  <nav class="top-nav">
+    <a href="index.html" class="brand-link">
+      <div class="brand-badge">GA</div>
+      <span>GemIInI Sovereign Platform</span>
+    </a>
+    <div style="display: flex; gap: 20px; align-items: center;">
+      <a href="auth.html" style="color: var(--text-muted); font-size: 0.88rem;">لديك معرف سيادي؟ <strong style="color: var(--cyan);">تسجيل الدخول</strong></a>
+      <a href="index.html" style="color: var(--text-muted); font-size: 0.88rem;">الرئيسية ➔</a>
+    </div>
+  </nav>
 
- <main class="container">
- <div class="join-header">
- <h1>Join GeneAcademy</h1>
- <p>Select your track to get instant access to courses, question banks, and member points.</p>
- </div>
+  <main class="container">
+    <div class="join-header">
+      <h1>إصدار المعرف السيادي (GA#) والانضمام</h1>
+      <p>حدد مسارك المعتمد لإصدار رقم هويتك السيادية فوراً، وتوليد خزينة Google Drive المخصصة لملفك مع رصيد 500 GP ترحيبي.</p>
+    </div>
 
- <!-- 4 Role Selectors -->
- <div class="role-grid">
- <div class="role-card active" onclick="selectRole('doctor', this)">
- <span class="role-icon"></span>
- <div class="role-info">
- <h3>Doctor / Medical Candidate</h3>
- <p>MRCS, SMC permanent licensure & USMLE question banks.</p>
- </div>
- </div>
+    <!-- 3-Door Persona Tabs -->
+    <div class="persona-tabs-join">
+      <div class="p-tab active" id="tab_gemiini" onclick="selectTrack('gemiini')">
+        <span class="p-tab-icon">🩺</span>
+        <div>البوابة 1: جيميناي كلينيكال</div>
+        <div style="font-size: 0.76rem; color: var(--text-muted); margin-top: 4px;">أطباء ومرشحو زمالات وبنك SMC</div>
+      </div>
+      <div class="p-tab gold-tab" id="tab_geneacademy" onclick="selectTrack('geneacademy')">
+        <span class="p-tab-icon">🧬</span>
+        <div>البوابة 2: جين أكاديمي</div>
+        <div style="font-size: 0.76rem; color: var(--text-muted); margin-top: 4px;">الطب الجزيئي والبحث العلمي</div>
+      </div>
+      <div class="p-tab emerald-tab" id="tab_glomet" onclick="selectTrack('glomet')">
+        <span class="p-tab-icon">🏢</span>
+        <div>البوابة 3: جلوميت B2B</div>
+        <div style="font-size: 0.76rem; color: var(--text-muted); margin-top: 4px;">تجهيز المعامل وتوريدات المستشفيات</div>
+      </div>
+    </div>
 
- <div class="role-card" onclick="selectRole('stem', this)">
- <span class="role-icon"></span>
- <div class="role-info">
- <h3>High School Student / Parent</h3>
- <p>Biology courses, Junior STEM & 57357 Hospital camps.</p>
- </div>
- </div>
+    <!-- Dynamic Form Box -->
+    <div class="form-box" id="formBox">
+      <form id="joinForm" onsubmit="handleUnifiedJoin(event)">
+        <input type="hidden" id="selectedDoor" value="GEMIINI_CLINICAL">
 
- <div class="role-card" onclick="selectRole('researcher', this)">
- <span class="role-icon"></span>
- <div class="role-info">
- <h3>Researcher / Molecular Scholar</h3>
- <p>Thesis support, genomics, and PCR masterclasses.</p>
- </div>
- </div>
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label>الاسم الرباعي الرسمي</label>
+            <input type="text" id="fullName" class="form-input" placeholder="مثال: د. أحمد عمر محمد علي" required>
+          </div>
+          <div class="form-group">
+            <label id="lblInst">الجامعة / المستشفى / الجهة الأكاديمية</label>
+            <input type="text" id="institution" class="form-input" placeholder="مثال: جامعة الخرطوم / مستشفى سوبا الجامعي" required>
+          </div>
+        </div>
 
- <div class="role-card" onclick="selectRole('partner', this)">
- <span class="role-icon"></span>
- <div class="role-info">
- <h3>Healthcare Partner / Distributor</h3>
- <p>GLOMEt turnkey lab construction & equipment supply.</p>
- </div>
- </div>
- </div>
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label>البريد الإلكتروني المعتمد</label>
+            <input type="email" id="email" class="form-input" placeholder="name@domain.com" required>
+          </div>
+          <div class="form-group">
+            <label>رقم الواتساب / الهاتف</label>
+            <input type="tel" id="phone" class="form-input" placeholder="مثال: +249 912345678 أو +20 1012345678" required>
+          </div>
+        </div>
 
- <!-- Clean Form Box -->
- <div class="form-box" id="formBox">
- <form id="joinForm" onsubmit="handleJoin(event)">
- <input type="hidden" id="selectedTrack" value="doctor">
+        <div class="form-group" id="moduleSelectGroup">
+          <label id="lblProgram">المسار الأكاديمي أو التخصصي المستهدف</label>
+          <select id="programSelect" class="form-select">
+            <!-- Dynamic Options Injected via JS -->
+          </select>
+        </div>
 
- <div class="form-group">
- <label>Full Name</label>
- <input type="text" id="fullName" class="form-input" placeholder="e.g. Dr. Ahmed Omer / Sara Ali" required>
- </div>
+        <button type="submit" class="btn-submit-join" id="btnJoinSubmit">
+          إصدار المعرف السيادي وتوليد خزينة Drive (+500 GP) ➔
+        </button>
+      </form>
 
- <div class="form-group">
- <label>University / School / Institution</label>
- <input type="text" id="institution" class="form-input" placeholder="e.g. University of Khartoum / High School / Hospital" required>
- </div>
+      <!-- Sovereign Transition HUD -->
+      <div class="transition-card" id="joinSuccessCard">
+        <div class="sovereign-badge-issued">✓ تم إصدار الهوية السيادية وتوليد الخزينة الرقمية</div>
+        <h2 style="font-size: 2rem; font-weight: 900; color: #FFFFFF;">أهلاً بك في المنظومة السيادية!</h2>
+        <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 6px;">
+          تم تسجيل بياناتك وتخصيص الخزينة الرقمية في Google Drive وإيداع رصيد الاعتماد:
+        </p>
 
- <div class="form-group">
- <label>WhatsApp / Phone Number</label>
- <input type="tel" id="phone" class="form-input" placeholder="e.g. +249 912345678 or +20 1012345678" required>
- </div>
+        <!-- Digital Sovereign Member Card -->
+        <div class="digital-card-preview">
+          <div class="dc-top">
+            <span style="font-weight: 800; font-size: 0.88rem; color: var(--gold-light);">GemIInI Sovereign Credential</span>
+            <div class="dc-chip"></div>
+          </div>
+          <div class="dc-id" id="issuedId">GA3466</div>
+          <div class="dc-name" id="issuedName">د. الطبيب المرشح</div>
+          <div class="dc-foot">
+            <span style="font-size: 0.82rem; color: #CBD5E1;" id="issuedRole">عضو معتمد • بوابة جيميناي</span>
+            <div class="dc-gp" id="issuedGp">+500 GP</div>
+          </div>
+        </div>
 
- <div class="form-group" id="moduleSelectGroup">
- <label>Program of Interest</label>
- <select id="programSelect" class="form-select">
- <option value="smc">gemiiniXsmc Exam Modules (Permanent Licensure)</option>
- <option value="mrcs">MRCS UK Clinical Fellowship Prep</option>
- <option value="usmle">USMLE Step 1 / Step 2 Clinical</option>
- <option value="bls">Basic Life Support (BLS) Certification</option>
- </select>
- </div>
+        <!-- Google Drive Vault Notice -->
+        <div class="drive-vault-box" id="driveVaultNotice">
+          <div>
+            <div style="font-weight: 800; font-size: 0.92rem; color: #FFFFFF;">📂 خزينة Google Drive المخصصة لك:</div>
+            <div style="font-size: 0.82rem; color: #CBD5E1;">تم إنشاء مجلدك الخاص لحفظ تقارير الامتحانات واستمارة التدقيق.</div>
+          </div>
+          <a href="#" target="_blank" id="driveLinkBtn" style="background: var(--emerald); color: #04080F; font-weight: 800; padding: 8px 16px; border-radius: 8px; font-size: 0.85rem;">فتح الخزينة ↗</a>
+        </div>
 
- <button type="submit" class="btn-submit" id="btnJoinSubmit">Complete Registration & Issue ID →</button>
- </form>
+        <!-- Credentials Summary Box -->
+        <div class="credentials-info-box">
+          <div class="cred-row">
+            <span>رقم المعرف السيادي (GA#):</span>
+            <span class="cred-val" id="dispGaId">GA3466</span>
+          </div>
+          <div class="cred-row">
+            <span>الشيفرة الديناميكية للحساب:</span>
+            <span class="cred-val" id="dispCipher">سنة التخرج + آخر 4 أرقام من الهاتف</span>
+          </div>
+          <div class="cred-row">
+            <span>رصيد الاعتماد الأكاديمي:</span>
+            <span class="cred-val" style="color: var(--gold-light);">500 GP (جاهز لفتح بنوك الأسئلة والمحاكاة)</span>
+          </div>
+        </div>
 
- <!-- Success HUD -->
- <div class="success-card" id="joinSuccessCard">
- <h2> Welcome to GeneAcademy!</h2>
- <p style="color: var(--text-muted); font-size: 14px; margin-top: 4px;">Your official GemIInI ID has been generated:</p>
- <div class="success-id" id="issuedId">GA5409</div>
- <p style="color: #FDE68A; font-weight: 700; font-size: 15px;">+500 GP Welcome Balance Credited</p>
- <a href="smc.html" class="btn-submit" style="display: inline-block; width: auto; padding: 10px 24px; text-decoration: none; margin-top: 14px;">Open Simulator Now →</a>
- </div>
- </div>
- </main>
+        <a href="portal.html" class="btn-enter-portal" id="btnEnterPortal">
+          الدخول إلى قمرة القيادة السيادية ➔
+        </a>
+      </div>
 
- <footer>
- © 2026 GeneAcademy Sovereign Medical Ecosystem • geneacademy.net
- </footer>
+    </div>
+  </main>
 
- <script src="js/ga_data.js"></script>
- <script>
- function selectRole(role, el) {
- document.querySelectorAll('.role-card').forEach(c => c.classList.remove('active'));
- el.classList.add('active');
- document.getElementById('selectedTrack').value = role;
+  <footer>
+    © 2026 GemIInI Sovereign Platform • members.geneacademy.net • All Rights Reserved.
+  </footer>
 
- const select = document.getElementById('programSelect');
- select.innerHTML = '';
+  <script src="api.js"></script>
+  <script src="js/ga_data.js"></script>
+  <script>
+    const PROGRAMS = {
+      gemiini: [
+        { val: "smc_full", label: "بنك أسئلة المجلس الطبي السوداني SMC الكامل (10 وحدات تخصصية)" },
+        { val: "peds_mtc", label: "بروتوكول مجرى الهواء وإنعاش الأطفال المتقدم MTC" },
+        { val: "surgery_trauma", label: "الجراحة العامة وحالات الطوارئ المتقدمة" },
+        { val: "internal_medicine", label: "الباطنية العامة والعناية الحرجة السريرية" }
+      ],
+      geneacademy: [
+        { val: "mm_masterclass", label: "دبلوم الطب الجزيئي المتقدم (MM 1.0 - 8.0)" },
+        { val: "scientific_writing", label: "الكتابة العلمية والنشر في المجلات الدولية عالية التأثير" },
+        { val: "wes_oncology", label: "تحليل بيانات التسلسل الجيني الكامل WES ومؤشرات الأورام" },
+        { val: "alumni_museum", label: "عضوية متحف الخريجين السيادي والمسار الأكاديمي" }
+      ],
+      glomet: [
+        { val: "turnkey_virtual_lab", label: "إنشاء وتجهيز المعامل والمختبرات الافتراضية والتشخيصية Turnkey" },
+        { val: "pharma_supplies", label: "توريد المحاليل التشخيصية وأجهزة CBC والكيمياء الحيوية" },
+        { val: "hospital_training_contract", label: "عقود تدريب أطباء الامتياز المؤسسية للمستشفيات" }
+      ]
+    };
 
- if (role === 'doctor') {
- select.innerHTML = `
- <option value="smc">gemiiniXsmc Exam Modules (Permanent Licensure)</option>
- <option value="mrcs">MRCS UK Clinical Fellowship Prep</option>
- <option value="usmle">USMLE Step 1 / Step 2 Clinical</option>
- <option value="bls">Basic Life Support (BLS) Certification</option>
- `;
- } else if (role === 'stem') {
- select.innerHTML = `
- <option value="57357">Junior STEM & 57357 Hospital Discovery Camp</option>
- <option value="biology">High School Biology & Molecular Masterclass</option>
- <option value="stem_scholar">Young Scholars Grant Program</option>
- `;
- } else if (role === 'researcher') {
- select.innerHTML = `
- <option value="mm">Molecular Medicine Masterclass (MM 1.0 - 8.0)</option>
- <option value="thesis">Thesis Design, Data Analytics & Writing</option>
- <option value="pcr">Real-Time qPCR & Oncology Biomarkers</option>
- `;
- } else if (role === 'partner') {
- select.innerHTML = `
- <option value="glomet_lab">GLOMEt Turnkey Virtual Lab Setup</option>
- <option value="cbc_supply">CBC Reagents & Biochemistry Supply</option>
- <option value="distributor">Authorized Regional Distributor License</option>
- `;
- }
- }
+    function selectTrack(track) {
+      document.querySelectorAll('.p-tab').forEach(t => t.classList.remove('active'));
+      document.getElementById(`tab_${track}`)?.classList.add('active');
 
- function handleJoin(e) {
- e.preventDefault();
- const name = document.getElementById('fullName').value.trim();
- const inst = document.getElementById('institution').value.trim();
- const phone = document.getElementById('phone').value.trim();
- const track = document.getElementById('selectedTrack').value;
- const btn = document.getElementById('btnJoinSubmit');
+      const doorMapping = {
+        gemiini: 'GEMIINI_CLINICAL',
+        geneacademy: 'GENE_RESEARCH',
+        glomet: 'GLOMET_B2B'
+      };
+      document.getElementById('selectedDoor').value = doorMapping[track];
 
- btn.disabled = true;
- btn.textContent = 'Processing Registration...';
+      const select = document.getElementById('programSelect');
+      select.innerHTML = '';
+      (PROGRAMS[track] || PROGRAMS.gemiini).forEach(p => {
+        const opt = document.createElement('option');
+        opt.value = p.val;
+        opt.textContent = p.label;
+        select.appendChild(opt);
+      });
 
- setTimeout(() => {
- const nextId = 'GA' + Math.floor(1000 + Math.random() * 9000);
- document.getElementById('issuedId').textContent = nextId;
+      if (track === 'glomet') {
+        document.getElementById('lblInst').textContent = "اسم المؤسسة / المستشفى / المعمل";
+      } else {
+        document.getElementById('lblInst').textContent = "الجامعة / المستشفى / الجهة الأكاديمية";
+      }
+    }
 
- // Save session
- const session = {
- id: nextId,
- name: name,
- institution: inst,
- phone: phone,
- gp: 500,
- role: track === 'doctor' ? 'Medical Candidate' : track === 'stem' ? 'Junior Scholar' : track === 'researcher' ? 'Molecular Researcher' : 'GLOMEt Partner',
- authenticated: true,
- timestamp: new Date().toISOString()
- };
- localStorage.setItem('gemiini_sovereign_session', JSON.stringify(session));
+    window.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const track = urlParams.get('track') || urlParams.get('door') || 'gemiini';
+      selectTrack(track);
+    });
 
- document.getElementById('joinForm').style.display = 'none';
- document.getElementById('joinSuccessCard').classList.add('active');
- }, 400);
- }
- </script>
+    async function handleUnifiedJoin(e) {
+      e.preventDefault();
+      const name = document.getElementById('fullName').value.trim();
+      const inst = document.getElementById('institution').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const door = document.getElementById('selectedDoor').value;
+      const prog = document.getElementById('programSelect').value;
+      const btn = document.getElementById('btnJoinSubmit');
+
+      btn.disabled = true;
+      btn.textContent = 'جارٍ تسجيل الهوية وتوليد الخزينة الرقمية...';
+
+      const randNum = Math.floor(3530 + Math.random() * 500);
+      const nextId = 'GA' + randNum;
+
+      const payload = {
+        id: nextId,
+        name: name,
+        institution: inst,
+        email: email,
+        phone: phone,
+        door: door,
+        track: prog,
+        gp: 500
+      };
+
+      // Attempt async sync to Google Apps Script
+      try {
+        if (typeof GAS_URL !== 'undefined') {
+          fetch(GAS_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          }).catch(e => console.log(e));
+        }
+      } catch(err) {}
+
+      setTimeout(() => {
+        document.getElementById('issuedId').textContent = nextId;
+        document.getElementById('issuedName').textContent = name;
+        document.getElementById('dispGaId').textContent = nextId;
+        
+        let doorLabel = 'بوابة جيميناي كلينيكال';
+        let doorParam = 'gemiini';
+        if (door === 'GENE_RESEARCH') { doorLabel = 'بوابة جين أكاديمي'; doorParam = 'geneacademy'; }
+        if (door === 'GLOMET_B2B') { doorLabel = 'جلوميت B2B'; doorParam = 'glomet'; }
+
+        document.getElementById('issuedRole').textContent = `عضو معتمد • ${doorLabel}`;
+
+        const driveUrl = `https://drive.google.com/drive/search?q=${nextId}`;
+        document.getElementById('driveLinkBtn').href = driveUrl;
+
+        const session = {
+          id: nextId,
+          name: name,
+          institution: inst,
+          email: email,
+          phone: phone,
+          door: doorParam,
+          gp: 500,
+          authenticated: true,
+          timestamp: new Date().toISOString()
+        };
+        localStorage.setItem('gemiini_sovereign_session', JSON.stringify(session));
+        localStorage.setItem('gemiini_sovereign_ga_id', nextId);
+
+        document.getElementById('joinForm').style.display = 'none';
+        document.getElementById('joinSuccessCard').classList.add('active');
+        document.getElementById('btnEnterPortal').href = `portal.html?door=${doorParam}&id=${nextId}`;
+      }, 600);
+    }
+  </script>
 </body>
 </html>

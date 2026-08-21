@@ -1,40 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sign In | SudaGene Sovereign Member Portal</title>
-  <meta name="description" content="Sign in to your sovereign member portal to access gemiiniXsmc modules, molecular research datasets, and your GP ledger.">
+  <title>تسجيل الدخول السيادي | Sovereign 3-Door Gateway</title>
+  <meta name="description" content="البوابة السيادية الموحدة للولوج إلى أكاديمية جيميناي الطبية، منظومة جين أكاديمي البحثية، ومقر جلوميت لتجهيز المعامل.">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   
   <style>
     :root {
-      --purple-deep: #130726;
-      --purple-royal: #2C1154;
-      --purple-primary: #4C1D95;
-      --purple-vibrant: #7C3AED;
-      --teal-accent: #2DE0C2;
-      --gold-accent: #F59E0B;
-      --bg-page: #0B0418;
-      --card-bg: #15092E;
+      --bg-dark: #04080F;
+      --bg-card: rgba(11, 19, 38, 0.75);
+      --border-card: rgba(0, 242, 254, 0.2);
+      --cyan: #00F2FE;
+      --cyan-glow: rgba(0, 242, 254, 0.35);
+      --gold: #B48028;
+      --gold-light: #FDE68A;
+      --gold-glow: rgba(180, 128, 40, 0.35);
+      --emerald: #10B981;
       --text-main: #FFFFFF;
-      --text-muted: #A78BFA;
-      --border-color: rgba(139, 92, 246, 0.25);
-      --gradient-brand: linear-gradient(135deg, #2C1154 0%, #4C1D95 50%, #7C3AED 100%);
-      font-size: 16px;
+      --text-muted: #94A3B8;
+      --font-main: 'Outfit', sans-serif;
+      --font-mono: 'IBM Plex Mono', monospace;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    
     body {
-      background: var(--bg-page);
+      background: var(--bg-dark);
       background-image: 
-        radial-gradient(circle at 50% 10%, rgba(124, 58, 237, 0.25) 0%, transparent 50%),
-        radial-gradient(circle at 50% 90%, rgba(45, 224, 194, 0.15) 0%, transparent 50%);
+        radial-gradient(circle at 50% 0%, rgba(0, 242, 254, 0.12) 0%, transparent 60%),
+        radial-gradient(circle at 10% 90%, rgba(180, 128, 40, 0.08) 0%, transparent 50%);
       color: var(--text-main);
-      font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+      font-family: var(--font-main);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -43,71 +44,154 @@
     }
 
     a { color: inherit; text-decoration: none; }
+
     .top-nav {
-      padding: 16px 28px;
+      padding: 16px 32px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid var(--border-color);
-      background: rgba(19, 7, 38, 0.85);
-      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(4, 8, 15, 0.85);
+      backdrop-filter: blur(16px);
     }
-    .brand-link { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.1rem; }
+    .brand-link { display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 1.15rem; }
     .brand-badge {
-      background: var(--gradient-brand); color: #FFFFFF; font-weight: 800; font-size: 0.88rem;
-      padding: 5px 10px; border-radius: 6px; font-family: 'IBM Plex Mono', monospace;
+      background: linear-gradient(135deg, #00F2FE 0%, #4FACFE 100%);
+      color: #04080F; font-weight: 900; font-size: 0.9rem;
+      padding: 4px 10px; border-radius: 6px; font-family: var(--font-mono);
     }
 
-    .auth-container { width: 100%; max-width: 440px; margin: 50px auto; padding: 0 20px; }
+    .auth-container {
+      width: 100%;
+      max-width: 580px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
     .auth-card {
-      background: var(--card-bg); border: 1.5px solid var(--border-color); border-radius: 14px;
-      padding: 38px 30px; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 20px;
+      padding: 40px 36px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 40px rgba(0, 242, 254, 0.08);
+      backdrop-filter: blur(20px);
     }
-    .auth-header { text-align: center; margin-bottom: 28px; }
-    .auth-header h1 {
-      font-size: 1.7rem; font-weight: 800; color: #FFFFFF; margin-bottom: 6px;
-    }
-    .auth-header p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; }
 
-    .form-group { margin-bottom: 18px; }
+    .auth-header { text-align: center; margin-bottom: 30px; }
+    .auth-header h1 {
+      font-size: 2rem; font-weight: 900; margin-bottom: 8px;
+      background: linear-gradient(135deg, #FFFFFF 0%, var(--cyan) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .auth-header p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; }
+
+    /* 3-Door Visual Selector */
+    .doors-title {
+      font-size: 0.85rem; font-weight: 700; color: var(--gold-light);
+      text-transform: uppercase; letter-spacing: 0.05em; font-family: var(--font-mono);
+      margin-bottom: 12px; text-align: center;
+    }
+    .doors-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+    .door-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 14px 10px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      user-select: none;
+    }
+    .door-card:hover {
+      border-color: var(--cyan);
+      background: rgba(0, 242, 254, 0.06);
+      transform: translateY(-2px);
+    }
+    .door-card.active {
+      border-color: var(--cyan);
+      background: rgba(0, 242, 254, 0.12);
+      box-shadow: 0 0 20px var(--cyan-glow);
+    }
+    .door-card.active.door-gold {
+      border-color: var(--gold);
+      background: rgba(180, 128, 40, 0.15);
+      box-shadow: 0 0 20px var(--gold-glow);
+    }
+    .door-card.active.door-emerald {
+      border-color: var(--emerald);
+      background: rgba(16, 185, 129, 0.15);
+      box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+    }
+    .door-icon { font-size: 1.6rem; margin-bottom: 6px; }
+    .door-name { font-size: 0.88rem; font-weight: 800; color: #FFFFFF; margin-bottom: 2px; }
+    .door-sub { font-size: 0.72rem; color: var(--text-muted); }
+
+    .form-group { margin-bottom: 20px; }
     .form-group label {
-      display: block; font-size: 0.82rem; font-weight: 700; color: #E9D5FF; margin-bottom: 6px;
-      font-family: 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: 0.04em;
+      display: block; font-size: 0.85rem; font-weight: 700; color: var(--cyan); margin-bottom: 8px;
+      font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.04em;
     }
     .form-input {
-      width: 100%; background: #0E0520; border: 1.5px solid rgba(139, 92, 246, 0.3);
-      border-radius: 6px; padding: 12px 14px; font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.95rem; color: #FFFFFF; outline: none; transition: border-color .2s;
+      width: 100%; background: rgba(4, 8, 15, 0.8); border: 1.5px solid rgba(0, 242, 254, 0.25);
+      border-radius: 10px; padding: 14px 16px; font-family: var(--font-mono);
+      font-size: 1rem; color: #FFFFFF; outline: none; transition: all .2s;
     }
-    .form-input:focus { border-color: var(--teal-accent); box-shadow: 0 0 12px rgba(45, 224, 194, 0.25); }
+    .form-input:focus {
+      border-color: var(--cyan);
+      box-shadow: 0 0 16px var(--cyan-glow);
+    }
+
+    .cipher-hint {
+      font-size: 0.78rem; color: var(--text-muted); margin-top: 6px; font-family: var(--font-mono);
+    }
 
     .btn-submit {
-      width: 100%; background: var(--teal-accent); color: var(--purple-deep);
-      border: none; border-radius: 6px; padding: 14px; font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.88rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase;
-      cursor: pointer; transition: all 0.2s; margin-top: 10px;
+      width: 100%;
+      background: linear-gradient(135deg, #00F2FE 0%, #4FACFE 100%);
+      color: #04080F;
+      border: none;
+      border-radius: 10px;
+      padding: 16px;
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+      font-weight: 900;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.25s;
+      margin-top: 10px;
+      box-shadow: 0 10px 30px var(--cyan-glow);
     }
-    .btn-submit:hover { background: #38BDF8; box-shadow: 0 0 20px rgba(45, 224, 194, 0.5); }
-
-    .auth-footer-links {
-      text-align: center; margin-top: 22px; font-size: 0.85rem; color: var(--text-muted);
+    .btn-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 40px rgba(0, 242, 254, 0.5);
     }
-    .auth-footer-links a { color: var(--teal-accent); font-weight: 700; margin-left: 4px; }
 
-    /* Success Transport HUD (Smooth Direct Handoff) */
+    /* Success Transport HUD */
     .success-hud {
-      display: none; margin-top: 20px; background: rgba(45, 224, 194, 0.08);
-      border: 1px solid var(--teal-accent); border-radius: 8px; padding: 20px; text-align: center;
+      display: none; margin-top: 24px; background: rgba(0, 242, 254, 0.08);
+      border: 1.5px solid var(--cyan); border-radius: 12px; padding: 22px; text-align: center;
       animation: fadeIn 0.3s ease;
     }
     .success-hud.active { display: block; }
-    .hud-title { font-size: 1.15rem; font-weight: 800; color: #FFFFFF; margin-bottom: 4px; }
-    .hud-points { font-family: 'IBM Plex Mono', monospace; color: #FDE68A; font-weight: 700; font-size: 0.95rem; margin-bottom: 12px; }
+    .hud-title { font-size: 1.25rem; font-weight: 800; color: #FFFFFF; margin-bottom: 6px; }
+    .hud-door { font-size: 0.95rem; color: var(--gold-light); font-weight: 700; margin-bottom: 8px; }
+    .hud-points { font-family: var(--font-mono); color: var(--cyan); font-weight: 700; font-size: 1rem; margin-bottom: 12px; }
     
-    footer { text-align: center; padding: 24px; font-size: 0.8rem; color: var(--text-muted); }
+    .auth-footer-links {
+      text-align: center; margin-top: 26px; font-size: 0.9rem; color: var(--text-muted);
+    }
+    .auth-footer-links a { color: var(--cyan); font-weight: 700; margin-right: 6px; }
+
+    footer { text-align: center; padding: 24px; font-size: 0.82rem; color: var(--text-muted); border-top: 1px solid rgba(255, 255, 255, 0.05); }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(6px); }
+      from { opacity: 0; transform: translateY(8px); }
       to { opacity: 1; transform: translateY(0); }
     }
   </style>
@@ -116,107 +200,167 @@
 
   <nav class="top-nav">
     <a href="index.html" class="brand-link">
-      <div class="brand-badge">SG</div>
-      <span>SudaGene Conglomerate</span>
+      <div class="brand-badge">GA</div>
+      <span>GemIInI Sovereign Ecosystem</span>
     </a>
-    <a href="index.html" style="color: var(--text-muted); font-size: 0.85rem;">➔ Home</a>
+    <a href="index.html" style="color: var(--text-muted); font-size: 0.88rem;">الرئيسية ➔</a>
   </nav>
 
   <div class="auth-container">
     <div class="auth-card">
       <div class="auth-header">
-        <h1>Sign In to Member Portal</h1>
-        <p>Access your gemiiniXsmc question banks, molecular research masterclasses, and GP points ledger.</p>
+        <h1>البوابة السيادية الموحدة</h1>
+        <p>سجّل دخولك للولوج التلقائي إلى مسارك المعتمد وفتح الخزينة الرقمية المخصصة لك في Google Drive.</p>
       </div>
 
-      <form id="signInForm" onsubmit="handleSignIn(event)">
+      <div class="doors-title">اختر البوابة أو دع النظام يتعرف عليك تلقائياً</div>
+      <div class="doors-grid">
+        <div class="door-card active" id="door-gemiini" onclick="selectDoor('gemiini')">
+          <div class="door-icon">🩺</div>
+          <div class="door-name">جيميناي كلينيكال</div>
+          <div class="door-sub">بنك أسئلة SMC والمحاكاة</div>
+        </div>
+        <div class="door-card door-gold" id="door-geneacademy" onclick="selectDoor('geneacademy')">
+          <div class="door-icon">🧬</div>
+          <div class="door-name">جين أكاديمي</div>
+          <div class="door-sub">الطب الجزيئي والأبحاث</div>
+        </div>
+        <div class="door-card door-emerald" id="door-glomet" onclick="selectDoor('glomet')">
+          <div class="door-icon">🏢</div>
+          <div class="door-name">جلوميت B2B</div>
+          <div class="door-sub">تجهيز المعامل والمستشفيات</div>
+        </div>
+      </div>
+
+      <form id="signInForm" onsubmit="handleUnifiedSignIn(event)">
         <div class="form-group">
-          <label>GemIInI ID (GA#)</label>
-          <input type="text" id="gaIdInput" class="form-input" placeholder="e.g. GA3466 or GA001" required autocomplete="off">
+          <label>المعرف السيادي (GA#) أو البريد الإلكتروني</label>
+          <input type="text" id="identifierInput" class="form-input" placeholder="مثال: GA3463 أو your-email@domain.com" required autocomplete="off" oninput="autoDetectIdentifier(this.value)">
         </div>
 
         <div class="form-group">
-          <label>Password</label>
-          <input type="password" id="passwordInput" class="form-input" placeholder="Enter your password" required>
+          <label>الشيفرة الديناميكية (Dynamic Cipher)</label>
+          <input type="password" id="cipherInput" class="form-input" placeholder="سنة التخرج + آخر 4 أرقام من هاتفك أو كلمة المرور" required>
+          <div class="cipher-hint">🔒 الشيفرات السيادية تشتق تلقائياً من بياناتك المسجلة لحماية الحساب.</div>
         </div>
 
-        <button type="submit" class="btn-submit" id="btnSubmit">Enter Sovereign Command Center ➔</button>
+        <button type="submit" class="btn-submit" id="btnSubmit">فتح البوابة السيادية ➔</button>
       </form>
 
       <!-- Smooth Transport HUD -->
       <div class="success-hud" id="successHud">
-        <div class="hud-title" id="hudName">Authenticated Successfully</div>
-        <div class="hud-points" id="hudPoints">500 GP (GemIInI Points Available)</div>
-        <p style="font-size: 0.82rem; color: #CBD5E1; margin-bottom: 12px;">Transporting to Member Portal...</p>
+        <div class="hud-title" id="hudName">تم التحقق بنجاح ✓</div>
+        <div class="hud-door" id="hudDoor">جارٍ فتح: بوابة جيميناي للتدريب السريري</div>
+        <div class="hud-points" id="hudPoints">رصيد الاعتماد: 500 GP</div>
+        <p style="font-size: 0.85rem; color: #CBD5E1; margin-bottom: 8px;">جارٍ توجيهك إلى قمرة القيادة الخاصة بك...</p>
       </div>
 
       <div class="auth-footer-links">
-        <span>Don't have a Sovereign GA# ID?</span>
-        <a href="join.html">Claim Free ID & 500 GP</a>
+        <span>ليس لديك رقم معرف سيادي (GA#)؟</span>
+        <a href="join.html">احصل على معرّفك المجاني و 500 GP ←</a>
       </div>
     </div>
   </div>
 
   <footer>
-    © 2026 SudaGene Conglomerate • members.geneacademy.net • All Rights Reserved.
+    © 2026 GemIInI Sovereign Platform • members.geneacademy.net • All Rights Reserved.
   </footer>
 
   <script src="js/ga_data.js"></script>
   <script>
+    let currentSelectedDoor = 'gemiini';
+
+    function selectDoor(door) {
+      currentSelectedDoor = door;
+      document.querySelectorAll('.door-card').forEach(c => c.classList.remove('active'));
+      document.getElementById(`door-${door}`)?.classList.add('active');
+    }
+
+    function autoDetectIdentifier(val) {
+      val = val.trim().toLowerCase();
+      if (val.includes('glomet') || val.includes('lab') || val.includes('b2b')) {
+        selectDoor('glomet');
+      } else if (val.includes('gene') || val.includes('research') || val.includes('dr.')) {
+        selectDoor('geneacademy');
+      }
+    }
+
     window.addEventListener('DOMContentLoaded', () => {
       const urlParams = new URLSearchParams(window.location.search);
       const prefillId = urlParams.get('id') || urlParams.get('ga');
+      const prefillDoor = urlParams.get('door');
+      if (prefillDoor && ['gemiini', 'geneacademy', 'glomet'].includes(prefillDoor)) {
+        selectDoor(prefillDoor);
+      }
       if (prefillId) {
-        document.getElementById('gaIdInput').value = prefillId;
-        document.getElementById('passwordInput').focus();
+        document.getElementById('identifierInput').value = prefillId;
+        document.getElementById('cipherInput').focus();
       }
     });
 
-    function handleSignIn(e) {
+    async function handleUnifiedSignIn(e) {
       e.preventDefault();
-      const idInput = document.getElementById("gaIdInput").value.trim().toUpperCase();
-      const pwd = document.getElementById("passwordInput").value.trim();
+      const idInput = document.getElementById("identifierInput").value.trim();
+      const cipher = document.getElementById("cipherInput").value.trim();
       const btn = document.getElementById("btnSubmit");
       const hud = document.getElementById("successHud");
 
       btn.disabled = true;
-      btn.textContent = "Verifying Credentials...";
+      btn.textContent = "جاري التحقق من السجل السيادي...";
+
+      // Check against local GA_DATABASE
+      const cleanId = idInput.toUpperCase().startsWith("GA") ? idInput.toUpperCase() : ("GA" + idInput.toUpperCase());
+      let member = null;
+
+      if (typeof GA_DATABASE !== 'undefined' && Array.isArray(GA_DATABASE)) {
+        member = GA_DATABASE.find(m => 
+          (m.id && m.id.toUpperCase() === cleanId) ||
+          (m.email && m.email.toLowerCase() === idInput.toLowerCase())
+        );
+      }
 
       setTimeout(() => {
-        const cleanId = idInput.startsWith("GA") ? idInput : "GA" + idInput;
-        let member = null;
-
-        if (typeof GA_DATABASE !== 'undefined' && Array.isArray(GA_DATABASE)) {
-          member = GA_DATABASE.find(m => m.id && (m.id.toUpperCase() === cleanId || m.id.toUpperCase() === cleanId.replace("-", "")));
+        const name = member ? member.name : (idInput.includes('@') ? idInput.split('@')[0] : "د. عضو معتمد");
+        const gp = member ? (member.gp || 500) : 500;
+        const role = member ? (member.role || "SMC Candidate") : "Active Member";
+        
+        let door = currentSelectedDoor;
+        if (member && member.role) {
+          if (member.role.toLowerCase().includes('research') || member.role.toLowerCase().includes('molecular')) door = 'geneacademy';
+          else if (member.role.toLowerCase().includes('glomet') || member.role.toLowerCase().includes('lab')) door = 'glomet';
         }
 
-        const name = member ? member.name : "Verified Member";
-        const gp = member ? member.gp : 500;
-        const role = member ? member.role : "Active Candidate";
+        const doorLabels = {
+          gemiini: '🩺 بوابة جيميناي للتدريب السريري وبنك SMC',
+          geneacademy: '🧬 بوابة جين أكاديمي للأبحاث والطب الجزيئي',
+          glomet: '🏢 قمرة قيادة جلوميت B2B لتجهيز المعامل'
+        };
 
-        // Save session
+        // Store active sovereign session
         const session = {
-          id: cleanId,
+          id: member ? member.id : cleanId,
           name: name,
           gp: gp,
           role: role,
+          door: door,
           authenticated: true,
           timestamp: new Date().toISOString()
         };
         localStorage.setItem("gemiini_sovereign_session", JSON.stringify(session));
+        localStorage.setItem("gemiini_sovereign_ga_id", session.id);
 
-        document.getElementById("hudName").textContent = `Welcome, ${name}!`;
-        document.getElementById("hudPoints").textContent = `${gp} GP (GemIInI Points Available)`;
+        document.getElementById("hudName").textContent = `أهلاً بك، ${name}!`;
+        document.getElementById("hudDoor").textContent = doorLabels[door];
+        document.getElementById("hudPoints").textContent = `رصيد الاعتماد الأكاديمي: ${gp.toLocaleString()} GP`;
         
         hud.classList.add("active");
-        btn.textContent = "Access Granted ✓";
+        btn.textContent = "تم منح حق الوصول ✓";
         btn.style.background = "#10B981";
 
-        // Seamless immediate redirect
         setTimeout(() => {
-          window.location.href = "portal.html";
-        }, 600);
-      }, 400);
+          window.location.href = `portal.html?door=${door}`;
+        }, 700);
+      }, 500);
     }
   </script>
 </body>
