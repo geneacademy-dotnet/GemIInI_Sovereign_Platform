@@ -63,22 +63,34 @@ function applySovereignStatusView(gaId) {
 
   if (member) {
     localStorage.setItem("gemiini_sovereign_ga_id", member.id);
-    document.getElementById("sso-doctor-name").textContent = member.name;
-    document.getElementById("sso-doctor-id").textContent = member.id;
-    document.getElementById("sso-doctor-gp").textContent = member.gp.toLocaleString() + " GP";
-    document.getElementById("sso-doctor-univ").textContent = member.univ + " • " + member.role;
-    document.getElementById("sso-avatar").textContent = member.id.substring(0, 4);
+    const nameEl = document.getElementById("sso-doctor-name");
+    const idEl = document.getElementById("sso-doctor-id");
+    const gpEl = document.getElementById("sso-doctor-gp");
+    const univEl = document.getElementById("sso-doctor-univ");
+    const avatarEl = document.getElementById("sso-avatar");
+
+    if (nameEl) nameEl.textContent = member.name;
+    if (idEl) idEl.textContent = member.id;
+    if (gpEl) gpEl.textContent = (member.gp || 500).toLocaleString() + " GP";
+    if (univEl) univEl.textContent = (member.univ || "") + (member.role ? " • " + member.role : "");
+    if (avatarEl) avatarEl.textContent = member.id.substring(0, 4);
 
     if (unauthView) unauthView.style.display = "none";
     authView.style.display = "flex";
   } else {
     // Unverified Candidate Record
     localStorage.setItem("gemiini_sovereign_ga_id", cleanId);
-    document.getElementById("sso-doctor-name").textContent = "معرف قيد التسجيل (" + escapeHtml(cleanId) + ")";
-    document.getElementById("sso-doctor-id").textContent = escapeHtml(cleanId);
-    document.getElementById("sso-doctor-gp").textContent = "قيد التدقيق الأكاديمي";
-    document.getElementById("sso-doctor-univ").textContent = "لم يكتمل التوثيق النهائي عبر SudaPass";
-    document.getElementById("sso-avatar").textContent = "GA";
+    const nameEl = document.getElementById("sso-doctor-name");
+    const idEl = document.getElementById("sso-doctor-id");
+    const gpEl = document.getElementById("sso-doctor-gp");
+    const univEl = document.getElementById("sso-doctor-univ");
+    const avatarEl = document.getElementById("sso-avatar");
+
+    if (nameEl) nameEl.textContent = "معرف قيد التسجيل (" + escapeHtml(cleanId) + ")";
+    if (idEl) idEl.textContent = escapeHtml(cleanId);
+    if (gpEl) gpEl.textContent = "قيد التدقيق الأكاديمي";
+    if (univEl) univEl.textContent = "لم يكتمل التوثيق النهائي عبر SudaPass";
+    if (avatarEl) avatarEl.textContent = "GA";
 
     if (unauthView) unauthView.style.display = "none";
     authView.style.display = "flex";

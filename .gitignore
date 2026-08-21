@@ -1,0 +1,6 @@
+# Archive and Local Deployments
+archive_backups/
+deploy_hostinger.zip
+portal.zip
+.vscode/
+*.log

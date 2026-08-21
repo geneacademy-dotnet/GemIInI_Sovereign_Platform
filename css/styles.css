@@ -165,3 +165,26 @@ label { display: block; font-size: 13.5px; color: var(--text-muted); margin-bott
 .footer ul { list-style: none; }
 .footer li { margin-bottom: 10px; font-size: 14px; color: var(--text-muted); }
 .footer li a:hover { color: #FFF; }
+
+/* =========================================================================
+   COMPATIBILITY & EXTENDED UTILITY CLASSES
+   ========================================================================= */
+:root {
+  --purple-dark: #1E1B4B;
+  --purple-brand: #4C1D95;
+  --purple-light: #EDE9FE;
+  --gold-light: #FEF3C7;
+  --teal: #0F766E;
+  --teal-light: rgba(15, 118, 110, 0.15);
+  --line: rgba(255, 255, 255, 0.1);
+  --red: #EF4444;
+  --red-light: rgba(239, 68, 68, 0.15);
+}
+
+.hero-section { padding-bottom: 30px; }
+.hero-title { font-weight: 900; line-height: 1.3; margin-bottom: 20px; }
+.hero-description { color: var(--text-muted); line-height: 1.7; font-size: 17px; }
+.badge-live {
+  display: inline-block; background: var(--gold-light); color: var(--gold);
+  padding: 6px 16px; border-radius: 20px; font-weight: 700; font-size: 13px;
+}

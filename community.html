@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مجتمعي وملفي السيادي | GemIInI Sovereign Community</title>
+  <meta name="description" content="الملف السيادي ومجتمع الأطباء والباحثين المعتمد بأكاديمية جيميناي ونظام الساعات الأوروبية ECTS.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    :root {
+      --bg-dark: #04080F;
+      --bg-card: rgba(11, 19, 38, 0.85);
+      --border-card: rgba(0, 242, 254, 0.2);
+      --cyan: #00F2FE;
+      --cyan-glow: rgba(0, 242, 254, 0.35);
+      --gold: #D8AE6B;
+      --gold-light: #FDE68A;
+      --gold-glow: rgba(216, 174, 107, 0.3);
+      --emerald: #10B981;
+      --text-main: #FFFFFF;
+      --text-muted: #94A3B8;
+      --font-main: 'Tajawal', 'Outfit', sans-serif;
+      --font-mono: 'IBM Plex Mono', monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg-dark);
+      background-image: 
+        radial-gradient(circle at 10% 0%, rgba(0, 242, 254, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 90% 100%, rgba(216, 174, 107, 0.08) 0%, transparent 50%);
+      color: var(--text-main);
+      font-family: var(--font-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .navbar {
+      background: rgba(4, 8, 15, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 14px 0;
+    }
+    .nav-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #FFF;
+    }
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--gold), #9A7B38);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 20px;
+      color: #000;
+    }
+    .brand-text h1 { font-size: 18px; font-weight: 800; line-height: 1.1; }
+    .brand-text span { font-size: 11px; color: var(--gold); letter-spacing: 0.5px; }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--cyan);
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      width: 100%;
+    }
+
+    .glass-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 16px;
+      backdrop-filter: blur(16px);
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .glass-card:hover {
+      border-color: var(--cyan);
+      box-shadow: 0 8px 30px rgba(0, 242, 254, 0.15);
+    }
+
+    .profile-banner {
+      padding: 36px;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 35px;
+      border: 1px solid rgba(216, 174, 107, 0.3);
+      background: linear-gradient(135deg, rgba(11, 19, 38, 0.95), rgba(20, 32, 60, 0.85));
+    }
+    .profile-banner::after {
+      content: '';
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle, var(--gold-glow) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .stat-box {
+      background: rgba(4, 8, 15, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+    }
+    .stat-val {
+      font-size: 22px;
+      font-weight: 800;
+      font-family: var(--font-mono);
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+    .stat-label {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* 3-Cards Per Row Layout Rule */
+    .module-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+    @media (min-width: 992px) {
+      .module-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .action-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--cyan);
+      font-weight: 700;
+      font-size: 13px;
+      text-decoration: none;
+      margin-top: 14px;
+      transition: gap 0.2s;
+    }
+    .action-btn:hover {
+      gap: 12px;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--cyan), #00A3FF);
+      color: #04080F;
+      font-weight: 800;
+      padding: 12px 28px;
+      border-radius: 10px;
+      text-decoration: none;
+      display: inline-block;
+      border: none;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.9; }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #FFF;
+      padding: 10px 22px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+    .btn-secondary:hover { background: rgba(255, 255, 255, 0.1); }
+
+    .badge-tag {
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-weight: 700;
+      display: inline-block;
+      margin-bottom: 8px;
+    }
+    .badge-verified { background: rgba(16, 185, 129, 0.15); color: var(--emerald); border: 1px solid rgba(16, 185, 129, 0.3); }
+    .badge-ects { background: rgba(0, 242, 254, 0.15); color: var(--cyan); border: 1px solid rgba(0, 242, 254, 0.3); }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-content">
+      <a href="index.html" class="brand-logo">
+        <div class="logo-icon">G</div>
+        <div class="brand-text">
+          <h1>GEMIINI SOVEREIGN</h1>
+          <span>ACCREDITED MEDICAL ACADEMY</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">الرئيسية</a></li>
+        <li><a href="courses.html">المصفوفة الطبية 77+</a></li>
+        <li><a href="smc.html">بنك SMC</a></li>
+        <li><a href="registry.html">السجل السيادي</a></li>
+        <li><a href="community.html" class="active">مجتمعي السيادي</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <!-- NOT SIGNED IN GATE (ADVERTISING / PROMPT STATE) -->
+    <div id="not-signed-in" style="display:none; text-align:center; padding: 70px 20px;" class="glass-card">
+      <div style="font-size: 48px; margin-bottom: 16px;">🏛️</div>
+      <h2 style="color: #FFF; font-size: 28px; margin-bottom: 12px; font-weight: 800;">بوابة الأعضاء والزملاء المعتمدين</h2>
+      <p style="color: var(--text-muted); max-width: 520px; margin: 0 auto 28px; line-height: 1.6;">
+        هذه المساحة مخصصة للأطباء والباحثين المسجلين في السجل السيادي (GA-ID). سجّل دخولك للوصول إلى محفظة نقاط GP، ساعات ECTS، وحقيبة التدريب السريرية.
+      </p>
+      <div style="display:flex; justify-content:center; gap:16px; flex-wrap:wrap;">
+        <a href="auth.html" class="btn-primary">تسجيل الدخول بالـ GA-ID ←</a>
+        <a href="join.html" class="btn-secondary">طلب الانضمام للأكاديمية</a>
+      </div>
+    </div>
+
+    <!-- SIGNED IN STATE (MEMBER COMMAND CENTER) -->
+    <div id="signed-in" style="display:none;">
+
+      <!-- PROFILE & LEDGER BANNER -->
+      <div class="glass-card profile-banner">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:20px;">
+          <div>
+            <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
+              <span class="badge-tag badge-verified">✓ عضو موثق بالسجل السيادي</span>
+              <span class="badge-tag badge-ects">ECTS / US SCH Aligned</span>
+            </div>
+            <h2 id="profile-name" style="color: #FFF; font-size: 28px; font-weight: 900; margin-bottom: 6px;">—</h2>
+            <div style="font-size: 14px; color: var(--text-muted); font-family: var(--font-mono);">
+              <span id="profile-id" style="color: var(--cyan); font-weight:700;"></span> · <span id="profile-univ"></span>
+            </div>
+          </div>
+
+          <!-- Direct Drive Workspace Trigger -->
+          <div>
+            <a id="profile-drive-link" href="#" target="_blank" class="btn-secondary" style="display:inline-flex; align-items:center; gap:8px; border-color: rgba(0, 242, 254, 0.4); color: var(--cyan);">
+              <span>📂</span> فتح مساحة عمل Google Drive
+            </a>
+          </div>
+        </div>
+
+        <!-- LIVE LEDGER STATS -->
+        <div class="stats-grid">
+          <div class="stat-box">
+            <div class="stat-val" id="profile-gp">0</div>
+            <div class="stat-label">رصيد المعرفة (GP)</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-val" id="profile-ects">4.5</div>
+            <div class="stat-label">ساعات ECTS المعتمدة</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-val" id="profile-smc-hrs">40 Hr</div>
+            <div class="stat-label">ساعات التطوير المهني CPD</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-val" style="color: var(--emerald);" id="profile-status">ACTIVE</div>
+            <div class="stat-label">الحالة في السجل</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MEMBER MODULES (NO SALES PITCH - DIRECT ACTION) -->
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 20px;">
+        <h3 style="color: #FFF; font-size: 22px; font-weight: 800;">مساراتك التدريبية والسريرية المعتمدة</h3>
+        <a href="courses.html" style="color: var(--text-muted); font-size: 13px; text-decoration:none;">تصفح الـ 77+ موديول ←</a>
+      </div>
+
+      <div class="module-grid">
+        
+        <!-- Track 1: SMC -->
+        <div class="glass-card" style="padding: 24px;">
+          <div style="font-size: 32px; margin-bottom: 12px;">🩺</div>
+          <h4 style="color: #FFF; font-size: 18px; margin-bottom: 8px;">التسجيل الدائم بالمجلس الطبي (SMC)</h4>
+          <div style="background: rgba(255,255,255,0.08); border-radius:6px; height:6px; margin: 12px 0 6px;">
+            <div style="background: linear-gradient(90deg, var(--cyan), #00A3FF); height:6px; border-radius:6px; width: 65%;"></div>
+          </div>
+          <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 14px;">65% مكتمل • 40 ساعة CPD معتمدة</p>
+          <a href="smc.html" class="action-btn">متابعة بنك الأسئلة والمحاكاة ←</a>
+        </div>
+
+        <!-- Track 2: BSS -->
+        <div class="glass-card" style="padding: 24px;">
+          <div style="font-size: 32px; margin-bottom: 12px;">🔪</div>
+          <h4 style="color: #FFF; font-size: 18px; margin-bottom: 8px;">Basic Surgical Skills (BSS-2 Cohort)</h4>
+          <div style="background: rgba(255,255,255,0.08); border-radius:6px; height:6px; margin: 12px 0 6px;">
+            <div style="background: linear-gradient(90deg, var(--gold), #FDE68A); height:6px; border-radius:6px; width: 80%;"></div>
+          </div>
+          <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 14px;">80% مكتمل • تم تسليم اللوج بوك السريري</p>
+          <a href="courses.html#bss" class="action-btn" style="color: var(--gold);">فتح حقيبة التدريب الجراحي ←</a>
+        </div>
+
+        <!-- Track 3: Molecular -->
+        <div class="glass-card" style="padding: 24px;">
+          <div style="font-size: 32px; margin-bottom: 12px;">🧬</div>
+          <h4 style="color: #FFF; font-size: 18px; margin-bottom: 8px;">دبلومات الطب الجزيئي (MM 1.0 - 8.0)</h4>
+          <div style="background: rgba(255,255,255,0.08); border-radius:6px; height:6px; margin: 12px 0 6px;">
+            <div style="background: linear-gradient(90deg, #A78BFA, #C084FC); height:6px; border-radius:6px; width: 25%;"></div>
+          </div>
+          <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 14px;">25% مكتمل • مسار الجينوم وعلم الوراثة</p>
+          <a href="molecular.html" class="action-btn" style="color: #C084FC;">متابعة الموديول الجزيئي ←</a>
+        </div>
+
+      </div>
+
+      <!-- 15:5:1 CLINICAL MENTORSHIP & SOVEREIGN REGISTRY -->
+      <h3 style="color: #FFF; font-size: 22px; font-weight: 800; margin-bottom: 20px;">المجتمع السيادي والتوجيه الأكاديمي (15:5:1)</h3>
+      <div class="module-grid" style="margin-bottom: 40px;">
+        
+        <a href="registry.html" class="glass-card" style="padding: 24px; text-decoration:none; color:inherit; display:block;">
+          <div style="font-size: 30px; margin-bottom: 10px;">📖</div>
+          <h4 style="color: #FFF; font-size: 17px; margin-bottom: 6px;">السجل السيادي الموثق</h4>
+          <p style="font-size: 13px; color: var(--text-muted); line-height:1.5;">استعراض والتحقق من اعتماد الأطباء والباحثين المسجلين مركزياً.</p>
+          <div class="action-btn">فتح السجل السيادي ←</div>
+        </a>
+
+        <a href="reviews.html" class="glass-card" style="padding: 24px; text-decoration:none; color:inherit; display:block;">
+          <div style="font-size: 30px; margin-bottom: 10px;">🛡️</div>
+          <h4 style="color: #FFF; font-size: 17px; margin-bottom: 6px;">التدقيق السريري وسجل التقييمات</h4>
+          <p style="font-size: 13px; color: var(--text-muted); line-height:1.5;">تقارير الاعتماد والأثر الأكاديمي والمهني لبرامج الأكاديمية.</p>
+          <div class="action-btn">استعراض سجل التدقيق ←</div>
+        </a>
+
+        <a href="alumni.html" class="glass-card" style="padding: 24px; text-decoration:none; color:inherit; display:block;">
+          <div style="font-size: 30px; margin-bottom: 10px;">📜</div>
+          <h4 style="color: #FFF; font-size: 17px; margin-bottom: 6px;">الشهادات والتحقق الرقمي (QR)</h4>
+          <p style="font-size: 13px; color: var(--text-muted); line-height:1.5;">إصدار الشهادات الرسمية المعتمدة بالساعات الأوروبية ECTS.</p>
+          <div class="action-btn">تحميل الشهادة الرقمية ←</div>
+        </a>
+
+      </div>
+
+      <!-- LOGOUT FOOTER -->
+      <div style="text-align:center; padding: 20px 0 60px;">
+        <button class="btn-secondary" onclick="logoutSovereignSession()">تسجيل الخروج من الجلسة السيادية</button>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="js/ga_data.js"></script>
+  <script src="api.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", async function() {
+      let session = null;
+      if (typeof getSovereignSession === 'function') {
+        session = getSovereignSession();
+      }
+      const savedId = localStorage.getItem("gemiini_sovereign_ga_id");
+
+      if (!session && !savedId) {
+        document.getElementById("not-signed-in").style.display = "block";
+        return;
+      }
+
+      const activeId = session ? session.id : savedId;
+
+      try {
+        if (typeof GAS_URL !== 'undefined') {
+          const res = await fetch(`${GAS_URL}?action=lookup&id=${encodeURIComponent(activeId)}`);
+          const data = await res.json();
+          if (data.found && data.member) {
+            session = {
+              id: data.member.id,
+              name: data.member.name,
+              univ: data.member.univ || data.member.university,
+              gp: data.member.gp || 500,
+              drive: data.member.drive || `https://drive.google.com/drive/search?q=${data.member.id}`,
+              verified: true
+            };
+          }
+        }
+      } catch (err) {
+        console.warn("Using cached sovereign session...", err);
+      }
+
+      if (session) {
+        document.getElementById("profile-name").textContent = session.name || "عضو معتمد";
+        document.getElementById("profile-id").textContent = session.id;
+        document.getElementById("profile-univ").textContent = session.univ || "جامعة معتمدة";
+        document.getElementById("profile-gp").textContent = (session.gp || 500).toLocaleString() + " GP";
+        
+        const driveBtn = document.getElementById("profile-drive-link");
+        if (driveBtn && session.drive) {
+          driveBtn.href = session.drive;
+        }
+
+        document.getElementById("signed-in").style.display = "block";
+      } else {
+        document.getElementById("not-signed-in").style.display = "block";
+      }
+    });
+
+    function logoutSovereignSession() {
+      if (typeof logoutSovereignUser === 'function') {
+        logoutSovereignUser();
+      } else {
+        localStorage.removeItem("ga_user");
+        localStorage.removeItem("gemiini_sovereign_session");
+        localStorage.removeItem("gemiini_sovereign_ga_id");
+        window.location.href = "index.html";
+      }
+    }
+  </script>
+</body>
+</html>

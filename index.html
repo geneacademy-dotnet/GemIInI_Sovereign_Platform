@@ -3,10 +3,103 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GemIInI Academy | بوابة التقييم الطبي وبنوك الأسئلة المعتمدة</title>
-  <meta name="description" content="المنظومة السيادية للتعليم الطبي وتقييم الكفاءة السريرية في السودان وإفريقيا. بنوك أسئلة المجلس الطبي SMC، دبلومات الطب الجزيئي، وتجهيز المعامل B2B.">
+  <title>GemIInI Academy | المنظومة الطبية والتعليمية السيادية المعتمدة (ECTS / MTC™)</title>
+  <meta name="description" content="المنظومة السيادية للتعليم الطبي والأبحاث الجينومية. مصفوفة الـ 77+ موديول معتمدة بنظام الساعات الأوروبية ECTS والنموذج المعرفي MTC™، بنوك المجلس الطبي SMC، والتدريب السريري التراكمي.">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .stats-ticker {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      background: rgba(0, 242, 254, 0.05);
+      border: 1px solid rgba(0, 242, 254, 0.2);
+      border-radius: 100px;
+      padding: 10px 24px;
+      margin: 0 auto 30px;
+      max-width: 980px;
+      font-size: 13.5px;
+    }
+    .stats-ticker .stat-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text-muted);
+    }
+    .stats-ticker .stat-val {
+      font-family: var(--font-mono);
+      font-weight: 800;
+      color: var(--cyan);
+    }
+    .stats-ticker .stat-gold {
+      font-family: var(--font-mono);
+      font-weight: 800;
+      color: var(--gold-main);
+    }
+    .framework-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, rgba(76, 29, 149, 0.3), rgba(0, 242, 254, 0.15));
+      border: 1px solid rgba(0, 242, 254, 0.35);
+      padding: 6px 18px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--cyan);
+      margin-bottom: 20px;
+    }
+    .spiral-pipeline-preview {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin: 40px 0 60px;
+      text-align: right;
+    }
+    @media (max-width: 900px) {
+      .spiral-pipeline-preview {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    @media (max-width: 580px) {
+      .spiral-pipeline-preview {
+        grid-template-columns: 1fr;
+      }
+    }
+    .pipeline-step {
+      background: rgba(7, 19, 36, 0.85);
+      border: 1px solid rgba(0, 242, 254, 0.15);
+      border-radius: var(--radius-sm);
+      padding: 20px;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    .pipeline-step:hover {
+      border-color: var(--cyan);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(0, 242, 254, 0.15);
+    }
+    .pipeline-lvl {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--gold-main);
+      margin-bottom: 6px;
+    }
+    .pipeline-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: #FFF;
+      margin-bottom: 6px;
+    }
+    .pipeline-desc {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+  </style>
 </head>
 <body>
 
@@ -19,16 +112,20 @@
     <div class="container nav-content">
       <a href="index.html" class="brand-logo">
         <div class="logo-icon">G</div>
-        <span>أكاديمية جيميناي</span>
+        <div class="brand-text">
+          <h1>GEMIINI SOVEREIGN</h1>
+          <span>ACADEMY & HEALTHCARE</span>
+        </div>
       </a>
       <ul class="nav-links">
         <li><a href="index.html" class="active">الرئيسية</a></li>
-        <li><a href="smc.html">بنك أسئلة SMC</a></li>
+        <li><a href="courses.html">مصفوفة الـ 77+ موديول 📚</a></li>
+        <li><a href="smc.html">بنوك أسئلة SMC</a></li>
         <li><a href="reviews.html">سجل التدقيق ⭐</a></li>
-        <li><a href="courses.html">الاستشارات والجينوم</a></li>
         <li><a href="glomet.html">تجهيز المعامل B2B</a></li>
-        <li><a href="registry.html">سجل الأعضاء</a></li>
-        <li><a href="portal.html" style="color: var(--cyan); font-weight: 700;">قمرة الأعضاء ⚡</a></li>
+        <li><a href="registry.html">سجل الأعضاء (GA#)</a></li>
+        <li><a href="community.html" style="color: var(--cyan); font-weight: 700;">مجتمعي السيادي 💎</a></li>
+        <li><a href="portal.html">قمرة الأعضاء ⚡</a></li>
         <li><a href="auth.html" style="font-weight: 700;">دخول 🔐</a></li>
         <li><a href="join.html" class="btn-primary" style="padding: 8px 18px; font-size: 14px;">سجل مجاناً ←</a></li>
       </ul>
@@ -36,38 +133,85 @@
   </nav>
 
   <!-- Hero Section -->
-  <div class="container" style="padding-top: 80px; text-align: center;">
+  <div class="container" style="padding-top: 60px; text-align: center;">
     
-    <div class="cert-tag gold" style="margin-bottom: 24px;">
-      ✅ المنظومة الطبية والبحثية المعتمدة • عضوية الجمعية الأمريكية للأحياء الدقيقة ASM: 200334812
+    <!-- Verified Live Proof Statistics Bar -->
+    <div class="stats-ticker">
+      <div class="stat-item">
+        <span>👨‍⚕️ الأطباء والباحثون المعتمدون:</span>
+        <span class="stat-val">2,649+</span>
+      </div>
+      <div class="stat-item">•</div>
+      <div class="stat-item">
+        <span>📚 الموديولات الأكاديمية:</span>
+        <span class="stat-val">77+ موديول</span>
+      </div>
+      <div class="stat-item">•</div>
+      <div class="stat-item">
+        <span>🇪🇺 الاعتماد التراكمي:</span>
+        <span class="stat-gold">ECTS / US SCH Aligned</span>
+      </div>
+      <div class="stat-item">•</div>
+      <div class="stat-item">
+        <span>🏥 شبكة التوريد B2B:</span>
+        <span class="stat-gold">40 مستشفى بالولايات</span>
+      </div>
     </div>
 
-    <h1 style="font-size: clamp(34px, 5.5vw, 56px); font-weight: 900; margin-bottom: 20px; line-height: 1.25;">
-      الطب يبدأ بالعلم..<br>
-      <span style="color: var(--cyan); text-shadow: 0 0 30px rgba(0, 242, 254, 0.4);">والعلم يبدأ بنا.</span>
+    <div class="framework-badge">
+      🧬 النموذج المعرفي MTC™ (Mechanism-to-Clinic) • منهج تصاعدي Spiral Curriculum
+    </div>
+
+    <h1 style="font-size: clamp(32px, 5vw, 54px); font-weight: 900; margin-bottom: 20px; line-height: 1.25;">
+      التعليم الطبي المبني على الآلية الجزيئية..<br>
+      <span style="color: var(--cyan); text-shadow: 0 0 30px rgba(0, 242, 254, 0.4);">معتمد دولياً بنظام الساعات الأوروبية ECTS.</span>
     </h1>
     
-    <p style="font-size: 18.5px; color: var(--text-muted); max-width: 680px; margin: 0 auto 40px; line-height: 1.8;">
-      بوابتك الأولى للتدريب على امتحانات المجلس الطبي (SMC) والزمالات الدولية. انضم للآلاف من الأطباء، اختبر معلوماتك السريرية، واجمع نقاط الاعتماد المعرفي (GP).
+    <p style="font-size: 18px; color: var(--text-muted); max-width: 820px; margin: 0 auto 35px; line-height: 1.8;">
+      منهجية متكاملة لربط الأساس الجزيئي بالممارسة السريرية (Genes to Society). تدريب متقدم لامتحانات المجلس الطبي السوداني (SMC)، الزمالة البريطانية MRCS، والولايات المتحدة USMLE، مع نظام احتساب ساعات التطوير المهني المستمر (CPD) المعتمدة.
     </p>
 
-    <!-- Massive Call to Action -->
-    <div style="margin-bottom: 60px; display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
-      <a href="join.html" class="btn-primary" style="font-size: 19px; padding: 16px 42px;">افتح بنك الأسئلة الآن ➔</a>
-      <a href="smc.html" class="btn-secondary" style="font-size: 19px; padding: 16px 36px;">استعراض الموديولات السريرية</a>
+    <!-- Call to Actions -->
+    <div style="margin-bottom: 45px; display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
+      <a href="courses.html" class="btn-primary" style="font-size: 18px; padding: 15px 36px;">استعراض مصفوفة الـ 77+ موديول ➔</a>
+      <a href="smc.html" class="btn-secondary" style="font-size: 18px; padding: 15px 32px;">بوابة امتحانات SMC والمحاكاة</a>
+    </div>
+
+    <!-- The 4-Tier Spiral Pipeline Visual Preview -->
+    <div class="spiral-pipeline-preview">
+      <div class="pipeline-step">
+        <div class="pipeline-lvl">LEVEL 1 • FOUNDATION</div>
+        <div class="pipeline-title">الأساس العلمي (Pre-Med)</div>
+        <div class="pipeline-desc">البيولوجيا الجزيئية، الوراثة، والكيمياء الحيوية لترسيخ المبادئ الأولى قبل دراسة الطب.</div>
+      </div>
+      <div class="pipeline-step">
+        <div class="pipeline-lvl">LEVEL 2 • INTEGRATED</div>
+        <div class="pipeline-title">العلوم الطبية المدمجة (MBBS Y1-2)</div>
+        <div class="pipeline-desc">فسيولوجيا الأعضاء (40 ساعة)، التشريح السريري، وعلم الأنسجة لفهم وظائف الجسم الطبيعية.</div>
+      </div>
+      <div class="pipeline-step">
+        <div class="pipeline-lvl">LEVEL 3 • CLINICAL MASTERY</div>
+        <div class="pipeline-title">العلوم السريرية (MBBS Y3-5)</div>
+        <div class="pipeline-desc">علم الأمراض، الباطنية، الجراحة، والأطفال مع مسار "من الجين إلى المرض" للتشخيص الدقيق.</div>
+      </div>
+      <div class="pipeline-step" style="border-color: rgba(216, 174, 107, 0.4);">
+        <div class="pipeline-lvl" style="color: var(--gold-main);">SKILLS & LICENSURE</div>
+        <div class="pipeline-title">المهارات والترخيص المهني</div>
+        <div class="pipeline-desc">دفعات BSS للجراحة، الإنعاش BLS (105 ساعات)، وبنوك المجلس الطبي الدائم SMC.</div>
+      </div>
     </div>
 
     <!-- The 3D-Tilt ID Checker Card -->
     <div class="holographic-card 3d-tilt" style="max-width: 540px; margin: 0 auto 70px; text-align: center;">
       <div style="font-size: 32px; margin-bottom: 8px;">💳</div>
-      <h3 style="color: white; margin-bottom: 8px; font-size: 22px;">تحقق من حسابك ورصيدك المعرفي (GP)</h3>
+      <h3 style="color: white; margin-bottom: 8px; font-size: 22px;">تحقق من هويتك السيادية ورصيدك المعرفي (GP)</h3>
       <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 20px;">
         أدخل رقم هويتك المهنية (GA#) للاطلاع على السجل وسيرتك الذاتية المعتمدة.
       </p>
       
       <!-- Unauthenticated View -->
       <div id="sso-unauth-view">
-        <input type="text" id="sso-quick-id" placeholder="مثال: GA001 أو GA3466" style="text-align: center; margin-bottom: 15px; font-family: var(--font-mono); font-weight: bold; letter-spacing: 2px;" onkeydown="if(event.key==='Enter') executeSovereignSync()">
+        <input type="text" id="sso-quick-id" placeholder="مثال: GA001 أو GA3466 أو GA5406" style="text-align: center; margin-bottom: 15px; font-family: var(--font-mono); font-weight: bold; letter-spacing: 2px;" onkeydown="if(event.key==='Enter') executeSovereignSync()">
         <button class="btn-secondary" style="width: 100%; padding: 12px;" onclick="executeSovereignSync()">دخول وتحقق 🔍</button>
       </div>
 
@@ -79,9 +223,10 @@
           0 GP
         </div>
         <div style="font-size: 13px; color: var(--text-muted);" id="sso-doctor-univ">جامعة الخرطوم</div>
-        <div style="display: flex; gap: 10px; width: 100%; margin-top: 10px;">
-          <a href="smc.html" class="btn-primary" style="flex: 1; text-align: center;">ابدأ بنك الأسئلة</a>
-          <button class="btn-secondary" style="flex: 1;" onclick="logoutSovereignSession()">تسجيل خروج</button>
+        <div style="display: flex; gap: 10px; width: 100%; margin-top: 10px; flex-wrap: wrap;">
+          <a href="community.html" class="btn-primary" style="flex: 1; min-width: 140px; text-align: center;">مجتمعي وموديولاتي 💎</a>
+          <a href="smc.html" class="btn-secondary" style="flex: 1; min-width: 120px; text-align: center;">بنك SMC 🩺</a>
+          <button class="btn-secondary" style="flex: 1; min-width: 100px;" onclick="logoutSovereignSession()">تسجيل خروج</button>
         </div>
       </div>
     </div>
@@ -92,27 +237,27 @@
         <div style="font-size: 30px; margin-bottom: 12px;">🩺</div>
         <h3 style="color: #FFF;">أكاديمية GemIInI السريرية</h3>
         <p style="font-size: 14px; margin: 10px 0 20px; color: var(--text-muted);">
-          للأطباء ونواب الاختصاص: تحضير شامل لامتحانات التسجيل الدائم بالمجلس الطبي (SMC) والزمالة البريطانية MRCS.
+          للأطباء ونواب الاختصاص: تحضير شامل لامتحانات التسجيل الدائم بالمجلس الطبي (SMC)، الزمالة البريطانية MRCS، ودورات الجراحة الأساسية BSS.
         </p>
-        <a href="smc.html" class="btn-secondary" style="width: 100%; font-size: 14px; padding: 10px;">دخول بوابة الامتحانات ←</a>
+        <a href="smc.html" class="btn-secondary" style="width: 100%; font-size: 14px; padding: 10px;">دخول بوابة الامتحانات السريرية ←</a>
       </div>
 
       <div class="glass-card" style="border-top: 4px solid var(--purple-brand);">
         <div style="font-size: 30px; margin-bottom: 12px;">🧬</div>
-        <h3 style="color: #FFF;">أكاديمية الجينات والطب الجزيئي</h3>
+        <h3 style="color: #FFF;">أكاديمية GeneAcademy للبحوث والجينوم</h3>
         <p style="font-size: 14px; margin: 10px 0 20px; color: var(--text-muted);">
-          للباحثين والمرضى: دبلومات الطب الجزيئي (MM 1.0 - 8.0)، فحص ما قبل الزواج، وتفسير تقارير WES.
+          للباحثين والأطباء: مصفوفة الـ 77+ موديول ECTS، دبلومات الطب الجزيئي (MM 1.0 - 8.0)، ومجموعات التوجيه البحثي 15:5:1.
         </p>
-        <a href="courses.html" class="btn-secondary" style="width: 100%; font-size: 14px; padding: 10px;">الاستشارات والبحوث ←</a>
+        <a href="courses.html" class="btn-secondary" style="width: 100%; font-size: 14px; padding: 10px;">استعراض المنهج والدبلومات ←</a>
       </div>
 
       <div class="glass-card" style="border-top: 4px solid var(--gold);">
         <div style="font-size: 30px; margin-bottom: 12px;">🏛️</div>
-        <h3 style="color: #FFF;">تجهيزات GLOMEt للمستشفيات</h3>
+        <h3 style="color: #FFF;">تجهيزات GLOMEt للمستشفيات والمعامل</h3>
         <p style="font-size: 14px; margin: 10px 0 20px; color: var(--text-muted);">
-          لمدراء المستشفيات: تجهيز المختبرات من الصفر (Turnkey Labs)، كواشف CBC، وأنظمة الطاقة البديلة في 10 ولايات.
+          لإدارات المستشفيات والمراكز: تجهيز المختبرات الكامل (Turnkey Labs)، كواشف CBC، وتحاليل POCT الميدانية لـ 40 جهة معتمدة.
         </p>
-        <a href="glomet.html" class="btn-gold" style="width: 100%; font-size: 14px; padding: 10px; text-align: center;">طلب دراسة وتجهيز معمل ←</a>
+        <a href="glomet.html" class="btn-gold" style="width: 100%; font-size: 14px; padding: 10px; text-align: center;">طلب تجهيز معمل وشراكة B2B ←</a>
       </div>
     </div>
 
@@ -129,30 +274,32 @@
           </div>
         </div>
         <p style="font-size: 13px; color: var(--text-muted); line-height: 1.7;">
-          منظومة التقييم والتدريب الطبي والأبحاث الجينومية. مسار موحد للأطباء والباحثين في السودان والمنطقة.
+          المنظومة الطبية والتعليمية السيادية المعتمدة بنظام الساعات الأوروبية ECTS والنموذج المعرفي MTC™. مسار أكاديمي وسريري موحد في السودان والمنطقة.
         </p>
       </div>
 
       <div>
-        <h4>الأكاديمية (B2C)</h4>
+        <h4>الأكاديمية والسريريات (B2C)</h4>
         <ul>
+          <li><a href="courses.html">مصفوفة الـ 77+ موديول</a></li>
           <li><a href="smc.html">بنوك أسئلة SMC و MRCS</a></li>
-          <li><a href="courses.html">الاستشارات الوراثية WES</a></li>
+          <li><a href="edusphere.html">مسار الأساس العلمي (Pre-Med)</a></li>
           <li><a href="jaib.html">تطبيق GemIInI Jaib</a></li>
         </ul>
       </div>
 
       <div>
-        <h4>المؤسسات (B2B)</h4>
+        <h4>المؤسسات والبحث (B2B)</h4>
         <ul>
           <li><a href="glomet.html">تجهيز المختبرات (Turnkey)</a></li>
-          <li><a href="registry.html">السجل المركزي (1,200+ عضو)</a></li>
-          <li><a href="portal.html">بوابة أصحاب العمل</a></li>
+          <li><a href="registry.html">السجل المركزي (2,649+ عضو)</a></li>
+          <li><a href="reviews.html">سجل التدقيق والمحاكاة السريرية</a></li>
+          <li><a href="portal.html">بوابة أصحاب العمل والاعتماد</a></li>
         </ul>
       </div>
 
       <div>
-        <h4>التواصل المباشر</h4>
+        <h4>التواصل والاعتماد</h4>
         <ul>
           <li><a href="join.html">الانضمام والحصول على GA#</a></li>
           <li style="margin-top: 14px; color: var(--gold-main); font-family: var(--font-mono); font-weight: 800;">
