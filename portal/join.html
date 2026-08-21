@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>انضم للأكاديمية | GemIInI</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .top-conglomerate-banner {
+      background: #04080F;
+      color: #94A3B8;
+      font-size: 13px;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(0, 242, 254, 0.15);
+    }
+    .top-banner-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .top-banner-links a {
+      color: #2DE0C2;
+      margin-right: 14px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .top-banner-links a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Conglomerate Gateway Ribbon -->
+  <div class="top-conglomerate-banner">
+    <div class="container top-banner-inner">
+      <div>
+        <span>🏛️ شبكة سوداجين الطبية المركزية:</span>
+        <strong style="color: #FFFFFF; margin-right: 6px;">استمارة تسجيل العضوية المعتمدة</strong>
+      </div>
+      <div class="top-banner-links">
+        <a href="../index.html">← البوابة الرئيسية</a>
+        <a href="../courses.html">🧬 الاستشارات والجينوم</a>
+        <a href="../glomet.html">🏥 تجهيز المختبرات B2B</a>
+      </div>
+    </div>
+  </div>
+
+  <nav class="navbar">
+    <div class="container nav-content">
+      <a href="index.html" class="brand-logo">
+        <div class="logo-icon">G</div>
+        <div class="brand-text">
+          <h1 style="font-size: 20px; color: var(--purple-dark);">أكاديمية جيميناي</h1>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">الرئيسية</a></li>
+        <li><a href="smc.html">بنك الأسئلة</a></li>
+        <li><a href="registry.html">سجل الأعضاء</a></li>
+        <li><a href="join.html" class="active" style="color:var(--purple-brand); font-weight: bold;">سجل الآن</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container" style="padding-top: 40px; max-width: 600px; margin-bottom: 60px;">
+    <div class="glass-card" style="padding: 36px;">
+      <h2 style="color: var(--purple-dark); text-align: center; margin-bottom: 8px;">بوابة التسجيل للوصول لبنك الأسئلة</h2>
+      <p style="text-align: center; color: gray; margin-bottom: 26px; font-size: 14px;">
+        سجل بياناتك الآن للحصول على رقم العضوية (GA#) والبدء في تجميع النقاط (GP) فورياً.
+      </p>
+
+      <form id="join-form" onsubmit="submitRegistration(event)">
+        <div style="margin-bottom: 15px;">
+          <label style="font-weight: bold; font-size: 14px; margin-bottom: 5px; display: block; color: var(--text-main);">الاسم الكامل (ثلاثي أو رباعي)</label>
+          <input type="text" id="reg-name" required placeholder="مثال: د. محمد أحمد علي" style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; font-family: inherit;">
+        </div>
+
+        <div style="margin-bottom: 15px;">
+          <label style="font-weight: bold; font-size: 14px; margin-bottom: 5px; display: block; color: var(--text-main);">الجامعة أو المنشأة الطبية</label>
+          <input type="text" id="reg-univ" required placeholder="مثال: جامعة الخرطوم / مستشفى بحري التعليمي" style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; font-family: inherit;">
+        </div>
+
+        <div style="margin-bottom: 15px;">
+          <label style="font-weight: bold; font-size: 14px; margin-bottom: 5px; display: block; color: var(--text-main);">رقم الواتساب (للتوثيق والتفعيل)</label>
+          <input type="tel" id="reg-phone" required placeholder="مثال: +249 912345678" style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; font-family: inherit;">
+        </div>
+
+        <div style="margin-bottom: 25px;">
+          <label style="font-weight: bold; font-size: 14px; margin-bottom: 5px; display: block; color: var(--text-main);">المسار والبرنامج المستهدف</label>
+          <select id="reg-track" style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; font-family: inherit;">
+            <option value="SMC">امتحان التسجيل الدائم بالمجلس الطبي (SMC)</option>
+            <option value="MRCS">زمالة الكلية الملكية للجراحين (MRCS Part A)</option>
+            <option value="USMLE">المعادلة الأمريكية (USMLE Step 1 / 2CK)</option>
+            <option value="Molecular">دبلومات الطب الجزيئي والجينوم (GeneAcademy)</option>
+            <option value="Glomet">تجهيز المختبرات الطبية والشراكات (GLOMEt)</option>
+          </select>
+        </div>
+
+        <button type="submit" id="submit-btn" class="btn-primary" style="width: 100%; font-size: 16px; padding: 14px;">إرسال طلب التسجيل والحصول على GA# ➔</button>
+      </form>
+    </div>
+  </div>
+
+  <footer style="background: var(--purple-dark); color: white; padding: 20px 0; text-align: center;">
+    <div class="container" style="font-size: 12px; color: #A78BFA;">
+      &copy; 2026 GemIInI Academy • السجل المركزي المعتمد
+    </div>
+  </footer>
+
+  <script src="api.js"></script>
+  <script>
+    async function submitRegistration(event) {
+      event.preventDefault();
+      const btn = document.getElementById('submit-btn');
+      btn.textContent = 'جاري تسجيل بياناتك وربط الحساب...';
+      btn.disabled = true;
+
+      const randNum = Math.floor(1000 + Math.random() * 9000);
+      const newId = "GA" + randNum;
+
+      const payload = {
+        action: "register",
+        id: newId,
+        name: document.getElementById('reg-name').value,
+        univ: document.getElementById('reg-univ').value,
+        phone: document.getElementById('reg-phone').value,
+        track: document.getElementById('reg-track').value,
+        gp_balance: 500
+      };
+
+      try {
+        const response = await fetch(GAS_URL, {
+          method: 'POST',
+          headers: { "Content-Type": "text/plain;charset=utf-8" },
+          body: JSON.stringify(payload)
+        });
+        
+        // Save local session
+        localStorage.setItem("gemiini_sovereign_ga_id", newId);
+        const session = {
+          id: newId,
+          name: payload.name,
+          univ: payload.univ,
+          phone: payload.phone,
+          track: payload.track,
+          gp: 500,
+          authenticated: true
+        };
+        localStorage.setItem("gemiini_sovereign_session", JSON.stringify(session));
+
+        alert("تم استلام طلبك بنجاح ومنحك رصيد ترحيبي +500 GP!\\nرقم هويتك المهنية هو: " + newId);
+        window.location.href = "smc.html";
+      } catch (err) {
+        // Local fallback
+        localStorage.setItem("gemiini_sovereign_ga_id", newId);
+        alert("تم إنشاء حسابك المحلي برقم: " + newId + "\\nتم تحويلك إلى بنك الأسئلة.");
+        window.location.href = "smc.html";
+      }
+    }
+  </script>
+</body>
+</html>

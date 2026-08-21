@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>المناهج الأكاديمية والاستشارات الوراثية | GeneAcademy</title>
+  <meta name="description" content="المناهج الأكاديمية في الطب الجزيئي، استشارات فحص ما قبل الزواج، وتفسير تقارير التسلسل الجيني الكامل (WES) مع نظام السيرة الذاتية المهنية الرقمية.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=IBM+Plex+Mono:wght@500;600;700&family=IBM+Plex+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --purple-deep: #130726;
+      --purple-royal: #2C1154;
+      --purple-primary: #4C1D95;
+      --purple-vibrant: #7C3AED;
+      --purple-light: #FAF5FF;
+      --purple-border: #E9D5FF;
+      --teal-accent: #0D9488;
+      --teal-light: #CCFBF1;
+      --gold-accent: #D97706;
+      --gold-light: #FEF3C7;
+      --bg-page: #FDFBFF;
+      --text-main: #1E1B4B;
+      --text-muted: #6B7280;
+      --border-color: #EDE9FE;
+      --gradient-brand: linear-gradient(135deg, #2C1154 0%, #4C1D95 50%, #7C3AED 100%);
+      font-size: 18px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg-page);
+      color: var(--text-main);
+      font-family: 'Cairo', -apple-system, sans-serif;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.8;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .mono { font-family: 'IBM Plex Mono', monospace; }
+
+    .top-nav {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      position: sticky; top: 0; z-index: 100;
+    }
+    .nav-inner {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 16px 24px; max-width: 1200px; margin: 0 auto;
+    }
+    .brand-wrap { display: flex; align-items: center; gap: 12px; }
+    .brand-badge {
+      background: var(--gradient-brand); color: #FFFFFF; font-weight: 800; font-size: 1rem;
+      padding: 6px 14px; border-radius: 8px; font-family: 'IBM Plex Mono', monospace;
+    }
+    .brand-title { font-size: 1.25rem; font-weight: 800; color: var(--purple-deep); }
+    .brand-title small { display: block; font-size: 0.8rem; color: var(--text-muted); font-weight: 600; }
+
+    .nav-menu { display: flex; align-items: center; gap: 20px; }
+    .nav-link { font-size: 0.98rem; font-weight: 700; color: var(--text-main); transition: color .2s; }
+    .nav-link:hover { color: var(--purple-vibrant); }
+
+    .btn-portal-entry {
+      background: var(--gradient-brand); color: #FFFFFF; font-weight: 700;
+      font-size: 0.92rem; padding: 10px 24px; border-radius: 9999px; transition: all .2s;
+    }
+
+    .hero-banner {
+      background: var(--purple-deep);
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(124, 58, 237, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 90% 80%, rgba(13, 148, 136, 0.2) 0%, transparent 50%);
+      color: #FFFFFF;
+      padding: 80px 0 60px;
+      text-align: center;
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 9999px; padding: 6px 22px; font-size: 0.92rem; font-weight: 700;
+      color: #5EEAD4; margin-bottom: 20px;
+    }
+    .hero-banner h1 {
+      font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 900; margin-bottom: 16px; line-height: 1.3;
+    }
+    .hero-banner p {
+      font-size: 1.2rem; color: #E2E8F0; max-width: 840px; margin: 0 auto 30px; line-height: 1.8;
+    }
+
+    .sso-status-bar {
+      background: #FFFFFF; border: 1.5px solid var(--purple-border); border-radius: 12px;
+      padding: 20px 28px; margin: -30px auto 40px; max-width: 960px; position: relative; z-index: 10;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;
+      box-shadow: 0 10px 30px rgba(76, 29, 149, 0.08);
+    }
+    .sso-info-box h4 { font-size: 1.15rem; font-weight: 800; color: var(--purple-deep); }
+    .sso-info-box p { font-size: 0.92rem; color: var(--text-muted); }
+    .sso-badge-ga {
+      font-family: 'IBM Plex Mono', monospace; font-weight: 700; color: var(--purple-primary);
+      background: var(--purple-light); padding: 3px 10px; border-radius: 6px; font-size: 0.95rem;
+    }
+
+    .section-wrap { padding: 60px 0; }
+    .section-head { text-align: center; margin-bottom: 40px; }
+    .section-head h2 { font-size: 2.3rem; font-weight: 900; color: var(--purple-deep); margin-bottom: 8px; }
+    .section-head p { font-size: 1.1rem; color: var(--text-muted); max-width: 700px; margin: 0 auto; }
+
+    .pillars-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 40px;
+    }
+    @media (max-width: 900px) { .pillars-grid { grid-template-columns: 1fr; } }
+    
+    .pillar-card {
+      background: #FFFFFF; border: 1.5px solid var(--purple-border); border-radius: 14px;
+      padding: 32px 26px; display: flex; flex-direction: column; justify-content: space-between;
+      transition: transform .2s, box-shadow .2s; box-shadow: 0 4px 14px rgba(76, 29, 149, 0.04);
+    }
+    .pillar-card:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(76, 29, 149, 0.1); border-color: var(--purple-vibrant); }
+    .pillar-num {
+      font-family: 'IBM Plex Mono', monospace; font-size: 1.4rem; font-weight: 800; color: var(--purple-vibrant); margin-bottom: 10px;
+    }
+    .pillar-card h3 { font-size: 1.35rem; font-weight: 800; color: var(--purple-deep); margin-bottom: 10px; }
+    .pillar-card p { font-size: 0.96rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 18px; }
+
+    .gated-box {
+      background: #FFFFFF; border: 2px solid var(--purple-border); border-radius: 16px;
+      padding: 40px 36px; box-shadow: 0 14px 40px rgba(76, 29, 149, 0.08); margin-bottom: 60px;
+    }
+    .gated-header {
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;
+      border-bottom: 1.5px solid var(--border-color); padding-bottom: 24px; margin-bottom: 30px;
+    }
+    .gated-header h3 { font-size: 1.65rem; font-weight: 900; color: var(--purple-deep); }
+    .status-lock-pill {
+      background: var(--purple-light); border: 1px solid var(--purple-border);
+      color: var(--purple-primary); padding: 6px 16px; border-radius: 9999px; font-weight: 700; font-size: 0.88rem;
+    }
+
+    .locked-overlay-wrap { position: relative; }
+    .blurred-content { filter: blur(4px); opacity: 0.45; pointer-events: none; user-select: none; }
+    .lock-cta-card {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      background: var(--purple-deep); color: #FFFFFF; border-radius: 14px;
+      padding: 36px 32px; text-align: center; max-width: 520px; width: 90%;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5); z-index: 5;
+    }
+    .lock-cta-card h4 { font-size: 1.45rem; font-weight: 800; margin-bottom: 10px; }
+    .lock-cta-card p { font-size: 0.95rem; color: #CBD5E1; margin-bottom: 22px; line-height: 1.7; }
+    .btn-unlock-now {
+      display: inline-block; background: #0D9488; color: #FFFFFF; font-weight: 800;
+      font-size: 1rem; padding: 13px 32px; border-radius: 9999px; transition: all .2s;
+    }
+
+    .unlocked-tool-pane { display: none; animation: fadeIn 0.3s ease; }
+    .unlocked-tool-pane.active { display: block; }
+    .tool-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    @media (max-width: 768px) { .tool-grid { grid-template-columns: 1fr; } }
+
+    .counseling-card {
+      background: var(--purple-light); border: 1.5px solid var(--purple-border);
+      border-radius: 12px; padding: 26px;
+    }
+    .counseling-card h4 { font-size: 1.25rem; font-weight: 800; color: var(--purple-deep); margin-bottom: 8px; }
+    .counseling-card p { font-size: 0.92rem; color: var(--text-muted); margin-bottom: 18px; line-height: 1.6; }
+    .form-ctrl {
+      width: 100%; background: #FFFFFF; border: 1.5px solid var(--purple-border);
+      border-radius: 6px; padding: 11px 14px; font-size: 0.95rem; margin-bottom: 14px; outline: none;
+    }
+    .btn-run-calc {
+      background: var(--purple-royal); color: #FFFFFF; border: none; border-radius: 6px;
+      padding: 12px 22px; font-weight: 800; font-size: 0.92rem; cursor: pointer;
+    }
+
+    .identity-section {
+      background: var(--purple-deep); color: #FFFFFF; border-radius: 18px;
+      padding: 60px 40px; margin-bottom: 60px;
+    }
+    .identity-layout { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; }
+    @media (max-width: 880px) { .identity-layout { grid-template-columns: 1fr; } }
+    
+    .identity-text h2 { font-size: 2.2rem; font-weight: 900; margin-bottom: 14px; line-height: 1.3; }
+    .identity-text p { font-size: 1.05rem; color: #E2E8F0; line-height: 1.8; margin-bottom: 24px; }
+    .verified-points-list { list-style: none; margin-bottom: 28px; }
+    .verified-points-list li { font-size: 0.96rem; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; color: #CBD5E1; }
+    .verified-points-list strong { color: #5EEAD4; }
+
+    .passport-mockup {
+      background: linear-gradient(135deg, #1C0A3C 0%, #2D1260 50%, #B48028 100%);
+      border: 2px solid #FDE68A; border-radius: 16px; padding: 28px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6); text-align: right;
+    }
+    .pm-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+    .pm-logo { font-weight: 800; font-size: 1rem; color: #FDE68A; }
+    .pm-id { font-family: 'IBM Plex Mono', monospace; font-size: 1.5rem; font-weight: 800; color: #5EEAD4; }
+    .pm-name { font-size: 1.25rem; font-weight: 800; color: #FFFFFF; margin-bottom: 14px; }
+    .pm-row { display: flex; justify-content: space-between; font-size: 0.9rem; color: #E2E8F0; margin-bottom: 8px; }
+    .pm-foot { border-top: 1px solid rgba(255, 255, 255, 0.2); padding-top: 14px; margin-top: 14px; display: flex; justify-content: space-between; align-items: center; }
+
+    footer { background: var(--purple-deep); color: #CBD5E1; padding: 50px 0 30px; font-size: 0.92rem; }
+    .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 30px; }
+    @media (max-width: 768px) { .foot-grid { grid-template-columns: 1fr; } }
+    .foot-col h4 { color: #FFFFFF; font-size: 1.05rem; margin-bottom: 14px; font-weight: 800; }
+    .foot-col ul { list-style: none; }
+    .foot-col li { margin-bottom: 8px; }
+    .foot-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 20px;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+      font-size: 0.85rem; color: #94A3B8;
+    }
+
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  </style>
+</head>
+<body>
+
+  <nav class="top-nav">
+    <div class="nav-inner">
+      <div class="brand-wrap">
+        <a href="index.html" style="display: flex; align-items: center; gap: 10px;">
+          <div class="brand-badge">GA</div>
+          <div class="brand-title">
+            GeneAcademy
+            <small>المناهج الأكاديمية والاستشارات الوراثية</small>
+          </div>
+        </a>
+      </div>
+
+      <div class="nav-menu">
+        <a href="index.html" class="nav-link">الرئيسية</a>
+        <a href="smc.html" class="nav-link">امتحانات المجلس الطبي</a>
+        <a href="glomet.html" class="nav-link">تجهيز المعامل B2B</a>
+        <a href="alumni.html" class="nav-link">سجل الخريجين المعتمد</a>
+        <a href="portal.html" class="btn-portal-entry">بوابة الأعضاء (Portal)</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero-banner">
+    <div class="container">
+      <div class="hero-eyebrow">
+        <span>●</span> المنهج الأكاديمي، الطب الجزيئي، والاستشارات السريرية
+      </div>
+      <h1>أكاديمية علوم الجينات والطب الجزيئي المتقدم</h1>
+      <p>
+        المنظومة المعتمدة لدراسة الطب الجزيئي، استشارات فحص ما قبل الزواج، وتفسير تقارير التسلسل الجيني الكامل (WES / Whole Exome Sequencing) مع نظام السيرة الذاتية المهنية (GA#).
+      </p>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="sso-status-bar">
+      <div class="sso-info-box">
+        <h4 id="ssoHeading">حالة العضوية المهنية (GA# Status)</h4>
+        <p id="ssoSub">قم بتسجيل الدخول لفتح أدوات الاستشارات وتفسير تقارير الجينوم بالكامل.</p>
+      </div>
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <span class="sso-badge-ga" id="ssoBadgeVal">GA# Required</span>
+        <a href="auth.html" class="btn-portal-entry" id="ssoBtnAction" style="font-size: 0.88rem; padding: 8px 20px;">تسجيل الدخول ←</a>
+      </div>
+    </div>
+  </div>
+
+  <main class="container">
+    
+    <section class="section-wrap">
+      <div class="section-head">
+        <h2>الركائز الخمس لعلوم الحياة (The 5 Pillars of Life Sciences)</h2>
+        <p>المنهج التأسيسي المعتمد لربط العلوم الأساسية بالتطبيق السريري المتقدم:</p>
+      </div>
+
+      <div class="pillars-grid">
+        <div class="pillar-card">
+          <div>
+            <div class="pillar-num">01. BIOCHEMISTRY</div>
+            <h3>الكيمياء الحيوية السريرية ومسارات الأيض</h3>
+            <p>دراسة المسارات الأيضية الخلوية، تحولات الطاقة، وتأثير الطفرات الإنزيمية على الأمراض الوراثية.</p>
+          </div>
+          <span style="font-size: 0.88rem; font-weight: 700; color: var(--purple-primary);">✓ منهجية MTC السريرية</span>
+        </div>
+
+        <div class="pillar-card">
+          <div>
+            <div class="pillar-num">02. MOLECULAR MEDICINE</div>
+            <h3>الطب الجزيئي وأبحاث الأورام (MM 1.0 - 8.0)</h3>
+            <p>تطبيقات الـ Real-Time qPCR، الكشف عن الطفرات السرطانية، وتصميم المؤشرات الحيوية الجزيئية.</p>
+          </div>
+          <span style="font-size: 0.88rem; font-weight: 700; color: var(--purple-primary);">✓ 8 وحدات ماستركلاس</span>
+        </div>
+
+        <div class="pillar-card">
+          <div>
+            <div class="pillar-num">03. CLINICAL GENETICS</div>
+            <h3>الاستشارات الوراثية وفحص ما قبل الزواج</h3>
+            <p>تحديد الأنماط الوراثية السائدة والمتنحية، شجرة العائلة الجينية (Pedigree Analysis)، وإرشاد العائلات.</p>
+          </div>
+          <span style="font-size: 0.88rem; font-weight: 700; color: var(--purple-primary);">✓ استشارات سريرية</span>
+        </div>
+
+        <div class="pillar-card">
+          <div>
+            <div class="pillar-num">04. GENOMIC SEQUENCING</div>
+            <h3>التفسير السريري لتقارير WES & NGS</h3>
+            <p>تحليل البيانات الخام للتسلسل الجيني الكامل وتصنيف الطفرات وفق معايير ACMG/AMP الدولية.</p>
+          </div>
+          <span style="font-size: 0.88rem; font-weight: 700; color: var(--purple-primary);">✓ معايير ACMG المعتمدة</span>
+        </div>
+
+        <div class="pillar-card">
+          <div>
+            <div class="pillar-num">05. THESIS RESCUE</div>
+            <h3>إنقاذ وتحليل بيانات الرسائل الجامعية</h3>
+            <p>التحليل الإحصائي الحيوي لطلاب الماجستير والدكتوراه، مراجعة النتائج، والصياغة الأكاديمية.</p>
+          </div>
+          <span style="font-size: 0.88rem; font-weight: 700; color: var(--purple-primary);">✓ تحليل إحصائي ونشر</span>
+        </div>
+
+        <div class="pillar-card" style="background: var(--purple-light); border-color: var(--purple-vibrant);">
+          <div>
+            <div class="pillar-num" style="color: #0D9488;">06. TALENT EXPORT</div>
+            <h3>تطوير المسار المهني وتصدير الكفاءات</h3>
+            <p>توثيق الساعات التدريبية والخبرات الأكاديمية عبر الهوية المهنية GA# للقبول في برامج الزمالات الدولية.</p>
+          </div>
+          <a href="alumni.html" style="font-size: 0.88rem; font-weight: 800; color: #0D9488;">استعراض لوحة الشرف ←</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="gated-box" id="counselingSection">
+      <div class="gated-header">
+        <div>
+          <h3>بوابة الاستشارات الوراثية وتفسير تقارير الجينوم (Clinical Genetics Suite)</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">مخصصة للأطباء والباحثين والحالات السريرية المسجلة برقم GA#.</p>
+        </div>
+        <div class="status-lock-pill" id="lockPill">🔒 الخدمة مقيدة بالأعضاء المسجلين</div>
+      </div>
+
+      <div class="locked-overlay-wrap" id="lockedWrap">
+        <div class="blurred-content">
+          <div class="tool-grid">
+            <div class="counseling-card">
+              <h4>حاسبة احتمالات فحص ما قبل الزواج (Premarital Risk Tool)</h4>
+              <p>حساب نسبة وراثة الثلاسيميا والأنيميا المنجلية بناءً على الأنماط الجينية للأبوين.</p>
+              <input type="text" class="form-ctrl" placeholder="Gene: HBB, HBA1, CFTR">
+              <button class="btn-run-calc">بدء التحليل الجيني</button>
+            </div>
+            <div class="counseling-card">
+              <h4>محلل تقارير التسلسل الجيني الكامل (WES Clinical Parser)</h4>
+              <p>رفع وتفسير ملفات VCF والتقارير الجينية وتصنيف الطفرات المرضية.</p>
+              <input type="text" class="form-ctrl" placeholder="Variant: chr11:5227002 G>A">
+              <button class="btn-run-calc">تفسير التقرير السريري</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="lock-cta-card" id="lockCta">
+          <h4>🔒 بوابة الاستشارات مقيدة بعضوية GA#</h4>
+          <p>
+            لإجراء استشارات فحص ما قبل الزواج أو تقديم تقارير التسلسل الجيني (WES) للتدقيق السريري، يلزم تسجيل الدخول بمعرفك المهني وكلمة المرور.
+          </p>
+          <a href="join.html?track=counseling" class="btn-unlock-now">انضم الآن وافتح البوابة (500 GP) ←</a>
+        </div>
+      </div>
+
+      <div class="unlocked-tool-pane" id="unlockedWrap">
+        <div class="tool-grid">
+          <div class="counseling-card">
+            <h4>🧬 حاسبة مخاطر الأمراض الوراثية السريرية</h4>
+            <p>أدخل الجينات المستهدفة والنمط الوراثي لحساب احتمالات الإصابة لدى الأبناء وفق تصنيف ACMG:</p>
+            <input type="text" id="targetGene" class="form-ctrl" placeholder="Gene Symbol (e.g. HBB, CFTR, BRCA1)">
+            <select id="inheritanceModel" class="form-ctrl">
+              <option value="ar">Autosomal Recessive (وراثة متنحية - متماثل)</option>
+              <option value="ad">Autosomal Dominant (وراثة سائدة)</option>
+              <option value="xl">X-Linked Recessive (مرتبط بالجنس)</option>
+            </select>
+            <button type="button" class="btn-run-calc" onclick="runGeneticCalculation()">حساب معامل المخاطرة السريرية ➔</button>
+            <div id="calcResult" style="margin-top: 14px; font-weight: 700; color: var(--purple-primary);"></div>
+          </div>
+
+          <div class="counseling-card">
+            <h4>🔬 التفسير السريري لتقارير WES / NGS</h4>
+            <p>أدخل كود الطفرة الجينية أو المعرف المرجعي (rsID / HGVS) للتدقيق السريري المزدوج:</p>
+            <input type="text" id="variantId" class="form-ctrl" placeholder="e.g. NM_000518.5(HBB):c.20A>T (p.Glu7Val)">
+            <textarea class="form-ctrl" id="clinicalNotes" rows="2" placeholder="ملاحظات سريرية أو تاريخ مرضي عائلي..."></textarea>
+            <button type="button" class="btn-run-calc" style="background: #0D9488;" onclick="submitWesReport()">إرسال التقرير للجنة التدقيق السريري ➔</button>
+            <div id="wesResult" style="margin-top: 14px; font-weight: 700; color: #0D9488;"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="identity-section">
+      <div class="identity-layout">
+        <div class="identity-text">
+          <h2>الهوية المهنية الرقمية وسجل الاعتماد الأكاديمي (GA# Passport)</h2>
+          <p>
+            نظام الاعتماد وتطوير المسار الوظيفي المعتمد لدى مجموعة سوداجين. تحول رقم عضويتك (GA#) إلى سجل كفاءات سريرية رقمي غير قابل للتزوير، يُظهر ساعاتك التدريبية ورصيد نقاطك ومستواك في محاكيات الامتحانات.
+          </p>
+          <ul class="verified-points-list">
+            <li>✓ <strong>معرف رقمي مهني دائم:</strong> يرافق الطبيب في مسيرته وتعييناته بالمستشفيات.</li>
+            <li>✓ <strong>محفظة نقاط الـ GP:</strong> إثبات الأنشطة التدريبية واجتياز كتل الأسئلة الطبية.</li>
+            <li>✓ <strong>ختم التدقيق السريري MTC:</strong> توثيق موثوق للمستشفيات والزمالات الدولية.</li>
+          </ul>
+          <a href="portal.html" class="btn-unlock-now" style="background: #5EEAD4; color: var(--purple-deep);">دخول لوحة التحكم وبناء السيرة الذاتية ←</a>
+        </div>
+
+        <div class="passport-mockup">
+          <div class="pm-header">
+            <span class="pm-logo">SUDAGENE ACCREDITATION</span>
+            <span class="pm-id" id="passId">GA3466</span>
+          </div>
+          <div class="pm-name" id="passName">Dr. Mohamed Gibbril</div>
+          <div class="pm-row">
+            <span>الصفة المهنية:</span>
+            <strong id="passRole">Physician | MSc Molecular Medicine</strong>
+          </div>
+          <div class="pm-row">
+            <span>الجامعة المعتمدة:</span>
+            <strong>University of Khartoum</strong>
+          </div>
+          <div class="pm-row">
+            <span>رصيد نقاط الاعتماد:</span>
+            <strong style="color: #FDE68A;" id="passGp">500 GP (Verified Ledger)</strong>
+          </div>
+          <div class="pm-foot">
+            <span style="font-size: 0.78rem; color: #CBD5E1;">ACCREDITED TALENT EXPORT</span>
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 0.82rem; color: #5EEAD4;">geneacademy.net/cv/GA3466</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="foot-grid">
+        <div class="foot-col">
+          <h4>GeneAcademy</h4>
+          <p style="line-height: 1.8; color: #94A3B8;">
+            أكاديمية علوم الأحياء والطب الجزيئي والاستشارات الجينية لمجموعة سوداجين. ترسيخ المعايير الأكاديمية والسريرية المعتمدة دولياً.
+          </p>
+        </div>
+        <div class="foot-col">
+          <h4>المناهج والأركان</h4>
+          <ul>
+            <li><a href="#counselingSection">الاستشارات الوراثية وفحص الزواج</a></li>
+            <li><a href="#counselingSection">تفسير تقارير التسلسل الجيني WES</a></li>
+            <li><a href="smc.html">امتحانات التسجيل الدائم SMC</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h4>الهوية والاعتماد</h4>
+          <ul>
+            <li><a href="portal.html">بوابة الأعضاء والسيرة الذاتية</a></li>
+            <li><a href="alumni.html">سجل الخريجين المعتمدين</a></li>
+            <li><a href="auth.html">تسجيل الدخول</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="foot-bottom">
+        <div>© 2026 GeneAcademy • SudaGene Group • All Rights Reserved.</div>
+        <div>نظام الاعتماد الأكاديمي والمهني الموحد MTC</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/ga_data.js"></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const raw = localStorage.getItem('gemiini_sovereign_session');
+      if (raw) {
+        try {
+          const session = JSON.parse(raw);
+          if (session.authenticated && session.id) {
+            document.getElementById('lockedWrap').style.display = 'none';
+            document.getElementById('unlockedWrap').classList.add('active');
+            
+            document.getElementById('lockPill').textContent = '✓ العضوية مفعلة (الأدوات مفتوحة)';
+            document.getElementById('lockPill').style.background = '#ECFDF5';
+            document.getElementById('lockPill').style.color = '#065F46';
+            document.getElementById('lockPill').style.borderColor = '#10B981';
+
+            document.getElementById('ssoHeading').textContent = `مرحباً، ${session.name || 'د. العضو المعتمد'} 👋`;
+            document.getElementById('ssoSub').textContent = `معرفك: ${session.id} • رصيدك الحالي: ${session.gp || 500} GP في سجل الأعضاء.`;
+            document.getElementById('ssoBadgeVal').textContent = `${session.id} • ${session.gp || 500} GP`;
+            document.getElementById('ssoBtnAction').textContent = 'دخول لوحة التحكم ←';
+            document.getElementById('ssoBtnAction').href = 'portal.html';
+
+            document.getElementById('passId').textContent = session.id;
+            if(session.name) document.getElementById('passName').textContent = session.name;
+            if(session.role) document.getElementById('passRole').textContent = session.role;
+            if(session.gp) document.getElementById('passGp').textContent = `${session.gp} GP (Verified Ledger)`;
+          }
+        } catch(e) {
+          console.error(e);
+        }
+      }
+    });
+
+    function runGeneticCalculation() {
+      const gene = document.getElementById('targetGene').value.trim().toUpperCase();
+      const model = document.getElementById('inheritanceModel').value;
+      const res = document.getElementById('calcResult');
+
+      if (!gene) {
+        res.textContent = 'يرجى إدخال رمز الجين المستهدف (مثال: HBB أو CFTR).';
+        return;
+      }
+
+      if (model === 'ar') {
+        res.innerHTML = `✓ تحليل جين <strong>${gene}</strong> (وراثة متنحية): نسبة ولادة طفل مصاب عند كون الأبوين حاملين للطفرة هي <strong>25%</strong>، ونسبة الحامل السليم <strong>50%</strong>. يوصى بإجراء فحص ما قبل الزواج الجزيئي.`;
+      } else if (model === 'ad') {
+        res.innerHTML = `✓ تحليل جين <strong>${gene}</strong> (وراثة سائدة): نسبة انتقال الصفة الوراثية للأبناء هي <strong>50%</strong> لكل حمل.`;
+      } else {
+        res.innerHTML = `✓ تحليل جين <strong>${gene}</strong> (مرتبط بالجنس): نسبة إصابة الذكور <strong>50%</strong> إذا كانت الأم حاملة، والإناث حاملات بنسبة <strong>50%</strong>.`;
+      }
+    }
+
+    function submitWesReport() {
+      const variant = document.getElementById('variantId').value.trim();
+      const res = document.getElementById('wesResult');
+
+      if (!variant) {
+        res.textContent = 'يرجى إدخال الطفرة أو المتغير الجيني (Variant).';
+        return;
+      }
+
+      res.innerHTML = `✓ تم استلام المتغير <strong>${variant}</strong> بنجاح! تم تحويل التقرير للجنة الاستشارات الوراثية بالمركز للمطابقة السريرية عبر قاعدة بيانات ClinVar و ACMG.`;
+    }
+  </script>
+</body>
+</html>

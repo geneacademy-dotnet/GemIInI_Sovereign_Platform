@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>مجلس الأفكار والابتكار الأكاديمي | منظومة GemIInI السيادية</title>
+ <meta name="description" content="البوابة الرسمية لإيداع ومناقشة مقترحات الأطباء والباحثين والكوادر التدريسية، وتطوير المناهج مع مكافأة فورية بالنقاط المعرفية GP.">
+ 
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700;800;900&family=Cairo:wght@400;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+ 
+ <link rel="stylesheet" href="css/styles.css">
+ <style>
+ .ideas-hero {
+ background: linear-gradient(135deg, #1E0A38 0%, #4C1D95 100%);
+ color: #FFFFFF;
+ padding: 50px 20px;
+ border-radius: var(--radius-lg);
+ margin-bottom: 40px;
+ text-align: center;
+ box-shadow: 0 15px 35px rgba(76, 29, 149, 0.2);
+ }
+ .idea-card {
+ background: #FFFFFF;
+ border: 1.5px solid var(--line);
+ border-radius: var(--radius-md);
+ padding: 24px;
+ box-shadow: var(--shadow-card);
+ transition: all 0.25s ease;
+ }
+ .idea-card:hover {
+ transform: translateY(-2px);
+ box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+ border-color: var(--purple-brand);
+ }
+ </style>
+</head>
+<body style="background: var(--bg-primary);">
+
+ <!-- Domains Ribbon -->
+ <div class="domains-ribbon">
+ <div class="container">
+ <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+ <span style="color: var(--gold); font-weight: 700;"> Academic Brain Trust & Ideation Incubator:</span>
+ <a href="https://members.geneacademy.net" target="_blank" class="domain-chip">members.geneacademy.net</a>
+ <span class="cert-tag" style="background: rgba(255,255,255,0.08); color: #FFFFFF; border-color: rgba(255,255,255,0.15); font-size: 14.5px;">REWARD: +250 GP PER APPROVED IDEA</span>
+ </div>
+ <div style="display: flex; align-items: center; gap: 14px;">
+ <span style="font-size: 14.5px; color: #EDE8F5;">أمانة مجلس الابتكار: <strong style="color: var(--gold); font-family: var(--font-mono);">+20 101 592 2628</strong></span>
+ </div>
+ </div>
+ </div>
+
+ <!-- Navigation Bar -->
+ <header class="navbar">
+ <div class="container nav-content">
+ <a href="index.html" class="brand-logo">
+ <div class="logo-icon" style="background: linear-gradient(135deg, #8B5CF6, #1E0A38);">BT</div>
+ <div class="brand-text">
+ <h1>BRAIN TRUST</h1>
+ <span style="color: var(--purple-brand);">مجلس الأفكار والابتكار الأكاديمي</span>
+ </div>
+ </a>
+
+ <ul class="nav-links">
+ <li><a href="index.html">الرئيسية</a></li>
+ <li><a href="ideas.html" class="active" style="color: var(--purple-brand); font-weight: 800;">مجلس الأفكار</a></li>
+ <li><a href="smc.html">امتحان المجلس SMC</a></li>
+ <li><a href="stem.html">معسكرات الناشئة</a></li>
+ <li><a href="glomet.html">تجهيز المشافي GLOMEt</a></li>
+ <li><a href="registry.html">السجل المركزي</a></li>
+ </ul>
+
+ <div class="nav-cta">
+ <a href="join.html" class="btn btn-primary" style="font-size: 14px; padding: 10px 22px;">
+ انضم الآن 
+ </a>
+ </div>
+ </div>
+ </header>
+
+ <!-- Main Content -->
+ <main class="container" style="margin-top: 30px; margin-bottom: 70px;">
+ 
+ <!-- Hero Banner -->
+ <div class="ideas-hero">
+ <span class="cert-tag" style="background: rgba(255,255,255,0.15); color: var(--gold); border-color: var(--gold); margin-bottom: 14px; font-size: 14.5px;">
+ حاضنة الابتكار والمبادرات المشتركة
+ </span>
+ <h1 style="font-size: 38px; font-weight: 900; margin: 10px 0; line-height: 1.3;">
+ مجلس الأفكار والابتكار والتطوير الأكاديمي
+ </h1>
+ <p style="font-size: 16px; max-width: 800px; margin: 0 auto 24px; line-height: 1.8; color: #DDD6FE;">
+ صوتك وشغفك العلمي هو المحرك الأساسي لتطور منظومة GemIInI. أودع فكرتك، مقترحك التدريبي، أو مشروعك البحثي، واحصل على مكافأة <strong>+250 GP</strong> فورية في محفظتك المعرفية!
+ </p>
+ </div>
+
+ <!-- Idea Submission Form Box -->
+ <div class="glass-card" style="padding: 36px; border: 2px solid var(--purple-brand); background: #FFFFFF; margin-bottom: 40px;">
+ <h3 style="font-size: 20px; font-weight: 800; color: var(--purple-dark); margin-bottom: 16px;">
+ استمارة تقديم فكرة أو مبادرة جديدة:
+ </h3>
+
+ <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+ <div class="input-field" style="margin: 0;">
+ <label>الاسم الكريم أو رقم الهوية المهنية الرقمية (GA#) (GA#)</label>
+ <input type="text" id="prop-author" placeholder="مثال: د. أحمد عمر / GA5408 أو مستقل" style="width: 100%; padding: 12px 16px; border: 1.5px solid var(--line); border-radius: var(--radius-sm); font-family: var(--font-arabic); font-size: 14px;">
+ </div>
+ <div class="input-field" style="margin: 0;">
+ <label>تصنيف المبادرة أو الفكرة</label>
+ <select id="prop-category" style="width: 100%; padding: 12px 16px; border: 1.5px solid var(--line); border-radius: var(--radius-sm); font-family: var(--font-arabic); font-size: 14px; font-weight: 700;">
+ <option value="stem"> معسكرات الناشئة وزيارات 57357 والمتاحف</option>
+ <option value="smc"> بنوك أسئلة امتحان المجلس الطبي (SMC)</option>
+ <option value="research"> مقترح بحث جينومي / أورام متعدد المراكز</option>
+ <option value="glomet"> شراكة توزيع وتجهيز مخبري GLOMEt بالولايات</option>
+ <option value="curriculum"> مسار تدريبي أو ورشة سريرية جديدة</option>
+ </select>
+ </div>
+ </div>
+
+ <div class="input-field" style="margin-bottom: 16px;">
+ <label>عنوان الفكرة أو المبادرة</label>
+ <input type="text" id="prop-title" placeholder="اكتب عنواناً واضحاً وموجزاً..." style="width: 100%; padding: 12px 16px; border: 1.5px solid var(--line); border-radius: var(--radius-sm); font-family: var(--font-arabic); font-size: 14px;">
+ </div>
+
+ <div class="input-field" style="margin-bottom: 20px;">
+ <label>تفاصيل الرؤية التشغيلية والقيمة المضافة</label>
+ <textarea id="prop-desc" rows="4" placeholder="اشرح آليات التنفيذ، الفئة المستفيدة، والنتائج المتوقعة..." style="width: 100%; padding: 12px 16px; border: 1.5px solid var(--line); border-radius: var(--radius-sm); font-family: var(--font-arabic); font-size: 14px; line-height: 1.6;"></textarea>
+ </div>
+
+ <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+ <span style="font-size: 13px; color: var(--teal); font-weight: 700;"> مكافأة فورية: +250 GP رصيد محفظة عند الإرسال</span>
+ <button type="button" class="btn btn-primary" onclick="submitIdea()" style="padding: 12px 28px; font-size: 14.5px;">
+ إرسال الفكرة لمجلس المنظومة 
+ </button>
+ </div>
+
+ <div id="prop-success-msg" style="display: none; margin-top: 16px; padding: 14px; background: #ECFDF5; border: 1px solid #A7F3D0; border-radius: var(--radius-sm); color: #065F46; font-size: 14px; font-weight: 700; text-align: center;">
+ • تم إيداع فكرتك بنجاح في مجلس الأفكار وتمت إضافة 250 GP إلى رصيدك!
+ </div>
+ </div>
+
+ <!-- Active Community Ideas Feed -->
+ <h3 style="font-size: 22px; font-weight: 900; color: var(--purple-dark); margin-bottom: 20px;">
+ أحدث الأفكار والمناقشات المعتمدة من أعضاء المنظومة:
+ </h3>
+
+ <div id="ideas-feed" style="display: flex; flex-direction: column; gap: 16px;">
+ 
+ <!-- Idea 1 -->
+ <div class="idea-card" style="border-right: 5px solid #0EA5E9;">
+ <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+ <strong style="font-size: 16px; color: var(--purple-dark);">معسكر الجينوم الصيفي واستكشاف مستشفى 57357 لطلاب الصف التاسع</strong>
+ <span class="cert-tag" style="background: #E0F2FE; color: #0369A1; font-size: 14.5px;"> معسكرات الناشئة</span>
+ </div>
+ <p style="font-size: 13.5px; color: var(--text-muted); line-height: 1.7; margin: 0 0 12px;">
+ مقترح لتنظيم زيارة ميدانية تفاعلية إلى مستشفى 57357 ومتحف التشريح الطبي، مع تطبيق عملي لاستخلاص الحمض النووي من الفواكه لطلاب المرحلة المتوسطة والثانوية لغرس الشغف بالعلوم الطبية مبكراً.
+ </p>
+ <div style="display: flex; justify-content: space-between; align-items: center; font-size: 14.5px; color: var(--text-muted);">
+ <span>بواسطة: <strong>د. إيمان - منسقة برامج الناشئة</strong></span>
+ <span style="color: #059669; font-weight: 700;">• مقترح قيد التنفيذ • +48 تأييد</span>
+ </div>
+ </div>
+
+ <!-- Idea 2 -->
+ <div class="idea-card" style="border-right: 5px solid var(--gold);">
+ <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+ <strong style="font-size: 16px; color: var(--purple-dark);">إضافة محاكي الحالات الإسعافية الطارئة لأسئلة RAW 2 في الجراحة</strong>
+ <span class="cert-tag" style="background: var(--gold-light); color: var(--gold-dark); font-size: 14.5px;"> بنوك SMC</span>
+ </div>
+ <p style="font-size: 13.5px; color: var(--text-muted); line-height: 1.7; margin: 0 0 12px;">
+ تضمين توقيت زمني يحاكي سرعة اتخاذ القرار في طوارئ الحوادث والبطن الحاد لرفع معدل النجاح في الجزء العملي لامتحان التسجيل الدائم.
+ </p>
+ <div style="display: flex; justify-content: space-between; align-items: center; font-size: 14.5px; color: var(--text-muted);">
+ <span>بواسطة: <strong>د. محمد - طبيب امتياز (GA5408)</strong></span>
+ <span style="color: #059669; font-weight: 700;">• معتمد ومدمج بالمنصة • +72 تأييد</span>
+ </div>
+ </div>
+
+ <!-- Idea 3 -->
+ <div class="idea-card" style="border-right: 5px solid var(--teal);">
+ <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+ <strong style="font-size: 16px; color: var(--purple-dark);">ربط وكلاء جلوميت ببورتسودان وعطبرة بنظام التوريد السحابي المباشر</strong>
+ <span class="cert-tag" style="background: var(--teal-light); color: var(--teal); font-size: 14.5px;"> تجهيز GLOMEt</span>
+ </div>
+ <p style="font-size: 13.5px; color: var(--text-muted); line-height: 1.7; margin: 0 0 12px;">
+ تسهيل طلب المحاليل والكواشف عبر شاشة موحدة تتيح للوكلاء المعتمدين تتبع شحنات سلاسل التبريد والتخزين الآمن مع الدعم الهندسي الفوري.
+ </p>
+ <div style="display: flex; justify-content: space-between; align-items: center; font-size: 14.5px; color: var(--text-muted);">
+ <span>بواسطة: <strong>م. المنذر - شريك جلوميت المعتمد</strong></span>
+ <span style="color: #059669; font-weight: 700;">• قيد التوسيع الميداني • +35 تأييد</span>
+ </div>
+ </div>
+
+ </div>
+
+ </main>
+
+ <!-- Footer -->
+ <footer class="footer">
+ <div class="container footer-grid">
+ <div class="footer-brand">
+ <h3>مجلس الأفكار • منظومة GEMIINI السيادية</h3>
+ <p>حاضنة الابتكار الأكاديمي والسريري وبناء المناهج المتقدمة برعاية أكاديمية الجينات.</p>
+ </div>
+ <div class="footer-col">
+ <h4>نوافذ المنظومة المخصصة</h4>
+ <ul>
+ <li><a href="index.html">الرئيسية</a></li>
+ <li><a href="join.html">انضم الآن</a></li>
+ <li><a href="stem.html">معسكرات الناشئة</a></li>
+ <li><a href="smc.html">امتحان المجلس SMC</a></li>
+ </ul>
+ </div>
+ <div class="footer-col">
+ <h4>أمانة المجلس والتحصيل</h4>
+ <div style="font-family: var(--font-mono); font-size: 16px; color: var(--gold); font-weight: 700; margin: 8px 0;">
+ +20 101 592 2628
+ </div>
+ <p style="font-size: 14.5px; color: #EDE8F5;">Geneacademy & GLOMEt Sovereign Conglomerate</p>
+ </div>
+ </div>
+ <div class="footer-bottom container">
+ &copy; 2026 GemIInI Sovereign Platform. All rights reserved. Directed by Dr. Mohamed Gibbril.
+ </div>
+ </footer>
+
+ <script>
+ function submitIdea() {
+ const author = document.getElementById('prop-author')?.value.trim() || 'عضو المنظومة';
+ const cat = document.getElementById('prop-category')?.value;
+ const title = document.getElementById('prop-title')?.value.trim();
+ const desc = document.getElementById('prop-desc')?.value.trim();
+ const msg = document.getElementById('prop-success-msg');
+ const feed = document.getElementById('ideas-feed');
+
+ if (!title || !desc) {
+ alert('يرجى كتابة عنوان الفكرة وتفاصيلها قبل الإرسال.');
+ return;
+ }
+
+ const catLabels = {
+ stem: ' معسكرات الناشئة',
+ smc: ' بنوك SMC',
+ research: ' مقترح بحثي',
+ glomet: ' تجهيز GLOMEt',
+ curriculum: ' تطوير المناهج'
+ };
+
+ const newCard = document.createElement('div');
+ newCard.className = 'idea-card';
+ newCard.style.borderRight = '5px solid var(--purple-brand)';
+ newCard.innerHTML = `
+ <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+ <strong style="font-size: 16px; color: var(--purple-dark);">${title}</strong>
+ <span class="cert-tag" style="background: var(--purple-light); color: var(--purple-brand); font-size: 14.5px;">${catLabels[cat] || ' مبادرة جديدة'}</span>
+ </div>
+ <p style="font-size: 13.5px; color: var(--text-muted); line-height: 1.7; margin: 0 0 12px;">${desc}</p>
+ <div style="display: flex; justify-content: space-between; align-items: center; font-size: 14.5px; color: var(--text-muted);">
+ <span>بواسطة: <strong>${author}</strong></span>
+ <span style="color: #059669; font-weight: 700;">• مقترح مسجل حديثاً • +1 تأييد فوري</span>
+ </div>
+ `;
+
+ if (feed) feed.prepend(newCard);
+
+ // Reward points in localStorage
+ let currentGp = parseInt(localStorage.getItem('gem_doctor_gp') || '500', 10);
+ currentGp += 250;
+ localStorage.setItem('gem_doctor_gp', currentGp.toString());
+
+ if (msg) {
+ msg.style.display = 'block';
+ setTimeout(() => { msg.style.display = 'none'; }, 4000);
+ }
+
+ document.getElementById('prop-title').value = '';
+ document.getElementById('prop-desc').value = '';
+ }
+ </script>
+</body>
+</html>

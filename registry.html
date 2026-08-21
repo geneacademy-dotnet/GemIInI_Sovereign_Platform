@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>السجل المركزي المعتمد (1,200+ عضو) | منظومة GemIInI</title>
+  <meta name="description" content="السجل المركزي المعتمد لأكثر من 1,200 طبيب وباحث في السودان والمهجر. التحقق الفوري من الهوية المهنية GA#، الرصيد المعرفي GP، ومستوى الاعتماد السريري.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=IBM+Plex+Mono:wght@500;600;700&family=IBM+Plex+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/styles.css">
+  
+  <style>
+    .registry-hero {
+      text-align: center;
+      padding: 50px 0 30px;
+    }
+    .stats-counter-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin: 30px 0 40px;
+    }
+    @media (max-width: 860px) { .stats-counter-strip { grid-template-columns: repeat(2, 1fr); } }
+
+    .stat-box-reg {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      text-align: center;
+    }
+    .stat-num-reg {
+      font-family: var(--font-mono);
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--cyan-main);
+    }
+    .stat-lbl-reg {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      margin-top: 4px;
+    }
+
+    /* Filter & Search Bar */
+    .registry-search-bar {
+      background: var(--bg-card);
+      border: 1.5px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      margin-bottom: 30px;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .search-input-box {
+      flex: 1;
+      min-width: 260px;
+    }
+    .filter-select-box {
+      width: 220px;
+    }
+    @media (max-width: 600px) { .filter-select-box { width: 100%; } }
+
+    /* Members Grid */
+    .members-grid-display {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 60px;
+    }
+    @media (max-width: 1024px) { .members-grid-display { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 680px) { .members-grid-display { grid-template-columns: 1fr; } }
+
+    .member-ledger-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+    .member-ledger-card:hover {
+      border-color: var(--cyan-main);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(45, 224, 194, 0.08);
+    }
+    .card-top-id-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .doc-ga-id {
+      font-family: var(--font-mono);
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--cyan-main);
+    }
+    .rank-pill {
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 9999px;
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+    }
+    .rank-vanguard { background: rgba(216, 174, 107, 0.15); color: var(--gold-main); border: 1px solid rgba(216, 174, 107, 0.3); }
+    .rank-pioneer { background: rgba(45, 224, 194, 0.15); color: var(--cyan-main); border: 1px solid rgba(45, 224, 194, 0.3); }
+    .rank-pathfinder { background: rgba(124, 58, 237, 0.15); color: #A78BFA; border: 1px solid rgba(124, 58, 237, 0.3); }
+
+    .doc-name {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 6px;
+    }
+    .doc-univ {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+      line-height: 1.5;
+    }
+    .card-bottom-metric {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding-top: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.82rem;
+    }
+    .gp-metric-val {
+      font-family: var(--font-mono);
+      font-weight: 800;
+      color: var(--gold-main);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <header class="navbar">
+    <div class="container nav-content">
+      <a href="index.html" class="brand-logo">
+        <div class="logo-icon">SG</div>
+        <div class="brand-text">
+          <h1>SUDAGENE</h1>
+          <span>THE CENTRAL REGISTRY</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">الرئيسية</a></li>
+        <li><a href="smc.html">امتحانات الأطباء</a></li>
+        <li><a href="courses.html">الاستشارات والجينوم</a></li>
+        <li><a href="glomet.html">تجهيز المختبرات</a></li>
+        <li><a href="registry.html" style="color: var(--cyan-main); font-weight: 800;">السجل المركزي</a></li>
+        <li><a href="reviews.html">التقييمات والتدقيق</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="join.html" class="btn btn-cyan" style="padding: 8px 20px; font-size: 14px;">تسجيل عضوية جديدة ←</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    
+    <!-- Hero Section -->
+    <div class="registry-hero">
+      <div class="cert-tag gold" style="margin-bottom: 16px;">
+        🏛️ السجل المهني المعتمد للأطباء والباحثين • معيار التدقيق السريري الموحد MTC
+      </div>
+      <h1 style="font-size: clamp(28px, 4.5vw, 44px); color: #FFFFFF; margin-bottom: 14px;">
+        السجل المركزي للكفاءات الطبية والبحثية
+      </h1>
+      <p style="font-size: 16.5px; color: var(--text-muted); max-width: 800px; margin: 0 auto; line-height: 1.8;">
+        قاعدة البيانات الموثقة التي تضم أكثر من <strong>1,200 طبيب وباحث مسجل</strong>. تتيح للمستشفيات والجهات الدولية (بريطانيا، الخليج، والسودان) التحقق الفوري من الاعتماد الأكاديمي، ساعات التدريب السريري، والرصيد المعرفي الموثق.
+      </p>
+    </div>
+
+    <!-- Stats Counters Strip -->
+    <div class="stats-counter-strip">
+      <div class="stat-box-reg">
+        <div class="stat-num-reg" id="statMembersCount">1,200+</div>
+        <div class="stat-lbl-reg">طبيب وباحث موثق</div>
+      </div>
+      <div class="stat-box-reg">
+        <div class="stat-num-reg" id="statVerifiedPct">100%</div>
+        <div class="stat-lbl-reg">مطابقة مع السجل المركزي</div>
+      </div>
+      <div class="stat-box-reg">
+        <div class="stat-num-reg" id="statTotalGp" style="color: var(--gold-main);">650,000+</div>
+        <div class="stat-lbl-reg">نقطة تدريب معتمدة (GP)</div>
+      </div>
+      <div class="stat-box-reg">
+        <div class="stat-num-reg" style="color: #A78BFA;">10 ولايات</div>
+        <div class="stat-lbl-reg">تغطية تشغيلية وتدريبية</div>
+      </div>
+    </div>
+
+    <!-- Search & Filter Controls -->
+    <div class="registry-search-bar">
+      <div class="search-input-box">
+        <input type="text" id="regSearchInput" placeholder="بحث بالاسم، رقم المعرف (مثال: GA001 أو GA3466)، أو الجامعة..." oninput="filterRegistry()">
+      </div>
+      <div class="filter-select-box">
+        <select id="regRankFilter" onchange="filterRegistry()">
+          <option value="all">كل الرتب والدرجات</option>
+          <option value="Vanguard">الرتبة المتقدمة (Vanguard)</option>
+          <option value="Pioneer">رتبة الريادة (Pioneer)</option>
+          <option value="Pathfinder">رتبة الاستكشاف (Pathfinder)</option>
+        </select>
+      </div>
+      <button class="btn btn-cyan" onclick="filterRegistry()">تصفية السجل 🔍</button>
+    </div>
+
+    <!-- Dynamic Members Grid -->
+    <div class="members-grid-display" id="membersGrid">
+      <!-- Injected via JavaScript from ga_data.js / Google Sheets API -->
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="brand-logo" style="margin-bottom: 16px;">
+          <div class="logo-icon">SG</div>
+          <div class="brand-text">
+            <h1 style="font-size: 18px;">SUDAGENE</h1>
+          </div>
+        </div>
+        <p style="font-size: 13px; color: var(--text-muted);">
+          السجل المركزي المعتمد لمجموعة سوداجين الطبية. توثيق المسار المهني، رصيد نقاط الـ GP، والاعتمادات السريرية للأطباء والباحثين.
+        </p>
+      </div>
+
+      <div>
+        <h4>روابط سريعة</h4>
+        <ul>
+          <li><a href="smc.html">امتحانات المجلس الطبي SMC</a></li>
+          <li><a href="courses.html">الاستشارات الوراثية WES</a></li>
+          <li><a href="portal.html">بوابة الأعضاء ولوحة التحكم</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>جهات التوظيف والمستشفيات</h4>
+        <ul>
+          <li><a href="portal.html">بوابة التحقق للمستشفيات (B2B)</a></li>
+          <li><a href="glomet.html">تجهيز المختبرات في 10 ولايات</a></li>
+          <li><a href="alumni.html">سجل الشهادات المعتمدة</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>أمانة السجل والتوثيق</h4>
+        <ul>
+          <li><a href="join.html">طلب قيد وتسجيل جديد</a></li>
+          <li style="margin-top: 14px; color: var(--gold-main); font-family: var(--font-mono); font-weight: 800;">
+            واتساب التوثيق: +20 101 592 2628
+          </li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/ga_data.js"></script>
+  <script>
+    let registryData = [];
+
+    window.addEventListener('DOMContentLoaded', () => {
+      // Check if ga_data.js loaded
+      if (typeof GA_DATABASE !== 'undefined' && Array.isArray(GA_DATABASE)) {
+        registryData = GA_DATABASE;
+      } else if (typeof MASTER_REGISTRY !== 'undefined' && Array.isArray(MASTER_REGISTRY)) {
+        registryData = MASTER_REGISTRY;
+      }
+
+      // Check URL query search
+      const urlParams = new URLSearchParams(window.location.search);
+      const query = urlParams.get('search') || '';
+      if(query) {
+        document.getElementById('regSearchInput').value = query;
+      }
+
+      renderRegistry(registryData);
+    });
+
+    function renderRegistry(list) {
+      const container = document.getElementById('membersGrid');
+      container.innerHTML = '';
+
+      if (list.length === 0) {
+        container.innerHTML = `
+          <div style="grid-column: 1 / -1; text-align: center; padding: 50px; color: var(--text-muted);">
+            <h3>لا توجد نتائج مطابقة في السجل المركزي.</h3>
+            <p>تأكد من كتابة الاسم أو رقم المعرف (GA#) بشكل صحيح.</p>
+          </div>
+        `;
+        return;
+      }
+
+      // Render top 48 records for fast rendering
+      const displayItems = list.slice(0, 48);
+
+      displayItems.forEach(doc => {
+        const rankClass = doc.skill_rank === 'Vanguard' ? 'rank-vanguard' : 
+                         doc.skill_rank === 'Pioneer' ? 'rank-pioneer' : 'rank-pathfinder';
+        
+        const card = document.createElement('div');
+        card.className = 'member-ledger-card';
+        card.innerHTML = `
+          <div>
+            <div class="card-top-id-row">
+              <span class="doc-ga-id">${doc.id}</span>
+              <span class="rank-pill ${rankClass}">${doc.skill_rank || 'Pathfinder'}</span>
+            </div>
+            <h3 class="doc-name">${doc.name}</h3>
+            <p class="doc-univ">${doc.institution || 'Medical & Health Faculty'}</p>
+          </div>
+          <div>
+            <div style="font-size: 0.8rem; color: #A78BFA; margin-bottom: 8px;">
+              المسار: ${doc.priority_track || 'gemiiniXsmc Licensure'}
+            </div>
+            <div class="card-bottom-metric">
+              <span style="color: var(--text-muted);">الرصيد المعرفي:</span>
+              <span class="gp-metric-val">${doc.gp_balance || 500} GP</span>
+            </div>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function filterRegistry() {
+      const q = document.getElementById('regSearchInput').value.trim().toLowerCase();
+      const rank = document.getElementById('regRankFilter').value;
+
+      const filtered = registryData.filter(doc => {
+        const matchQuery = !q || 
+          (doc.id && doc.id.toLowerCase().includes(q)) ||
+          (doc.name && doc.name.toLowerCase().includes(q)) ||
+          (doc.institution && doc.institution.toLowerCase().includes(q)) ||
+          (doc.priority_track && doc.priority_track.toLowerCase().includes(q));
+        
+        const matchRank = rank === 'all' || doc.skill_rank === rank;
+
+        return matchQuery && matchRank;
+      });
+
+      renderRegistry(filtered);
+    }
+  </script>
+</body>
+</html>

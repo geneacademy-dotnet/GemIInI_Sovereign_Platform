@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In | SudaGene Sovereign Member Portal</title>
+  <meta name="description" content="Sign in to your sovereign member portal to access gemiiniXsmc modules, molecular research datasets, and your GP ledger.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --purple-deep: #130726;
+      --purple-royal: #2C1154;
+      --purple-primary: #4C1D95;
+      --purple-vibrant: #7C3AED;
+      --teal-accent: #2DE0C2;
+      --gold-accent: #F59E0B;
+      --bg-page: #0B0418;
+      --card-bg: #15092E;
+      --text-main: #FFFFFF;
+      --text-muted: #A78BFA;
+      --border-color: rgba(139, 92, 246, 0.25);
+      --gradient-brand: linear-gradient(135deg, #2C1154 0%, #4C1D95 50%, #7C3AED 100%);
+      font-size: 16px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg-page);
+      background-image: 
+        radial-gradient(circle at 50% 10%, rgba(124, 58, 237, 0.25) 0%, transparent 50%),
+        radial-gradient(circle at 50% 90%, rgba(45, 224, 194, 0.15) 0%, transparent 50%);
+      color: var(--text-main);
+      font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    .top-nav {
+      padding: 16px 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-color);
+      background: rgba(19, 7, 38, 0.85);
+      backdrop-filter: blur(12px);
+    }
+    .brand-link { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.1rem; }
+    .brand-badge {
+      background: var(--gradient-brand); color: #FFFFFF; font-weight: 800; font-size: 0.88rem;
+      padding: 5px 10px; border-radius: 6px; font-family: 'IBM Plex Mono', monospace;
+    }
+
+    .auth-container { width: 100%; max-width: 440px; margin: 50px auto; padding: 0 20px; }
+    .auth-card {
+      background: var(--card-bg); border: 1.5px solid var(--border-color); border-radius: 14px;
+      padding: 38px 30px; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    }
+    .auth-header { text-align: center; margin-bottom: 28px; }
+    .auth-header h1 {
+      font-size: 1.7rem; font-weight: 800; color: #FFFFFF; margin-bottom: 6px;
+    }
+    .auth-header p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; }
+
+    .form-group { margin-bottom: 18px; }
+    .form-group label {
+      display: block; font-size: 0.82rem; font-weight: 700; color: #E9D5FF; margin-bottom: 6px;
+      font-family: 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: 0.04em;
+    }
+    .form-input {
+      width: 100%; background: #0E0520; border: 1.5px solid rgba(139, 92, 246, 0.3);
+      border-radius: 6px; padding: 12px 14px; font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.95rem; color: #FFFFFF; outline: none; transition: border-color .2s;
+    }
+    .form-input:focus { border-color: var(--teal-accent); box-shadow: 0 0 12px rgba(45, 224, 194, 0.25); }
+
+    .btn-submit {
+      width: 100%; background: var(--teal-accent); color: var(--purple-deep);
+      border: none; border-radius: 6px; padding: 14px; font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.88rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase;
+      cursor: pointer; transition: all 0.2s; margin-top: 10px;
+    }
+    .btn-submit:hover { background: #38BDF8; box-shadow: 0 0 20px rgba(45, 224, 194, 0.5); }
+
+    .auth-footer-links {
+      text-align: center; margin-top: 22px; font-size: 0.85rem; color: var(--text-muted);
+    }
+    .auth-footer-links a { color: var(--teal-accent); font-weight: 700; margin-left: 4px; }
+
+    /* Success Transport HUD (Smooth Direct Handoff) */
+    .success-hud {
+      display: none; margin-top: 20px; background: rgba(45, 224, 194, 0.08);
+      border: 1px solid var(--teal-accent); border-radius: 8px; padding: 20px; text-align: center;
+      animation: fadeIn 0.3s ease;
+    }
+    .success-hud.active { display: block; }
+    .hud-title { font-size: 1.15rem; font-weight: 800; color: #FFFFFF; margin-bottom: 4px; }
+    .hud-points { font-family: 'IBM Plex Mono', monospace; color: #FDE68A; font-weight: 700; font-size: 0.95rem; margin-bottom: 12px; }
+    
+    footer { text-align: center; padding: 24px; font-size: 0.8rem; color: var(--text-muted); }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="top-nav">
+    <a href="index.html" class="brand-link">
+      <div class="brand-badge">SG</div>
+      <span>SudaGene Conglomerate</span>
+    </a>
+    <a href="index.html" style="color: var(--text-muted); font-size: 0.85rem;">➔ Home</a>
+  </nav>
+
+  <div class="auth-container">
+    <div class="auth-card">
+      <div class="auth-header">
+        <h1>Sign In to Member Portal</h1>
+        <p>Access your gemiiniXsmc question banks, molecular research masterclasses, and GP points ledger.</p>
+      </div>
+
+      <form id="signInForm" onsubmit="handleSignIn(event)">
+        <div class="form-group">
+          <label>GemIInI ID (GA#)</label>
+          <input type="text" id="gaIdInput" class="form-input" placeholder="e.g. GA3466 or GA001" required autocomplete="off">
+        </div>
+
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" id="passwordInput" class="form-input" placeholder="Enter your password" required>
+        </div>
+
+        <button type="submit" class="btn-submit" id="btnSubmit">Enter Sovereign Command Center ➔</button>
+      </form>
+
+      <!-- Smooth Transport HUD -->
+      <div class="success-hud" id="successHud">
+        <div class="hud-title" id="hudName">Authenticated Successfully</div>
+        <div class="hud-points" id="hudPoints">500 GP (GemIInI Points Available)</div>
+        <p style="font-size: 0.82rem; color: #CBD5E1; margin-bottom: 12px;">Transporting to Member Portal...</p>
+      </div>
+
+      <div class="auth-footer-links">
+        <span>Don't have a Sovereign GA# ID?</span>
+        <a href="join.html">Claim Free ID & 500 GP</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    © 2026 SudaGene Conglomerate • members.geneacademy.net • All Rights Reserved.
+  </footer>
+
+  <script src="js/ga_data.js"></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const prefillId = urlParams.get('id') || urlParams.get('ga');
+      if (prefillId) {
+        document.getElementById('gaIdInput').value = prefillId;
+        document.getElementById('passwordInput').focus();
+      }
+    });
+
+    function handleSignIn(e) {
+      e.preventDefault();
+      const idInput = document.getElementById("gaIdInput").value.trim().toUpperCase();
+      const pwd = document.getElementById("passwordInput").value.trim();
+      const btn = document.getElementById("btnSubmit");
+      const hud = document.getElementById("successHud");
+
+      btn.disabled = true;
+      btn.textContent = "Verifying Credentials...";
+
+      setTimeout(() => {
+        const cleanId = idInput.startsWith("GA") ? idInput : "GA" + idInput;
+        let member = null;
+
+        if (typeof GA_DATABASE !== 'undefined' && Array.isArray(GA_DATABASE)) {
+          member = GA_DATABASE.find(m => m.id && (m.id.toUpperCase() === cleanId || m.id.toUpperCase() === cleanId.replace("-", "")));
+        }
+
+        const name = member ? member.name : "Verified Member";
+        const gp = member ? member.gp : 500;
+        const role = member ? member.role : "Active Candidate";
+
+        // Save session
+        const session = {
+          id: cleanId,
+          name: name,
+          gp: gp,
+          role: role,
+          authenticated: true,
+          timestamp: new Date().toISOString()
+        };
+        localStorage.setItem("gemiini_sovereign_session", JSON.stringify(session));
+
+        document.getElementById("hudName").textContent = `Welcome, ${name}!`;
+        document.getElementById("hudPoints").textContent = `${gp} GP (GemIInI Points Available)`;
+        
+        hud.classList.add("active");
+        btn.textContent = "Access Granted ✓";
+        btn.style.background = "#10B981";
+
+        // Seamless immediate redirect
+        setTimeout(() => {
+          window.location.href = "portal.html";
+        }, 600);
+      }, 400);
+    }
+  </script>
+</body>
+</html>

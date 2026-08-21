@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GemIInI Academy | أكاديمية جيميناي</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="container nav-content">
+      <a href="index.html" class="brand-logo">
+        <div class="logo-icon">G</div>
+        <div class="brand-text">
+          <h1>أكاديمية جيميناي</h1>
+          <span style="color: gray;">الوجهة الأولى للأطباء</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">الرئيسية</a></li>
+        <li><a href="smc.html">بنك الأسئلة</a></li>
+        <li><a href="registry.html">سجل الأعضاء</a></li>
+        <li><a href="join.html" class="btn-primary" style="color:white; padding: 6px 15px;">انضم إلينا</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    
+    <!-- Hero Section -->
+    <header class="hero-section" style="text-align: center; padding-top: 60px;">
+      <h1 class="hero-title" style="font-size: 40px; margin-bottom: 20px;">
+        منصة التقييم الطبي وبنوك الأسئلة المعتمدة.<br>
+        <span style="color: var(--purple-brand);">ابدأ مسارك المهني الآن.</span>
+      </h1>
+      <p class="hero-description" style="max-width: 700px; margin: 0 auto 30px; font-size: 18px;">
+        سجل الآن للحصول على رقم العضوية (GA-ID)، ابدأ في حل أسئلة المجلس الطبي أو امتحانات الزمالة، واجمع النقاط (GP) لترقية مستواك.
+      </p>
+      
+      <a href="join.html" class="btn-primary" style="font-size: 18px; padding: 12px 30px; margin-bottom: 40px;">
+        سجل حسابك مجاناً وابدأ الاختبار
+      </a>
+    </header>
+
+    <!-- Check Points (Simple Login) -->
+    <div class="glass-card" style="margin: 20px auto; max-width: 600px; padding: 30px; text-align: center;">
+      <h3 style="color: var(--purple-dark); margin-bottom: 10px;">هل لديك حساب بالفعل؟</h3>
+      <p style="font-size: 14px; color: gray; margin-bottom: 20px;">
+        أدخل رقم عضويتك (GA-ID) لمعرفة نقاطك (GP) والدخول للمحاكي.
+      </p>
+      
+      <!-- Unauthenticated View -->
+      <div id="sso-unauth-view">
+        <input type="text" id="sso-quick-id" placeholder="مثال: GA001" style="width: 70%; padding: 12px; border: 1px solid var(--line); border-radius: var(--radius-sm); font-family: var(--font-arabic); text-align: center; margin-bottom: 10px;">
+        <button class="btn-secondary" style="width: 70%; padding: 10px;" onclick="executeSovereignSync()">تحقق من حسابي</button>
+      </div>
+
+      <!-- Authenticated View (Hidden by default) -->
+      <div id="sso-authenticated-view" style="display: none; flex-direction: column; align-items: center; gap: 10px;">
+        <h4 id="sso-doctor-name" style="font-size: 20px; color: var(--purple-dark);">د. الاسم</h4>
+        <div style="background: var(--gold-light); color: var(--gold); padding: 8px 20px; border-radius: 20px; font-weight: bold; font-size: 18px;" id="sso-doctor-gp">
+          0 GP
+        </div>
+        <div style="display: flex; gap: 10px; margin-top: 15px;">
+          <a href="smc.html" class="btn-primary">اذهب لبنك الأسئلة</a>
+          <button class="btn-secondary" onclick="logoutSovereignSession()">تسجيل خروج</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="ga_data.js"></script>
+  <script src="api.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

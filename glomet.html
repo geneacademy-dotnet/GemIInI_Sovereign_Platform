@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>منظومة GLOMEt HQ | تصميم وتجهيز المنشآت المخبرية وتوريد الكواشف الطبية 2026</title>
+  <meta name="description" content="البوابة الرسمية لمنظومة GLOMEt HQ: استمارة تصميم وتجهيز المنشآت المخبرية المتكاملة من الصفر (Turnkey Labs)، شبكة توريد كواشف CBC عبر 10 ولايات، وأنظمة إعارة الأجهزة Reagent Placement.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=IBM+Plex+Mono:wght@500;600;700&family=IBM+Plex+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/styles.css">
+  
+  <style>
+    /* Specific Styles for GLOMEt Turnkey Laboratory Engine */
+    .form-wizard-card {
+      background: var(--bg-card);
+      border: 1.5px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 36px 30px;
+      margin-bottom: 40px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    }
+    .wizard-section-title {
+      display: flex; align-items: center; gap: 12px;
+      font-size: 1.25rem; font-weight: 800; color: #FFFFFF;
+      margin-bottom: 8px; border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 12px; margin-top: 24px;
+    }
+    .wizard-section-title:first-child { margin-top: 0; }
+    .sec-num {
+      background: var(--cyan-dark); color: #FFFFFF;
+      font-family: var(--font-mono); font-size: 0.85rem; font-weight: 800;
+      padding: 4px 10px; border-radius: 6px;
+    }
+    .field-hint {
+      font-size: 0.82rem; color: var(--text-muted); margin-top: -4px; margin-bottom: 12px; display: block;
+    }
+    .grid-2-form {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 14px;
+    }
+    @media (max-width: 768px) { .grid-2-form { grid-template-columns: 1fr; } }
+
+    .checkbox-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 14px 0 20px;
+    }
+    @media (max-width: 768px) { .checkbox-grid { grid-template-columns: 1fr; } }
+    
+    .cb-item {
+      background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-sm); padding: 12px 14px; display: flex; align-items: center; gap: 10px;
+      cursor: pointer; transition: all 0.15s ease; font-size: 0.88rem; color: #E2E8F0;
+    }
+    .cb-item:hover { border-color: var(--cyan-main); background: rgba(45, 224, 194, 0.05); }
+    .cb-item input[type="checkbox"] { width: auto; margin: 0; accent-color: var(--cyan-main); }
+
+    /* Success Submission Modal / HUD */
+    .procure-hud {
+      display: none; background: linear-gradient(135deg, #091E1B 0%, #0F2F2B 100%);
+      border: 2px solid var(--cyan-main); border-radius: var(--radius-md); padding: 34px 28px;
+      text-align: center; margin-top: 24px; animation: fadeIn .3s ease;
+    }
+    .procure-hud.active { display: block; }
+    
+    .metric-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(45, 224, 194, 0.12); color: var(--cyan-main);
+      border: 1px solid rgba(45, 224, 194, 0.25); padding: 4px 12px; border-radius: 9999px;
+      font-size: 0.82rem; font-weight: 700; font-family: var(--font-mono);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <header class="navbar">
+    <div class="container nav-content">
+      <a href="index.html" class="brand-logo">
+        <div class="logo-icon" style="background: linear-gradient(135deg, var(--cyan-dark), var(--purple-brand));">GL</div>
+        <div class="brand-text">
+          <h1>GLOMEt HQ</h1>
+          <span>GLOBAL MEDICAL TECHNOLOGY & TURNKEY LABS</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">الرئيسية</a></li>
+        <li><a href="#turnkey-form" style="color: var(--cyan-main); font-weight: 800;">استمارة التجهيز المخبري</a></li>
+        <li><a href="#states-network">شبكة الـ 10 ولايات</a></li>
+        <li><a href="#contract-models">أنظمة التعاقد والإعارة</a></li>
+        <li><a href="smc.html">امتحانات SMC</a></li>
+        <li><a href="portal.html">بوابة الأعضاء</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="#turnkey-form" class="btn btn-cyan" style="padding: 8px 20px; font-size: 14px;">طلب دراسة جدوى وتجهيز منشأة ←</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main class="container" style="margin-top: 50px; margin-bottom: 50px; text-align: center;">
+    <div class="cert-tag gold" style="margin-bottom: 18px;">
+      🏛️ الذراع المؤسسي والتوريدي B2B لمجموعة سوداجين • تغطية 10 ولايات
+    </div>
+    <h1 style="font-size: clamp(28px, 4.5vw, 46px); margin-bottom: 16px; color: #FFF;">
+      تصميم وتجهيز المنشآت المخبرية <span style="color: var(--cyan-main);">المتكاملة من الصفر</span>
+    </h1>
+    <p style="font-size: 17px; color: var(--text-muted); max-width: 820px; margin: 0 auto 30px; line-height: 1.8;">
+      تتولى <strong>GLOMEt HQ</strong> التخطيط الهندسي الشامل، توريد أجهزة صورة الدم (CBC) والكيمياء الحيوية، تأمين سلاسل التبريد ومنظومات الطاقة الشمسية المستقرة، وتوفير خيارات التعاقد بالإعارة (Reagent Placement System) للمستشفيات والمراكز التشخيصية.
+    </p>
+    
+    <div style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;">
+      <span class="metric-badge">⚡ أنظمة طاقة بديلة متوافقة مع انقطاع الشبكة</span>
+      <span class="metric-badge">❄️ حماية سلاسل التبريد والكواشف الحساسة</span>
+      <span class="metric-badge">📦 توريد شهري مضمون للكواشف</span>
+    </div>
+  </main>
+
+  <!-- =========================================================================
+       THE OFFICIAL 6-SECTION GLOMEt TURNKEY ESTABLISHMENT FORM
+       ========================================================================= -->
+  <section class="container" id="turnkey-form">
+    <div class="form-wizard-card">
+      <div style="text-align: center; margin-bottom: 28px;">
+        <span class="cert-tag gold" style="font-size: 12px; margin-bottom: 8px;">GLOMEt Turnkey Laboratory Establishment</span>
+        <h2 style="font-size: 26px; color: #FFFFFF;">استمارة تصميم وتجهيز منشأة مخبرية متكاملة من الصفر</h2>
+        <p style="font-size: 14.5px; color: var(--text-muted); max-width: 720px; margin: 6px auto 0;">
+          قم بتعبئة المتطلبات الميدانية لمنشأتك، وسيقوم الفريق الهندسي والطبي لـ جلوميت بإعداد المخطط الهندسي، باقة الأجهزة، وعرض الأسعار والدراسة الفنية خلال 24 ساعة.
+        </p>
+      </div>
+
+      <form id="glometEstablishForm" onsubmit="handleGlometSubmit(event)">
+        
+        <!-- القسم الأول: الهوية المؤسسية والهدف من التأسيس -->
+        <div class="wizard-section-title">
+          <span class="sec-num">01</span>
+          <span>القسم الأول: الهوية المؤسسية والهدف من التأسيس</span>
+        </div>
+
+        <div class="grid-2-form">
+          <div>
+            <label>اسم الجهة أو المنشأة الطبية المستهدفة *</label>
+            <input type="text" id="facilityName" placeholder="مثال: معمل تشخيصي خاص، مستوصف صحي، مستشفى ريفي" required>
+            <span class="field-hint">لتحديد طبيعة المنشأة وتراخيص التشغيل المناسبة.</span>
+          </div>
+          <div>
+            <label>الاسم الكامل للمالك الأصلي أو المدير المسؤول *</label>
+            <input type="text" id="ownerName" placeholder="مثال: د. وليد أحمد حامد / د. عسجد حمدالنيل" required>
+            <span class="field-hint">الشخص المخول قانونياً بتوقيع عقود التوريد والتشغيل.</span>
+          </div>
+        </div>
+
+        <div class="grid-2-form">
+          <div>
+            <label>الموقع الجغرافي الدقيق للمعمل (الولاية، المدينة، أو المنطقة) *</label>
+            <input type="text" id="facilityLocation" placeholder="مثال: أمدرمان، القضارف، سنار (السوكي/اللكندي)، بورتسودان" required>
+            <span class="field-hint">لتحديد أقرب نقطة إمداد لوجستي ومسارات التبريد.</span>
+          </div>
+          <div>
+            <label>رقم الواتساب المستخدم للمتابعة وإرسال المخططات الهندسية *</label>
+            <input type="tel" id="whatsappContact" placeholder="مثال: 0912485320 أو +249917028288" required>
+            <span class="field-hint">قناة التواصل المباشرة لإرسال عروض الأسعار والرسومات.</span>
+          </div>
+        </div>
+
+        <!-- القسم الثاني: صفة مقدم الطلب وقنوات الربط الميداني -->
+        <div class="wizard-section-title">
+          <span class="sec-num">02</span>
+          <span>القسم الثاني: صفة مقدم الطلب وقنوات الربط الميداني</span>
+        </div>
+
+        <div class="grid-2-form">
+          <div>
+            <label>ما هي صفتك الحالية وعلاقتك بالمنشأة الطبية؟ *</label>
+            <select id="submitterRole" required>
+              <option value="owner">أنا المالك الأصلي / المستثمر الرئيسي للمنشأة مباشرة</option>
+              <option value="director">أنا المدير التنفيذي / الطبي / الإداري المسؤول عن التشغيل</option>
+              <option value="agent">أنا مندوب تسويق / وكيل توزيع لـ جلوميت أقوم برفع الطلب لصالح العميل</option>
+              <option value="bme">أنا مهندس طبي / استشاري فني أقوم بتصميم المنشأة لصالح المالك</option>
+            </select>
+          </div>
+          <div>
+            <label>كود المندوب / GLOMEt ID (اكتب "المالك مباشرة" إذا كنت صاحب الطلب) *</label>
+            <input type="text" id="glometAgentId" placeholder="مثال: GLOMEt-SD431-BME-AFM1-BRZ أو المالك مباشرة" required>
+          </div>
+        </div>
+
+        <div>
+          <label>الاسم الكامل وتفاصيل الاتصال بالشخص المسؤول عن الإدارة المالية والمشتريات *</label>
+          <input type="text" id="financeOfficer" placeholder="اسم مسؤول الحسابات والمشتريات ورقم هاتفه" required>
+        </div>
+
+        <!-- القسم الثالث: رصد النطاق التشخيصي وحجم العمل المستهدف -->
+        <div class="wizard-section-title">
+          <span class="sec-num">03</span>
+          <span>القسم الثالث: رصد النطاق التشخيصي وحجم العمل المستهدف</span>
+        </div>
+
+        <div class="grid-2-form">
+          <div>
+            <label>التصنيف التشغيلي وحجم العمل المتوقع للمختبر *</label>
+            <select id="workloadScale" required>
+              <option value="primary">مختبر رعاية أولية وطرفي (فحوصات أساسية وسريعة)</option>
+              <option value="medium" selected>مختبر متكامل متوسط الحجم (يغطي مستشفى ريفي أو عيادات مجمعة)</option>
+              <option value="central">مختبر مركزي أو مرجعي متطور (طاقة تشغيلية عالية وتشخيص جزيئي)</option>
+              <option value="consult">لا أستطيع التحديد حالياً، وأحتاج لمساعدة فريق جلوميت في التقييم</option>
+            </select>
+            <span class="field-hint">الهدف: تحديد فئة الأجهزة وسرعتها الإنتاجية وسعتها الاستيعابية لتجنب هدر المحاليل.</span>
+          </div>
+          <div>
+            <label>مساحة الغرفة المخصصة لتركيب الأجهزة (بالأمتار المربعة تقريباً) *</label>
+            <input type="text" id="roomDimensions" placeholder="مثال: 5×4 متر أو 5×6 متر (أو اكتب لا أعرف)" required>
+            <span class="field-hint">الهدف: تصميم المخطط الهندسي الداخلي للمعمل وتوزيع الأجهزة لسهولة الصيانة.</span>
+          </div>
+        </div>
+
+        <label>خطوط الفحوصات الأساسية التي تود تغطيتها في المرحلة الأولى (اختر المجالات المطلوبة):</label>
+        <div class="checkbox-grid">
+          <label class="cb-item">
+            <input type="checkbox" name="testLines" value="hematology" checked>
+            <span>🩸 أمراض الدم وصورة الدم الكاملة (Hematology / CBC)</span>
+          </label>
+          <label class="cb-item">
+            <input type="checkbox" name="testLines" value="chemistry" checked>
+            <span>🧪 الكيمياء السريرية الروتينية والمتقدمة (Clinical Chemistry)</span>
+          </label>
+          <label class="cb-item">
+            <input type="checkbox" name="testLines" value="microbiology">
+            <span>🧫 الأحياء الدقيقة وعلم الجراثيم والمزارع الحيوية (Microbiology)</span>
+          </label>
+          <label class="cb-item">
+            <input type="checkbox" name="testLines" value="molecular">
+            <span>🧬 التشخيص الجزيئي وفحوصات الـ PCR والأورام</span>
+          </label>
+          <label class="cb-item">
+            <input type="checkbox" name="testLines" value="coagulation">
+            <span>⏱️ تجلط الدم وسيولة الدم المخبرية (Coagulation / PT-PTT)</span>
+          </label>
+          <label class="cb-item">
+            <input type="checkbox" name="testLines" value="immunology">
+            <span>🔬 المناعة والهرمونات والدلائل الورمية (Immunology & ELISA)</span>
+          </label>
+          <label class="cb-item">
+            <input type="checkbox" name="testLines" value="blood_bank">
+            <span>💉 بنوك الدم وفحوصات الفصائل والتطابق (Blood Banking)</span>
+          </label>
+          <label class="cb-item">
+            <input type="checkbox" name="testLines" value="poct">
+            <span>⚡ أجهزة الرعاية الفورية ونقاط العناية السريعة (POCT)</span>
+          </label>
+        </div>
+
+        <!-- القسم الرابع: هندسة البيئة التشغيلية ومصادر الطاقة -->
+        <div class="wizard-section-title">
+          <span class="sec-num">04</span>
+          <span>القسم الرابع: هندسة البيئة التشغيلية ومصادر الطاقة وسلاسل التبريد</span>
+        </div>
+
+        <div class="grid-2-form">
+          <div>
+            <label>طبيعة ومصدر الطاقة الكهربائية المتوفرة في موقع المنشأة *</label>
+            <select id="powerSource" required>
+              <option value="solar">اعتماد كامل أو شبه كامل على أنظمة الطاقة الشمسية (Solar Systems) والبطاريات</option>
+              <option value="grid">اعتماد كامل على الشبكة الوطنية مع انقطاع متكرر وتذبذب في الجهد</option>
+              <option value="generator">اعتماد كامل على المولدات الخاصة (Generators) بنظام التشغيل التناوبي</option>
+              <option value="need_solar">لا يوجد مصدر طاقة مستقر، ونطلب من جلوميت تصميم نظام طاقة بديلة متكامل</option>
+            </select>
+            <span class="field-hint">الهدف: تلافي تضرر اللوحات الإلكترونية للأجهزة واختيار الأجهزة الجافة أو أنظمة الحماية.</span>
+          </div>
+          <div>
+            <label>الجاهزية الحرارية وسلاسل التبريد داخل موقع المعمل حالياً *</label>
+            <select id="coolingStatus" required>
+              <option value="ac_ready">تكييف هواء مستمر وممتاز ومستودع مبرد مخصص للمحاليل متوفر</option>
+              <option value="under_construction" selected>الموقع تحت الإنشاء، ونحتاج لتزويدنا بأنظمة تبريد مستقلة وأجهزة مستقرة حرارياً</option>
+              <option value="temporary">تكييف هواء مؤقت، ولا توجد ثلاجات أو مستودعات حفظ مخصصة</option>
+              <option value="need_help">أحتاج لمساعدة لتحديد الحجم والقدرة التبريدية المطلوبة للموقع</option>
+            </select>
+            <span class="field-hint">الهدف: حماية الكواشف والمحاليل الحساسة من التلف الحراري وضمان دقة النتائج.</span>
+          </div>
+        </div>
+
+        <!-- القسم الخامس: التقييم المالي والنموذج التعاقدي المستهدف -->
+        <div class="wizard-section-title">
+          <span class="sec-num">05</span>
+          <span>القسم الخامس: التقييم المالي والنموذج التعاقدي المستهدف</span>
+        </div>
+
+        <div class="grid-2-form">
+          <div>
+            <label>الميزانية التقديرية المرصودة لشراء الأجهزة وخطوط الإمداد *</label>
+            <select id="estimatedBudget" required>
+              <option value="under_10k" selected>أقل من 10,000 دولار</option>
+              <option value="10k_30k">من 10,000 إلى 30,000 دولار</option>
+              <option value="30k_75k">من 30,000 إلى 75,000 دولار</option>
+              <option value="above_75k">أعلى من 75,000 دولار</option>
+              <option value="feasibility">لا أملك ميزانية محددة، وأطلب دراسة الجدوى من فريق جلوميت الهندسي</option>
+            </select>
+          </div>
+          <div>
+            <label>نوع الشراكة والتعاقد المفضلة لمنشأتكم مع جلوميت *</label>
+            <select id="contractPreference" required>
+              <option value="placement" selected>نظام إعارة وتجهيز المختبر مقابل سحب محاليل مستمر (Reagent Placement System)</option>
+              <option value="cash">شراء نقدي مباشر لكافة الأنظمة والأجهزة مع خصومات الوكالة الحصرية</option>
+              <option value="back_to_back">نظام الشراء مسبق التمويل (Back-to-Back) لحجز خطوط إنتاج من المصانع العالمية</option>
+              <option value="legal_consult">أحتاج إلى شرح وتوضيح الفروق القانونية والمالية لاختيار الأنسب</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-cyan" id="btnSubmitForm" style="width: 100%; padding: 16px; font-size: 16px; margin-top: 20px;">
+          إرسال المتطلبات وإصدار المخطط الهندسي والدراسة الفنية ➔
+        </button>
+      </form>
+
+      <!-- Success Transport HUD -->
+      <div class="procure-hud" id="procureSuccessHud">
+        <div class="metric-badge" style="margin-bottom: 12px;">✓ تم تسجيل طلب التجهيز المخبري بنجاح</div>
+        <h3 style="font-size: 24px; color: #FFFFFF; margin-bottom: 6px;" id="hudFacilityTitle">تم تسجيل المنشأة في شبكة GLOMEt</h3>
+        <p style="color: var(--text-muted); font-size: 14.5px; max-width: 620px; margin: 0 auto 16px;">
+          تم استلام بيانات الموقع وتحديد الباقة التوافقية مع شبكة الطاقة وسلاسل التبريد. رقم مرجع المتابعة الهندسي الخاص بك:
+        </p>
+        <div style="font-family: var(--font-mono); font-size: 22px; font-weight: 800; color: var(--cyan-main); margin-bottom: 18px;" id="hudReqId">
+          GLOMEt-REQ-8492-SD
+        </div>
+        <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
+          <a href="https://wa.me/201015922628" target="_blank" class="btn btn-cyan" style="padding: 10px 24px; font-size: 14px;">
+            متابعة المخطط عبر الواتساب الرسمي 📱
+          </a>
+          <a href="index.html" class="btn btn-outline" style="padding: 10px 20px; font-size: 14px;">العودة للرئيسية</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       GLOMEt 10-STATES SUPPLY NETWORK & ACTIVE HUBS
+       ========================================================================= -->
+  <section class="container" id="states-network" style="margin-bottom: 60px;">
+    <div style="text-align: center; margin-bottom: 30px;">
+      <span class="cert-tag gold" style="margin-bottom: 8px;">Regional Supply Moat</span>
+      <h2 style="font-size: 28px; color: #FFFFFF;">شبكة التوريد والتجهيز عبر 10 ولايات سودانية</h2>
+      <p style="color: var(--text-muted); font-size: 15px; max-width: 700px; margin: 6px auto 0;">
+        منظومة سلاسل إمداد لوجستية مؤمنة تضمن استقرار كواشف CBC ومحاليل الكيمياء السريرية حتى في أصعب الظروف الميدانية:
+      </p>
+    </div>
+
+    <div class="grid-3">
+      <div class="glass-card">
+        <h3 style="color: var(--cyan-main); font-size: 18px; margin-bottom: 8px;">📍 الخرطوم وأمدرمان</h3>
+        <p style="font-size: 14px; color: var(--text-muted);">
+          تجهيز المعامل الخاصة والمستشفيات التخصصية، ودعم سلاسل التبريد المستقلة بالأجهزة الجافة.
+        </p>
+        <span class="cert-tag" style="margin-top: 12px; font-size: 11px;">مركز الصيانة وإصلاح البوردات</span>
+      </div>
+
+      <div class="glass-card">
+        <h3 style="color: var(--cyan-main); font-size: 18px; margin-bottom: 8px;">📍 ولاية القضارف وسنار</h3>
+        <p style="font-size: 14px; color: var(--text-muted);">
+          دعم المستوصفات والمستشفيات الريفية (السوكي، اللكندي) بأنظمة التجهيز المتكامل وأنظمة الطاقة البديلة.
+        </p>
+        <span class="cert-tag" style="margin-top: 12px; font-size: 11px;">عقود سحب كواشف CBC ميسرة</span>
+      </div>
+
+      <div class="glass-card">
+        <h3 style="color: var(--cyan-main); font-size: 18px; margin-bottom: 8px;">📍 البحر الأحمر وكسلا ونهر النيل</h3>
+        <p style="font-size: 14px; color: var(--text-muted);">
+          بوابة الاستيراد والتخزين المركزي، وتوزيع مستلزمات التشخيص الفوري (POCT) والمستشفيات الجامعية.
+        </p>
+        <span class="cert-tag" style="margin-top: 12px; font-size: 11px;">مستودع الكواشف المركزي المبرد</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="brand-logo" style="margin-bottom: 16px;">
+          <div class="logo-icon" style="background: linear-gradient(135deg, var(--cyan-dark), var(--purple-brand));">GL</div>
+          <div class="brand-text">
+            <h1 style="font-size: 18px;">GLOMEt HQ</h1>
+          </div>
+        </div>
+        <p style="font-size: 13px; color: var(--text-muted);">
+          الذراع الهندسي والتوريدي B2B لمجموعة سوداجين الطبية. تجهيز المختبرات الطبية، توريد الكواشف التشخيصية، وصيانة الأنظمة المخبرية في السودان وإفريقيا.
+        </p>
+      </div>
+
+      <div>
+        <h4>خدمات Turnkey Labs</h4>
+        <ul>
+          <li><a href="#turnkey-form">تجهيز المعامل من الصفر</a></li>
+          <li><a href="#turnkey-form">أنظمة الطاقة الشمسية للمختبرات</a></li>
+          <li><a href="#turnkey-form">سلاسل التبريد وثلاجات الكواشف</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>أنظمة التعاقد والتوريد</h4>
+        <ul>
+          <li><a href="#turnkey-form">نظام إعارة الأجهزة Reagent Placement</a></li>
+          <li><a href="#turnkey-form">الشراء مسبق التمويل Back-to-Back</a></li>
+          <li><a href="#states-network">شبكة التوزيع في 10 ولايات</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>التواصل المباشر والمخططات</h4>
+        <ul>
+          <li><a href="index.html">الرئيسية (SudaGene)</a></li>
+          <li><a href="portal.html">بوابة الأعضاء</a></li>
+          <li style="margin-top: 14px; color: var(--gold-main); font-family: var(--font-mono); font-weight: 800;">
+            المشتريات: +20 101 592 2628
+          </li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function handleGlometSubmit(e) {
+      e.preventDefault();
+      const facility = document.getElementById('facilityName').value.trim();
+      const owner = document.getElementById('ownerName').value.trim();
+      const location = document.getElementById('facilityLocation').value.trim();
+      const whatsapp = document.getElementById('whatsappContact').value.trim();
+      const btn = document.getElementById('btnSubmitForm');
+
+      btn.disabled = true;
+      btn.textContent = 'جاري إعداد المخطط الهندسي والدراسة الفنية...';
+
+      setTimeout(() => {
+        const randNum = Math.floor(1000 + Math.random() * 8999);
+        const reqId = `GLOMEt-REQ-${randNum}-SD`;
+
+        document.getElementById('hudFacilityTitle').textContent = `تم تسجيل ${facility} بنجاح (${location})`;
+        document.getElementById('hudReqId').textContent = reqId;
+
+        // Hide form & show HUD
+        document.getElementById('glometEstablishForm').style.display = 'none';
+        document.getElementById('procureSuccessHud').classList.add('active');
+      }, 500);
+    }
+  </script>
+</body>
+</html>

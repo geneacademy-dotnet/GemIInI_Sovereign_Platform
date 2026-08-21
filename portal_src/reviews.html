@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>التدقيق السريري | GemIInI Academy</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  
+  <nav class="navbar">
+    <div class="container nav-content">
+      <a href="index.html" class="brand-logo">
+        <div class="logo-icon">G</div>
+        <div class="brand-text">
+          <h1>أكاديمية جيميناي</h1>
+          <span>THE PROMETRIC OF SUDAN</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">الرئيسية</a></li>
+        <li><a href="registry.html">سجل الخريجين</a></li>
+        <li><a href="reviews.html" class="active">التدقيق السريري</a></li>
+        <li><a href="smc.html">المحاكي (SMC)</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container" style="padding-top: 50px;">
+    
+    <div style="text-align: center; margin-bottom: 40px;">
+      <h1 style="font-size: 32px; font-weight: 900; color: var(--purple-dark); margin-bottom: 12px;">سجل التدقيق والتقييم التشغيلي</h1>
+      <p style="font-size: 15px; color: var(--text-muted); max-width: 650px; margin: 0 auto;">
+        تقارير الأداء وتجربة المستخدم الموثقة من الأطباء الممارسين في السودان. نعتمد الشفافية المطلقة لتقييم جودة الأسئلة وسرعة استجابة المنظومة.
+      </p>
+    </div>
+
+    <!-- Feed Container -->
+    <div id="reviews-feed-container" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 24px;">
+      <!-- Populated by JS -->
+    </div>
+  </div>
+
+  <footer style="background: var(--purple-dark); color: white; padding: 20px 0; text-align: center; margin-top: 60px;">
+    <div class="container" style="font-size: 12px; color: #A78BFA;">
+      &copy; 2026 GemIInI Academy. Centrally-Audited Sovereign Ledger v3.0.
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="reviews_data.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const container = document.getElementById("reviews-feed-container");
+      let html = "";
+      GEMIINI_VERIFIED_REVIEWS.forEach(rev => {
+        const starString = "★".repeat(Math.round(rev.ratings.questionQuality)) + "☆".repeat(5 - Math.round(rev.ratings.questionQuality));
+        html += `
+          <div class="glass-card" style="border-top: 4px solid var(--purple-brand);">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+              <div>
+                <span style="background: var(--purple-light); color: var(--purple-brand); padding: 4px 10px; border-radius: 20px; font-size: 12px; font-weight: bold;">${rev.gemiiniId}</span>
+                <h3 style="font-size: 18px; color: var(--purple-dark); margin-top: 8px;">${rev.doctorName}</h3>
+              </div>
+              <div style="color: var(--gold); font-size: 16px;">${starString}</div>
+            </div>
+            <div style="background: #FAF7F2; padding: 8px; border-radius: 6px; font-size: 12px; font-weight: bold; margin-bottom: 12px;">
+              🧪 ${rev.unitTested}
+            </div>
+            <p style="font-size: 13px; color: var(--text-muted); font-style: italic; line-height: 1.6;">"${rev.keyHighlightQuote}"</p>
+          </div>
+        `;
+      });
+      container.innerHTML = html;
+    });
+  </script>
+</body>
+</html>

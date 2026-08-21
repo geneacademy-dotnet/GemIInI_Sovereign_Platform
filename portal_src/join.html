@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>انضم للأكاديمية | GemIInI</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container nav-content">
+      <a href="index.html" class="brand-logo"><div class="logo-icon">G</div> أكاديمية جيميناي</a>
+      <ul class="nav-links">
+        <li><a href="index.html">الرئيسية</a></li>
+        <li><a href="join.html" class="active" style="color:var(--purple-brand);">سجل الآن</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container" style="padding-top: 50px; max-width: 600px;">
+    <div class="glass-card" style="padding: 40px;">
+      <h2 style="color: var(--purple-dark); text-align: center; margin-bottom: 10px;">بوابة التسجيل للوصول لبنك الأسئلة</h2>
+      <p style="text-align: center; color: gray; margin-bottom: 30px; font-size: 14px;">
+        سجل بياناتك الآن للحصول على رقم العضوية (GA-ID) والبدء في تجميع النقاط (GP).
+      </p>
+
+      <form id="join-form" onsubmit="submitRegistration(event)">
+        <div style="margin-bottom: 15px;">
+          <label style="font-weight: bold; font-size: 14px; margin-bottom: 5px; display: block;">الاسم الكامل</label>
+          <input type="text" id="reg-name" required style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; font-family: inherit;">
+        </div>
+
+        <div style="margin-bottom: 15px;">
+          <label style="font-weight: bold; font-size: 14px; margin-bottom: 5px; display: block;">الجامعة أو المستشفى</label>
+          <input type="text" id="reg-univ" required style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; font-family: inherit;">
+        </div>
+
+        <div style="margin-bottom: 25px;">
+          <label style="font-weight: bold; font-size: 14px; margin-bottom: 5px; display: block;">المسار الذي تستهدفه</label>
+          <select id="reg-track" style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; font-family: inherit;">
+            <option value="SMC">امتحان التسجيل الدائم (SMC)</option>
+            <option value="USMLE">المعادلة الأمريكية (USMLE)</option>
+            <option value="MRCS">زمالة الجراحة (MRCS)</option>
+            <option value="OET">امتحان اللغة (OET)</option>
+          </select>
+        </div>
+
+        <button type="submit" id="submit-btn" class="btn-primary" style="width: 100%; font-size: 16px;">إرسال طلب التسجيل</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="api.js"></script>
+  <script>
+    async function submitRegistration(event) {
+      event.preventDefault();
+      const btn = document.getElementById('submit-btn');
+      btn.textContent = 'جاري تسجيل بياناتك...';
+      btn.disabled = true;
+
+      const payload = {
+        action: "register",
+        name: document.getElementById('reg-name').value,
+        univ: document.getElementById('reg-univ').value,
+        track: document.getElementById('reg-track').value
+      };
+
+      try {
+        const response = await fetch(GAS_URL, {
+          method: 'POST',
+          headers: { "Content-Type": "text/plain;charset=utf-8" },
+          body: JSON.stringify(payload)
+        });
+        const result = await response.json();
+        alert("تم استلام طلبك بنجاح! رقمك المبدئي هو: " + result.id + "\\nسيقوم الفريق بمراجعة طلبك وتفعيله.");
+        window.location.href = "index.html";
+      } catch (err) {
+        alert("حدث خطأ في الاتصال، يرجى المحاولة لاحقاً.");
+        btn.textContent = 'إرسال طلب التسجيل';
+        btn.disabled = false;
+      }
+    }
+  </script>
+</body>
+</html>

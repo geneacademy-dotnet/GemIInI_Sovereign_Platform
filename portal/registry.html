@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>السجل المركزي للأعضاء | GemIInI Academy</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .top-conglomerate-banner {
+      background: #04080F;
+      color: #94A3B8;
+      font-size: 13px;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(0, 242, 254, 0.15);
+    }
+    .top-banner-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .top-banner-links a {
+      color: #2DE0C2;
+      margin-right: 14px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .top-banner-links a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Conglomerate Gateway Ribbon -->
+  <div class="top-conglomerate-banner">
+    <div class="container top-banner-inner">
+      <div>
+        <span>🏛️ شبكة سوداجين الطبية:</span>
+        <strong style="color: #FFFFFF; margin-right: 6px;">السجل المركزي المعتمد للأطباء والباحثين</strong>
+      </div>
+      <div class="top-banner-links">
+        <a href="../index.html">← البوابة الرئيسية</a>
+        <a href="../portal.html">💼 السيرة الذاتية الحية (Living CV)</a>
+        <a href="../alumni.html">📜 الشهادات ولوحة الشرف</a>
+      </div>
+    </div>
+  </div>
+  
+  <nav class="navbar">
+    <div class="container nav-content">
+      <a href="index.html" class="brand-logo">
+        <div class="logo-icon">G</div>
+        <div class="brand-text">
+          <h1 style="font-size: 20px; color: var(--purple-dark);">أكاديمية جيميناي</h1>
+          <span style="font-size: 12px; color: var(--gold);">THE PROMETRIC OF SUDAN</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">الرئيسية</a></li>
+        <li><a href="smc.html">المحاكي (SMC)</a></li>
+        <li><a href="registry.html" class="active">سجل الأعضاء</a></li>
+        <li><a href="reviews.html">التدقيق السريري</a></li>
+        <li><a href="join.html" class="btn-primary" style="color:white; padding: 6px 16px;">سجل جديد ←</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container" style="padding-top: 40px; margin-bottom: 60px;">
+    
+    <div style="text-align: center; margin-bottom: 30px;">
+      <span style="background: var(--purple-light); color: var(--purple-brand); padding: 4px 14px; border-radius: 20px; font-weight: bold; font-size: 13px; display: inline-block; margin-bottom: 10px;">
+        قاعدة بيانات مركزية موثقة 100%
+      </span>
+      <h1 style="font-size: 32px; font-weight: 900; color: var(--purple-dark); margin-bottom: 12px;">سجل الكفاءات والباحثين المعتمدين</h1>
+      <p style="font-size: 15px; color: var(--text-muted); max-width: 680px; margin: 0 auto; line-height: 1.7;">
+        دليل الكفاءات الطبية المعتمدة. كل عضو هنا يمتلك محفظة معرفية (GP) تعكس نشاطه الأكاديمي، إسهاماته السريرية، ونتائج محاكي المجلس الطبي الموثقة عبر الخادم المركزي.
+      </p>
+    </div>
+
+    <!-- Quick Search in Registry -->
+    <div style="max-width: 500px; margin: 0 auto 30px;">
+      <input type="text" id="reg-filter-input" placeholder="بحث بالاسم، رقم المعرف (GA#)، أو الجامعة..." style="width: 100%; padding: 12px; border: 1.5px solid var(--line); border-radius: var(--radius-sm); font-family: inherit; font-size: 14px;" oninput="filterRegistryCards()">
+    </div>
+
+    <div id="ga-results-count" style="font-size: 14px; font-weight: 700; color: var(--purple-brand); margin-bottom: 20px;">
+      جاري تحميل السجل الموثق...
+    </div>
+
+    <!-- The Grid Container (App.js renders cards here) -->
+    <div id="ga-cards-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;">
+      <!-- Populated by JS -->
+    </div>
+  </div>
+
+  <footer style="background: var(--purple-dark); color: white; padding: 24px 0; text-align: center;">
+    <div class="container" style="font-size: 12px; color: #A78BFA;">
+      &copy; 2026 GemIInI Academy • Centrally-Audited Ledger • 
+      <a href="../registry.html" style="color: #FDE68A; text-decoration: underline; margin-right: 8px;">السجل الموسع الشامل (1,200+ عضو)</a>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="ga_data.js"></script>
+  <script src="api.js"></script>
+  <script src="app.js"></script>
+  <script>
+    function filterRegistryCards() {
+      const q = document.getElementById("reg-filter-input").value.trim().toLowerCase();
+      const grid = document.getElementById("ga-cards-grid");
+      if (!grid || typeof GA_DATABASE === "undefined") return;
+
+      const filtered = GA_DATABASE.filter(m => 
+        !q || 
+        (m.id && m.id.toLowerCase().includes(q)) ||
+        (m.name && m.name.toLowerCase().includes(q)) ||
+        (m.univ && m.univ.toLowerCase().includes(q)) ||
+        (m.role && m.role.toLowerCase().includes(q))
+      );
+
+      let html = "";
+      filtered.forEach(m => {
+        html += `
+          <div class="glass-card" style="padding: 20px; text-align:right;">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <span style="font-weight: 800; color: var(--purple-brand); font-family: var(--font-mono); font-size:16px;">${m.id}</span>
+              <span style="font-size:11px; background:#EDE9FE; color:#4C1D95; padding:2px 8px; border-radius:10px; font-weight:bold;">${m.tier || 'Active'}</span>
+            </div>
+            <h4 style="margin: 10px 0 4px; color: var(--purple-dark); font-size:16px;">${m.name}</h4>
+            <p style="font-size:12px; color:gray;">${m.univ || 'Medical Faculty'}</p>
+            <div style="margin-top:12px; border-top:1px solid #eee; padding-top:10px; display:flex; justify-content:space-between; align-items:center;">
+              <span style="font-size:12px; color:gray;">الرصيد المعرفي:</span>
+              <span style="color:var(--gold); font-weight:bold; font-family:var(--font-mono); font-size:15px;">${(m.gp || 500).toLocaleString()} GP</span>
+            </div>
+          </div>`;
+      });
+      grid.innerHTML = html;
+      document.getElementById("ga-results-count").textContent = `${filtered.length} عضواً مطابقاً في السجل الموثق`;
+    }
+  </script>
+</body>
+</html>

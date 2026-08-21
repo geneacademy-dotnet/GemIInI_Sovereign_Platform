@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>سجل التقييمات التشغيلية والسريرية المعتمدة | منظومة GemIInI السيادية (First Time Experience Audit)</title>
+ <meta name="description" content="سجل التقييمات التشغيلية والسريرية الموثقة بالهوية الرقمية للأطباء الممارسين في السودان والمنطقة. استعراض نتائج استبيان تجربة النظام الأول، جودة بنوك الأسئلة، واستطلاع واقع الممارسة الطبية.">
+ 
+ <!-- Google Fonts -->
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700;800;900&family=Amiri:wght@400;700&family=Cairo:wght@400;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,600;6..72,700&display=swap" rel="stylesheet">
+ 
+ <link rel="stylesheet" href="css/styles.css">
+ <style>
+ .kpi-stat-card {
+ background: #FFFFFF;
+ border: 1.5px solid var(--line);
+ border-radius: var(--radius-md);
+ padding: 24px;
+ text-align: center;
+ transition: all 0.25s ease;
+ box-shadow: var(--shadow-card);
+ }
+ .kpi-stat-card:hover {
+ transform: translateY(-4px);
+ box-shadow: 0 14px 30px rgba(30, 10, 56, 0.08);
+ }
+ .kpi-value {
+ font-family: var(--font-mono);
+ font-size: 36px;
+ font-weight: 900;
+ line-height: 1.1;
+ margin: 6px 0;
+ }
+ .kpi-label {
+ font-size: 13px;
+ font-weight: 700;
+ color: var(--text-muted);
+ }
+ .review-filter-btn {
+ padding: 8px 16px;
+ border: 1.5px solid var(--line);
+ border-radius: var(--radius-full);
+ background: #FFFFFF;
+ color: var(--text-main);
+ font-family: var(--font-arabic);
+ font-size: 13px;
+ font-weight: 700;
+ cursor: pointer;
+ transition: all 0.2s ease;
+ }
+ .review-filter-btn:hover {
+ border-color: var(--purple-brand);
+ color: var(--purple-brand);
+ background: var(--purple-light);
+ }
+ .review-filter-btn.active {
+ background: var(--purple-primary);
+ border-color: var(--purple-primary);
+ color: #FFFFFF;
+ box-shadow: 0 4px 12px rgba(59, 18, 97, 0.2);
+ }
+ .barrier-bar-container {
+ background: #FAF7F2;
+ border: 1px solid var(--line);
+ border-radius: var(--radius-md);
+ padding: 16px 20px;
+ margin-bottom: 14px;
+ }
+ .barrier-progress-bg {
+ background: #E8DFD3;
+ height: 10px;
+ border-radius: 5px;
+ overflow: hidden;
+ margin-top: 8px;
+ }
+ .barrier-progress-fill {
+ background: linear-gradient(90deg, var(--purple-brand), var(--gold));
+ height: 100%;
+ border-radius: 5px;
+ transition: width 1.2s ease-in-out;
+ }
+ .audit-section-box {
+ background: #FFFFFF;
+ border: 1px solid var(--line);
+ border-radius: var(--radius-sm);
+ padding: 16px;
+ margin-bottom: 14px;
+ }
+ .audit-section-title {
+ font-size: 14px;
+ font-weight: 800;
+ color: var(--purple-dark);
+ margin-bottom: 10px;
+ border-bottom: 1px dashed var(--line);
+ padding-bottom: 6px;
+ }
+ .audit-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+ gap: 10px;
+ font-size: 13px;
+ }
+ .audit-grid span {
+ color: var(--text-sub);
+ display: block;
+ font-size: 14.5px;
+ }
+ </style>
+</head>
+<body style="background: var(--bg-primary);">
+
+ <!-- Domains Ribbon -->
+ <div class="domains-ribbon">
+ <div class="container">
+ <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+ <span style="color: var(--gold); font-weight: 700;"> سجل التدقيق والتقييم السريري:</span>
+ <a href="https://members.geneacademy.net" target="_blank" class="domain-chip"> members.geneacademy.net</a>
+ <a href="http://www.geneacademy.net" target="_blank" class="domain-chip"> geneacademy.net</a>
+ <span class="cert-tag" style="background: rgba(255,255,255,0.08); color: #FFFFFF; border-color: rgba(255,255,255,0.15); font-size: 14.5px;">توثيق استبيانات 2026</span>
+ </div>
+ <div style="display: flex; align-items: center; gap: 14px;">
+ <span style="font-size: 14.5px; color: #EDE8F5;">أمانة الشؤون المالية والتحصيل: <strong style="color: var(--gold); font-family: var(--font-mono);">+20 101 592 2628</strong></span>
+ </div>
+ </div>
+ </div>
+
+ <!-- Navigation Bar -->
+ <header class="navbar">
+ <div class="container nav-content">
+ <a href="index.html" class="brand-logo">
+ <div class="logo-icon">GS</div>
+ <div class="brand-text">
+ <h1>GEMIINI SOVEREIGN</h1>
+ <span>سجل التقييمات والتدقيق التشغيلي</span>
+ </div>
+ </a>
+
+ <ul class="nav-links">
+ <li><a href="index.html">الرئيسية</a></li>
+ <li><a href="blueprint.html" style="color: var(--purple-brand); font-weight: 800;"> المخطط الهيكلي</a></li>
+ <li><a href="smc.html" style="color: var(--gold); font-weight: 800;"> التسجيل الدائم SMC</a></li>
+ <li><a href="glomet.html" style="color: var(--teal); font-weight: 800;"> منظومة GLOMEt</a></li>
+ <li><a href="courses.html">دليل الدورات</a></li>
+ <li><a href="alumni.html">لوحة الشرف والشهادات</a></li>
+ <li><a href="registry.html">سجل الأعضاء المعتمدين</a></li>
+ <li><a href="reviews.html" class="active" style="color: var(--gold); font-weight: 900;"> التقييمات الموثقة</a></li>
+ </ul>
+
+ <div class="nav-cta">
+ <a href="#submit-review-section" class="btn btn-gold" style="padding: 9px 18px; font-size: 13px;">
+ شارك تقييمك (+100 GP) 
+ </a>
+ </div>
+ </div>
+ </header>
+
+ <!-- =========================================================================
+ SOVEREIGN REGISTRY CREDENTIAL VERIFIER (members.geneacademy.net GATEWAY)
+ ========================================================================= -->
+ <section class="container" style="margin-top: 18px;">
+ <div id="sovereign-sso-bar" class="sso-sync-container">
+ <div id="sso-authenticated-view" style="display: none; width: 100%; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
+ <div class="sso-status-active">
+ <div class="sso-avatar-badge" id="sso-avatar">GA</div>
+ <div class="sso-info">
+ <h4>
+ <span id="sso-doctor-name">د. العضو المسجل</span>
+ <span style="color: #85e0a3; font-size: 14.5px;">— Verified Credential</span>
+ </h4>
+ <p>
+ ID: <strong id="sso-doctor-id" style="color: #00E5FF;">GA000</strong> • 
+ الرصيد الأكاديمي: <strong id="sso-doctor-gp" style="color: #F59E0B;">-- GP</strong> • 
+ <span id="sso-doctor-univ">University</span>
+ </p>
+ </div>
+ </div>
+ <div class="sso-actions">
+ <button type="button" onclick="logoutSovereignSession()" style="background:none; border:none; color: #94A3B8; font-size: 14.5px; cursor:pointer; text-decoration:underline;">إعادة الاستعلام (Reset)</button>
+ <a href="https://members.geneacademy.net" id="sso-teleport-link" target="_blank" class="btn-teleport">
+ دخول بوابة الأعضاء (members.geneacademy.net) →
+ </a>
+ </div>
+ </div>
+
+ <div id="sso-unauth-view" style="display: flex; width: 100%; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
+ <div>
+ <span style="font-family: var(--font-mono, monospace); font-size: 14.5px; color: #F59E0B; text-transform: uppercase; font-weight: 700;">الاستعلام والتحقق من حالة القيد والاعتماد (Sovereign Credential Status):</span>
+ <p style="font-size: 13px; color: #E2E8F0; margin: 2px 0 0;">أدخل رقم رقم الهوية المهنية الرقمية (GA#) (GA#) للتحقق من اعتماد الحساب وتدقيق تقييماتك المسجلة.</p>
+ </div>
+ <div class="sso-input-unauth">
+ <input type="text" id="sso-quick-id" placeholder="مثال: GA3463" onkeydown="if(event.key==='Enter') executeSovereignSync()">
+ <button type="button" class="btn-sso-sync" onclick="executeSovereignSync()">استعلام →</button>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- Hero Header -->
+ <section class="container" style="max-width: 1020px; margin: 40px auto 30px; text-align: center;">
+ <div class="hero-badge" style="background: var(--gold-light); border-color: var(--gold); color: #92400E;">
+ <span> المصدر الرسمي: First Time Experience & Operational Review Survey (2026)</span>
+ </div>
+ 
+ <h1 class="hero-title" style="font-size: 38px;">
+ سجل التقييمات السريرية والتدقيق التشغيلي
+ </h1>
+ 
+ <p class="hero-description" style="max-width: 860px; margin: 0 auto 30px;">
+ نوثق بكل شفافية وموثوقية آراء وانطباعات الأطباء الممارسين في السودان والمنطقة بعد إتمام تحديات بنك الأسئلة الدائم واختبارات المستوى الثاني. تقارير تدقيق حقيقية ممهورة بالأرقام السيادية (GA#) ومواعيد التوثيق.
+ </p>
+ </section>
+
+ <!-- 7 KPI Analytics Counter Scorecards Matrix -->
+ <section class="container" style="margin-bottom: 70px;">
+ <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px;">
+ 
+ <!-- KPI 1 -->
+ <div class="kpi-stat-card" style="border-top: 4px solid var(--gold);">
+ <span class="cert-tag" style="background: var(--gold-light); color: var(--gold-dark); font-size: 14.5px;">معدل الرضا العام</span>
+ <div class="kpi-value moving-counter" data-target="4.74" data-decimals="2" data-suffix=" / 5.0" style="color: var(--gold);">0.00 / 5.0</div>
+ <div class="kpi-label">تقييم النجوم التراكمي (16 استبياناً موثقاً)</div>
+ </div>
+
+ <!-- KPI 2 -->
+ <div class="kpi-stat-card" style="border-top: 4px solid var(--purple-brand);">
+ <span class="cert-tag" style="background: var(--purple-light); color: var(--purple-brand); font-size: 14.5px;">جودة صياغة الأسئلة</span>
+ <div class="kpi-value moving-counter" data-target="4.77" data-decimals="2" data-suffix=" / 5.0" style="color: var(--purple-brand);">0.00 / 5.0</div>
+ <div class="kpi-label">قوة الربط السريري والتقييم الذاتي</div>
+ </div>
+
+ <!-- KPI 3 -->
+ <div class="kpi-stat-card" style="border-top: 4px solid var(--teal);">
+ <span class="cert-tag" style="background: var(--teal-light); color: var(--teal); font-size: 14.5px;">نسبة اجتياز التحدي</span>
+ <div class="kpi-value moving-counter" data-target="87.5" data-decimals="1" data-suffix="%" style="color: var(--teal);">0%</div>
+ <div class="kpi-label">إتمام واجتياز تحدي الـ 20 سؤالاً التجريبي</div>
+ </div>
+
+ <!-- KPI 4 -->
+ <div class="kpi-stat-card" style="border-top: 4px solid var(--purple-dark);">
+ <span class="cert-tag" style="font-size: 14.5px;">الترقية للمستوى الثاني</span>
+ <div class="kpi-value moving-counter" data-target="93.8" data-decimals="1" data-suffix="%" style="color: var(--purple-dark);">0%</div>
+ <div class="kpi-label">تخطي المستوى الأول والوصول للمستوى 2</div>
+ </div>
+
+ <!-- KPI 5 -->
+ <div class="kpi-stat-card" style="border-top: 4px solid #D97706;">
+ <span class="cert-tag" style="background: #FEF3C7; color: #B45309; font-size: 14.5px;">ريادة وحصرية السوق</span>
+ <div class="kpi-value moving-counter" data-target="93.3" data-decimals="1" data-suffix="%" style="color: #D97706;">0%</div>
+ <div class="kpi-label">أول تجربة من نوعها توازي الأنظمة العالمية</div>
+ </div>
+
+ <!-- KPI 6 -->
+ <div class="kpi-stat-card" style="border-top: 4px solid var(--teal);">
+ <span class="cert-tag" style="background: var(--teal-light); color: var(--teal); font-size: 14.5px;">سرعة الدعم والتفعيل</span>
+ <div class="kpi-value moving-counter" data-target="4.60" data-decimals="2" data-suffix=" / 5.0" style="color: var(--teal);">0.00 / 5.0</div>
+ <div class="kpi-label">إضافة المجموعات والتفعيل الفوري</div>
+ </div>
+
+ <!-- KPI 7 -->
+ <div class="kpi-stat-card" style="border-top: 4px solid var(--purple-brand);">
+ <span class="cert-tag" style="background: var(--purple-light); color: var(--purple-brand); font-size: 14.5px;">الجاهزية للاعتماد الكلي</span>
+ <div class="kpi-value moving-counter" data-target="86.7" data-decimals="1" data-suffix="%" style="color: var(--purple-brand);">0%</div>
+ <div class="kpi-label">اعتماد المنظومة كمصدر أساسي ومكمل</div>
+ </div>
+
+ </div>
+ </section>
+
+ <!-- Sudan Practice Environment Reality & Barriers Barometer -->
+ <section class="container" style="max-width: 1080px; margin-bottom: 80px;">
+ <div class="glass-card" style="padding: 36px 40px; background: #FFFFFF; border: 2px solid var(--line-gold);">
+ 
+ <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; margin-bottom: 24px; border-bottom: 1.5px solid var(--line); padding-bottom: 18px;">
+ <div>
+ <span class="cert-tag" style="background: var(--gold-light); color: #92400E; border-color: #FCD34D;">
+ استطلاع الدفعة 55 للمجلس الطبي وامتحانات الامتياز
+ </span>
+ <h2 style="font-size: 26px; font-weight: 900; color: var(--purple-dark); margin-top: 6px;">
+ صوت الأطباء: أكبر عوائق بيئة الممارسة الطبية الحالية في السودان
+ </h2>
+ </div>
+ <span class="badge-live" style="font-size: 14.5px;">تحليل إحصائي ميداني</span>
+ </div>
+
+ <p style="font-size: 14.5px; color: var(--text-muted); margin-bottom: 24px; line-height: 1.7;">
+ بناءً على إجابات الأطباء الممارسين في الاستبيان الرسمي، صرّح المشاركون بالتحديات الجوهرية التي تواجههم في الميدان السريري، وتوضح النسب أدناه مدى الحاجة الماسة للتحول الرقمي والمنهجية السيادية:
+ </p>
+
+ <!-- Barrier 1 -->
+ <div class="barrier-bar-container">
+ <div style="display: flex; justify-content: space-between; align-items: center;">
+ <span style="font-weight: 800; font-size: 14px; color: var(--purple-dark);">
+ 1. الغياب التام لأي وجود رقمي أو منصات تفاعلية تسهل المذاكرة والتقييم الذاتي
+ </span>
+ <strong style="font-family: var(--font-mono); color: var(--purple-brand); font-size: 16px;">87.5%</strong>
+ </div>
+ <div class="barrier-progress-bg">
+ <div class="barrier-progress-fill" style="width: 87.5%;"></div>
+ </div>
+ </div>
+
+ <!-- Barrier 2 -->
+ <div class="barrier-bar-container">
+ <div style="display: flex; justify-content: space-between; align-items: center;">
+ <span style="font-weight: 800; font-size: 14px; color: var(--purple-dark);">
+ 2. عدم وضوح المنهج وغياب التوجيه والإرشاد الأكاديمي والمهني السليم
+ </span>
+ <strong style="font-family: var(--font-mono); color: var(--purple-brand); font-size: 16px;">81.3%</strong>
+ </div>
+ <div class="barrier-progress-bg">
+ <div class="barrier-progress-fill" style="width: 81.3%;"></div>
+ </div>
+ </div>
+
+ <!-- Barrier 3 -->
+ <div class="barrier-bar-container">
+ <div style="display: flex; justify-content: space-between; align-items: center;">
+ <span style="font-weight: 800; font-size: 14px; color: var(--purple-dark);">
+ 3. الغياب التام للمصادر والمراجع المحدثة الموثوقة وصعوبة الوصول إليها
+ </span>
+ <strong style="font-family: var(--font-mono); color: var(--purple-brand); font-size: 16px;">75.0%</strong>
+ </div>
+ <div class="barrier-progress-bg">
+ <div class="barrier-progress-fill" style="width: 75.0%;"></div>
+ </div>
+ </div>
+
+ <!-- Barrier 4 -->
+ <div class="barrier-bar-container">
+ <div style="display: flex; justify-content: space-between; align-items: center;">
+ <span style="font-weight: 800; font-size: 14px; color: var(--purple-dark);">
+ 4. ضعف الربط والتكامل الفعلي بين الجانب الأكاديمي النظري والواقع السريري
+ </span>
+ <strong style="font-family: var(--font-mono); color: var(--purple-brand); font-size: 16px;">68.8%</strong>
+ </div>
+ <div class="barrier-progress-bg">
+ <div class="barrier-progress-fill" style="width: 68.8%;"></div>
+ </div>
+ </div>
+
+ </div>
+ </section>
+
+ <!-- Interactive Reviews Explorer (Filters + Search + Real Doctor Cards) -->
+ <section class="container" style="max-width: 1180px; margin-bottom: 90px;">
+ 
+ <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; margin-bottom: 24px;">
+ <div>
+ <span class="cert-tag" style="margin-bottom: 6px;">استعراض آراء الأطباء الموثقة</span>
+ <h2 style="font-size: 28px; font-weight: 900; color: var(--purple-dark);">
+ مستكشف التقييمات السريرية وتقارير التدقيق
+ </h2>
+ </div>
+ <span id="reviews-count-badge" class="badge-live" style="font-size: 13px; font-family: var(--font-mono);">
+ 16 تقييماً سريرياً موثقاً
+ </span>
+ </div>
+
+ <!-- Search & Filter Controls Panel -->
+ <div class="glass-card" style="padding: 24px; margin-bottom: 30px; background: #FFFFFF;">
+ 
+ <!-- Search Input -->
+ <div class="search-input-wrap" style="margin-bottom: 20px;">
+ <span class="search-icon"></span>
+ <input type="text" id="review-search-input" placeholder="ابحث برقم رقم الهوية المهنية الرقمية (GA#) (GA3463، GA2980)، اسم الطبيب، البريد، أو التخصص...">
+ </div>
+
+ <!-- Specialty Filter Pills -->
+ <div style="margin-bottom: 14px;">
+ <div style="font-size: 14.5px; font-weight: 800; color: var(--text-sub); margin-bottom: 8px; text-transform: uppercase;">
+ تصفية حسب التخصص السريري:
+ </div>
+ <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+ <button type="button" class="review-filter-btn active" data-filter-type="specialty" data-filter-value="ALL">الكل (16)</button>
+ <button type="button" class="review-filter-btn" data-filter-type="specialty" data-filter-value="الجراحة">الجراحة العامة (9)</button>
+ <button type="button" class="review-filter-btn" data-filter-type="specialty" data-filter-value="الباطنية">الأمراض الباطنية (6)</button>
+ <button type="button" class="review-filter-btn" data-filter-type="specialty" data-filter-value="الأطفال">طب الأطفال (4)</button>
+ <button type="button" class="review-filter-btn" data-filter-type="specialty" data-filter-value="النساء">النساء والتوليد (3)</button>
+ <button type="button" class="review-filter-btn" data-filter-type="specialty" data-filter-value="الطوارئ">طب الطوارئ (3)</button>
+ <button type="button" class="review-filter-btn" data-filter-type="specialty" data-filter-value="الأشعة">الأشعة (1)</button>
+ <button type="button" class="review-filter-btn" data-filter-type="specialty" data-filter-value="المخبري">الطب المخبري (2)</button>
+ <button type="button" class="review-filter-btn" data-filter-type="specialty" data-filter-value="الأسرة">طب الأسرة والمجتمع (2)</button>
+ </div>
+ </div>
+
+ <!-- Rating Filter Pills -->
+ <div>
+ <div style="font-size: 14.5px; font-weight: 800; color: var(--text-sub); margin-bottom: 8px; text-transform: uppercase;">
+ تصفية حسب عدد النجوم:
+ </div>
+ <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+ <button type="button" class="review-filter-btn active" data-filter-type="rating" data-filter-value="ALL">جميع التقييمات</button>
+ <button type="button" class="review-filter-btn" data-filter-type="rating" data-filter-value="5">5 نجوم فقط (11)</button>
+ <button type="button" class="review-filter-btn" data-filter-type="rating" data-filter-value="4">4 نجوم فأعلى (15)</button>
+ </div>
+ </div>
+
+ </div>
+
+ <!-- Live Reviews Grid Container (Populated via reviews_data.js) -->
+ <div id="reviews-feed-container" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 24px;">
+ <!-- Dynamic Reviews rendered by js/app.js -->
+ </div>
+
+ </section>
+
+ <!-- Deep Review & Operational Audit Modal -->
+ <div id="review-audit-modal" class="modal-overlay">
+ <div id="audit-modal-card" class="glass-card" style="max-width: 820px; width: 90%; background: #FFFFFF; border: 2px solid var(--purple-border); padding: 0; overflow: hidden; margin: 40px auto; animation: fadeIn 0.3s ease;">
+ <div id="audit-modal-body">
+ <!-- Rendered dynamically by openReviewAuditModal() -->
+ </div>
+ </div>
+ </div>
+
+ <!-- Regional Economic & Multi-Currency Payment Ledger -->
+ <section class="container" style="max-width: 1080px; margin-bottom: 80px;">
+ <div class="glass-card" style="padding: 36px 40px; background: linear-gradient(135deg, #FAF5FF, #FEF3C7); border: 2px solid var(--line-gold);">
+ 
+ <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; margin-bottom: 20px;">
+ <div>
+ <span class="cert-tag" style="background: var(--gold-light); color: #92400E; border-color: #FCD34D;">
+ المرونة الإقليمية والقدرة الاستثمارية العادلة
+ </span>
+ <h2 style="font-size: 26px; font-weight: 900; color: var(--purple-dark); margin-top: 6px;">
+ تفضيلات الدفع والعملات المعتمدة من الأطباء
+ </h2>
+ </div>
+ <div style="display: flex; gap: 8px;">
+ <span class="cert-tag" style="background: #FFFFFF; font-family: var(--font-mono); font-size: 14.5px;">Bankak 87.5%</span>
+ <span class="cert-tag" style="background: #FFFFFF; font-family: var(--font-mono); font-size: 14.5px;">KSA / SAR 6.25%</span>
+ <span class="cert-tag" style="background: #FFFFFF; font-family: var(--font-mono); font-size: 14.5px;">USD / Visa 6.25%</span>
+ </div>
+ </div>
+
+ <p style="font-size: 14px; color: var(--text-main); line-height: 1.7; margin-bottom: 24px;">
+ نلتزم بتخصيص بوابات الدفع وفق التوزيع الجغرافي للأطباء داخل وخارج السودان لضمان انسيابية فتح بنوك الأسئلة المتقدمة (400 / 800 / 1200 سؤال):
+ </p>
+
+ <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px;">
+ <div style="background: #FFFFFF; border: 1.5px solid var(--line); border-radius: var(--radius-sm); padding: 18px;">
+ <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+ <span style="font-size: 20px;"></span>
+ <strong style="color: var(--purple-dark); font-size: 15px;">السودان (تطبيق بنكك Bankak)</strong>
+ </div>
+ <p style="font-size: 13px; color: var(--text-muted);">
+ الخيار المفضل لـ 87.5% من الأطباء. إيداع فوري مع تفعيل الحساب ومجموعات الواتساب الأكاديمية.
+ </p>
+ </div>
+
+ <div style="background: #FFFFFF; border: 1.5px solid var(--line); border-radius: var(--radius-sm); padding: 18px;">
+ <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+ <span style="font-size: 20px;"></span>
+ <strong style="color: var(--purple-dark); font-size: 15px;">المملكة العربية السعودية (SAR)</strong>
+ </div>
+ <p style="font-size: 13px; color: var(--text-muted);">
+ تحويل بنكي مباشر داخل البنوك السعودية مع تسعير باقات مرن يبدأ من 10-60 ريال سعودي.
+ </p>
+ </div>
+
+ <div style="background: #FFFFFF; border: 1.5px solid var(--line); border-radius: var(--radius-sm); padding: 18px;">
+ <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+ <span style="font-size: 20px;"></span>
+ <strong style="color: var(--purple-dark); font-size: 15px;">الدفع الدولي (Visa / MasterCard)</strong>
+ </div>
+ <p style="font-size: 13px; color: var(--text-muted);">
+ سداد رقمي مباشر بالدولار الأمريكي واليورو عبر البطاقات الائتمانية العالمية وفودافون كاش في مصر.
+ </p>
+ </div>
+ </div>
+
+ </div>
+ </section>
+
+ <!-- Interactive Submit Review & Peer Nomination Form (+100 GP) -->
+ <section id="submit-review-section" class="container" style="max-width: 900px; margin-bottom: 90px;">
+ <div class="glass-card" style="padding: 40px; background: #FFFFFF; border: 2px solid var(--purple-border);">
+ 
+ <div style="text-align: center; margin-bottom: 28px;">
+ <span class="cert-tag" style="background: var(--purple-light); color: var(--purple-brand); border-color: var(--purple-border); margin-bottom: 8px;">
+ مكافأة التقييم والمشاركة (+200 GP)
+ </span>
+ <h2 style="font-size: 28px; font-weight: 900; color: var(--purple-dark); margin-top: 6px;">
+ شارك تجربتك السريرية ورشح زميلاً متميزاً
+ </h2>
+ <p style="font-size: 14px; color: var(--text-muted); max-width: 620px; margin: 0 auto;">
+ إكمال استبيان التقييم يمنحك <strong>100 نقطة GP</strong> مباشرة في محفظتك، وترشيح زميل مؤهل يمنحك <strong>100 نقطة إضافية</strong> فوراً.
+ </p>
+ </div>
+
+ <form onsubmit="event.preventDefault(); alert('شكراً لمشاركتك دكتور! تم تسجيل تقييمك التشغيلي بنجاح وإضافة 200 GP لمحفظتك الرقمية.');" style="display: flex; flex-direction: column; gap: 16px;">
+ 
+ <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+ <div class="input-field">
+ <label>رقم الهوية الرقمية (GemIInI ID / GA#)</label>
+ <input type="text" placeholder="مثال: GA3463 أو GA001" required>
+ </div>
+ <div class="input-field">
+ <label>البريد الإلكتروني المعتمد</label>
+ <input type="email" placeholder="doctor@gmail.com" required>
+ </div>
+ </div>
+
+ <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+ <div class="input-field">
+ <label>الوحدة السريرية المختبرة</label>
+ <select style="width: 100%; padding: 12px; border: 1.5px solid var(--line); border-radius: var(--radius-sm); font-family: var(--font-arabic);">
+ <option>الوحدة الرابعة: الجراحة، الإصابات، والرعاية الحادة</option>
+ <option>الوحدة الثالثة: الأمراض الباطنية والتخصصات السريرية</option>
+ <option>الوحدة السابعة: طب الطوارئ والعناية المكثفة</option>
+ <option>الوحدة السادسة: طب الأطفال وحديثي الولادة</option>
+ <option>الوحدة الخامسة: أمراض النساء والتوليد</option>
+ <option>الوحدة الثانية: طب المناطق الحارة والأمراض المستوطنة</option>
+ <option>الوحدة الأولى: الأخلاقيات والبروتوكولات التنظيمية</option>
+ <option>الوحدة الثامنة: الأوسكي السريري (OSCE)</option>
+ </select>
+ </div>
+ <div class="input-field">
+ <label>تقييم جودة وصياغة الأسئلة (1 - 5 )</label>
+ <select style="width: 100%; padding: 12px; border: 1.5px solid var(--line); border-radius: var(--radius-sm); font-family: var(--font-arabic);">
+ <option value="5"> 5 نجوم (ممتاز واستثنائي)</option>
+ <option value="4"> 4 نجوم (جيد جداً وقوي)</option>
+ <option value="3"> 3 نجوم (جيد)</option>
+ <option value="2"> نجمتان (يحتاج تحسين)</option>
+ </select>
+ </div>
+ </div>
+
+ <div class="input-field">
+ <label>رأيك وملاحظاتك حول التجربة السريرية والتفكيك الأكاديمي للأسئلة:</label>
+ <textarea rows="3" placeholder="اكتب انطباعك وتجربتك مع النظام..." style="width: 100%; padding: 12px; border: 1.5px solid var(--line); border-radius: var(--radius-sm); font-family: var(--font-arabic);" required></textarea>
+ </div>
+
+ <div class="input-field" style="background: var(--gold-light); border: 1px dashed var(--gold); padding: 14px; border-radius: var(--radius-sm);">
+ <label style="color: var(--gold-dark); font-weight: 800;"> ترشيح زميل طبيب (+100 GP إضافية):</label>
+ <input type="tel" placeholder="رقم واتساب الزميل مع كود الدولة (+249 / +20...)" style="margin-top: 6px;">
+ </div>
+
+ <button type="submit" class="btn btn-gold" style="padding: 14px; font-size: 15px; font-weight: 900; margin-top: 8px;">
+ إرسال التقييم واعتماد الـ 200 GP في المحفظة 
+ </button>
+
+ </form>
+
+ </div>
+ </section>
+
+ <!-- Footer -->
+ <footer class="footer">
+ <div class="container footer-grid">
+ <div class="footer-brand">
+ <h3>منظومة GEMIINI السيادية وأكاديمية الجينات</h3>
+ <p>بإشراف وتدقيق المجلس الأكاديمي وهيئة المراجعة السريرية المعتمدة وفق معايير MTC™.</p>
+ </div>
+
+ <div class="footer-col">
+ <h4>المسارات الأكاديمية</h4>
+ <ul>
+ <li><a href="smc.html">امتحان التسجيل الدائم SMC</a></li>
+ <li><a href="courses.html">دبلومات الطب الجزيئي</a></li>
+ <li><a href="research.html">المجموعات البحثية</a></li>
+ <li><a href="alumni.html">رابطة الخريجين</a></li>
+ <li><a href="reviews.html">سجل التقييمات المعتمدة</a></li>
+ </ul>
+ </div>
+
+ <div class="footer-col">
+ <h4>التوثيق والاعتماد</h4>
+ <ul>
+ <li><a href="reviews.html">التدقيق التشغيلي 2026</a></li>
+ <li><a href="alumni.html">الشهادات الرقمية المعتمدة</a></li>
+ <li><a href="registry.html">سجل الـ 455 عضواً</a></li>
+ <li><a href="blueprint.html">المخطط الهيكلي Blueprint</a></li>
+ </ul>
+ </div>
+
+ <div class="footer-col">
+ <h4>السداد المالي الرسمي</h4>
+ <p style="font-size: 13px; color: #C4B5FD; margin-bottom: 8px;">محفظة فودافون كاش المعتمدة:</p>
+ <div style="font-family: var(--font-mono); font-size: 18px; color: var(--gold); font-weight: 800; margin-bottom: 12px;">
+ +20 101 592 2628
+ </div>
+ <button class="btn btn-vodafone btn-copy-vodafone" style="padding: 8px 16px; font-size: 14.5px;">نسخ رقم المحفظة</button>
+ </div>
+ </div>
+
+ <div class="footer-bottom container">
+ &copy; 2026 منظومة GemIInI السيادية وأكاديمية الجينات (geneacademy.net). جميع الحقوق محفوظة.
+ </div>
+ </footer>
+
+ <!-- Scripts -->
+ <script src="js/reviews_data.js"></script>
+ <script src="js/ga_data.js"></script>
+ <script src="js/app.js"></script>
+</body>
+</html>

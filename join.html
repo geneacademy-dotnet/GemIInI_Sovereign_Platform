@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Join SudaGene Conglomerate | Issue Sovereign GA-ID & Claim 500 GP</title>
+  <meta name="description" content="Register your medical identity, receive your sovereign GA# credential, and unlock gemiiniXsmc question banks and molecular research masterclasses.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700;800&family=Cairo:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --purple-deep: #130726;
+      --purple-royal: #2C1154;
+      --purple-primary: #4C1D95;
+      --purple-vibrant: #7C3AED;
+      --purple-light: #FAF5FF;
+      --purple-border: #E9D5FF;
+      --teal-accent: #2DE0C2;
+      --gold-accent: #F59E0B;
+      --gold-light: #FEF3C7;
+      --bg-page: #0B0418;
+      --card-bg: #15092E;
+      --text-main: #FFFFFF;
+      --text-muted: #A78BFA;
+      --border-color: rgba(139, 92, 246, 0.25);
+      --gradient-brand: linear-gradient(135deg, #2C1154 0%, #4C1D95 50%, #7C3AED 100%);
+      font-size: 16px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg-page);
+      background-image: 
+        radial-gradient(circle at 10% 10%, rgba(124, 58, 237, 0.25) 0%, transparent 45%),
+        radial-gradient(circle at 90% 90%, rgba(45, 224, 194, 0.15) 0%, transparent 45%);
+      color: var(--text-main);
+      font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    .container { width: 100%; max-width: 900px; margin: 30px auto 60px; padding: 0 20px; }
+
+    /* Top Nav */
+    .top-nav {
+      padding: 16px 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-color);
+      background: rgba(19, 7, 38, 0.85);
+      backdrop-filter: blur(12px);
+    }
+    .brand-link { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.1rem; }
+    .brand-badge {
+      background: var(--gradient-brand); color: #FFFFFF; font-weight: 800; font-size: 0.88rem;
+      padding: 5px 10px; border-radius: 6px; font-family: 'IBM Plex Mono', monospace;
+    }
+
+    /* Header */
+    .join-header { text-align: center; margin-bottom: 26px; }
+    .join-header h1 {
+      font-size: clamp(2rem, 3.5vw, 2.6rem); font-weight: 800; margin-bottom: 8px;
+      background: linear-gradient(135deg, #FFFFFF 0%, #E9D5FF 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .join-header p { font-size: 0.98rem; color: var(--text-muted); }
+
+    /* 5 Persona Selector Tabs */
+    .persona-tabs-join {
+      display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-bottom: 24px;
+    }
+    @media (max-width: 860px) { .persona-tabs-join { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 540px) { .persona-tabs-join { grid-template-columns: 1fr; } }
+
+    .p-tab {
+      background: var(--card-bg); border: 1.5px solid var(--border-color); border-radius: 10px;
+      padding: 12px 8px; cursor: pointer; text-align: center; color: #CBD5E1;
+      font-size: 0.82rem; font-weight: 700; transition: all 0.2s ease;
+    }
+    .p-tab:hover { border-color: var(--teal-accent); color: #FFFFFF; }
+    .p-tab.active {
+      border-color: var(--teal-accent); background: rgba(45, 224, 194, 0.12);
+      color: #FFFFFF; box-shadow: 0 0 0 1.5px var(--teal-accent);
+    }
+    .p-tab-icon { font-size: 1.3rem; display: block; margin-bottom: 2px; }
+
+    /* Form Container */
+    .form-box {
+      background: var(--card-bg); border: 1.5px solid var(--border-color); border-radius: 14px;
+      padding: 34px 30px; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    }
+    .form-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+    @media (max-width: 640px) { .form-grid-2 { grid-template-columns: 1fr; } }
+
+    .form-group { margin-bottom: 16px; }
+    .form-group label {
+      display: block; font-size: 0.84rem; font-weight: 700; color: #E9D5FF; margin-bottom: 6px;
+      font-family: 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: 0.04em;
+    }
+    .form-input, .form-select {
+      width: 100%; background: #0E0520; border: 1.5px solid rgba(139, 92, 246, 0.3);
+      border-radius: 6px; padding: 12px 14px; font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 0.95rem; color: #FFFFFF; outline: none; transition: border-color .2s;
+    }
+    .form-input:focus, .form-select:focus {
+      border-color: var(--teal-accent); box-shadow: 0 0 12px rgba(45, 224, 194, 0.2);
+    }
+
+    .btn-submit-join {
+      width: 100%; background: var(--teal-accent); color: var(--purple-deep);
+      border: none; border-radius: 8px; padding: 15px; font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.92rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase;
+      cursor: pointer; transition: all 0.2s; margin-top: 10px;
+    }
+    .btn-submit-join:hover {
+      background: #38BDF8; box-shadow: 0 0 25px rgba(45, 224, 194, 0.5); transform: translateY(-1px);
+    }
+
+    /* Transition Screen */
+    .transition-card {
+      display: none;
+      background: linear-gradient(135deg, #1C0A3C 0%, #2D1260 100%);
+      border: 2px solid var(--teal-accent);
+      border-radius: 16px;
+      padding: 36px 30px;
+      text-align: center;
+      animation: cardPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 30px rgba(45, 224, 194, 0.2);
+    }
+    .transition-card.active { display: block; }
+
+    @keyframes cardPop {
+      0% { opacity: 0; transform: scale(0.92) translateY(10px); }
+      100% { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    .sovereign-badge-issued {
+      display: inline-block;
+      background: rgba(45, 224, 194, 0.15); border: 1px solid var(--teal-accent);
+      color: var(--teal-accent); font-family: 'IBM Plex Mono', monospace; font-size: 0.8rem;
+      font-weight: 700; padding: 4px 14px; border-radius: 9999px; margin-bottom: 14px;
+      text-transform: uppercase; letter-spacing: 0.08em;
+    }
+
+    .digital-card-preview {
+      background: linear-gradient(135deg, #120524 0%, #1F0B3D 50%, #B48028 100%);
+      border: 1.5px solid #FDE68A;
+      border-radius: 14px;
+      padding: 24px 26px;
+      color: #FFFFFF;
+      text-align: left;
+      margin: 20px auto 26px;
+      max-width: 440px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    }
+    .dc-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; }
+    .dc-chip { width: 32px; height: 22px; border-radius: 4px; background: linear-gradient(135deg, #FDE68A, #D97706); }
+    .dc-id { font-family: 'IBM Plex Mono', monospace; font-size: 1.45rem; font-weight: 800; color: #5EEAD4; margin-bottom: 2px; }
+    .dc-name { font-size: 1.15rem; font-weight: 700; color: #FFFFFF; margin-bottom: 12px; }
+    .dc-foot { display: flex; justify-content: space-between; align-items: flex-end; border-top: 1px solid rgba(255, 255, 255, 0.15); padding-top: 12px; }
+    .dc-gp { font-family: 'IBM Plex Mono', monospace; font-size: 1.25rem; font-weight: 800; color: #FDE68A; }
+
+    .credentials-info-box {
+      background: rgba(0, 0, 0, 0.35); border: 1px solid var(--border-color); border-radius: 8px;
+      padding: 16px; margin: 18px 0; text-align: left;
+    }
+    .cred-row { display: flex; justify-content: space-between; font-size: 0.88rem; margin-bottom: 8px; }
+    .cred-row:last-child { margin-bottom: 0; }
+    .cred-val { font-family: 'IBM Plex Mono', monospace; font-weight: 700; color: var(--teal-accent); }
+
+    .btn-enter-portal {
+      display: block; width: 100%; background: var(--teal-accent); color: var(--purple-deep);
+      padding: 15px; border-radius: 8px; font-family: 'IBM Plex Mono', monospace; font-weight: 800;
+      font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.05em; transition: all .2s;
+    }
+    .btn-enter-portal:hover { background: #38BDF8; box-shadow: 0 0 25px rgba(45, 224, 194, 0.6); }
+
+    footer { text-align: center; padding: 24px; font-size: 0.8rem; color: var(--text-muted); }
+  </style>
+</head>
+<body>
+
+  <!-- Top Nav -->
+  <nav class="top-nav">
+    <a href="index.html" class="brand-link">
+      <div class="brand-badge">SG</div>
+      <span>SudaGene Conglomerate</span>
+    </a>
+    <div style="display: flex; gap: 16px; align-items: center;">
+      <a href="auth.html" style="color: var(--text-muted); font-size: 0.85rem;">Already have GA#? <strong style="color: #FFFFFF;">Sign In</strong></a>
+      <a href="index.html" style="color: var(--text-muted); font-size: 0.85rem;">➔ Home</a>
+    </div>
+  </nav>
+
+  <main class="container">
+    <div class="join-header">
+      <h1>Issue Sovereign Credential & Join</h1>
+      <p>Select your persona to generate your official GA-ID, set your portal password, and claim your +500 GP welcome balance.</p>
+    </div>
+
+    <!-- 5 Persona Selector Tabs -->
+    <div class="persona-tabs-join">
+      <div class="p-tab active" id="tab_doctor" onclick="selectPersona('doctor')">
+        <span class="p-tab-icon">🩺</span>
+        Doctor / Candidate
+      </div>
+      <div class="p-tab" id="tab_student" onclick="selectPersona('student')">
+        <span class="p-tab-icon">🎓</span>
+        Medical Student
+      </div>
+      <div class="p-tab" id="tab_researcher" onclick="selectPersona('researcher')">
+        <span class="p-tab-icon">🧬</span>
+        Molecular Scholar
+      </div>
+      <div class="p-tab" id="tab_counseling" onclick="selectPersona('counseling')">
+        <span class="p-tab-icon">🔬</span>
+        Genetics & WES
+      </div>
+      <div class="p-tab" id="tab_partner" onclick="selectPersona('partner')">
+        <span class="p-tab-icon">🏛️</span>
+        Hospital / Lab B2B
+      </div>
+    </div>
+
+    <!-- Dynamic Form Box -->
+    <div class="form-box" id="formBox">
+      <form id="joinForm" onsubmit="handleJoin(event)">
+        <input type="hidden" id="selectedTrack" value="doctor">
+
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label>Full Legal Name</label>
+            <input type="text" id="fullName" class="form-input" placeholder="e.g. Dr. Ahmed Omer / Sara Ali" required>
+          </div>
+          <div class="form-group">
+            <label id="lblInst">Faculty / University / Hospital</label>
+            <input type="text" id="institution" class="form-input" placeholder="e.g. University of Khartoum / Teaching Hospital" required>
+          </div>
+        </div>
+
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label>WhatsApp / Phone Number</label>
+            <input type="tel" id="phone" class="form-input" placeholder="e.g. +249 912345678 or +20 1012345678" required>
+          </div>
+          <div class="form-group">
+            <label>Create Portal Password</label>
+            <input type="password" id="customPassword" class="form-input" placeholder="Min. 6 characters password" minlength="6" required>
+          </div>
+        </div>
+
+        <div class="form-group" id="moduleSelectGroup">
+          <label id="lblProgram">Primary Academic Target / Program</label>
+          <select id="programSelect" class="form-select">
+            <!-- Dynamic Options Injected via JS -->
+          </select>
+        </div>
+
+        <button type="submit" class="btn-submit-join" id="btnJoinSubmit">
+          Issue Sovereign GA-ID & Credit +500 GP ➔
+        </button>
+      </form>
+
+      <!-- Sovereign Transition HUD -->
+      <div class="transition-card" id="joinSuccessCard">
+        <div class="sovereign-badge-issued">✓ Sovereign Credential Activated</div>
+        <h2 style="font-size: 1.8rem; font-weight: 800; color: #FFFFFF;">Welcome to SudaGene Conglomerate!</h2>
+        <p style="color: var(--text-muted); font-size: 0.92rem; margin-top: 4px;">
+          Your official academic record has been registered and harmonized into the master ledger:
+        </p>
+
+        <!-- Digital Sovereign Member Card -->
+        <div class="digital-card-preview">
+          <div class="dc-top">
+            <span style="font-weight: 800; font-size: 0.85rem; color: #FDE68A;">SudaGene Sovereign Member</span>
+            <div class="dc-chip"></div>
+          </div>
+          <div class="dc-id" id="issuedId">GA3466</div>
+          <div class="dc-name" id="issuedName">Dr. Medical Candidate</div>
+          <div class="dc-foot">
+            <span style="font-size: 0.78rem; color: #CBD5E1;" id="issuedRole">Medical Candidate • Verified</span>
+            <div class="dc-gp" id="issuedGp">+500 GP</div>
+          </div>
+        </div>
+
+        <!-- Credentials Summary Box -->
+        <div class="credentials-info-box">
+          <div class="cred-row">
+            <span>Your GemIInI ID (GA#):</span>
+            <span class="cred-val" id="dispGaId">GA3466</span>
+          </div>
+          <div class="cred-row">
+            <span>Your Portal Password:</span>
+            <span class="cred-val" id="dispPassword">••••••••</span>
+          </div>
+          <div class="cred-row">
+            <span>Credited Balance:</span>
+            <span class="cred-val" style="color: #FDE68A;">500 GP (Ready to unlock 10 Modules)</span>
+          </div>
+        </div>
+
+        <a href="portal.html" class="btn-enter-portal" id="btnEnterPortal">
+          Enter Member Portal & Unlock Module (50 GP) ➔
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    © 2026 SudaGene Conglomerate • members.geneacademy.net • All Rights Reserved.
+  </footer>
+
+  <script src="js/ga_data.js"></script>
+  <script>
+    const PROGRAMS = {
+      doctor: [
+        { val: "module1", label: "gemiiniXsmc Module 1: Internal Medicine & Critical Care (50 GP)" },
+        { val: "module2", label: "gemiiniXsmc Module 2: General Surgery & Trauma Protocol (By Dr. Alaa Mursi GA001) (50 GP)" },
+        { val: "module3", label: "gemiiniXsmc Module 3: Pediatrics & Neonatology (50 GP)" },
+        { val: "module4", label: "gemiiniXsmc Module 4: Obstetrics & Gynecology (50 GP)" },
+        { val: "module7", label: "gemiiniXsmc Module 7: Clinical OSCE & Bedside Reasoning (75 GP)" },
+        { val: "bls", label: "Basic Life Support (BLS) & Acute Resuscitation Certification" }
+      ],
+      student: [
+        { val: "immunology", label: "Foundational Immunology Crash Course (Host Defense & Cytokines)" },
+        { val: "biochem", label: "Clinical Biochemistry & Metabolic Pathways" },
+        { val: "bedside", label: "Early Clinical Bedside Skills & History Taking" },
+        { val: "terminology", label: "Advanced Medical Terminology & Pathology Foundations" }
+      ],
+      researcher: [
+        { val: "mm", label: "Molecular Medicine Masterclass (MM 1.0 - 8.0)" },
+        { val: "thesis", label: "Postgraduate Thesis Data Analytics & Research Rescue" },
+        { val: "pcr", label: "Real-Time qPCR & Clinical Oncology Biomarkers" },
+        { val: "writing", label: "Scientific Writing & High-Impact Journal Publishing" }
+      ],
+      counseling: [
+        { val: "premarital", label: "Pre-Marital & Familial Genetic Screening Counseling" },
+        { val: "wes", label: "Clinical Interpretation of Whole Exome Sequencing (WES/NGS Raw Data)" },
+        { val: "hereditary_cancer", label: "Hereditary Oncology & BRCA1/2 Risk Assessment" }
+      ],
+      partner: [
+        { val: "turnkey_lab", label: "GLOMEt Turnkey Virtual & Diagnostic Lab Setup Proposal" },
+        { val: "cbc_procure", label: "CBC Reagents & Biochemistry Consumables (10 States Supply)" },
+        { val: "batch_license", label: "Hospital Batch House Officer Training & SMC Readiness License" }
+      ]
+    };
+
+    function selectPersona(role) {
+      document.querySelectorAll('.p-tab').forEach(t => t.classList.remove('active'));
+      const activeTab = document.getElementById(`tab_${role}`);
+      if(activeTab) activeTab.classList.add('active');
+
+      document.getElementById('selectedTrack').value = role;
+
+      const select = document.getElementById('programSelect');
+      select.innerHTML = '';
+      (PROGRAMS[role] || PROGRAMS.doctor).forEach(p => {
+        const opt = document.createElement('option');
+        opt.value = p.val;
+        opt.textContent = p.label;
+        select.appendChild(opt);
+      });
+
+      if (role === 'partner') {
+        document.getElementById('lblInst').textContent = "Hospital / Institution / Entity Name";
+      } else if (role === 'counseling') {
+        document.getElementById('lblInst').textContent = "City / State / Referring Hospital";
+      } else {
+        document.getElementById('lblInst').textContent = "Faculty / University / Hospital";
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const track = urlParams.get('track') || 'doctor';
+      selectPersona(track);
+    });
+
+    function handleJoin(e) {
+      e.preventDefault();
+      const name = document.getElementById('fullName').value.trim();
+      const inst = document.getElementById('institution').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const pwd = document.getElementById('customPassword').value.trim();
+      const track = document.getElementById('selectedTrack').value;
+      const prog = document.getElementById('programSelect').value;
+      const btn = document.getElementById('btnJoinSubmit');
+
+      btn.disabled = true;
+      btn.textContent = 'Harmonizing Sovereign Ledger...';
+
+      setTimeout(() => {
+        const randNum = Math.floor(1000 + Math.random() * 8999);
+        const nextId = 'GA' + randNum;
+
+        document.getElementById('issuedId').textContent = nextId;
+        document.getElementById('issuedName').textContent = name;
+        document.getElementById('dispGaId').textContent = nextId;
+        document.getElementById('dispPassword').textContent = pwd;
+        
+        let roleTitle = 'Medical Candidate';
+        if (track === 'student') roleTitle = 'Medical Student';
+        if (track === 'researcher') roleTitle = 'Molecular Scholar';
+        if (track === 'counseling') roleTitle = 'Clinical Genetics';
+        if (track === 'partner') roleTitle = 'GLOMEt B2B Partner';
+        document.getElementById('issuedRole').textContent = `${roleTitle} • Verified`;
+
+        const session = {
+          id: nextId,
+          name: name,
+          institution: inst,
+          phone: phone,
+          password: pwd,
+          gp: 500,
+          role: roleTitle,
+          targetProgram: prog,
+          authenticated: true,
+          timestamp: new Date().toISOString()
+        };
+        localStorage.setItem('gemiini_sovereign_session', JSON.stringify(session));
+
+        document.getElementById('joinForm').style.display = 'none';
+        document.getElementById('joinSuccessCard').classList.add('active');
+        document.getElementById('btnEnterPortal').href = `portal.html?module=${prog}`;
+      }, 450);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,525 @@
+{
+  "Copy of GEMIINI Academy Official Membership & Course Enrollment Form  (Responses).xlsx": {
+    "type": "xlsx",
+    "sheets": {
+      "Form Responses 1": {
+        "total_rows": 231,
+        "headers": [
+          "Timestamp",
+          "GA number",
+          "Email Address",
+          "Full Name (as on ID):",
+          " Email Address:",
+          "\nPhone Number (WhatsApp Preferred)\n",
+          "\nCity & Country of Residence:",
+          "\nDate of Birth: \n\n",
+          "\nPreferred Language of Communication:\n\n\n",
+          "\nHighest Degree Achieved: \n\n",
+          "\nField of Study \n\n",
+          "\nYear of Graduation or Expected Graduation\n\n",
+          "🌐 Language & Communication:",
+          "🔬 Scientific & Research Training:\n",
+          "🩺 Medical & Clinical Exam Prep:",
+          "📚 Career & Academic Success:\n",
+          "🧠 Other Areas of Interest:\n\n",
+          " How did you hear about GEMIINI Academy?\n\n",
+          "\nWould you like to receive personalized course recommendations and future training updates?\n\n",
+          " I confirm that the information provided is accurate, and I agree to be contacted by GEMIINI Academy regarding my membership, learning opportunities, and training programs.\nThe personal advancement program is powered by Geneacademy.net\n",
+          "university ",
+          "gemiini academy currently  provide the following courses, please pick what you are looking for and we will send you the registration form ",
+          "What’s your current status?(Student / Intern / Graduate / Working Professional)\n",
+          "\nWhat is your top priority right now? \n\n",
+          "@dropdown"
+        ],
+        "sample_row_1": [
+          "45812.13931449074",
+          "GA",
+          "ahmedseta2004@gmail.com",
+          "احمد صباح بابكر ادم ",
+          "ahmedseta2004@gmail.com",
+          "+249927764418",
+          "Egypt",
+          "38041.0",
+          "☐ Arabic",
+          "☐ High School",
+          "• Other (Please specify)",
+          "2027.0",
+          "• Medical Terminology",
+          "• Lab Skills & Hands-On Training",
+          "• Clinical & Surgical Skills Training",
+          "• CV / Portfolio Development",
+          "لا يوجد ",
+          "• TikTok",
+          "Yes",
+          "I agree",
+          "Other",
+          "University degree courses ( medicine, surgery…etc)",
+          "",
+          "",
+          ""
+        ],
+        "sample_row_2": [
+          "45812.29545152778",
+          "GA",
+          "alsomohammedo648@gmail.com",
+          "Mohammed Ali Hamad Altayeb",
+          "Alsomohammedo648@gmail.com",
+          "00249128944658",
+          "Sudan",
+          "36280.0",
+          "☐ Arabic",
+          "☐ Bachelor’s",
+          "• Medicine",
+          "2025.0",
+          "• Medical Terminology",
+          "• Research Design & Methodology",
+          "• USMLE (United States), • Clinical & Surgical Skills Training",
+          "• Leadership in Science & Public Health",
+          "Omdurman ",
+          "• Instagram",
+          "Yes",
+          "I agree",
+          "Other",
+          "English for medical student",
+          "",
+          "",
+          ""
+        ]
+      },
+      "Sheet2": {
+        "total_rows": 23,
+        "headers": [
+          "Timestamp",
+          "Email Address",
+          "Full Name (as on ID):",
+          "Email Address:",
+          "\nPhone Number (WhatsApp Preferred)\n",
+          "\nCity & Country of Residence:",
+          "\nDate of Birth: \n\n",
+          "\nPreferred Language of Communication:\n\n\n",
+          "\nHighest Degree Achieved: \n\n",
+          "\nField of Study \n\n",
+          "\nYear of Graduation or Expected Graduation\n\n",
+          "🌐 Language & Communication:",
+          "🔬 Scientific & Research Training:\n",
+          "🩺 Medical & Clinical Exam Prep:",
+          "📚 Career & Academic Success:\n",
+          "🧠 Other Areas of Interest:\n\n",
+          " How did you hear about GEMIINI Academy?\n\n",
+          "\nWould you like to receive personalized course recommendations and future training updates?\n\n",
+          " I confirm that the information provided is accurate, and I agree to be contacted by GEMIINI Academy regarding my membership, learning opportunities, and training programs.\nThe personal advancement program is powered by Geneacademy.net\n",
+          "university ",
+          "gemiini academy currently  provide the following courses, please pick what you are looking for and we will send you the registration form ",
+          "What’s your current status?(Student / Intern / Graduate / Working Professional)\n",
+          "\nWhat is your top priority right now? \n\n",
+          "@dropdown"
+        ],
+        "sample_row_1": [
+          "45819.82497582176",
+          "hmazda324@gmail.com",
+          "Hassan Mohamed Abdalla Ahmed",
+          "hmazda324@gmail.com ",
+          "+201070247560",
+          "Egypt",
+          "38082.0",
+          "☐ Both",
+          "☐ High School",
+          "• Medicine",
+          "2026.0",
+          "• Public Speaking / MEDTalk-Style Presentation",
+          "• Scientific Writing & Publishing, • Research Design & Methodology",
+          "• PLAB (UK), • AMC (Australia), • National Resit Exams (Sudan, Egypt, etc.)",
+          "• CV / Portfolio Development",
+          "Genetics",
+          "• Friend or Classmate, • GEMIINI Event",
+          "Yes",
+          "I agree",
+          "al wattanya ( NUSU )",
+          "Basic surgical skills course",
+          "",
+          "",
+          ""
+        ],
+        "sample_row_2": [
+          "45819.828172511574",
+          "wajdmohy8@gmail.com",
+          "Wajd mohyelsona babiker Eltayeb ",
+          "wajdmohy8@gmail.com",
+          "+249918129522",
+          "Egypt",
+          "38246.0",
+          "☐ Both",
+          "☐ High School",
+          "• Medicine",
+          "2026.0",
+          "• OET (Occupational English Test) Preparation",
+          "• Lab Skills & Hands-On Training",
+          "• USMLE (United States), • Internship / Residency Preparation, • Clinical & Surgical Skills Training",
+          "• CV / Portfolio Development, • Teaching & Mentoring Skills",
+          "Neurosurgery ",
+          "• GEMIINI Event",
+          "Yes",
+          "I agree",
+          "al wattanya ( NUSU )",
+          "Basic surgical skills course, USMLE preparation course",
+          "",
+          "",
+          ""
+        ]
+      },
+      "Sheet1": {
+        "total_rows": 0,
+        "headers": [],
+        "sample_row_1": [],
+        "sample_row_2": []
+      }
+    }
+  },
+  "assessment-results-hoQVgqnL3fBSu9csO4mK-1786883952107.csv": {
+    "type": "csv",
+    "total_rows": 269,
+    "headers": [
+      "Title",
+      "Name",
+      "Email",
+      "Submitted At",
+      "Score",
+      "Status"
+    ],
+    "sample_row_1": [
+      "module III in Gemiini PERMANENT",
+      "Mawada Abdelhafez Mohammed",
+      "omlina.login887665@gmail.com",
+      "2026-08-16T10:42:00.000Z",
+      "86",
+      "passed"
+    ],
+    "sample_row_2": [
+      "module III in Gemiini PERMANENT",
+      "Mawada Abdelhafez Mohammed",
+      "omlina.login887665@gmail.com",
+      "2026-08-16T10:30:55.000Z",
+      "14",
+      "passed"
+    ]
+  },
+  "Gemiini molecular _ oncology and molecular research  (Responses).xlsx": {
+    "type": "xlsx",
+    "sheets": {
+      "Form Responses 1": {
+        "total_rows": 8,
+        "headers": [
+          "Timestamp",
+          "Full Name:\n",
+          "Email ",
+          "WhatsApp/Mobile Number\n",
+          "country of residence ",
+          "Column 5",
+          "Current Status:\n",
+          "University/Institution:\n",
+          "Year of Study / Current Position:\n",
+          "Primary Field of Study/Specialization: \n",
+          "What areas of Molecular Medicine / Bioinformatics are you most interested in?\n",
+          "Which of our MolecularGemini programs are you most interested in?\n",
+          "What is your primary goal for taking a course in this field? \n",
+          "How Did You Hear About Us?\n"
+        ],
+        "sample_row_1": [
+          "45946.00161245371",
+          "Menatalla Elmallah",
+          "mennaelmallah@gmail.com",
+          "00201111020304",
+          "Egypt",
+          "Option 1",
+          "• [ ] Undergraduate Student",
+          "October 6 University ",
+          "Fifth Year Medical Student ",
+          "• [ ] Medicine (General), • [ ] Genetics, • [ ] Pathology, • [ ] Clinical Research",
+          "• [ ] Understanding how genes impact disease (Genetics), • [ ] Diagnosing diseases at a molecular level, • [ ] Precision/Personalized Medicine, • [ ] Cancer Research & Oncology, • [ ] Research & Academic Publication",
+          "• [ ] I'm interested in all three programs / a comprehensive pathway.",
+          "• [ ] Improve research capabilities for thesis/publications, • [ ] Prepare for a competitive residency/fellowship, • [ ] Understand molecular diagnostics better, • [ ] Expand my knowledge in a new field",
+          "[ ] Social Media (Instagram, Facebook, LinkedIn, Telegram, etc.)"
+        ],
+        "sample_row_2": [
+          "45946.69013993056",
+          "Rayan suraj sayed ",
+          "rayaa6857@gmail.com ",
+          "0901015690",
+          "مصر ",
+          "Option 1",
+          "• [ ] Other (Please specify) ________",
+          "الرازي",
+          "2019.0",
+          "• [ ] Microbiology",
+          "• [ ] Lab techniques like DNA extraction, PCR, Real-Time PCR (Wet Lab Skills)",
+          "• [ ] Mutation Hunter Program: (5 days, Hands-On Wet Lab: DNA Extraction, PCR, Real-Time PCR)",
+          "• [ ] Enhance practical skills for lab work, • [ ] Improve research capabilities for thesis/publications, • [ ] Prepare for a competitive residency/fellowship, • [ ] Advance my current career/job role, • [ ] Understand molecular diagnostics better, • [ ] Expand my knowledge in a new field, • [ ] Build a stronger CV for future opportunities",
+          "[ ] Social Media (Instagram, Facebook, LinkedIn, Telegram, etc.)"
+        ]
+      }
+    }
+  },
+  "molecular gemIInI category B .xlsx": {
+    "type": "xlsx",
+    "sheets": {
+      "Sheet1": {
+        "total_rows": 44,
+        "headers": [
+          "Full name",
+          "Telegram username ",
+          "\nEmail address (short answer)",
+          "Phone number (short answer) please with country key ",
+          "Your bachelor’s / undergraduate degree field\n",
+          "Your main area(s) of interest in molecular medicine\n(select all that apply)\n"
+        ],
+        "sample_row_1": [
+          "Samah Tarig Eltoum Idries ",
+          "Samah",
+          "Saamahtaarig@gmail.com",
+          "+971564670358/+24995341222",
+          "Pharmacy",
+          "Pharmacogenomics"
+        ],
+        "sample_row_2": [
+          "Mohamed Mutasim Noureldayem Mohamed ",
+          "M_ejaimi",
+          "mohamed.ejaimi@gmail.com",
+          "+4917662362522",
+          "MBBS / Medicine",
+          "Genetic disorders, Infectious diseases & molecular epidemiology"
+        ]
+      }
+    }
+  },
+  "Sheet_B_V2_Student_Tracker.xlsx": {
+    "type": "xlsx",
+    "sheets": {
+      "Sheet B - Student Tracker": {
+        "total_rows": 39,
+        "headers": [
+          "Student Ref",
+          "GemIInI ID",
+          "Full Name",
+          "WhatsApp",
+          "Email",
+          "University",
+          "Professional Category",
+          "Target Specialty",
+          "Location",
+          "Package Tier",
+          "Payment Method",
+          "Payment Status",
+          "Amount Due (SDG)",
+          "Points Balance",
+          "Referral Source",
+          "Date Registered",
+          "Assigned Officer",
+          "Onboarding Status",
+          "Sessions Attended",
+          "Latest Mock Score (%)",
+          "Modules Completed",
+          "Last Contact Date",
+          "Next Follow-up Date",
+          "Risk Flag",
+          "Notes"
+        ],
+        "sample_row_1": [
+          "GENE-S-0001",
+          "No GA ID",
+          "رماح ثروت سيد سيداحمد",
+          "",
+          "remahaaaa@gmail.com",
+          "Al-Mughtaribeen University",
+          "Backlog Graduate (2022-26)",
+          "Option 1",
+          "امدرمان",
+          "Mock Exam ($$)",
+          "Bankak App",
+          "",
+          "",
+          "",
+          "Unspecified",
+          "2026-07-15",
+          "GA004",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        "sample_row_2": [
+          "GENE-S-0002",
+          "No GA ID",
+          "خوله الطيب محمد أحمد جبرالله",
+          "249902214649",
+          "khawlaaltayeb43@gmail.com",
+          "University of Shendi",
+          "Med Student (4th/5th yr)",
+          "Obse and gynecology or general surgery",
+          "نهر النيل مدينة شندي",
+          "Full Access ($$$$)",
+          "Fawry",
+          "",
+          "",
+          "",
+          "Facebook",
+          "2026-07-16",
+          "GA004",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ]
+      },
+      "Legend & Instructions": {
+        "total_rows": 20,
+        "headers": [
+          "GemIInIxSMC — Sheet B V2 (Student Tracker)"
+        ],
+        "sample_row_1": [
+          "Geneacademy — Sudan's first full-board medical exam prep operation"
+        ],
+        "sample_row_2": [
+          "Owner",
+          "GA004 (Senior Academic Officer) maintains this sheet at all times. Any officer may read; only GA004 and GA000 edit the yellow columns."
+        ]
+      },
+      "Summary Dashboard": {
+        "total_rows": 17,
+        "headers": [
+          "Sheet B Summary"
+        ],
+        "sample_row_1": [
+          "Total students"
+        ],
+        "sample_row_2": [
+          "-923"
+        ]
+      }
+    }
+  },
+  "batch IEND 8 .csv": {
+    "type": "csv",
+    "total_rows": 51,
+    "headers": [
+      "username",
+      "firstname",
+      "Email",
+      "password",
+      ""
+    ],
+    "sample_row_1": [
+      "afraaosman",
+      "Afraa Fathelrhman osman",
+      "afrafathil@gmail.com",
+      "Ie123456%",
+      ""
+    ],
+    "sample_row_2": [
+      "alaahassan",
+      "Alaa Abdelmoniem Hassan Salih",
+      "alaa.a.moniem@live.com",
+      "Ie123456%",
+      ""
+    ]
+  },
+  "Master .xlsx": {
+    "type": "xlsx",
+    "sheets": {
+      "Sheet1": {
+        "total_rows": 135,
+        "headers": [
+          "course ",
+          "Lecture Title",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        "sample_row_1": [
+          "Virology",
+          "viral structure",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        "sample_row_2": [
+          "",
+          "Classification",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ]
+      }
+    }
+  }
+}

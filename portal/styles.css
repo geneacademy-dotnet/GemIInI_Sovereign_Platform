@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@400;600;800&family=IBM+Plex+Mono:wght@600;700&display=swap');
+
+:root {
+--bg-primary: #F8F9FA; /* Cleaner medical gray-white */
+  --purple-dark: #1E1B4B;
+  --purple-brand: #4C1D95;
+  --purple-light: #EDE9FE;
+  --gold: #D97706;
+  --gold-light: #FEF3C7;
+  --teal: #0F766E;
+  --text-main: #1F2937;
+  --text-muted: #4B5563;
+  --line: #E5E7EB;
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --font-arabic: 'Tajawal', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  font-family: var(--font-arabic);
+  direction: rtl;
+}
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+.navbar { background: #FFFFFF; border-bottom: 1px solid var(--line); padding: 15px 0; }
+.nav-content { display: flex; justify-content: space-between; align-items: center; }
+.brand-logo { text-decoration: none; color: var(--purple-dark); font-weight: 800; font-size: 20px; display: flex; align-items:center; gap:10px;}
+.logo-icon { background: var(--purple-brand); color: white; padding: 5px 12px; border-radius: 8px;}
+.nav-links { display: flex; gap: 20px; list-style: none; }
+.nav-links a { text-decoration: none; color: var(--text-muted); font-weight: 600; }
+.nav-links a.active, .nav-links a:hover { color: var(--purple-brand); }
+
+.btn-primary { background: var(--purple-brand); color: white; padding: 10px 20px; border: none; border-radius: var(--radius-sm); cursor: pointer; font-family: var(--font-arabic); font-weight: bold;}
+.btn-secondary { background: white; color: var(--purple-dark); border: 1px solid var(--line); padding: 10px 20px; border-radius: var(--radius-sm); cursor: pointer; font-family: var(--font-arabic); font-weight: bold;}
+.btn-secondary:hover { border-color: var(--purple-brand); }
+
+.glass-card { background: white; border: 1px solid var(--line); border-radius: var(--radius-md); padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.03); }
