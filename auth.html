@@ -266,6 +266,7 @@
     © 2026 GemIInI Sovereign Platform • members.geneacademy.net • All Rights Reserved.
   </footer>
 
+  <script src="api.js"></script>
   <script src="js/ga_data.js"></script>
   <script>
     let currentSelectedDoor = 'gemiini';
@@ -306,51 +307,16 @@
       const hud = document.getElementById("successHud");
 
       btn.disabled = true;
-      btn.textContent = "جاري التحقق من السجل السيادي...";
+      btn.textContent = "جاري التحقق من السجل المركزي...";
 
-      // Check against local GA_DATABASE
-      const cleanId = idInput.toUpperCase().startsWith("GA") ? idInput.toUpperCase() : ("GA" + idInput.toUpperCase());
-      let member = null;
-
-      if (typeof GA_DATABASE !== 'undefined' && Array.isArray(GA_DATABASE)) {
-        member = GA_DATABASE.find(m => 
-          (m.id && m.id.toUpperCase() === cleanId) ||
-          (m.email && m.email.toLowerCase() === idInput.toLowerCase())
-        );
-      }
-
-      setTimeout(() => {
-        const name = member ? member.name : (idInput.includes('@') ? idInput.split('@')[0] : "د. عضو معتمد");
-        const gp = member ? (member.gp || 500) : 500;
-        const role = member ? (member.role || "SMC Candidate") : "Active Member";
-        
-        let door = currentSelectedDoor;
-        if (member && member.role) {
-          if (member.role.toLowerCase().includes('research') || member.role.toLowerCase().includes('molecular')) door = 'geneacademy';
-          else if (member.role.toLowerCase().includes('glomet') || member.role.toLowerCase().includes('lab')) door = 'glomet';
-        }
-
-        const doorLabels = {
-          gemiini: '🩺 بوابة جيميناي للتدريب السريري وبنك SMC',
-          geneacademy: '🧬 بوابة جين أكاديمي للأبحاث والطب الجزيئي',
-          glomet: '🏢 قمرة قيادة جلوميت B2B لتجهيز المعامل'
-        };
-
-        // Store active sovereign session
-        const session = {
-          id: member ? member.id : cleanId,
-          name: name,
-          gp: gp,
-          role: role,
-          door: door,
-          authenticated: true,
-          timestamp: new Date().toISOString()
-        };
-        localStorage.setItem("gemiini_sovereign_session", JSON.stringify(session));
-        localStorage.setItem("gemiini_sovereign_ga_id", session.id);
+      try {
+        const session = await loginSovereignUser(idInput, cipher);
+        const name = session.name || "د. عضو معتمد";
+        const gp = session.gp || 500;
+        const role = session.role || "GemIInI";
 
         document.getElementById("hudName").textContent = `أهلاً بك، ${name}!`;
-        document.getElementById("hudDoor").textContent = doorLabels[door];
+        document.getElementById("hudDoor").textContent = `المسار: ${role}`;
         document.getElementById("hudPoints").textContent = `رصيد الاعتماد الأكاديمي: ${gp.toLocaleString()} GP`;
         
         hud.classList.add("active");
@@ -358,9 +324,13 @@
         btn.style.background = "#10B981";
 
         setTimeout(() => {
-          window.location.href = `portal.html?door=${door}`;
-        }, 700);
-      }, 500);
+          window.location.href = "dashboard.html";
+        }, 600);
+      } catch (err) {
+        alert(err.message || "بيانات الدخول غير صحيحة.");
+        btn.textContent = "فتح البوابة السيادية ➔";
+        btn.disabled = false;
+      }
     }
   </script>
 </body>
