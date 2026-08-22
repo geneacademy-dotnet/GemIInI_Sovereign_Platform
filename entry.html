@@ -171,16 +171,16 @@
 <section class="router">
   <div class="wrap">
     <div class="router-grid">
-      <a class="rcard gemiini" href="courses.html">
+      <a class="rcard gemiini" href="index.html">
         <div>
           <div class="rc-seal">GA</div>
           <span class="rc-tag">Clinical · Licensure</span>
           <h3>GemIInI Academy</h3>
-          <p>SMC, USMLE, MRCS, and OET exam pathways. 77+ ECTS aligned curriculum hours, a mapped question bank, and a registry entry that tracks your progress.</p>
+          <p>SMC, USMLE, MRCS, and OET exam pathways. Verified curriculum hours, a mapped question bank, and a registry entry that tracks your progress against no one but yourself.</p>
         </div>
         <div class="rc-enter">Enter GemIInI</div>
       </a>
-      <a class="rcard gene" href="edusphere.html">
+      <a class="rcard gene" href="courses.html">
         <div>
           <div class="rc-seal">Gn</div>
           <span class="rc-tag">Academic · Research</span>
@@ -221,7 +221,9 @@
   </div>
 </footer>
 
+<script src="js/ga_data.js"></script>
 <script>
+// Build the helix from real rung elements so it reads as structure, not decoration
 (function(){
   const helix = document.getElementById('helix');
   if(!helix) return;
@@ -232,7 +234,7 @@
   for(let i=0;i<count;i++){
     const t = i / (count-1);
     const y = t * height;
-    const angle = t * 720;
+    const angle = t * 720; // two full turns top to bottom
     const color = colors[i % colors.length];
 
     const rung = document.createElement('div');
@@ -266,12 +268,38 @@
   if(reduced){ helix.style.animation = 'none'; }
 })();
 
-document.getElementById('gaSubmit').addEventListener('click', function(){
+document.getElementById('gaSubmit').addEventListener('click', async function(){
   const val = document.getElementById('gaInput').value.trim().toUpperCase();
   if(!val){ return; }
-  localStorage.setItem("gemiini_sovereign_ga_id", val);
-  window.location.href = `community.html?ga=${encodeURIComponent(val)}`;
+  const btn = this;
+  btn.disabled = true;
+  btn.textContent = '...جارِ التحقق';
+
+  try {
+    const GAS_URL = "https://script.google.com/macros/s/AKfycbxAVR42yEQlQMkOBhlcka622FNbSD_3_pIJrNL1bktLyN8TqIYGC2P5cGpUqeZcoql8/exec";
+    const res = await fetch(`${GAS_URL}?action=lookup&id=${encodeURIComponent(val)}`);
+    const data = await res.json();
+    if (data.found && data.member && data.member.verified !== false) {
+      localStorage.setItem("gemiini_sovereign_ga_id", data.member.id);
+      window.location.href = `index.html`;
+      return;
+    }
+  } catch (err) {
+    // Offline local check fallback
+    if (typeof GA_DATABASE !== 'undefined') {
+      const match = GA_DATABASE.find(m => m.id === val || m.id === "GA" + val);
+      if (match) {
+        localStorage.setItem("gemiini_sovereign_ga_id", match.id);
+        window.location.href = `index.html`;
+        return;
+      }
+    }
+  }
+
+  btn.textContent = 'المعرف غير موجود';
+  setTimeout(() => { btn.textContent = 'Verify'; btn.disabled = false; }, 2000);
 });
+
 document.getElementById('gaInput').addEventListener('keydown', function(e){
   if(e.key === 'Enter'){ document.getElementById('gaSubmit').click(); }
 });
