@@ -1,733 +1,519 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>gemiiniXsmc Licensure Modules & Clinical Question Banks | GemIInI Academy</title>
-  <meta name="description" content="Official discipline-based gemiiniXsmc Modules 1 - 8 for the Sudan Medical Council (SMC) permanent licensure, MRCS, and clinical practice. Part of thousands of specialized medical modules.">
+  <title>MTC™ Clinical Simulator & SMC Exam Runner | GemIInI Academy</title>
+  <meta name="description" content="محاكي امتحانات المجلس الطبي والزمالات السريرية: سيناريوهات سريرية كمية ونموذج Mechanism-to-Clinic (MTC™).">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Cairo:wght@600;700;800&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="styles.css">
+
   <style>
-    :root {
-      --purple-deep: #130726;
-      --purple-royal: #2C1154;
-      --purple-primary: #4C1D95;
-      --purple-vibrant: #7C3AED;
-      --purple-glow: rgba(124, 58, 237, 0.25);
-      --purple-light: #FAF5FF;
-      --purple-border: #E9D5FF;
-      --teal-accent: #2DE0C2;
-      --teal-dark: #0D9488;
-      --gold-accent: #F59E0B;
-      --gold-light: #FEF3C7;
-      --bg-page: #FDFBFF;
-      --text-main: #1E1B4B;
-      --text-muted: #6B7280;
-      --border-color: #EDE9FE;
-      --gradient-brand: linear-gradient(135deg, #2C1154 0%, #4C1D95 50%, #7C3AED 100%);
+    .simulator-container {
+      max-width: 960px;
+      margin: 30px auto 80px;
+      padding: 0 16px;
+    }
+
+    /* Quiz Header Breadcrumbs & Meta */
+    .quiz-header {
+      background: #FFFFFF;
+      border: 1px solid rgba(88, 28, 135, 0.08);
+      border-radius: var(--radius-md);
+      padding: 22px 28px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .breadcrumbs {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .breadcrumbs span { color: var(--rose-accent); }
+
+    .quiz-meta-pills {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .mode-pill {
+      background: var(--purple-light);
+      color: var(--purple-brand);
+      border: 1px solid rgba(107, 33, 168, 0.15);
+      padding: 5px 14px;
+      border-radius: var(--radius-pill);
+      font-size: 12.5px;
+      font-weight: 700;
+    }
+    .progress-pill {
+      background: var(--rose-light);
+      color: var(--rose-accent);
+      border: 1px solid var(--rose-soft);
+      padding: 5px 14px;
+      border-radius: var(--radius-pill);
+      font-size: 12.5px;
+      font-weight: 800;
+      font-family: var(--font-mono);
+    }
+
+    /* Numeric Navigation Matrix (Pills 1..7) */
+    .nav-matrix {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+    .num-pill {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: #FFFFFF;
+      border: 1.5px solid rgba(88, 28, 135, 0.12);
+      color: var(--text-body);
+      font-family: var(--font-mono);
       font-size: 16px;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+      box-shadow: var(--shadow-sm);
     }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      background: var(--bg-page);
-      color: var(--text-main);
-      font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      min-height: 100vh;
-      -webkit-font-smoothing: antialiased;
-      line-height: 1.6;
+    .num-pill:hover {
+      border-color: var(--purple-brand);
+      background: var(--purple-light);
+      color: var(--purple-brand);
     }
-
-    a { color: inherit; text-decoration: none; }
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-    .mono { font-family: 'IBM Plex Mono', monospace; }
-
-    /* ---------- NAVIGATION BAR ---------- */
-    .top-nav {
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border-color);
-      position: sticky; top: 0; z-index: 100;
-    }
-    .nav-inner {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 14px 24px; max-width: 1200px; margin: 0 auto;
-    }
-    .brand-wrap { display: flex; align-items: center; gap: 12px; }
-    .brand-badge {
-      background: var(--gradient-brand); color: #FFFFFF; font-weight: 800; font-size: 0.95rem;
-      padding: 7px 14px; border-radius: 8px; font-family: 'IBM Plex Mono', monospace;
-      box-shadow: 0 4px 12px var(--purple-glow);
-    }
-    .brand-title { font-size: 1.15rem; font-weight: 700; color: var(--purple-deep); }
-    .brand-title small { display: block; font-size: 0.74rem; color: var(--text-muted); font-weight: 500; }
-
-    .nav-menu { display: flex; align-items: center; gap: 20px; }
-    .nav-link { font-size: 0.92rem; font-weight: 600; color: var(--text-main); transition: color .2s; }
-    .nav-link:hover { color: var(--purple-vibrant); }
-
-    .btn-header-demo {
-      background: var(--teal-accent); color: var(--purple-deep); font-weight: 800;
-      font-size: 0.88rem; padding: 10px 22px; border-radius: 9999px; transition: all .2s;
-      cursor: pointer; border: none;
-    }
-    .btn-header-demo:hover { transform: translateY(-1px); background: #5EEAD4; }
-
-    /* ---------- HERO BANNER ---------- */
-    .hero-banner {
-      background: var(--purple-deep);
-      background-image: 
-        radial-gradient(circle at 20% 20%, rgba(124, 58, 237, 0.25) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(45, 224, 194, 0.15) 0%, transparent 50%);
+    .num-pill.active {
+      background: var(--purple-brand);
       color: #FFFFFF;
-      padding: 60px 0 50px;
-      text-align: center;
+      border-color: var(--purple-brand);
+      box-shadow: var(--shadow-purple);
     }
-    .hero-eyebrow {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: 9999px; padding: 6px 18px; font-size: 0.84rem; font-weight: 600;
-      color: var(--teal-accent); margin-bottom: 18px; font-family: 'IBM Plex Mono', monospace;
+    .num-pill.answered {
+      background: var(--teal-light);
+      color: var(--teal-main);
+      border-color: var(--teal-main);
     }
-    .hero-banner h1 {
-      font-size: clamp(2rem, 4vw, 2.9rem);
+
+    /* Vignette Card */
+    .vignette-card {
+      background: #FFFFFF;
+      border: 1.5px solid rgba(88, 28, 135, 0.09);
+      border-radius: var(--radius-lg);
+      padding: 40px 34px;
+      box-shadow: var(--shadow-md);
+      margin-bottom: 30px;
+      text-align: right;
+    }
+    .vignette-tag {
+      display: inline-block;
+      background: var(--rose-light);
+      color: var(--rose-accent);
+      padding: 4px 14px;
+      border-radius: var(--radius-pill);
+      font-size: 12px;
       font-weight: 800;
       margin-bottom: 14px;
-      line-height: 1.2;
     }
-    .hero-banner p {
-      font-size: 1.1rem;
-      color: #E2E8F0;
-      max-width: 800px;
-      margin: 0 auto 28px;
-      line-height: 1.7;
-    }
-    .hero-cta-group {
-      display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;
-    }
-    .btn-hero-cta {
-      display: inline-block; background: var(--teal-accent); color: var(--purple-deep);
-      font-weight: 800; font-size: 0.95rem; padding: 14px 32px; border-radius: 9999px;
-      transition: all 0.2s; cursor: pointer; border: none;
-    }
-    .btn-hero-cta:hover { transform: translateY(-2px); background: #5EEAD4; }
-    .btn-hero-outline {
-      display: inline-block; background: transparent; color: #FFFFFF; border: 1.5px solid rgba(255, 255, 255, 0.3);
-      font-weight: 700; font-size: 0.95rem; padding: 13px 28px; border-radius: 9999px;
-      transition: all 0.2s; cursor: pointer;
-    }
-    .btn-hero-outline:hover { border-color: var(--teal-accent); color: var(--teal-accent); }
-
-    /* ---------- GATING & STATUS STRIP ---------- */
-    .gating-status-bar {
-      background: #FFFFFF; border: 1.5px solid var(--purple-border); border-radius: 12px;
-      padding: 18px 24px; margin: -26px auto 36px; max-width: 1060px; position: relative; z-index: 10;
-      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;
-      box-shadow: 0 10px 25px rgba(76, 29, 149, 0.06);
-    }
-    .gating-info h4 { font-size: 1.05rem; font-weight: 800; color: var(--purple-deep); display: flex; align-items: center; gap: 8px; }
-    .gating-info p { font-size: 0.88rem; color: var(--text-muted); }
-    .btn-trial-launch {
-      background: var(--purple-royal); color: #FFFFFF; font-weight: 700; font-size: 0.88rem;
-      padding: 9px 20px; border-radius: 8px; cursor: pointer; border: none; transition: all 0.2s;
-    }
-    .btn-trial-launch:hover { background: var(--purple-vibrant); }
-
-    /* ---------- CURRICULUM DISTRIBUTION MATRIX ---------- */
-    .distrib-box {
-      background: #FFFFFF; border: 1px solid var(--purple-border); border-radius: 14px;
-      padding: 32px 28px; margin-bottom: 40px; box-shadow: 0 4px 14px rgba(76, 29, 149, 0.04);
-    }
-    .distrib-header { text-align: center; margin-bottom: 24px; }
-    .distrib-header h3 { font-size: 1.5rem; font-weight: 800; color: var(--purple-deep); margin-bottom: 6px; }
-    .distrib-header p { font-size: 0.95rem; color: var(--text-muted); max-width: 720px; margin: 0 auto; }
-    
-    .distrib-grid {
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 20px;
-    }
-    @media (max-width: 900px) { .distrib-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 540px) { .distrib-grid { grid-template-columns: 1fr; } }
-    
-    .distrib-item {
-      background: var(--purple-light); border: 1px solid var(--purple-border);
-      border-radius: 10px; padding: 16px 18px; text-align: center;
-    }
-    .distrib-item .dist-num {
-      font-family: 'IBM Plex Mono', monospace; font-size: 1.4rem; font-weight: 800; color: var(--purple-primary);
-    }
-    .distrib-item .dist-label { font-size: 0.88rem; font-weight: 700; color: var(--text-main); margin-top: 4px; }
-    .distrib-item small { font-size: 0.76rem; color: var(--text-muted); display: block; margin-top: 2px; }
-
-    /* ---------- CATALOG & SIDEBAR ---------- */
-    .catalog-section { padding: 10px 0 70px; }
-    .catalog-layout {
-      display: grid; grid-template-columns: 260px 1fr; gap: 30px; align-items: start;
-    }
-    @media (max-width: 880px) { .catalog-layout { grid-template-columns: 1fr; } }
-
-    .specialty-sidebar {
-      background: #FFFFFF; border: 1px solid var(--purple-border); border-radius: 12px;
-      padding: 14px; box-shadow: 0 4px 14px rgba(76, 29, 149, 0.04);
-    }
-    .specialty-item {
-      display: flex; align-items: center; gap: 12px; padding: 11px 14px; border-radius: 8px;
-      font-size: 0.88rem; font-weight: 600; color: var(--text-main); cursor: pointer; transition: all 0.15s ease;
-      margin-bottom: 3px;
-    }
-    .specialty-item:hover { background: var(--purple-light); color: var(--purple-vibrant); }
-    .specialty-item.active { background: var(--gradient-brand); color: #FFFFFF; font-weight: 700; }
-
-    .cards-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-    @media (max-width: 720px) { .cards-grid { grid-template-columns: 1fr; } }
-
-    .course-card {
-      background: #FFFFFF; border: 1.5px solid var(--purple-border); border-radius: 14px;
-      overflow: hidden; display: flex; justify-content: space-between;
-      transition: transform .2s, box-shadow .2s, border-color .2s;
-      box-shadow: 0 4px 14px rgba(76, 29, 149, 0.04);
-    }
-    .course-card:hover {
-      transform: translateY(-3px); box-shadow: 0 14px 28px var(--purple-glow);
-      border-color: var(--purple-vibrant);
-    }
-    .card-left { padding: 22px; display: flex; flex-direction: column; justify-content: space-between; flex: 1; }
-    .card-right-graphic {
-      width: 130px; background: linear-gradient(135deg, #FAF5FF 0%, #F3E8FF 100%);
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      border-left: 1px solid var(--purple-border); padding: 14px; text-align: center;
-    }
-    .card-mod-badge {
-      font-family: 'IBM Plex Mono', monospace; font-size: 1.1rem; font-weight: 800; color: var(--purple-primary);
-    }
-    .card-type-label { font-size: 0.68rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-top: 4px; }
-
-    .card-header-track { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--purple-vibrant); margin-bottom: 4px; }
-    .card-title { font-size: 1.12rem; font-weight: 800; color: var(--purple-deep); margin-bottom: 6px; line-height: 1.3; }
-    .card-author { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 14px; }
-    .card-meta-row { display: flex; align-items: center; justify-content: space-between; font-size: 0.82rem; font-weight: 600; margin-top: 10px; }
-    
-    .btn-card-open {
-      background: var(--purple-royal); color: #FFFFFF; font-size: 0.82rem; font-weight: 700;
-      padding: 7px 16px; border-radius: 6px; border: none; cursor: pointer; transition: all .15s;
-    }
-    .btn-card-open:hover { background: var(--purple-vibrant); }
-
-    /* ---------- MODAL (TRIAL SIMULATOR & GATE MODAL) ---------- */
-    .modal-backdrop {
-      display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(19, 7, 38, 0.8); backdrop-filter: blur(8px); z-index: 200;
-      align-items: center; justify-content: center; padding: 20px;
-    }
-    .modal-backdrop.active { display: flex; animation: fadeIn .2s ease; }
-
-    .modal-card {
-      background: #FFFFFF; border-radius: 16px; max-width: 680px; width: 100%;
-      padding: 34px; max-height: 90vh; overflow-y: auto; position: relative;
-      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
-    }
-    .modal-close {
-      position: absolute; top: 20px; right: 20px; font-size: 1.4rem; font-weight: 700;
-      color: var(--text-muted); cursor: pointer; border: none; background: none;
+    .vignette-case {
+      font-size: 17px;
+      line-height: 1.85;
+      color: var(--text-main);
+      margin-bottom: 28px;
+      font-weight: 500;
     }
 
-    .q-box {
-      background: var(--purple-light); border: 1px solid var(--purple-border);
-      border-radius: 10px; padding: 20px; margin: 18px 0;
+    /* Options List */
+    .options-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 30px;
     }
-    .q-stem { font-size: 1rem; font-weight: 700; color: var(--purple-deep); margin-bottom: 16px; line-height: 1.5; }
-    .q-option {
-      background: #FFFFFF; border: 1px solid var(--purple-border); border-radius: 8px;
-      padding: 10px 14px; margin-bottom: 8px; font-size: 0.9rem; cursor: pointer; transition: all 0.15s;
-      display: flex; align-items: center; gap: 10px;
+    .opt-btn {
+      background: #FAFAFA;
+      border: 1.5px solid rgba(88, 28, 135, 0.12);
+      border-radius: var(--radius-md);
+      padding: 16px 22px;
+      text-align: right;
+      font-size: 15.5px;
+      font-weight: 700;
+      color: var(--text-body);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      transition: all 0.2s ease;
+      font-family: var(--font-arabic);
     }
-    .q-option:hover { border-color: var(--purple-vibrant); background: #FAF5FF; }
-    .q-option.correct { background: #ECFDF5; border-color: #10B981; color: #065F46; font-weight: 700; }
-    .q-option.wrong { background: #FEF2F2; border-color: #EF4444; color: #991B1B; }
+    .opt-btn:hover {
+      background: #FFFFFF;
+      border-color: var(--purple-brand);
+      transform: translateX(-4px);
+    }
+    .opt-letter {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: var(--purple-light);
+      color: var(--purple-brand);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 14px;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+    .opt-btn.correct {
+      background: #ECFDF5 !important;
+      border-color: #10B981 !important;
+      color: #065F46 !important;
+    }
+    .opt-btn.wrong {
+      background: #FFF1F2 !important;
+      border-color: #F43F5E !important;
+      color: #9F1239 !important;
+    }
 
-    .q-rationale {
-      display: none; background: #FFFFFF; border: 1.5px solid #10B981; border-radius: 8px;
-      padding: 14px 16px; margin-top: 14px; font-size: 0.88rem; color: #065F46; line-height: 1.6;
+    /* MTC Deep Explanation Box */
+    .mtc-box {
+      display: none;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(243, 232, 255, 0.5));
+      border: 1.5px solid var(--purple-brand);
+      border-radius: var(--radius-md);
+      padding: 26px 30px;
+      margin-top: 24px;
+      box-shadow: var(--shadow-purple);
+      animation: fadeIn 0.3s ease;
     }
-    .q-rationale.active { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    /* Result Modal / State */
+    .result-banner {
+      display: none;
+      background: #FFFFFF;
+      border: 2px solid #10B981;
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(16, 185, 129, 0.15);
+      margin-top: 30px;
+    }
   </style>
 </head>
 <body>
 
-  <!-- Top Navigation Bar -->
-  <nav class="top-nav">
-    <div class="nav-inner">
-      <div class="brand-wrap">
-        <a href="index.html" style="display: flex; align-items: center; gap: 10px;">
-          <div class="brand-badge">GA</div>
-          <div class="brand-title">
-            GemIInI Academy
-            <small>Clinical Q-Banks & Fellowship Modules</small>
-          </div>
-        </a>
-      </div>
-
-      <div class="nav-menu">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="#curriculum-distrib" class="nav-link">Curriculum Matrix</a>
-        <a href="#catalog" class="nav-link">Discipline Modules</a>
-        <a href="courses.html" class="nav-link">Genomics & MM</a>
-        <a href="portal.html" class="nav-link">Member Portal</a>
-        <button class="btn-header-demo" onclick="openTrialModal()">Free 20-Q Trial ➔</button>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-content">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-symbol">SG</div>
+        <div class="brand-text">
+          <h1>SudaGene</h1>
+          <span>Medical Group</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">الرئيسية</a></li>
+        <li><a href="courses.html">الدورات والامتحانات</a></li>
+        <li><a href="smc.html" class="active">محاكي MTC™ السريري</a></li>
+        <li><a href="community.html">سجل الأطباء والـ GP</a></li>
+        <li><a href="https://member.geneacademy.net" target="_blank" style="color: var(--rose-accent); font-weight: 800;">منصة الأعضاء (LMS) 🎓</a></li>
+      </ul>
+      <div>
+        <a href="https://member.geneacademy.net" target="_blank" class="btn-primary" style="padding: 8px 20px; font-size: 13.5px;">دخول LMS ←</a>
       </div>
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <header class="hero-banner">
+  <div class="simulator-container">
+
+    <!-- QUIZ RUNNER HEADER -->
+    <div class="quiz-header">
+      <div class="breadcrumbs">
+        <span>GemIInI Academy</span> › Clinical Licensure › <strong>MTC™ Mechanism-to-Clinic Quiz Runner</strong>
+      </div>
+      <div class="quiz-meta-pills">
+        <span class="mode-pill">Single Choice</span>
+        <span class="progress-pill" id="questionProgressText">Question 1 of 7</span>
+      </div>
+    </div>
+
+    <!-- NUMERIC NAVIGATION MATRIX (1..7) -->
+    <div class="nav-matrix" id="navMatrix">
+      <button class="num-pill active" onclick="loadQuestion(0)">1</button>
+      <button class="num-pill" onclick="loadQuestion(1)">2</button>
+      <button class="num-pill" onclick="loadQuestion(2)">3</button>
+      <button class="num-pill" onclick="loadQuestion(3)">4</button>
+      <button class="num-pill" onclick="loadQuestion(4)">5</button>
+      <button class="num-pill" onclick="loadQuestion(5)">6</button>
+      <button class="num-pill" onclick="loadQuestion(6)">7</button>
+    </div>
+
+    <!-- CLINICAL VIGNETTE CARD -->
+    <div class="vignette-card" id="quizCard">
+      <span class="vignette-tag" id="qCategory">Fluid & Electrolyte Disorders • Clinical Nephrology</span>
+      <div class="vignette-case" id="qText">
+        رجل يبلغ من العمر 58 عاماً، وزنه 70 كجم، تم قبوله في العناية المركزة بحالة تشوش ذهني ونوبات تشنجية متكررة. أظهرت الفحوصات المخبرية: Na⁺ = 110 mEq/L (Severe Symptomatic Hypotonic Hyponatremia). الهدف السريري المبدئي هو رفع الصوديوم بمقدار 5 mEq/L لتخفيف الأعراض العصبية الحادة باستخدام محلول 3% Hypertonic Saline (تركيز الصوديوم = 513 mEq/L). 
+        <br><br>
+        <strong>السؤال:</strong> ما هو الحجم الدقيق لمحلول 3% NaCl المطلوب إعطاؤه لتصحيح العجز المبدئي وتجنب مضاعفات Osmotic Demyelination Syndrome؟
+      </div>
+
+      <div class="options-list" id="qOptions">
+        <!-- Injected via JS -->
+      </div>
+
+      <!-- MTC REASONING BOX -->
+      <div class="mtc-box" id="mtcBox">
+        <div style="display: flex; align-items: center; gap: 8px; font-weight: 900; color: var(--purple-dark); font-size: 16px; margin-bottom: 8px;">
+          <span>🧬</span> التفسير السريري والآلية الحيوية (MTC™ Clinical Framework)
+        </div>
+        <div id="mtcText" style="font-size: 14.5px; color: var(--text-body); line-height: 1.8;">
+          <!-- Explanation injected here -->
+        </div>
+        <div style="margin-top: 14px; display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-family: var(--font-mono); font-weight: 800; color: var(--emerald-main);" id="gpAwardedBadge">+50 GP Awarded</span>
+          <button class="btn-primary" style="padding: 8px 22px; font-size: 13px;" onclick="nextQuestion()">السؤال التالي ←</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESULT EVALUATION BANNER -->
+    <div class="result-banner" id="resultBanner">
+      <div style="font-size: 48px; margin-bottom: 12px;">🏆</div>
+      <h2 style="font-size: 28px; font-weight: 900; color: var(--purple-dark); margin-bottom: 8px;">
+        اكتمل الاختبار بنجاح! النتيجة: <span style="color: #10B981;" id="finalScore">100% (7/7)</span>
+      </h2>
+      <p style="font-size: 16px; color: var(--text-muted); margin-bottom: 28px;">
+        تم تسجيل درجاتك ورصيد الـ GP المكتسب (+350 GP) في سجلك السريري المركزي بنجاح.
+      </p>
+
+      <div style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;">
+        <button class="btn-primary" onclick="restartQuiz()">إعادة الاختبار 🔄</button>
+        <a href="https://member.geneacademy.net" target="_blank" class="btn-secondary">الانتقال إلى الموديول التالي في LMS 🎓</a>
+        <a href="community.html" class="btn-white">عرض المحفظة والسجل السيادي 💎</a>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="signature-footer">
     <div class="container">
-      <div class="hero-eyebrow">
-        <span>●</span> OFFICIAL DISCIPLINE-BASED CLINICAL CURRICULUM
-      </div>
-      <h1>gemiiniXsmc Modules & Clinical Question Banks</h1>
-      <p>
-        Part of the GemIInI Medical Curriculum featuring thousands of specialized clinical and fellowship modules. Dual-blind audited question banks engineered for Sudanese medical graduates, house officers, and clinical candidates under the Mechanism-to-Clinic (MTC™) framework.
-      </p>
-      <div class="hero-cta-group">
-        <a href="#catalog" class="btn-hero-cta">Explore All 8 Modules ➔</a>
-        <button class="btn-hero-outline" onclick="openTrialModal()">Take Free 20-Question Diagnostic Trial</button>
+      <div class="signature-seal-strip">
+        <div class="signature-brand-mark">GemIInI Academy · Powered by geneacademy.net</div>
+        <div>MTC™ Clinical Reasoning Simulator • All Rights Reserved © 2026/2027</div>
       </div>
     </div>
-  </header>
-
-  <!-- Gating & Member Status Strip -->
-  <div class="container">
-    <div class="gating-status-bar">
-      <div class="gating-info">
-        <h4 id="gatingTitle">🔒 Verified Account & Membership Required</h4>
-        <p id="gatingSub">You can explore the curriculum distribution below. Full question blocks require a GA# and 50 GP per module.</p>
-      </div>
-      <div style="display: flex; align-items: center; gap: 10px;">
-        <button class="btn-trial-launch" onclick="openTrialModal()">Sample Trial Simulator (Free)</button>
-        <a href="join.html" class="btn-trial-launch" style="background: var(--teal-dark);">Claim Free GA# (+500 GP) ←</a>
-      </div>
-    </div>
-  </div>
-
-  <main class="container">
-
-    <!-- Curriculum Distribution & Blueprint Matrix -->
-    <section class="distrib-box" id="curriculum-distrib">
-      <div class="distrib-header">
-        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 0.8rem; font-weight: 700; color: var(--purple-vibrant); text-transform: uppercase;">
-          Curriculum Distribution Architecture
-        </span>
-        <h3>How the 2,400+ Clinical Questions Are Distributed</h3>
-        <p>
-          Every module is calibrated against the Sudan Medical Council (SMC) Blueprint and international licensing benchmarks (MRCS, USMLE):
-        </p>
-      </div>
-
-      <div class="distrib-grid">
-        <div class="distrib-item">
-          <div class="dist-num">420 Qs</div>
-          <div class="dist-label">ECG & Diagnostic Imaging</div>
-          <small>Arrhythmias, STEMI, Chest X-Ray & CT</small>
-        </div>
-
-        <div class="distrib-item">
-          <div class="dist-num">400 Qs</div>
-          <div class="dist-label">Surgical & Trauma Protocols</div>
-          <small>ATLS, Acute Abdomen, Wound Care</small>
-        </div>
-
-        <div class="distrib-item">
-          <div class="dist-num">380 Qs</div>
-          <div class="dist-label">Emergency Therapeutics</div>
-          <small>Dosage Calculations, Toxicology, Antibiotics</small>
-        </div>
-
-        <div class="distrib-item">
-          <div class="dist-num">320 Qs</div>
-          <div class="dist-label">Pediatric & Neonatal Sepsis</div>
-          <small>NRP, IMCI Guidelines, Dehydration</small>
-        </div>
-
-        <div class="distrib-item">
-          <div class="dist-num">280 Qs</div>
-          <div class="dist-label">Obstetric Emergencies</div>
-          <small>PPH, Pre-Eclampsia, Partograph</small>
-        </div>
-
-        <div class="distrib-item">
-          <div class="dist-num">250 Qs</div>
-          <div class="dist-label">Clinical Pathology & Labs</div>
-          <small>CBC Interpretation, CSF, Electrolytes</small>
-        </div>
-
-        <div class="distrib-item">
-          <div class="dist-num">200 Stns</div>
-          <div class="dist-label">Bedside OSCE Stations</div>
-          <small>History Taking, Physical Exam, Counseling</small>
-        </div>
-
-        <div class="distrib-item">
-          <div class="dist-num">150 Qs</div>
-          <div class="dist-label">Community & Public Health</div>
-          <small>Epidemiology, Screening, Outbreaks</small>
-        </div>
-      </div>
-    </section>
-
-    <!-- Discipline Module Catalog -->
-    <section class="catalog-section" id="catalog">
-      <div class="catalog-layout">
-        
-        <!-- Left Sidebar Filter -->
-        <aside class="specialty-sidebar">
-          <div style="font-size: 0.74rem; font-weight: 700; text-transform: uppercase; color: var(--text-muted); margin-bottom: 10px;">
-            Filter Disciplines
-          </div>
-          <div class="specialty-item active" onclick="filterCatalog('all', this)">
-            <span>★ All 8 Modules</span>
-          </div>
-          <div class="specialty-item" onclick="filterCatalog('med', this)">
-            <span>🫀 Module 1: Internal Medicine</span>
-          </div>
-          <div class="specialty-item" onclick="filterCatalog('surg', this)">
-            <span>🔪 Module 2: General Surgery</span>
-          </div>
-          <div class="specialty-item" onclick="filterCatalog('ped', this)">
-            <span>👶 Module 3: Pediatrics</span>
-          </div>
-          <div class="specialty-item" onclick="filterCatalog('obs', this)">
-            <span>🤰 Module 4: Obs & Gyn</span>
-          </div>
-          <div class="specialty-item" onclick="filterCatalog('path', this)">
-            <span>🔬 Module 5: Pathology & Lab</span>
-          </div>
-          <div class="specialty-item" onclick="filterCatalog('pharm', this)">
-            <span>💊 Module 6: Pharmacology</span>
-          </div>
-          <div class="specialty-item" onclick="filterCatalog('osce', this)">
-            <span>📋 Module 7: Clinical OSCE</span>
-          </div>
-          <div class="specialty-item" onclick="filterCatalog('comm', this)">
-            <span>🏛️ Module 8: Community Medicine</span>
-          </div>
-        </aside>
-
-        <!-- Right Modules Grid -->
-        <div>
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
-            <strong style="font-size: 1.1rem; color: var(--purple-deep);">8 Core Modules • 2,400+ Clinical Questions</strong>
-            <span style="font-size: 0.84rem; color: var(--text-muted);">Cost: 50 GP per module</span>
-          </div>
-
-          <div class="cards-grid">
-            
-            <!-- Module 1 -->
-            <div class="course-card" data-cat="med">
-              <div class="card-left">
-                <div>
-                  <div class="card-header-track">Internal Medicine & Critical Care</div>
-                  <h4 class="card-title">gemiiniXsmc Module 1: Internal Medicine & Acute Care</h4>
-                  <div class="card-author">By Clinical Faculty & Review Board</div>
-                </div>
-                <div class="card-meta-row">
-                  <span class="mono" style="color: var(--purple-vibrant);">50 GP • SMC Aligned</span>
-                  <button class="btn-card-open" onclick="handleModuleClick('Module 1: Internal Medicine', 50)">Open Module ➔</button>
-                </div>
-              </div>
-              <div class="card-right-graphic">
-                <div class="card-mod-badge">MOD 1</div>
-                <div class="card-type-label">CORE</div>
-              </div>
-            </div>
-
-            <!-- Module 2 -->
-            <div class="course-card" data-cat="surg">
-              <div class="card-left">
-                <div>
-                  <div class="card-header-track">General Surgery & Trauma Protocol</div>
-                  <h4 class="card-title">gemiiniXsmc Module 2: General Surgery & Trauma Protocol</h4>
-                  <div class="card-author">By Dr. Alaa Mursi (GA001) & Surgical Board</div>
-                </div>
-                <div class="card-meta-row">
-                  <span class="mono" style="color: var(--purple-vibrant);">50 GP • MRCS Aligned</span>
-                  <button class="btn-card-open" onclick="handleModuleClick('Module 2: General Surgery', 50)">Open Module ➔</button>
-                </div>
-              </div>
-              <div class="card-right-graphic">
-                <div class="card-mod-badge">MOD 2</div>
-                <div class="card-type-label">CORE</div>
-              </div>
-            </div>
-
-            <!-- Module 3 -->
-            <div class="course-card" data-cat="ped">
-              <div class="card-left">
-                <div>
-                  <div class="card-header-track">Pediatrics & Neonatology</div>
-                  <h4 class="card-title">gemiiniXsmc Module 3: Pediatrics & Neonatology</h4>
-                  <div class="card-author">By Pediatric Clinical Faculty</div>
-                </div>
-                <div class="card-meta-row">
-                  <span class="mono" style="color: var(--purple-vibrant);">50 GP • SMC Permanent</span>
-                  <button class="btn-card-open" onclick="handleModuleClick('Module 3: Pediatrics', 50)">Open Module ➔</button>
-                </div>
-              </div>
-              <div class="card-right-graphic">
-                <div class="card-mod-badge">MOD 3</div>
-                <div class="card-type-label">CORE</div>
-              </div>
-            </div>
-
-            <!-- Module 4 -->
-            <div class="course-card" data-cat="obs">
-              <div class="card-left">
-                <div>
-                  <div class="card-header-track">Obstetrics & Gynecology</div>
-                  <h4 class="card-title">gemiiniXsmc Module 4: Obstetrics & Gynecology</h4>
-                  <div class="card-author">By Maternal Health Review Board</div>
-                </div>
-                <div class="card-meta-row">
-                  <span class="mono" style="color: var(--purple-vibrant);">50 GP • MRCOG Aligned</span>
-                  <button class="btn-card-open" onclick="handleModuleClick('Module 4: Obs & Gyn', 50)">Open Module ➔</button>
-                </div>
-              </div>
-              <div class="card-right-graphic">
-                <div class="card-mod-badge">MOD 4</div>
-                <div class="card-type-label">CORE</div>
-              </div>
-            </div>
-
-            <!-- Module 5 -->
-            <div class="course-card" data-cat="path">
-              <div class="card-left">
-                <div>
-                  <div class="card-header-track">Pathology & Lab Medicine</div>
-                  <h4 class="card-title">gemiiniXsmc Module 5: Clinical Pathology & Lab Diagnostics</h4>
-                  <div class="card-author">By Diagnostic Laboratory Fellows</div>
-                </div>
-                <div class="card-meta-row">
-                  <span class="mono" style="color: var(--purple-vibrant);">50 GP • High-Yield</span>
-                  <button class="btn-card-open" onclick="handleModuleClick('Module 5: Pathology', 50)">Open Module ➔</button>
-                </div>
-              </div>
-              <div class="card-right-graphic">
-                <div class="card-mod-badge">MOD 5</div>
-                <div class="card-type-label">CORE</div>
-              </div>
-            </div>
-
-            <!-- Module 6 -->
-            <div class="course-card" data-cat="pharm">
-              <div class="card-left">
-                <div>
-                  <div class="card-header-track">Clinical Pharmacology</div>
-                  <h4 class="card-title">gemiiniXsmc Module 6: Emergency & Clinical Pharmacology</h4>
-                  <div class="card-author">By Clinical Pharmacology Board</div>
-                </div>
-                <div class="card-meta-row">
-                  <span class="mono" style="color: var(--purple-vibrant);">50 GP • Therapeutics</span>
-                  <button class="btn-card-open" onclick="handleModuleClick('Module 6: Pharmacology', 50)">Open Module ➔</button>
-                </div>
-              </div>
-              <div class="card-right-graphic">
-                <div class="card-mod-badge">MOD 6</div>
-                <div class="card-type-label">CORE</div>
-              </div>
-            </div>
-
-            <!-- Module 7 -->
-            <div class="course-card" data-cat="osce">
-              <div class="card-left">
-                <div>
-                  <div class="card-header-track">Clinical Simulation & Bedside OSCE</div>
-                  <h4 class="card-title">gemiiniXsmc Module 7: Clinical OSCE & Bedside Examination</h4>
-                  <div class="card-author">By University of Khartoum Alumni Examiners</div>
-                </div>
-                <div class="card-meta-row">
-                  <span class="mono" style="color: var(--purple-vibrant);">75 GP • Live Stations</span>
-                  <button class="btn-card-open" onclick="handleModuleClick('Module 7: Clinical OSCE', 75)">Open Module ➔</button>
-                </div>
-              </div>
-              <div class="card-right-graphic">
-                <div class="card-mod-badge">MOD 7</div>
-                <div class="card-type-label">LIVE SIM</div>
-              </div>
-            </div>
-
-            <!-- Module 8 -->
-            <div class="course-card" data-cat="comm">
-              <div class="card-left">
-                <div>
-                  <div class="card-header-track">Public Health & Biostatistics</div>
-                  <h4 class="card-title">gemiiniXsmc Module 8: Community Medicine & Preventive Health</h4>
-                  <div class="card-author">By Epidemiology & Public Health Fellows</div>
-                </div>
-                <div class="card-meta-row">
-                  <span class="mono" style="color: var(--purple-vibrant);">50 GP • Biostatistics</span>
-                  <button class="btn-card-open" onclick="handleModuleClick('Module 8: Community Medicine', 50)">Open Module ➔</button>
-                </div>
-              </div>
-              <div class="card-right-graphic">
-                <div class="card-mod-badge">MOD 8</div>
-                <div class="card-type-label">CORE</div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-  </main>
-
-  <!-- =========================================================================
-       MODAL 1: FREE 20-QUESTION DIAGNOSTIC TRIAL SIMULATOR
-       ========================================================================= -->
-  <div class="modal-backdrop" id="trialModal">
-    <div class="modal-card">
-      <button class="modal-close" onclick="closeTrialModal()">×</button>
-      
-      <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
-        <span class="brand-badge" style="font-size: 0.8rem; padding: 4px 10px;">FREE TRIAL</span>
-        <h3 style="font-size: 1.3rem; color: var(--purple-deep);">MTC™ Diagnostic Clinical Question Simulator</h3>
-      </div>
-      <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 16px;">
-        Test your clinical reasoning against this live sample vignette audited under the dual-blind Mechanism-to-Clinic (MTC™) framework:
-      </p>
-
-      <div class="q-box">
-        <div class="q-stem">
-          A 54-year-old male presents to the emergency room with 2 hours of crushing retrosternal chest pain radiating to his left jaw. His blood pressure is 85/55 mmHg, pulse is 115 bpm, and oxygen saturation is 91% on room air. The 12-lead ECG demonstrates ST-segment elevation in leads II, III, and aVF with clear ST depression in leads I and aVL. Which of the following is the most critical immediate management step?
-        </div>
-
-        <div class="q-option" onclick="selectTrialOption(this, false)">
-          <strong>A.</strong> Administer Sublingual Nitroglycerin 0.4 mg immediately
-        </div>
-        <div class="q-option" onclick="selectTrialOption(this, true)">
-          <strong>B.</strong> Rapid Normal Saline Bolus (500 mL) & Urgent Primary PCI Activation
-        </div>
-        <div class="q-option" onclick="selectTrialOption(this, false)">
-          <strong>C.</strong> Administer Intravenous Metoprolol 5 mg slowly
-        </div>
-        <div class="q-option" onclick="selectTrialOption(this, false)">
-          <strong>D.</strong> Immediate Intravenous Furosemide 40 mg bolus
-        </div>
-
-        <div class="q-rationale" id="trialRationale">
-          <strong>✓ MTC™ Clinical Rationale:</strong> The patient has an acute Inferior Wall STEMI (leads II, III, aVF) complicated by Right Ventricular Infarction (hypotension, tachycardia, clear lungs). Right ventricular stroke volume is preload-dependent. <strong>Nitrates and beta-blockers are contraindicated</strong> because they reduce preload and precipitate severe cardiovascular collapse. The correct initial response is volume expansion (Saline bolus) to maintain right ventricular filling while activating primary reperfusion (PCI).
-        </div>
-      </div>
-
-      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-top: 20px;">
-        <span style="font-size: 0.85rem; color: var(--text-muted);">Want access to all 2,400+ dual-blind questions?</span>
-        <a href="join.html" class="btn-trial-launch" style="background: var(--teal-dark);">Claim Free GA# (+500 GP Balance) ➔</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- =========================================================================
-       MODAL 2: GATED ACCESS / UNLOCK PROMPT
-       ========================================================================= -->
-  <div class="modal-backdrop" id="gateModal">
-    <div class="modal-card" style="max-width: 500px; text-align: center;">
-      <button class="modal-close" onclick="closeGateModal()">×</button>
-      
-      <div style="font-size: 2.5rem; margin-bottom: 12px;">🔒</div>
-      <h3 style="font-size: 1.4rem; color: var(--purple-deep); margin-bottom: 8px;">GemIInI Membership Required</h3>
-      <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 20px; line-height: 1.6;">
-        To open <strong id="gateModName">Module 1</strong> and track your exam analytics, you must have an active GA# account.
-      </p>
-
-      <div style="display: flex; flex-direction: column; gap: 10px;">
-        <a href="portal.html" class="btn-trial-launch" style="padding: 12px; font-size: 0.95rem;">
-          Sign In to Member Portal (Portal.html) ➔
-        </a>
-        <a href="join.html" class="btn-trial-launch" style="background: var(--teal-dark); padding: 12px; font-size: 0.95rem;">
-          Claim Free GA# Membership (+500 GP) ➔
-        </a>
-        <button onclick="closeGateModal(); openTrialModal();" style="background: none; border: none; color: var(--purple-vibrant); font-weight: 700; cursor: pointer; padding: 8px;">
-          Or Try Free 20-Question Diagnostic Trial
-        </button>
-      </div>
-    </div>
-  </div>
+  </footer>
 
   <script src="js/ga_data.js"></script>
+  <script src="api.js"></script>
   <script>
-    function filterCatalog(category, el) {
-      document.querySelectorAll('.specialty-item').forEach(item => item.classList.remove('active'));
-      el.classList.add('active');
+    const QUIZ_DATA = [
+      {
+        id: "Q1",
+        category: "Clinical Nephrology • Quantitative Deficit",
+        text: "رجل يبلغ من العمر 58 عاماً (70 كجم) يعاني من Severe Symptomatic Hyponatremia (Na = 110 mEq/L). نريد رفع الصوديوم بمقدار 5 mEq/L باستخدام 3% Hypertonic Saline (513 mEq/L). ما الحجم المطلوب؟",
+        options: [
+          "510 mL تقريباً عبر التسريب الوريدي المتحكم",
+          "210 mL تقريباً (المحسوبة عبر صيغة: Total Body Water × ΔNa / Infusate Na)",
+          "1,000 mL دفعة واحدة خلال ساعتين",
+          "150 mL من 0.9% Normal Saline فقط"
+        ],
+        correct: 1,
+        mtc: "معادلة Adrogué-Madias: التغير في الصوديوم = (صوديوم المحلول - صوديوم المريض) / (ماء الجسم الكلي + 1). TBW = 70 × 0.6 = 42 L. رفع 5 mEq/L يتطلب 210 mL من 3% NaCl. الحد الأقصى الآمن للرفع هو 6-8 mEq/L خلال 24 ساعة لتجنب Osmotic Demyelination."
+      },
+      {
+        id: "Q2",
+        category: "Emergency & Surgical Resuscitation",
+        text: "مريض تعرض لحادث سير، يعاني من انخفاض حاد في ضغط الدم (75/40 mmHg)، غياب أصوات التنفس في الصدر الأيمن، مع انحراف الرغامي (Tracheal Deviation) لليسار. ما هو الإجراء الفوري المنقذ للحياة؟",
+        options: [
+          "إجراء أشعة مقطعية للصدر (CT Thorax)",
+          "إدخال إبرة لتفريغ الهواء (Needle Thoracostomy) في المسافة الوربية الثانية أو الخامسة فوراً",
+          "إعطاء 2 لتر من السوائل الدافئة والانتظار",
+          "التنبيب الرغامي الفوري قبل فك الضغط"
+        ],
+        correct: 1,
+        mtc: "التشخيص هو استرواح الصدر الضاغط (Tension Pneumothorax). هذا تشخيص سريري بحت يتطلب Needle Decompression فوري دون إضاعة الوقت في التصوير الإشعاعي، يليه أنبوب الصدر (Chest Tube)."
+      },
+      {
+        id: "Q3",
+        category: "Endocrinology & DKA Protocol",
+        text: "شابة مصابة بالنوع الأول من السكري وصلت بحماض كيتوني سكري (DKA). نسبة السكر 450 mg/dL، وK⁺ = 3.1 mEq/L. ما هي الخطوة الصحيحة للتعامل مع الإنسولين والبوتاسيوم؟",
+        options: [
+          "البدء الفوري بالإنسولين الوريدي بجرعة 0.1 U/kg/h دون إعطاء بوتاسيوم",
+          "تأجيل الإنسولين، والبدء بتعويض البوتاسيوم وريدياً حتى يصل أعلى من 3.3 mEq/L لتجنب السكتة القلبية",
+          "إعطاء بيكربونات الصوديوم وريدياً فوراً",
+          "إعطاء جرعة إنسولين تحت الجلد وتخريج المريضة"
+        ],
+        correct: 1,
+        mtc: "الإنسولين يدخل البوتاسيوم إلى داخل الخلايا. إعطاء الإنسولين لمريض بوتاسيومه أقل من 3.3 mEq/L قد يسبب نقص بوتاسيوم قاتل واضطراب نظم قلبي. لذلك يُصحح البوتاسيوم أولاً."
+      },
+      {
+        id: "Q4",
+        category: "Molecular Medicine • MM 1.0",
+        text: "أي من الإنزيمات التالية مسؤول عن فك التفاف الـ DNA وإزالة الإجهاد الالتوائي (Supercoiling) أثناء عملية التضاعف؟",
+        options: [
+          "DNA Helicase",
+          "DNA Topoisomerase (Gyrase)",
+          "DNA Polymerase III",
+          "DNA Ligase"
+        ],
+        correct: 1,
+        mtc: "بينما يقوم الـ Helicase بكسر الروابط الهيدروجينية لفتح الشريطين، يقوم الـ Topoisomerase بقطع مؤقت في الهيكل العظمي للشريط لتخفيف الـ Supercoiling الناتج عن الفتح."
+      },
+      {
+        id: "Q5",
+        category: "Cardiology • Acute Coronary Syndromes",
+        text: "مريض يشكو من ألم حاد بالصدر، وتخطيط القلب (ECG) أظهر ارتفاع ST-elevation في الاتجاهات V1-V4. ما هو الشريان التاجي المسؤول عن هذا الاحتشاء؟",
+        options: [
+          "Left Anterior Descending (LAD) Artery",
+          "Right Coronary Artery (RCA)",
+          "Left Circumflex (LCx) Artery",
+          "Left Main Artery"
+        ],
+        correct: 0,
+        mtc: "ارتفاع ST في V1-V4 يعكس احتشاء الجدار الأمامي والحاجزي (Anteroseptal MI)، والشريان المغذي له هو الشريان التاجي الأيسر النازل الأمامي (LAD)."
+      },
+      {
+        id: "Q6",
+        category: "Infectious Diseases • Antibiotic Stewardship",
+        text: "مريض يعاني من التهاب سحايا جرثومي مكتسب من المجتمع (Community-Acquired Bacterial Meningitis). ما هو العلاج التجريبي الأولي الموصى به للمريض البالغ؟",
+        options: [
+          "Ceftriaxone + Vancomycin (+ Dexamethasone)",
+          "Amoxicillin فقط",
+          "Gentamicin + Metronidazole",
+          "Ciprofloxacin فموي"
+        ],
+        correct: 0,
+        mtc: "التغطية التجريبية لالتهاب السحايا الحاد تتطلب Ceftriaxone لتغطية S. pneumoniae و N. meningitidis مع Vancomycin لتغطية السلالات المقاومة من المكورات الرئوية، والديكساميثازون لتقليل المضاعفات العصبية."
+      },
+      {
+        id: "Q7",
+        category: "Pediatrics • Pediatric Emergency",
+        text: "طفل عمره 3 سنوات يبتلع بطارية قرصية (Button Battery) استقرت في منتصف المريء حسب الأشعة السينية. ما هو التدخل الصحيح؟",
+        options: [
+          "مراقبة الطفل لمدة 48 ساعة ومتابعة البراز",
+          "إجراء منظار عاجل وإزالة البطارية فوراً لتجنب النخر وانثقاب المريء (Liquefaction Necrosis)",
+          "إعطاء ملينات ومثبطات مضخة البروتون فقط",
+          "محاولة إحداث التقيؤ في المنزل"
+        ],
+        correct: 1,
+        mtc: "البطاريات القرصية العالقة في المريء تولد تياراً كهربائياً موضعياً وتفرز هيدروكسيد قلوي يسبب Liquefactive Necrosis وانثقاب المريء خلال أقل من ساعتين. إزالتها بالمنظار حالة طارئة قصوى."
+      }
+    ];
 
-      const cards = document.querySelectorAll('.course-card');
-      cards.forEach(card => {
-        if (category === 'all' || card.getAttribute('data-cat') === category) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
-        }
+    let currentIdx = 0;
+    let score = 0;
+    let answered = new Set();
+
+    function loadQuestion(idx) {
+      currentIdx = idx;
+      const q = QUIZ_DATA[idx];
+
+      document.getElementById('questionProgressText').textContent = `Question ${idx + 1} of ${QUIZ_DATA.length}`;
+      document.getElementById('qCategory').textContent = q.category;
+      document.getElementById('qText').innerHTML = q.text;
+      document.getElementById('mtcBox').style.display = 'none';
+
+      // Update Nav Matrix Pills
+      const pills = document.querySelectorAll('.num-pill');
+      pills.forEach((p, i) => {
+        p.classList.remove('active');
+        if (i === idx) p.classList.add('active');
+        if (answered.has(i)) p.classList.add('answered');
+      });
+
+      // Render Options
+      const optContainer = document.getElementById('qOptions');
+      optContainer.innerHTML = '';
+      const letters = ['A', 'B', 'C', 'D'];
+
+      q.options.forEach((opt, i) => {
+        const btn = document.createElement('button');
+        btn.className = 'opt-btn';
+        btn.innerHTML = `<span class="opt-letter">${letters[i]}</span> <span>${opt}</span>`;
+        btn.onclick = () => selectOption(i, btn);
+        optContainer.appendChild(btn);
       });
     }
 
-    function openTrialModal() {
-      document.getElementById('trialModal').classList.add('active');
-    }
-    function closeTrialModal() {
-      document.getElementById('trialModal').classList.remove('active');
-    }
+    async function selectOption(selectedIdx, btnElement) {
+      if (answered.has(currentIdx)) return;
+      answered.add(currentIdx);
 
-    function openGateModal(modName) {
-      document.getElementById('gateModName').textContent = modName;
-      document.getElementById('gateModal').classList.add('active');
-    }
-    function closeGateModal() {
-      document.getElementById('gateModal').classList.remove('active');
-    }
+      const q = QUIZ_DATA[currentIdx];
+      const allBtns = document.querySelectorAll('.opt-btn');
+      allBtns.forEach(b => b.disabled = true);
 
-    function selectTrialOption(el, isCorrect) {
-      document.querySelectorAll('.q-option').forEach(opt => {
-        opt.classList.remove('correct', 'wrong');
-      });
-      if (isCorrect) {
-        el.classList.add('correct');
+      if (selectedIdx === q.correct) {
+        btnElement.classList.add('correct');
+        score++;
       } else {
-        el.classList.add('wrong');
+        btnElement.classList.add('wrong');
+        allBtns[q.correct].classList.add('correct');
       }
-      document.getElementById('trialRationale').classList.add('active');
+
+      // Check server & award GP
+      if (typeof checkRawAnswer === 'function') {
+        checkRawAnswer(q.id, selectedIdx);
+      }
+
+      // Show MTC Box
+      document.getElementById('mtcText').textContent = q.mtc;
+      document.getElementById('mtcBox').style.display = 'block';
+
+      // Update Matrix
+      const pills = document.querySelectorAll('.num-pill');
+      pills[currentIdx].classList.add('answered');
+
+      // If all answered, show result banner
+      if (answered.size === QUIZ_DATA.length) {
+        setTimeout(showFinalResult, 1000);
+      }
     }
 
-    function handleModuleClick(moduleName, cost) {
-      const raw = localStorage.getItem('gemiini_sovereign_session');
-      if (raw) {
-        try {
-          const session = JSON.parse(raw);
-          if (session.authenticated && session.id) {
-            // Member is logged in -> route to portal unlock logic
-            window.location.href = `portal.html?unlock=${encodeURIComponent(moduleName)}`;
-            return;
-          }
-        } catch(e) {}
+    function nextQuestion() {
+      if (currentIdx < QUIZ_DATA.length - 1) {
+        loadQuestion(currentIdx + 1);
+      } else {
+        showFinalResult();
       }
-      // Anonymous visitor -> prompt membership gating
-      openGateModal(moduleName);
     }
 
-    window.addEventListener('DOMContentLoaded', () => {
-      const raw = localStorage.getItem('gemiini_sovereign_session');
-      if (raw) {
-        try {
-          const session = JSON.parse(raw);
-          if (session.authenticated && session.id) {
-            document.getElementById('gatingTitle').textContent = `✓ Active Member: ${session.name || session.id}`;
-            document.getElementById('gatingSub').textContent = `Available Balance: ${session.gp || 500} GP • Click any module to unlock for 50 GP.`;
-          }
-        } catch(e) {}
-      }
-    });
+    function showFinalResult() {
+      document.getElementById('quizCard').style.display = 'none';
+      const pct = Math.round((score / QUIZ_DATA.length) * 100);
+      document.getElementById('finalScore').textContent = `${pct}% (${score}/${QUIZ_DATA.length})`;
+      document.getElementById('resultBanner').style.display = 'block';
+    }
+
+    function restartQuiz() {
+      score = 0;
+      answered.clear();
+      document.getElementById('resultBanner').style.display = 'none';
+      document.getElementById('quizCard').style.display = 'block';
+      loadQuestion(0);
+    }
+
+    // Initialize
+    loadQuestion(0);
   </script>
 </body>
 </html>
