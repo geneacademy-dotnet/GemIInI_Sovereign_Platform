@@ -1,309 +1,341 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sudagene Conglomerate — Sovereign Entry</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --void:#05070C;
-    --void-2:#0A0D16;
-    --ink:#E8ECF1;
-    --dim:#7C8698;
-    --line: rgba(232,236,241,0.12);
-    --line-bright: rgba(232,236,241,0.24);
-    --teal:#2DE0C2;   /* GemIInI — licensure */
-    --violet:#9B7BFF; /* GeneAcademy — research */
-    --gold:#D8AE6B;   /* GLOMEt — infrastructure */
-    font-size:16px;
-  }
-  *{box-sizing:border-box; margin:0; padding:0;}
-  html{scroll-behavior:smooth;}
-  body{
-    background:var(--void);
-    color:var(--ink);
-    font-family:'IBM Plex Sans', sans-serif;
-    min-height:100vh;
-    overflow-x:hidden;
-    -webkit-font-smoothing:antialiased;
-  }
-  @media (prefers-reduced-motion: reduce){
-    *{animation-duration:.001ms !important; animation-iteration-count:1 !important;}
-  }
-  .display{ font-family:'Spectral', serif; }
-  .mono{ font-family:'IBM Plex Mono', monospace; }
-  a{ color:inherit; text-decoration:none; }
-  .wrap{ max-width:1180px; margin:0 auto; padding:0 32px; position:relative; z-index:2; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SudaGene Medical Group | بوابة الدخول السيادية</title>
+  <meta name="description" content="البوابة الموحدة لمجموعة سوداجين الطبية: التعليم السريري، أبحاث الجينوم، وتجهيز المختبرات الطبية.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Tajawal:wght@400;500;700;800;900&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="styles.css">
 
-  /* ---------- SEAL MARK ---------- */
-  .seal-nav{
-    position:fixed; top:0; left:0; right:0; z-index:40;
-    display:flex; justify-content:space-between; align-items:center;
-    padding:26px 32px; max-width:1180px; margin:0 auto;
-  }
-  .seal-mark{ display:flex; align-items:center; gap:12px; }
-  .seal-mark svg{ width:30px; height:30px; }
-  .seal-mark .txt{ font-family:'Spectral'; font-weight:600; font-size:1rem; letter-spacing:0.02em; }
-  .seal-mark small{ display:block; font-family:'IBM Plex Mono'; font-size:0.6rem; letter-spacing:0.14em; color:var(--dim); text-transform:uppercase; }
-  .reg-status{
-    font-family:'IBM Plex Mono'; font-size:0.68rem; letter-spacing:0.08em; text-transform:uppercase;
-    color:var(--dim); border:1px solid var(--line); padding:7px 14px; display:flex; align-items:center; gap:8px;
-  }
-  .reg-status .dot{ width:6px; height:6px; background:var(--teal); box-shadow:0 0 8px var(--teal); animation:blink 2.4s infinite; }
-  @keyframes blink{ 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+  <style>
+    .portal-hero {
+      text-align: center;
+      padding: 60px 0 35px;
+      max-width: 850px;
+      margin: 0 auto;
+    }
+    .portal-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--purple-light);
+      color: var(--purple-brand);
+      border: 1px solid rgba(107, 33, 168, 0.2);
+      padding: 8px 22px;
+      border-radius: var(--radius-pill);
+      font-size: 13.5px;
+      font-weight: 800;
+      margin-bottom: 24px;
+    }
+    .portal-title {
+      font-size: clamp(34px, 5vw, 54px);
+      font-weight: 900;
+      color: var(--purple-dark);
+      line-height: 1.25;
+      margin-bottom: 18px;
+    }
+    .portal-title span {
+      background: linear-gradient(135deg, var(--rose-accent), var(--purple-brand));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-  /* ---------- HELIX BACKDROP ---------- */
-  .helix-stage{
-    position:absolute; top:0; left:50%; transform:translateX(-50%);
-    width:100%; max-width:560px; height:780px; z-index:1;
-    perspective:900px; pointer-events:none;
-  }
-  .helix{
-    position:relative; width:100%; height:100%;
-    transform-style:preserve-3d; animation:spin 22s linear infinite;
-  }
-  @keyframes spin{ from{ transform:rotateY(0deg); } to{ transform:rotateY(360deg); } }
-  .rung{
-    position:absolute; left:50%; width:210px; height:2px;
-    transform-origin:center;
-    background:linear-gradient(90deg, transparent, var(--rung-color, var(--teal)), transparent);
-    opacity:0.55; filter:drop-shadow(0 0 6px var(--rung-color, var(--teal)));
-  }
-  .strand-node{
-    position:absolute; width:7px; height:7px; border-radius:50%;
-    background:var(--rung-color, var(--teal)); box-shadow:0 0 10px var(--rung-color, var(--teal));
-  }
+    .portal-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin: 40px auto 70px;
+    }
+    @media (max-width: 900px) {
+      .portal-grid { grid-template-columns: 1fr; }
+    }
 
-  /* ---------- HERO ---------- */
-  header.hero{
-    position:relative; min-height:100vh; display:flex; flex-direction:column;
-    align-items:center; justify-content:center; text-align:center; padding:140px 32px 80px;
-  }
-  .eyebrow{
-    font-family:'IBM Plex Mono'; font-size:0.7rem; letter-spacing:0.22em; text-transform:uppercase;
-    color:var(--dim); margin-bottom:26px;
-  }
-  h1.prompt{
-    font-family:'Spectral'; font-weight:600; font-size:clamp(2rem,4.4vw,3.4rem); line-height:1.22;
-    letter-spacing:-0.01em; max-width:14ch; margin:0 auto 14px; position:relative; z-index:2;
-  }
-  .prompt-sub{ color:var(--dim); font-size:1rem; max-width:46ch; margin:0 auto 4px; line-height:1.6; position:relative; z-index:2; }
+    .p-card {
+      background: #FFFFFF;
+      border: 1.5px solid rgba(88, 28, 135, 0.08);
+      border-radius: var(--radius-lg);
+      padding: 38px 30px;
+      text-align: right;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: var(--shadow-md);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+    .p-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--card-border, var(--rose-accent));
+    }
+    .p-card::before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0; left: 0; height: 5px;
+      background: var(--card-color, var(--purple-brand));
+    }
 
-  /* ---------- ROUTER CARDS ---------- */
-  section.router{ padding:0 0 90px; position:relative; z-index:2; }
-  .router-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); }
-  @media (max-width:880px){ .router-grid{ grid-template-columns:1fr; } }
-  .rcard{
-    background:var(--void-2); padding:40px 32px; text-align:left;
-    transition:background .2s, box-shadow .2s;
-    border-top:2px solid transparent;
-    display:flex; flex-direction:column; justify-content:space-between;
-  }
-  .rcard:hover{ background:#0D1220; }
-  .rcard.gemiini{ --accent:var(--teal); }
-  .rcard.gene{ --accent:var(--violet); }
-  .rcard.glomet{ --accent:var(--gold); }
-  .rcard:hover{ border-top-color:var(--accent); box-shadow:0 0 40px -20px var(--accent) inset; }
-  .rcard .rc-seal{
-    width:38px; height:38px; border:1px solid var(--accent); display:flex; align-items:center; justify-content:center;
-    font-family:'Spectral'; font-weight:700; font-size:0.9rem; color:var(--accent); margin-bottom:22px;
-  }
-  .rcard .rc-tag{ font-family:'IBM Plex Mono'; font-size:0.66rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); margin-bottom:10px; display:block; }
-  .rcard h3{ font-family:'Spectral'; font-weight:600; font-size:1.32rem; margin-bottom:12px; line-height:1.3; }
-  .rcard p{ font-size:0.87rem; color:var(--dim); line-height:1.65; margin-bottom:26px; }
-  .rcard .rc-enter{
-    font-family:'IBM Plex Mono'; font-size:0.72rem; letter-spacing:0.06em; text-transform:uppercase;
-    color:var(--ink); display:flex; align-items:center; gap:8px; border-top:1px solid var(--line); padding-top:16px; margin-top:auto;
-  }
-  .rcard .rc-enter::after{ content:'→'; color:var(--accent); transition:transform .2s; }
-  .rcard:hover .rc-enter::after{ transform:translateX(4px); }
+    .p-icon {
+      width: 56px; height: 56px;
+      border-radius: 16px;
+      background: var(--icon-bg, var(--purple-light));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+    .p-tag {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--card-color, var(--purple-brand));
+      margin-bottom: 8px;
+      display: block;
+    }
+    .p-name {
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--purple-dark);
+      margin-bottom: 12px;
+    }
+    .p-desc {
+      font-size: 14.5px;
+      color: var(--text-muted);
+      line-height: 1.75;
+      margin-bottom: 28px;
+    }
+    .p-btn {
+      font-size: 14.5px;
+      font-weight: 800;
+      color: var(--card-color, var(--purple-brand));
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: auto;
+      border-top: 1px solid rgba(88, 28, 135, 0.08);
+      padding-top: 18px;
+    }
 
-  /* ---------- SOVEREIGN ID CHECKPOINT ---------- */
-  section.checkpoint{ padding:0 0 120px; position:relative; z-index:2; }
-  .checkpoint-bar{
-    border:1px solid var(--line); background:var(--void-2);
-    display:flex; justify-content:space-between; align-items:center; gap:20px;
-    padding:24px 30px; flex-wrap:wrap;
-  }
-  .checkpoint-label{ font-size:0.85rem; color:var(--dim); }
-  .checkpoint-label strong{ color:var(--ink); font-family:'Spectral'; font-weight:600; }
-  .checkpoint-form{ display:flex; gap:0; }
-  .checkpoint-form input{
-    background:var(--void); border:1px solid var(--line-bright); border-left:1px solid var(--line-bright);
-    color:var(--ink); font-family:'IBM Plex Mono'; font-size:0.82rem; padding:12px 16px; width:170px;
-  }
-  .checkpoint-form input:focus{ outline:none; border-color:var(--teal); }
-  .checkpoint-form button{
-    background:var(--teal); color:var(--void); border:none; font-family:'IBM Plex Mono'; font-weight:700;
-    font-size:0.72rem; letter-spacing:0.06em; text-transform:uppercase; padding:0 22px; cursor:pointer;
-  }
-
-  footer{ border-top:1px solid var(--line); padding:34px 0; position:relative; z-index:2; }
-  .foot-row{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:16px; font-family:'IBM Plex Mono'; font-size:0.68rem; letter-spacing:0.05em; color:var(--dim); text-transform:uppercase; }
-</style>
+    /* Checkpoint */
+    .checkpoint-card {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 241, 242, 0.6));
+      border: 1.5px solid var(--rose-soft);
+      border-radius: var(--radius-lg);
+      padding: 34px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 24px;
+      box-shadow: var(--shadow-rose);
+      margin-bottom: 80px;
+    }
+  </style>
 </head>
 <body>
 
-<nav class="seal-nav">
-  <div class="seal-mark">
-    <svg viewBox="0 0 40 40" fill="none">
-      <circle cx="20" cy="20" r="18.5" stroke="#D8AE6B" stroke-width="1"/>
-      <circle cx="20" cy="20" r="14" stroke="#D8AE6B" stroke-width="0.5" stroke-dasharray="2 2"/>
-      <path d="M20 10 Q26 20 20 30 Q14 20 20 10 Z" stroke="#2DE0C2" stroke-width="1" fill="none"/>
-    </svg>
-    <div><span class="txt">Sudagene Conglomerate</span><small>Sovereign Access Point</small></div>
-  </div>
-  <div class="reg-status"><span class="dot"></span>Registry Online</div>
-</nav>
-
-<header class="hero">
-  <div class="helix-stage" id="helixStage">
-    <div class="helix" id="helix"></div>
-  </div>
-
-  <div class="eyebrow">Three arms. One registry. Choose your entry.</div>
-  <h1 class="prompt">What are you here for?</h1>
-  <p class="prompt-sub">Clinical licensure, academic research, or laboratory infrastructure — the conglomerate runs on one Sovereign ID across all three.</p>
-</header>
-
-<section class="router">
-  <div class="wrap">
-    <div class="router-grid">
-      <a class="rcard gemiini" href="index.html">
-        <div>
-          <div class="rc-seal">GA</div>
-          <span class="rc-tag">Clinical · Licensure</span>
-          <h3>GemIInI Academy</h3>
-          <p>SMC, USMLE, MRCS, and OET exam pathways. Verified curriculum hours, a mapped question bank, and a registry entry that tracks your progress against no one but yourself.</p>
+  <!-- FLOATING FROSTED NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-content">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-symbol">SG</div>
+        <div class="brand-text">
+          <h1>SudaGene</h1>
+          <span>Medical Group</span>
         </div>
-        <div class="rc-enter">Enter GemIInI</div>
       </a>
-      <a class="rcard gene" href="courses.html">
-        <div>
-          <div class="rc-seal">Gn</div>
-          <span class="rc-tag">Academic · Research</span>
-          <h3>GeneAcademy</h3>
-          <p>Molecular medicine, scientific writing, and academic rescue for interrupted degrees. For those building the paper trail, not just passing the exam.</p>
-        </div>
-        <div class="rc-enter">Enter GeneAcademy</div>
-      </a>
-      <a class="rcard glomet" href="glomet.html">
-        <div>
-          <div class="rc-seal">GL</div>
-          <span class="rc-tag">Infrastructure · Hardware</span>
-          <h3>GLOMEt HQ</h3>
-          <p>Turnkey laboratory builds, reagent forecasting, and clinical simulation equipment. For institutions equipping a facility, not enrolling a student.</p>
-        </div>
-        <div class="rc-enter">Enter GLOMEt</div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<section class="checkpoint">
-  <div class="wrap">
-    <div class="checkpoint-bar">
-      <div class="checkpoint-label">Already hold a <strong>Sovereign ID</strong>? Present it for direct entry.</div>
-      <div class="checkpoint-form">
-        <input type="text" id="gaInput" placeholder="GA-####" maxlength="10">
-        <button type="button" id="gaSubmit">Verify</button>
+      <ul class="nav-links">
+        <li><a href="index.html">الرئيسية</a></li>
+        <li><a href="courses.html">المصفوفة الطبية 77+</a></li>
+        <li><a href="smc.html">امتحانات الأطباء SMC</a></li>
+        <li><a href="glomet.html">تجهيز المعامل B2B</a></li>
+        <li><a href="registry.html">السجل السيادي</a></li>
+        <li><a href="community.html" style="color: var(--rose-accent); font-weight: 800;">مجتمعي السيادي 💎</a></li>
+      </ul>
+      <div>
+        <a href="index.html" class="btn-primary" style="padding: 9px 22px; font-size: 13.5px;">دخول المنظومة ←</a>
       </div>
     </div>
+  </nav>
+
+  <div class="container">
+
+    <header class="portal-hero">
+      <div class="portal-badge">
+        🏛️ بوابة الدخول المركزية الموحدة • Three Arms. One Registry.
+      </div>
+      <h1 class="portal-title">
+        مرحباً بك في منظومة <span>سوداجين الطبية</span>
+      </h1>
+      <p style="font-size: 17.5px; color: var(--text-body); line-height: 1.8;">
+        ثلاثة قطاعات متكاملة تعمل بسجل سيادي موحد (Sovereign ID): التدريب السريري، أبحاث الجينوم، وتجهيز المختبرات الطبية.
+      </p>
+    </header>
+
+    <!-- 3 ROUTER CARDS -->
+    <div class="portal-grid">
+
+      <!-- 1. GemIInI Academy -->
+      <a href="index.html" class="p-card" style="--card-color: var(--rose-accent); --card-border: var(--rose-soft); --icon-bg: var(--rose-light);">
+        <div>
+          <div class="p-icon">🩺</div>
+          <span class="p-tag">Clinical · Licensure</span>
+          <h3 class="p-name">أكاديمية GemIInI الطبية</h3>
+          <p class="p-desc">
+            مسارات امتحانات المجلس الطبي SMC، الزمالة البريطانية MRCS، ودورات الجراحة الأساسية BSS-2 بساعات معتمدة ECTS.
+          </p>
+        </div>
+        <div class="p-btn">دخول أكاديمية GemIInI ←</div>
+      </a>
+
+      <!-- 2. GeneAcademy -->
+      <a href="courses.html" class="p-card" style="--card-color: var(--purple-brand); --card-border: var(--purple-light); --icon-bg: var(--purple-light);">
+        <div>
+          <div class="p-icon">🧬</div>
+          <span class="p-tag">Genomics · Research</span>
+          <h3 class="p-name">أكاديمية الجينات والطب الجزيئي</h3>
+          <p class="p-desc">
+            مصفوفة الـ 77+ موديول، دبلومات الطب الجزيئي (MM 1.0 - 8.0)، الاستشارات الوراثية، والتفسير السريري لتقارير الجينوم.
+          </p>
+        </div>
+        <div class="p-btn">دخول أكاديمية الجينات ←</div>
+      </a>
+
+      <!-- 3. GLOMEt HQ -->
+      <a href="glomet.html" class="p-card" style="--card-color: var(--gold-warm); --card-border: var(--gold-light); --icon-bg: var(--gold-light);">
+        <div>
+          <div class="p-icon">🏛️</div>
+          <span class="p-tag">Infrastructure · B2B</span>
+          <h3 class="p-name">تجهيز المختبرات (GLOMEt)</h3>
+          <p class="p-desc">
+            تصميم وتجهيز المعامل والمستشفيات من الصفر (Turnkey Labs)، كواشف CBC، وأنظمة التشخيص الميداني لـ 40 جهة معتمدة.
+          </p>
+        </div>
+        <div class="p-btn">دخول قطاع التجهيزات GLOMEt ←</div>
+      </a>
+
+    </div>
+
+    <!-- SOVEREIGN ID CHECKPOINT -->
+    <div class="checkpoint-card">
+      <div style="max-width: 500px;">
+        <h4 style="font-size: 20px; font-weight: 900; color: var(--purple-dark); margin-bottom: 6px;">هل تمتلك رقم عضوية سيادي (GA-ID)؟</h4>
+        <p style="font-size: 14px; color: var(--text-muted); line-height: 1.6;">
+          أدخل رقم عضويتك للتحقق السريع والانتقال المباشر إلى ملفك ومحفظتك السريرية.
+        </p>
+      </div>
+
+      <div style="display: flex; gap: 10px; flex-grow: 1; max-width: 380px;">
+        <input type="text" id="gaInput" placeholder="مثال: GA001 أو GA3450" style="text-align: center; font-family: var(--font-mono); font-weight: 800;" onkeydown="if(event.key==='Enter') verifyPortalId()">
+        <button class="btn-primary" id="gaBtn" style="padding: 12px 28px; white-space: nowrap;" onclick="verifyPortalId()">تحقق 🔍</button>
+      </div>
+    </div>
+
   </div>
-</section>
 
-<footer>
-  <div class="wrap foot-row">
-    <span>Sudagene Conglomerate</span>
-    <span>GemIInI · GeneAcademy · GLOMEt</span>
-  </div>
-</footer>
+  <!-- ELEVATED SUDAGENE EXECUTIVE SIGNATURE FOOTER -->
+  <footer class="signature-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand-logo" style="margin-bottom: 18px;">
+            <div class="brand-symbol">SG</div>
+            <div class="brand-text">
+              <h1>SudaGene</h1>
+              <span>Medical & Healthcare Group</span>
+            </div>
+          </div>
+          <p style="font-size: 14px; color: var(--text-muted); line-height: 1.8; max-width: 360px;">
+            مجموعة سوداجين الطبية: المنظومة السيادية الرائدة للرعاية الصحية، التعليم الطبي المعتمد بنظام الساعات الأوروبية ECTS، وتجهيز المختبرات والمستشفيات.
+          </p>
+        </div>
 
-<script src="js/ga_data.js"></script>
-<script>
-// Build the helix from real rung elements so it reads as structure, not decoration
-(function(){
-  const helix = document.getElementById('helix');
-  if(!helix) return;
-  const colors = ['#2DE0C2', '#9B7BFF', '#D8AE6B'];
-  const count = 26;
-  const height = 780;
+        <div>
+          <h4 class="footer-title">القطاعات الطبية</h4>
+          <ul class="footer-links">
+            <li><a href="courses.html">أكاديمية التدريب والـ 77+ موديول</a></li>
+            <li><a href="smc.html">بنوك أسئلة المجلس الطبي SMC</a></li>
+            <li><a href="molecular.html">الطب الجزيئي والجينات</a></li>
+            <li><a href="glomet.html">تجهيز المعامل Turnkey</a></li>
+          </ul>
+        </div>
 
-  for(let i=0;i<count;i++){
-    const t = i / (count-1);
-    const y = t * height;
-    const angle = t * 720; // two full turns top to bottom
-    const color = colors[i % colors.length];
+        <div>
+          <h4 class="footer-title">خدمة الأعضاء</h4>
+          <ul class="footer-links">
+            <li><a href="registry.html">السجل السيادي (2,649+ عضو)</a></li>
+            <li><a href="community.html">بوابة الأعضاء والشهادات</a></li>
+            <li><a href="reviews.html">سجل التدقيق السريري</a></li>
+            <li><a href="join.html">طلب انضمام جديد (GA#)</a></li>
+          </ul>
+        </div>
 
-    const rung = document.createElement('div');
-    rung.className = 'rung';
-    rung.style.setProperty('--rung-color', color);
-    rung.style.top = y + 'px';
-    rung.style.marginLeft = -105 + 'px';
-    rung.style.transform = `rotateY(${angle}deg) rotateZ(2deg)`;
-    helix.appendChild(rung);
+        <div>
+          <h4 class="footer-title">التواصل والاعتماد</h4>
+          <ul class="footer-links">
+            <li style="color: var(--rose-accent); font-family: var(--font-mono); font-weight: 800; font-size: 14px;">
+              واتساب: +20 101 592 2628
+            </li>
+            <li style="margin-top: 8px; font-size: 12.5px; color: var(--text-muted);">
+              عضوية الجمعية الأمريكية للأحياء الدقيقة: ASM 200334812
+            </li>
+          </ul>
+        </div>
+      </div>
 
-    const n1 = document.createElement('div');
-    n1.className = 'strand-node';
-    n1.style.background = color;
-    n1.style.boxShadow = `0 0 10px ${color}`;
-    n1.style.top = y - 3 + 'px';
-    n1.style.left = 'calc(50% - 105px)';
-    n1.style.transform = `rotateY(${angle}deg) translateZ(0px)`;
-    helix.appendChild(n1);
+      <div class="signature-seal-strip">
+        <div class="signature-brand-mark">SudaGene · Medical Group</div>
+        <div>جميع الحقوق محفوظة © 2026/2027 • معتمد دولياً بنظام ECTS ونموذج MTC™</div>
+      </div>
+    </div>
+  </footer>
 
-    const n2 = document.createElement('div');
-    n2.className = 'strand-node';
-    n2.style.background = color;
-    n2.style.boxShadow = `0 0 10px ${color}`;
-    n2.style.top = y - 3 + 'px';
-    n2.style.left = 'calc(50% + 98px)';
-    n2.style.transform = `rotateY(${angle}deg) translateZ(0px)`;
-    helix.appendChild(n2);
-  }
+  <script src="js/ga_data.js"></script>
+  <script src="api.js"></script>
+  <script>
+    async function verifyPortalId() {
+      const input = document.getElementById('gaInput');
+      const val = (input.value || '').trim().toUpperCase();
+      if (!val) return;
 
-  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(reduced){ helix.style.animation = 'none'; }
-})();
+      const btn = document.getElementById('gaBtn');
+      btn.disabled = true;
+      btn.textContent = '...جارِ التحقق';
 
-document.getElementById('gaSubmit').addEventListener('click', async function(){
-  const val = document.getElementById('gaInput').value.trim().toUpperCase();
-  if(!val){ return; }
-  const btn = this;
-  btn.disabled = true;
-  btn.textContent = '...جارِ التحقق';
-
-  try {
-    const GAS_URL = "https://script.google.com/macros/s/AKfycbxAVR42yEQlQMkOBhlcka622FNbSD_3_pIJrNL1bktLyN8TqIYGC2P5cGpUqeZcoql8/exec";
-    const res = await fetch(`${GAS_URL}?action=lookup&id=${encodeURIComponent(val)}`);
-    const data = await res.json();
-    if (data.found && data.member && data.member.verified !== false) {
-      localStorage.setItem("gemiini_sovereign_ga_id", data.member.id);
-      window.location.href = `index.html`;
-      return;
-    }
-  } catch (err) {
-    // Offline local check fallback
-    if (typeof GA_DATABASE !== 'undefined') {
-      const match = GA_DATABASE.find(m => m.id === val || m.id === "GA" + val);
-      if (match) {
-        localStorage.setItem("gemiini_sovereign_ga_id", match.id);
-        window.location.href = `index.html`;
-        return;
+      try {
+        if (typeof GAS_URL !== 'undefined') {
+          const res = await fetch(`${GAS_URL}?action=lookup&id=${encodeURIComponent(val)}`);
+          const data = await res.json();
+          if (data.found && data.member && data.member.verified !== false) {
+            localStorage.setItem("gemiini_sovereign_ga_id", data.member.id);
+            window.location.href = 'community.html';
+            return;
+          }
+        }
+      } catch (e) {
+        if (typeof GA_DATABASE !== 'undefined') {
+          const match = GA_DATABASE.find(m => m.id === val || m.id === "GA" + val);
+          if (match) {
+            localStorage.setItem("gemiini_sovereign_ga_id", match.id);
+            window.location.href = 'community.html';
+            return;
+          }
+        }
       }
+
+      btn.textContent = 'المعرف غير موجود';
+      setTimeout(() => {
+        btn.textContent = 'تحقق 🔍';
+        btn.disabled = false;
+      }, 2000);
     }
-  }
-
-  btn.textContent = 'المعرف غير موجود';
-  setTimeout(() => { btn.textContent = 'Verify'; btn.disabled = false; }, 2000);
-});
-
-document.getElementById('gaInput').addEventListener('keydown', function(e){
-  if(e.key === 'Enter'){ document.getElementById('gaSubmit').click(); }
-});
-</script>
-
+  </script>
 </body>
 </html>
