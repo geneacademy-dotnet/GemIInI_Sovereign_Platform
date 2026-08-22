@@ -4,165 +4,189 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SudaGene Medical Group | مجموعة سوداجين الطبية</title>
-  <meta name="description" content="مجموعة سوداجين للرعاية الصحية، التدريب الطبي المعتمد بنظام ECTS، أبحاث الطب الجزيئي، وتجهيز المختبرات الطبية المتكاملة.">
+  <meta name="description" content="منصة سوداجين للتعليم الطبي والتدريب السريري: إعداد الأطباء لامتحانات المجلس الطبي والزمالات، دبلومات الطب الجزيئي، وتجهيز المختبرات الطبية.">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Tajawal:wght@400;500;700;800;900&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="styles.css">
 
   <style>
-    .hero-container {
+    /* Clean, Breathable Modern Medical Layout */
+    .hero-section {
+      padding: 70px 0 45px;
       text-align: center;
-      padding: 50px 0 30px;
-      max-width: 920px;
+      max-width: 900px;
       margin: 0 auto;
     }
-    .hero-badge {
+    .hero-tag {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       background: var(--rose-light);
       border: 1px solid var(--rose-soft);
       color: var(--rose-accent);
-      padding: 8px 22px;
+      padding: 8px 24px;
       border-radius: var(--radius-pill);
-      font-size: 13.5px;
+      font-size: 14px;
       font-weight: 800;
-      margin-bottom: 24px;
-      box-shadow: 0 4px 15px rgba(225, 29, 72, 0.08);
+      margin-bottom: 22px;
     }
-    .hero-title {
-      font-size: clamp(32px, 4.8vw, 52px);
+    .hero-heading {
+      font-size: clamp(32px, 4.6vw, 50px);
       font-weight: 900;
       color: var(--purple-dark);
-      line-height: 1.25;
+      line-height: 1.3;
       margin-bottom: 20px;
       letter-spacing: -0.5px;
     }
-    .hero-title span {
-      background: linear-gradient(135deg, var(--rose-accent), var(--purple-brand));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    .hero-heading span {
+      color: var(--rose-accent);
     }
-    .hero-desc {
-      font-size: 17.5px;
+    .hero-subtext {
+      font-size: 18px;
       color: var(--text-body);
       line-height: 1.8;
-      margin-bottom: 36px;
+      margin-bottom: 34px;
     }
 
-    /* Executive Trust Badges */
-    .trust-strip {
+    .cta-group {
       display: flex;
       justify-content: center;
-      gap: 30px;
+      gap: 16px;
       flex-wrap: wrap;
-      margin: 20px auto 55px;
-      padding: 16px 28px;
-      background: rgba(255, 255, 255, 0.7);
-      border: 1px solid rgba(88, 28, 135, 0.08);
-      border-radius: var(--radius-pill);
-      max-width: 860px;
-      backdrop-filter: blur(10px);
-    }
-    .trust-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 13.5px;
-      font-weight: 700;
-      color: var(--text-body);
-    }
-    .trust-item .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--rose-accent);
+      margin-bottom: 50px;
     }
 
-    /* Department Cards */
-    .dept-card {
-      background: var(--bg-card);
+    /* Trust Highlights Strip */
+    .highlights-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 75px;
+    }
+    @media (max-width: 800px) {
+      .highlights-row { grid-template-columns: 1fr; }
+    }
+    .highlight-card {
+      background: #FFFFFF;
+      border: 1px solid rgba(88, 28, 135, 0.08);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+    .highlight-card .h-num {
+      font-size: 26px;
+      font-weight: 900;
+      color: var(--purple-brand);
+      margin-bottom: 4px;
+      font-family: var(--font-sans);
+    }
+    .highlight-card .h-lbl {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+
+    /* Clear 3 Medical Programs */
+    .programs-section {
+      margin-bottom: 80px;
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .section-header h2 {
+      font-size: 30px;
+      font-weight: 900;
+      color: var(--purple-dark);
+      margin-bottom: 10px;
+    }
+    .section-header p {
+      font-size: 16px;
+      color: var(--text-muted);
+    }
+
+    .prog-card {
+      background: #FFFFFF;
       border: 1.5px solid rgba(88, 28, 135, 0.08);
       border-radius: var(--radius-lg);
-      padding: 34px;
-      text-align: right;
+      padding: 36px 30px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       box-shadow: var(--shadow-md);
+      transition: all 0.3s ease;
       position: relative;
-      overflow: hidden;
     }
-    .dept-card:hover {
+    .prog-card:hover {
       transform: translateY(-5px);
       box-shadow: var(--shadow-lg);
-      border-color: var(--rose-soft);
-      background: #FFFFFF;
+      border-color: var(--card-border, var(--rose-soft));
     }
-    .dept-card::before {
+    .prog-card::before {
       content: '';
       position: absolute;
-      top: 0;
-      right: 0;
-      left: 0;
-      height: 4px;
+      top: 0; right: 0; left: 0; height: 4px;
       background: var(--card-accent, var(--purple-brand));
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
     }
-    .dept-icon {
-      font-size: 34px;
-      margin-bottom: 16px;
+    .prog-icon {
+      font-size: 32px;
       width: 58px;
       height: 58px;
-      border-radius: 16px;
+      border-radius: 14px;
       background: var(--icon-bg, var(--purple-light));
       display: flex;
       align-items: center;
       justify-content: center;
+      margin-bottom: 20px;
     }
-    .dept-title {
+    .prog-title {
       font-size: 21px;
       font-weight: 800;
       color: var(--purple-dark);
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
-    .dept-desc {
-      font-size: 14px;
+    .prog-desc {
+      font-size: 14.5px;
       color: var(--text-muted);
-      line-height: 1.7;
+      line-height: 1.75;
       margin-bottom: 24px;
     }
-    .dept-link {
-      font-size: 14px;
+    .prog-btn {
+      font-size: 14.5px;
       font-weight: 800;
-      color: var(--card-color, var(--purple-brand));
+      color: var(--card-accent, var(--purple-brand));
       display: inline-flex;
       align-items: center;
       gap: 8px;
       margin-top: auto;
-      transition: gap 0.2s;
+      border-top: 1px solid rgba(88, 28, 135, 0.08);
+      padding-top: 16px;
     }
-    .dept-link:hover { gap: 12px; }
 
-    /* SSO Verifier Box */
-    .verifier-card {
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 241, 242, 0.6));
+    /* Fast Member Lookup */
+    .lookup-banner {
+      background: linear-gradient(135deg, #FFFFFF, rgba(255, 241, 242, 0.6));
       border: 1.5px solid var(--rose-soft);
       border-radius: var(--radius-lg);
-      padding: 38px 30px;
-      max-width: 580px;
-      margin: 0 auto 70px;
-      text-align: center;
+      padding: 34px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
       box-shadow: var(--shadow-rose);
+      margin-bottom: 80px;
     }
   </style>
 </head>
 <body>
 
-  <!-- FLOATING FROSTED NAVBAR -->
+  <!-- CLEAN FLOATING NAVBAR -->
   <nav class="navbar">
     <div class="nav-content">
       <a href="index.html" class="brand-logo">
@@ -172,17 +196,19 @@
           <span>Medical Group</span>
         </div>
       </a>
+      
       <ul class="nav-links">
         <li><a href="index.html" class="active">الرئيسية</a></li>
-        <li><a href="courses.html">المصفوفة الطبية 77+</a></li>
-        <li><a href="smc.html">امتحانات الأطباء SMC</a></li>
-        <li><a href="glomet.html">تجهيز المعامل B2B</a></li>
-        <li><a href="registry.html">السجل السيادي</a></li>
-        <li><a href="community.html" style="color: var(--rose-accent); font-weight: 800;">مجتمعي السيادي 💎</a></li>
+        <li><a href="courses.html">الدورات والامتحانات</a></li>
+        <li><a href="smc.html">تحضير المجلس الطبي SMC</a></li>
+        <li><a href="molecular.html">الطب الجزيئي والجينات</a></li>
+        <li><a href="glomet.html">تجهيز المعامل والمستشفيات</a></li>
+        <li><a href="https://member.geneacademy.net" target="_blank" style="color: var(--rose-accent); font-weight: 800;">منصة الأعضاء (LMS) 🎓</a></li>
       </ul>
+
       <div style="display: flex; gap: 10px;">
-        <a href="auth.html" class="btn-secondary" style="padding: 9px 20px; font-size: 13.5px;">دخول 🔐</a>
-        <a href="join.html" class="btn-primary" style="padding: 9px 22px; font-size: 13.5px;">انضمام جديد ←</a>
+        <a href="auth.html" class="btn-secondary" style="padding: 8px 18px; font-size: 13.5px;">تسجيل الدخول</a>
+        <a href="join.html" class="btn-primary" style="padding: 8px 20px; font-size: 13.5px;">انضم إلينا ←</a>
       </div>
     </div>
   </nav>
@@ -190,114 +216,114 @@
   <div class="container">
 
     <!-- HERO SECTION -->
-    <header class="hero-container">
-      <div class="hero-badge">
-        <span>✨</span> منظومة الرعاية والتعليم الطبي السيادية • ECTS & MTC™ Curriculum
+    <header class="hero-section">
+      <div class="hero-tag">
+        🏥 منصة التدريب الطبي والرعاية الصحية المعتمدة
       </div>
-      <h1 class="hero-title">
-        مجموعة سوداجين <span>للرعاية الصحية</span><br>
-        والتعليم والتدريب الطبي المعتمد
+
+      <h1 class="hero-heading">
+        وجهتك الأولى <span>لاجتياز امتحانات الأطباء</span><br>
+        والتطوير المهني والسريري
       </h1>
-      <p class="hero-desc">
-        منصة متكاملة تجمع بين <strong>أكاديمية تدريب الأطباء</strong> ونظام الساعات الأوروبية المعتمدة (ECTS)، <strong>أبحاث الطب الجزيئي والجينات</strong>، وخدمات <strong>تجهيز المستشفيات والمختبرات الطبية</strong> بأعلى المعايير الدولية.
+
+      <p class="hero-subtext">
+        نقدم لأطباء الامتياز ونواب الاختصاص برامج تدريبية متخصصة ومحدثة لاجتياز امتحانات المجلس الطبي والزمالات الدولية، إلى جانب دبلومات متقدمة في الطب الجزيئي وتجهيز المختبرات والمستشفيات.
       </p>
 
-      <div class="trust-strip">
-        <div class="trust-item"><span class="dot"></span> 1,072+ طبيب وباحث موثق بالسجل</div>
-        <div class="trust-item"><span class="dot" style="background: var(--purple-brand);"></span> 77+ موديول معتمد بنظام ECTS</div>
-        <div class="trust-item"><span class="dot" style="background: var(--teal-main);"></span> 40+ جهة ومستشفى شريك</div>
+      <div class="cta-group">
+        <a href="courses.html" class="btn-primary" style="padding: 14px 32px; font-size: 16px;">
+          استكشف الدورات والامتحانات ←
+        </a>
+        <a href="https://member.geneacademy.net" target="_blank" class="btn-secondary" style="padding: 14px 28px; font-size: 16px;">
+          دخول منصة الأعضاء الأكاديمية 🎓
+        </a>
+      </div>
+
+      <!-- Trust Metrics Strip -->
+      <div class="highlights-row">
+        <div class="highlight-card">
+          <div class="h-num">+1,000</div>
+          <div class="h-lbl">طبيب وباحث مسجل ومعتمد</div>
+        </div>
+        <div class="highlight-card">
+          <div class="h-num">+75</div>
+          <div class="h-lbl">دورة وموديول تدريبي متخصص</div>
+        </div>
+        <div class="highlight-card">
+          <div class="h-num">+40</div>
+          <div class="h-lbl">مستشفى ومركز طبي شريك</div>
+        </div>
       </div>
     </header>
 
-    <!-- SSO IDENTITY VERIFIER -->
-    <div class="verifier-card">
-      <div style="font-size: 32px; margin-bottom: 12px;">🪪</div>
-      <h3 style="font-size: 22px; font-weight: 900; color: var(--purple-dark); margin-bottom: 6px;">التحقق من الهوية السيادية ورصيد GP</h3>
-      <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 22px;">
-        أدخل رقم عضويتك المهنية (GA-ID) للوصول المباشر إلى محفظتك وسجلك السريري.
-      </p>
-
-      <!-- Unauthenticated View -->
-      <div id="sso-unauth-view">
-        <div style="display: flex; gap: 10px; margin-bottom: 10px;">
-          <input type="text" id="sso-quick-id" placeholder="مثال: GA001 أو GA3450" style="text-align: center; font-family: var(--font-mono); font-weight: 700; letter-spacing: 1px;" onkeydown="if(event.key==='Enter') executeSovereignSync()">
-          <button class="btn-primary" style="padding: 12px 26px; white-space: nowrap;" onclick="executeSovereignSync()">تحقق 🔍</button>
-        </div>
+    <!-- QUICK MEMBER CHECKPOINT -->
+    <div class="lookup-banner">
+      <div>
+        <h3 style="font-size: 21px; font-weight: 800; color: var(--purple-dark); margin-bottom: 6px;">هل أنت عضو مسجل في المنظومة؟</h3>
+        <p style="font-size: 14px; color: var(--text-muted);">أدخل رقم عضويتك (GA-ID) للتحقق السريع والوصول إلى ملفك ومحفظتك السريرية.</p>
       </div>
 
-      <!-- Authenticated View -->
-      <div id="sso-authenticated-view" style="display: none; flex-direction: column; align-items: center; gap: 12px;">
-        <div style="display: inline-flex; align-items: center; gap: 6px; background: var(--teal-light); color: var(--teal-main); padding: 4px 14px; border-radius: var(--radius-pill); font-size: 12px; font-weight: 700;">
-          ✓ عضو موثق بالسجل السيادي
-        </div>
-        <h4 id="sso-doctor-name" style="font-size: 22px; font-weight: 900; color: var(--purple-dark);">د. الاسم</h4>
-        <div style="font-family: var(--font-mono); font-size: 26px; font-weight: 900; color: var(--gold-main);" id="sso-doctor-gp">
-          0 GP
-        </div>
-        <div style="font-size: 13px; color: var(--text-muted);" id="sso-doctor-univ">جامعة معتمدة</div>
-        
-        <div style="display: flex; gap: 10px; margin-top: 14px; width: 100%; flex-wrap: wrap;">
-          <a href="https://member.geneacademy.net" target="_blank" class="btn-primary" style="flex: 1.2; min-width: 160px; text-align: center;">دخول منصة الأعضاء (LMS) 🎓</a>
-          <a href="community.html" class="btn-secondary" style="flex: 1; min-width: 130px; text-align: center;">سجلي ومحفظتي 💎</a>
-          <button class="btn-white" style="flex: 0.8;" onclick="logoutSovereignSession()">خروج</button>
-        </div>
+      <div style="display: flex; gap: 10px; min-width: 320px;">
+        <input type="text" id="sso-quick-id" placeholder="مثال: GA001 أو GA3450" style="text-align: center; font-family: var(--font-mono); font-weight: 800;" onkeydown="if(event.key==='Enter') executeSovereignSync()">
+        <button class="btn-primary" style="padding: 10px 24px; white-space: nowrap;" onclick="executeSovereignSync()">تحقق 🔍</button>
       </div>
     </div>
 
-    <!-- 3 DEPARTMENTS HEALTHCARE ECOSYSTEM MAP -->
-    <div style="text-align: center; margin-bottom: 35px;">
-      <h2 style="font-size: 28px; font-weight: 900; color: var(--purple-dark); margin-bottom: 8px;">قطاعات مجموعة سوداجين الطبية</h2>
-      <p style="color: var(--text-muted); font-size: 15px;">اختر القطاع للوصول إلى الخدمات، المناهج، أو التجهيزات المعتمدة</p>
-    </div>
-
-    <div class="grid-3" style="margin-bottom: 70px;">
-
-      <!-- 1. GemIInI Medical Academy -->
-      <div class="dept-card" style="--card-accent: var(--rose-accent); --card-color: var(--rose-accent);">
-        <div>
-          <div class="dept-icon" style="--icon-bg: var(--rose-light);">🩺</div>
-          <h3 class="dept-title">أكاديمية GemIInI الطبية</h3>
-          <p class="dept-desc">
-            <strong>للأطباء ونواب الاختصاص:</strong> تحضير شامل لامتحانات التسجيل الدائم بالمجلس الطبي (SMC)، الزمالة البريطانية (MRCS)، ودفعات الجراحة الأساسية (BSS-2) بنظام الساعات الأوروبية ECTS.
-          </p>
-        </div>
-        <a href="smc.html" class="dept-link">دخول بوابة الامتحانات السريرية ←</a>
+    <!-- 3 MAIN PROGRAMS -->
+    <section class="programs-section">
+      <div class="section-header">
+        <h2>البرامج والخدمات الرئيسية</h2>
+        <p>اختر المجال المناسب لبدء رحلتك التدريبية أو المهنية</p>
       </div>
 
-      <!-- 2. GeneAcademy Genomics & Research -->
-      <div class="dept-card" style="--card-accent: var(--purple-brand); --card-color: var(--purple-brand);">
-        <div>
-          <div class="dept-icon" style="--icon-bg: var(--purple-light);">🧬</div>
-          <h3 class="dept-title">أكاديمية الجينات والطب الجزيئي</h3>
-          <p class="dept-desc">
-            <strong>للباحثين والأطباء:</strong> مصفوفة الـ 77+ موديول ECTS، دبلومات الطب الجزيئي (MM 1.0 - 8.0)، الاستشارات الوراثية، والتفسير السريري للجينوم (WES) عبر نموذج MTC™.
-          </p>
-        </div>
-        <a href="courses.html" class="dept-link">استعراض المنهج والدبلومات 77+ ←</a>
-      </div>
+      <div class="grid-3">
 
-      <!-- 3. GLOMEt Hospital Infrastructure -->
-      <div class="dept-card" style="--card-accent: var(--gold-warm); --card-color: var(--gold-main);">
-        <div>
-          <div class="dept-icon" style="--icon-bg: var(--gold-light);">🏛️</div>
-          <h3 class="dept-title">تجهيز المختبرات (GLOMEt)</h3>
-          <p class="dept-desc">
-            <strong>لإدارات المستشفيات والمراكز:</strong> تصميم وتجهيز المعامل المتكاملة (Turnkey Labs)، توريد كواشف CBC، وأنظمة التشخيص الميداني لـ 40 جهة ومستشفى معتمد.
-          </p>
+        <!-- 1. Clinical Licensure -->
+        <div class="prog-card" style="--card-accent: var(--rose-accent); --card-border: var(--rose-soft); --icon-bg: var(--rose-light);">
+          <div>
+            <div class="prog-icon">🩺</div>
+            <h3 class="prog-title">امتحانات الأطباء والتسجيل الدائم</h3>
+            <p class="prog-desc">
+              دورات مكثفة وبنوك أسئلة محدثة للتحضير لامتحانات المجلس الطبي (SMC)، الزمالة البريطانية (MRCS)، ودورات الجراحة الأساسية (BSS) بإشراف استشاريين متخصصين.
+            </p>
+          </div>
+          <a href="smc.html" class="prog-btn">تفاصيل بنوك الأسئلة والامتحانات ←</a>
         </div>
-        <a href="glomet.html" class="dept-link">طلب دراسة وتجهيز معمل B2B ←</a>
-      </div>
 
-    </div>
+        <!-- 2. Molecular & Genomics -->
+        <div class="prog-card" style="--card-accent: var(--purple-brand); --card-border: var(--purple-light); --icon-bg: var(--purple-light);">
+          <div>
+            <div class="prog-icon">🧬</div>
+            <h3 class="prog-title">الطب الجزيئي والجينات</h3>
+            <p class="prog-desc">
+              دبلومات وبرامج تدريبية متقدمة في الجينات والتشخيص الجزيئي، قراءة وتفسير الفحوصات الوراثية، ودعم إعداد ونشر الأوراق العلمية للباحثين.
+            </p>
+          </div>
+          <a href="courses.html" class="prog-btn">استعراض المناهج والدبلومات ←</a>
+        </div>
+
+        <!-- 3. Hospital & Lab Solutions -->
+        <div class="prog-card" style="--card-accent: var(--gold-warm); --card-border: var(--gold-light); --icon-bg: var(--gold-light);">
+          <div>
+            <div class="prog-icon">🏛️</div>
+            <h3 class="prog-title">تجهيز المستشفيات والمختبرات</h3>
+            <p class="prog-desc">
+              حلول متكاملة لإدارات المستشفيات والمراكز الطبية: تجهيز المعامل المتخصصة، توريد الأجهزة والكواشف المخبرية، وخدمات الدعم الفني والتشغيلي.
+            </p>
+          </div>
+          <a href="glomet.html" class="prog-btn">استكشاف خدمات التجهيز B2B ←</a>
+        </div>
+
+      </div>
+    </section>
 
   </div>
 
-  <!-- ELEVATED SUDAGENE EXECUTIVE SIGNATURE FOOTER -->
+  <!-- EXECUTIVE SIGNATURE FOOTER -->
   <footer class="signature-footer">
     <div class="container">
       <div class="footer-grid">
         
-        <!-- Brand Narrative & Signature -->
         <div>
           <div class="brand-logo" style="margin-bottom: 18px;">
             <div class="brand-symbol">SG</div>
@@ -307,50 +333,47 @@
             </div>
           </div>
           <p style="font-size: 14px; color: var(--text-muted); line-height: 1.8; max-width: 360px;">
-            مجموعة سوداجين الطبية: المنظومة السيادية الرائدة للرعاية الصحية، التعليم الطبي المعتمد بنظام الساعات الأوروبية ECTS، وتجهيز المختبرات والمستشفيات في المنطقة.
+            مجموعة سوداجين الطبية: المنظومة المتكاملة للرعاية الصحية، التدريب الطبي المعتمد، وتجهيز المختبرات والمستشفيات.
           </p>
         </div>
 
-        <!-- Clinical Education -->
         <div>
-          <h4 class="footer-title">التعليم السريري (B2C)</h4>
+          <h4 class="footer-title">التدريب والامتحانات</h4>
           <ul class="footer-links">
-            <li><a href="courses.html">المصفوفة الطبية 77+ ECTS</a></li>
-            <li><a href="smc.html">بنوك أسئلة المجلس الطبي SMC</a></li>
-            <li><a href="courses.html#bss">دفعات الجراحة الأساسية BSS</a></li>
-            <li><a href="edusphere.html">مسار التمهيد الطبي Edusphere</a></li>
+            <li><a href="courses.html">دليل الدورات والبرامج</a></li>
+            <li><a href="smc.html">امتحانات المجلس الطبي SMC</a></li>
+            <li><a href="courses.html#bss">دورات الجراحة الأساسية</a></li>
+            <li><a href="https://member.geneacademy.net" target="_blank">منصة الأعضاء (LMS)</a></li>
           </ul>
         </div>
 
-        <!-- Research & Enterprise -->
         <div>
-          <h4 class="footer-title">البحث والتجهيز (B2B)</h4>
+          <h4 class="footer-title">البحث والتجهيز</h4>
           <ul class="footer-links">
             <li><a href="molecular.html">الطب الجزيئي والجينات</a></li>
-            <li><a href="glomet.html">تجهيز المعامل Turnkey</a></li>
-            <li><a href="registry.html">السجل المركزي (2,649+ عضو)</a></li>
-            <li><a href="reviews.html">سجل التدقيق والمحاكاة</a></li>
+            <li><a href="glomet.html">تجهيز المختبرات الطبية</a></li>
+            <li><a href="registry.html">سجل الأعضاء المعتمدين</a></li>
+            <li><a href="join.html">تقديم طلب انضمام جديد</a></li>
           </ul>
         </div>
 
-        <!-- Contact & Accreditation -->
         <div>
-          <h4 class="footer-title">التواصل والاعتماد</h4>
+          <h4 class="footer-title">التواصل والدعم</h4>
           <ul class="footer-links">
-            <li><a href="join.html">طلب انضمام جديد (GA#)</a></li>
-            <li><a href="community.html">بوابة الأعضاء والشهادات</a></li>
-            <li style="margin-top: 16px; color: var(--rose-accent); font-family: var(--font-mono); font-weight: 800; font-size: 14px;">
+            <li style="color: var(--rose-accent); font-family: var(--font-mono); font-weight: 800; font-size: 14px;">
               واتساب: +20 101 592 2628
+            </li>
+            <li style="margin-top: 8px; font-size: 13px; color: var(--text-muted);">
+              فريق الدعم متاح طوال الأسبوع لمساعدة الأطباء والطلبة
             </li>
           </ul>
         </div>
 
       </div>
 
-      <!-- Sovereign Signature Seal Strip -->
       <div class="signature-seal-strip">
         <div class="signature-brand-mark">SudaGene · Medical Group</div>
-        <div>جميع الحقوق محفوظة © 2026/2027 • معتمد بنظام الساعات الأوروبية ECTS والنموذج المعرفي MTC™</div>
+        <div>جميع الحقوق محفوظة © 2026/2027 • مجموعة سوداجين الطبية</div>
       </div>
     </div>
   </footer>
