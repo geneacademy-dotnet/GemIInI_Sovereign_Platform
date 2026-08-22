@@ -3,230 +3,173 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>مجتمعي وملفي السيادي | GemIInI Sovereign Community</title>
-  <meta name="description" content="الملف السيادي ومجتمع الأطباء والباحثين المعتمد بأكاديمية جيميناي ونظام الساعات الأوروبية ECTS.">
+  <title>Role-Based Sovereign Dashboard | GemIInI OS</title>
+  <meta name="description" content="لوحة التحكم السريرية ولوحة المشتريات المؤسسية المبنية على الدور المهني (Role-Based OS Dashboard).">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="styles.css">
 
   <style>
-    :root {
-      --bg-dark: #04080F;
-      --bg-card: rgba(11, 19, 38, 0.85);
-      --border-card: rgba(0, 242, 254, 0.2);
-      --cyan: #00F2FE;
-      --cyan-glow: rgba(0, 242, 254, 0.35);
-      --gold: #D8AE6B;
-      --gold-light: #FDE68A;
-      --gold-glow: rgba(216, 174, 107, 0.3);
-      --emerald: #10B981;
-      --text-main: #FFFFFF;
-      --text-muted: #94A3B8;
-      --font-main: 'Tajawal', 'Outfit', sans-serif;
-      --font-mono: 'IBM Plex Mono', monospace;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      background: var(--bg-dark);
-      background-image: 
-        radial-gradient(circle at 10% 0%, rgba(0, 242, 254, 0.08) 0%, transparent 50%),
-        radial-gradient(circle at 90% 100%, rgba(216, 174, 107, 0.08) 0%, transparent 50%);
-      color: var(--text-main);
-      font-family: var(--font-main);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .navbar {
-      background: rgba(4, 8, 15, 0.85);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      padding: 14px 0;
-    }
-    .nav-content {
+    .dash-container {
       max-width: 1200px;
-      margin: 0 auto;
+      margin: 30px auto 90px;
       padding: 0 20px;
+    }
+
+    /* Identity Card Header */
+    .id-header-card {
+      background: #FFFFFF;
+      border: 1.5px solid rgba(88, 28, 135, 0.08);
+      border-radius: var(--radius-lg);
+      padding: 34px 38px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
+      gap: 24px;
+      box-shadow: var(--shadow-md);
+      margin-bottom: 35px;
+      position: relative;
     }
-    .brand-logo {
+    .id-header-card::before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0; left: 0; height: 4px;
+      background: linear-gradient(90deg, var(--rose-accent), var(--purple-brand));
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    }
+
+    .doc-meta {
       display: flex;
       align-items: center;
-      gap: 12px;
-      text-decoration: none;
-      color: #FFF;
+      gap: 20px;
     }
-    .logo-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
-      background: linear-gradient(135deg, var(--gold), #9A7B38);
+    .doc-avatar {
+      width: 70px;
+      height: 70px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, var(--purple-dark), var(--rose-accent));
       display: flex;
       align-items: center;
       justify-content: center;
+      color: #FFFFFF;
+      font-size: 26px;
       font-weight: 900;
-      font-size: 20px;
-      color: #000;
+      font-family: var(--font-sans);
     }
-    .brand-text h1 { font-size: 18px; font-weight: 800; line-height: 1.1; }
-    .brand-text span { font-size: 11px; color: var(--gold); letter-spacing: 0.5px; }
-
-    .nav-links {
-      display: flex;
-      gap: 20px;
-      list-style: none;
-    }
-    .nav-links a {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 600;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover, .nav-links a.active {
-      color: var(--cyan);
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 40px 20px;
-      width: 100%;
-    }
-
-    .glass-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-card);
-      border-radius: 16px;
-      backdrop-filter: blur(16px);
-      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-    }
-    .glass-card:hover {
-      border-color: var(--cyan);
-      box-shadow: 0 8px 30px rgba(0, 242, 254, 0.15);
-    }
-
-    .profile-banner {
-      padding: 36px;
-      position: relative;
-      overflow: hidden;
-      margin-bottom: 35px;
-      border: 1px solid rgba(216, 174, 107, 0.3);
-      background: linear-gradient(135deg, rgba(11, 19, 38, 0.95), rgba(20, 32, 60, 0.85));
-    }
-    .profile-banner::after {
-      content: '';
-      position: absolute;
-      top: -50px;
-      right: -50px;
-      width: 180px;
-      height: 180px;
-      background: radial-gradient(circle, var(--gold-glow) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 16px;
-      margin-top: 24px;
-    }
-    .stat-box {
-      background: rgba(4, 8, 15, 0.6);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 12px;
-      padding: 16px;
-      text-align: center;
-    }
-    .stat-val {
-      font-size: 22px;
-      font-weight: 800;
-      font-family: var(--font-mono);
-      color: var(--gold);
+    .doc-info h2 {
+      font-size: 24px;
+      font-weight: 900;
+      color: var(--purple-dark);
       margin-bottom: 4px;
     }
-    .stat-label {
-      font-size: 12px;
+    .doc-info p {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .doc-stats-strip {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+    .stat-pill {
+      text-align: center;
+      background: var(--purple-light);
+      padding: 12px 20px;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(107, 33, 168, 0.12);
+    }
+    .stat-pill .val {
+      font-family: var(--font-mono);
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--purple-brand);
+    }
+    .stat-pill .lbl {
+      font-size: 11.5px;
+      font-weight: 700;
       color: var(--text-muted);
     }
 
-    /* 3-Cards Per Row Layout Rule */
-    .module-grid {
+    /* Role Containers */
+    .role-section { display: none; }
+    .role-active { display: block; animation: fadeIn 0.3s ease; }
+
+    /* MTC Progression Benchmark Scorecards */
+    .benchmark-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
       margin-bottom: 40px;
     }
-    @media (min-width: 992px) {
-      .module-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
+    @media (max-width: 900px) {
+      .benchmark-grid { grid-template-columns: 1fr; }
     }
 
-    .action-btn {
-      display: inline-flex;
+    .benchmark-card {
+      background: #FFFFFF;
+      border: 1px solid rgba(88, 28, 135, 0.08);
+      border-radius: var(--radius-md);
+      padding: 26px;
+      box-shadow: var(--shadow-sm);
+    }
+    .progression-steps {
+      display: flex;
       align-items: center;
       gap: 8px;
-      color: var(--cyan);
-      font-weight: 700;
-      font-size: 13px;
-      text-decoration: none;
-      margin-top: 14px;
-      transition: gap 0.2s;
-    }
-    .action-btn:hover {
-      gap: 12px;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--cyan), #00A3FF);
-      color: #04080F;
+      margin: 16px 0;
+      font-family: var(--font-mono);
+      font-size: 12px;
       font-weight: 800;
-      padding: 12px 28px;
-      border-radius: 10px;
-      text-decoration: none;
-      display: inline-block;
-      border: none;
-      cursor: pointer;
-      transition: opacity 0.2s;
     }
-    .btn-primary:hover { opacity: 0.9; }
-
-    .btn-secondary {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      color: #FFF;
-      padding: 10px 22px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: 600;
-      transition: background 0.2s;
-    }
-    .btn-secondary:hover { background: rgba(255, 255, 255, 0.1); }
-
-    .badge-tag {
-      font-size: 11px;
-      padding: 4px 10px;
+    .step-node {
+      padding: 4px 8px;
       border-radius: 6px;
-      font-weight: 700;
-      display: inline-block;
-      margin-bottom: 8px;
+      background: #F3F4F6;
+      color: var(--text-muted);
     }
-    .badge-verified { background: rgba(16, 185, 129, 0.15); color: var(--emerald); border: 1px solid rgba(16, 185, 129, 0.3); }
-    .badge-ects { background: rgba(0, 242, 254, 0.15); color: var(--cyan); border: 1px solid rgba(0, 242, 254, 0.3); }
+    .step-node.completed {
+      background: #ECFDF5;
+      color: #059669;
+    }
+    .step-node.mastered {
+      background: var(--purple-brand);
+      color: #FFFFFF;
+    }
+
+    /* Procurement Table */
+    .procure-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #FFFFFF;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      margin-top: 20px;
+    }
+    .procure-table th, .procure-table td {
+      padding: 16px 20px;
+      text-align: right;
+      border-bottom: 1px solid rgba(88, 28, 135, 0.06);
+      font-size: 14px;
+    }
+    .procure-table th {
+      background: var(--purple-light);
+      color: var(--purple-dark);
+      font-weight: 800;
+    }
   </style>
 </head>
 <body>
 
+  <!-- NAVBAR -->
   <nav class="navbar">
     <div class="nav-content">
       <a href="index.html" class="brand-logo">
@@ -238,219 +181,226 @@
       </a>
       <ul class="nav-links">
         <li><a href="index.html">الرئيسية</a></li>
-        <li><a href="courses.html">المصفوفة الطبية 77+</a></li>
-        <li><a href="smc.html">بنك SMC</a></li>
-        <li><a href="registry.html">السجل السيادي</a></li>
-        <li><a href="community.html" class="active">مجتمعي السيادي</a></li>
+        <li><a href="programs.html">المصفوفة الخدمية</a></li>
+        <li><a href="smc.html">محاكي MTC™</a></li>
+        <li><a href="glomet.html">شركاء GLOMEt</a></li>
+        <li><a href="research.html">الأبحاث 15:5:1</a></li>
+        <li><a href="dashboard.html" class="active">لوحة التحكم 🪪</a></li>
       </ul>
+      <div style="display: flex; gap: 10px;">
+        <button class="btn-white" onclick="logoutSovereignSession()" style="padding: 7px 16px; font-size: 13px;">خروج</button>
+      </div>
     </div>
   </nav>
 
-  <div class="container">
+  <div class="dash-container">
 
-    <!-- NOT SIGNED IN GATE (ADVERTISING / PROMPT STATE) -->
-    <div id="not-signed-in" style="display:none; text-align:center; padding: 70px 20px;" class="glass-card">
-      <div style="font-size: 48px; margin-bottom: 16px;">🏛️</div>
-      <h2 style="color: #FFF; font-size: 28px; margin-bottom: 12px; font-weight: 800;">بوابة الأعضاء والزملاء المعتمدين</h2>
-      <p style="color: var(--text-muted); max-width: 520px; margin: 0 auto 28px; line-height: 1.6;">
-        هذه المساحة مخصصة للأطباء والباحثين المسجلين في السجل السيادي (GA-ID). سجّل دخولك للوصول إلى محفظة نقاط GP، ساعات ECTS، وحقيبة التدريب السريرية.
-      </p>
-      <div style="display:flex; justify-content:center; gap:16px; flex-wrap:wrap;">
-        <a href="auth.html" class="btn-primary">تسجيل الدخول بالـ GA-ID ←</a>
-        <a href="join.html" class="btn-secondary">طلب الانضمام للأكاديمية</a>
+    <!-- IDENTITY & SSO HEADER CARD -->
+    <div class="id-header-card">
+      <div class="doc-meta">
+        <div class="doc-avatar" id="avatarLetter">GA</div>
+        <div class="doc-info">
+          <h2 id="sso-doctor-name">د. أحمد عبد الرحمن</h2>
+          <p>
+            <span style="font-family: var(--font-mono); font-weight:800; color:var(--rose-accent);" id="sso-doctor-id">GA0171</span>
+            <span>•</span>
+            <span id="sso-doctor-univ">جامعة الخرطوم - كلية الطب</span>
+            <span>•</span>
+            <span class="badge-pill badge-purple" id="sso-doctor-tier">Senior Fellow</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="doc-stats-strip">
+        <div class="stat-pill">
+          <div class="val" id="sso-doctor-gp">1,250 GP</div>
+          <div class="lbl">الرصيد السريري المعتمد</div>
+        </div>
+        <div class="stat-pill" style="background: var(--gold-light); border-color: rgba(217, 119, 6, 0.15);">
+          <div class="val" style="color: var(--gold-main);" id="ectsTotal">4.5 ECTS</div>
+          <div class="lbl">الساعات الأوروبية المكتسبة</div>
+        </div>
+        <div>
+          <a id="profile-drive-link" href="#" target="_blank" class="btn-primary" style="padding: 12px 22px; font-size: 13.5px; display:inline-flex; align-items:center; gap:8px;">
+            <span>📂</span> فتح مساحة عمل Drive
+          </a>
+        </div>
       </div>
     </div>
 
-    <!-- SIGNED IN STATE (MEMBER COMMAND CENTER) -->
-    <div id="signed-in" style="display:none;">
-
-      <!-- PROFILE & LEDGER BANNER -->
-      <div class="glass-card profile-banner">
-        <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:20px;">
-          <div>
-            <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
-              <span class="badge-tag badge-verified">✓ عضو موثق بالسجل السيادي</span>
-              <span class="badge-tag badge-ects">ECTS / US SCH Aligned</span>
-            </div>
-            <h2 id="profile-name" style="color: #FFF; font-size: 28px; font-weight: 900; margin-bottom: 6px;">—</h2>
-            <div style="font-size: 14px; color: var(--text-muted); font-family: var(--font-mono);">
-              <span id="profile-id" style="color: var(--cyan); font-weight:700;"></span> · <span id="profile-univ"></span>
-            </div>
-          </div>
-
-          <!-- Direct LMS & Drive Triggers -->
-          <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-            <a href="https://member.geneacademy.net" target="_blank" class="btn-primary" style="display:inline-flex; align-items:center; gap:8px; padding: 10px 22px; font-size: 13.5px;">
-              <span>🎓</span> دخول منصة الأعضاء الأكاديمية (LMS) ←
-            </a>
-            <a id="profile-drive-link" href="#" target="_blank" class="btn-secondary" style="display:inline-flex; align-items:center; gap:8px; padding: 10px 20px; font-size: 13.5px;">
-              <span>📂</span> مساحة Drive
-            </a>
-          </div>
-        </div>
-
-        <!-- LIVE LEDGER STATS -->
-        <div class="stats-grid">
-          <div class="stat-box">
-            <div class="stat-val" id="profile-gp">0</div>
-            <div class="stat-label">رصيد المعرفة (GP)</div>
-          </div>
-          <div class="stat-box">
-            <div class="stat-val" id="profile-ects">4.5</div>
-            <div class="stat-label">ساعات ECTS المعتمدة</div>
-          </div>
-          <div class="stat-box">
-            <div class="stat-val" id="profile-smc-hrs">40 Hr</div>
-            <div class="stat-label">ساعات التطوير المهني CPD</div>
-          </div>
-          <div class="stat-box">
-            <div class="stat-val" style="color: var(--emerald);" id="profile-status">ACTIVE</div>
-            <div class="stat-label">الحالة في السجل</div>
-          </div>
-        </div>
+    <!-- ROLE 1: CLINICAL GEMIINI DASHBOARD (FOR CLINICIANS / FELLOWS) -->
+    <div class="role-section role-active" id="clinicalRoleView">
+      
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+        <h3 style="font-size: 22px; font-weight: 900; color: var(--purple-dark);">
+          📊 مقاييس التدرج السريري (MTC™ Progression Benchmarks)
+        </h3>
+        <a href="smc.html" class="btn-secondary" style="padding: 8px 18px; font-size: 13px;">فتح المحاكي السريري 🩺</a>
       </div>
 
-      <!-- MEMBER MODULES (NO SALES PITCH - DIRECT ACTION) -->
-      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 20px;">
-        <h3 style="color: #FFF; font-size: 22px; font-weight: 800;">مساراتك التدريبية والسريرية المعتمدة</h3>
-        <a href="courses.html" style="color: var(--text-muted); font-size: 13px; text-decoration:none;">تصفح الـ 77+ موديول ←</a>
-      </div>
+      <!-- 3 MTC Benchmark Scorecards -->
+      <div class="benchmark-grid">
 
-      <div class="module-grid">
-        
-        <!-- Track 1: SMC -->
-        <div class="glass-card" style="padding: 24px;">
-          <div style="font-size: 32px; margin-bottom: 12px;">🩺</div>
-          <h4 style="color: #FFF; font-size: 18px; margin-bottom: 8px;">التسجيل الدائم بالمجلس الطبي (SMC)</h4>
-          <div style="background: rgba(255,255,255,0.08); border-radius:6px; height:6px; margin: 12px 0 6px;">
-            <div style="background: linear-gradient(90deg, var(--cyan), #00A3FF); height:6px; border-radius:6px; width: 65%;"></div>
+        <!-- Scorecard 1: Fluid & Electrolytes -->
+        <div class="benchmark-card">
+          <div style="font-size: 12px; font-weight: 800; color: var(--rose-accent); margin-bottom: 4px;">BENCHMARK #1</div>
+          <h4 style="font-size: 16.5px; font-weight: 800; color: var(--purple-dark); margin-bottom: 10px;">
+            Severe Hyponatremia Deficit (Adrogué-Madias)
+          </h4>
+          <p style="font-size: 13px; color: var(--text-muted); line-height: 1.6;">
+            حساب العجز الكمي ومعدل التسريب الوريدي الآمن لتجنب ODS.
+          </p>
+          <div class="progression-steps">
+            <span class="step-node completed">20%</span> →
+            <span class="step-node completed">60%</span> →
+            <span class="step-node completed">80%</span> →
+            <span class="step-node completed">95%</span> →
+            <span class="step-node mastered">100% ✓</span>
           </div>
-          <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 14px;">65% مكتمل • 40 ساعة CPD معتمدة</p>
-          <a href="smc.html" class="action-btn">متابعة بنك الأسئلة والمحاكاة ←</a>
+          <div style="font-size: 12px; color: #059669; font-weight: 700;">5 محاولات • درجة الإتقان: 100% (+150 GP)</div>
         </div>
 
-        <!-- Track 2: BSS -->
-        <div class="glass-card" style="padding: 24px;">
-          <div style="font-size: 32px; margin-bottom: 12px;">🔪</div>
-          <h4 style="color: #FFF; font-size: 18px; margin-bottom: 8px;">Basic Surgical Skills (BSS-2 Cohort)</h4>
-          <div style="background: rgba(255,255,255,0.08); border-radius:6px; height:6px; margin: 12px 0 6px;">
-            <div style="background: linear-gradient(90deg, var(--gold), #FDE68A); height:6px; border-radius:6px; width: 80%;"></div>
+        <!-- Scorecard 2: Tension Pneumothorax -->
+        <div class="benchmark-card">
+          <div style="font-size: 12px; font-weight: 800; color: var(--rose-accent); margin-bottom: 4px;">BENCHMARK #2</div>
+          <h4 style="font-size: 16.5px; font-weight: 800; color: var(--purple-dark); margin-bottom: 10px;">
+            Needle Decompression & Trauma Resuscitation
+          </h4>
+          <p style="font-size: 13px; color: var(--text-muted); line-height: 1.6;">
+            التشخيص السريري الفوري وتفريغ الهواء بالمسافة الوربية.
+          </p>
+          <div class="progression-steps">
+            <span class="step-node completed">40%</span> →
+            <span class="step-node completed">80%</span> →
+            <span class="step-node mastered">100% ✓</span>
           </div>
-          <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 14px;">80% مكتمل • تم تسليم اللوج بوك السريري</p>
-          <a href="courses.html#bss" class="action-btn" style="color: var(--gold);">فتح حقيبة التدريب الجراحي ←</a>
+          <div style="font-size: 12px; color: #059669; font-weight: 700;">3 محاولات • درجة الإتقان: 100% (+100 GP)</div>
         </div>
 
-        <!-- Track 3: Molecular -->
-        <div class="glass-card" style="padding: 24px;">
-          <div style="font-size: 32px; margin-bottom: 12px;">🧬</div>
-          <h4 style="color: #FFF; font-size: 18px; margin-bottom: 8px;">دبلومات الطب الجزيئي (MM 1.0 - 8.0)</h4>
-          <div style="background: rgba(255,255,255,0.08); border-radius:6px; height:6px; margin: 12px 0 6px;">
-            <div style="background: linear-gradient(90deg, #A78BFA, #C084FC); height:6px; border-radius:6px; width: 25%;"></div>
+        <!-- Scorecard 3: Molecular Oncogenesis -->
+        <div class="benchmark-card">
+          <div style="font-size: 12px; font-weight: 800; color: var(--rose-accent); margin-bottom: 4px;">BENCHMARK #3</div>
+          <h4 style="font-size: 16.5px; font-weight: 800; color: var(--purple-dark); margin-bottom: 10px;">
+            Viral Oncogenesis & p53/Rb Pathway
+          </h4>
+          <p style="font-size: 13px; color: var(--text-muted); line-height: 1.6;">
+            آليات التسرطن الخلوي لمستضدات E6/E7 والتثبيط الجيني.
+          </p>
+          <div class="progression-steps">
+            <span class="step-node completed">50%</span> →
+            <span class="step-node mastered">100% ✓</span>
           </div>
-          <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 14px;">25% مكتمل • مسار الجينوم وعلم الوراثة</p>
-          <a href="molecular.html" class="action-btn" style="color: #C084FC;">متابعة الموديول الجزيئي ←</a>
+          <div style="font-size: 12px; color: #059669; font-weight: 700;">محاولتان • درجة الإتقان: 100% (+100 GP)</div>
         </div>
 
-      </div>
-
-      <!-- 15:5:1 CLINICAL MENTORSHIP & SOVEREIGN REGISTRY -->
-      <h3 style="color: #FFF; font-size: 22px; font-weight: 800; margin-bottom: 20px;">المجتمع السيادي والتوجيه الأكاديمي (15:5:1)</h3>
-      <div class="module-grid" style="margin-bottom: 40px;">
-        
-        <a href="registry.html" class="glass-card" style="padding: 24px; text-decoration:none; color:inherit; display:block;">
-          <div style="font-size: 30px; margin-bottom: 10px;">📖</div>
-          <h4 style="color: #FFF; font-size: 17px; margin-bottom: 6px;">السجل السيادي الموثق</h4>
-          <p style="font-size: 13px; color: var(--text-muted); line-height:1.5;">استعراض والتحقق من اعتماد الأطباء والباحثين المسجلين مركزياً.</p>
-          <div class="action-btn">فتح السجل السيادي ←</div>
-        </a>
-
-        <a href="reviews.html" class="glass-card" style="padding: 24px; text-decoration:none; color:inherit; display:block;">
-          <div style="font-size: 30px; margin-bottom: 10px;">🛡️</div>
-          <h4 style="color: #FFF; font-size: 17px; margin-bottom: 6px;">التدقيق السريري وسجل التقييمات</h4>
-          <p style="font-size: 13px; color: var(--text-muted); line-height:1.5;">تقارير الاعتماد والأثر الأكاديمي والمهني لبرامج الأكاديمية.</p>
-          <div class="action-btn">استعراض سجل التدقيق ←</div>
-        </a>
-
-        <a href="alumni.html" class="glass-card" style="padding: 24px; text-decoration:none; color:inherit; display:block;">
-          <div style="font-size: 30px; margin-bottom: 10px;">📜</div>
-          <h4 style="color: #FFF; font-size: 17px; margin-bottom: 6px;">الشهادات والتحقق الرقمي (QR)</h4>
-          <p style="font-size: 13px; color: var(--text-muted); line-height:1.5;">إصدار الشهادات الرسمية المعتمدة بالساعات الأوروبية ECTS.</p>
-          <div class="action-btn">تحميل الشهادة الرقمية ←</div>
-        </a>
-
-      </div>
-
-      <!-- LOGOUT FOOTER -->
-      <div style="text-align:center; padding: 20px 0 60px;">
-        <button class="btn-secondary" onclick="logoutSovereignSession()">تسجيل الخروج من الجلسة السيادية</button>
       </div>
 
     </div>
+
+    <!-- ROLE 2: B2B GLOMET PROCUREMENT DASHBOARD (FOR HEALTHCARE FACILITY DIRECTORS) -->
+    <div class="role-section" id="glometRoleView">
+      
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <div>
+          <h3 style="font-size: 22px; font-weight: 900; color: var(--purple-dark);">
+            🏛️ لوحة التجهيزات والمشتريات المؤسسية (GLOMEt B2B)
+          </h3>
+          <p style="font-size: 14px; color: var(--text-muted);">إدارة الكواشف التشخيصية، الأجهزة الموردة، وجداول الصيانة الدورية.</p>
+        </div>
+        <a href="glomet.html" class="btn-primary" style="padding: 8px 18px; font-size: 13px;">دليل الـ 40 شريك معتمد ←</a>
+      </div>
+
+      <table class="procure-table">
+        <thead>
+          <tr>
+            <th>كود المرفق</th>
+            <th>اسم المركز / المستشفى</th>
+            <th>الولاية والمنطقة</th>
+            <th>النظام المشغل</th>
+            <th>حالة الكواشف</th>
+            <th>السعة الشهرية</th>
+            <th>إجراء</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="font-family: var(--font-mono); font-weight:800; color:var(--purple-brand);">GL-011</td>
+            <td><strong>مركز البحر الأحمر للتشخيص الطبي</strong></td>
+            <td>بورتسودان • البحر الأحمر</td>
+            <td>5-Part Automated CBC + RT-PCR</td>
+            <td><span class="badge-pill badge-teal">مخزون استراتيجي آمن (3 أشهر)</span></td>
+            <td>4,500 فحص / شهر</td>
+            <td><button class="btn-secondary" style="padding: 4px 12px; font-size: 12px;">طلب كواشف</button></td>
+          </tr>
+          <tr>
+            <td style="font-family: var(--font-mono); font-weight:800; color:var(--purple-brand);">GL-024</td>
+            <td><strong>مستشفى رويال كير التخصصي</strong></td>
+            <td>الخرطوم • الخرطوم</td>
+            <td>Fully Automated Clinical Chemistry</td>
+            <td><span class="badge-pill badge-gold">إعادة تعبئة مجدولة</span></td>
+            <td>7,200 فحص / شهر</td>
+            <td><button class="btn-secondary" style="padding: 4px 12px; font-size: 12px;">طلب كواشف</button></td>
+          </tr>
+          <tr>
+            <td style="font-family: var(--font-mono); font-weight:800; color:var(--purple-brand);">GL-038</td>
+            <td><strong>مستشفى ود مدني التعليمي</strong></td>
+            <td>ود مدني • الجزيرة</td>
+            <td>POCT Electrolytes & Blood Gas</td>
+            <td><span class="badge-pill badge-teal">تشغيل نشط مستقر</span></td>
+            <td>3,000 فحص / شهر</td>
+            <td><button class="btn-secondary" style="padding: 4px 12px; font-size: 12px;">طلب كواشف</button></td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
   </div>
+
+  <footer class="signature-footer">
+    <div class="container">
+      <div class="signature-seal-strip">
+        <div class="signature-brand-mark">GemIInI Sovereign OS · Role-Based Core</div>
+        <div>All Rights Reserved © 2026/2027 • Google Workspace Provisioned Workspaces</div>
+      </div>
+    </div>
+  </footer>
 
   <script src="js/ga_data.js"></script>
   <script src="api.js"></script>
   <script>
-    document.addEventListener("DOMContentLoaded", async function() {
-      let session = null;
-      if (typeof getSovereignSession === 'function') {
-        session = getSovereignSession();
-      }
-      const savedId = localStorage.getItem("gemiini_sovereign_ga_id");
+    document.addEventListener("DOMContentLoaded", async () => {
+      const savedId = localStorage.getItem("gemiini_sovereign_ga_id") || "GA0171";
+      
+      // Lookup profile
+      if (typeof apiLookup === "function") {
+        const res = await apiLookup(savedId);
+        if (res.found && res.member) {
+          const m = res.member;
+          document.getElementById("sso-doctor-name").textContent = m.name || savedId;
+          document.getElementById("sso-doctor-id").textContent = m.id;
+          document.getElementById("sso-doctor-univ").textContent = m.univ || "جامعة معتمدة";
+          document.getElementById("sso-doctor-gp").textContent = `${(m.gp || 1250).toLocaleString()} GP`;
+          document.getElementById("avatarLetter").textContent = (m.id || "GA").substring(0, 2);
+          
+          if (m.driveUrl) {
+            document.getElementById("profile-drive-link").href = m.driveUrl;
+          }
 
-      if (!session && !savedId) {
-        document.getElementById("not-signed-in").style.display = "block";
-        return;
-      }
+          // Role-Based UI Branching
+          const role = (m.role || "").toUpperCase();
+          const id = (m.id || "").toUpperCase();
 
-      const activeId = session ? session.id : savedId;
-
-      try {
-        if (typeof GAS_URL !== 'undefined') {
-          const res = await fetch(`${GAS_URL}?action=lookup&id=${encodeURIComponent(activeId)}`);
-          const data = await res.json();
-          if (data.found && data.member) {
-            session = {
-              id: data.member.id,
-              name: data.member.name,
-              univ: data.member.univ || data.member.university,
-              gp: data.member.gp || 500,
-              drive: data.member.drive || `https://drive.google.com/drive/search?q=${data.member.id}`,
-              verified: true
-            };
+          if (role.includes("GLOMET") || id.startsWith("GL-") || id.startsWith("GL0")) {
+            document.getElementById("clinicalRoleView").classList.remove("role-active");
+            document.getElementById("glometRoleView").classList.add("role-active");
+          } else {
+            document.getElementById("clinicalRoleView").classList.add("role-active");
+            document.getElementById("glometRoleView").classList.remove("role-active");
           }
         }
-      } catch (err) {
-        console.warn("Using cached sovereign session...", err);
-      }
-
-      if (session) {
-        document.getElementById("profile-name").textContent = session.name || "عضو معتمد";
-        document.getElementById("profile-id").textContent = session.id;
-        document.getElementById("profile-univ").textContent = session.univ || "جامعة معتمدة";
-        document.getElementById("profile-gp").textContent = (session.gp || 500).toLocaleString() + " GP";
-        
-        const driveBtn = document.getElementById("profile-drive-link");
-        if (driveBtn && session.drive) {
-          driveBtn.href = session.drive;
-        }
-
-        document.getElementById("signed-in").style.display = "block";
-      } else {
-        document.getElementById("not-signed-in").style.display = "block";
       }
     });
-
-    function logoutSovereignSession() {
-      if (typeof logoutSovereignUser === 'function') {
-        logoutSovereignUser();
-      } else {
-        localStorage.removeItem("ga_user");
-        localStorage.removeItem("gemiini_sovereign_session");
-        localStorage.removeItem("gemiini_sovereign_ga_id");
-        window.location.href = "index.html";
-      }
-    }
   </script>
 </body>
 </html>
