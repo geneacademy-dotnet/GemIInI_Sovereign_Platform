@@ -1,25 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
-import { BadgeCheck, Search, ShieldAlert } from 'lucide-react';
+import { useSearchParams, Link } from 'react-router-dom';
+import { BadgeCheck, Search, ShieldAlert, Sparkles, CheckCircle2, ShieldCheck, ArrowRight } from 'lucide-react';
 import Layout from '@/components/site/Layout';
 import { PageHeader, Section, StateBlock } from '@/components/site/Bits';
+import HolographicTiltCard from '@/components/HolographicTiltCard';
 import { useLang } from '@/i18n/LanguageContext';
 import { lookupMember, sessionRef } from '@/lib/geneApi';
 
 const VerifyPage = () => {
     const { t, lang } = useLang();
-    const [value, setValue] = useState('');
+    const [searchParams] = useSearchParams();
+    const queryId = searchParams.get('id') || '';
+    const [value, setValue] = useState(queryId);
     const [status, setStatus] = useState('idle');
     const [result, setResult] = useState(null);
     const [error, setError] = useState('');
 
-    const onSubmit = async (event) => {
-        event.preventDefault();
+    const runLookup = async (idToSearch) => {
+        if (!idToSearch || !idToSearch.trim()) return;
         setStatus('loading');
         setResult(null);
         setError('');
         try {
-            const member = await lookupMember(value);
+            const member = await lookupMember(idToSearch.trim());
             if (!member) {
                 sessionRef.clear();
                 setStatus('empty');
@@ -29,74 +33,96 @@ const VerifyPage = () => {
             setStatus('done');
         } catch (err) {
             sessionRef.clear();
-            setError(err.message === 'invalid_id' ? t('verify.invalid') : t('common.error'));
+            setError(err.message === 'invalid_id' ? (lang === 'ar' ? 'الرمز غير صحيح أو غير مسجل بالسجل السيادي.' : 'Invalid ID or unverified candidate.') : t('common.error'));
             setStatus('error');
         }
+    };
+
+    useEffect(() => {
+        if (queryId) {
+            setValue(queryId);
+            runLookup(queryId);
+        } else {
+            // Default preview GA0171
+            runLookup('GA0171');
+        }
+    }, [queryId]);
+
+    const onSubmit = (e) => {
+        e.preventDefault();
+        runLookup(value);
     };
 
     return (
         <Layout>
             <Helmet>
-                <title>Verify a GA-ID | Gene Academy public member lookup</title>
-                <meta name="description" content="Check whether a Gene Academy GA-ID belongs to a verified member. Only sanitized public fields are returned — never balances or private links." />
+                <title>Verify a Sovereign Credential | SudaGene Consortium</title>
+                <meta name="description" content="البوابة الرسمية للتحقق اللحظي المشفر من شهادات وسجلات الأطباء والباحثين المعتمدين في المجلس الطبي والمشروع الوطني للجينوم." />
             </Helmet>
-            <PageHeader title={t('verify.title')} subtitle={t('verify.sub')} />
-            <Section rail="max-w-[56rem]">
-                <form onSubmit={onSubmit} className="flex flex-col gap-3 sm:flex-row">
-                    <label className="relative flex flex-1 items-center">
-                        <span className="sr-only">{t('verify.placeholder')}</span>
-                        <Search className="absolute start-3 h-4 w-4 text-muted-foreground" strokeWidth={1.8} />
-                        <input
-                            value={value}
-                            onChange={(e) => setValue(e.target.value)}
-                            placeholder={t('verify.placeholder')}
-                            className="min-h-[48px] w-full rounded-xl border border-input bg-card ps-10 pe-4 text-sm outline-none focus:border-[hsl(var(--accent))]"
-                        />
-                    </label>
-                    <button
-                        type="submit"
-                        disabled={status === 'loading'}
-                        className="min-h-[48px] rounded-xl bg-primary px-7 text-sm font-medium text-primary-foreground transition-transform active:scale-[0.98] disabled:opacity-60"
-                    >
-                        {status === 'loading' ? t('common.loading') : t('verify.button')}
-                    </button>
-                </form>
 
-                <p className="mt-4 flex items-start gap-2 text-xs text-muted-foreground">
-                    <ShieldAlert className="mt-0.5 h-4 w-4 shrink-0" strokeWidth={1.8} />
-                    {t('verify.note')}
-                </p>
+            <Section className="py-12 md:py-16">
+                <div className="mx-auto max-w-2xl text-center mb-8">
+                    <span className="inline-flex items-center gap-1.5 rounded-full border border-teal-500/30 bg-teal-500/10 px-3.5 py-1 text-xs font-mono text-teal-600 font-bold uppercase tracking-wider mb-4">
+                        <ShieldCheck className="w-3.5 h-3.5" /> SudaPass Cryptographic Ledger
+                    </span>
+                    <h1 className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
+                        {lang === 'ar' ? 'التحقق السيادي من الاعتمادات الطبية' : 'Sovereign Credential Verification'}
+                    </h1>
+                    <p className="mt-2 text-sm md:text-base text-slate-600">
+                        {lang === 'ar' 
+                            ? 'أدخل الرمز التعريفي (مثال: GA0171 أو GA5406) للتحقق الفوري من صحة السجل والرصيد السريري المعتمد.' 
+                            : 'Enter any GA-ID (e.g., GA0171 or GA5406) to audit verifiable clinical transcripts and credits.'}
+                    </p>
 
-                <div className="mt-8">
-                    {status === 'loading' && <div className="h-40 animate-pulse rounded-2xl border border-border bg-secondary/60" />}
-                    {status === 'error' && <StateBlock kind="error" message={error} />}
-                    {status === 'empty' && <StateBlock message={t('verify.notFound')} />}
-                    {status === 'done' && result && (
-                        <article className="rounded-2xl border border-border bg-card p-7">
-                            <div className="flex flex-wrap items-center gap-3">
-                                <BadgeCheck className={`h-6 w-6 ${result.verified ? 'text-[hsl(var(--teal))]' : 'text-muted-foreground'}`} strokeWidth={1.8} />
-                                <h2 className="font-display text-2xl font-semibold">{result.name}</h2>
-                                <span className="rounded-full bg-secondary px-3 py-1 text-xs font-medium">{result.gaId}</span>
-                            </div>
-                            <p className="mt-2 text-sm text-muted-foreground">{result.verified ? t('verify.found') : t('verify.unverified')}</p>
-                            <dl className="mt-6 grid gap-4 sm:grid-cols-2">
-                                {[
-                                    [lang === 'ar' ? 'الدور' : 'Role', result.role],
-                                    [lang === 'ar' ? 'الجامعة / المؤسسة' : 'University / organization', result.university],
-                                    [lang === 'ar' ? 'المستوى' : 'Tier', lang === 'ar' ? result.tierLabelAr : result.tier],
-                                    ['SudaPass', result.sudapass ? (lang === 'ar' ? 'مفعل' : 'Active') : (lang === 'ar' ? 'غير مفعل' : 'Inactive')],
-                                    [lang === 'ar' ? 'الهاتف' : 'Phone', result.phoneMasked],
-                                    [lang === 'ar' ? 'البريد' : 'Email', result.emailMasked],
-                                ].map(([label, val]) => (
-                                    <div key={label} className="border-t border-border pt-3">
-                                        <dt className="text-xs uppercase tracking-wider text-muted-foreground">{label}</dt>
-                                        <dd className="mt-1 text-sm font-medium">{val || '—'}</dd>
-                                    </div>
-                                ))}
-                            </dl>
-                        </article>
-                    )}
+                    {/* Search Bar */}
+                    <form onSubmit={onSubmit} className="mt-6 flex items-center gap-2 max-w-md mx-auto">
+                        <div className="relative flex-1">
+                            <Search className="absolute start-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+                            <input
+                                type="text"
+                                value={value}
+                                onChange={(e) => setValue(e.target.value)}
+                                placeholder="GA0171 / GA5406"
+                                className="w-full rounded-xl border border-slate-200 bg-white ps-10 pe-4 py-2.5 text-sm font-mono uppercase outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 shadow-sm"
+                            />
+                        </div>
+                        <button
+                            type="submit"
+                            disabled={status === 'loading'}
+                            className="rounded-xl bg-slate-900 hover:bg-slate-800 text-white px-5 py-2.5 text-sm font-semibold transition-colors disabled:opacity-50 cursor-pointer shadow-sm"
+                        >
+                            {status === 'loading' ? (lang === 'ar' ? 'جارٍ التحقق...' : 'Checking...') : (lang === 'ar' ? 'فحص السجل' : 'Verify')}
+                        </button>
+                    </form>
                 </div>
+
+                {/* State Results */}
+                {status === 'done' && result && (
+                    <div className="mx-auto flex flex-col items-center">
+                        <HolographicTiltCard member={result} />
+                    </div>
+                )}
+
+                {status === 'empty' && (
+                    <div className="mx-auto max-w-md text-center p-8 rounded-2xl bg-amber-50/50 border border-amber-200/60">
+                        <ShieldAlert className="w-10 h-10 text-amber-600 mx-auto mb-3" />
+                        <h3 className="text-lg font-bold text-slate-900">
+                            {lang === 'ar' ? 'لم يتم العثور على سجل مطابق' : 'No Sovereign Record Found'}
+                        </h3>
+                        <p className="text-xs text-slate-600 mt-1 mb-4">
+                            {lang === 'ar' ? 'الرمز غير مسجل أو لم يستكمل بوابة التوثيق.' : 'This ID has not been minted or verified yet.'}
+                        </p>
+                        <Link to="/register" className="inline-flex items-center gap-1.5 text-xs font-bold text-teal-600 hover:underline">
+                            {lang === 'ar' ? 'طلب إصدار هوية معتمدة ←' : 'Mint a Sovereign GA-ID →'}
+                        </Link>
+                    </div>
+                )}
+
+                {status === 'error' && (
+                    <div className="mx-auto max-w-md text-center p-6 rounded-2xl bg-red-50/50 border border-red-200 text-red-700 text-xs font-semibold">
+                        {error}
+                    </div>
+                )}
             </Section>
         </Layout>
     );
