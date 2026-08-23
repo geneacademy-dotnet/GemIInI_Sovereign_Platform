@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>54 Canonical Sudanese Universities & Medical Faculties | SudaGene Consortium</title>
+  <meta name="description" content="الدليل الوطني لكليات الطب والجامعات السودانية الـ 54: إحصائيات الخريجين، نسب اجتياز المجلس الطبي، والمجموعات البحثية.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    .univ-container {
+      max-width: 1200px;
+      margin: 30px auto 90px;
+      padding: 0 20px;
+    }
+    .univ-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 50px;
+    }
+    @media (max-width: 960px) {
+      .univ-grid { grid-template-columns: 1fr; }
+    }
+    .univ-card {
+      background: #FFFFFF;
+      border: 1.5px solid rgba(88, 28, 135, 0.08);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: var(--shadow-md);
+      transition: all 0.25s ease;
+    }
+    .univ-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--purple-brand);
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-content">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-symbol">SG</div>
+        <div class="brand-text">
+          <h1>SudaGene</h1>
+          <span>Medical Group</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">الرئيسية</a></li>
+        <li><a href="programs.html">المصفوفة الخدمية 46+</a></li>
+        <li><a href="universities.html" class="active">سجل الجامعات 54+</a></li>
+        <li><a href="verify.html">التحقق من الشهادات 🪪</a></li>
+        <li><a href="dashboard.html">لوحة التحكم السريرية</a></li>
+      </ul>
+      <div>
+        <a href="https://member.geneacademy.net" target="_blank" class="btn-primary" style="padding: 8px 18px; font-size: 13.5px;">دخول LMS 🎓</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="univ-container">
+    
+    <div style="text-align: center; margin-bottom: 40px;">
+      <h1 style="font-size: 32px; font-weight: 900; color: var(--purple-dark); margin-bottom: 8px;">
+        دليل كليات الطب والجامعات السودانية الـ 54
+      </h1>
+      <p style="font-size: 15.5px; color: var(--text-muted);">
+        إحصائيات الأعضاء الموثقين بالسجل السيادي، نسب اجتياز امتحانات المجلس الطبي، والمجموعات البحثية التابعة.
+      </p>
+    </div>
+
+    <!-- SEARCH BAR -->
+    <div style="max-width: 600px; margin: 0 auto 40px;">
+      <input type="text" id="univSearch" placeholder="بحث باسم الجامعة أو الكلية..." oninput="filterUniversities()" style="text-align: center; font-size: 16px;">
+    </div>
+
+    <!-- UNIVERSITIES GRID (MAX 3 CARDS PER ROW) -->
+    <div class="univ-grid" id="univGrid">
+      <!-- Injected via JavaScript -->
+    </div>
+
+  </div>
+
+  <footer class="signature-footer">
+    <div class="container">
+      <div class="signature-seal-strip">
+        <div class="signature-brand-mark">SudaGene · 54 Sudanese Universities Network</div>
+        <div>All 54 Canonical Medical Faculties Mapped • All Rights Reserved © 2026/2027</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/universities_data.js"></script>
+  <script>
+    let allUnivs = typeof UNIVERSITIES_DATABASE !== 'undefined' ? UNIVERSITIES_DATABASE : [];
+
+    function renderUniversities(list) {
+      const grid = document.getElementById('univGrid');
+      grid.innerHTML = '';
+
+      list.slice(0, 54).forEach(u => {
+        const card = document.createElement('div');
+        card.className = 'univ-card';
+        card.innerHTML = `
+          <div>
+            <span style="font-family: var(--font-mono); font-size: 11px; font-weight: 800; color: var(--rose-accent);">${u.id}</span>
+            <h3 style="font-size: 18px; font-weight: 800; color: var(--purple-dark); margin: 6px 0 12px; line-height: 1.4;">${u.name}</h3>
+            
+            <div style="background: #FAFAFA; border: 1px solid rgba(88,28,135,0.06); border-radius: 8px; padding: 12px; font-size: 13px; margin-bottom: 16px;">
+              <div>👥 <strong>الأطباء المسجلون:</strong> ${u.verified_members} طبيب وباحث</div>
+              <div>🎯 <strong>متوسط اجتياز SMC:</strong> ${u.avg_smc_score}</div>
+              <div>🔬 <strong>المجموعات البحثية:</strong> ${u.active_mentorship_pods} مجموعات نشطة</div>
+            </div>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(88,28,135,0.06); padding-top:12px; margin-top:auto;">
+            <a href="verify.html" class="btn-secondary" style="padding: 5px 12px; font-size: 12px;">لوحة الشرف ←</a>
+            <span style="font-size:12px; color:#059669; font-weight:800;">✓ معتمد بالسجل</span>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function filterUniversities() {
+      const q = (document.getElementById('univSearch').value || '').toLowerCase();
+      const filtered = allUnivs.filter(u => u.name.toLowerCase().includes(q));
+      renderUniversities(filtered);
+    }
+
+    document.addEventListener("DOMContentLoaded", () => renderUniversities(allUnivs));
+  </script>
+</body>
+</html>
