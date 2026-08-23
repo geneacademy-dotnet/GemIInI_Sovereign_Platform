@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://geneacademy.net/sitemap.xml
