@@ -1,422 +1,396 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SudaGene Medical Group | مجموعة سوداجين الطبية</title>
-  <meta name="description" content="منصة سوداجين للتعليم الطبي والتدريب السريري: إعداد الأطباء لامتحانات المجلس الطبي والزمالات، دبلومات الطب الجزيئي، وتجهيز المختبرات الطبية.">
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SudaGene Consortium | المنظومة السيادية للتعليم الطبي والبحوث</title>
+    <meta name="description" content="المنظومة الرقمية السيادية الموحدة للعلوم الطبية والحيوية في السودان: GemIInI Academy, GeneAcademy, GLOMEt HQ.">
+    <!-- Outfit & IBM Plex Mono Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Noto+Sans+Arabic:wght@400;600;700;800&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-obsidian: #04080F;
+            --accent-cyan: #00F2FE;
+            --gold-sovereign: #B48028;
+            --teal-medical: #2DE0C2;
+            --violet-gene: #9B7BFF;
+            --text-muted: #8E9AAF;
+            --text-light: #F4F7F6;
+            --glass-bg: rgba(4, 8, 15, 0.85);
+            --glass-border: rgba(0, 242, 254, 0.15);
+        }
 
-  <style>
-    /* Clean, Breathable Modern Medical Layout */
-    .hero-section {
-      padding: 70px 0 45px;
-      text-align: center;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    .hero-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--rose-light);
-      border: 1px solid var(--rose-soft);
-      color: var(--rose-accent);
-      padding: 8px 24px;
-      border-radius: var(--radius-pill);
-      font-size: 14px;
-      font-weight: 800;
-      margin-bottom: 22px;
-    }
-    .hero-heading {
-      font-size: clamp(32px, 4.6vw, 50px);
-      font-weight: 900;
-      color: var(--purple-dark);
-      line-height: 1.3;
-      margin-bottom: 20px;
-      letter-spacing: -0.5px;
-    }
-    .hero-heading span {
-      color: var(--rose-accent);
-    }
-    .hero-subtext {
-      font-size: 18px;
-      color: var(--text-body);
-      line-height: 1.8;
-      margin-bottom: 34px;
-    }
+        * { box-sizing: border-box; }
 
-    .cta-group {
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-      flex-wrap: wrap;
-      margin-bottom: 50px;
-    }
+        body {
+            background-color: var(--bg-obsidian);
+            color: var(--text-light);
+            font-family: 'Noto Sans Arabic', 'Outfit', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
 
-    /* Trust Highlights Strip */
-    .highlights-row {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      margin-bottom: 75px;
-    }
-    @media (max-width: 800px) {
-      .highlights-row { grid-template-columns: 1fr; }
-    }
-    .highlight-card {
-      background: #FFFFFF;
-      border: 1px solid rgba(88, 28, 135, 0.08);
-      border-radius: var(--radius-md);
-      padding: 24px;
-      text-align: center;
-      box-shadow: var(--shadow-sm);
-    }
-    .highlight-card .h-num {
-      font-size: 26px;
-      font-weight: 900;
-      color: var(--purple-brand);
-      margin-bottom: 4px;
-      font-family: var(--font-sans);
-    }
-    .highlight-card .h-lbl {
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--text-muted);
-    }
+        .mono {
+            font-family: 'IBM Plex Mono', monospace;
+        }
 
-    /* Clear 3 Medical Programs */
-    .programs-section {
-      margin-bottom: 80px;
-    }
-    .section-header {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-    .section-header h2 {
-      font-size: 30px;
-      font-weight: 900;
-      color: var(--purple-dark);
-      margin-bottom: 10px;
-    }
-    .section-header p {
-      font-size: 16px;
-      color: var(--text-muted);
-    }
+        header {
+            background: var(--glass-bg);
+            border-bottom: 1px solid var(--glass-border);
+            backdrop-filter: blur(12px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
 
-    .prog-card {
-      background: #FFFFFF;
-      border: 1.5px solid rgba(88, 28, 135, 0.08);
-      border-radius: var(--radius-lg);
-      padding: 36px 30px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      box-shadow: var(--shadow-md);
-      transition: all 0.3s ease;
-      position: relative;
-    }
-    .prog-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow-lg);
-      border-color: var(--card-border, var(--rose-soft));
-    }
-    .prog-card::before {
-      content: '';
-      position: absolute;
-      top: 0; right: 0; left: 0; height: 4px;
-      background: var(--card-accent, var(--purple-brand));
-      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-    }
-    .prog-icon {
-      font-size: 32px;
-      width: 58px;
-      height: 58px;
-      border-radius: 14px;
-      background: var(--icon-bg, var(--purple-light));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 20px;
-    }
-    .prog-title {
-      font-size: 21px;
-      font-weight: 800;
-      color: var(--purple-dark);
-      margin-bottom: 12px;
-    }
-    .prog-desc {
-      font-size: 14.5px;
-      color: var(--text-muted);
-      line-height: 1.75;
-      margin-bottom: 24px;
-    }
-    .prog-btn {
-      font-size: 14.5px;
-      font-weight: 800;
-      color: var(--card-accent, var(--purple-brand));
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-top: auto;
-      border-top: 1px solid rgba(88, 28, 135, 0.08);
-      padding-top: 16px;
-    }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
 
-    /* Fast Member Lookup */
-    .lookup-banner {
-      background: linear-gradient(135deg, #FFFFFF, rgba(255, 241, 242, 0.6));
-      border: 1.5px solid var(--rose-soft);
-      border-radius: var(--radius-lg);
-      padding: 34px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 20px;
-      box-shadow: var(--shadow-rose);
-      margin-bottom: 80px;
-    }
-  </style>
-  <!-- JSON-LD SCHEMA FOR GOOGLE KNOWLEDGE GRAPH -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "EducationalOrganization",
-        "@id": "https://geneacademy.net/#organization",
-        "name": "SudaGene Consortium",
-        "alternateName": ["GeneAcademy", "GemIInI Sovereign Medical Ecosystem", "GLOMEt"],
-        "url": "https://geneacademy.net",
-        "logo": "https://geneacademy.net/assets/sovereign-logo.png",
-        "description": "The Sovereign Medical and Life Sciences Ecosystem of Sudan, providing clinical licensure preparation, molecular research mentorship, and laboratory infrastructure.",
-        "founder": {
-          "@type": "Person",
-          "name": "Dr. Mohamed Ahmed Abdel Fattah Gibbril",
-          "jobTitle": "Lead Architect & Director",
-          "affiliation": "University of Khartoum, Institute of Endemic Diseases (IEND)",
-          "identifier": "ASM-200334812"
-        },
-        "areaServed": {
-          "@type": "Country",
-          "name": "Sudan"
-        },
-        "knowsAbout": [
-          "Sudan Genomics",
-          "Precision Medicine",
-          "Sudan Medical Council Licensure",
-          "Molecular Diagnostic Protocols",
-          "Basic Surgical Skills (BSS)",
-          "Automated Hematology Diagnostics"
-        ]
-      }
-    ]
-  }
-  </script>
+        .brand-logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            color: var(--text-light);
+            text-decoration: none;
+        }
 
+        .brand-logo span {
+            color: var(--accent-cyan);
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-right: 1.5rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-cyan);
+        }
+
+        .nav-links a.active-link {
+            color: var(--gold-sovereign);
+            border-bottom: 2px solid var(--gold-sovereign);
+            padding-bottom: 0.25rem;
+        }
+
+        .hero-section {
+            padding: 9rem 2rem 5rem 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .badge-sovereign {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(0, 242, 254, 0.08);
+            border: 1px solid rgba(0, 242, 254, 0.25);
+            padding: 0.4rem 1.2rem;
+            border-radius: 999px;
+            color: var(--accent-cyan);
+            font-size: 0.8rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .hero-section h1 {
+            font-size: 2.8rem;
+            line-height: 1.3;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+        }
+
+        .hero-section h1 span {
+            color: var(--accent-cyan);
+        }
+
+        .hero-subtitle {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            max-width: 850px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-group {
+            display: flex;
+            justify-content: center;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: transparent;
+            border: 1px solid var(--accent-cyan);
+            color: var(--text-light);
+            padding: 0.85rem 2.2rem;
+            font-size: 0.95rem;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 0 20px rgba(0, 242, 254, 0.15);
+            border-radius: 8px;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-cyan);
+            color: var(--bg-obsidian);
+            box-shadow: 0 0 30px rgba(0, 242, 254, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid var(--gold-sovereign);
+            color: var(--gold-sovereign);
+            padding: 0.85rem 2.2rem;
+            font-size: 0.95rem;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s;
+            border-radius: 8px;
+        }
+
+        .btn-secondary:hover {
+            background: var(--gold-sovereign);
+            color: var(--bg-obsidian);
+        }
+
+        /* METRICS BAR */
+        .metrics-bar {
+            max-width: 1200px;
+            margin: 3rem auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            padding: 0 2rem;
+        }
+
+        .metric-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .metric-box .number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--accent-cyan);
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .metric-box .label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* 3 PILLARS */
+        .pillar-grid {
+            max-width: 1200px;
+            margin: 4rem auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            padding: 0 2rem;
+        }
+
+        @media (max-width: 900px) {
+            .pillar-grid { grid-template-columns: 1fr; }
+            .hero-section h1 { font-size: 2.2rem; }
+        }
+
+        .pillar-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: 2.5rem;
+            backdrop-filter: blur(8px);
+            border-radius: 16px;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--accent-cyan);
+        }
+
+        .pillar-card h3 {
+            font-size: 1.4rem;
+            margin-top: 0;
+            color: var(--text-light);
+            border-bottom: 1px solid rgba(244, 247, 246, 0.1);
+            padding-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .pillar-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .track-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .track-list li {
+            font-size: 0.85rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-light);
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .track-list li::before {
+            content: "•";
+            color: var(--accent-cyan);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -0.5em;
+        }
+
+        blockquote {
+            max-width: 900px;
+            margin: 4rem auto;
+            padding: 1.8rem 2.2rem;
+            background: rgba(180, 128, 40, 0.05);
+            border-right: 4px solid var(--gold-sovereign);
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.8;
+            border-radius: 0 12px 12px 0;
+        }
+
+        footer {
+            border-top: 1px solid rgba(244, 247, 246, 0.1);
+            padding: 3rem 2rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+    </style>
 </head>
 <body>
 
-  <!-- CLEAN FLOATING NAVBAR -->
-  <nav class="navbar">
-    <div class="nav-content">
-      <a href="index.html" class="brand-logo">
-        <div class="brand-symbol">SG</div>
-        <div class="brand-text">
-          <h1>SudaGene</h1>
-          <span>Medical Group</span>
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="brand-logo">SUDAGENE<span>.</span></a>
+            <nav class="nav-links">
+                <a href="index.html" class="active-link">الرئيسية</a>
+                <a href="universities.html">الجامعات (54)</a>
+                <a href="verify.html">التحقق من الهوية</a>
+                <a href="dashboard.html">بوابة الأعضاء</a>
+            </nav>
         </div>
-      </a>
-      
-      <ul class="nav-links">
-        <li><a href="index.html" class="active">الرئيسية</a></li>
-        <li><a href="courses.html">الدورات والامتحانات</a></li>
-        <li><a href="smc.html">تحضير المجلس الطبي SMC</a></li>
-        <li><a href="molecular.html">الطب الجزيئي والجينات</a></li>
-        <li><a href="glomet.html">تجهيز المعامل والمستشفيات</a></li>
-        <li><a href="https://member.geneacademy.net" target="_blank" style="color: var(--rose-accent); font-weight: 800;">منصة الأعضاء (LMS) 🎓</a></li>
-      </ul>
-
-      <div style="display: flex; gap: 10px;">
-        <a href="auth.html" class="btn-secondary" style="padding: 8px 18px; font-size: 13.5px;">تسجيل الدخول</a>
-        <a href="join.html" class="btn-primary" style="padding: 8px 20px; font-size: 13.5px;">انضم إلينا ←</a>
-      </div>
-    </div>
-  </nav>
-
-  <div class="container">
-
-    <!-- HERO SECTION -->
-    <header class="hero-section">
-      <div class="hero-tag">
-        🏥 منصة التدريب الطبي والرعاية الصحية المعتمدة
-      </div>
-
-      <h1 class="hero-heading">
-        وجهتك الأولى <span>لاجتياز امتحانات الأطباء</span><br>
-        والتطوير المهني والسريري
-      </h1>
-
-      <p class="hero-subtext">
-        نقدم لأطباء الامتياز ونواب الاختصاص برامج تدريبية متخصصة ومحدثة لاجتياز امتحانات المجلس الطبي والزمالات الدولية، إلى جانب دبلومات متقدمة في الطب الجزيئي وتجهيز المختبرات والمستشفيات.
-      </p>
-
-      <div class="cta-group">
-        <a href="courses.html" class="btn-primary" style="padding: 14px 32px; font-size: 16px;">
-          استكشف الدورات والامتحانات ←
-        </a>
-        <a href="https://member.geneacademy.net" target="_blank" class="btn-secondary" style="padding: 14px 28px; font-size: 16px;">
-          دخول منصة الأعضاء الأكاديمية 🎓
-        </a>
-      </div>
-
-      <!-- Trust Metrics Strip -->
-      <div class="highlights-row">
-        <div class="highlight-card">
-          <div class="h-num">+1,000</div>
-          <div class="h-lbl">طبيب وباحث مسجل ومعتمد</div>
-        </div>
-        <div class="highlight-card">
-          <div class="h-num">+75</div>
-          <div class="h-lbl">دورة وموديول تدريبي متخصص</div>
-        </div>
-        <div class="highlight-card">
-          <div class="h-num">+40</div>
-          <div class="h-lbl">مستشفى ومركز طبي شريك</div>
-        </div>
-      </div>
     </header>
 
-    <!-- QUICK MEMBER CHECKPOINT -->
-    <div class="lookup-banner">
-      <div>
-        <h3 style="font-size: 21px; font-weight: 800; color: var(--purple-dark); margin-bottom: 6px;">هل أنت عضو مسجل في المنظومة؟</h3>
-        <p style="font-size: 14px; color: var(--text-muted);">أدخل رقم عضويتك (GA-ID) للتحقق السريع والوصول إلى ملفك ومحفظتك السريرية.</p>
-      </div>
-
-      <div style="display: flex; gap: 10px; min-width: 320px;">
-        <input type="text" id="sso-quick-id" placeholder="مثال: GA001 أو GA3450" style="text-align: center; font-family: var(--font-mono); font-weight: 800;" onkeydown="if(event.key==='Enter') executeSovereignSync()">
-        <button class="btn-primary" style="padding: 10px 24px; white-space: nowrap;" onclick="executeSovereignSync()">تحقق 🔍</button>
-      </div>
-    </div>
-
-    <!-- 3 MAIN PROGRAMS -->
-    <section class="programs-section">
-      <div class="section-header">
-        <h2>البرامج والخدمات الرئيسية</h2>
-        <p>اختر المجال المناسب لبدء رحلتك التدريبية أو المهنية</p>
-      </div>
-
-      <div class="grid-3">
-
-        <!-- 1. Clinical Licensure -->
-        <div class="prog-card" style="--card-accent: var(--rose-accent); --card-border: var(--rose-soft); --icon-bg: var(--rose-light);">
-          <div>
-            <div class="prog-icon">🩺</div>
-            <h3 class="prog-title">امتحانات الأطباء والتسجيل الدائم</h3>
-            <p class="prog-desc">
-              دورات مكثفة وبنوك أسئلة محدثة للتحضير لامتحانات المجلس الطبي (SMC)، الزمالة البريطانية (MRCS)، ودورات الجراحة الأساسية (BSS) بإشراف استشاريين متخصصين.
-            </p>
-          </div>
-          <a href="smc.html" class="prog-btn">تفاصيل بنوك الأسئلة والامتحانات ←</a>
-        </div>
-
-        <!-- 2. Molecular & Genomics -->
-        <div class="prog-card" style="--card-accent: var(--purple-brand); --card-border: var(--purple-light); --icon-bg: var(--purple-light);">
-          <div>
-            <div class="prog-icon">🧬</div>
-            <h3 class="prog-title">الطب الجزيئي والجينات</h3>
-            <p class="prog-desc">
-              دبلومات وبرامج تدريبية متقدمة في الجينات والتشخيص الجزيئي، قراءة وتفسير الفحوصات الوراثية، ودعم إعداد ونشر الأوراق العلمية للباحثين.
-            </p>
-          </div>
-          <a href="courses.html" class="prog-btn">استعراض المناهج والدبلومات ←</a>
-        </div>
-
-        <!-- 3. Hospital & Lab Solutions -->
-        <div class="prog-card" style="--card-accent: var(--gold-warm); --card-border: var(--gold-light); --icon-bg: var(--gold-light);">
-          <div>
-            <div class="prog-icon">🏛️</div>
-            <h3 class="prog-title">تجهيز المستشفيات والمختبرات</h3>
-            <p class="prog-desc">
-              حلول متكاملة لإدارات المستشفيات والمراكز الطبية: تجهيز المعامل المتخصصة، توريد الأجهزة والكواشف المخبرية، وخدمات الدعم الفني والتشغيلي.
-            </p>
-          </div>
-          <a href="glomet.html" class="prog-btn">استكشاف خدمات التجهيز B2B ←</a>
-        </div>
-
-      </div>
-    </section>
-
-  </div>
-
-  <!-- EXECUTIVE SIGNATURE FOOTER -->
-  <footer class="signature-footer">
-    <div class="container">
-      <div class="footer-grid">
-        
-        <div>
-          <div class="brand-logo" style="margin-bottom: 18px;">
-            <div class="brand-symbol">SG</div>
-            <div class="brand-text">
-              <h1>SudaGene</h1>
-              <span>Medical & Healthcare Group</span>
+    <main>
+        <section class="hero-section">
+            <div class="badge-sovereign mono">
+                🔒 SOVEREIGN LEDGER • 2,441+ VERIFIED DOCTORS
             </div>
-          </div>
-          <p style="font-size: 14px; color: var(--text-muted); line-height: 1.8; max-width: 360px;">
-            مجموعة سوداجين الطبية: المنظومة المتكاملة للرعاية الصحية، التدريب الطبي المعتمد، وتجهيز المختبرات والمستشفيات.
-          </p>
-        </div>
+            <h1>المنظومة الرقمية السيادية الموحدة للعلوم الطبية والحيوية في السودان</h1>
+            <p class="hero-subtitle">تكامل مؤسسي بين التدريب الإكلينيكي المتقدم والطب الجزيئي والأدوات المخبرية، لتوثيق الكفاءة السريرية وتوفير مساحات العمل السحابية المشفرة لكل ممارس وباحث.</p>
+            <div class="cta-group">
+                <a href="dashboard.html" class="btn-primary">دخول بوابة الأعضاء والسجل ➔</a>
+                <a href="#pillars" class="btn-secondary">استكشاف الركائز السيادية</a>
+            </div>
+        </section>
 
-        <div>
-          <h4 class="footer-title">التدريب والامتحانات</h4>
-          <ul class="footer-links">
-            <li><a href="courses.html">دليل الدورات والبرامج</a></li>
-            <li><a href="smc.html">امتحانات المجلس الطبي SMC</a></li>
-            <li><a href="courses.html#bss">دورات الجراحة الأساسية</a></li>
-            <li><a href="https://member.geneacademy.net" target="_blank">منصة الأعضاء (LMS)</a></li>
-          </ul>
-        </div>
+        <!-- VERIFIED REAL METRICS -->
+        <section class="metrics-bar">
+            <div class="metric-box">
+                <span class="number mono">2,441+</span>
+                <span class="label">طبيب مسجل في السجل السيادي</span>
+            </div>
+            <div class="metric-box">
+                <span class="number mono">2,500</span>
+                <span class="label">حالة سريرية في بنك SMC (8 أقسام)</span>
+            </div>
+            <div class="metric-box">
+                <span class="number mono">54</span>
+                <span class="label">جامعة وكلية طبية معتمدة</span>
+            </div>
+            <div class="metric-box">
+                <span class="number mono">40+</span>
+                <span class="label">مستشفى ومركز تشخيصي شريك</span>
+            </div>
+        </section>
 
-        <div>
-          <h4 class="footer-title">البحث والتجهيز</h4>
-          <ul class="footer-links">
-            <li><a href="molecular.html">الطب الجزيئي والجينات</a></li>
-            <li><a href="glomet.html">تجهيز المختبرات الطبية</a></li>
-            <li><a href="registry.html">سجل الأعضاء المعتمدين</a></li>
-            <li><a href="join.html">تقديم طلب انضمام جديد</a></li>
-          </ul>
-        </div>
+        <blockquote>
+            تلتزم منظومة سوداجين بالمحافظة على استمرارية وجودة التعليم الطبي والبحث العلمي للأطباء والعلماء السودانيين، وتوفير البنى التحتية الرقمية والميدانية المتقدمة لتجاوز العقبات الجغرافية والمؤسسية الحالية عبر توثيق الأصول المعرفية والبيانات السريرية بدقة متناهية.
+        </blockquote>
 
-        <div>
-          <h4 class="footer-title">التواصل والدعم</h4>
-          <ul class="footer-links">
-            <li style="color: var(--rose-accent); font-family: var(--font-mono); font-weight: 800; font-size: 14px;">
-              واتساب: +20 101 592 2628
-            </li>
-            <li style="margin-top: 8px; font-size: 13px; color: var(--text-muted);">
-              فريق الدعم متاح طوال الأسبوع لمساعدة الأطباء والطلبة
-            </li>
-          </ul>
-        </div>
+        <section id="pillars" class="pillar-grid">
+            <!-- PILLAR 1 -->
+            <div class="pillar-card">
+                <h3 style="color: var(--teal-medical);">🩺 GemIInI Academy</h3>
+                <p>الركيزة المتخصصة في التأهيل للحصول على التراخيص الطبية واكتساب المهارات الإكلينيكية المتقدمة للأطباء والممارسين السريريين.</p>
+                <ul class="track-list">
+                    <li>إعداد كامل لامتحانات المجلس الطبي السوداني (SMC) للتسجيل الدائم (2,500 حالة).</li>
+                    <li>مسارات الزمالات الدولية: MRCS Part A/B (دفعة تأسيسية تضم 6 أطباء).</li>
+                    <li>التدريب الجراحي العملي BSS-2 بالقاهرة (35 خريج معتمد بتوقيع د. أحمد عز رئيس قسم الجراحة).</li>
+                    <li>دورات دعم الحياة الأساسي BLS (7 خريجين معتمدين عبر مركز د. صبري أبو قرون ترخيص 1549).</li>
+                    <li>التحضير المتكامل للمسار الألماني (FSP / Approbation).</li>
+                </ul>
+            </div>
 
-      </div>
+            <!-- PILLAR 2 -->
+            <div class="pillar-card">
+                <h3 style="color: var(--violet-gene);">🧬 GeneAcademy</h3>
+                <p>الركيزة البحثية والأكاديمية المخصصة لعلوم الجينوم، الطب الجزيئي، وعلوم الحياة، وتطوير الكفاءة البحثية من المراحل الأساسية.</p>
+                <ul class="track-list">
+                    <li>تأسيس علم الأحياء المتقدم لطلاب المرحلة الثانوية (BWG).</li>
+                    <li>دبلومات وماستر كلاس الطب الجزيئي المتقدم (MM 1.0 – MM 8.0).</li>
+                    <li>مجموعات التوجيه والتدريب البحثي المكثف عبر خلايا (15:5:1 Mentorship Pods).</li>
+                    <li>منهجية مشروع 100 ورقة بحثية (The 100 Papers Project) لإنقاذ الأطروحات.</li>
+                    <li>إشراف أكاديمي مباشر بواسطة باحثين من معهد الأمراض المستوطنة (IEND) وجامعة الخرطوم.</li>
+                </ul>
+            </div>
 
-      <div class="signature-seal-strip">
-        <div class="signature-brand-mark">SudaGene · Medical Group</div>
-        <div>جميع الحقوق محفوظة © 2026/2027 • مجموعة سوداجين الطبية</div>
-      </div>
-    </div>
-  </footer>
+            <!-- PILLAR 3 -->
+            <div class="pillar-card">
+                <h3 style="color: var(--gold-sovereign);">🏛️ GLOMEt HQ</h3>
+                <p>المركز السيادي لتدقيق بيانات القياس المخبري عن بُعد وتجهيز المختبرات وتوفير كواشف التشخيص للمستشفيات الشريكة.</p>
+                <ul class="track-list">
+                    <li>تجهيز مختبرات الـ Turnkey المتكاملة (المستويات A و B و C).</li>
+                    <li>توريد كواشف الفحص الآلي للدم (5-Part Hematology) ومراقبة التدفقات.</li>
+                    <li>شراكة واعتماد لأكثر من 40 مختبراً ومستشفى في 18 ولاية.</li>
+                    <li>اتفاقيات مستوى الصيانة الطبية (SLA) واستجابة في أقل من 48 ساعة.</li>
+                    <li>توجيه عوائد ورش العمل لدعم المنح التعليمية لطلاب المختبرات والتقانة الحيوية.</li>
+                </ul>
+            </div>
+        </section>
+    </main>
 
-  <script src="js/ga_data.js"></script>
-  <script src="api.js"></script>
-  <script src="js/app.js"></script>
+    <footer>
+        <p class="mono">&copy; 2026 SudaGene Consortium. All Rights Reserved. Powered by Sovereign OS Node.</p>
+    </footer>
+
 </body>
 </html>

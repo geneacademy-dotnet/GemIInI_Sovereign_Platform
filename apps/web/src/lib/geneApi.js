@@ -123,12 +123,18 @@ export const searchMembers = async (query) => {
 export const submitRegistration = async (payload) => {
     const body = {
         full_name: payload.fullName,
+        full_name_en: payload.fullNameEn || '',
         email: payload.email,
         phone: payload.phone || '',
-        member_role: payload.role || '',
+        member_role: payload.role || (payload.track === 'gemiini' ? 'clinical_vanguard' : payload.track === 'gene' ? 'molecular_fellow' : 'student'),
         university: payload.university || '',
-        interest: payload.interest || '',
+        track: payload.track || 'gemiini',
+        tier: payload.tier || 'explorer',
+        interest: payload.interest || payload.track || '',
+        payment_method: payload.paymentMethod || 'bankak',
+        payment_reference: payload.paymentReference || '',
         status: 'pending_review',
+        submitted_at: new Date().toISOString(),
     };
     if (isRemoteConfigured()) return callRemote('register', body);
     return pb.collection('ga_registrations').create(body, { requestKey: `register-${Date.now()}` });

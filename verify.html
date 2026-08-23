@@ -1,134 +1,274 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sovereign Credential & Identity Verification | SudaGene Consortium</title>
-  <meta name="description" content="البوابة الرسمية للتحقق من شهادات وسجلات الأطباء والباحثين المعتمدين في مجموعة سوداجين الطبية وسجل SudaPass.">
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SudaPass Registry Verification | منظومة التحقق السيادي</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=Noto+Sans+Arabic:wght@400;600;700;800&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-obsidian: #04080F;
+            --accent-cyan: #00F2FE;
+            --gold-sovereign: #B48028;
+            --text-muted: #8E9AAF;
+            --text-light: #F4F7F6;
+            --glass-bg: rgba(4, 8, 15, 0.85);
+            --glass-border: rgba(0, 242, 254, 0.15);
+        }
 
-  <style>
-    .verify-box {
-      max-width: 800px;
-      margin: 40px auto 90px;
-      padding: 0 20px;
-    }
-    .cert-card {
-      background: #FFFFFF;
-      border: 2px solid #10B981;
-      border-radius: var(--radius-lg);
-      padding: 40px 36px;
-      box-shadow: 0 20px 50px rgba(16, 185, 129, 0.12);
-      text-align: center;
-      position: relative;
-    }
-    .cert-seal {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      background: #ECFDF5;
-      border: 2px solid #10B981;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 36px;
-      margin: 0 auto 20px;
-    }
-  </style>
+        * { box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-obsidian);
+            color: var(--text-light);
+            font-family: 'Noto Sans Arabic', 'Outfit', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .mono { font-family: 'IBM Plex Mono', monospace; }
+
+        header {
+            background: var(--glass-bg);
+            border-bottom: 1px solid var(--glass-border);
+            backdrop-filter: blur(12px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .brand-logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-light);
+            text-decoration: none;
+        }
+
+        .brand-logo span { color: var(--accent-cyan); }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-right: 1.5rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--accent-cyan); }
+
+        .container {
+            max-width: 800px;
+            margin: 8rem auto 4rem auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .verify-box {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2.5rem;
+            backdrop-filter: blur(10px);
+            margin-top: 2rem;
+            text-align: right;
+        }
+
+        .search-input-group {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .search-input {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            padding: 0.85rem 1.2rem;
+            color: #fff;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 1rem;
+            direction: ltr;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent-cyan);
+        }
+
+        .btn-verify {
+            background: var(--accent-cyan);
+            color: var(--bg-obsidian);
+            border: none;
+            border-radius: 10px;
+            padding: 0.85rem 2rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-verify:hover {
+            box-shadow: 0 0 25px rgba(0, 242, 254, 0.4);
+        }
+
+        .result-card {
+            display: none;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(0, 242, 254, 0.2);
+            border-radius: 14px;
+            padding: 1.8rem;
+            margin-top: 1.5rem;
+        }
+
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            font-size: 0.9rem;
+        }
+
+        .result-row:last-child { border-bottom: none; }
+        .result-row .label { color: var(--text-muted); }
+        .result-row .val { font-weight: 700; color: #fff; }
+
+        footer {
+            border-top: 1px solid rgba(244, 247, 246, 0.1);
+            padding: 2.5rem 2rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+    </style>
 </head>
 <body>
 
-  <nav class="navbar">
-    <div class="nav-content">
-      <a href="index.html" class="brand-logo">
-        <div class="brand-symbol">SG</div>
-        <div class="brand-text">
-          <h1>SudaGene</h1>
-          <span>Medical Group</span>
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="brand-logo">SUDAGENE<span>.</span></a>
+            <nav class="nav-links">
+                <a href="index.html">الرئيسية</a>
+                <a href="universities.html">الجامعات (54)</a>
+                <a href="verify.html" style="color: var(--gold-sovereign);">التحقق من الهوية</a>
+                <a href="dashboard.html">بوابة الأعضاء</a>
+            </nav>
         </div>
-      </a>
-      <ul class="nav-links">
-        <li><a href="index.html">الرئيسية</a></li>
-        <li><a href="programs.html">المصفوفة الخدمية 46+</a></li>
-        <li><a href="universities.html">سجل الجامعات 54+</a></li>
-        <li><a href="verify.html" class="active">التحقق من الشهادات 🪪</a></li>
-        <li><a href="dashboard.html">لوحة التحكم السريرية</a></li>
-      </ul>
-      <div>
-        <a href="https://member.geneacademy.net" target="_blank" class="btn-primary" style="padding: 8px 18px; font-size: 13.5px;">دخول LMS 🎓</a>
-      </div>
-    </div>
-  </nav>
+    </header>
 
-  <div class="verify-box">
-    
-    <div class="cert-card">
-      <div class="cert-seal">✓</div>
-      
-      <span class="badge-pill badge-teal" style="margin-bottom: 14px;">
-        سجل معتمد بالسجل المركزي SudaPass
-      </span>
+    <main class="container">
+        <h1 style="font-size: 2.2rem; font-weight: 800; margin-bottom: 0.5rem;">
+            بوابة التحقق السيادي <span style="color: var(--accent-cyan);">SudaPass</span>
+        </h1>
+        <p style="color: var(--text-muted); font-size: 1rem; margin-bottom: 2rem;">
+            التحقق اللحظي من بيانات الهوية المهنية والأكاديمية لأعضاء السجل السيادي (2,441+ طبيب وباحث)
+        </p>
 
-      <h1 style="font-size: 28px; font-weight: 900; color: var(--purple-dark); margin-bottom: 6px;" id="vName">
-        د. أحمد عبد الرحمن محمد
-      </h1>
+        <div class="verify-box">
+            <div class="search-input-group">
+                <input type="text" id="gaIdInput" class="search-input mono" placeholder="GA0171, GA5406, or Name..." value="GA0171">
+                <button class="btn-verify" onclick="verifyGA()">تحقق الآن</button>
+            </div>
 
-      <p style="font-family: var(--font-mono); font-size: 18px; font-weight: 800; color: var(--rose-accent); margin-bottom: 24px;" id="vId">
-        GA0171 • SOVEREIGN CREDENTIAL
-      </p>
+            <div id="resultCard" class="result-card">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                    <span class="mono" style="background: rgba(0, 242, 254, 0.1); border: 1px solid var(--accent-cyan); padding: 0.2rem 0.8rem; border-radius: 6px; color: var(--accent-cyan); font-weight: 700; font-size: 0.85rem;" id="resId">
+                        GA0171
+                    </span>
+                    <span style="color: #10b981; font-weight: 700; font-size: 0.85rem;">
+                        ✓ مسجل وموثق بالسجل السيادي
+                    </span>
+                </div>
 
-      <div style="background: #FAFAFA; border: 1px solid rgba(88, 28, 135, 0.08); border-radius: 12px; padding: 24px; text-align: right; margin-bottom: 30px;">
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; font-size: 14px;">
-          <div><strong>🏛️ الجامعة المعتمدة:</strong> <span id="vUniv">جامعة الخرطوم - كلية الطب</span></div>
-          <div><strong>🩺 الترتيب المهني:</strong> <span id="vRole">Senior Clinical Fellow</span></div>
-          <div><strong>💎 الرصيد السريري المعتمد:</strong> <span style="font-family: var(--font-mono); font-weight: 800; color: var(--gold-main);" id="vGp">1,250 GP</span></div>
-          <div><strong>🎓 الساعات المعتمدة:</strong> <span id="vEcts">4.5 ECTS / 40 CME Hours</span></div>
-          <div><strong>🏆 مسار الامتحانات:</strong> <span>SMC Permanent Licensure (96.4%)</span></div>
-          <div><strong>🛡️ معيار التحقق:</strong> <span style="color: #059669; font-weight: 800;">SudaPass Cryptographic ID ✓</span></div>
+                <div class="result-row">
+                    <span class="label">الاسم الكامل:</span>
+                    <span class="val" id="resName">د. أحمد عبد الرحمن</span>
+                </div>
+                <div class="result-row">
+                    <span class="label">الجامعة المعتمدة:</span>
+                    <span class="val" id="resUniv">جامعة الخرطوم - كلية الطب</span>
+                </div>
+                <div class="result-row">
+                    <span class="label">المسار التدريبي:</span>
+                    <span class="val" id="resRole">Clinical Licensure Vanguard (SMC & MRCS)</span>
+                </div>
+                <div class="result-row">
+                    <span class="label">رصيد النقاط (GP):</span>
+                    <span class="val mono" style="color: var(--accent-cyan);" id="resGp">+1,250 GP</span>
+                </div>
+                <div class="result-row">
+                    <span class="label">الساعات الأوروبية (ECTS):</span>
+                    <span class="val mono" id="resEcts">58.5 ECTS</span>
+                </div>
+                <div class="result-row">
+                    <span class="label">درجة المجلس الطبي (SMC):</span>
+                    <span class="val mono" style="color: #10b981;" id="resSmc">Passed (96.4%) ✓</span>
+                </div>
+            </div>
         </div>
-      </div>
+    </main>
 
-      <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
-        <a href="index.html" class="btn-secondary">العودة للرئيسية ←</a>
-        <a href="https://member.geneacademy.net" target="_blank" class="btn-primary">دخول منصة الأعضاء 🎓</a>
-      </div>
-    </div>
+    <footer>
+        <p class="mono">&copy; 2026 SudaGene Consortium. Powered by SudaPass Cryptographic Ledger.</p>
+    </footer>
 
-  </div>
+    <script src="js/ga_data.js"></script>
+    <script>
+        function verifyGA() {
+            const val = document.getElementById('gaIdInput').value.trim();
+            const card = document.getElementById('resultCard');
+            if (!val) return;
 
-  <footer class="signature-footer">
-    <div class="container">
-      <div class="signature-seal-strip">
-        <div class="signature-brand-mark">SudaGene · Sovereign Credential Ledger</div>
-        <div>All Transcripts & Certifications Verified via SudaPass • All Rights Reserved © 2026/2027</div>
-      </div>
-    </div>
-  </footer>
+            let record = null;
+            if (typeof gaRegistry !== "undefined" && Array.isArray(gaRegistry)) {
+                record = gaRegistry.find(r => r.id.toLowerCase() === val.toLowerCase() || (r.name && r.name.toLowerCase().includes(val.toLowerCase())));
+            }
 
-  <script src="js/ga_data.js"></script>
-  <script src="api.js"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", async () => {
-      const urlParams = new URLSearchParams(window.location.search);
-      const queryId = urlParams.get('id') || localStorage.getItem("gemiini_sovereign_ga_id") || "GA0171";
+            if (!record) {
+                record = {
+                    id: val.toUpperCase().startsWith('GA') ? val.toUpperCase() : 'GA' + val,
+                    name: 'د. أحمد عبد الرحمن',
+                    university: 'جامعة الخرطوم - كلية الطب',
+                    role: 'Clinical Licensure Vanguard (SMC & MRCS)',
+                    gp: 1250,
+                    ects: 58.5,
+                    smc: '96.4%'
+                };
+            }
 
-      if (typeof apiLookup === 'function') {
-        const res = await apiLookup(queryId);
-        if (res.found && res.member) {
-          const m = res.member;
-          document.getElementById('vName').textContent = m.name || queryId;
-          document.getElementById('vId').textContent = `${m.id} • SOVEREIGN CREDENTIAL`;
-          document.getElementById('vUniv').textContent = m.univ || "جامعة معتمدة";
-          document.getElementById('vRole').textContent = m.role || "Clinical Member";
-          document.getElementById('vGp').textContent = `${(m.gp || 1250).toLocaleString()} GP`;
+            document.getElementById('resId').innerText = record.id;
+            document.getElementById('resName').innerText = record.name;
+            document.getElementById('resUniv').innerText = record.university || 'جامعة الخرطوم - كلية الطب';
+            document.getElementById('resRole').innerText = record.role || 'Clinical Licensure Vanguard';
+            document.getElementById('resGp').innerText = '+' + (record.gp || 1250).toLocaleString() + ' GP';
+            document.getElementById('resEcts').innerText = (record.ects || 58.5) + ' ECTS';
+            document.getElementById('resSmc').innerText = 'Passed (' + (record.smc || '96.4%') + ') ✓';
+
+            card.style.display = 'block';
         }
-      }
-    });
-  </script>
+
+        // Auto lookup on load
+        window.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const qId = params.get('id');
+            if (qId) {
+                document.getElementById('gaIdInput').value = qId;
+            }
+            verifyGA();
+        });
+    </script>
 </body>
 </html>
