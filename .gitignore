@@ -4,3 +4,6 @@ deploy_hostinger.zip
 portal.zip
 .vscode/
 *.log
+app.tar.gz
+*.zip
+*.tar.gz
