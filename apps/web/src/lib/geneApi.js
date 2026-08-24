@@ -1,7 +1,6 @@
 /**
  * geneApi.js
- * Hybrid Data Layer Re-exporting SovereignClient with Circuit Breaker,
- * Mutex FIFO Queue, and PocketBase Fallback.
+ * Hybrid Data Layer Re-exporting SovereignClient and PhoneLookupService.
  *
  * SudaGene Consortium — GemIInI Academy · Gene Academy
  */
@@ -14,6 +13,12 @@ import SovereignClient, {
   sovereignQueue,
 } from '@/services/sovereignService';
 
+import {
+  MASTER_LEDGER_CONTACTS,
+  lookupByPhoneNumber,
+  lookupContactByGaId,
+} from '@/services/phoneLookupService';
+
 export {
   SovereignClient,
   normalizeGaId,
@@ -21,6 +26,9 @@ export {
   generateIdempotencyKey,
   callRemote,
   sovereignQueue,
+  MASTER_LEDGER_CONTACTS,
+  lookupByPhoneNumber,
+  lookupContactByGaId,
 };
 
 export const config = {
@@ -45,6 +53,8 @@ export const geneApi = {
   register: SovereignClient.register,
   uploadReceipt: SovereignClient.uploadReceipt,
   getStats: SovereignClient.getStats,
+  lookupByPhone: lookupByPhoneNumber,
+  lookupContactByGaId: lookupContactByGaId,
   normalizeId: normalizeGaId,
 };
 
