@@ -1,6 +1,6 @@
 // sovereign-config.js
-// Master Headless CMS configuration for SudaGene Consortium.
-// All leadership records, verified metrics, real survey reviews, and registry counts locked.
+// Authoritative Sovereign Governance Charter (GA20 Protocol).
+// All leadership, founded date (19 April 2025), Operational Year 2, and Coffee-Parity pricing locked.
 
 export const SOVEREIGN_ECOSYSTEM = {
     institution: {
@@ -8,6 +8,8 @@ export const SOVEREIGN_ECOSYSTEM = {
         brand: 'Gene Academy',
         ecosystem: 'GemIInI Academy',
         infrastructure: 'GLOMEt HQ',
+        founded: '19 April 2025',
+        operationalYear: 2,
         poweredBy: 'geneacademy.net',
         domains: {
             public: 'https://geneacademy.net',
@@ -15,10 +17,96 @@ export const SOVEREIGN_ECOSYSTEM = {
             member: 'https://member.geneacademy.net',
         },
         gasBackend: 'https://script.google.com/macros/s/AKfycbxAVR42yEQlQMkOBhlcka622FNbSD_3_pIJrNL1bktLyN8TqIYGC2P5cGpUqeZcoql8/exec',
-        established: '2023',
     },
 
-    // ---- Living Verified Registry Metrics ------------------------------------
+    // ---- Executive Leadership (GA20 Governance Protocol) ---------------------
+    leadership: [
+        {
+            id: 'GA-000',
+            name: { en: 'Dr. Mohamed Gibbril', ar: 'د. محمد أحمد جبريل' },
+            role: { en: 'Founder & Chief Executive Officer', ar: 'المؤسس والرئيس التنفيذي' },
+            focus: 'Overall Sovereign Architecture, Biology Foundations, Molecular Medicine, System Overseer',
+            degrees: 'MBBS (KU 0089958, 2021), MSc Molecular Medicine',
+            pillar: 'GemIInI & Gene Core',
+            status: 'Stable / Permanent Founding Position'
+        },
+        {
+            id: 'GA-001',
+            name: { en: 'Dr. Alaa Mursi Elnour', ar: 'د. علاء مرسي النور' },
+            role: { en: 'Co-Founder & Academic Lead (COO)', ar: 'المؤسس الشريك والمدير الأكاديمي (COO)' },
+            focus: 'Chemistry Integration, Advanced Clinical Synthesis, BSS-2 Program Director, SMC Surgery Bank',
+            degrees: 'MBBS, FRCSI (Letterkenny University Hospital, Ireland)',
+            pillar: 'GemIInI Clinical Lead',
+            status: 'Stable / Permanent Founding Position'
+        },
+        {
+            id: 'GA-004',
+            name: { en: 'Dr. Safaa El Hassan', ar: 'د. صفاء عبد القادر الحسن' },
+            role: { en: 'Senior Academic Officer', ar: 'المسؤول الأكاديمي الأول' },
+            focus: 'Intake Ingestion, Curriculum Design, Molecular Medicine, Diagnostic Imaging Tracking',
+            degrees: 'MBBS (Omdurman Islamic University - OIU, 2016)',
+            pillar: 'Academic Operations',
+            status: 'Assigned Lifecycle 2025–2026 (Operational Year 2)'
+        },
+        {
+            id: 'GA-011',
+            name: { en: 'Amjad Gorashi', ar: 'م. أمجد قرشي حسن' },
+            role: { en: 'Operations & Systems Logistics Officer', ar: 'مسؤول العمليات والأنظمة والمعلومات' },
+            focus: 'Systems Architecture, Information Networks, GIS & Operational Telemetry',
+            pillar: 'GLOMEt & Systems Operations',
+            status: 'Hired Aug 2026 (Training since Jul 01, 2026)'
+        }
+    ],
+
+    // Backward-compatible faculty alias
+    faculty: [
+        {
+            id: 'GA-000',
+            name: 'Dr. Mohamed Gibbril',
+            name_ar: 'د. محمد أحمد جبريل',
+            role: 'Founder & CEO | Systems Architect',
+            role_ar: 'المؤسس والرئيس التنفيذي | المعمارية المعرفية والأنظمة',
+            degrees: 'MBBS (KU 0089958, 2021), MSc Molecular Medicine',
+            pillar: 'GemIInI & Gene Core',
+            focus: 'Overall Sovereign Architecture, Biology Foundations, Molecular Medicine',
+            avatar: '/assets/team/dr-gibbril.jpg'
+        },
+        {
+            id: 'GA-001',
+            name: 'Dr. Alaa Mursi Elnour',
+            name_ar: 'د. علاء مرسي النور (FRCSI)',
+            role: 'Co-Founder & Academic Lead (COO)',
+            role_ar: 'المؤسس الشريك والمدير الأكاديمي (COO)',
+            degrees: 'MBBS, FRCSI (Letterkenny University Hospital, Ireland)',
+            pillar: 'GemIInI Clinical Lead',
+            focus: 'Chemistry Synthesis, BSS-2 Program Director, SMC Surgery Bank',
+            avatar: '/assets/team/dr-alaa.jpg'
+        },
+        {
+            id: 'GA-004',
+            name: 'Dr. Safaa El Hassan',
+            name_ar: 'د. صفاء عبد القادر الحسن',
+            role: 'Senior Academic Officer',
+            role_ar: 'المسؤول الأكاديمي الأول',
+            degrees: 'MBBS (Omdurman Islamic University, 2016)',
+            pillar: 'Academic Operations',
+            focus: 'Intake Ingestion, Molecular Medicine & Curriculum Design',
+            avatar: '/assets/team/dr-safaa.jpg'
+        },
+        {
+            id: 'GA-011',
+            name: 'Amjad Gorashi',
+            name_ar: 'م. أمجد قرشي حسن',
+            role: 'Operations & Systems Logistics Officer',
+            role_ar: 'مسؤول العمليات والأنظمة والمعلومات',
+            degrees: 'B.Sc. Systems Engineering & GIS',
+            pillar: 'GLOMEt & Systems Operations',
+            focus: 'Systems Architecture, GIS & Field Telemetry',
+            avatar: '/assets/team/eng-amjad.jpg'
+        }
+    ],
+
+    // ---- Living Verified Registry Metrics (LOCKED) ---------------------------
     metrics: {
         verifiedGaIds: '1,200 GA-ID verified',
         totalEnrolledMembers: '2,441 total enrolled',
@@ -37,42 +125,15 @@ export const SOVEREIGN_ECOSYSTEM = {
         accreditedHospitals: 40,
     },
 
-    // ---- Authentic Leadership Roster -----------------------------------------
-    faculty: [
-        {
-            id: 'GA000',
-            name: 'Dr. Mohamed Gibbril',
-            name_ar: 'د. محمد أحمد جبريل',
-            role: 'Co-Founder & CEO | Academic Officer in Molecular Medicine',
-            role_ar: 'المؤسس المشارك والرئيس التنفيذي | المسؤول الأكاديمي للطب الجزيئي',
-            degrees: 'MBBS (KU 0089958, 3 Aug 2021), MSc Molecular Medicine',
-            pillar: 'GeneAcademy & GemIInI Core Architecture',
-            focus: 'Translational Systems, Accreditation & Archiving, Royal College Alignment, MTC™ Framework, 15:5:1 Pods',
-            avatar: '/assets/team/dr-gibbril.jpg'
-        },
-        {
-            id: 'GA001',
-            name: 'Dr. Alaa Mursi Elnour (FRCS)',
-            name_ar: 'د. علاء مرسي النور (FRCS)',
-            role: 'Clinical Licensure & Surgical Director',
-            role_ar: 'مديرة التدريب الإكلينيكي والجراحي وقائدة مسارات التراخيص والزمالات',
-            degrees: 'MBBS, FRCS (Letterkenny University Hospital, Ireland)',
-            pillar: 'GemIInI Academy',
-            focus: 'SMC 8 Modules, Intercollegiate MRCS Part A/B, BSS-1 & BSS-2 Psychomotor Surgical Masterclasses',
-            avatar: '/assets/team/dr-alaa.jpg'
-        },
-        {
-            id: 'GA004',
-            name: 'Dr. Safaa El Hassan',
-            name_ar: 'د. صفاء الحسن',
-            role: 'Academic Officer | Molecular Medicine Team Lead',
-            role_ar: 'المسؤول الأكاديمي | قائد فريق أبحاث وتدريب الطب الجزيئي',
-            degrees: 'MBBS (Omdurman Islamic University - OIU, Graduated 2016)',
-            pillar: 'GeneAcademy Research & MM 1.0–8.0',
-            focus: 'Molecular Medicine Curriculum, 15:5:1 Research Pods, Quality Control & Survey Telemetry',
-            avatar: '/assets/team/dr-safaa.jpg'
-        }
-    ],
+    // ---- Dynamic Friction-Gate Pricing Model (Coffee-Parity Index) -----------
+    pricing: {
+        concept: 'The Price of Two Cups of Coffee',
+        sudan: '3,000 – 5,000 SDG',
+        egyptDiaspora: '100 – 150 EGP / ~$2.50 USD',
+        welcomeGp: 25, // Explorer Tier on intake
+        accreditedBumpGp: 475, // Bump to 500 GP Pathfinder on approval
+        totalAccreditedGp: 500
+    },
 
     // ---- Real Survey Reviews (Authentic Feedback - 4.74/5 Rating) -----------
     reviews: [
@@ -96,8 +157,8 @@ export const SOVEREIGN_ECOSYSTEM = {
         },
         {
             id: 'REV-2026-015',
-            author: 'Dr. Safaa El Hassan (GA004)',
-            role: 'Academic Officer & Molecular Lead (OIU 2016)',
+            author: 'Dr. Safaa El Hassan (GA-004)',
+            role: 'Senior Academic Officer (OIU 2016)',
             rating: 5,
             quote: 'التوثيق الأكاديمي ومجموعات البحث 15:5:1 فتحت آفاقاً حقيقية لربط الباحثين السودانيين بقواعد البيانات العالمية والمجلات المصنفة Scopus Q1.',
             quote_en: 'The 15:5:1 research pods bridged displaced Sudanese researchers directly with global genomic databases and Scopus Q1 journals.',
@@ -105,12 +166,12 @@ export const SOVEREIGN_ECOSYSTEM = {
         }
     ],
 
-    // ---- Payment & Dispatch Information -------------------------------------
-    paymentChannels: {
-        vodafoneCash: '+201015922628',
-        bankakAccount: 'Verified on Dispatch Desk',
-        dispatchWhatsApp: '+201015922628',
-        quickDialCode: '*9*7*01015922628#',
+    // ---- Live Dispatch & Payment Endpoints -----------------------------------
+    channels: {
+        vodafoneCash: '+20 101 592 2628',
+        bankakName: 'Gene Academy / GemIInI Medical',
+        whatsapp: 'https://wa.me/201015922628',
+        dispatchPhone: '+20 101 592 2628',
         officialEmail: 'info@geneacademy.net'
     }
 };
