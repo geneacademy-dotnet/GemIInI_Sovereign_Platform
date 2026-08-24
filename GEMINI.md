@@ -3,7 +3,7 @@
 These rules dictate all autonomous coding, UI design, and database structuring for the Gene Academy ecosystem. Strict adherence is mandatory.
 
 ## 1. Terminology & Core Lexicon (Zero Deviations)
-- NEVER use the word "WellPlan" or reference external CRMs. Our internal ecosystem handles all tracking.
+- NEVER use the word "Member LMS" or reference external CRMs. Our internal ecosystem handles all tracking.
 - The official pocket application is **GemIInI Jaib (جـمـيـنـي جـيـب — GemIInI in Your Pocket)**.
 - ALWAYS use these exact terms for the user journey:
   - **GemIInI Profile:** The basic identity layer.

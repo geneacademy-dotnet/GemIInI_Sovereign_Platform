@@ -59,7 +59,7 @@ Use these pre-configured query parameters in social media, email campaigns, and 
 * **Molecular Medicine (MM 1.0 - 8.0):** `https://geneacademy.net/?entry=molecular`
 * **High School Science / Biology with Gibbril:** `https://geneacademy.net/?entry=highschool`
 * **Pediatric Airway & MTC Resuscitation:** `https://geneacademy.net/?entry=peds`
-* **GemIInI Jaib AI CRM:** `https://geneacademy.net/?entry=wellplan`
+* **GemIInI Jaib AI CRM:** `https://geneacademy.net/?entry=Member LMS`
 * **Direct Certificate Verification:** `https://geneacademy.net/?cert=GA0171`
 
 ---

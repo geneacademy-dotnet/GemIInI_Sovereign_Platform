@@ -1,134 +1,126 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { Fingerprint, Microscope, ShieldCheck, Truck } from 'lucide-react';
+import { ShieldCheck, Award, Stethoscope, Dna, Building2, CheckCircle2, Star, Users } from 'lucide-react';
 import Layout from '@/components/site/Layout';
-import { PageHeader, Section } from '@/components/site/Bits';
-import Reveal from '@/components/Reveal';
+import { Section } from '@/components/site/Bits';
 import { useLang } from '@/i18n/LanguageContext';
 import { SOVEREIGN_ECOSYSTEM } from '@/data/sovereign-config';
 
-const initialsOf = (nameObj, lang) => {
-    const name = (nameObj && (nameObj[lang] || nameObj.en)) || '';
-    const parts = name.replace(/^(Dr\.?|د\.?)\s*/i, '').split(' ').filter(Boolean);
-    return (parts[0]?.[0] || '') + (parts[1]?.[0] || '');
-};
-
 const AboutPage = () => {
     const { t, lang } = useLang();
-    const { institution, faculty, narrative, stats } = SOVEREIGN_ECOSYSTEM;
-    const L = (obj) => (obj && (obj[lang] || obj.en)) || '';
-
-    const fourPillars = [
-        { key: 'displacement', icon: ShieldCheck },
-        { key: 'lifeSciences', icon: Microscope },
-        { key: 'csr', icon: Truck },
-        { key: 'prometric', icon: Fingerprint },
-    ];
+    const { faculty, metrics, reviews } = SOVEREIGN_ECOSYSTEM;
 
     return (
         <Layout>
             <Helmet>
-                <title>About Gene Academy | SudaGene Consortium</title>
-                <meta
-                    name="description"
-                    content="Gene Academy is the medical-education arm of the SudaGene Consortium — bilingual clinical training, genomic literacy, verified membership and the GLOMEt CSR engine."
-                />
+                <title>About SudaGene Consortium | القيادة المؤسسية والركائز السيادية</title>
+                <meta name="description" content="تعرف على القيادة الأكاديمية والسريرية لمنظومة سوداجين: د. محمد جبريل، د. علاء مرسي النور، ود. صفاء الحسن." />
             </Helmet>
-            <PageHeader
-                title={t('about.title')}
-                subtitle={L({
-                    en: 'The SudaGene Consortium is a sovereign sanctuary for medical and life-sciences education — built for displaced Sudanese clinicians and scientists, verified by Prometric, sealed by SHA-256.',
-                    ar: 'كونسورتيوم سوداجين ملاذ سيادي لتعليم العلوم الطبية والحيوية — بُني للأطباء والعلماء السودانيين النازحين، موثق بالبرومتريك، مختوم بـ SHA-256.',
-                })}
-            />
 
-            {/* Mission / four pillars */}
-            <Section rail="max-w-[90rem]">
-                <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-                    {fourPillars.map((p, i) => {
-                        const Icon = p.icon;
-                        const data = narrative.pillars[p.key];
-                        return (
-                            <Reveal key={p.key} delay={i * 0.06}>
-                                <div className="h-full border-t-2 border-[hsl(var(--accent))] pt-5">
-                                    <Icon className="h-6 w-6 text-[hsl(var(--teal))]" strokeWidth={1.7} />
-                                    <h2 className="mt-4 font-display text-lg font-semibold">{L(data.title)}</h2>
-                                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{L(data.body)}</p>
-                                </div>
-                            </Reveal>
-                        );
-                    })}
+            {/* HERO SECTION */}
+            <section className="bg-[#04080F] text-white py-16 border-b border-white/10">
+                <div className="mx-auto max-w-5xl px-5 text-center">
+                    <span className="inline-flex items-center gap-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 px-3.5 py-1 text-xs font-mono font-bold text-cyan-400 mb-4">
+                        <ShieldCheck className="w-4 h-4" />
+                        INSTITUTIONAL GOVERNANCE & SOVEREIGN MANDATE
+                    </span>
+                    <h1 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight">
+                        {lang === 'ar' ? 'القيادة الأكاديمية والسريرية للمنظومة' : 'Academic & Clinical Executive Directorate'}
+                    </h1>
+                    <p className="mt-4 text-sm md:text-base text-gray-400 max-w-3xl mx-auto leading-relaxed">
+                        {lang === 'ar'
+                            ? 'منظومة سيادية قائمة على توثيق الكفاءة السريرية والبحثية، وضبط الجودة الأكاديمية بالمعايير العالمية للزمالات البريطانية والمجلس الطبي.'
+                            : 'A decentralized digital university and clinical ecosystem anchoring forensic medical competency across 54 Sudanese faculties.'}
+                    </p>
                 </div>
-            </Section>
+            </section>
 
-            {/* Faculty leadership */}
-            <Section title={L(narrative.faculty.title)} subtitle={L(narrative.faculty.sub)} rail="max-w-[90rem]">
-                <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                    {faculty.map((f, i) => (
-                        <Reveal key={f.id} delay={i * 0.06}>
-                            <article className="flex h-full flex-col rounded-2xl border border-border bg-card p-6">
-                                <div className="flex items-center gap-4">
-                                    <span className="grid h-14 w-14 shrink-0 place-items-center rounded-xl bg-[hsl(var(--teal))]/12 font-display text-lg font-semibold text-[hsl(var(--teal))]">
-                                        {initialsOf(f.name, lang)}
-                                    </span>
-                                    <div>
-                                        <h3 className="font-display text-lg font-semibold leading-tight">{L(f.name)}</h3>
-                                        <p className="font-tech text-[11px] uppercase tracking-wider text-[hsl(var(--accent))]">
-                                            {L(f.role)}
-                                        </p>
+            {/* CORE EXECUTIVE DIRECTORS */}
+            <Section className="py-16">
+                <div className="mx-auto max-w-6xl">
+                    <div className="text-center mb-12">
+                        <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900">
+                            {lang === 'ar' ? 'أعضاء القيادة الأكاديمية والسريرية' : 'Executive Directorate & Academic Officers'}
+                        </h2>
+                        <p className="text-xs text-slate-500 font-mono mt-1">
+                            {metrics.registryDisplay}
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        {faculty.map((member) => (
+                            <div key={member.id} className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm flex flex-col justify-between hover:border-cyan-400 transition-all">
+                                <div>
+                                    <div className="flex items-center justify-between mb-3">
+                                        <span className="px-2.5 py-1 rounded-md bg-slate-900 text-cyan-400 font-mono text-xs font-bold">
+                                            {member.id}
+                                        </span>
+                                        <span className="text-[10px] font-mono text-slate-400">OFFICIAL RECORD</span>
                                     </div>
+                                    <h3 className="text-lg font-bold text-slate-900 mb-1">
+                                        {lang === 'ar' ? member.name_ar : member.name}
+                                    </h3>
+                                    <p className="text-xs font-bold text-teal-700 mb-3">
+                                        {lang === 'ar' ? member.role_ar : member.role}
+                                    </p>
+                                    <div className="p-3 rounded-xl bg-slate-50 border border-slate-100 text-xs font-mono text-slate-600 mb-4">
+                                        <strong>{member.degrees}</strong>
+                                    </div>
+                                    <p className="text-xs text-slate-600 leading-relaxed mb-4">
+                                        {member.focus}
+                                    </p>
                                 </div>
-                                <p className="mt-4 font-tech text-xs text-muted-foreground">{f.degree}</p>
-                                <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">{L(f.bio)}</p>
-                                <p className="mt-4 font-tech text-[11px] text-muted-foreground/70">{f.id}</p>
-                            </article>
-                        </Reveal>
-                    ))}
-                </div>
-            </Section>
-
-            {/* Consortium stats */}
-            <section className="border-y border-border bg-secondary/40">
-                <Section rail="max-w-[90rem]" className="!py-16">
-                    <div className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border bg-border md:grid-cols-4">
-                        {[
-                            { v: stats.members, l: { en: 'Verified Members', ar: 'أعضاء موثقون' } },
-                            { v: stats.universities, l: { en: 'Universities', ar: 'جامعات' } },
-                            { v: stats.vignettes, l: { en: 'Vignettes', ar: 'سيناريوهات' } },
-                            { v: stats.b2bPartners, l: { en: 'B2B Partners', ar: 'شركاء' } },
-                        ].map((s) => (
-                            <div key={s.l.en} className="bg-card p-6 text-center">
-                                <p className="font-display text-3xl font-bold text-[hsl(var(--teal))]">
-                                    {s.v.toLocaleString('en-US')}+
-                                </p>
-                                <p className="mt-2 font-tech text-[11px] uppercase tracking-wider text-muted-foreground">
-                                    {L(s.l)}
-                                </p>
+                                <div className="pt-3 border-t border-slate-100 text-[11px] font-mono text-slate-400 flex items-center justify-between">
+                                    <span>Pillar:</span>
+                                    <strong className="text-slate-800">{member.pillar}</strong>
+                                </div>
                             </div>
                         ))}
                     </div>
-                </Section>
-            </section>
+                </div>
+            </Section>
 
-            {/* Institution footer block */}
-            <Section rail="max-w-[72rem]" className="!py-16">
-                <div className="rounded-2xl border border-border bg-card p-8">
-                    <h2 className="font-display text-2xl font-semibold">{institution.name}</h2>
-                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                        {L({
-                            en: 'A consortium spanning three pillars and three domains, powered by geneacademy.net. Established to keep Sudanese medical and life-sciences education sovereign, portable and verifiable — wherever its learners are forced to go.',
-                            ar: 'كونسورتيوم يمتد عبر ثلاثة أعمدة وثلاثة نطاقات، مدعوم بـ geneacademy.net. أُسس ليبقى التعليم الطبي وعلوم الحياة السوداني سيادياً محمولاً موثقاً — أينما اضطر متعلموه للذهاب.',
-                        })}
-                    </p>
-                    <div className="mt-5 flex flex-wrap gap-2">
-                        {institution.domains.map((d) => (
-                            <span key={d} className="font-tech text-xs rounded-lg border border-border bg-secondary/60 px-3 py-1.5 text-muted-foreground">
-                                {d}
-                            </span>
+            {/* AUTHENTIC SURVEY REVIEWS & CANDIDATE FEEDBACK */}
+            <section className="bg-slate-50 py-16 border-t border-slate-200">
+                <div className="mx-auto max-w-6xl px-5">
+                    <div className="text-center mb-12">
+                        <div className="inline-flex items-center gap-1 bg-amber-100 text-amber-900 px-3 py-1 rounded-full text-xs font-bold font-mono mb-2">
+                            <Star className="w-3.5 h-3.5 fill-amber-500 text-amber-500" />
+                            {metrics.satisfactionRating} SATISFACTION SCORE ({metrics.surveySubmissions} VERIFIED SUBMISSIONS)
+                        </div>
+                        <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900">
+                            {lang === 'ar' ? 'آراء وملاحظات الأطباء والباحثين المسجلين' : 'Verified Candidate & Researcher Feedback'}
+                        </h2>
+                        <p className="text-xs text-slate-500 mt-1">
+                            {lang === 'ar' ? 'تقييمات حقيقية موثقة من أطباء وباحثي المنظومة:' : 'Authentic unedited feedback from registered doctors and research fellows:'}
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        {reviews.map((rev) => (
+                            <div key={rev.id} className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm flex flex-col justify-between">
+                                <div>
+                                    <div className="flex items-center justify-between mb-3">
+                                        <span className="font-mono text-xs text-teal-700 font-bold">{rev.id}</span>
+                                        <div className="flex text-amber-400">
+                                            {[...Array(rev.rating)].map((_, i) => (
+                                                <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                                            ))}
+                                        </div>
+                                    </div>
+                                    <p className="text-xs text-slate-700 leading-relaxed italic mb-4">
+                                        "{lang === 'ar' ? rev.quote : rev.quote_en}"
+                                    </p>
+                                </div>
+                                <div className="pt-3 border-t border-slate-100">
+                                    <strong className="text-xs text-slate-900 block">{rev.author}</strong>
+                                    <span className="text-[10px] text-slate-400 font-mono">{rev.role} • {rev.date}</span>
+                                </div>
+                            </div>
                         ))}
                     </div>
                 </div>
-            </Section>
+            </section>
         </Layout>
     );
 };

@@ -12874,7 +12874,7 @@ const GEMIINI_CONTACTS_REGISTRY = [
     "id": "12RHTsu69Y3dTpqrB0mZ",
     "name": "د. Khalid Mohamed",
     "gaId": null,
-    "emailMasked": "i***o@wellplan.io",
+    "emailMasked": "i***o@Member LMS.io",
     "phoneMasked": "",
     "role": "طبيب ممارس وباحث معتمد",
     "statusRaw": "",

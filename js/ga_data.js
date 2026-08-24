@@ -1,22 +1,83 @@
-const GA_DATABASE = [
-  { id: "GA000", name: "د. محمد أحمد عبد الفتاح جبريل", role: "المؤسس والمشرف العام", univ: "كلية الطب - جامعة الخرطوم", gp: 100000, tier: "Executive", verified: true },
-  { id: "GA001", name: "د. آلاء مرسي النور", role: "نائب المشرف الأكاديمي", univ: "جامعة الخرطوم", gp: 140000, tier: "Executive", verified: true },
-  { id: "GA004", name: "د. صفاء الحسن", role: "استشاري الأشعة التشخيصية", univ: "جامعة الجزيرة", gp: 42000, tier: "Executive", verified: true },
-  { id: "GA171", name: "د. دعاء هاشم علي عمر", role: "استشاري الجراحة والطب الجزيئي", univ: "طبيب ممارس", gp: 32500, tier: "Active", verified: true },
-  { id: "GA3463", name: "د. مودي حاتمي", role: "طبيب ممارس ومقيّم سريري", univ: "جامعة الخرطوم", gp: 8500, tier: "Active", verified: true },
-  { id: "GA2980", name: "د. رباح دفع الله", role: "طبيب ممارس ومقيّم سريري", univ: "جامعة النيلين", gp: 9200, tier: "Active", verified: true },
-  { id: "GA3466", name: "د. محمد لؤي", role: "طبيب ممارس ومقيّم سريري", univ: "جامعة الجزيرة", gp: 8100, tier: "Active", verified: true },
-  { id: "GA3479", name: "د. هالة علاء الدين", role: "طبيب ممارس ومقيّم سريري", univ: "جامعة شندي", gp: 8900, tier: "Active", verified: true },
-  { id: "GA3454", name: "د. هديل أحمد", role: "طبيب ممارس ومقيّم سريري", univ: "جامعة الخرطوم", gp: 11000, tier: "Active", verified: true },
-  { id: "GA3494", name: "د. نور لينا محمد", role: "طبيب ممارس ومقيّم سريري", univ: "جامعة العلوم الطبية", gp: 7900, tier: "Active", verified: true },
-  { id: "GA3482", name: "د. هدى عباس", role: "طبيب ممارس ومقيّم سريري", univ: "جامعة كردفان", gp: 8800, tier: "Active", verified: true },
-  { id: "GA3527", name: "د. محمد الطاهر", role: "طبيب ممارس ومقيّم سريري", univ: "جامعة الخرطوم", gp: 8200, tier: "Active", verified: true },
-  { id: "GA3521", name: "د. الشريف عثمان", role: "طبيب ممارس ومقيّم سريري", univ: "جامعة الجزيرة", gp: 9500, tier: "Active", verified: true },
-  { id: "GA3486", name: "د. صلاح معزة", role: "طبيب ممارس ومقيّم سريري", univ: "جامعة الزعيم الأزهري", gp: 7500, tier: "Active", verified: true },
-  { id: "GA3492", name: "د. مودي إكس", role: "طبيب ممارس ومقيّم سريري", univ: "جامعة أم درمان الإسلامية", gp: 9100, tier: "Active", verified: true },
-  { id: "GA3027", name: "د. روضة باسم", role: "طبيب ممارس ومقيّم سريري", univ: "جامعة الخرطوم", gp: 9800, tier: "Active", verified: true }
+/**
+ * SudaPass Sovereign Registry — Core Member Ledger
+ * Verified GA-IDs and Academic Affiliations
+ */
+
+export const gaRegistry = [
+    {
+        id: "GA000",
+        name: "Dr. Mohamed Gibbril",
+        name_ar: "د. محمد أحمد جبريل",
+        university: "University of Khartoum - Faculty of Medicine (KU 0089958, 2021)",
+        university_ar: "جامعة الخرطوم - كلية الطب",
+        role: "Co-Founder & CEO | Academic Officer in Molecular Medicine",
+        gp: 5000,
+        ects: 120.0,
+        smc: "Verified (100%)",
+        tier: "Sovereign Architect"
+    },
+    {
+        id: "GA001",
+        name: "Dr. Alaa Mursi Elnour (FRCS)",
+        name_ar: "د. علاء مرسي النور (FRCS)",
+        university: "Letterkenny University Hospital / Clinical Directorate",
+        university_ar: "مستشفى ليتركيني الجامعي / الإدارة الإكلينيكية",
+        role: "Clinical Licensure & Surgical Director",
+        gp: 5000,
+        ects: 120.0,
+        smc: "Verified (100%)",
+        tier: "Sovereign Director"
+    },
+    {
+        id: "GA004",
+        name: "Dr. Safaa El Hassan",
+        name_ar: "د. صفاء الحسن",
+        university: "Omdurman Islamic University - Faculty of Medicine (OIU, 2016)",
+        university_ar: "جامعة أم درمان الإسلامية - كلية الطب",
+        role: "Academic Officer | Molecular Medicine Team Lead",
+        gp: 2500,
+        ects: 85.0,
+        smc: "Verified (100%)",
+        tier: "Senior Molecular Fellow"
+    },
+    {
+        id: "GA0171",
+        name: "Dr. Ahmed Abdelrahman",
+        name_ar: "د. أحمد عبد الرحمن",
+        university: "University of Khartoum - Faculty of Medicine",
+        university_ar: "جامعة الخرطوم - كلية الطب",
+        role: "Clinical Licensure Vanguard (SMC & MRCS)",
+        gp: 1250,
+        ects: 58.5,
+        smc: "96.4%",
+        tier: "Sovereign Vanguard"
+    },
+    {
+        id: "GA1008",
+        name: "Dr. Maram Hassan",
+        name_ar: "د. مرام حسن",
+        university: "University of Gezira - Faculty of Medicine",
+        university_ar: "جامعة الجزيرة - كلية الطب",
+        role: "Clinical Licensure Scholar",
+        gp: 780,
+        ects: 35.0,
+        smc: "91.2%",
+        tier: "Active Scholar"
+    },
+    {
+        id: "GA5406",
+        name: "Dr. Tarig Mohamed",
+        name_ar: "د. طارق محمد",
+        university: "Nile University - Faculty of Medicine",
+        university_ar: "جامعة النيل - مجمع الكليات الطبية",
+        role: "Emergency & Critical Care Fellow",
+        gp: 1850,
+        ects: 72.0,
+        smc: "98.1%",
+        tier: "Sovereign Vanguard"
+    }
 ];
 
 if (typeof window !== "undefined") {
-  window.GA_DATABASE = GA_DATABASE;
+    window.gaRegistry = gaRegistry;
 }
