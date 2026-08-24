@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
    1. SOVEREIGN REGISTRY CREDENTIAL VERIFIER (members.geneacademy.net gateway)
    ========================================================================= */
 function initSovereignStatusVerifier() {
-  const savedId = localStorage.getItem("gemiini_sovereign_ga_id");
+  const savedId = localStorage.getItem("gemiini_presence_id");
   if (savedId) {
     applySovereignStatusView(savedId);
   }
@@ -43,7 +43,7 @@ function executeSovereignLookup() {
   }
   applySovereignStatusView(val);
 }
-window.executeSovereignSync = executeSovereignLookup; // Backward compatibility with templates
+window.executeGemIInISync = executeSovereignLookup; // Backward compatibility with templates
 
 function applySovereignStatusView(gaId) {
   let cleanId = gaId.toUpperCase();
@@ -62,7 +62,7 @@ function applySovereignStatusView(gaId) {
   if (!authView) return;
 
   if (member) {
-    localStorage.setItem("gemiini_sovereign_ga_id", member.id);
+    localStorage.setItem("gemiini_presence_id", member.id);
     document.getElementById("sso-doctor-name").textContent = member.name;
     document.getElementById("sso-doctor-id").textContent = member.id;
     document.getElementById("sso-doctor-gp").textContent = member.gp.toLocaleString() + " GP";
@@ -73,7 +73,7 @@ function applySovereignStatusView(gaId) {
     authView.style.display = "flex";
   } else {
     // Unverified Candidate Record
-    localStorage.setItem("gemiini_sovereign_ga_id", cleanId);
+    localStorage.setItem("gemiini_presence_id", cleanId);
     document.getElementById("sso-doctor-name").textContent = "معرف قيد التسجيل (" + escapeHtml(cleanId) + ")";
     document.getElementById("sso-doctor-id").textContent = escapeHtml(cleanId);
     document.getElementById("sso-doctor-gp").textContent = "قيد التدقيق الأكاديمي";
@@ -86,13 +86,13 @@ function applySovereignStatusView(gaId) {
 }
 
 function resetSovereignStatusView() {
-  localStorage.removeItem("gemiini_sovereign_ga_id");
+  localStorage.removeItem("gemiini_presence_id");
   const unauthView = document.getElementById("sso-unauth-view");
   const authView = document.getElementById("sso-authenticated-view");
   if (authView) authView.style.display = "none";
   if (unauthView) unauthView.style.display = "flex";
 }
-window.logoutSovereignSession = resetSovereignStatusView;
+window.logoutGemIInISession = resetSovereignStatusView;
 
 /* =========================================================================
    2. UNIVERSAL MEMBER LOOKUP (Index / Quick Search)

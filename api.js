@@ -1,6 +1,6 @@
 /**
  * GemIInI Platform Technical Specification & System Architecture
- * Core API & Sovereign SSO Engine
+ * Core API & Digital Presence SSO Engine
  * Canonical Backend: Google Apps Script Web App (GAS_URL)
  */
 
@@ -8,12 +8,16 @@ const APPS_SCRIPT_API_URL = "https://script.google.com/macros/s/AKfycbxAVR42yEQl
 const GAS_URL = APPS_SCRIPT_API_URL;
 const MEMBER_LMS_URL = "https://member.geneacademy.net";
 
+// The unified session key for the user's Digital Presence
+const GEMIINI_SESSION_KEY = "gemiini_presence_id";
+
 /**
  * 1. Asynchronous Backend Fetch Handlers
  */
 async function apiLookup(gaId) {
   let cleanId = (gaId || "").toUpperCase().trim();
   if (!cleanId.startsWith("GA")) cleanId = "GA" + cleanId;
+  
   try {
     const res = await fetch(`${APPS_SCRIPT_API_URL}?action=lookup&id=${encodeURIComponent(cleanId)}`);
     return await res.json();
@@ -71,9 +75,9 @@ async function apiStats() {
 }
 
 /**
- * 2. Sovereign SSO State Manager
+ * 2. Digital Presence SSO State Manager
  */
-async function applySovereignSession(gaId) {
+async function applyGemIInISession(gaId) {
   if (!gaId) return;
   let cleanId = gaId.toUpperCase().trim();
   if (!cleanId.startsWith("GA")) cleanId = "GA" + cleanId;
@@ -82,8 +86,10 @@ async function applySovereignSession(gaId) {
   const authView = document.getElementById("sso-authenticated-view");
 
   const result = await apiLookup(cleanId);
+  
   if (result.found && result.member && result.member.verified !== false) {
-    localStorage.setItem("gemiini_sovereign_ga_id", result.member.id);
+    // Lock in the Digital Presence ID
+    localStorage.setItem(GEMIINI_SESSION_KEY, result.member.id);
 
     const docName = document.getElementById("sso-doctor-name");
     const docId = document.getElementById("sso-doctor-id");
@@ -105,26 +111,29 @@ async function applySovereignSession(gaId) {
     if (unauthView) unauthView.style.display = "none";
     if (authView) authView.style.display = "flex";
   } else {
-    localStorage.removeItem("gemiini_sovereign_ga_id");
-    showVerificationNotice("رقم المعرف غير موجود أو قيد المراجعة والاعتماد.");
+    localStorage.removeItem(GEMIINI_SESSION_KEY);
+    showVerificationNotice("رقم GemIInI ID غير موجود أو قيد الاعتماد.");
   }
 }
 
-function executeSovereignSync() {
+function executeGemIInISync() {
   const input = document.getElementById("sso-quick-id") || document.getElementById("gaInput");
   if (!input) return;
   const val = input.value.trim();
+  
   if (!val) {
-    alert("يرجى إدخال رقم المعرف المهني (GA-ID)");
+    alert("يرجى إدخال رقم المعرف الخاص بك (GemIInI ID)");
     return;
   }
-  applySovereignSession(val);
+  
+  applyGemIInISession(val);
 }
 
-function logoutSovereignSession() {
-  localStorage.removeItem("gemiini_sovereign_ga_id");
+function logoutGemIInISession() {
+  localStorage.removeItem(GEMIINI_SESSION_KEY);
   const unauthView = document.getElementById("sso-unauth-view");
   const authView = document.getElementById("sso-authenticated-view");
+  
   if (unauthView) unauthView.style.display = "block";
   if (authView) authView.style.display = "none";
   window.location.reload();
@@ -141,7 +150,7 @@ function showVerificationNotice(msg) {
 }
 
 /**
- * 3. Server-Graded Exam Simulator Check
+ * 3. Server-Graded Exam Simulator Check (MTC™ Engine)
  */
 async function checkRawAnswer(questionId, selectedIdx) {
   try {
@@ -150,7 +159,7 @@ async function checkRawAnswer(questionId, selectedIdx) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         action: "submit_exam",
-        ga_id: localStorage.getItem("gemiini_sovereign_ga_id") || "GUEST",
+        ga_id: localStorage.getItem(GEMIINI_SESSION_KEY) || "GUEST",
         question_id: questionId,
         selected_option: selectedIdx
       })
@@ -166,10 +175,10 @@ async function checkRawAnswer(questionId, selectedIdx) {
   }
 }
 
-// Auto-init on page load if session exists
+// Auto-init on page load if a Digital Presence session exists
 document.addEventListener("DOMContentLoaded", () => {
-  const savedId = localStorage.getItem("gemiini_sovereign_ga_id");
+  const savedId = localStorage.getItem(GEMIINI_SESSION_KEY);
   if (savedId) {
-    applySovereignSession(savedId);
+    applyGemIInISession(savedId);
   }
 });

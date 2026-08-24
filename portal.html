@@ -314,7 +314,7 @@
           const res = await fetch(`${GAS_URL}?action=lookup&id=${encodeURIComponent(val)}`);
           const data = await res.json();
           if (data.found && data.member && data.member.verified !== false) {
-            localStorage.setItem("gemiini_sovereign_ga_id", data.member.id);
+            localStorage.setItem("gemiini_presence_id", data.member.id);
             window.location.href = 'community.html';
             return;
           }
@@ -323,7 +323,7 @@
         if (typeof GA_DATABASE !== 'undefined') {
           const match = GA_DATABASE.find(m => m.id === val || m.id === "GA" + val);
           if (match) {
-            localStorage.setItem("gemiini_sovereign_ga_id", match.id);
+            localStorage.setItem("gemiini_presence_id", match.id);
             window.location.href = 'community.html';
             return;
           }

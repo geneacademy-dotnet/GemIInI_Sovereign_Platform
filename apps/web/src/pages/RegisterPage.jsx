@@ -149,7 +149,7 @@ const RegisterPage = () => {
                 };
 
                 // Store in localStorage session
-                localStorage.setItem('gemiini_sovereign_ga_id', gaId);
+                localStorage.setItem('gemiini_presence_id', gaId);
                 localStorage.setItem('gemiini_member_profile', JSON.stringify(credential));
                 localStorage.setItem('ga_session_ref', gaId);
 

@@ -5,7 +5,7 @@
 
 document.addEventListener("DOMContentLoaded", function () {
   // Check if user is already logged in on page load
-  const savedId = localStorage.getItem("gemiini_sovereign_ga_id");
+  const savedId = localStorage.getItem("gemiini_presence_id");
   if (savedId) {
     // If they have an ID saved, we just show the authenticated view
     document.getElementById("sso-unauth-view").style.display = "none";
@@ -22,8 +22,8 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // Logout Helper
-function logoutSovereignSession() {
-  localStorage.removeItem("gemiini_sovereign_ga_id");
+function logoutGemIInISession() {
+  localStorage.removeItem("gemiini_presence_id");
   document.getElementById("sso-authenticated-view").style.display = "none";
   document.getElementById("sso-unauth-view").style.display = "flex";
   document.getElementById("sso-quick-id").value = "";

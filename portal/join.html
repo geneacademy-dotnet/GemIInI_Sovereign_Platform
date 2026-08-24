@@ -139,7 +139,7 @@
         });
         
         // Save local session
-        localStorage.setItem("gemiini_sovereign_ga_id", newId);
+        localStorage.setItem("gemiini_presence_id", newId);
         const session = {
           id: newId,
           name: payload.name,
@@ -155,7 +155,7 @@
         window.location.href = "smc.html";
       } catch (err) {
         // Local fallback
-        localStorage.setItem("gemiini_sovereign_ga_id", newId);
+        localStorage.setItem("gemiini_presence_id", newId);
         alert("تم إنشاء حسابك المحلي برقم: " + newId + "\\nتم تحويلك إلى بنك الأسئلة.");
         window.location.href = "smc.html";
       }

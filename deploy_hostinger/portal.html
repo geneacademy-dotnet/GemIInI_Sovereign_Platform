@@ -503,7 +503,7 @@
       el.classList.add('active');
 
       if (tabName === 'vault') {
-        const gaId = localStorage.getItem('gemiini_sovereign_ga_id') || 'GA3463';
+        const gaId = localStorage.getItem('gemiini_presence_id') || 'GA3463';
         window.open(`https://drive.google.com/drive/search?q=${gaId}`, '_blank');
       } else if (tabName === 'qbank') {
         window.location.href = 'smc.html';
@@ -526,7 +526,7 @@
       const urlDoor = urlParams.get('door');
       const urlId = urlParams.get('id');
 
-      const gaId = urlId || (session ? session.id : (localStorage.getItem('gemiini_sovereign_ga_id') || 'GA3463'));
+      const gaId = urlId || (session ? session.id : (localStorage.getItem('gemiini_presence_id') || 'GA3463'));
       const name = session ? session.name : 'د. عضو معتمد';
       const gp = session ? (session.gp || 500) : 500;
       const targetDoor = urlDoor || (session ? session.door : 'gemiini');

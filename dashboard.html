@@ -188,7 +188,7 @@
         <li><a href="dashboard.html" class="active">لوحة التحكم 🪪</a></li>
       </ul>
       <div style="display: flex; gap: 10px;">
-        <button class="btn-white" onclick="logoutSovereignSession()" style="padding: 7px 16px; font-size: 13px;">خروج</button>
+        <button class="btn-white" onclick="logoutGemIInISession()" style="padding: 7px 16px; font-size: 13px;">خروج</button>
       </div>
     </div>
   </nav>
@@ -370,7 +370,7 @@
   <script src="api.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", async () => {
-      const savedId = localStorage.getItem("gemiini_sovereign_ga_id") || "GA0171";
+      const savedId = localStorage.getItem("gemiini_presence_id") || "GA0171";
       
       // Lookup profile
       if (typeof apiLookup === "function") {

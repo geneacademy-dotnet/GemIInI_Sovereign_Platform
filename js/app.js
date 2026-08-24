@@ -73,7 +73,7 @@ async function apiStats() {
 /**
  * 2. Sovereign SSO State Manager
  */
-async function applySovereignSession(gaId) {
+async function applyGemIInISession(gaId) {
   if (!gaId) return;
   let cleanId = gaId.toUpperCase().trim();
   if (!cleanId.startsWith("GA")) cleanId = "GA" + cleanId;
@@ -83,7 +83,7 @@ async function applySovereignSession(gaId) {
 
   const result = await apiLookup(cleanId);
   if (result.found && result.member && result.member.verified !== false) {
-    localStorage.setItem("gemiini_sovereign_ga_id", result.member.id);
+    localStorage.setItem("gemiini_presence_id", result.member.id);
 
     const docName = document.getElementById("sso-doctor-name");
     const docId = document.getElementById("sso-doctor-id");
@@ -105,12 +105,12 @@ async function applySovereignSession(gaId) {
     if (unauthView) unauthView.style.display = "none";
     if (authView) authView.style.display = "flex";
   } else {
-    localStorage.removeItem("gemiini_sovereign_ga_id");
+    localStorage.removeItem("gemiini_presence_id");
     showVerificationNotice("رقم المعرف غير موجود أو قيد المراجعة والاعتماد.");
   }
 }
 
-function executeSovereignSync() {
+function executeGemIInISync() {
   const input = document.getElementById("sso-quick-id") || document.getElementById("gaInput");
   if (!input) return;
   const val = input.value.trim();
@@ -118,11 +118,11 @@ function executeSovereignSync() {
     alert("يرجى إدخال رقم المعرف المهني (GA-ID)");
     return;
   }
-  applySovereignSession(val);
+  applyGemIInISession(val);
 }
 
-function logoutSovereignSession() {
-  localStorage.removeItem("gemiini_sovereign_ga_id");
+function logoutGemIInISession() {
+  localStorage.removeItem("gemiini_presence_id");
   const unauthView = document.getElementById("sso-unauth-view");
   const authView = document.getElementById("sso-authenticated-view");
   if (unauthView) unauthView.style.display = "block";
@@ -150,7 +150,7 @@ async function checkRawAnswer(questionId, selectedIdx) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         action: "submit_exam",
-        ga_id: localStorage.getItem("gemiini_sovereign_ga_id") || "GUEST",
+        ga_id: localStorage.getItem("gemiini_presence_id") || "GUEST",
         question_id: questionId,
         selected_option: selectedIdx
       })
@@ -168,8 +168,8 @@ async function checkRawAnswer(questionId, selectedIdx) {
 
 // Auto-init on page load if session exists
 document.addEventListener("DOMContentLoaded", () => {
-  const savedId = localStorage.getItem("gemiini_sovereign_ga_id");
+  const savedId = localStorage.getItem("gemiini_presence_id");
   if (savedId) {
-    applySovereignSession(savedId);
+    applyGemIInISession(savedId);
   }
 });

@@ -100,8 +100,8 @@
       
       <!-- Unauthenticated View -->
       <div id="sso-unauth-view">
-        <input type="text" id="sso-quick-id" placeholder="مثال: GA001 أو GA3466" style="width: 80%; padding: 12px; border: 1px solid var(--line); border-radius: var(--radius-sm); font-family: var(--font-mono); font-weight: bold; text-align: center; margin-bottom: 12px;" onkeydown="if(event.key==='Enter') executeSovereignSync()">
-        <button class="btn-secondary" style="width: 80%; padding: 11px;" onclick="executeSovereignSync()">تحقق من حسابي 🔍</button>
+        <input type="text" id="sso-quick-id" placeholder="مثال: GA001 أو GA3466" style="width: 80%; padding: 12px; border: 1px solid var(--line); border-radius: var(--radius-sm); font-family: var(--font-mono); font-weight: bold; text-align: center; margin-bottom: 12px;" onkeydown="if(event.key==='Enter') executeGemIInISync()">
+        <button class="btn-secondary" style="width: 80%; padding: 11px;" onclick="executeGemIInISync()">تحقق من حسابي 🔍</button>
       </div>
 
       <!-- Authenticated View (Hidden by default) -->
@@ -113,7 +113,7 @@
         <div style="font-size: 13px; color: var(--text-muted);" id="sso-doctor-univ">جامعة الخرطوم</div>
         <div style="display: flex; gap: 10px; margin-top: 15px; width: 80%;">
           <a href="smc.html" class="btn-primary" style="flex: 1; text-align: center;">اذهب لبنك الأسئلة</a>
-          <button class="btn-secondary" style="flex: 1;" onclick="logoutSovereignSession()">تسجيل خروج</button>
+          <button class="btn-secondary" style="flex: 1;" onclick="logoutGemIInISession()">تسجيل خروج</button>
         </div>
       </div>
     </div>

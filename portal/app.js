@@ -5,7 +5,7 @@
 
 document.addEventListener("DOMContentLoaded", function () {
   // Check if user is already logged in on page load
-  const savedId = localStorage.getItem("gemiini_sovereign_ga_id");
+  const savedId = localStorage.getItem("gemiini_presence_id");
   if (savedId && document.getElementById("sso-authenticated-view")) {
     document.getElementById("sso-unauth-view").style.display = "none";
     document.getElementById("sso-authenticated-view").style.display = "flex";
@@ -21,8 +21,8 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // Logout Helper
-function logoutSovereignSession() {
-  localStorage.removeItem("gemiini_sovereign_ga_id");
+function logoutGemIInISession() {
+  localStorage.removeItem("gemiini_presence_id");
   localStorage.removeItem("gemiini_sovereign_session");
   const authView = document.getElementById("sso-authenticated-view");
   const unauthView = document.getElementById("sso-unauth-view");

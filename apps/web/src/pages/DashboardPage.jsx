@@ -38,7 +38,7 @@ const DashboardPage = () => {
 
     // Resolve member session from AuthContext or localStorage
     const localProfile = JSON.parse(localStorage.getItem('gemiini_member_profile') || '{}');
-    const storedGaId = localStorage.getItem('gemiini_sovereign_ga_id') || '';
+    const storedGaId = localStorage.getItem('gemiini_presence_id') || '';
 
     const name = user?.full_name || user?.name || localProfile.name || (lang === 'ar' ? 'د. أحمد عبد الرحمن' : 'Dr. Ahmed Abdelrahman');
     const gp = user?.gp_points ?? user?.gp ?? localProfile.gpBalance ?? 1250;
