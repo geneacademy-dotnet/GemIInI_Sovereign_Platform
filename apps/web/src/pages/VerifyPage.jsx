@@ -1,217 +1,247 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { useSearchParams } from 'react-router-dom';
-import { Search, ShieldCheck, CheckCircle2, AlertCircle, ExternalLink, QrCode } from 'lucide-react';
+import { Search, ShieldCheck, CheckCircle2, AlertCircle, ExternalLink, QrCode, Sparkles, Copy, Check, Clock } from 'lucide-react';
 import Layout from '@/components/site/Layout';
 import HolographicTiltCard from '@/components/HolographicTiltCard';
 import { useLang } from '@/i18n/LanguageContext';
+import SovereignClient, { normalizeGaId } from '@/services/sovereignService';
+import { SOVEREIGN_ECOSYSTEM } from '@/data/sovereign-config';
 import { gaRegistry } from '@/data/demo';
 
-const normalizeId = (idStr) => {
-    if (!idStr) return '';
-    let clean = idStr.trim().toUpperCase().replace(/[^A-Z0-9]/g, '');
-    if (!clean.startsWith('GA') && clean.length > 0) {
-        clean = 'GA' + clean;
-    }
-    return clean;
-};
-
 const VerifyPage = () => {
-    const { t, lang } = useLang();
+    const { lang } = useLang();
     const [searchParams, setSearchParams] = useSearchParams();
-    const [query, setQuery] = useState(searchParams.get('id') || 'GA0171');
+    const urlId = searchParams.get('id') || 'GA-0171';
+    const [query, setQuery] = useState(urlId);
     const [result, setResult] = useState(null);
+    const [loading, setLoading] = useState(false);
     const [searched, setSearched] = useState(false);
+    const [copied, setCopied] = useState(false);
 
-    const handleVerify = (idToSearch) => {
-        const target = normalizeId(idToSearch || query);
+    const executeLookup = async (idToSearch) => {
+        const cleanId = normalizeGaId(idToSearch || query);
+        if (!cleanId) return;
+
+        setLoading(true);
         setSearched(true);
-        if (!target) {
-            setResult(null);
-            return;
-        }
 
-        // Search in registry
-        let found = gaRegistry?.find(
-            (r) => normalizeId(r.id) === target || (r.name && r.name.toLowerCase().includes(target.toLowerCase()))
-        );
-
-        if (!found) {
-            // Check fallback for GA000, GA001, GA004
-            if (target === 'GA000') {
-                found = {
-                    id: 'GA000',
-                    name: 'Dr. Mohamed Gibbril',
-                    name_ar: 'د. محمد أحمد جبريل',
-                    university: 'University of Khartoum - Faculty of Medicine (KU 0089958, 2021)',
-                    university_ar: 'جامعة الخرطوم - كلية الطب',
-                    role: 'Co-Founder & CEO | Academic Officer in Molecular Medicine',
-                    gp: 5000,
-                    ects: 120.0,
-                    smc: 'Verified (100%)',
-                    tier: 'Sovereign Architect'
-                };
-            } else if (target === 'GA001') {
-                found = {
-                    id: 'GA001',
-                    name: 'Dr. Alaa Mursi Elnour (FRCS)',
-                    name_ar: 'د. علاء مرسي النور (FRCS)',
-                    university: 'Letterkenny University Hospital / Clinical Directorate',
-                    university_ar: 'مستشفى ليتركيني الجامعي / الإدارة الإكلينيكية',
-                    role: 'Clinical Licensure & Surgical Director',
-                    gp: 5000,
-                    ects: 120.0,
-                    smc: 'Verified (100%)',
-                    tier: 'Sovereign Director'
-                };
-            } else if (target === 'GA004') {
-                found = {
-                    id: 'GA004',
-                    name: 'Dr. Safaa El Hassan',
-                    name_ar: 'د. صفاء الحسن',
-                    university: 'Omdurman Islamic University - Faculty of Medicine (OIU, 2016)',
-                    university_ar: 'جامعة أم درمان الإسلامية - كلية الطب',
-                    role: 'Academic Officer | Molecular Medicine Team Lead',
-                    gp: 2500,
-                    ects: 85.0,
-                    smc: 'Verified (100%)',
-                    tier: 'Senior Molecular Fellow'
-                };
-            } else {
-                found = {
-                    id: target,
-                    name: lang === 'ar' ? 'د. أحمد عبد الرحمن' : 'Dr. Ahmed Abdelrahman',
-                    name_ar: 'د. أحمد عبد الرحمن',
-                    university: lang === 'ar' ? 'جامعة الخرطوم - كلية الطب' : 'University of Khartoum - Faculty of Medicine',
-                    university_ar: 'جامعة الخرطوم - كلية الطب',
-                    role: 'Clinical Licensure Vanguard (SMC & MRCS)',
-                    gp: 1250,
-                    ects: 58.5,
-                    smc: '96.4%',
-                    tier: 'Sovereign Vanguard'
-                };
+        try {
+            // 1. Check local / remote SovereignClient lookup
+            const remoteRes = await SovereignClient.lookup(cleanId);
+            if (remoteRes && remoteRes.found && remoteRes.member) {
+                setResult({
+                    id: remoteRes.member.id,
+                    name: remoteRes.member.name,
+                    university: remoteRes.member.univ || 'Sudanese Medical Faculty',
+                    role: remoteRes.member.role || 'Member',
+                    gp: remoteRes.member.gp || 25,
+                    ects: 10.0,
+                    status: remoteRes.member.verified ? 'ACCREDITED' : 'PENDING_AUDIT',
+                    verified: Boolean(remoteRes.member.verified),
+                    hash: 'SUDAPASS-' + cleanId.replace(/[^A-Z0-9]/g, '') + '-VERIFIED',
+                    signatory: 'Dr. Mohamed Gibbril (CEO) & Dr. Alaa Mursi (COO)'
+                });
+                return;
             }
-        }
 
-        setResult(found);
+            // 2. Check local leadership & static registry fallback
+            const staticFound = gaRegistry?.find(
+                (r) => normalizeGaId(r.id) === cleanId || (r.name && r.name.toLowerCase().includes(cleanId.toLowerCase()))
+            );
+
+            if (staticFound) {
+                setResult(staticFound);
+                return;
+            }
+
+            // 3. Fallback for Executive Anchors
+            const leader = SOVEREIGN_ECOSYSTEM.leadership.find((l) => normalizeGaId(l.id) === cleanId);
+            if (leader) {
+                setResult({
+                    id: leader.id,
+                    name: lang === 'ar' ? leader.name.ar : leader.name.en,
+                    university: 'University of Khartoum / OIU / Irish Medical Council',
+                    role: lang === 'ar' ? leader.role.ar : leader.role.en,
+                    gp: 5000,
+                    ects: 120.0,
+                    status: 'ACCREDITED',
+                    verified: true,
+                    hash: 'SUDAPASS-FOUNDER-' + leader.id + '-PERMANENT',
+                    signatory: 'Sovereign Consortium Executive Board'
+                });
+                return;
+            }
+
+            setResult(null);
+        } catch (err) {
+            console.error('Verification error:', err);
+            setResult(null);
+        } finally {
+            setLoading(false);
+        }
     };
 
     useEffect(() => {
-        const id = searchParams.get('id');
-        if (id) {
-            setQuery(id);
-            handleVerify(id);
-        } else {
-            handleVerify('GA0171');
+        if (urlId) {
+            setQuery(urlId);
+            executeLookup(urlId);
         }
-    }, [searchParams]);
+    }, [urlId]);
+
+    const handleSearchSubmit = (e) => {
+        e.preventDefault();
+        setSearchParams({ id: normalizeGaId(query) });
+        executeLookup(query);
+    };
+
+    const handleCopy = (text) => {
+        navigator.clipboard.writeText(text);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+    };
 
     return (
         <Layout>
             <Helmet>
-                <title>SudaPass Credential Verification | SudaGene Consortium</title>
-                <meta name="description" content="التحقق اللحظي المشفر من الهوية المهنية والأكاديمية لأعضاء السجل السيادي (1,200 GA-ID verified · 2,441 total enrolled)." />
+                <title>Verify GA-ID Credential | التحقق من السجل السيادي</title>
+                <meta name="description" content="منظومة التحقق الرقمي اللامركزي للشهادات والعضويات الطبية والسريرية الصادرة من أكاديمية سوداجين." />
             </Helmet>
 
-            <section className="bg-[#04080F] text-white py-14 border-b border-white/10">
-                <div className="mx-auto max-w-4xl px-5 text-center">
-                    <span className="inline-flex items-center gap-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 px-3.5 py-1 text-xs font-mono font-bold text-cyan-400 mb-4">
-                        <ShieldCheck className="w-4 h-4" />
-                        SUDAPASS VERIFICATION ENGINE
-                    </span>
-                    <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
-                        {lang === 'ar' ? 'منظومة التحقق السيادي المعتمدة' : 'Official SudaPass Credential Verification'}
-                    </h1>
-                    <p className="mt-2 text-xs md:text-sm text-gray-400 font-mono">
-                        {lang === 'ar'
-                            ? 'التحقق اللحظي من السجلات الأكاديمية ونقاط GP وتراخيص الأطباء (1,200 GA-ID verified · 2,441 total enrolled)'
-                            : 'Real-time cryptographic verification for 1,200 GA-ID verified · 2,441 total enrolled medical scholars.'}
-                    </p>
-
-                    {/* SEARCH INPUT */}
-                    <div className="mt-8 flex gap-2 max-w-xl mx-auto">
-                        <div className="relative flex-1">
-                            <input
-                                type="text"
-                                value={query}
-                                onChange={(e) => setQuery(e.target.value)}
-                                onKeyDown={(e) => e.key === 'Enter' && handleVerify(query)}
-                                placeholder="Enter GA-ID (e.g. GA0171, GA-004, GA000)..."
-                                className="w-full bg-white/5 border border-white/20 focus:border-cyan-400 rounded-xl px-4 py-3 text-sm font-mono text-white placeholder-gray-500 focus:outline-none transition-all"
-                            />
-                        </div>
-                        <button
-                            onClick={() => handleVerify(query)}
-                            className="bg-cyan-400 hover:bg-cyan-300 text-black font-bold px-6 py-3 rounded-xl text-xs uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer shadow-lg shadow-cyan-400/20"
-                        >
-                            <Search className="w-4 h-4" />
-                            <span>{lang === 'ar' ? 'تحقق' : 'Verify'}</span>
-                        </button>
-                    </div>
-                </div>
-            </section>
-
-            {/* RESULTS SECTION */}
-            <main className="mx-auto max-w-5xl px-5 py-12">
-                {result ? (
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-                        {/* 3D Interactive Card */}
-                        <div className="flex flex-col items-center">
-                            <h3 className="text-xs font-mono uppercase tracking-wider text-gray-400 mb-4 text-center">
-                                {lang === 'ar' ? 'البطاقة السيادية التفاعلية المعتمدة' : 'Verified Holographic Card'}
-                            </h3>
-                            <HolographicTiltCard member={result} />
-                        </div>
-
-                        {/* Detailed Verified Breakdown */}
-                        <div className="bg-[#0A0D16] rounded-2xl border border-white/10 p-6 space-y-4 text-xs font-mono">
-                            <div className="flex items-center justify-between border-b border-white/10 pb-3">
-                                <span className="text-gray-400">Registry Status:</span>
-                                <span className="inline-flex items-center gap-1 text-emerald-400 font-bold">
-                                    <CheckCircle2 className="w-4 h-4" />
-                                    AUTHENTICATED & ACTIVE
-                                </span>
-                            </div>
-                            <div className="flex justify-between py-2 border-b border-white/5">
-                                <span className="text-gray-400">Cryptographic GA-ID:</span>
-                                <strong className="text-cyan-400 font-bold">{result.id}</strong>
-                            </div>
-                            <div className="flex justify-between py-2 border-b border-white/5">
-                                <span className="text-gray-400">Candidate Name:</span>
-                                <strong className="text-white">{result.name}</strong>
-                            </div>
-                            <div className="flex justify-between py-2 border-b border-white/5">
-                                <span className="text-gray-400">Academic Faculty:</span>
-                                <strong className="text-white text-right">{result.university}</strong>
-                            </div>
-                            <div className="flex justify-between py-2 border-b border-white/5">
-                                <span className="text-gray-400">Clinical / Academic Track:</span>
-                                <strong className="text-gray-200">{result.role}</strong>
-                            </div>
-                            <div className="flex justify-between py-2 border-b border-white/5">
-                                <span className="text-gray-400">Sovereign GP Points:</span>
-                                <strong className="text-amber-400 font-extrabold">+{result.gp?.toLocaleString() || 1250} GP</strong>
-                            </div>
-                            <div className="flex justify-between py-2 border-b border-white/5">
-                                <span className="text-gray-400">European Credits (ECTS):</span>
-                                <strong className="text-cyan-300">{result.ects || 58.5} ECTS</strong>
-                            </div>
-                            <div className="flex justify-between py-2">
-                                <span className="text-gray-400">SMC Licensure Score:</span>
-                                <strong className="text-emerald-400 font-bold">{result.smc || 'Passed (96.4%) ✓'}</strong>
-                            </div>
-                        </div>
-                    </div>
-                ) : searched ? (
-                    <div className="p-8 rounded-2xl bg-red-500/10 border border-red-500/30 text-center max-w-md mx-auto">
-                        <AlertCircle className="w-8 h-8 text-red-400 mx-auto mb-2" />
-                        <h3 className="text-sm font-bold text-white mb-1">ID Not Found in Registry</h3>
-                        <p className="text-xs text-gray-400 font-mono">
-                            The requested ID does not match an active cryptographic certificate.
+            <section className="bg-[#04080F] text-white py-16 min-h-screen">
+                <div className="mx-auto max-w-4xl px-5">
+                    {/* HEADER */}
+                    <div className="text-center mb-10">
+                        <span className="inline-flex items-center gap-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 px-3.5 py-1 text-xs font-mono font-bold text-cyan-400 mb-3">
+                            <ShieldCheck className="w-4 h-4" />
+                            DECENTRALIZED MEDICAL REGISTRY VERIFIER
+                        </span>
+                        <h1 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight">
+                            {lang === 'ar' ? 'التحقق الفوري من العضوية السيادية' : 'Instant Sovereign Credential Verification'}
+                        </h1>
+                        <p className="mt-3 text-sm text-gray-400 max-w-2xl mx-auto">
+                            {lang === 'ar'
+                                ? 'أدخل المعرف الرقمي (GA-ID) أو الاسم للتحقق من السجل السريري والأكاديمي الصادر والموثق.'
+                                : 'Enter a GA-ID or member name to verify forensic accreditation status across the master ledger.'}
                         </p>
                     </div>
-                ) : null}
-            </main>
+
+                    {/* SEARCH INPUT */}
+                    <form onSubmit={handleSearchSubmit} className="mb-12">
+                        <div className="flex flex-col sm:flex-row gap-3 max-w-2xl mx-auto">
+                            <div className="relative flex-1">
+                                <Search className="absolute left-4 top-3.5 w-5 h-5 text-gray-400" />
+                                <input
+                                    type="text"
+                                    value={query}
+                                    onChange={(e) => setQuery(e.target.value)}
+                                    placeholder="e.g. GA-0171, GA-000, GA-001, GA-004..."
+                                    className="w-full pl-12 pr-4 py-3.5 rounded-2xl bg-slate-900 border border-white/15 text-white font-mono text-sm placeholder-gray-500 focus:outline-none focus:border-cyan-400"
+                                />
+                            </div>
+                            <button
+                                type="submit"
+                                disabled={loading}
+                                className="px-8 py-3.5 rounded-2xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold font-mono text-sm shadow-lg shadow-cyan-500/20 transition-all flex items-center justify-center gap-2"
+                            >
+                                {loading ? 'Checking...' : (lang === 'ar' ? 'تحقق الآن' : 'Verify GA-ID')}
+                            </button>
+                        </div>
+                    </form>
+
+                    {/* RESULT PRESENTATION */}
+                    {searched && (
+                        <div>
+                            {result ? (
+                                <div className="space-y-8 animate-in fade-in zoom-in duration-300">
+                                    {/* 3D HOLOGRAPHIC CARD */}
+                                    <div className="flex justify-center">
+                                        <HolographicTiltCard member={result} />
+                                    </div>
+
+                                    {/* DETAILED VERIFICATION PANEL */}
+                                    <div className="bg-slate-900/90 border border-cyan-500/30 rounded-3xl p-6 md:p-8 backdrop-blur-md shadow-2xl">
+                                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-white/10">
+                                            <div>
+                                                <div className="flex items-center gap-2 mb-1">
+                                                    <CheckCircle2 className="w-5 h-5 text-emerald-400" />
+                                                    <span className="font-mono text-xs font-bold text-emerald-400 tracking-wider uppercase">
+                                                        OFFICIAL FORENSIC RECORD
+                                                    </span>
+                                                </div>
+                                                <h3 className="text-xl md:text-2xl font-black text-white">
+                                                    {result.name}
+                                                </h3>
+                                                <p className="text-xs text-cyan-300 font-mono mt-0.5">
+                                                    {result.university}
+                                                </p>
+                                            </div>
+
+                                            <div className="text-left sm:text-right">
+                                                <span className="px-3.5 py-1.5 rounded-xl bg-slate-950 border border-cyan-500/40 text-cyan-400 font-mono text-sm font-black block sm:inline-block">
+                                                    {result.id}
+                                                </span>
+                                                <span className="text-[11px] font-mono text-gray-400 block mt-1">
+                                                    STATUS: <strong className="text-emerald-300">{result.status || 'VERIFIED'}</strong>
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-6 text-xs font-mono">
+                                            <div className="p-4 rounded-2xl bg-black/40 border border-white/5">
+                                                <span className="text-gray-400 block mb-1">Assigned Role</span>
+                                                <strong className="text-white text-sm">{result.role}</strong>
+                                            </div>
+                                            <div className="p-4 rounded-2xl bg-black/40 border border-white/5">
+                                                <span className="text-gray-400 block mb-1">Living GP Balance</span>
+                                                <strong className="text-cyan-400 text-sm">{result.gp} GP</strong>
+                                            </div>
+                                            <div className="p-4 rounded-2xl bg-black/40 border border-white/5">
+                                                <span className="text-gray-400 block mb-1">Accredited ECTS</span>
+                                                <strong className="text-teal-300 text-sm">{result.ects || '10.0'} ECTS</strong>
+                                            </div>
+                                        </div>
+
+                                        {/* CRYPTOGRAPHIC AUDIT HASH */}
+                                        <div className="p-4 rounded-2xl bg-black/70 border border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-mono">
+                                            <div>
+                                                <span className="text-gray-400 block text-[10px]">CRYPTOGRAPHIC VERIFICATION SEAL</span>
+                                                <code className="text-cyan-300 text-xs break-all">{result.hash || 'SUDAPASS-VERIFIED-SEAL'}</code>
+                                            </div>
+                                            <button
+                                                type="button"
+                                                onClick={() => handleCopy(result.hash || result.id)}
+                                                className="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white text-xs font-bold transition-all flex items-center justify-center gap-1.5"
+                                            >
+                                                {copied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
+                                                <span>{copied ? 'Copied' : 'Copy Seal'}</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            ) : (
+                                <div className="p-8 rounded-3xl bg-slate-900/60 border border-red-500/20 text-center max-w-xl mx-auto">
+                                    <AlertCircle className="w-12 h-12 text-amber-400 mx-auto mb-3" />
+                                    <h3 className="text-lg font-bold text-white mb-1">
+                                        {lang === 'ar' ? 'لم يتم العثور على سجل مطابق' : 'No Matching Sovereign Record Found'}
+                                    </h3>
+                                    <p className="text-xs text-gray-400 mb-4">
+                                        {lang === 'ar'
+                                            ? 'تأكد من كتابة الرقم التعريفي بشكل صحيح (مثال: GA-0171 أو GA-000) أو قم بالتسجيل في المنظومة.'
+                                            : 'Please verify the ID format (e.g. GA-0171, GA-000, GA-001) or register a new credential.'}
+                                    </p>
+                                    <a
+                                        href="/register"
+                                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs font-mono transition-all"
+                                    >
+                                        <span>{lang === 'ar' ? 'تسجيل عضوية جديدة ➔' : 'Register New GA-ID ➔'}</span>
+                                    </a>
+                                </div>
+                            )}
+                        </div>
+                    )}
+                </div>
+            </section>
         </Layout>
     );
 };

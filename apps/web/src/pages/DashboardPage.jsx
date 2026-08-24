@@ -36,12 +36,17 @@ const DashboardPage = () => {
     const { user } = useAuth();
     const [activeTab, setActiveTab] = useState('home'); // 'home' | 'exams' | 'wallet' | 'profile' | 'certificates'
 
-    const name = user?.full_name || user?.name || (lang === 'ar' ? 'د. أحمد عبد الرحمن' : 'Dr. Ahmed Abdelrahman');
-    const gp = user?.gp_points ?? user?.gp ?? 1250;
-    const tier = user?.tier || 'Sovereign Vanguard';
-    const gaId = user?.ga_id || user?.id || 'GA0171';
+    // Resolve member session from AuthContext or localStorage
+    const localProfile = JSON.parse(localStorage.getItem('gemiini_member_profile') || '{}');
+    const storedGaId = localStorage.getItem('gemiini_sovereign_ga_id') || '';
+
+    const name = user?.full_name || user?.name || localProfile.name || (lang === 'ar' ? 'د. أحمد عبد الرحمن' : 'Dr. Ahmed Abdelrahman');
+    const gp = user?.gp_points ?? user?.gp ?? localProfile.gpBalance ?? 1250;
+    const tier = user?.tier || (gp >= 500 ? 'Pathfinder Tier' : 'Explorer Tier');
+    const gaId = user?.ga_id || user?.id || localProfile.gaId || storedGaId || 'GA-0171';
     const workspace = user?.workspace_url || `https://drive.google.com/drive/u/0/folders/Sovereign_Workspace_${gaId}`;
-    const univ = user?.university || (lang === 'ar' ? 'جامعة الخرطوم - كلية الطب' : 'University of Khartoum - Faculty of Medicine');
+    const univ = user?.university || localProfile.university || (lang === 'ar' ? 'جامعة الخرطوم - كلية الطب' : 'University of Khartoum - Faculty of Medicine');
+    const status = localProfile.status || 'PENDING_AUDIT';
 
     const memberData = {
         id: gaId,
