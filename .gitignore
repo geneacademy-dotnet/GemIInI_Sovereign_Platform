@@ -7,3 +7,8 @@ portal.zip
 app.tar.gz
 *.zip
 *.tar.gz
+
+# Ignore Heavy Build Archives
+*.zip
+*.tar.gz
+
