@@ -1,7 +1,7 @@
 /**
  * ============================================================================
  * GemIInI Sovereign Backend & Clinical Certification Gateway (Code.gs)
- * Single Source of Truth (SSOT) Architecture — Version 3.3 (Cross-Desk Unified)
+ * Single Source of Truth (SSOT) Architecture — Version 4.0 (Registration Flow v4.0)
  * Target Workbook: GemIInI Master Registry 2026 (1X74wS42KR5WpMusd8L_3-5LCDSIz9m7JHNdgY-rTbxs)
  * ============================================================================
  */
@@ -26,7 +26,6 @@ const CONFIG = {
 
 /**
  * Public Sanitized Read API (doGet)
- * Handles direct browser verification (registry.html) and public leaderboard queries.
  */
 function doGet(e) {
   try {
@@ -42,7 +41,7 @@ function doGet(e) {
       return jsonResponse(handleLeaderboard(params, ss));
     }
 
-    return jsonResponse({ success: true, message: 'GemIInI Sovereign API Ready' });
+    return jsonResponse({ success: true, message: 'GemIInI Sovereign API Ready (v4.0)' });
   } catch (err) {
     return jsonResponse({ success: false, error: err.message }, 500);
   }
@@ -97,7 +96,7 @@ function doPost(e) {
 }
 
 /**
- * 1. REAL LOOKUP (Zero hardcoded overrides)
+ * 1. REAL LOOKUP (Strict querying, zero mock overrides)
  */
 function handleLookup(payload, ss) {
   const gaId = String(payload.gaId || payload.id || '').trim().toUpperCase();
@@ -113,8 +112,10 @@ function handleLookup(payload, ss) {
   }
 
   const headers = data[0];
-  const idIdx = headers.indexOf('GA_ID');
+  const idIdx = headers.indexOf('GA_ID') !== -1 ? headers.indexOf('GA_ID') : 0;
   const nameIdx = headers.indexOf('LEGAL_NAME') !== -1 ? headers.indexOf('LEGAL_NAME') : 1;
+  const emailIdx = headers.indexOf('EMAIL') !== -1 ? headers.indexOf('EMAIL') : 2;
+  const phoneIdx = headers.indexOf('PHONE') !== -1 ? headers.indexOf('PHONE') : 3;
   const univIdx = headers.indexOf('UNIVERSITY') !== -1 ? headers.indexOf('UNIVERSITY') : 4;
   const stageIdx = headers.indexOf('CAREER_STAGE') !== -1 ? headers.indexOf('CAREER_STAGE') : 5;
   const statusIdx = headers.indexOf('STATUS') !== -1 ? headers.indexOf('STATUS') : 6;
@@ -122,18 +123,18 @@ function handleLookup(payload, ss) {
   for (let i = 1; i < data.length; i++) {
     if (String(data[i][idIdx]).trim().toUpperCase() === gaId) {
       const telemetry = getTelemetryForUser(ss, gaId);
-      const isAccredited = String(data[i][statusIdx]).toUpperCase() === 'ACTIVE' || 
-                           String(data[i][statusIdx]).toUpperCase() === 'VERIFIED' || 
-                           String(data[i][statusIdx]).toUpperCase() === 'ACCREDITED';
+      const rawStatus = String(data[i][statusIdx]).toUpperCase();
+      const isAccredited = rawStatus === 'ACTIVE' || rawStatus === 'VERIFIED' || rawStatus === 'ACCREDITED';
       return {
         success: true,
         verified: isAccredited,
+        status: rawStatus,
         user: {
           gaId: data[i][idIdx],
           legalName: data[i][nameIdx],
           university: data[i][univIdx],
           careerStage: data[i][stageIdx],
-          status: data[i][statusIdx]
+          status: rawStatus
         },
         telemetry: telemetry
       };
@@ -144,90 +145,111 @@ function handleLookup(payload, ss) {
 }
 
 /**
- * 2. DETERMINISTIC SEQUENTIAL ID MINTING
+ * 2. REGISTRATION FLOW v4.0 (STRICT GATEWAY WITH CROSS-CHECKS)
  */
-
-/**
- * INGESTION INTEGRITY GUARD
- * Prevents non-human labels, invalid universities, and fake IDs from entering.
- */
-function validateCandidatePayload(payload) {
-  const name = String(payload.legalName || payload.fullName || payload.full_name_en || payload.full_name_ar || "").trim();
-  const phone = String(payload.phone || payload.phone_whatsapp || "").trim();
-  const email = String(payload.email || "").trim().toLowerCase();
-  const univ = String(payload.university || payload.canonical_university || "").trim();
-
-  // 1. Blacklist Non-Person Scrap Keywords
-  const blacklistedKeywords = [
-    "مبادرة", "مبادره", "المبادره", "المبادرة", "باص", "دفعة", "بروفات", "بروف", "منصه", "منصة",
-    "مواصلات", "الطلبه", "الطلبة", "عضو", "workspace", "instagram", "جروب", "group", "whatsapp",
-    "بص", "طالبه مصر", "طالب مصر", "البروفيسورات", "البوفيسورات", "الاشتراكات", "مصر", "Family",
-    "2024", "٧٢", "Oncology", "Engineering"
-  ];
-  for (let kw of blacklistedKeywords) {
-    if (name.toLowerCase().includes(kw.toLowerCase())) {
-      throw new Error(`REJECTED: Non-person entity or contact group name detected ('${name}').`);
-    }
-  }
-
-  // 2. Reject Emoji-Only or Symbol Names
-  if (!/^[\u0600-\u06FFa-zA-Z\s\.\-']{3,60}$/.test(name)) {
-    throw new Error(`REJECTED: Invalid name syntax ('${name}'). Must be legal person name.`);
-  }
-
-  // 3. Reject Defaulting to Generic Faculty Categories
-  if (univ === "كليات الطب والمستشفيات السريرية" || univ === "سجل التدريب والتأهيل السريري" || !univ) {
-    throw new Error("REJECTED: Must select a specific canonical university from the consortium registry.");
-  }
-
-  // 4. Validate Phone & Email Uniqueness
-  if (!phone || !email || !email.includes("@")) {
-    throw new Error("REJECTED: Missing valid phone or email address.");
-  }
-
-  return true;
-}
-
 function handleRegisterUser(payload, ss) {
-  validateCandidatePayload(payload);
-  const legalName = String(payload.legalName || payload.fullName || payload.full_name_en || payload.full_name_ar || '').trim();
+  const name = String(payload.legalName || payload.fullName || payload.full_name_en || payload.full_name_ar || '').trim();
   const email = String(payload.email || '').trim().toLowerCase();
   const phone = String(payload.phone || payload.phone_whatsapp || '').trim();
-  const university = String(payload.university || payload.canonical_university || 'University of Khartoum').trim();
+  const univ = String(payload.university || payload.canonical_university || '').trim();
   const careerStage = String(payload.careerStage || payload.primary_track || 'Clinical Student').trim();
 
-  if (!legalName || !email) {
-    return { success: false, error: 'MISSING_MANDATORY_REGISTRATION_FIELDS' };
+  // 1. Validate Legal Name (At least 2 words, no emojis, no single handles)
+  const nameWords = name.split(/\s+/);
+  if (nameWords.length < 2 || !/^[\u0600-\u06FFa-zA-Z\s\.\-']{4,60}$/.test(name)) {
+    return {
+      success: false,
+      status: 'REJECTED',
+      reason: 'INVALID_NAME',
+      message: 'Please provide your full legal name (first and last name) as registered with your medical council/faculty.'
+    };
+  }
+
+  // 2. Validate Email
+  if (!email || !email.includes('@') || email.length < 5) {
+    return {
+      success: false,
+      status: 'REJECTED',
+      reason: 'INVALID_EMAIL',
+      message: 'A valid institutional or personal email address is required.'
+    };
+  }
+
+  // 3. Validate Phone Number (At least 8 digits)
+  const phoneDigits = phone.replace(/\D/g, '');
+  if (!phone || phoneDigits.length < 8) {
+    return {
+      success: false,
+      status: 'REJECTED',
+      reason: 'INVALID_PHONE',
+      message: 'A valid WhatsApp phone number with international country code is required.'
+    };
+  }
+
+  // 4. Validate Canonical University (Reject blank or generic placeholders)
+  if (!univ || univ === 'كليات الطب والمستشفيات السريرية' || univ === 'سجل التدريب والتأهيل السريري' || univ === 'Pending Institution Intake') {
+    return {
+      success: false,
+      status: 'REJECTED',
+      reason: 'INVALID_UNIVERSITY',
+      message: 'Please select a specific canonical university or medical faculty from the registry.'
+    };
   }
 
   const authSheet = getOrCreateSheet(ss, CONFIG.SHEET_AUTH);
-  
-  // Check duplicate email
   const data = authSheet.getDataRange().getValues();
+
+  // 5. Cross-Check Email against ALL records in MASTER_AUTH
   for (let i = 1; i < data.length; i++) {
-    if (String(data[i][2]).trim().toLowerCase() === email) {
+    const rowEmail = String(data[i][2]).trim().toLowerCase();
+    if (rowEmail === email) {
       const existingId = String(data[i][0]);
+      const existingName = String(data[i][1]);
+      const existingUniv = String(data[i][4]);
+      const existingStatus = String(data[i][6]).toUpperCase();
+      const telemetry = getTelemetryForUser(ss, existingId);
+
       return {
         success: true,
+        status: 'EXISTING_USER',
         gaId: existingId,
-        isExisting: true,
-        message: 'EXISTING_USER_RETRIEVED'
+        legalName: existingName,
+        university: existingUniv,
+        userStatus: existingStatus,
+        gpBalance: telemetry.gp || (existingStatus === 'VERIFIED' ? 500 : 25),
+        message: 'Welcome back! We found your existing record: ' + existingId
       };
     }
   }
 
+  // 6. Cross-Check Phone against ALL records in MASTER_AUTH
+  const phoneLast8 = phoneDigits.slice(-8);
+  for (let i = 1; i < data.length; i++) {
+    const rowPhone = String(data[i][3]).replace(/\D/g, '');
+    if (rowPhone && rowPhone.slice(-8) === phoneLast8) {
+      // Phone matches but email is different -> Flag as POTENTIAL_DUPLICATE
+      return {
+        success: false,
+        status: 'REVIEW_REQUIRED',
+        reason: 'PHONE_EXISTS',
+        message: 'This phone number is associated with another record in our registry. Please contact admissions on WhatsApp (+20 101 592 2628) to verify your identity.'
+      };
+    }
+  }
+
+  // 7. ALL CHECKS PASSED: Mint Next Sequential GA-ID with PENDING_REVIEW Status
   const gaId = mintNextGaId(authSheet);
   const timestamp = new Date().toISOString();
   const sudaPassHash = generateSudaPassHash(gaId, timestamp);
 
   authSheet.appendRow([
     gaId,
-    legalName,
+    name,
     email,
     phone,
-    university,
+    univ,
     careerStage,
-    'ACTIVE',
+    'PENDING_REVIEW', // STRICT: NOT ACTIVE UNTIL ADMIN VERIFICATION
     sudaPassHash,
     timestamp
   ]);
@@ -236,7 +258,7 @@ function handleRegisterUser(payload, ss) {
   const telemetrySheet = getOrCreateSheet(ss, CONFIG.SHEET_TELEMETRY);
   telemetrySheet.appendRow([
     gaId,
-    25, // Initial GP
+    25, // Starting Provisional Explorer GP
     0,  // CCR %
     0,  // Accuracy %
     0,  // Streak Days
@@ -245,11 +267,14 @@ function handleRegisterUser(payload, ss) {
 
   return {
     success: true,
+    status: 'PENDING_REVIEW',
     gaId: gaId,
+    legalName: name,
+    university: univ,
     gpBalance: 25,
     tier: 'EXPLORER',
     sudaPassHash: sudaPassHash,
-    message: 'USER_REGISTERED_SUCCESSFULLY'
+    message: 'Application received! Your provisional ID is ' + gaId + '. An admissions officer will review your credentials within 24 hours.'
   };
 }
 
@@ -258,7 +283,6 @@ function handleRegisterUser(payload, ss) {
  * (Single physical track in Cairo on August 28, 2026)
  */
 function handleBlsRegister(payload, ss) {
-  validateCandidatePayload(payload);
   let gaId = String(payload.gaId || payload.ga_id || '').trim().toUpperCase();
   const fullName = String(payload.fullName || payload.full_name || '').trim();
   const email = String(payload.email || '').trim().toLowerCase();
@@ -268,21 +292,19 @@ function handleBlsRegister(payload, ss) {
   
   const authSheet = getOrCreateSheet(ss, CONFIG.SHEET_AUTH);
 
-  // If candidate has no GA-ID, mint one
+  // If candidate has no GA-ID, mint one under PENDING_REVIEW
   if (!gaId || !userExists(authSheet, gaId)) {
     if (fullName && email) {
       gaId = mintNextGaId(authSheet);
       const timestamp = new Date().toISOString();
       const sudaPassHash = generateSudaPassHash(gaId, timestamp);
-      authSheet.appendRow([gaId, fullName, email, phone, 'BLS Attendee', 'Candidate', 'ACTIVE', sudaPassHash, timestamp]);
+      authSheet.appendRow([gaId, fullName, email, phone, 'BLS Candidate Faculty', 'Candidate', 'PENDING_REVIEW', sudaPassHash, timestamp]);
       const telSheet = getOrCreateSheet(ss, CONFIG.SHEET_TELEMETRY);
       telSheet.appendRow([gaId, 25, 0, 0, 0, timestamp]);
     } else {
       return { success: false, error: 'AUTHENTICATED_GA_ID_OR_NAME_EMAIL_REQUIRED' };
     }
   }
-
-  const isMember = true; // Registered member
 
   // Check seat capacity (12 Max)
   const rosterSheet = getOrCreateSheet(ss, CONFIG.SHEET_ROSTER);
@@ -297,10 +319,7 @@ function handleBlsRegister(payload, ss) {
     return { success: false, error: 'DUPLICATE_TRANSACTION_REFERENCE' };
   }
 
-  const courseFee = isMember 
-    ? CONFIG.PRICING.BLS_CAIRO_AUG28.MEMBER_EGP 
-    : CONFIG.PRICING.BLS_CAIRO_AUG28.NON_MEMBER_EGP;
-
+  const courseFee = CONFIG.PRICING.BLS_CAIRO_AUG28.MEMBER_EGP;
   const timestamp = new Date().toISOString();
 
   // Log Payment Audit
@@ -338,7 +357,7 @@ function handleBlsRegister(payload, ss) {
 }
 
 /**
- * 4. STRICT-ZERO TELEMETRY LOGGER
+ * 4. STRICT TELEMETRY LOGGER
  */
 function handleLogTelemetry(payload, ss) {
   const gaId = String(payload.gaId || payload.ga_id || '').trim().toUpperCase();
