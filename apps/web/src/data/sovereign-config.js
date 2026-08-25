@@ -3,6 +3,20 @@
 // All leadership, founded date (19 April 2025), Operational Year 2, and Coffee-Parity pricing locked.
 
 export const SOVEREIGN_ECOSYSTEM = {
+  GP_MODEL: {
+    REGISTRATION_EXPLORER: 25,
+    ACCREDITATION_PATHFINDER_BUMP: 475,
+    VERIFIED_TOTAL: 500,
+    WORKSHOP_HANDS_ON_BONUS: 150, // BLS, BSS-2, and future physical workshops
+    MTC_CASE_PASSED: 10,
+    MTC_CASE_ATTEMPTED: 2
+  },
+  PUBLIC_MOBILE_APP: {
+    name_en: "GemIInI Jaib",
+    name_ar: "جيميناي جيب",
+    tagline_ar: "تطبيقنا للمتابعة السريرية",
+    tagline_en: "Our Candidate Clinical Companion App"
+  },
     institution: {
         name: 'SudaGene Consortium',
         brand: 'Gene Academy',

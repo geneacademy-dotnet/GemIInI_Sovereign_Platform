@@ -1,39 +1,24 @@
-# Global Antigravity IDE Rules: GemIInI Sovereign Medical Ecosystem
+# GemIInI Sovereign Platform — Engineering & Governance Mandates
 
-These rules dictate all autonomous coding, UI design, and database structuring for the Gene Academy ecosystem. Strict adherence is mandatory.
+## 1. Terminology & Brand Integrity
+- **WellPlan = STRICTLY INTERNAL CRM ONLY**. Never appear in code, UI, public HTML, or marketing.
+- **GemIInI Jaib (جيميناي جيب)** = ALWAYS used for the public companion application ("تطبيقنا للمتابعة").
 
-## 1. Terminology & Core Lexicon (Zero Deviations)
-- NEVER use the word "Member LMS" or reference external CRMs. Our internal ecosystem handles all tracking.
-- The official pocket application is **GemIInI Jaib (جـمـيـنـي جـيـب — GemIInI in Your Pocket)**.
-- ALWAYS use these exact terms for the user journey:
-  - **GemIInI Profile:** The basic identity layer.
-  - **GemIInI Account:** The financial and data ledger layer.
-  - **GemIInI Membership:** The official, accredited career track acceleration status (Requires GA#).
-  - **GA# (GA-ID):** The Sovereign Identity Number.
-  - **GP (GemIInI Points):** The internal academic currency.
+## 2. Locked GP Ledger (v2.0 Architecture)
+| Event | GP Awarded | Cumulative Baseline |
+| :--- | :---: | :---: |
+| **New Registration (Explorer)** | +25 GP | 25 GP (Provisional Explorer) |
+| **Payment Verified $\rightarrow$ ACCREDITED** | +475 GP bump | 500 GP (Pathfinder) |
+| **Hands-On Workshop (BLS, BSS-2, Future)** | +150 GP per workshop | 650 GP (1 workshop) / 800 GP (2 workshops) |
+| **MTC Clinical Case Passed ($\ge 70\%$)** | +10 GP per case | Incremental Telemetry |
+| **MTC Clinical Case Attempted ($< 70\%$)** | +2 GP per case | Participation Telemetry |
 
-## 2. Platform Architecture & Domains
-- The Public Storefront is `geneacademy.net` (The Discovery Cruise).
-- The Secured Learning & Authentication Hub is `members.geneacademy.net` (The GA-Holder Portal).
-
-## 3. Depersonalization & Brand Authority
-- DEPERSONALIZE the platform copy. Do not use the name "Mohamed Gibbril" in general marketing, standard module descriptions, or basic UI elements.
-- EXCEPTION: "Mohamed Gibbril" is ONLY to be cited at the highest tier of institutional authority: 
-  1. As the Director and Chief Architect of **GeneAcademy** (Academic Research & Molecular Pathways).
-  2. As the Managing Director of **GLOMEt HQ** (B2B Healthcare Supply, Oncology, & Virtual Labs).
-
-## 4. The 3-Pillar Layout Strategy
-All user-facing designs must instantly route users based on intent into one of three pillars:
-- **Pillar 1: GemIInI Academy** (B2C Clinical Preparation, SMC, USMLE, MRCS, High School Biology).
-- **Pillar 2: GeneAcademy** (Sovereign Alumni Museum, Scientific Writing, Molecular Medicine Masterclasses).
-- **Pillar 3: GLOMEt HQ** (B2B Virtual Labs, Turnkey Laboratory Construction, Corporate Pharma Supply).
-
-## 5. Security & Authentication Logic
-- Free trials, 20-Q mock sessions, and MTC curricula are strictly GATED.
-- Authentication requires a GA# and a Dynamic Cipher (Inner Password).
-- **Dynamic Cipher Logic:** Passwords are never emailed. They are computationally derived from the user's historical data (e.g., `[Graduation Year] + [Last 4 Digits of Phone Number]`). The system cross-references the Google Sheets Master Database to authenticate.
-
-## 6. Design System & Aesthetic Constraints
-- **Colors:** Deep Obsidian Backgrounds (`#04080F`), Medical Cyan/Teal Accents (`#00F2FE`), and Sovereign Gold (`#B48028`) for elite/membership tier highlights.
-- **Typography:** Use `Outfit` or `Inter` for clean, high-density UI components. Use `Space Mono` or `IBM Plex Mono` for all GA-IDs, GP counters, and ledger metrics to emphasize cryptographic security.
-- **Components:** Utilize frosted glassmorphism for cards to overlay the dark mode backgrounds.
+## 3. Verified Consortium Metrics (Zero Inflation)
+- **Clinical Vignettes**: 2,500 vignettes across 8 SMC modules.
+- **BSS-2 Cairo Surgical Cohort**: 35 verified graduates.
+- **MTC Framework MRCS Candidates**: 6 candidates prepared.
+- **National SMC Pass Rate**: 92% pass rate (June 2026 examination, SUNA/Fana News, 11,473 examined).
+- **Consortium Faculties**: 63+ canonical Sudanese & regional medical faculties.
+- **AHA BLS Partner**: Dr. Sabri Abugroon Training Center (STC), Lic. 1549.
+- **Cairo BLS Workshop**: August 28, 2026 (Amanirena Hub / Dokki Center, 12 seats capacity, 2,000 EGP member / 3,500 EGP non-member).
+- **Leadership**: GA-000 (Dr. Mohamed Gibbril), GA-001 (Dr. Alaa Mursi), GA-004 (Dr. Safaa Elhassan), GA-011 (Eng. Amjad Gorashi).
