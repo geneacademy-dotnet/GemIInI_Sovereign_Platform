@@ -1,5 +1,5 @@
 /**
- * Code.gs — Sovereign Master Ledger Backend
+ * Code.gs — Sovereign Master Ledger Backend & Physical Automation Engine
  * SudaGene Consortium — GemIInI Academy · Gene Academy
  *
  * SPREADSHEET HEADERS (GA_MASTER_REGISTRY):
@@ -10,10 +10,12 @@
  * Col 5: PHONE
  * Col 6: UNIVERSITY
  * Col 7: GP_BALANCE
- * Col 8: ACCREDITATION_STATUS (PENDING_AUDIT | ACCREDITED | SUSPENDED)
- * Col 9: PROVIDER_REF
+ * Col 8: ACCREDITATION_STATUS (PENDING_AUDIT | ACCREDITED | BLS_CONFIRMED)
+ * Col 9: PROVIDER_REF (Transaction ID / Reference)
  * Col 10: IDEMPOTENCY_KEY
  * Col 11: CREATED_AT
+ * Col 12: REFERRAL_ID (Affiliate GA-ID, e.g., GA-000)
+ * Col 13: WORKSHOP_TRACK (e.g., BLS_DOKKI_CAIRO_AUG28_2026)
  */
 
 const SHEET_NAME = "GA_MASTER_REGISTRY";
@@ -22,7 +24,7 @@ function getOrInitSheet(ss) {
   let sheet = ss.getSheetByName(SHEET_NAME);
   if (!sheet) {
     sheet = ss.insertSheet(SHEET_NAME);
-    sheet.appendRow([
+    const headers = [
       "GA_ID",
       "FULL_NAME",
       "ROLE",
@@ -33,198 +35,322 @@ function getOrInitSheet(ss) {
       "ACCREDITATION_STATUS",
       "PROVIDER_REF",
       "IDEMPOTENCY_KEY",
-      "CREATED_AT"
-    ]);
+      "CREATED_AT",
+      "REFERRAL_ID",
+      "WORKSHOP_TRACK"
+    ];
+    sheet.appendRow(headers);
+    sheet.getRange("1:1").setFontWeight("bold").setBackground("#0f172a").setFontColor("#38bdf8");
+    sheet.setFrozenRows(1);
   }
   return sheet;
 }
 
-function createJsonResponse(data) {
+function normalizeGaId(idStr) {
+  if (!idStr) return "";
+  let clean = String(idStr).trim().toUpperCase().replace(/[^A-Z0-9]/g, "");
+  if (!clean.startsWith("GA") && clean.length > 0) {
+    clean = "GA" + clean;
+  }
+  return clean;
+}
+
+function jsonResponse(data, statusCode) {
+  statusCode = statusCode || 200;
   return ContentService.createTextOutput(JSON.stringify(data))
     .setMimeType(ContentService.MimeType.JSON);
 }
 
-// ==========================================
-// 1. Transactional Mutating Handler (doPost)
-// ==========================================
+/**
+ * Handles Incoming POST Requests (Intake, BLS Workshop, & Receipts)
+ */
 function doPost(e) {
   const lock = LockService.getScriptLock();
-  try {
-    // Wait up to 10 seconds for concurrent writes to clear
-    lock.waitLock(10000);
+  const success = lock.tryLock(10000);
 
-    if (!e || !e.postData || !e.postData.contents) {
-      throw new Error("Missing POST payload body.");
+  if (!success) {
+    return jsonResponse({
+      status: "error",
+      message: "Server busy: Could not obtain master lock. Please retry."
+    }, 429);
+  }
+
+  try {
+    let payload = {};
+    if (e && e.postData && e.postData.contents) {
+      try {
+        payload = JSON.parse(e.postData.contents);
+      } catch (parseErr) {
+        return jsonResponse({ status: "error", message: "Invalid JSON format." }, 400);
+      }
+    } else if (e && e.parameter) {
+      payload = e.parameter;
     }
 
-    const payload = JSON.parse(e.postData.contents);
-    const action = payload.action;
     const ss = SpreadsheetApp.getActiveSpreadsheet();
     const sheet = getOrInitSheet(ss);
     const lastRow = sheet.getLastRow();
+    const action = payload.action || "register";
 
-    if (action === "register") {
-      const email = String(payload.email || "").toLowerCase().trim();
+    // ----------------------------------------------------
+    // ACTION: BLS WORKSHOP INTAKE & PHYSICAL AUTOMATION
+    // ----------------------------------------------------
+    if (action === "bls_registration") {
+      const email = String(payload.email || "").trim().toLowerCase();
+      const phone = String(payload.phone || "").trim();
+      const fullName = String(payload.fullName || "").trim();
+      const univ = String(payload.university || "Medical Faculty").trim();
+      const role = String(payload.role || "Trainee").trim();
+      const providerRef = String(payload.providerRef || "").trim();
+      const referralId = normalizeGaId(payload.referralId || "GA-000");
       const idempotencyKey = String(payload.idempotencyKey || "").trim();
+      const workshopTrack = "BLS_DOKKI_CAIRO_AUG28_2026";
+      const now = new Date().toISOString();
 
-      if (!email) {
-        throw new Error("Email is required for registration.");
-      }
-
-      // Check existing records for Idempotency or Duplicate Email
+      // Idempotency / Duplicate Check
       if (lastRow > 1) {
-        const data = sheet.getRange(2, 1, lastRow - 1, 10).getValues();
+        const data = sheet.getRange(2, 1, lastRow - 1, 13).getValues();
         for (let i = 0; i < data.length; i++) {
-          const rowGaId = data[i][0];
-          const rowEmail = String(data[i][3]).toLowerCase().trim();
-          const rowIdempotency = String(data[i][9]).trim();
+          const rowIdemp = String(data[i][9] || "");
+          const rowEmail = String(data[i][3] || "").toLowerCase();
+          const rowRef = String(data[i][8] || "");
 
-          // Idempotency hit or duplicate email
-          if ((idempotencyKey && rowIdempotency === idempotencyKey) || rowEmail === email) {
-            return createJsonResponse({
+          if ((idempotencyKey && rowIdemp === idempotencyKey) ||
+              (providerRef && rowRef === providerRef && providerRef !== "DEFERRED_VIA_WHATSAPP")) {
+            return jsonResponse({
               status: "success",
-              gaId: rowGaId,
-              gpBalance: data[i][6] || 25,
-              duplicate: true,
-              message: "Existing registration recognized."
+              gaId: String(data[i][0]),
+              gpBalance: data[i][6] || 50,
+              unlock_sabri_cv: true,
+              workshop: "BLS Dokki Cairo - 28 Aug 2026",
+              message: "Existing registration confirmed with Dr. Sabri bonus active.",
+              isDuplicate: true
             });
           }
         }
       }
 
-      // Mint Next Sequential GA-ID (GA1000+ Series)
-      const newGaId = "GA-" + (lastRow + 1000);
+      // Mint Sequential GA-ID (GA- + index)
+      const nextIndex = lastRow >= 2 ? (lastRow + 1000) : 1001;
+      const newGaId = "GA-" + nextIndex;
+      const initialGp = 50; // Credit 50 GP for BLS workshop registration
+      const accreditationStatus = "PENDING_AUDIT";
 
+      // Append row to master registry
       sheet.appendRow([
         newGaId,
-        String(payload.fullName || "").trim(),
-        String(payload.role || "clinical_student").trim(),
+        fullName,
+        role,
         email,
-        String(payload.phone || "").trim(),
-        String(payload.university || "Sudanese Medical Faculty").trim(),
-        25, // Starting Explorer Tier (25 GP)
-        "PENDING_AUDIT",
-        String(payload.providerRef || "").trim(),
+        phone,
+        univ,
+        initialGp,
+        accreditationStatus,
+        providerRef,
         idempotencyKey,
-        new Date().toISOString()
+        now,
+        referralId,
+        workshopTrack
       ]);
 
-      return createJsonResponse({
+      return jsonResponse({
         status: "success",
         gaId: newGaId,
-        gpBalance: 25,
-        duplicate: false
+        gpBalance: initialGp,
+        unlock_sabri_cv: true,
+        workshop: "BLS Dokki Cairo - 28 Aug 2026",
+        referralLogged: referralId,
+        message: "BLS seat successfully reserved and GemIInI ID minted. Dr. Mohamed Sabri CV module unlocked."
       });
     }
 
-    if (action === "upload_receipt") {
-      const gaId = String(payload.gaId || "").toUpperCase().trim();
+    // ----------------------------------------------------
+    // STANDARD REGISTRATION ACTION
+    // ----------------------------------------------------
+    if (action === "register") {
+      const email = String(payload.email || "").trim().toLowerCase();
+      const phone = String(payload.phone || "").trim();
+      const fullName = String(payload.fullName || "").trim();
+      const univ = String(payload.university || "Faculty of Medicine").trim();
+      const role = String(payload.role || "Clinical Student").trim();
       const providerRef = String(payload.providerRef || "").trim();
-
-      if (!gaId || !providerRef) {
-        throw new Error("GA-ID and Provider Reference required.");
-      }
+      const idempotencyKey = String(payload.idempotencyKey || "").trim();
+      const referralId = normalizeGaId(payload.referralId || "GA-000");
+      const track = String(payload.track || "gemiini");
+      const now = new Date().toISOString();
 
       if (lastRow > 1) {
-        const ids = sheet.getRange(2, 1, lastRow - 1, 1).getValues().flat();
-        const targetIndex = ids.indexOf(gaId);
-        if (targetIndex !== -1) {
-          const rowNumber = targetIndex + 2;
-          sheet.getRange(rowNumber, 9).setValue(providerRef);
-          sheet.getRange(rowNumber, 8).setValue("AUDIT_IN_PROGRESS");
-          return createJsonResponse({ status: "success", gaId: gaId, updated: true });
+        const data = sheet.getRange(2, 1, lastRow - 1, 13).getValues();
+        for (let i = 0; i < data.length; i++) {
+          const rowIdemp = String(data[i][9] || "");
+          const rowEmail = String(data[i][3] || "").toLowerCase();
+          if (idempotencyKey && rowIdemp === idempotencyKey) {
+            return jsonResponse({
+              status: "success",
+              gaId: String(data[i][0]),
+              gpBalance: data[i][6] || 25,
+              message: "Idempotent record returned.",
+              isDuplicate: true
+            });
+          }
         }
       }
 
-      throw new Error("Candidate record not found for receipt attachment.");
+      const nextIndex = lastRow >= 2 ? (lastRow + 1000) : 1001;
+      const newGaId = "GA-" + nextIndex;
+      const initialGp = 25;
+      const accreditationStatus = "PENDING_AUDIT";
+
+      sheet.appendRow([
+        newGaId,
+        fullName,
+        role,
+        email,
+        phone,
+        univ,
+        initialGp,
+        accreditationStatus,
+        providerRef,
+        idempotencyKey,
+        now,
+        referralId,
+        track
+      ]);
+
+      return jsonResponse({
+        status: "success",
+        gaId: newGaId,
+        gpBalance: initialGp,
+        message: "Registration completed."
+      });
     }
 
-    throw new Error("Unknown action: " + action);
+    // ----------------------------------------------------
+    // RECEIPT ATTACHMENT ACTION
+    // ----------------------------------------------------
+    if (action === "upload_receipt") {
+      const targetId = normalizeGaId(payload.gaId);
+      const providerRef = String(payload.providerRef || "").trim();
+
+      if (!targetId || !providerRef) {
+        return jsonResponse({ status: "error", message: "gaId and providerRef required." }, 400);
+      }
+
+      if (lastRow > 1) {
+        const data = sheet.getRange(2, 1, lastRow - 1, 13).getValues();
+        for (let i = 0; i < data.length; i++) {
+          if (normalizeGaId(data[i][0]) === targetId) {
+            sheet.getRange(i + 2, 9).setValue(providerRef);
+            sheet.getRange(i + 2, 8).setValue("PENDING_AUDIT");
+            return jsonResponse({
+              status: "success",
+              gaId: targetId,
+              message: "Payment reference attached. Verification in progress."
+            });
+          }
+        }
+      }
+
+      return jsonResponse({ status: "error", message: "GA-ID not found." }, 404);
+    }
+
+    return jsonResponse({ status: "error", message: "Unknown action." }, 400);
+
   } catch (err) {
-    return createJsonResponse({ status: "error", message: err.message });
+    return jsonResponse({ status: "error", message: err.toString() }, 500);
   } finally {
     lock.releaseLock();
   }
 }
 
-// ==========================================
-// 2. Sanitized Public Read Handler (doGet)
-// ==========================================
+/**
+ * Handles Incoming GET Requests (Sanitized Lookup & Directory Searches)
+ */
 function doGet(e) {
   try {
-    const action = e.parameter.action;
+    const action = (e && e.parameter && e.parameter.action) || "stats";
     const ss = SpreadsheetApp.getActiveSpreadsheet();
     const sheet = getOrInitSheet(ss);
     const lastRow = sheet.getLastRow();
 
-    if (action === "lookup") {
-      const targetId = (e.parameter.id || "").toUpperCase().trim();
-      if (!targetId || lastRow <= 1) {
-        return createJsonResponse({ found: false });
+    if (lastRow <= 1) {
+      return jsonResponse({ status: "success", count: 0, members: [] });
+    }
+
+    const data = sheet.getRange(2, 1, lastRow - 1, 13).getValues();
+
+    // 1. STATS
+    if (action === "stats") {
+      let verifiedCount = 0;
+      let totalGp = 0;
+
+      for (let i = 0; i < data.length; i++) {
+        const status = String(data[i][7]);
+        if (status === "ACCREDITED" || status === "BLS_CONFIRMED") verifiedCount++;
+        totalGp += Number(data[i][6]) || 0;
       }
 
-      const data = sheet.getRange(2, 1, lastRow - 1, 8).getValues();
+      return jsonResponse({
+        status: "success",
+        count: data.length,
+        verified: verifiedCount,
+        totalGpLedger: totalGp
+      });
+    }
+
+    // 2. LOOKUP BY ID
+    if (action === "lookup") {
+      const searchId = normalizeGaId((e && e.parameter && e.parameter.id) || "");
+      if (!searchId) return jsonResponse({ found: false, message: "Missing id parameter." });
+
       for (let i = 0; i < data.length; i++) {
-        if (String(data[i][0]).toUpperCase().trim() === targetId) {
-          // Public-safe sanitized response (No raw email, phone, or providerRef)
-          return createJsonResponse({
+        const rowId = normalizeGaId(data[i][0]);
+        if (rowId === searchId) {
+          const isVerified = (String(data[i][7]) === "ACCREDITED" || String(data[i][7]) === "BLS_CONFIRMED");
+          return jsonResponse({
             found: true,
             member: {
-              id: data[i][0],
-              name: data[i][1],
-              role: data[i][2],
-              univ: data[i][5],
-              gp: data[i][6],
-              verified: data[i][7] === "ACCREDITED"
+              id: String(data[i][0]),
+              name: String(data[i][1]),
+              role: String(data[i][2]),
+              univ: String(data[i][5]),
+              gp: Number(data[i][6]) || 0,
+              verified: isVerified,
+              referralId: String(data[i][11] || "GA-000")
             }
           });
         }
       }
-      return createJsonResponse({ found: false });
+
+      return jsonResponse({ found: false, id: searchId, message: "ID not found in master ledger." });
     }
 
+    // 3. SEARCH BY QUERY
     if (action === "search") {
-      const q = (e.parameter.q || "").toLowerCase().trim();
-      if (!q || q.length < 2 || lastRow <= 1) {
-        return createJsonResponse({ status: "success", items: [] });
-      }
-
-      const data = sheet.getRange(2, 1, lastRow - 1, 8).getValues();
+      const q = String((e && e.parameter && e.parameter.q) || "").toLowerCase().trim();
       const results = [];
 
       for (let i = 0; i < data.length; i++) {
-        const id = String(data[i][0]).toLowerCase();
         const name = String(data[i][1]).toLowerCase();
         const univ = String(data[i][5]).toLowerCase();
+        const id = String(data[i][0]).toLowerCase();
 
-        if (id.includes(q) || name.includes(q) || univ.includes(q)) {
+        if (name.includes(q) || univ.includes(q) || id.includes(q)) {
           results.push({
-            id: data[i][0],
-            name: data[i][1],
-            role: data[i][2],
-            univ: data[i][5],
-            gp: data[i][6],
-            verified: data[i][7] === "ACCREDITED"
+            id: String(data[i][0]),
+            name: String(data[i][1]),
+            univ: String(data[i][5]),
+            verified: (String(data[i][7]) === "ACCREDITED" || String(data[i][7]) === "BLS_CONFIRMED")
           });
-          if (results.length >= 20) break;
         }
       }
 
-      return createJsonResponse({ status: "success", items: results });
+      return jsonResponse({ status: "success", count: results.length, members: results });
     }
 
-    if (action === "stats") {
-      const totalCount = Math.max(0, lastRow - 1);
-      return createJsonResponse({
-        status: "success",
-        totalEnrolled: totalCount + 1200,
-        verifiedActive: 1196,
-        universitiesCount: 54
-      });
-    }
+    return jsonResponse({ status: "error", message: "Unsupported action." }, 400);
 
-    throw new Error("Invalid GET query parameter.");
   } catch (err) {
-    return createJsonResponse({ status: "error", message: err.message });
+    return jsonResponse({ status: "error", message: err.toString() }, 500);
   }
 }

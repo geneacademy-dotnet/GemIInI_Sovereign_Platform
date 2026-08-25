@@ -4,11 +4,3 @@ deploy_hostinger.zip
 portal.zip
 .vscode/
 *.log
-app.tar.gz
-*.zip
-*.tar.gz
-
-# Ignore Heavy Build Archives
-*.zip
-*.tar.gz
-
