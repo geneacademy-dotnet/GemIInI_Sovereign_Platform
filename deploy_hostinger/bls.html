@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ورشة الإنعاش القلبي الرئوي الأساسي (BLS) — الدقي، القاهرة | GemIInI Academy</title>
+    <meta name="description" content="ورشة الإنعاش القلبي الرئوي الأساسي (BLS) المعتمدة من مجلس التخصصات الطبية وجمعية القلب الأمريكية - 28 أغسطس 2026 بالدقي، القاهرة.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        navy: { 950: '#04080F', 900: '#0B1528', 800: '#13233F' },
+                        teal: { 400: '#2DD4BF', 500: '#14B8A6' },
+                        cyan: { 400: '#22D3EE', 500: '#06B6D4' }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'Tajawal', 'sans-serif'],
+                        mono: ['IBM Plex Mono', 'monospace']
+                    }
+                }
+            }
+        };
+    </script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="api.js"></script>
+    <style>
+        body { font-family: 'Tajawal', 'Plus Jakarta Sans', sans-serif; background-color: #04080F; color: #F8FAFC; }
+        .mono { font-family: 'IBM Plex Mono', monospace; }
+    </style>
+</head>
+<body class="bg-[#04080F] text-slate-100 min-h-screen flex flex-col antialiased selection:bg-cyan-500 selection:text-black">
+
+    <!-- NAVIGATION HEADER -->
+    <header class="border-b border-white/10 bg-slate-950/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2">
+                <span class="text-xl font-black text-white tracking-wider">Gem<span class="text-cyan-400">IInI</span></span>
+                <span class="text-[10px] mono bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 px-2 py-0.5 rounded">BLS CAIRO</span>
+            </a>
+            <div class="flex items-center gap-3">
+                <a href="verify.html" class="text-xs text-gray-300 hover:text-white mono px-3 py-1.5 rounded-lg border border-white/10">التحقق من السجل</a>
+                <a href="index.html" class="text-xs text-cyan-400 hover:text-cyan-300 mono px-3 py-1.5 rounded-lg bg-cyan-950/50 border border-cyan-500/30">الرئيسية ➔</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN INTAKE CONTENT -->
+    <main class="flex-1 py-12 px-4">
+        <div class="max-w-3xl mx-auto">
+
+            <!-- EVENT BADGE & TITLE -->
+            <div class="text-center mb-10">
+                <div class="inline-flex items-center gap-2 rounded-full bg-red-500/10 border border-red-500/30 px-4 py-1.5 text-xs mono font-bold text-red-400 mb-4">
+                    <i data-lucide="heart-pulse" class="w-4 h-4 text-red-400 animate-pulse"></i>
+                    <span>OFFICIAL PHYSICAL WORKSHOP — CAIRO COHORT</span>
+                </div>
+                <h1 class="text-3xl md:text-5xl font-black text-white tracking-tight">
+                    ورشة الإنعاش القلبي الرئوي الأساسي (BLS)
+                </h1>
+                <p class="text-sm md:text-base text-gray-300 mt-3 max-w-xl mx-auto">
+                    تدريب عملي ومحاكاة سريرية حية على الإنعاش القلبي وإنقاذ الحياة، باعتماد المجلس الطبي السوداني وجمعية القلب الأمريكية.
+                </p>
+
+                <!-- METRICS GRID -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-6 text-xs mono">
+                    <div class="p-3.5 rounded-2xl bg-slate-900 border border-white/10 flex items-center justify-center gap-2">
+                        <i data-lucide="calendar" class="w-4 h-4 text-cyan-400"></i>
+                        <span>الجمعة 28 أغسطس 2026</span>
+                    </div>
+                    <div class="p-3.5 rounded-2xl bg-slate-900 border border-white/10 flex items-center justify-center gap-2">
+                        <i data-lucide="map-pin" class="w-4 h-4 text-red-400"></i>
+                        <span>الدقي، الجيزة، القاهرة</span>
+                    </div>
+                    <div class="p-3.5 rounded-2xl bg-slate-900 border border-white/10 flex items-center justify-center gap-2">
+                        <i data-lucide="smartphone" class="w-4 h-4 text-emerald-400"></i>
+                        <span>3,000 جنيه مصري</span>
+                    </div>
+                </div>
+
+                <!-- DUAL ACCREDITATION -->
+                <div class="flex flex-wrap items-center justify-center gap-3 mt-6">
+                    <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-slate-900 border border-cyan-500/30 text-cyan-300 text-xs mono font-bold">
+                        <i data-lucide="award" class="w-4 h-4 text-cyan-400"></i>
+                        اعتماد المجلس الطبي السوداني (SMC)
+                    </span>
+                    <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-slate-900 border border-red-500/30 text-red-300 text-xs mono font-bold">
+                        <i data-lucide="shield-check" class="w-4 h-4 text-red-400"></i>
+                        معايير جمعية القلب الأمريكية (AHA)
+                    </span>
+                </div>
+            </div>
+
+            <!-- DR. MOHAMED SABRI BONUS BANNER -->
+            <div class="p-5 rounded-2xl bg-gradient-to-r from-amber-500/15 via-purple-500/10 to-cyan-500/15 border border-amber-500/40 mb-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div class="flex items-center gap-3">
+                    <div class="p-2.5 rounded-xl bg-amber-500/20 text-amber-300">
+                        <i data-lucide="gift" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <span class="text-[10px] mono font-bold text-amber-400 uppercase tracking-wider block">
+                            بونص حصري لرواد التسجيل عبر المنظومة
+                        </span>
+                        <h3 class="text-sm font-bold text-white">
+                            حقيبة التحول الرقمي المهني وصناعة السيرة الذاتية الطبية مع د. محمد صبري
+                        </h3>
+                    </div>
+                </div>
+                <span class="px-3 py-1 rounded-full bg-amber-500/20 border border-amber-500/40 text-amber-300 text-xs mono font-bold flex-shrink-0">
+                    مجانًا مع التذكرة
+                </span>
+            </div>
+
+            <!-- INTAKE CONTAINER -->
+            <div id="bls-intake-card" class="bg-slate-900/90 border border-white/10 p-6 md:p-8 rounded-3xl backdrop-blur-md shadow-2xl">
+                <form id="bls-form" onsubmit="handleBlsSubmit(event)" class="space-y-6">
+                    <!-- ATTENDEE DETAILS -->
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-sm font-bold text-cyan-400 mono flex items-center gap-2">
+                                <span>01.</span> بيانات المتدرب / الطبيب
+                            </h3>
+                            <span id="affiliate-badge" class="text-[11px] mono text-amber-300 bg-amber-500/10 border border-amber-500/20 px-2.5 py-1 rounded-lg">
+                                كود الإحالة: <strong id="affiliate-display">GA-000</strong>
+                            </span>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs text-gray-300 mb-1">الاسم الرباعي الكامل *</label>
+                                <input type="text" id="bls-name" required placeholder="د. أحمد عبد الرحمن" class="w-full px-4 py-2.5 rounded-xl bg-black/50 border border-white/15 text-white text-sm focus:border-cyan-400 focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs text-gray-300 mb-1">البريد الإلكتروني الأساسي *</label>
+                                <input type="email" id="bls-email" required placeholder="doctor@example.com" class="w-full px-4 py-2.5 rounded-xl bg-black/50 border border-white/15 text-white text-sm focus:border-cyan-400 focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs text-gray-300 mb-1">رقم الهاتف / الواتساب *</label>
+                                <input type="tel" id="bls-phone" required placeholder="+20 / +249 ..." class="w-full px-4 py-2.5 rounded-xl bg-black/50 border border-white/15 text-white text-sm focus:border-cyan-400 focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs text-gray-300 mb-1">الجامعة / الكلية الطبية *</label>
+                                <select id="bls-univ" class="w-full px-4 py-2.5 rounded-xl bg-black/50 border border-white/15 text-white text-sm focus:border-cyan-400 focus:outline-none">
+                                    <option value="جامعة الخرطوم | University of Khartoum">جامعة الخرطوم</option>
+                                    <option value="جامعة الجزيرة | University of Gezira">جامعة الجزيرة</option>
+                                    <option value="جامعة أم درمان الإسلامية | OIU">جامعة أم درمان الإسلامية</option>
+                                    <option value="جامعة النيلين | Al-Neelain University">جامعة النيلين</option>
+                                    <option value="جامعة الزعيم الأزهري | AAU">جامعة الزعيم الأزهري</option>
+                                    <option value="جامعة العلوم الطبية والتكنولوجيا | UMST">جامعة UMST</option>
+                                    <option value="جامعة القاهرة / كليات الطب المصرية">كليات الطب المصرية (القاهرة / عين شمس...)</option>
+                                    <option value="مؤسسة طبية أخرى">مؤسسة طبية أخرى</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PAYMENT SECTION -->
+                    <div class="pt-4 border-t border-white/10">
+                        <h3 class="text-sm font-bold text-cyan-400 mono mb-3 flex items-center gap-2">
+                            <span>02.</span> سداد الرسوم عبر فودافون كاش (3,000 جنيه مصري)
+                        </h3>
+
+                        <div class="p-4 rounded-2xl bg-red-500/5 border border-red-500/20 space-y-3">
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                                <div class="flex items-center gap-2">
+                                    <i data-lucide="smartphone" class="w-5 h-5 text-red-400"></i>
+                                    <div>
+                                        <strong class="text-sm text-white block">محفظة فودافون كاش الرسمية</strong>
+                                        <span class="text-xs text-gray-400">تحويل مباشر 3,000 ج.م</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <span class="px-3 py-1.5 rounded-xl bg-black/60 border border-white/10 mono text-sm text-red-300 font-bold">
+                                        01015922628
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="p-2.5 rounded-xl bg-black/40 border border-white/5 text-[11px] mono text-gray-300">
+                                كود التحويل السريع: <span class="text-cyan-300 font-bold">*9*7*01015922628*3000#</span>
+                            </div>
+                            <div>
+                                <label class="block text-xs text-gray-300 mb-1">رقم الإشعار / العملية (Vodafone Ref ID) *</label>
+                                <input type="text" id="bls-ref" required placeholder="مثال: TRX-992817462 أو رقم العملية من الرسالة" class="w-full px-4 py-2.5 rounded-xl bg-black/60 border border-white/15 text-white mono text-xs focus:border-cyan-400 focus:outline-none">
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" id="bls-submit-btn" class="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-red-500 via-rose-500 to-amber-500 hover:opacity-95 text-white font-black text-sm tracking-wide shadow-xl shadow-red-500/20 transition-all flex items-center justify-center gap-2">
+                        <i data-lucide="check-circle-2" class="w-5 h-5"></i>
+                        <span>تأكيد الحجز وإصدار GemIInI ID وبونص د. صبري ➔</span>
+                    </button>
+                </form>
+            </div>
+
+            <!-- SUCCESS RESULT CONTAINER (HIDDEN INITIALLY) -->
+            <div id="bls-success-card" class="hidden p-8 rounded-3xl bg-slate-900 border border-emerald-500/40 shadow-2xl relative overflow-hidden animate-in fade-in zoom-in duration-300">
+                <div class="absolute top-0 right-0 left-0 h-2 bg-gradient-to-r from-emerald-400 via-cyan-400 to-amber-400"></div>
+
+                <div class="text-center mb-8">
+                    <div class="inline-flex p-3 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 mb-3">
+                        <i data-lucide="check-circle-2" class="w-12 h-12"></i>
+                    </div>
+                    <h2 class="text-2xl md:text-3xl font-black text-white">
+                        تم تأكيد حجز مقعدك وإصدار المعرف بنجاح
+                    </h2>
+                    <p class="text-xs md:text-sm text-gray-400 mt-1">
+                        ورشة الإنعاش القلبي الرئوي الأساسي (BLS) — الجمعة 28 أغسطس 2026 — الدقي، القاهرة
+                    </p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-black/60 border border-white/10 space-y-4 mb-6">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-white/10">
+                        <div>
+                            <span class="text-[11px] mono text-gray-400 uppercase block">Assigned GemIInI ID</span>
+                            <span id="res-ga-id" class="text-3xl mono font-black text-cyan-400 tracking-wider">GA-1001</span>
+                        </div>
+                        <button type="button" onclick="copyResultId()" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl bg-cyan-500/20 border border-cyan-500/40 text-cyan-300 text-xs mono font-bold hover:bg-cyan-500/30">
+                            <i data-lucide="copy" class="w-4 h-4"></i>
+                            <span id="copy-btn-text">نسخ المعرف</span>
+                        </button>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs mono">
+                        <div>
+                            <span class="text-gray-400 block mb-0.5">اسم المتدرب:</span>
+                            <strong id="res-name" class="text-white text-sm">د. أحمد عبد الرحمن</strong>
+                        </div>
+                        <div>
+                            <span class="text-gray-400 block mb-0.5">الرصيد المكتسب:</span>
+                            <span class="text-emerald-400 font-bold">+50 GP تم إيداعها في المحفظة</span>
+                        </div>
+                        <div>
+                            <span class="text-gray-400 block mb-0.5">العقدة المحيلة:</span>
+                            <span id="res-ref" class="text-amber-300 font-bold">GA-000</span>
+                        </div>
+                        <div>
+                            <span class="text-gray-400 block mb-0.5">حالة المقعد:</span>
+                            <span class="text-cyan-300 font-bold">مؤكد وموثق في السجل الرئيسي</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-5 rounded-2xl bg-gradient-to-r from-amber-500/10 via-purple-500/10 to-cyan-500/10 border border-amber-500/30 mb-8 flex items-start gap-3">
+                    <i data-lucide="gift" class="w-8 h-8 text-amber-400 flex-shrink-0 mt-0.5"></i>
+                    <div>
+                        <span class="text-[10px] mono font-bold uppercase tracking-wider text-amber-400 block">
+                            بونص د. محمد صبري نشط الآن
+                        </span>
+                        <h4 class="text-sm font-bold text-white mt-0.5">
+                            حقيبة التحول الرقمي المهني والسيرة الذاتية السريرية متاحة في لوحة تحكمك
+                        </h4>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <a id="res-verify-link" href="verify.html" class="flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-sm shadow-lg shadow-cyan-500/20">
+                        <i data-lucide="shield-check" class="w-4 h-4"></i>
+                        <span>التحقق من السجل العام ➔</span>
+                    </a>
+                    <a href="dashboard.html" class="flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-sm border border-white/10">
+                        <i data-lucide="sparkles" class="w-4 h-4 text-amber-400"></i>
+                        <span>فتح لوحة التحكم وبونص د. صبري ➔</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        lucide.createIcons();
+
+        // Step 1: Capture & Store Referral ID from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const refParam = urlParams.get('ref') || urlParams.get('affiliate') || localStorage.getItem('gemiini_affiliate_ref') || 'GA-000';
+        let cleanRef = refParam.toUpperCase().trim();
+        if (!cleanRef.startsWith('GA')) cleanRef = 'GA-' + cleanRef;
+        localStorage.setItem('gemiini_affiliate_ref', cleanRef);
+
+        document.getElementById('affiliate-display').textContent = cleanRef;
+
+        async function handleBlsSubmit(e) {
+            e.preventDefault();
+            const btn = document.getElementById('bls-submit-btn');
+            btn.disabled = true;
+            btn.innerHTML = '<span class="mono">جارٍ حجز المقعد وإصدار GemIInI ID...</span>';
+
+            const payload = {
+                action: 'bls_registration',
+                fullName: document.getElementById('bls-name').value.trim(),
+                email: document.getElementById('bls-email').value.trim(),
+                phone: document.getElementById('bls-phone').value.trim(),
+                university: document.getElementById('bls-univ').value,
+                providerRef: document.getElementById('bls-ref').value.trim(),
+                referralId: cleanRef,
+                idempotencyKey: 'BLS-' + Date.now() + '-' + Math.random().toString(36).substr(2, 6)
+            };
+
+            try {
+                const res = await apiRegister(payload);
+                const assignedId = (res && res.gaId) ? res.gaId : ('GA-' + (Math.floor(Math.random() * 800) + 1000));
+                
+                // Store in local presence session
+                localStorage.setItem('gemiini_presence_id', assignedId);
+
+                // Update results view
+                document.getElementById('res-ga-id').textContent = assignedId;
+                document.getElementById('res-name').textContent = payload.fullName;
+                document.getElementById('res-ref').textContent = cleanRef;
+                document.getElementById('res-verify-link').href = 'verify.html?id=' + encodeURIComponent(assignedId);
+
+                document.getElementById('bls-intake-card').classList.add('hidden');
+                document.getElementById('bls-success-card').classList.remove('hidden');
+                lucide.createIcons();
+            } catch (err) {
+                alert('حدث خطأ أثناء الاتصال بالسجل: ' + err.message);
+                btn.disabled = false;
+                btn.innerHTML = '<span>إعادة المحاولة ➔</span>';
+            }
+        }
+
+        function copyResultId() {
+            const id = document.getElementById('res-ga-id').textContent;
+            navigator.clipboard.writeText(id);
+            document.getElementById('copy-btn-text').textContent = 'تم النسخ!';
+            setTimeout(() => {
+                document.getElementById('copy-btn-text').textContent = 'نسخ المعرف';
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
