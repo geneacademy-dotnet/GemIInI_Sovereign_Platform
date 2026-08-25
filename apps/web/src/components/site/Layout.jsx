@@ -8,10 +8,10 @@ import { cn } from '@/lib/utils';
 
 const publicLinks = [
     { to: '/', key: 'nav.home' },
+    { to: '/bls', label: 'ورشة BLS القاهرة' },
     { to: '/about', key: 'nav.about' },
     { to: '/services', key: 'nav.services' },
     { to: '/courses', key: 'nav.courses' },
-    { to: '/resources', key: 'nav.resources' },
     { to: '/verify', key: 'nav.verify' },
     { to: '/certifications', key: 'nav.certifications' },
     { to: '/contact', key: 'nav.contact' },
@@ -61,6 +61,14 @@ const Header = () => {
 
     return (
         <header className="sticky top-0 z-40 border-b border-border/70 bg-background/85 backdrop-blur">
+            <div className="bg-gradient-to-r from-red-600 via-rose-600 to-amber-600 text-white text-xs py-2 px-4 text-center font-bold tracking-wide flex flex-wrap items-center justify-center gap-2 shadow-md">
+                <span className="w-2 h-2 rounded-full bg-white animate-ping"></span>
+                <span>🚨 التسجيل مفتوح: ورشة الإنعاش القلبي الرئوي المتقدمة (BLS) — القاهرة 28 أغسطس 2026</span>
+                <Link to="/bls" className="underline bg-black/25 hover:bg-black/40 px-2.5 py-0.5 rounded-full text-white transition-all inline-flex items-center gap-1">
+                    <span>احجز مقعدك واحصل على +200 GP</span>
+                    <span>➔</span>
+                </Link>
+            </div>
             <div className="mx-auto flex max-w-[90rem] items-center justify-between gap-4 px-5 py-3.5 lg:px-10">
                 <Brand />
 
@@ -77,7 +85,7 @@ const Header = () => {
                                 )
                             }
                         >
-                            {t(link.key)}
+                            {link.label || (link.key ? t(link.key) : '')}
                         </NavLink>
                     ))}
                 </nav>
@@ -134,7 +142,7 @@ const Header = () => {
                                 onClick={() => setOpen(false)}
                                 className="min-h-[44px] border-b border-border/60 py-3 text-sm last:border-0"
                             >
-                                {t(link.key)}
+                                {link.label || (link.key ? t(link.key) : '')}
                             </NavLink>
                         ))}
                         {isAuthed ? (
