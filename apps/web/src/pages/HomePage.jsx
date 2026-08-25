@@ -18,6 +18,7 @@ import CountUp from '@/components/CountUp';
 import AchievementCard from '@/components/AchievementCard';
 import PaymentChannels from '@/components/PaymentChannels';
 import MotionPictureReel from '@/components/MotionPictureReel';
+import ProgramsCatalog from '@/components/ProgramsCatalog';
 import { useLang } from '@/i18n/LanguageContext';
 import { SOVEREIGN_ECOSYSTEM } from '@/data/sovereign-config';
 
@@ -343,7 +344,8 @@ const HomePage = () => {
 
             {/* ── PAYMENT CHANNELS ─────────────────────────────────────────── */}
             <Section rail="max-w-[90rem]">
-                <MotionPictureReel />
+                <ProgramsCatalog />
+      <MotionPictureReel />
       <PaymentChannels />
             </Section>
 
