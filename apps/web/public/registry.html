@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>السجل الأكاديمي والتحقق المعتمد — GemIInI Sovereign Registry</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background-color: #04080F;
+            color: #E2E8F0;
+            font-family: 'Cairo', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .container {
+            width: 100%;
+            max-width: 600px;
+            background: #080C14;
+            border: 1px solid rgba(6, 182, 212, 0.2);
+            border-radius: 24px;
+            padding: 32px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 999px;
+            background: rgba(6, 182, 212, 0.1);
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            color: #22D3EE;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            margin-bottom: 12px;
+        }
+        h1 { font-size: 22px; font-weight: 900; color: #FFF; margin-bottom: 8px; }
+        p.desc { font-size: 12px; color: #94A3B8; margin-bottom: 24px; }
+        .input-group { display: flex; gap: 8px; margin-bottom: 24px; }
+        input {
+            flex: 1;
+            padding: 12px 16px;
+            border-radius: 12px;
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #FFF;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+        input:focus { outline: none; border-color: #22D3EE; }
+        button {
+            padding: 12px 24px;
+            border-radius: 12px;
+            background: #06B6D4;
+            color: #04080F;
+            font-weight: 900;
+            border: none;
+            cursor: pointer;
+            font-family: 'Cairo', sans-serif;
+            font-size: 13px;
+            transition: all 0.2s;
+        }
+        button:hover { background: #22D3EE; }
+        .result-box {
+            display: none;
+            padding: 20px;
+            border-radius: 16px;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: right;
+            margin-top: 16px;
+        }
+        .verified { border-color: rgba(16, 185, 129, 0.4); background: rgba(16, 185, 129, 0.05); }
+        .unverified { border-color: rgba(239, 68, 68, 0.4); background: rgba(239, 68, 68, 0.05); text-align: center; }
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 8px;
+            font-size: 11px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        .badge-green { background: rgba(16, 185, 129, 0.2); color: #34D399; }
+        .badge-red { background: rgba(239, 68, 68, 0.2); color: #F87171; }
+        .row { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.05); font-size: 12px; }
+        .row:last-child { border-bottom: none; }
+        .label { color: #94A3B8; }
+        .val { color: #FFF; font-weight: 600; }
+        .back-link { margin-top: 24px; display: inline-block; font-size: 12px; color: #22D3EE; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <span class="tag mono">SOVEREIGN LEDGER VERIFIER</span>
+        <h1>التحقق الرسمي من الاعتماد والشهادات</h1>
+        <p class="desc">أدخل الرقم التعريفي الأكاديمي (GA-ID) للتحقق الفوري من سجل الطبيب ورصيد الساعات المعتمدة.</p>
+
+        <div class="input-group">
+            <input type="text" id="gaInput" placeholder="GA-000" />
+            <button onclick="verifyGaId()">تحقق الآن</button>
+        </div>
+
+        <div id="resultBox" class="result-box"></div>
+
+        <a href="/" class="back-link">العودة إلى البوابة الرئيسية للأكاديمية ➔</a>
+    </div>
+
+    <script>
+        const MASTER_BEDROCK = {
+            'GA-000': { name: 'Dr. Mohamed Gibbril', role: 'Founder & CEO — SudaGene Consortium', univ: 'University of Khartoum / IEND', gp: '2,500 GP', status: 'VERIFIED / ACCREDITED' },
+            'GA-001': { name: 'Dr. Alaa Mursi Elnour', role: 'Co-Founder & COO', univ: 'University of Khartoum', gp: '2,500 GP', status: 'VERIFIED / ACCREDITED' },
+            'GA-004': { name: 'Dr. Safaa Elhassan', role: 'Senior Academic Officer', univ: 'Faculty of Medicine', gp: '1,200 GP', status: 'VERIFIED / ACCREDITED' },
+            'GA-011': { name: 'Eng. Amjad Gurashi', role: 'Systems & GIS Operations Expert', univ: 'Operations Directorate', gp: '1,500 GP', status: 'VERIFIED / ACCREDITED' },
+            'GA-087': { name: 'Dr. Ahmed Eltayeb', role: 'Clinical Fellow (BLS Certified)', univ: 'University of Gezira', gp: '250 GP', status: 'VERIFIED / ACCREDITED' }
+        };
+
+        function verifyGaId() {
+            const raw = document.getElementById('gaInput').value.trim().toUpperCase();
+            const resBox = document.getElementById('resultBox');
+            if (!raw) return;
+
+            const gaId = raw.startsWith('GA-') ? raw : 'GA-' + raw.replace('GA', '');
+            const record = MASTER_BEDROCK[gaId];
+
+            if (record) {
+                resBox.className = 'result-box verified';
+                resBox.style.display = 'block';
+                resBox.innerHTML = `
+                    <span class="badge badge-green">✓ معتمد ومسجل رسمياً بالسجل المركزي</span>
+                    <div class="row"><span class="label">المعرف الرقمي:</span><span class="val mono">${gaId}</span></div>
+                    <div class="row"><span class="label">الاسم الكامل:</span><span class="val">${record.name}</span></div>
+                    <div class="row"><span class="label">الصفة المهنية:</span><span class="val">${record.role}</span></div>
+                    <div class="row"><span class="label">الجامعة / الجهة:</span><span class="val">${record.univ}</span></div>
+                    <div class="row"><span class="label">الرصيد المعتمد:</span><span class="val mono" style="color:#FBBF24;">${record.gp}</span></div>
+                `;
+            } else {
+                resBox.className = 'result-box unverified';
+                resBox.style.display = 'block';
+                resBox.innerHTML = `
+                    <span class="badge badge-red">✕ غير مسجل / UNVERIFIED</span>
+                    <p style="font-size:12px; color:#F87171; margin-top:8px;">
+                        المعرف <strong class="mono">${gaId}</strong> غير موجود في السجل المركزي المعتمد.
+                    </p>
+                `;
+            }
+        }
+
+        // Auto verify if ?id=GA-000 provided
+        const params = new URLSearchParams(window.location.search);
+        const qId = params.get('id') || params.get('gaId');
+        if (qId) {
+            document.getElementById('gaInput').value = qId;
+            verifyGaId();
+        }
+    </script>
+</body>
+</html>
