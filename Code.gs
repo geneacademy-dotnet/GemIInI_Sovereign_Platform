@@ -146,7 +146,50 @@ function handleLookup(payload, ss) {
 /**
  * 2. DETERMINISTIC SEQUENTIAL ID MINTING
  */
+
+/**
+ * INGESTION INTEGRITY GUARD
+ * Prevents non-human labels, invalid universities, and fake IDs from entering.
+ */
+function validateCandidatePayload(payload) {
+  const name = String(payload.legalName || payload.fullName || payload.full_name_en || payload.full_name_ar || "").trim();
+  const phone = String(payload.phone || payload.phone_whatsapp || "").trim();
+  const email = String(payload.email || "").trim().toLowerCase();
+  const univ = String(payload.university || payload.canonical_university || "").trim();
+
+  // 1. Blacklist Non-Person Scrap Keywords
+  const blacklistedKeywords = [
+    "مبادرة", "مبادره", "المبادره", "المبادرة", "باص", "دفعة", "بروفات", "بروف", "منصه", "منصة",
+    "مواصلات", "الطلبه", "الطلبة", "عضو", "workspace", "instagram", "جروب", "group", "whatsapp",
+    "بص", "طالبه مصر", "طالب مصر", "البروفيسورات", "البوفيسورات", "الاشتراكات", "مصر", "Family",
+    "2024", "٧٢", "Oncology", "Engineering"
+  ];
+  for (let kw of blacklistedKeywords) {
+    if (name.toLowerCase().includes(kw.toLowerCase())) {
+      throw new Error(`REJECTED: Non-person entity or contact group name detected ('${name}').`);
+    }
+  }
+
+  // 2. Reject Emoji-Only or Symbol Names
+  if (!/^[\u0600-\u06FFa-zA-Z\s\.\-']{3,60}$/.test(name)) {
+    throw new Error(`REJECTED: Invalid name syntax ('${name}'). Must be legal person name.`);
+  }
+
+  // 3. Reject Defaulting to Generic Faculty Categories
+  if (univ === "كليات الطب والمستشفيات السريرية" || univ === "سجل التدريب والتأهيل السريري" || !univ) {
+    throw new Error("REJECTED: Must select a specific canonical university from the consortium registry.");
+  }
+
+  // 4. Validate Phone & Email Uniqueness
+  if (!phone || !email || !email.includes("@")) {
+    throw new Error("REJECTED: Missing valid phone or email address.");
+  }
+
+  return true;
+}
+
 function handleRegisterUser(payload, ss) {
+  validateCandidatePayload(payload);
   const legalName = String(payload.legalName || payload.fullName || payload.full_name_en || payload.full_name_ar || '').trim();
   const email = String(payload.email || '').trim().toLowerCase();
   const phone = String(payload.phone || payload.phone_whatsapp || '').trim();
@@ -215,6 +258,7 @@ function handleRegisterUser(payload, ss) {
  * (Single physical track in Cairo on August 28, 2026)
  */
 function handleBlsRegister(payload, ss) {
+  validateCandidatePayload(payload);
   let gaId = String(payload.gaId || payload.ga_id || '').trim().toUpperCase();
   const fullName = String(payload.fullName || payload.full_name || '').trim();
   const email = String(payload.email || '').trim().toLowerCase();
