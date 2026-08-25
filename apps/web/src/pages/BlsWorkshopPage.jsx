@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
-import { ShieldCheck, Award, Smartphone, CheckCircle2, Sparkles, Coffee, MessageCircle, CreditCard } from 'lucide-react';
+import { ShieldCheck, Award, Smartphone, CheckCircle2, Sparkles, Coffee, MessageCircle, CreditCard, Laptop, MapPin } from 'lucide-react';
 import Layout from '@/components/site/Layout';
 import { PageHeader, Section, StateBlock } from '@/components/site/Bits';
 import { useLang } from '@/i18n/LanguageContext';
@@ -31,12 +31,22 @@ const CountdownBlock = ({ label, value }) => (
 
 const buildKsaWhatsappLink = ({ gaId, fullName }) => {
     const lines = [
-        'Hi, I just registered for the BLS workshop.',
+        'Hi, I registered for the GemIInI BLS Program.',
         gaId ? `GA-ID: ${gaId}` : null,
         fullName ? `Name: ${fullName}` : null,
-        'I have a question about KSA licensing / relocation / clinical placement.',
+        'I have an inquiry regarding KSA licensing / SCFHS / relocation.',
     ].filter(Boolean);
     return `https://wa.me/966550476176?text=${encodeURIComponent(lines.join('\n'))}`;
+};
+
+const buildKuwaitWhatsappLink = ({ gaId, fullName }) => {
+    const lines = [
+        'مرحباً د. صفاء الحسن (مكتب الشؤون الأكاديمية - الكويت GA004)',
+        'أرغب في الاستفسار عن شهادة BLS المعتمدة عبر المسار الإلكتروني (Online Accredited Track).',
+        gaId ? `GA-ID: ${gaId}` : null,
+        fullName ? `الاسم: ${fullName}` : null,
+    ].filter(Boolean);
+    return `https://wa.me/96550872572?text=${encodeURIComponent(lines.join('\n'))}`;
 };
 
 const REF_STORAGE_KEY = 'gemiini_referral_id';
@@ -71,9 +81,9 @@ const Field = ({ label, children, hint }) => (
 );
 
 const WORKSHOP = {
-    title: { en: 'Basic Life Support (BLS) Workshop', ar: 'ورشة الدعم الحياتي الأساسي (BLS)' },
+    title: { en: 'Basic Life Support (BLS) Clinical Workshop', ar: 'ورشة الدعم الحياتي الأساسي (BLS) والاعتماد السريري' },
     date: 'August 28, 2026',
-    location: { en: 'Dokki, Cairo, Egypt', ar: 'الدقي، القاهرة، مصر' },
+    location: { en: 'Dokki, Cairo (On-Site) + Online Gulf Track', ar: 'الدقي، القاهرة (تدريب حضوري) + المسار الإلكتروني المعتمد للخليج' },
     price: 3000,
 };
 
@@ -84,6 +94,7 @@ const BlsWorkshopPage = () => {
     
     const [hasExistingId, setHasExistingId] = useState(false);
     const [existingGaId, setExistingGaId] = useState('');
+    const [attendanceMode, setAttendanceMode] = useState('ONSITE'); // ONSITE | ONLINE_GULF
     const [paymentRail, setPaymentRail] = useState('VODAFONE'); // VODAFONE | BARQ | GP
 
     const [form, setForm] = useState({
@@ -119,10 +130,11 @@ const BlsWorkshopPage = () => {
         setStatus('loading');
         try {
             const payload = {
-                workshop: 'bls_dokki_2026_08_28',
+                workshop: attendanceMode === 'ONLINE_GULF' ? 'bls_online_gulf_track' : 'bls_dokki_2026_08_28',
                 fullName: form.fullName.trim(),
                 email: form.email.trim(),
                 phone: form.phone.trim(),
+                attendanceMode: attendanceMode,
                 transactionId: paymentRail === 'GP' ? null : form.transactionId.trim(),
                 gpApplied: paymentRail === 'GP',
                 paymentMethod: paymentRail === 'BARQ' ? 'Barq (KSA)' : (paymentRail === 'GP' ? 'GP Points' : 'Vodafone Cash'),
@@ -141,10 +153,10 @@ const BlsWorkshopPage = () => {
     return (
         <Layout>
             <Helmet>
-                <title>{lang === 'ar' ? 'ورشة الدعم الحياتي الأساسي — الدقي' : 'BLS Workshop — Dokki, Cairo'} | GemIInI Academy</title>
+                <title>{lang === 'ar' ? 'ورشة الدعم الحياتي الأساسي (BLS) والاعتماد السريري' : 'BLS Workshop & Clinical Certification'} | GemIInI Academy</title>
                 <meta
                     name="description"
-                    content="Basic Life Support workshop, Dokki, Cairo — August 28, 2026. SMC and AHA accredited. GemIInI members bonus: personalized CV module with Dr. Mohamed Sabri."
+                    content="Basic Life Support workshop: On-site Dokki, Cairo + Online Accredited Track with Dr. Safaa Hassan (Kuwait Desk GA004). SMC and AHA accredited."
                 />
             </Helmet>
 
@@ -165,19 +177,20 @@ const BlsWorkshopPage = () => {
             </Section>
 
             <Section rail="max-w-[56rem]">
+                {/* Accreditation + bonus banner */}
                 <div className="mb-8 grid gap-4 sm:grid-cols-3">
                     <div className="flex items-center gap-3 rounded-2xl border border-border bg-card p-5">
                         <ShieldCheck className="h-6 w-6 text-[hsl(var(--teal))]" strokeWidth={1.8} />
                         <div>
                             <p className="text-sm font-semibold">SMC</p>
-                            <p className="text-xs text-muted-foreground">{lang === 'ar' ? 'معتمد' : 'Accredited'}</p>
+                            <p className="text-xs text-muted-foreground">{lang === 'ar' ? 'اعتماد المجلس الطبي' : 'SMC Accredited'}</p>
                         </div>
                     </div>
                     <div className="flex items-center gap-3 rounded-2xl border border-border bg-card p-5">
                         <Award className="h-6 w-6 text-[hsl(var(--accent))]" strokeWidth={1.8} />
                         <div>
                             <p className="text-sm font-semibold">AHA</p>
-                            <p className="text-xs text-muted-foreground">{lang === 'ar' ? 'معتمد' : 'Accredited'}</p>
+                            <p className="text-xs text-muted-foreground">{lang === 'ar' ? 'جمعية القلب الأمريكية' : 'AHA Accredited'}</p>
                         </div>
                     </div>
                     <div className="flex items-center gap-3 rounded-2xl border border-[hsl(var(--accent))]/40 bg-[hsl(var(--accent))]/8 p-5">
@@ -197,19 +210,50 @@ const BlsWorkshopPage = () => {
                     </div>
                 )}
 
-                <a
-                    href="https://wa.me/966550476176"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mb-6 flex items-center gap-3 rounded-xl border border-border bg-card px-4 py-3 text-sm transition-colors hover:border-[hsl(var(--teal))]/50"
-                >
-                    <MessageCircle className="h-5 w-5 text-[hsl(var(--teal))]" strokeWidth={1.8} />
-                    <span>
-                        {lang === 'ar'
-                            ? 'لديك استفسار بخصوص الترخيص أو الانتقال إلى السعودية؟ راسل مكتبنا في الرياض (+966 55 047 6176)'
-                            : 'Questions about KSA licensing or relocation? Message our Riyadh desk (+966 55 047 6176)'}
-                    </span>
-                </a>
+                {/* REGIONAL OPERATIONS & ACADEMIC DESKS */}
+                <div className="mb-8 grid gap-4 sm:grid-cols-2">
+                    {/* Kuwait Academic Desk - Online Accredited Track */}
+                    <a
+                        href={buildKuwaitWhatsappLink({ gaId: existingGaId, fullName: form.fullName })}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-start gap-3 rounded-2xl border border-[hsl(var(--teal))]/40 bg-[hsl(var(--teal))]/5 p-4 transition-all hover:border-[hsl(var(--teal))]"
+                    >
+                        <Laptop className="h-5 w-5 text-[hsl(var(--teal))] shrink-0 mt-0.5" strokeWidth={1.8} />
+                        <div>
+                            <p className="text-xs font-bold uppercase text-[hsl(var(--teal))]">
+                                {lang === 'ar' ? 'مكتب الكويت والشؤون الأكاديمية (GA-004)' : 'Kuwait Academic Desk (GA-004)'}
+                            </p>
+                            <p className="text-sm font-semibold mt-0.5">
+                                {lang === 'ar' ? 'د. صفاء الحسن — شهادات BLS أونلاين ومعتمدة' : 'Dr. Safaa Hassan — Online Accredited BLS'}
+                            </p>
+                            <p className="text-xs text-muted-foreground mt-1">
+                                {lang === 'ar' ? 'واتساب مباشر: +965 5087 2572 للمسار الإلكتروني للخليج والمهجر' : 'Direct WhatsApp: +965 5087 2572 for Gulf & international online track'}
+                            </p>
+                        </div>
+                    </a>
+
+                    {/* KSA Operations Desk */}
+                    <a
+                        href={buildKsaWhatsappLink({ gaId: existingGaId, fullName: form.fullName })}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-start gap-3 rounded-2xl border border-border bg-card p-4 transition-all hover:border-[hsl(var(--accent))]"
+                    >
+                        <MessageCircle className="h-5 w-5 text-[hsl(var(--accent))] shrink-0 mt-0.5" strokeWidth={1.8} />
+                        <div>
+                            <p className="text-xs font-bold uppercase text-[hsl(var(--accent))]">
+                                {lang === 'ar' ? 'مكتب الرياض والعمليات الميدانية (KSA)' : 'Riyadh Operations Desk (KSA)'}
+                            </p>
+                            <p className="text-sm font-semibold mt-0.5">
+                                {lang === 'ar' ? 'شؤون التراخيص السعودية (SCFHS) والتنسيب السريري' : 'Saudi Licensing (SCFHS) & Relocation'}
+                            </p>
+                            <p className="text-xs text-muted-foreground mt-1">
+                                {lang === 'ar' ? 'واتساب: +966 55 047 6176 للمتابعة المباشرة' : 'WhatsApp: +966 55 047 6176 for direct coordination'}
+                            </p>
+                        </div>
+                    </a>
+                </div>
 
                 {status === 'done' ? (
                     <div className="rounded-2xl border border-[hsl(var(--teal))]/50 bg-[hsl(var(--teal))]/10 p-7">
@@ -234,22 +278,33 @@ const BlsWorkshopPage = () => {
                             </div>
                         </div>
 
-                        {/* Post-submission intercept: KSA Assistance */}
+                        {/* Post-submission intercept: KSA / Kuwait Assistance */}
                         <div className="mt-6 rounded-xl border border-[hsl(var(--accent))]/30 bg-[hsl(var(--accent))]/8 p-5">
                             <p className="text-sm font-medium">
                                 {lang === 'ar'
-                                    ? 'هل تحتاج مساعدة في الترخيص أو الانتقال أو التنسيب السريري في السعودية؟'
-                                    : 'Need help with KSA licensing, relocation, or clinical placement?'}
+                                    ? 'هل تحتاج مساعدة في الترخيص أو التنسيب السريري أو المسار الإلكتروني المعتمد؟'
+                                    : 'Need help with licensing, clinical placement, or the accredited online track?'}
                             </p>
-                            <a
-                                href={buildKsaWhatsappLink({ gaId: result?.gaId, fullName: form.fullName })}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="mt-3 inline-flex items-center gap-2 rounded-lg bg-[hsl(var(--accent))] px-4 py-2 text-sm font-medium text-black"
-                            >
-                                <MessageCircle className="h-4 w-4" strokeWidth={1.8} />
-                                {lang === 'ar' ? 'راسل مكتب الرياض عبر WhatsApp' : 'Message the Riyadh desk via WhatsApp'}
-                            </a>
+                            <div className="mt-3 flex flex-wrap gap-3">
+                                <a
+                                    href={buildKsaWhatsappLink({ gaId: result?.gaId, fullName: form.fullName })}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-2 rounded-lg bg-[hsl(var(--accent))] px-4 py-2 text-sm font-medium text-black"
+                                >
+                                    <MessageCircle className="h-4 w-4" strokeWidth={1.8} />
+                                    {lang === 'ar' ? 'مكتب الرياض (KSA)' : 'Riyadh Desk (KSA)'}
+                                </a>
+                                <a
+                                    href={buildKuwaitWhatsappLink({ gaId: result?.gaId, fullName: form.fullName })}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-2 rounded-lg bg-[hsl(var(--teal))] px-4 py-2 text-sm font-medium text-black"
+                                >
+                                    <Laptop className="h-4 w-4" strokeWidth={1.8} />
+                                    {lang === 'ar' ? 'مكتب الكويت (أونلاين GA004)' : 'Kuwait Desk (Online GA004)'}
+                                </a>
+                            </div>
                         </div>
 
                         {/* Community Activation Bounty */}
@@ -271,6 +326,33 @@ const BlsWorkshopPage = () => {
                 ) : (
                     <form onSubmit={onSubmit} className="grid gap-5 sm:grid-cols-2">
                         
+                        {/* ATTENDANCE TRACK SELECTION */}
+                        <div className="sm:col-span-2 rounded-2xl border border-border bg-card p-5 space-y-3">
+                            <span className="text-sm font-semibold block">{lang === 'ar' ? 'اختر مسار الحضور المفضل:' : 'Select Attendance Track:'}</span>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                                <div
+                                    onClick={() => setAttendanceMode('ONSITE')}
+                                    className={`p-4 rounded-xl border cursor-pointer flex items-start gap-3 transition-all ${attendanceMode === 'ONSITE' ? 'border-[hsl(var(--accent))] bg-[hsl(var(--accent))]/10 font-bold' : 'border-border bg-card/50'}`}
+                                >
+                                    <MapPin className="h-5 w-5 text-[hsl(var(--accent))] shrink-0 mt-0.5" />
+                                    <div>
+                                        <p className="text-sm">{lang === 'ar' ? 'حضور سريري مباشر (الدقي، مصر)' : 'On-Site Clinical (Dokki, Cairo)'}</p>
+                                        <p className="text-[11px] text-muted-foreground mt-0.5">{lang === 'ar' ? '28 أغسطس 2026 — تدريب عملي كامل مع د. محمد صبري' : 'Aug 28, 2026 — Hands-on training with Dr. Mohamed Sabri'}</p>
+                                    </div>
+                                </div>
+                                <div
+                                    onClick={() => setAttendanceMode('ONLINE_GULF')}
+                                    className={`p-4 rounded-xl border cursor-pointer flex items-start gap-3 transition-all ${attendanceMode === 'ONLINE_GULF' ? 'border-[hsl(var(--teal))] bg-[hsl(var(--teal))]/10 font-bold text-[hsl(var(--teal))]' : 'border-border bg-card/50'}`}
+                                >
+                                    <Laptop className="h-5 w-5 text-[hsl(var(--teal))] shrink-0 mt-0.5" />
+                                    <div>
+                                        <p className="text-sm">{lang === 'ar' ? 'المسار الإلكتروني المعتمد (الكويت والخليج)' : 'Accredited Online Track (Kuwait & Gulf)'}</p>
+                                        <p className="text-[11px] text-muted-foreground mt-0.5">{lang === 'ar' ? 'إشراف أكاديمي معتمد (د. صفاء الحسن GA004) لمن هم بالخارج' : 'Accredited remote track (Dr. Safaa Hassan GA004)'}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         {/* EXISTING MEMBER TOGGLE */}
                         <div className="sm:col-span-2 p-4 rounded-2xl border border-[hsl(var(--teal))]/30 bg-[hsl(var(--teal))]/5 flex flex-col gap-3">
                             <label className="flex items-center gap-2 text-sm font-medium cursor-pointer">
