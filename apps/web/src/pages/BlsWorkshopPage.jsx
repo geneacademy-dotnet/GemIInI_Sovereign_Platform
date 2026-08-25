@@ -256,6 +256,22 @@ const BlsWorkshopPage = () => {
                                 {lang === 'ar' ? 'راسل مكتب الرياض' : 'Message the Riyadh desk'}
                             </a>
                         </div>
+
+                        {/* Community Activation Bounty */}
+                        <div className="mt-4 rounded-xl border border-[hsl(var(--accent))]/50 bg-gradient-to-r from-[hsl(var(--accent))]/20 to-transparent p-5">
+                            <h3 className="text-sm font-bold flex items-center gap-2">
+                                <Sparkles className="h-4 w-4 text-[hsl(var(--accent))]" />
+                                {lang === 'ar' ? 'اكتشف مكافأتك الأولى: +100 GP' : 'Unlock Your First Ecosystem Bounty: +100 GP'}
+                            </h3>
+                            <p className="mt-2 text-xs text-muted-foreground leading-relaxed">
+                                {lang === 'ar' 
+                                    ? 'سجل الدخول إلى members.geneacademy.net باستخدام GA-ID الجديد الخاص بك، انضم إلى مجتمع BLS، وانشر تعريفاً مهنياً عن نفسك لتحصل فوراً على 100 نقطة إضافية.' 
+                                    : 'Log into members.geneacademy.net using your new GA-ID, join the BLS Clinical Community, and publish your first professional introduction to instantly receive +100 GP.'}
+                            </p>
+                            <a href="https://members.geneacademy.net/community" target="_blank" rel="noopener noreferrer" className="mt-3 inline-block font-mono text-xs font-bold text-[hsl(var(--accent))] hover:underline">
+                                {lang === 'ar' ? 'المطالبة بالمكافأة ➔' : 'Claim Bounty ➔'}
+                            </a>
+                        </div>
                     </div>
                 ) : (
                     <form onSubmit={onSubmit} className="grid gap-5 sm:grid-cols-2">
