@@ -20,36 +20,14 @@ import {
     AlertCircle,
     Coins,
     GraduationCap,
-    Mic,
-    Building2,
-    MessageCircle,
-    CheckSquare,
-    Square,
     Clock,
-    Flame,
-    ExternalLink
+    Flame
 } from 'lucide-react';
 import Layout from '@/components/site/Layout';
 import { Section } from '@/components/site/Bits';
+import SovereignGateway from '@/components/SovereignGateway';
+import ForensicProofVault from '@/components/ForensicProofVault';
 import { useLang } from '@/i18n/LanguageContext';
-import SovereignClient, { generateIdempotencyKey, normalizeGaId } from '@/services/sovereignService';
-
-const CANONICAL_UNIVERSITIES = [
-    'جامعة الخرطوم | University of Khartoum (UofK)',
-    'جامعة الجزيرة | University of Gezira (UOG)',
-    'جامعة أم درمان الإسلامية | Omdurman Islamic University (OIU)',
-    'جامعة الزعيم الأزهري | Alzaiem Alazhari University (AAU)',
-    'جامعة النيلين | Al-Neelain University (NU)',
-    'جامعة بحري | University of Bahri (UB)',
-    'جامعة شندي | University of Shendi (USH)',
-    'جامعة العلوم الطبية والتكنولوجيا | UMST',
-    'جامعة السودان للعلوم والتكنولوجيا | SUST',
-    'جامعة ابن سينا | Ibn Sina University (ISU)',
-    'جامعة الرازي | Al-Razi University (RU)',
-    'جامعة كرري | Karary University (KU)',
-    'جامعة القاهرة / كليات الطب المصرية (Egypt)',
-    'مؤسسة طبية أخرى / خريج خارج السودان ومصر'
-];
 
 const BlsWorkshopPage = () => {
     const { lang } = useLang();
@@ -58,16 +36,9 @@ const BlsWorkshopPage = () => {
 
     // 1. Referral Capture (?ref=GA-000)
     const rawRef = searchParams.get('ref') || searchParams.get('affiliate') || '';
-    const [referralId, setReferralId] = useState('');
-
     useEffect(() => {
         if (rawRef) {
-            const cleanRef = normalizeGaId(rawRef);
-            setReferralId(cleanRef);
-            localStorage.setItem('gemiini_affiliate_ref', cleanRef);
-        } else {
-            const savedRef = localStorage.getItem('gemiini_affiliate_ref') || 'GA-000';
-            setReferralId(savedRef);
+            localStorage.setItem('gemiini_affiliate_ref', rawRef);
         }
     }, [rawRef]);
 
@@ -90,120 +61,13 @@ const BlsWorkshopPage = () => {
         return () => clearInterval(interval);
     }, []);
 
-    // 3. Payment Method & Coffee Booster State
-    const [paymentMethod, setPaymentMethod] = useState('VODAFONE');
-    const [boughtCoffee, setBoughtCoffee] = useState(false);
-
-    // 4. Sanitized Form State
-    const [form, setForm] = useState({
-        fullName: '',
-        email: '',
-        phone: '',
-        university: CANONICAL_UNIVERSITIES[0],
-        role: 'house_officer',
-        providerRef: ''
-    });
-
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState('');
-    const [mintedResult, setMintedResult] = useState(null);
-    const [copied, setCopied] = useState(false);
-
-    const calculatedGp = boughtCoffee ? 250 : 200;
-    const totalAmountEgp = boughtCoffee ? 3250 : 3000;
-
-    const handleCopy = (text) => {
-        navigator.clipboard.writeText(text);
-        setCopied(true);
-        setTimeout(() => setCopied(false), 2000);
-    };
-
-    // 5. Submit Handler linked to Hardened SovereignClient.register
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        setError('');
-
-        if (!form.fullName.trim() || !form.email.trim() || !form.phone.trim()) {
-            setError(lang === 'ar' ? 'يرجى إكمال جميع الحقول الإلزامية' : 'Please complete all required fields');
-            return;
-        }
-
-        if (!form.providerRef.trim()) {
-            setError(lang === 'ar' ? 'يرجى إدخال رقم العملية أو الإشعار البنكي' : 'Please enter your payment transaction reference');
-            return;
-        }
-
-        setLoading(true);
-
-        try {
-            const idempotencyKey = generateIdempotencyKey({
-                email: form.email,
-                phone: form.phone,
-                method: paymentMethod,
-                coffee: boughtCoffee,
-                ref: form.providerRef
-            });
-
-            // Canonical payload structure matching Code.gs
-            const payload = {
-                action: 'bls_registration',
-                fullName: form.fullName.trim(),
-                email: form.email.trim(),
-                phone: form.phone.trim(),
-                university: form.university,
-                role: form.role,
-                workshopTrack: 'BLS_DOKKI_CAIRO_AUG28_2026',
-                paymentMethod: paymentMethod,
-                boughtCoffee: boughtCoffee,
-                feeAmount: totalAmountEgp,
-                providerRef: form.providerRef.trim(),
-                referralId: referralId || 'GA-000',
-                gpAwarded: calculatedGp,
-                idempotencyKey
-            };
-
-            // Call hardened SovereignClient with FIFO Mutex and PB circuit breaker
-            const res = await SovereignClient.register(payload);
-
-            if (res && (res.status === 'success' || res.gaId)) {
-                const gaId = normalizeGaId(res.gaId || 'GA-1001');
-                const finalResult = {
-                    gaId,
-                    name: form.fullName.trim(),
-                    email: form.email.trim(),
-                    phone: form.phone.trim(),
-                    university: form.university,
-                    gpBalance: res.gpBalance || calculatedGp,
-                    paymentMethod: paymentMethod,
-                    boughtCoffee: boughtCoffee,
-                    referralId: referralId || 'GA-000',
-                    sabriBonusUnlocked: true,
-                    workshopDate: 'Friday, August 28, 2026',
-                    location: 'Dr. Sabri Training Center (Lic. 1549) — Dokki, Cairo'
-                };
-
-                localStorage.setItem('gemiini_presence_id', gaId);
-                localStorage.setItem('gemiini_member_profile', JSON.stringify(finalResult));
-
-                setMintedResult(finalResult);
-            } else {
-                setError(res.message || res.error || 'تعذر تأكيد التسجيل في السجل المركزي. يرجى التواصل مع الدعم الأكاديمي.');
-            }
-        } catch (err) {
-            console.error('BLS Intake error:', err);
-            setError(err.message || 'حدث خطأ في الاتصال بالسجل المركزي. يرجى المحاولة أو التواصل عبر واتساب.');
-        } finally {
-            setLoading(false);
-        }
-    };
-
     return (
         <Layout>
             <Helmet>
                 <title>البرنامج السريري المتقدم للإنعاش القلبي الرئوي (BLS) — القاهرة | GemIInI Academy</title>
                 <meta
                     name="description"
-                    content="البرنامج السريري المعتمد للإنعاش القلبي الرئوي (BLS) — دفعة القاهرة 28 أغسطس 2026. محاكاة سريرية واختبار معتمد من المجلس الطبي وجمعية القلب الأمريكية مع 200 GP."
+                    content="البرنامج السريري المعتمد للإنعاش القلبي الرئوي (BLS) — دفعة القاهرة 28 أغسطس 2026. تدريب عملي بمحاكيات سريرية واعتماد المجلس الطبي السوداني وجمعية القلب الأمريكية."
                 />
             </Helmet>
 
@@ -267,73 +131,10 @@ const BlsWorkshopPage = () => {
                         </div>
                     </div>
 
-                    {/* STAGE 2: INSTITUTIONAL COLLABORATION & DIGITAL ACCELERATOR */}
-                    <div className="p-8 sm:p-12 rounded-3xl bg-slate-900/90 border border-amber-500/30 shadow-2xl relative overflow-hidden backdrop-blur-md">
-                        <div className="flex items-center gap-3 mb-6">
-                            <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 text-lg">
-                                🏛️
-                            </div>
-                            <div>
-                                <span className="text-xs font-mono uppercase tracking-widest text-amber-400 font-bold block">
-                                    ACADEMIC ECOSYSTEM & DIGITAL ACCELERATOR
-                                </span>
-                                <h2 className="text-xl sm:text-2xl font-bold text-white font-serif mt-0.5">
-                                    المنظومة المتكاملة: التدريب السريري المعتمد والتأهيل الرقمي الدولي
-                                </h2>
-                            </div>
-                        </div>
+                    {/* STAGE 2: FORENSIC PROOF VAULT & INSTITUTIONAL CRUCIBLE */}
+                    <ForensicProofVault />
 
-                        <div className="space-y-4 text-gray-200 text-sm sm:text-base leading-relaxed font-serif">
-                            <p className="text-justify">
-                                تنعقد هذه الدورة المتميزة ثمرةً للتعاون الأكاديمي بين <strong>أكاديمية جيميني (GemIInI Academy)</strong> و<strong>مركز د. صبري للتدريب الطبي المتقدم (ترخيص 1549)</strong> لتزويد الأطباء والممارسين بتدريب عملي عالي المستوى يلبي المعايير المعتمدة لجمعية القلب الأمريكية (AHA) والمجلس الطبي السوداني (SMC).
-                            </p>
-                            <p className="text-justify border-r-2 border-amber-400 pr-4 text-amber-100 font-bold italic">
-                                "تعمل أكاديمية جيميني كمسرّع رقمي ومهني متكامل؛ حيث لا يحصل المتدرب على شهادة الإنعاش فحسب، بل يُمنح هوية رقمية موثقة (GA-ID)، ورصيد 200 نقطة معرفية (GP)، وحقيبة هندسة السيرة الذاتية الطبية لفتح آفاق التوظيف الدولي."
-                            </p>
-                        </div>
-
-                        <div className="mt-8 pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-gray-400">
-                            <span>📜 الاعتماد السريري: AHA & SMC Accredited</span>
-                            <span>💎 المنحة الرقمية: 200 GemIInI Points (GP)</span>
-                            <span>📍 الموقع الميداني: Dokki Clinical Center</span>
-                        </div>
-                    </div>
-
-                    {/* STAGE 3: VISUAL ANCHORING & METRICS */}
-                    <div className="space-y-6">
-                        <div className="text-center">
-                            <span className="text-xs font-mono text-cyan-400 font-bold uppercase tracking-wider block">VERIFIED METRICS & INSTITUTIONAL FOOTPRINT</span>
-                            <h3 className="text-2xl sm:text-3xl font-black text-white mt-1">أرقام تتحدث عن ثقل المنظومة</h3>
-                        </div>
-
-                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
-                            <div className="p-6 rounded-3xl bg-slate-900 border border-white/10 hover:border-cyan-500/40 transition-all">
-                                <span className="text-3xl sm:text-4xl font-mono font-black text-cyan-400 block mb-1">1,905+</span>
-                                <span className="text-xs text-gray-300 font-bold block">طبيب وباحث مسجل</span>
-                                <span className="text-[10px] text-gray-500 font-mono">Global Medical Registry</span>
-                            </div>
-
-                            <div className="p-6 rounded-3xl bg-slate-900 border border-white/10 hover:border-amber-500/40 transition-all">
-                                <span className="text-3xl sm:text-4xl font-mono font-black text-amber-400 block mb-1">100%</span>
-                                <span className="text-xs text-gray-300 font-bold block">محاكاة عملية حية</span>
-                                <span className="text-[10px] text-gray-500 font-mono">Hands-on CPR Training</span>
-                            </div>
-
-                            <div className="p-6 rounded-3xl bg-slate-900 border border-white/10 hover:border-emerald-500/40 transition-all">
-                                <span className="text-3xl sm:text-4xl font-mono font-black text-emerald-400 block mb-1">2,500+</span>
-                                <span className="text-xs text-gray-300 font-bold block">حالة وسيناريو سريري</span>
-                                <span className="text-[10px] text-gray-500 font-mono">SMC / USMLE Vignettes</span>
-                            </div>
-
-                            <div className="p-6 rounded-3xl bg-slate-900 border border-white/10 hover:border-indigo-500/40 transition-all">
-                                <span className="text-3xl sm:text-4xl font-mono font-black text-indigo-400 block mb-1">200 GP</span>
-                                <span className="text-xs text-gray-300 font-bold block">منحة الرصيد التأسيسي</span>
-                                <span className="text-[10px] text-gray-500 font-mono">1 GP = 1 Certified Hour</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* STAGE 4: VALUATION MATRIX & DR. SABRI BONUS */}
+                    {/* STAGE 3: THE VALUATION MATRIX & EXCLUSIVE BONUSES */}
                     <div className="space-y-6">
                         <div className="text-center">
                             <span className="text-xs font-mono text-cyan-400 font-bold uppercase tracking-wider block">PROGRAM VALUATION ARCHITECTURE</span>
@@ -406,205 +207,9 @@ const BlsWorkshopPage = () => {
                         </div>
                     </div>
 
-                    {/* STAGE 5: THE INTAKE FORM (PLACED AT THE BOTTOM OF THE FUNNEL) */}
-                    <div id="register" className="pt-8">
-                        <div className="text-center mb-8">
-                            <span className="text-xs font-mono text-red-400 font-bold uppercase tracking-wider block">FINAL STEP: SECURE YOUR PHYSICAL SEAT</span>
-                            <h3 className="text-2xl sm:text-4xl font-black text-white mt-1">استمارة الحجز والتسجيل السريري</h3>
-                            <p className="text-xs sm:text-sm text-gray-400 mt-2">يتم إصدار رقم المعرف الأكاديمي (GA-ID) وتفعيل رصيد 200 GP فور تأكيد الإشعار.</p>
-                        </div>
+                    {/* STAGE 4: THE ADAPTIVE SOVEREIGN GATEWAY INTAKE */}
+                    <SovereignGateway />
 
-                        {mintedResult ? (
-                            <div className="p-8 rounded-3xl bg-slate-900 border border-emerald-500/40 shadow-2xl space-y-4">
-                                <div className="text-center pb-4 border-b border-white/10">
-                                    <span className="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-mono font-bold">تم تأكيد المقعد وإصدار الهوية بنجاح</span>
-                                    <h3 className="text-3xl font-mono font-black text-cyan-400 mt-2">{mintedResult.gaId}</h3>
-                                    <p className="text-xs text-gray-400 mt-1">{mintedResult.name}</p>
-                                </div>
-                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-mono">
-                                    <div className="p-3 rounded-xl bg-black/40">الرصيد المودع: <strong className="text-amber-400">+{mintedResult.gpBalance} GP</strong></div>
-                                    <div className="p-3 rounded-xl bg-black/40">بونص د. صبري: <strong className="text-emerald-300">مفعل (حقيبة السيرة الذاتية)</strong></div>
-                                </div>
-                                <div className="flex gap-3 pt-2">
-                                    <button onClick={() => navigate('/dashboard')} className="w-full py-3 rounded-xl bg-cyan-500 text-slate-950 font-bold text-xs text-center">دخول لوحة التحكم والمحفظة ➔</button>
-                                    <button onClick={() => navigate(`/verify?id=${mintedResult.gaId}`)} className="w-full py-3 rounded-xl bg-slate-800 text-white font-bold text-xs text-center">التحقق في السجل العام ➔</button>
-                                </div>
-                            </div>
-                        ) : (
-                            <form onSubmit={handleSubmit} className="p-6 sm:p-10 rounded-3xl bg-slate-900/90 border border-white/10 space-y-6 shadow-2xl">
-                                <div>
-                                    <h4 className="text-xs font-mono font-bold text-cyan-400 mb-3 flex items-center gap-2">
-                                        <span>01.</span> البيانات الشخصية والجامعية
-                                    </h4>
-                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                        <div>
-                                            <label className="block text-xs text-gray-300 mb-1">الاسم الرباعي الرسمي *</label>
-                                            <input
-                                                type="text"
-                                                required
-                                                placeholder="Dr. Firstname Lastname"
-                                                value={form.fullName}
-                                                onChange={(e) => setForm({ ...form, fullName: e.target.value })}
-                                                className="w-full px-4 py-2.5 rounded-xl bg-black/50 border border-white/15 text-white text-sm focus:border-cyan-400 focus:outline-none"
-                                            />
-                                        </div>
-                                        <div>
-                                            <label className="block text-xs text-gray-300 mb-1">البريد الإلكتروني المهني *</label>
-                                            <input
-                                                type="email"
-                                                required
-                                                placeholder="physician@hospital.edu"
-                                                value={form.email}
-                                                onChange={(e) => setForm({ ...form, email: e.target.value })}
-                                                className="w-full px-4 py-2.5 rounded-xl bg-black/50 border border-white/15 text-white text-sm focus:border-cyan-400 focus:outline-none"
-                                            />
-                                        </div>
-                                        <div>
-                                            <label className="block text-xs text-gray-300 mb-1">رقم الهاتف / الواتساب *</label>
-                                            <input
-                                                type="tel"
-                                                required
-                                                placeholder="+20 100 000 0000"
-                                                value={form.phone}
-                                                onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                                                className="w-full px-4 py-2.5 rounded-xl bg-black/50 border border-white/15 text-white text-sm focus:border-cyan-400 focus:outline-none"
-                                            />
-                                        </div>
-                                        <div>
-                                            <label className="block text-xs text-gray-300 mb-1">الجامعة / الكلية الطبية *</label>
-                                            <select
-                                                value={form.university}
-                                                onChange={(e) => setForm({ ...form, university: e.target.value })}
-                                                className="w-full px-4 py-2.5 rounded-xl bg-black/50 border border-white/15 text-white text-sm focus:border-cyan-400 focus:outline-none"
-                                            >
-                                                {CANONICAL_UNIVERSITIES.map((u, idx) => (
-                                                    <option key={idx} value={u} className="bg-slate-900 text-white">
-                                                        {u}
-                                                    </option>
-                                                ))}
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div className="pt-4 border-t border-white/10 space-y-4">
-                                    <h4 className="text-xs font-mono font-bold text-cyan-400 flex items-center gap-2">
-                                        <span>02.</span> قناة السداد والتحقق
-                                    </h4>
-
-                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                                        <div
-                                            onClick={() => setPaymentMethod('VODAFONE')}
-                                            className={`p-4 rounded-xl border cursor-pointer font-bold flex items-center justify-between text-xs transition-all ${
-                                                paymentMethod === 'VODAFONE'
-                                                    ? 'border-red-500 bg-red-500/10 text-red-300'
-                                                    : 'border-white/10 bg-white/5 text-gray-400'
-                                            }`}
-                                        >
-                                            <span>فودافون كاش (Vodafone Cash — 3,000 EGP)</span>
-                                            {paymentMethod === 'VODAFONE' && <span>✓</span>}
-                                        </div>
-                                        <div
-                                            onClick={() => setPaymentMethod('BANK')}
-                                            className={`p-4 rounded-xl border cursor-pointer flex items-center justify-between text-xs transition-all ${
-                                                paymentMethod === 'BANK'
-                                                    ? 'border-emerald-500 bg-emerald-500/10 text-emerald-300 font-bold'
-                                                    : 'border-white/10 bg-white/5 text-gray-400'
-                                            }`}
-                                        >
-                                            <span>تحويل بنكي / InstaPay / بنكك (Manual Gate)</span>
-                                            {paymentMethod === 'BANK' && <span>✓</span>}
-                                        </div>
-                                    </div>
-
-                                    {paymentMethod === 'VODAFONE' ? (
-                                        <div className="p-4 rounded-2xl bg-red-500/5 border border-red-500/20 space-y-3">
-                                            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                                                <div>
-                                                    <strong className="text-sm text-white block">محفظة فودافون كاش الرسمية</strong>
-                                                    <span className="text-xs text-gray-400">المبلغ: 3,000 جنيه مصري</span>
-                                                </div>
-                                                <span className="px-3 py-1.5 rounded-xl bg-black/60 font-mono text-red-300 font-bold text-sm">01015922628</span>
-                                            </div>
-                                            <div className="p-2.5 rounded-xl bg-black/40 font-mono text-[11px] text-gray-300">
-                                                كود السداد المباشر: <span className="text-cyan-300 font-bold">*9*7*01015922628*3000#</span>
-                                            </div>
-                                        </div>
-                                    ) : (
-                                        <div className="p-4 rounded-2xl bg-emerald-500/5 border border-emerald-500/20 space-y-3">
-                                            <div className="flex items-start gap-3">
-                                                <span className="text-emerald-400 text-xl">🏛️</span>
-                                                <div>
-                                                    <strong className="text-sm text-white block">التحويلات البنكية تتطلب التحقق الفوري</strong>
-                                                    <p className="text-xs text-gray-300 mt-1">تواصل مع مكتب العمليات الأكاديمية على واتساب لتزويدك برقم الحساب وإرسال الإشعار.</p>
-                                                </div>
-                                            </div>
-                                            <a
-                                                href="https://wa.me/201015922628"
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-500 text-slate-950 font-bold text-xs"
-                                            >
-                                                <span>مراسلة المكتب الأكاديمي على واتساب (+20 101 592 2628) ➔</span>
-                                            </a>
-                                        </div>
-                                    )}
-
-                                    <div>
-                                        <label className="block text-xs text-gray-300 mb-1 font-medium">رقم العملية / الإشعار من الرسالة *</label>
-                                        <input
-                                            type="text"
-                                            required
-                                            placeholder="TRX-XXXXXXXX أو رقم التحويل"
-                                            value={form.providerRef}
-                                            onChange={(e) => setForm({ ...form, providerRef: e.target.value })}
-                                            className="w-full px-4 py-2.5 rounded-xl bg-black/60 border border-white/15 text-white font-mono text-xs focus:border-cyan-400 focus:outline-none"
-                                        />
-                                    </div>
-                                </div>
-
-                                <div
-                                    onClick={() => setBoughtCoffee(!boughtCoffee)}
-                                    className={`p-4 sm:p-5 rounded-2xl border cursor-pointer flex items-center justify-between transition-all ${
-                                        boughtCoffee
-                                            ? 'border-amber-400 bg-amber-950/40 ring-1 ring-amber-400'
-                                            : 'border-white/10 bg-white/5'
-                                    }`}
-                                >
-                                    <div className="flex items-center gap-3">
-                                        {boughtCoffee ? <CheckSquare className="w-5 h-5 text-amber-400" /> : <Square className="w-5 h-5 text-gray-400" />}
-                                        <div>
-                                            <strong className="text-xs sm:text-sm text-white block">باقة راعي الكونسورتيوم (Consortium Patron Booster — 250 EGP)</strong>
-                                            <p className="text-[11px] text-amber-300 mt-0.5">
-                                                المساهمة في التوسع المستمر للبرامج السريرية، تفعيل التدقيق السريع، ومنح رصيد إضافي <strong>+50 GP</strong> (إجمالي 250 GP)!
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <span className="px-3 py-1 rounded-full font-mono text-[11px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30 flex-shrink-0">
-                                        {boughtCoffee ? '+50 GP Active (Total 250 GP)' : '+50 GP Booster'}
-                                    </span>
-                                </div>
-
-                                {error && (
-                                    <div className="p-4 rounded-xl bg-red-500/10 border border-red-500/30 text-red-300 text-xs">
-                                        {error}
-                                    </div>
-                                )}
-
-                                <button
-                                    type="submit"
-                                    disabled={loading}
-                                    className="w-full py-4 rounded-2xl bg-gradient-to-r from-red-500 via-rose-500 to-amber-500 text-white font-black text-sm shadow-xl shadow-red-500/20 hover:opacity-95 transition-all flex items-center justify-center gap-2 disabled:opacity-50"
-                                >
-                                    {loading ? (
-                                        <span>جارٍ معالجة الحجز وتوثيق القيد في السجل المركزي...</span>
-                                    ) : (
-                                        <span>تأكيد الحجز وإصدار GemIInI ID برصيد {calculatedGp} GP وبونص د. صبري ➔</span>
-                                    )}
-                                </button>
-                            </form>
-                        )}
-                    </div>
                 </div>
             </Section>
         </Layout>
