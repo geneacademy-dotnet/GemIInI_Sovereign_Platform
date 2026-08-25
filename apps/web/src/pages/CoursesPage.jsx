@@ -1,75 +1,298 @@
-import React, { useMemo, useState } from 'react';
+import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
-import { Search } from 'lucide-react';
+import { BookOpen, ShieldCheck, Sparkles, Award, FileText, CheckCircle2, ChevronRight, Search, Layers, X } from 'lucide-react';
 import Layout from '@/components/site/Layout';
-import { CourseCard, DemoBadge, PageHeader, Section, StateBlock } from '@/components/site/Bits';
+import { PageHeader, Section } from '@/components/site/Bits';
 import { useLang } from '@/i18n/LanguageContext';
-import { useAuth } from '@/contexts/AuthContext';
-import { courses } from '@/data/demo';
+import curriculumData from '@/data/curriculum-inventory.json';
 
-const tracks = ['all', 'Clinical exams', 'Genomics', 'Laboratory', 'Operations'];
+const PILLAR_COLORS = {
+    gemiini: {
+        border: 'border-[hsl(var(--teal))]/40',
+        bg: 'bg-[hsl(var(--teal))]/5',
+        badge: 'bg-[hsl(var(--teal))]/15 text-[hsl(var(--teal))]',
+        accent: 'text-[hsl(var(--teal))]',
+        name: 'GemIInI Academy',
+    },
+    geneacademy: {
+        border: 'border-purple-500/40',
+        bg: 'bg-purple-500/5',
+        badge: 'bg-purple-500/15 text-purple-300',
+        accent: 'text-purple-400',
+        name: 'GeneAcademy®',
+    },
+    glomet: {
+        border: 'border-[hsl(var(--accent))]/40',
+        bg: 'bg-[hsl(var(--accent))]/5',
+        badge: 'bg-[hsl(var(--accent))]/15 text-[hsl(var(--accent))]',
+        accent: 'text-[hsl(var(--accent))]',
+        name: 'GLOMEt HQ',
+    }
+};
 
 const CoursesPage = () => {
-    const { t, lang } = useLang();
-    const { isAuthed } = useAuth();
-    const [query, setQuery] = useState('');
-    const [track, setTrack] = useState('all');
+    const { lang } = useLang();
+    const [activeTier, setActiveTier] = useState('tier_1_active');
+    const [selectedPillar, setSelectedPillar] = useState('ALL');
+    const [searchQuery, setSearchQuery] = useState('');
+    const [activeSyllabusModal, setActiveSyllabusModal] = useState(null);
 
-    const filtered = useMemo(
-        () =>
-            courses.filter((course) => {
-                const matchTrack = track === 'all' || course.track === track;
-                const haystack = `${course.title} ${course.titleAr} ${course.branch}`.toLowerCase();
-                return matchTrack && haystack.includes(query.trim().toLowerCase());
-            }),
-        [query, track],
-    );
+    const currentTierData = curriculumData.tiers.find((t) => t.id === activeTier) || curriculumData.tiers[0];
+
+    const filteredModules = currentTierData.modules.filter((m) => {
+        const matchesPillar = selectedPillar === 'ALL' || m.pillar === selectedPillar;
+        const q = searchQuery.toLowerCase().trim();
+        const matchesSearch = !q || 
+            m.code.toLowerCase().includes(q) || 
+            m.title.toLowerCase().includes(q) || 
+            (m.title_ar && m.title_ar.includes(q)) ||
+            (m.focus && m.focus.toLowerCase().includes(q));
+        return matchesPillar && matchesSearch;
+    });
 
     return (
         <Layout>
             <Helmet>
-                <title>Course catalogue | Gene Academy</title>
-                <meta name="description" content="Browse Gene Academy courses: MTC clinical exam simulation, genomic literacy, molecular diagnostics quality and medical procurement operations." />
+                <title>{lang === 'ar' ? 'سجل البرامج والمناهج الأكاديمية' : 'Curriculum & Inventory Registry'} | GemIInI Academy</title>
+                <meta
+                    name="description"
+                    content="Authoritative curriculum registry across GemIInI Academy, GeneAcademy®, and GLOMEt HQ: Clinical Mastery, Molecular Medicine, B2B Infrastructure, and MTC™ Compliance."
+                />
             </Helmet>
-            <PageHeader title={t('courses.title')} subtitle={t('courses.sub')} />
-            <Section rail="max-w-[90rem]" action={<DemoBadge />}>
-                <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-                    <label className="relative flex w-full max-w-sm items-center">
-                        <Search className="absolute start-3 h-4 w-4 text-muted-foreground" strokeWidth={1.8} />
-                        <input
-                            value={query}
-                            onChange={(e) => setQuery(e.target.value)}
-                            placeholder={t('courses.search')}
-                            className="min-h-[44px] w-full rounded-xl border border-input bg-card ps-10 pe-4 text-sm outline-none focus:border-[hsl(var(--accent))]"
-                        />
-                    </label>
-                    <div className="flex flex-wrap gap-2">
-                        {tracks.map((item) => (
+
+            <PageHeader
+                title={lang === 'ar' ? 'المصفوفة الأكاديمية والمناهج المعتمدة' : 'Academic Matrix & Curriculum Inventory'}
+                subtitle={lang === 'ar' 
+                    ? 'السجل المعياري للبرامج السريرية، مسارات الطب الجزيئي، وأدوات الحوكمة الأكاديمية MTC™' 
+                    : 'The standardized matrix for clinical mastery, molecular medicine tracks, and MTC™ pedagogical quality assurance.'}
+            />
+
+            <Section rail="max-w-[72rem]">
+                {/* 3 OPERATIONAL TIERS TABS */}
+                <div className="flex flex-col sm:flex-row gap-2 border-b border-border pb-4 mb-8">
+                    {curriculumData.tiers.map((tier) => {
+                        const isActive = tier.id === activeTier;
+                        return (
                             <button
-                                key={item}
-                                type="button"
-                                onClick={() => setTrack(item)}
-                                className={`min-h-[40px] rounded-full border px-4 text-sm transition-colors ${
-                                    track === item ? 'border-transparent bg-primary text-primary-foreground' : 'border-border hover:bg-secondary'
+                                key={tier.id}
+                                onClick={() => setActiveTier(tier.id)}
+                                className={`px-5 py-3 rounded-xl text-xs sm:text-sm font-semibold transition-all text-left flex items-center justify-between gap-3 ${
+                                    isActive
+                                        ? 'bg-[hsl(var(--accent))] text-black shadow-md'
+                                        : 'bg-card border border-border text-muted-foreground hover:text-foreground'
                                 }`}
                             >
-                                {item === 'all' ? t('courses.all') : item}
+                                <span>{tier.label[lang] || tier.label.en}</span>
+                                <span className={`text-[10px] font-mono px-2 py-0.5 rounded-full ${isActive ? 'bg-black/20 text-black font-bold' : 'bg-muted text-muted-foreground'}`}>
+                                    {tier.modules.length}
+                                </span>
                             </button>
-                        ))}
+                        );
+                    })}
+                </div>
+
+                {/* SEARCH & PILLAR FILTERS */}
+                <div className="flex flex-col md:flex-row gap-4 justify-between items-stretch md:items-center mb-8">
+                    <div className="relative flex-1 max-w-md">
+                        <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                        <input
+                            type="text"
+                            placeholder={lang === 'ar' ? 'ابحث بالكود (مثال: SMC-101، MTC-000) أو العنوان...' : 'Search by code (e.g. SMC-101, MTC-000) or topic...'}
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                            className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-input bg-card text-xs sm:text-sm outline-none focus:border-[hsl(var(--accent))]"
+                        />
+                    </div>
+
+                    <div className="flex flex-wrap gap-2 text-xs">
+                        <button
+                            onClick={() => setSelectedPillar('ALL')}
+                            className={`px-3 py-1.5 rounded-lg border transition-all ${
+                                selectedPillar === 'ALL' ? 'border-[hsl(var(--accent))] bg-[hsl(var(--accent))]/10 font-bold text-[hsl(var(--accent))]' : 'border-border bg-card'
+                            }`}
+                        >
+                            {lang === 'ar' ? 'جميع الأركان' : 'All Pillars'}
+                        </button>
+                        <button
+                            onClick={() => setSelectedPillar('gemiini')}
+                            className={`px-3 py-1.5 rounded-lg border transition-all ${
+                                selectedPillar === 'gemiini' ? 'border-[hsl(var(--teal))] bg-[hsl(var(--teal))]/10 font-bold text-[hsl(var(--teal))]' : 'border-border bg-card'
+                            }`}
+                        >
+                            GemIInI (Clinical)
+                        </button>
+                        <button
+                            onClick={() => setSelectedPillar('geneacademy')}
+                            className={`px-3 py-1.5 rounded-lg border transition-all ${
+                                selectedPillar === 'geneacademy' ? 'border-purple-500 bg-purple-500/10 font-bold text-purple-400' : 'border-border bg-card'
+                            }`}
+                        >
+                            GeneAcademy (Molecular)
+                        </button>
+                        <button
+                            onClick={() => setSelectedPillar('glomet')}
+                            className={`px-3 py-1.5 rounded-lg border transition-all ${
+                                selectedPillar === 'glomet' ? 'border-[hsl(var(--accent))] bg-[hsl(var(--accent))]/10 font-bold text-[hsl(var(--accent))]' : 'border-border bg-card'
+                            }`}
+                        >
+                            GLOMEt (B2B Infra)
+                        </button>
                     </div>
                 </div>
 
-                {filtered.length === 0 ? (
-                    <StateBlock />
-                ) : (
-                    <div className="grid gap-6 lg:grid-cols-3">
-                        {filtered.map((course) => (
-                            <CourseCard key={course.id} course={course} member={isAuthed} />
-                        ))}
+                {/* MODULES GRID */}
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                    {filteredModules.map((item) => {
+                        const style = PILLAR_COLORS[item.pillar] || PILLAR_COLORS.gemiini;
+                        const isMtcCompliance = item.code === 'MTC-000';
+                        return (
+                            <div
+                                key={item.code}
+                                className={`rounded-2xl border p-5 flex flex-col justify-between transition-all hover:scale-[1.01] ${style.border} ${style.bg}`}
+                            >
+                                <div>
+                                    <div className="flex items-center justify-between gap-2 mb-3">
+                                        <span className="font-mono text-xs font-bold px-2.5 py-1 rounded-md bg-card border border-border text-foreground">
+                                            {item.code}
+                                        </span>
+                                        <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full ${style.badge}`}>
+                                            {style.name}
+                                        </span>
+                                    </div>
+
+                                    <h3 className="font-semibold text-sm leading-snug mb-1">
+                                        {lang === 'ar' && item.title_ar ? item.title_ar : item.title}
+                                    </h3>
+                                    {lang === 'ar' && item.title_ar && (
+                                        <p className="font-mono text-[11px] text-muted-foreground mb-2">{item.title}</p>
+                                    )}
+
+                                    <p className="text-xs text-muted-foreground leading-relaxed mt-2 line-clamp-3">
+                                        {item.focus}
+                                    </p>
+                                </div>
+
+                                <div className="mt-4 pt-3 border-t border-border/50 flex items-center justify-between text-[11px]">
+                                    <span className="text-muted-foreground font-mono">
+                                        {item.credits || (item.level ? `Level ${item.level}` : 'Core')}
+                                    </span>
+
+                                    {item.syllabus ? (
+                                        <button
+                                            onClick={() => setActiveSyllabusModal(item)}
+                                            className="font-semibold text-[hsl(var(--accent))] hover:underline flex items-center gap-1"
+                                        >
+                                            <FileText className="h-3.5 w-3.5" />
+                                            <span>{lang === 'ar' ? 'عرض وثيقة المنهج ➔' : 'View Syllabus ➔'}</span>
+                                        </button>
+                                    ) : (
+                                        <span className="text-muted-foreground font-medium">
+                                            {item.level ? `Level ${item.level}` : 'Accredited'}
+                                        </span>
+                                    )}
+                                </div>
+                            </div>
+                        );
+                    })}
+                </div>
+
+                {filteredModules.length === 0 && (
+                    <div className="text-center py-16 rounded-2xl border border-dashed border-border bg-card p-8">
+                        <p className="text-sm text-muted-foreground">
+                            {lang === 'ar' ? 'لا توجد وحدات مطابقة لبحثك في هذا المستوى.' : 'No modules matched your query in this tier.'}
+                        </p>
                     </div>
                 )}
-                <p className="mt-6 text-xs text-muted-foreground">{lang === 'ar' ? 'المستويات المتقدمة تُفتح بعد إكمال المستوى السابق.' : 'Advanced levels unlock once the previous level is completed.'}</p>
             </Section>
+
+            {/* MTC-000 SYLLABUS MODAL */}
+            {activeSyllabusModal && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+                    <div className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-3xl border border-[hsl(var(--accent))]/40 bg-card p-6 sm:p-8 shadow-2xl space-y-6">
+                        <button
+                            onClick={() => setActiveSyllabusModal(null)}
+                            className="absolute right-5 top-5 p-2 rounded-full bg-muted/60 text-muted-foreground hover:text-foreground"
+                        >
+                            <X className="h-5 w-5" />
+                        </button>
+
+                        <div className="flex items-center gap-3">
+                            <span className="font-mono text-xs font-bold px-3 py-1 rounded-lg bg-[hsl(var(--accent))]/20 text-[hsl(var(--accent))] border border-[hsl(var(--accent))]/40">
+                                {activeSyllabusModal.code}
+                            </span>
+                            <span className="text-xs font-semibold text-muted-foreground">
+                                {activeSyllabusModal.credits} · {activeSyllabusModal.hours}
+                            </span>
+                        </div>
+
+                        <div>
+                            <h2 className="font-display text-xl sm:text-2xl font-bold">
+                                {lang === 'ar' && activeSyllabusModal.title_ar ? activeSyllabusModal.title_ar : activeSyllabusModal.title}
+                            </h2>
+                            <p className="text-xs text-[hsl(var(--accent))] font-medium mt-1">
+                                Instructor: {activeSyllabusModal.instructor}
+                            </p>
+                        </div>
+
+                        {activeSyllabusModal.syllabus && (
+                            <div className="space-y-6 text-xs sm:text-sm">
+                                <div className="rounded-2xl border border-border bg-card/60 p-4">
+                                    <h4 className="font-bold text-foreground mb-1">
+                                        {lang === 'ar' ? 'الرؤية والهدف المؤسسي:' : 'Course Overview & Rationale:'}
+                                    </h4>
+                                    <p className="text-muted-foreground leading-relaxed">
+                                        {activeSyllabusModal.syllabus.rationale}
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <h4 className="font-bold text-foreground mb-2">
+                                        {lang === 'ar' ? 'أهداف التعلم الأساسية:' : 'Core Learning Objectives:'}
+                                    </h4>
+                                    <ul className="space-y-2">
+                                        {activeSyllabusModal.syllabus.objectives.map((obj, i) => (
+                                            <li key={i} className="flex items-start gap-2.5 text-muted-foreground">
+                                                <CheckCircle2 className="h-4 w-4 text-[hsl(var(--teal))] shrink-0 mt-0.5" />
+                                                <span>{obj}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+
+                                <div>
+                                    <h4 className="font-bold text-foreground mb-3">
+                                        {lang === 'ar' ? 'الوحدات والمحاور الدراسية:' : 'Module Units & Content Breakdown:'}
+                                    </h4>
+                                    <div className="grid gap-3 sm:grid-cols-2">
+                                        {activeSyllabusModal.syllabus.units.map((u, i) => (
+                                            <div key={i} className="rounded-xl border border-border bg-muted/20 p-4">
+                                                <p className="font-semibold text-foreground text-xs mb-2">{u.unit}</p>
+                                                <ul className="space-y-1 text-[11px] text-muted-foreground list-disc list-inside">
+                                                    {u.topics.map((t, idx) => (
+                                                        <li key={idx}>{t}</li>
+                                                    ))}
+                                                </ul>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                <div className="rounded-2xl border border-[hsl(var(--teal))]/30 bg-[hsl(var(--teal))]/5 p-4 space-y-2">
+                                    <h4 className="font-bold text-foreground">
+                                        {lang === 'ar' ? 'نظام التقييم والاعتماد:' : 'Assessment & Certification Structure:'}
+                                    </h4>
+                                    <p className="text-muted-foreground text-xs leading-relaxed">
+                                        <strong>Formative:</strong> {activeSyllabusModal.syllabus.assessment.formative}
+                                    </p>
+                                    <p className="text-muted-foreground text-xs leading-relaxed">
+                                        <strong>Summative:</strong> {activeSyllabusModal.syllabus.assessment.summative}
+                                    </p>
+                                </div>
+                            </div>
+                        )}
+                    </div>
+                </div>
+            )}
         </Layout>
     );
 };

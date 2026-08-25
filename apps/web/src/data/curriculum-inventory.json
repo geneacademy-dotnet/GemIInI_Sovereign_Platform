@@ -1,0 +1,319 @@
+{
+  "pillars": {
+    "gemiini": {
+      "name": "GemIInI Academy",
+      "code": "GEMIINI",
+      "color": "hsl(173, 80%, 40%)",
+      "badge": "Clinical & Board Readiness",
+      "theme": "Teal"
+    },
+    "geneacademy": {
+      "name": "GeneAcademy®",
+      "code": "GENEACADEMY",
+      "color": "hsl(265, 89%, 66%)",
+      "badge": "Molecular & Research Pods",
+      "theme": "Violet"
+    },
+    "glomet": {
+      "name": "GLOMEt HQ",
+      "code": "GLOMET",
+      "color": "hsl(43, 96%, 56%)",
+      "badge": "B2B Diagnostics & Turnkey Logistics",
+      "theme": "Gold"
+    }
+  },
+  "tiers": [
+    {
+      "id": "tier_1_active",
+      "label": {
+        "en": "Tier 1: Modules We Do Provide (Active Curriculum)",
+        "ar": "المستوى الأول: البرامج والوحدات المعتمدة والنشطة حالياً"
+      },
+      "description": "Fully established, integrated into active clinical and molecular tracks, and aligned with standard institutional coding.",
+      "modules": [
+        {
+          "code": "SMC-101",
+          "title": "Internal Medicine & Pathophysiology (MTC™ 1.0)",
+          "title_ar": "الباطنية العامة والفيزيولوجيا المرضية",
+          "pillar": "gemiini",
+          "level": 4,
+          "credits": "3.0 ECTS",
+          "focus": "High-yield acute care, fluid balance, DKA protocols, ABG interpretation, and ward readiness."
+        },
+        {
+          "code": "SMC-102",
+          "title": "General Surgery & Trauma Emergencies (MTC™ 2.0)",
+          "title_ar": "الجراحة العامة وطوارئ الإصابات",
+          "pillar": "gemiini",
+          "level": 4,
+          "credits": "3.0 ECTS",
+          "focus": "Acute abdomen triage, tension pneumothorax management, and surgical site infection protocols."
+        },
+        {
+          "code": "SMC-103",
+          "title": "Obstetrics & Gynecology (MTC™ 3.0)",
+          "title_ar": "النساء والتوليد",
+          "pillar": "gemiini",
+          "level": 4,
+          "credits": "3.0 ECTS",
+          "focus": "Postpartum hemorrhage (PPH) protocols, pre-eclampsia management, and CTG interpretation."
+        },
+        {
+          "code": "SMC-104",
+          "title": "Pediatrics & Neonatology (MTC™ 4.0)",
+          "title_ar": "طب الأطفال وحديثي الولادة",
+          "pillar": "gemiini",
+          "level": 4,
+          "credits": "3.0 ECTS",
+          "focus": "NRP algorithms, severe dehydration management, and pediatric airway care."
+        },
+        {
+          "code": "SMC-105",
+          "title": "Medical Ethics & Forensic Medicine (MTC™ 5.0)",
+          "title_ar": "الأخلاقيات الطبية والطب الشرعي",
+          "pillar": "gemiini",
+          "level": 3,
+          "credits": "2.0 ECTS",
+          "focus": "Informed consent, death certification, professional boundaries, and medical-legal compliance."
+        },
+        {
+          "code": "SMC-106",
+          "title": "Clinical Pharmacology & Toxicology (MTC™ 6.0)",
+          "title_ar": "علم الأدوية السريري والسموم",
+          "pillar": "gemiini",
+          "level": 4,
+          "credits": "2.5 ECTS",
+          "focus": "Antimicrobial stewardship, therapeutic drug titration, and emergency toxicology algorithms."
+        },
+        {
+          "code": "SMC-107",
+          "title": "Diagnostic Radiology & Lab Medicine (MTC™ 7.0)",
+          "title_ar": "الأشعة التشخيصية والطب المخبري",
+          "pillar": "gemiini",
+          "level": 4,
+          "credits": "2.5 ECTS",
+          "focus": "Chest X-ray patterns, emergency head CT triage, FAST ultrasound, and lab biomarkers."
+        },
+        {
+          "code": "SMC-108",
+          "title": "Community Medicine & Epidemiology (MTC™ 8.0)",
+          "title_ar": "طب المجتمع والوبائيات",
+          "pillar": "gemiini",
+          "level": 3,
+          "credits": "2.0 ECTS",
+          "focus": "Outbreak investigation, regional vaccination schedules, and biostatistical analysis."
+        },
+        {
+          "code": "SURG-201",
+          "title": "MRCS Part A: Foundation Sciences & Critical Care",
+          "title_ar": "زمالة الجراحة البريطانية MRCS الجزء الأول",
+          "pillar": "gemiini",
+          "level": 5,
+          "credits": "5.0 ECTS",
+          "focus": "Regional surgical anatomy, physiology, pathology, and perioperative critical care for international fellowships."
+        },
+        {
+          "code": "GERM-206",
+          "title": "German Medical License (Approbation) & FSP Track",
+          "title_ar": "مسار المعادلة والترخيص الطبي الألماني (Approbation & FSP)",
+          "pillar": "gemiini",
+          "level": 5,
+          "credits": "6.0 ECTS",
+          "focus": "Comprehensive medical German (Fachsprachprüfung C1), Arztbrief documentation, and Approbation licensing pathway."
+        },
+        {
+          "code": "SKILL-301",
+          "title": "Basic Surgical Skills (BSS-1 & BSS-2) Cairo Cohort",
+          "title_ar": "المهارات الجراحية الأساسية (دفعة القاهرة)",
+          "pillar": "gemiini",
+          "level": 4,
+          "credits": "2.0 ECTS",
+          "focus": "Hands-on simulation for aseptic technique, knot tying, suturing, tissue handling, and vascular anastomosis."
+        },
+        {
+          "code": "SKILL-303",
+          "title": "Basic Life Support (BLS) & CPR Certification",
+          "title_ar": "شهادة الدعم الحياتي الأساسي والإنعاش القلبي (BLS)",
+          "pillar": "gemiini",
+          "level": 3,
+          "credits": "1.5 ECTS",
+          "focus": "AHA & SMC compliant high-performance CPR, AED operation, foreign body airway relief, and team resuscitation dynamics."
+        },
+        {
+          "code": "MM-101-108",
+          "title": "Molecular Medicine 1.0 to 8.0 Series",
+          "title_ar": "سلسلة الطب الجزيئي 1.0 إلى 8.0",
+          "pillar": "geneacademy",
+          "level": 5,
+          "credits": "8.0 ECTS",
+          "focus": "DNA architecture, RNA biology, tumor genetics, CRISPR gene editing, epigenetics, and Clinical Whole Exome Sequencing (WES)."
+        },
+        {
+          "code": "POD-401",
+          "title": "15:5:1 Research Pods: Translational Oncology",
+          "title_ar": "كبسولات الأبحاث 15:5:1: أورام الطب الانتقالي",
+          "pillar": "geneacademy",
+          "level": 5,
+          "credits": "4.0 ECTS",
+          "focus": "Active collaborative research cohorts analyzing circulating tumor DNA (ctDNA) and cell-free RNA biomarkers."
+        },
+        {
+          "code": "RESC-501",
+          "title": "The 100 Papers Project & Thesis Support",
+          "title_ar": "مشروع 100 ورقة بحثية ودعم الأطروحات",
+          "pillar": "geneacademy",
+          "level": 5,
+          "credits": "5.0 ECTS",
+          "focus": "Academic rescue, statistical meta-analyses, and peer-reviewed publishing mentorship for displaced clinical researchers."
+        },
+        {
+          "code": "GLOM-601-701",
+          "title": "Turnkey Medical Laboratory Setup & Reagent Supply Chain (B2B)",
+          "title_ar": "تجهيز المختبرات الطبية وسلاسل إمداد الكواشف والمشخصات",
+          "pillar": "glomet",
+          "level": 5,
+          "credits": "B2B / Infra",
+          "focus": "Turnkey point-of-care laboratory deployment, ISO 15189 compliance, automated diagnostics, and cold-chain logistics."
+        }
+      ]
+    },
+    {
+      "id": "tier_2_expansion",
+      "label": {
+        "en": "Tier 2: Modules We Could Provide (Expansion Pipeline)",
+        "ar": "المستوى الثاني: برامج التوسع والجاهزية المستقبلية"
+      },
+      "description": "Backed by recurring high-yield clinical entities identified in historical exam recall audits (SMC RAW 1–5 datasets), primed for rollout.",
+      "modules": [
+        {
+          "code": "USMLE-202",
+          "title": "USMLE Step 1 & Step 2 CK Clinical Mastery Track",
+          "title_ar": "مسار المعادلة الأمريكية USMLE Step 1 & Step 2 CK",
+          "pillar": "gemiini",
+          "level": 5,
+          "credits": "6.0 ECTS",
+          "focus": "Advanced board preparation bridging basic science molecular mechanisms directly to US clinical vignette logic."
+        },
+        {
+          "code": "ATLS-304",
+          "title": "Advanced Trauma Life Support (ATLS) & Emergency Critical Care Mastery",
+          "title_ar": "الدعم المتقدم لإنقاذ مصابي الحوادث (ATLS) والعناية الحرجة",
+          "pillar": "gemiini",
+          "level": 5,
+          "credits": "3.0 ECTS",
+          "focus": "High-fidelity trauma resuscitation workflows calibrated for high-acuity deployment settings and warzone corridors."
+        },
+        {
+          "code": "TROP-205",
+          "title": "Tropical & Endemic Medicine Specialization",
+          "title_ar": "تخصص طب المناطق الحارة والأمراض المتوطنة",
+          "pillar": "gemiini",
+          "level": 4,
+          "credits": "3.0 ECTS",
+          "focus": "Regional priorities including mycetoma management, severe malaria, leishmaniasis, and neglected tropical diseases in East Africa."
+        },
+        {
+          "code": "BIO-402",
+          "title": "Clinical Bioinformatics & Next-Gen Sequencing (NGS) Pipeline Analysis",
+          "title_ar": "المعلوماتية الحيوية السريرية وتحليل تسلسل الجيل القادم NGS",
+          "pillar": "geneacademy",
+          "level": 5,
+          "credits": "4.0 ECTS",
+          "focus": "Hands-on computational biology pipelines (FASTQ, BAM, VCF), variant effect prediction (VEP), and clinical variant interpretation."
+        },
+        {
+          "code": "GLOM-801",
+          "title": "Hospital Biomedical Equipment Maintenance & Quality Assurance (B2B)",
+          "title_ar": "صيانة الأجهزة الطبية وضمان الجودة للمستشفيات",
+          "pillar": "glomet",
+          "level": 5,
+          "credits": "B2B / Tech",
+          "focus": "Technical engineering module focused on maintaining automated hematology analyzers, clinical chemistry systems, and PCR cleanrooms."
+        }
+      ]
+    },
+    {
+      "id": "tier_3_strategic",
+      "label": {
+        "en": "Tier 3: Modules We Should Provide (Strategic Imperatives & Governance)",
+        "ar": "المستوى الثالث: الركائز الاستراتيجية وحوكمة الممارسة السريرية"
+      },
+      "description": "Essential institutional pillars addressing pedagogical quality assurance, medical documentation safety, and sovereign diaspora infrastructure.",
+      "modules": [
+        {
+          "code": "MTC-000",
+          "title": "Clinical Documentation & Technical Writing Standards (MTC™ Compliance Module)",
+          "title_ar": "معايير التوثيق السريري والكتابة الطبية الاحترافية (وحدة الامتثال MTC™)",
+          "pillar": "gemiini",
+          "level": 5,
+          "credits": "2.0 ECTS / 1.5 SCH",
+          "hours": "60 Notional Hours",
+          "instructor": "Academic Directorate & MTC™ Audit Board",
+          "focus": "Mandatory quality assurance training to eradicate tenfold dosing errors, decimal tracking failures, SI unit mislabeling, and binomial nomenclature collisions.",
+          "syllabus": {
+            "rationale": "Historical board exam recalls (such as SMC RAW datasets) demonstrate that a critical percentage of medical errors stem not from diagnostic miscalculations, but from systemic communication breakdowns. Mislabeled SI units, trailing/missing decimal points, unstandardized abbreviations, and incorrect binomial nomenclature introduce fatal vulnerabilities into patient charts and research manuscripts.",
+            "objectives": [
+              "Master SI Unit Integrity: Eliminate tenfold dosing errors by enforcing strict metric standards (proper spacing, leading zeros for decimals, correct unit formatting).",
+              "Enforce Taxonomic & Nosological Precision: Apply official glossary guidelines and italicized binomial nomenclature to prevent data collisions.",
+              "Optimize Electronic Health Record (EHR) Safety: Draft unambiguous admission notes, surgical sign-outs, and transfer summaries.",
+              "Streamline Research Reporting: Align clinical case reports and academic manuscripts with international journal publishing standards."
+            ],
+            "units": [
+              {
+                "unit": "Unit 1: The Anatomy of a Medical Error in Documentation",
+                "topics": [
+                  "Typography as a clinical safety tool",
+                  "Hazards of 'The Clinic Way' vs standardized medical writing",
+                  "Case studies on decimal point failures and unit mislabeling"
+                ]
+              },
+              {
+                "unit": "Unit 2: SI Unit Regulations & Prescription Safety",
+                "topics": [
+                  "Rules for dosing notation (avoiding dangerous abbreviations like U or IU)",
+                  "Safe handling of electrolytes, chemotherapy orders, and continuous infusion rates"
+                ]
+              },
+              {
+                "unit": "Unit 3: Nosology, Terminology, and Data Harmonization",
+                "topics": [
+                  "Eliminating synonymous jargon and aligning with the unified glossary",
+                  "Correct formatting of disease entities, syndromes, and pharmacological agents"
+                ]
+              },
+              {
+                "unit": "Unit 4: Institutional Auditing & MTC™ Forensic Review",
+                "topics": [
+                  "Implementing the MTC™ framework for self-auditing clinical logs",
+                  "Preparing error-free handover notes and discharge letters (Arztbrief adaptation)"
+                ]
+              }
+            ],
+            "assessment": {
+              "formative": "Weekly technical writing practical audits correcting intentionally flawed patient charts and prescription logs.",
+              "summative": "Comprehensive 3-hour forensic document sanitization exam correcting SI, formatting, and structural errors within a simulated hospital database."
+            }
+          }
+        },
+        {
+          "code": "JUR-502",
+          "title": "Advanced Medical Jurisprudence & Professional Healthcare Governance",
+          "title_ar": "الفقه الطبي المتقدم وحوكمة الرعاية الصحية والمسؤولية المهنية",
+          "pillar": "gemiini",
+          "level": 5,
+          "credits": "2.0 ECTS",
+          "focus": "Institutional legal defense, clinical negligence defense protocols, informed consent architecture, and international medical board dispute resolution."
+        },
+        {
+          "code": "MTC-CORE",
+          "title": "The SudaGene Sovereign Clinical Mastery & Diaspora Integration Engine",
+          "title_ar": "المحرك السيادي للتمكن السريري وإدماج الكفاءات الطبية بالمهجر",
+          "pillar": "gemiini",
+          "level": 5,
+          "credits": "Core Protocol",
+          "focus": "Bedside decision architectures, cryptographic GA-ID provisioning, secure workspace initialization, and the 'Two Cups of Coffee' friction gate."
+        }
+      ]
+    }
+  ]
+}
