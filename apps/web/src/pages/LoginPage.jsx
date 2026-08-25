@@ -1,72 +1,133 @@
+/**
+ * src/pages/LoginPage.jsx
+ * Sovereign SudaPass & Academy Member Access Portal
+ * 2027 Spatial Glass Design
+ */
+
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link, useNavigate } from 'react-router-dom';
-import { ShieldCheck } from 'lucide-react';
+import { ShieldCheck, Fingerprint, Lock, ArrowRight, Zap, CheckCircle2 } from 'lucide-react';
 import Layout from '@/components/site/Layout';
-import { Section } from '@/components/site/Bits';
 import { useLang } from '@/i18n/LanguageContext';
 import { useAuth } from '@/contexts/AuthContext';
-import { sessionRef } from '@/lib/geneApi';
 
-const inputClass = 'min-h-[44px] w-full rounded-xl border border-input bg-card px-4 text-sm outline-none focus:border-[hsl(var(--accent))]';
+const inputClass = 'h-12 w-full rounded-2xl border border-white/10 bg-white/5 px-4 text-sm text-white outline-none transition-all placeholder:text-white/40 focus:border-[#00F2FE]/50 focus:bg-white/10 focus:ring-2 focus:ring-[#00F2FE]/20';
 
-const LoginPage = () => {
-    const { t } = useLang();
+export default function LoginPage() {
+    const { lang, isRtl } = useLang();
     const { login } = useAuth();
     const navigate = useNavigate();
-    const [form, setForm] = useState({ email: '', password: '' });
+    const [identifier, setIdentifier] = useState('');
+    const [password, setPassword] = useState('');
     const [status, setStatus] = useState('idle');
+    const [errorMsg, setErrorMsg] = useState('');
 
-    const onSubmit = async (event) => {
-        event.preventDefault();
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        if (!identifier.trim()) {
+            setErrorMsg(isRtl ? 'يرجى إدخال الرقم السيادي GA-ID أو البريد الإلكتروني' : 'Please enter your GA-ID or Email');
+            return;
+        }
+
         setStatus('loading');
+        setErrorMsg('');
+
         try {
-            const auth = await login(form.email, form.password);
-            sessionRef.set(auth?.record?.id || 'session');
-            navigate('/dashboard');
-        } catch {
-            sessionRef.clear();
-            setStatus('error');
+            const user = await login(identifier.trim(), password);
+            setStatus('success');
+            setTimeout(() => {
+                navigate(`/profile?id=${encodeURIComponent(user.ga_id || identifier.trim())}`);
+            }, 600);
+        } catch (err) {
+            setStatus('idle');
+            setErrorMsg(isRtl ? 'تعذر التحقق من الحساب. يرجى المحاولة مرة أخرى.' : 'Could not authenticate. Please try again.');
         }
     };
 
     return (
         <Layout>
             <Helmet>
-                <title>Member sign in | Gene Academy</title>
-                <meta name="description" content="Sign in to the Gene Academy member area to access your dashboard, courses, communities and secure workspace." />
+                <title>{isRtl ? 'تسجيل الدخول إلى SudaPass | أكاديمية جيميني' : 'SudaPass Member Access | GemIInI Academy'}</title>
             </Helmet>
-            <Section rail="max-w-[32rem]">
-                <div className="rounded-2xl border border-border bg-card p-8">
-                    <ShieldCheck className="h-7 w-7 text-[hsl(var(--teal))]" strokeWidth={1.7} />
-                    <h1 className="mt-4 font-display text-3xl font-semibold">{t('auth.login')}</h1>
-                    <p className="mt-2 text-sm text-muted-foreground">{t('auth.gate')}</p>
-                    <form onSubmit={onSubmit} className="mt-7 space-y-5">
-                        <label className="block text-sm font-medium">
-                            {t('auth.email')}
-                            <input type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className={`mt-2 ${inputClass}`} required />
-                        </label>
-                        <label className="block text-sm font-medium">
-                            {t('auth.password')}
-                            <input type="password" value={form.password} onChange={(e) => setForm({ ...form, password: e.target.value })} className={`mt-2 ${inputClass}`} required />
-                        </label>
-                        {status === 'error' && <p className="text-sm text-destructive">{t('auth.error')}</p>}
+
+            <div className="min-h-[80vh] flex items-center justify-center px-4 py-16 bg-[#04080F] relative overflow-hidden" dir={isRtl ? 'rtl' : 'ltr'}>
+                
+                {/* Ambient Glow */}
+                <div className="pointer-events-none absolute w-96 h-96 bg-[#00F2FE]/15 rounded-full blur-3xl top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+
+                <div className="w-full max-w-md relative z-10 rounded-[2.5rem] border border-white/15 bg-white/5 backdrop-blur-3xl p-8 sm:p-10 shadow-2xl">
+                    
+                    <div className="text-center mb-8">
+                        <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl border border-white/15 bg-[#00F2FE]/10 text-[#00F2FE] mb-4 shadow-xl">
+                            <Fingerprint className="h-7 w-7" />
+                        </div>
+                        <h1 className="font-display text-2xl sm:text-3xl font-bold text-white tracking-tight">
+                            {isRtl ? 'منصة الطبيب السيادية' : 'SudaPass Member Access'}
+                        </h1>
+                        <p className="text-xs sm:text-sm text-slate-400 mt-2">
+                            {isRtl ? 'أدخل معرفك السيادي (مثل GA-001) أو بريدك الإلكتروني للوصول إلى محفظتك وسجلك السريري:' : 'Enter your GA-ID (e.g. GA-001) or Email to access your clinical cockpit:'}
+                        </p>
+                    </div>
+
+                    <form onSubmit={handleSubmit} className="space-y-4">
+                        <div className="text-start">
+                            <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+                                {isRtl ? 'المعرف السيادي (GA-ID) أو البريد الإلكتروني *' : 'Sovereign GA-ID or Email *'}
+                            </label>
+                            <input
+                                type="text"
+                                required
+                                value={identifier}
+                                onChange={(e) => setIdentifier(e.target.value)}
+                                placeholder="GA-001 / doctor@geneacademy.net"
+                                className={inputClass}
+                            />
+                        </div>
+
+                        <div className="text-start">
+                            <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+                                {isRtl ? 'كلمة المرور (اختياري للأعضاء المسجلين)' : 'Password (Optional for Registered Members)'}
+                            </label>
+                            <input
+                                type="password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                placeholder="••••••••"
+                                className={inputClass}
+                            />
+                        </div>
+
+                        {errorMsg && (
+                            <p className="text-xs text-rose-400 text-start">{errorMsg}</p>
+                        )}
+
                         <button
                             type="submit"
                             disabled={status === 'loading'}
-                            className="min-h-[48px] w-full rounded-xl bg-primary text-sm font-medium text-primary-foreground transition-transform active:scale-[0.98] disabled:opacity-60"
+                            className="w-full h-12 rounded-2xl bg-[#00F2FE] hover:bg-[#38BDF8] text-slate-950 font-bold text-sm flex items-center justify-center gap-2 shadow-lg shadow-[#00F2FE]/20 transition-all active:scale-95 disabled:opacity-70 mt-2"
                         >
-                            {status === 'loading' ? t('common.loading') : t('auth.login')}
+                            {status === 'loading' ? (
+                                <Zap className="h-5 w-5 animate-pulse" />
+                            ) : (
+                                <>
+                                    <span>{isRtl ? 'الدخول إلى المنصة' : 'Enter SudaPass Cockpit'}</span>
+                                    {isRtl ? <ArrowRight className="h-4 w-4 rotate-180" /> : <ArrowRight className="h-4 w-4" />}
+                                </>
+                            )}
                         </button>
                     </form>
-                    <p className="mt-6 text-sm text-muted-foreground">
-                        {t('auth.noAccount')}{' '}
-                        <Link to="/signup" className="font-medium text-foreground underline-offset-4 hover:underline">{t('auth.signup')}</Link>
-                    </p>
+
+                    <div className="mt-8 pt-6 border-t border-white/10 text-center text-xs text-slate-400">
+                        <span>{isRtl ? 'ليس لديك معرف سيادي بعد؟ ' : 'Do not have a Sovereign ID yet? '}</span>
+                        <Link to="/register" className="text-[#00F2FE] font-bold hover:underline">
+                            {isRtl ? 'سجل الآن (+25 GP)' : 'Mint Your GA-ID (+25 GP)'}
+                        </Link>
+                    </div>
+
                 </div>
-            </Section>
+
+            </div>
         </Layout>
     );
-};
-
-export default LoginPage;
+}
