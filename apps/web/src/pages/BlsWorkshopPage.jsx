@@ -1,216 +1,354 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
-import { useSearchParams, useNavigate } from 'react-router-dom';
-import {
-    HeartPulse,
-    ShieldCheck,
-    Award,
-    Calendar,
-    MapPin,
-    Smartphone,
-    CheckCircle2,
-    Sparkles,
-    Copy,
-    Check,
-    Gift,
-    FileText,
-    ArrowRight,
-    Users,
-    Stethoscope,
-    AlertCircle,
-    Coins,
-    GraduationCap,
-    Clock,
-    Flame
-} from 'lucide-react';
+import { ShieldCheck, Award, Smartphone, CheckCircle2, Sparkles, Coffee, MessageCircle } from 'lucide-react';
 import Layout from '@/components/site/Layout';
-import { Section } from '@/components/site/Bits';
-import SovereignGateway from '@/components/SovereignGateway';
-import ForensicProofVault from '@/components/ForensicProofVault';
+import { PageHeader, Section, StateBlock } from '@/components/site/Bits';
 import { useLang } from '@/i18n/LanguageContext';
+import { submitBlsRegistration } from '@/lib/geneApi';
+
+// ---------------------------------------------------------------------------
+// Countdown to the workshop start. Pure client-side timer, no claims about
+// data — safe to ship without separate verification.
+// ---------------------------------------------------------------------------
+const WORKSHOP_START = new Date('2026-08-28T09:00:00+02:00').getTime();
+
+const useCountdown = (target) => {
+    const [remaining, setRemaining] = useState(() => Math.max(0, target - Date.now()));
+    useEffect(() => {
+        const id = setInterval(() => setRemaining(Math.max(0, target - Date.now())), 1000);
+        return () => clearInterval(id);
+    }, [target]);
+    const days = Math.floor(remaining / 86400000);
+    const hours = Math.floor((remaining % 86400000) / 3600000);
+    const mins = Math.floor((remaining % 3600000) / 60000);
+    const secs = Math.floor((remaining % 60000) / 1000);
+    return { days, hours, mins, secs, ended: remaining <= 0 };
+};
+
+const CountdownBlock = ({ label, value }) => (
+    <div className="rounded-xl border border-[hsl(var(--accent))]/30 bg-[hsl(var(--accent))]/10 p-3 text-center">
+        <div className="font-mono text-3xl font-black text-white">{String(value).padStart(2, '0')}</div>
+        <div className="mt-1 text-[10px] text-[hsl(var(--accent))]">{label}</div>
+    </div>
+);
+
+const buildKsaWhatsappLink = ({ gaId, fullName }) => {
+    const lines = [
+        'Hi, I just registered for the BLS workshop.',
+        gaId ? `GA-ID: ${gaId}` : null,
+        fullName ? `Name: ${fullName}` : null,
+        'I have a question about KSA licensing / relocation / clinical placement.',
+    ].filter(Boolean);
+    return `https://wa.me/966550476176?text=${encodeURIComponent(lines.join('\n'))}`;
+};
+
+// ---------------------------------------------------------------------------
+// STEP 1: Referral capture.
+// Reads ?ref=GA-000 from the URL (e.g. geneacademy.net/bls?ref=GA-000),
+// validates the shape loosely (doesn't hit the backend to confirm the ID is
+// real — that check belongs server-side), and persists it in
+// sessionStorage so it survives a page reload before the user submits the
+// form. Falls back to any previously-captured ref if the current URL has
+// none, so a referral isn't lost if the user navigates around the site
+// before registering.
+// ---------------------------------------------------------------------------
+const REF_STORAGE_KEY = 'gemiini_referral_id';
+
+const useReferralCapture = () => {
+    const [searchParams] = useSearchParams();
+    const [referralId, setReferralId] = useState(null);
+
+    useEffect(() => {
+        const fromUrl = searchParams.get('ref');
+        if (fromUrl && /^GA-?\d{1,6}$/i.test(fromUrl.trim())) {
+            const normalized = fromUrl.trim().toUpperCase();
+            sessionStorage.setItem(REF_STORAGE_KEY, normalized);
+            setReferralId(normalized);
+            return;
+        }
+        const stored = sessionStorage.getItem(REF_STORAGE_KEY);
+        if (stored) setReferralId(stored);
+    }, [searchParams]);
+
+    return referralId;
+};
+
+const inputClass = 'min-h-[44px] rounded-xl border border-input bg-card px-4 text-sm outline-none focus:border-[hsl(var(--accent))]';
+
+const Field = ({ label, children, hint }) => (
+    <label className="flex flex-col gap-2 text-sm">
+        <span className="font-medium">{label}</span>
+        {children}
+        {hint && <span className="text-xs text-muted-foreground">{hint}</span>}
+    </label>
+);
+
+const WORKSHOP = {
+    title: { en: 'Basic Life Support (BLS) Workshop', ar: 'ورشة الدعم الحياتي الأساسي (BLS)' },
+    date: 'August 28, 2026',
+    location: { en: 'Dokki, Cairo, Egypt', ar: 'الدقي، القاهرة، مصر' },
+    price: 3000, // EGP — fixed on the client for display only; the source of
+                 // truth for the charge is your own Vodafone merchant
+                 // account, never a value posted from the browser.
+};
 
 const BlsWorkshopPage = () => {
     const { lang } = useLang();
-    const navigate = useNavigate();
-    const [searchParams] = useSearchParams();
+    const referralId = useReferralCapture();
+    const countdown = useCountdown(WORKSHOP_START);
+    const [form, setForm] = useState({ fullName: '', email: '', phone: '', transactionId: '', gpApplied: false, patronBooster: false });
+    const [status, setStatus] = useState('idle'); // idle | loading | done | error
+    const [errors, setErrors] = useState({});
+    const [result, setResult] = useState(null);
 
-    // 1. Referral Capture (?ref=GA-000)
-    const rawRef = searchParams.get('ref') || searchParams.get('affiliate') || '';
-    useEffect(() => {
-        if (rawRef) {
-            localStorage.setItem('gemiini_affiliate_ref', rawRef);
+    const update = (key) => (e) =>
+        setForm((prev) => ({ ...prev, [key]: e.target.type === 'checkbox' ? e.target.checked : e.target.value }));
+
+    const onSubmit = async (event) => {
+        event.preventDefault();
+        const nextErrors = {};
+        if (form.fullName.trim().length < 3) nextErrors.fullName = lang === 'ar' ? 'أدخل اسمك الكامل.' : 'Enter your full name.';
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) nextErrors.email = lang === 'ar' ? 'بريد إلكتروني غير صالح.' : 'Enter a valid email.';
+        if (!form.phone.trim()) nextErrors.phone = lang === 'ar' ? 'أدخل رقم هاتفك.' : 'Enter your phone number.';
+        if (!form.gpApplied && form.transactionId.trim().length < 4) {
+            nextErrors.transactionId = lang === 'ar'
+                ? 'أدخل رقم عملية Vodafone Cash.'
+                : 'Enter the Vodafone Cash transaction ID.';
         }
-    }, [rawRef]);
+        setErrors(nextErrors);
+        if (Object.keys(nextErrors).length) return;
 
-    // 2. Live Countdown Timer to August 28, 2026 09:00:00 GMT+2
-    const [timeLeft, setTimeLeft] = useState({ days: '03', hours: '14', mins: '28', secs: '45' });
-    useEffect(() => {
-        const target = new Date('August 28, 2026 09:00:00 GMT+0200').getTime();
-        const interval = setInterval(() => {
-            const now = new Date().getTime();
-            const diff = target - now;
-            if (diff > 0) {
-                setTimeLeft({
-                    days: String(Math.floor(diff / (1000 * 60 * 60 * 24))).padStart(2, '0'),
-                    hours: String(Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0'),
-                    mins: String(Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0'),
-                    secs: String(Math.floor((diff % (1000 * 60)) / 1000)).padStart(2, '0')
-                });
-            }
-        }, 1000);
-        return () => clearInterval(interval);
-    }, []);
+        setStatus('loading');
+        try {
+            const payload = {
+                workshop: 'bls_dokki_2026_08_28',
+                fullName: form.fullName.trim(),
+                email: form.email.trim(),
+                phone: form.phone.trim(),
+                transactionId: form.gpApplied ? null : form.transactionId.trim(),
+                gpApplied: form.gpApplied,
+                patronBooster: form.patronBooster,
+                referralId: referralId || null,
+            };
+            const res = await submitBlsRegistration(payload);
+            setResult(res);
+            setStatus('done');
+        } catch (err) {
+            setStatus('error');
+        }
+    };
 
     return (
         <Layout>
             <Helmet>
-                <title>البرنامج السريري المتقدم للإنعاش القلبي الرئوي (BLS) — القاهرة | GemIInI Academy</title>
+                <title>{lang === 'ar' ? 'ورشة الدعم الحياتي الأساسي — الدقي' : 'BLS Workshop — Dokki, Cairo'} | GemIInI Academy</title>
                 <meta
                     name="description"
-                    content="البرنامج السريري المعتمد للإنعاش القلبي الرئوي (BLS) — دفعة القاهرة 28 أغسطس 2026. تدريب عملي بمحاكيات سريرية واعتماد المجلس الطبي السوداني وجمعية القلب الأمريكية."
+                    content="Basic Life Support workshop, Dokki, Cairo — August 28, 2026. SMC and AHA accredited. GemIInI members bonus: personalized CV module with Dr. Mohamed Sabri."
                 />
             </Helmet>
 
-            <Section className="py-12 bg-[#04080F] text-white min-h-screen">
-                <div className="mx-auto max-w-4xl px-4 space-y-16">
-                    
-                    {/* STAGE 1: ATTENTION (HERO & LIVE COUNTDOWN & STRICT CAPACITY) */}
-                    <div className="text-center space-y-6">
-                        <div className="inline-flex flex-wrap items-center justify-center gap-2 rounded-full bg-slate-900/90 border border-white/10 px-4 py-1.5 text-xs font-mono text-gray-300">
-                            <span className="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
-                            <span className="text-white font-bold">جلسة محاكاة سريرية معتمدة — القاهرة</span>
-                            <span className="text-gray-500">|</span>
-                            <span className="text-cyan-300">اعتماد AHA & SMC</span>
-                        </div>
+            <PageHeader
+                title={WORKSHOP.title[lang]}
+                subtitle={`${WORKSHOP.date} · ${WORKSHOP.location[lang]}`}
+            />
 
-                        <h1 className="text-3xl sm:text-5xl md:text-6xl font-black text-white leading-tight tracking-tight">
-                            البرنامج السريري المتقدم<br />
-                            <span className="bg-gradient-to-r from-red-400 via-amber-300 to-cyan-400 bg-clip-text text-transparent">
-                                للإنعاش القلبي الرئوي الأساسي (BLS)
-                            </span>
-                        </h1>
+            <Section rail="max-w-[40rem]">
+                {!countdown.ended && (
+                    <div className="mb-8 grid grid-cols-4 gap-2">
+                        <CountdownBlock label={lang === 'ar' ? 'أيام' : 'DAYS'} value={countdown.days} />
+                        <CountdownBlock label={lang === 'ar' ? 'ساعات' : 'HRS'} value={countdown.hours} />
+                        <CountdownBlock label={lang === 'ar' ? 'دقائق' : 'MIN'} value={countdown.mins} />
+                        <CountdownBlock label={lang === 'ar' ? 'ثواني' : 'SEC'} value={countdown.secs} />
+                    </div>
+                )}
+            </Section>
 
-                        <p className="text-gray-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
-                            تدريب عملي ومحاكاة سريرية حية بمركز د. صبري للتدريب (ترخيص 1549)، مع توثيق الساعات المعرفية بـ <strong>200 نقطة GP</strong> وحقيبة التحول الرقمي والسيرة الذاتية المهنية من أكاديمية جيميني.
-                        </p>
-
-                        {/* LIVE COUNTDOWN ENGINE */}
-                        <div className="p-6 rounded-3xl bg-slate-900/80 border border-red-500/30 max-w-2xl mx-auto shadow-2xl backdrop-blur-md">
-                            <div className="text-xs font-mono text-gray-400 mb-3 uppercase tracking-wider flex items-center justify-center gap-2">
-                                <Clock className="w-4 h-4 text-red-400" />
-                                <span>الموعد النهائي لانعقاد الدفعة السريرية — القاهرة</span>
-                            </div>
-                            <div className="grid grid-cols-4 gap-2 text-center font-mono">
-                                <div className="p-3 rounded-2xl bg-black/50 border border-white/10">
-                                    <span className="text-2xl sm:text-3xl font-black text-white block">{timeLeft.days}</span>
-                                    <span className="text-[10px] text-gray-400">أيام</span>
-                                </div>
-                                <div className="p-3 rounded-2xl bg-black/50 border border-white/10">
-                                    <span className="text-2xl sm:text-3xl font-black text-white block">{timeLeft.hours}</span>
-                                    <span className="text-[10px] text-gray-400">ساعة</span>
-                                </div>
-                                <div className="p-3 rounded-2xl bg-black/50 border border-white/10">
-                                    <span className="text-2xl sm:text-3xl font-black text-white block">{timeLeft.mins}</span>
-                                    <span className="text-[10px] text-gray-400">دقيقة</span>
-                                </div>
-                                <div className="p-3 rounded-2xl bg-black/50 border border-white/10">
-                                    <span className="text-2xl sm:text-3xl font-black text-red-400 block">{timeLeft.secs}</span>
-                                    <span className="text-[10px] text-gray-400">ثانية</span>
-                                </div>
-                            </div>
-                            <div className="mt-4 pt-3 border-t border-white/10 flex flex-wrap items-center justify-between text-xs text-gray-400 font-mono gap-2">
-                                <span className="flex items-center gap-1.5">
-                                    <MapPin className="w-4 h-4 text-red-400" />
-                                    مركز د. صبري للتدريب (ترخيص 1549) — الدقي، القاهرة
-                                </span>
-                                <span className="text-red-400 font-bold flex items-center gap-1">
-                                    <Flame className="w-4 h-4" />
-                                    مقاعد محدودة لضمان المعايير السريرية
-                                </span>
-                            </div>
+            <Section rail="max-w-[56rem]">
+                {/* Accreditation + bonus banner */}
+                <div className="mb-8 grid gap-4 sm:grid-cols-3">
+                    <div className="flex items-center gap-3 rounded-2xl border border-border bg-card p-5">
+                        <ShieldCheck className="h-6 w-6 text-[hsl(var(--teal))]" strokeWidth={1.8} />
+                        <div>
+                            <p className="text-sm font-semibold">SMC</p>
+                            <p className="text-xs text-muted-foreground">{lang === 'ar' ? 'معتمد' : 'Accredited'}</p>
                         </div>
                     </div>
-
-                    {/* STAGE 2: FORENSIC PROOF VAULT & INSTITUTIONAL CRUCIBLE */}
-                    <ForensicProofVault />
-
-                    {/* STAGE 3: THE VALUATION MATRIX & EXCLUSIVE BONUSES */}
-                    <div className="space-y-6">
-                        <div className="text-center">
-                            <span className="text-xs font-mono text-cyan-400 font-bold uppercase tracking-wider block">PROGRAM VALUATION ARCHITECTURE</span>
-                            <h3 className="text-2xl sm:text-3xl font-black text-white mt-1">ماذا تستلم فعلياً مقابل استثمارك؟</h3>
-                        </div>
-
-                        <div className="p-6 sm:p-8 rounded-3xl bg-slate-900 border border-white/10 overflow-x-auto">
-                            <table className="w-full text-right text-xs sm:text-sm">
-                                <thead>
-                                    <tr className="border-b border-white/10 text-gray-400 font-mono">
-                                        <th className="pb-3 text-right">المكوّن السريري / الأصل الرقمي</th>
-                                        <th className="pb-3 text-center">القيمة المؤسسية</th>
-                                        <th className="pb-3 text-left">العائد المهني المباشر</th>
-                                    </tr>
-                                </thead>
-                                <tbody className="divide-y divide-white/5">
-                                    <tr>
-                                        <td className="py-4 font-bold text-white">
-                                            ورشة الإنعاش القلبي الرئوي العملي (BLS Provider) — مركز د. صبري
-                                            <span className="block text-[11px] text-gray-400">محاكاة عملية واختبار معتمد من AHA & SMC</span>
-                                        </td>
-                                        <td className="py-4 text-center font-mono text-cyan-300 font-bold">3,000 ج.م</td>
-                                        <td className="py-4 text-left text-gray-300">متطلب إلزامي للترخيص والزمالات الدولية</td>
-                                    </tr>
-                                    <tr>
-                                        <td className="py-4 font-bold text-white">
-                                            هوية GemIInI الرقمية + صفحة التحقق الدائم
-                                            <span className="block text-[11px] text-gray-400">سجل موثق ضد التزوير للتقديم على المستشفيات</span>
-                                        </td>
-                                        <td className="py-4 text-center font-mono text-emerald-300 font-bold">مشمول (150$ مجاناً)</td>
-                                        <td className="py-4 text-left text-gray-300">توثيق دولي فوري عبر QR Code والسجل العام</td>
-                                    </tr>
-                                    <tr>
-                                        <td className="py-4 font-bold text-white">
-                                            منحة رصيد الساعات السريرية (200 GP)
-                                            <span className="block text-[11px] text-gray-400">1 GP = 1 ساعة تعليم طبي معتمد في المنظومة</span>
-                                        </td>
-                                        <td className="py-4 text-center font-mono text-amber-300 font-bold">مشمول مجاناً</td>
-                                        <td className="py-4 text-left text-gray-300">تفتح محاكي امتحانات SMC وبنك الأسئلة السريرية</td>
-                                    </tr>
-                                    <tr>
-                                        <td className="py-4 font-bold text-white">
-                                            بونص حصري: حقيبة التحول الرقمي وهندسة السيرة الذاتية (Gene Academy)
-                                            <span className="block text-[11px] text-gray-400">تصميم وتحديث السيرة الذاتية الطبية للمنح والوظائف</span>
-                                        </td>
-                                        <td className="py-4 text-center font-mono text-purple-300 font-bold">بونص مجاني</td>
-                                        <td className="py-4 text-left text-gray-300">حقيبة تدريبية سريرية كاملة في لوحة العضو</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                        {/* GENE ACADEMY DIGITAL BONUS BANNER */}
-                        <div className="p-6 rounded-3xl bg-gradient-to-r from-purple-500/15 via-indigo-500/10 to-cyan-500/15 border border-purple-500/30 flex flex-col sm:flex-row items-center justify-between gap-4">
-                            <div className="flex items-center gap-4">
-                                <div className="w-12 h-12 rounded-2xl bg-purple-500/20 text-purple-300 flex items-center justify-center text-2xl flex-shrink-0">
-                                    🎁
-                                </div>
-                                <div>
-                                    <span className="text-[10px] font-mono font-bold text-purple-400 uppercase tracking-widest block">GENE ACADEMY EXCLUSIVE FEATURE</span>
-                                    <h4 className="text-sm sm:text-base font-bold text-white mt-0.5">
-                                        حقيبة التحول الرقمي وهندسة السيرة الذاتية والملف المهني (LinkedIn & CV Portfolio)
-                                    </h4>
-                                    <p className="text-xs text-gray-300 mt-1">ميزة حصرية من أكاديمية جيميني تُفعّل تلقائياً داخل لوحة العضو عند إتمام الحجز.</p>
-                                </div>
-                            </div>
-                            <span className="px-4 py-2 rounded-xl bg-purple-500 text-white font-bold text-xs font-mono flex-shrink-0">
-                                مشمولة مجاناً
-                            </span>
+                    <div className="flex items-center gap-3 rounded-2xl border border-border bg-card p-5">
+                        <Award className="h-6 w-6 text-[hsl(var(--accent))]" strokeWidth={1.8} />
+                        <div>
+                            <p className="text-sm font-semibold">AHA</p>
+                            <p className="text-xs text-muted-foreground">{lang === 'ar' ? 'معتمد' : 'Accredited'}</p>
                         </div>
                     </div>
-
-                    {/* STAGE 4: THE ADAPTIVE SOVEREIGN GATEWAY INTAKE */}
-                    <SovereignGateway />
-
+                    <div className="flex items-center gap-3 rounded-2xl border border-[hsl(var(--accent))]/40 bg-[hsl(var(--accent))]/8 p-5">
+                        <Sparkles className="h-6 w-6 text-[hsl(var(--accent))]" strokeWidth={1.8} />
+                        <div>
+                            <p className="text-sm font-semibold">{lang === 'ar' ? 'مكافأة الأعضاء' : 'Member bonus'}</p>
+                            <p className="text-xs text-muted-foreground">
+                                {lang === 'ar' ? 'سيرة ذاتية احترافية — د. محمد صبري' : 'Pro CV module — Dr. Mohamed Sabri'}
+                            </p>
+                        </div>
+                    </div>
                 </div>
+
+                {referralId && (
+                    <div className="mb-6 rounded-xl border border-[hsl(var(--teal))]/40 bg-[hsl(var(--teal))]/10 px-4 py-3 text-sm">
+                        {lang === 'ar' ? 'تمت الإحالة عبر' : 'Referred by'}: <strong>{referralId}</strong>
+                    </div>
+                )}
+
+                <a
+                    href="https://wa.me/966550476176"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mb-6 flex items-center gap-3 rounded-xl border border-border bg-card px-4 py-3 text-sm transition-colors hover:border-[hsl(var(--teal))]/50"
+                >
+                    <MessageCircle className="h-5 w-5 text-[hsl(var(--teal))]" strokeWidth={1.8} />
+                    <span>
+                        {lang === 'ar'
+                            ? 'لديك استفسار بخصوص الترخيص أو الانتقال إلى السعودية؟ راسل مكتبنا في الرياض'
+                            : 'Questions about KSA licensing or relocation? Message our Riyadh desk'}
+                    </span>
+                </a>
+
+                {status === 'done' ? (
+                    <div className="rounded-2xl border border-[hsl(var(--teal))]/50 bg-[hsl(var(--teal))]/10 p-7">
+                        <div className="flex items-start gap-3">
+                            <CheckCircle2 className="mt-0.5 h-6 w-6 text-[hsl(var(--teal))]" strokeWidth={1.8} />
+                            <div>
+                                <h2 className="font-display text-xl font-semibold">
+                                    {lang === 'ar' ? 'تم استلام التسجيل' : 'Registration received'}
+                                </h2>
+                                <p className="mt-2 text-sm text-muted-foreground">
+                                    {lang === 'ar'
+                                        ? `رقمك المؤقت: ${result?.gaId || '—'} — الحالة: قيد التحقق من الدفع.`
+                                        : `Provisional GA-ID: ${result?.gaId || '—'} — status: pending payment verification.`}
+                                </p>
+                                {result?.unlockSabriCv && (
+                                    <p className="mt-3 text-sm">
+                                        {lang === 'ar'
+                                            ? 'تم تفعيل وحدة السيرة الذاتية الاحترافية مع د. محمد صبري — سيصلك رابط الوصول عبر البريد بعد تأكيد الدفع.'
+                                            : "Your Dr. Mohamed Sabri CV module is unlocked — access link arrives by email once payment is confirmed."}
+                                    </p>
+                                )}
+                            </div>
+                        </div>
+
+                        {/* Post-submission intercept: offers KSA assistance before the
+                            user leaves, with the just-minted context pre-filled into
+                            the WhatsApp message. Only appears after a real
+                            registration exists — never fabricates a GA-ID to show it. */}
+                        <div className="mt-6 rounded-xl border border-[hsl(var(--accent))]/30 bg-[hsl(var(--accent))]/8 p-5">
+                            <p className="text-sm font-medium">
+                                {lang === 'ar'
+                                    ? 'هل تحتاج مساعدة في الترخيص أو الانتقال أو التنسيب السريري في السعودية؟'
+                                    : 'Need help with KSA licensing, relocation, or clinical placement?'}
+                            </p>
+                            <a
+                                href={buildKsaWhatsappLink({ gaId: result?.gaId, fullName: form.fullName })}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="mt-3 inline-flex items-center gap-2 rounded-lg bg-[hsl(var(--accent))] px-4 py-2 text-sm font-medium text-black"
+                            >
+                                <MessageCircle className="h-4 w-4" strokeWidth={1.8} />
+                                {lang === 'ar' ? 'راسل مكتب الرياض' : 'Message the Riyadh desk'}
+                            </a>
+                        </div>
+                    </div>
+                ) : (
+                    <form onSubmit={onSubmit} className="grid gap-5 sm:grid-cols-2">
+                        <div className="sm:col-span-2">
+                            <Field label={lang === 'ar' ? 'الاسم الكامل' : 'Full name'}>
+                                <input value={form.fullName} onChange={update('fullName')} className={inputClass} />
+                            </Field>
+                            {errors.fullName && <p className="mt-1.5 text-xs text-destructive">{errors.fullName}</p>}
+                        </div>
+                        <div>
+                            <Field label={lang === 'ar' ? 'البريد الإلكتروني' : 'Email'}>
+                                <input type="email" value={form.email} onChange={update('email')} className={inputClass} />
+                            </Field>
+                            {errors.email && <p className="mt-1.5 text-xs text-destructive">{errors.email}</p>}
+                        </div>
+                        <div>
+                            <Field label={lang === 'ar' ? 'رقم الهاتف' : 'Phone'}>
+                                <input value={form.phone} onChange={update('phone')} className={inputClass} />
+                            </Field>
+                            {errors.phone && <p className="mt-1.5 text-xs text-destructive">{errors.phone}</p>}
+                        </div>
+
+                        {/* Vodafone Cash intake */}
+                        <div className="sm:col-span-2 rounded-2xl border border-border bg-card p-6">
+                            <div className="mb-4 flex items-center gap-3">
+                                <Smartphone className="h-5 w-5 text-[hsl(var(--accent))]" strokeWidth={1.8} />
+                                <h3 className="font-display text-lg font-semibold">
+                                    {lang === 'ar' ? 'الدفع عبر Vodafone Cash' : 'Pay via Vodafone Cash'}
+                                </h3>
+                            </div>
+                            <p className="mb-4 text-sm text-muted-foreground">
+                                {lang === 'ar'
+                                    ? `المبلغ: ${WORKSHOP.price} جنيه مصري. أرسل المبلغ ثم أدخل رقم العملية بالأسفل.`
+                                    : `Amount: EGP ${WORKSHOP.price}. Send the payment, then enter the transaction ID below.`}
+                            </p>
+                            <label className="mb-4 flex items-center gap-2 text-sm">
+                                <input type="checkbox" checked={form.gpApplied} onChange={update('gpApplied')} />
+                                {lang === 'ar' ? 'أستخدم نقاط GemIInI (GP) بدلاً من الدفع النقدي' : 'Applying GemIInI Points (GP) instead of cash'}
+                            </label>
+                            {!form.gpApplied && (
+                                <>
+                                    <Field
+                                        label={lang === 'ar' ? 'رقم عملية Vodafone Cash' : 'Vodafone Cash Transaction ID'}
+                                        hint={lang === 'ar' ? 'كما يظهر في رسالة التأكيد.' : 'As shown in your confirmation SMS.'}
+                                    >
+                                        <input value={form.transactionId} onChange={update('transactionId')} className={inputClass} />
+                                    </Field>
+                                    {errors.transactionId && <p className="mt-1.5 text-xs text-destructive">{errors.transactionId}</p>}
+                                </>
+                            )}
+                        </div>
+
+                        {/* Optional patron contribution — expedites manual review.
+                            GP-award amount intentionally left out of the UI copy:
+                            it appeared only in an unverified document this
+                            session, not confirmed by GA000 directly. Wire the
+                            real number in once confirmed. */}
+                        <label className="sm:col-span-2 flex items-start gap-3 rounded-2xl border border-[hsl(var(--accent))]/30 bg-[hsl(var(--accent))]/8 p-4 cursor-pointer">
+                            <input type="checkbox" checked={form.patronBooster} onChange={update('patronBooster')} className="mt-0.5 h-4 w-4" />
+                            <span className="flex items-start gap-2">
+                                <Coffee className="mt-0.5 h-4 w-4 text-[hsl(var(--accent))]" strokeWidth={1.8} />
+                                <span>
+                                    <span className="block text-sm font-semibold">
+                                        {lang === 'ar' ? 'مساهمة داعم (اختياري) — 250 جنيه مصري' : 'Patron contribution (optional) — EGP 250'}
+                                    </span>
+                                    <span className="block text-xs text-muted-foreground">
+                                        {lang === 'ar'
+                                            ? 'يسرّع مراجعة تسجيلك يدوياً.'
+                                            : "Expedites the manual review of your registration."}
+                                    </span>
+                                </span>
+                            </span>
+                        </label>
+
+                        {status === 'error' && (
+                            <div className="sm:col-span-2">
+                                <StateBlock kind="error" />
+                            </div>
+                        )}
+
+                        <div className="sm:col-span-2">
+                            <button
+                                type="submit"
+                                disabled={status === 'loading'}
+                                className="min-h-[48px] w-full rounded-xl bg-primary px-6 text-sm font-medium text-primary-foreground transition-transform active:scale-[0.98] disabled:opacity-60 sm:w-auto"
+                            >
+                                {status === 'loading'
+                                    ? (lang === 'ar' ? 'جارٍ الإرسال...' : 'Submitting...')
+                                    : (lang === 'ar' ? 'سجّل الآن' : 'Register now')}
+                            </button>
+                        </div>
+                    </form>
+                )}
             </Section>
         </Layout>
     );

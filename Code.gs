@@ -1,276 +1,178 @@
 /**
- * GemIInI Sovereign Platform & SudaGene Consortium - Master Backend Engine
- * 
- * Features:
- * 1. Concurrency control via LockService.getScriptLock(10000)
- * 2. Sequential GA-ID minting based on master row counts (GA-1001+)
- * 3. Universal parameter mapping (supports camelCase & snake_case)
- * 4. Real-time Telemetry Email Alerts to amjadgorashi32@gmail.com
- * 5. Public lookup and verification endpoint via doGet(e)
+ * GemIInI Academy — BLS Workshop intake backend (Google Apps Script Web App)
+ *
+ * Deploy: Extensions > Apps Script in your Google Sheet, paste this in,
+ * then Deploy > New deployment > Web app.
+ *   - Execute as: Me
+ *   - Who has access: Anyone (the endpoint itself checks nothing sensitive
+ *     is exposed — it only accepts a registration payload and returns a
+ *     minted ID, never reads/returns other people's data)
+ * Copy the deployment URL into the site's remote-endpoint config
+ * (the `config.endpoint` that `isRemoteConfigured()` checks in geneApi.js).
+ *
+ * IMPORTANT — GA-ID numbering:
+ * This continues the SAME sequential numbering the manual registry cleanup
+ * ended on (locked through GA-6290 as of Aug 2026). Update NEXT_ID_START
+ * below if more manual assignments happen between now and going live, or
+ * two systems will mint colliding IDs again — the exact problem this
+ * whole cleanup fixed. The safest fix long-term is making this sheet the
+ * single source of truth for the counter, not a hardcoded starting point.
  */
 
-var MASTER_SHEET_NAME = 'GA_MASTER_REGISTRY';
-var COUNTER_CELL = 'A1';
-var NEXT_ID_START = 6291;
+const SHEET_NAME = 'BLS_Registrations';
+const COUNTER_CELL = 'A1'; // on a separate 'Meta' sheet — see getNextGaId()
+const NEXT_ID_START = 6291; // first free ID after the Aug 2026 registry lock
+const WORKSHOP_ID = 'bls_dokki_2026_08_28';
 
-/**
- * Handle POST requests (Registrations & Ledger Sync)
- */
 function doPost(e) {
-  var lock = LockService.getScriptLock();
   try {
-    lock.waitLock(10000); // 10-second concurrency lock
-  } catch (lockErr) {
-    return jsonResponse({
-      status: 'error',
-      message: 'Server is experiencing high traffic. Please retry in a few moments.'
-    }, 429);
-  }
+    const payload = JSON.parse(e.postData.contents);
+    const action = payload.action;
 
-  try {
-    var rawContents = (e && e.postData && e.postData.contents) ? e.postData.contents : '';
-    var payload = {};
+    if (action !== 'bls_register') {
+      return jsonResponse({ status: 'error', message: 'Unknown action' }, 400);
+    }
 
-    if (rawContents) {
-      try {
-        payload = JSON.parse(rawContents);
-      } catch (jsonErr) {
-        // Fallback for urlencoded form posts
-        payload = e.parameter || {};
+    const body = payload.body || {};
+    const required = ['full_name', 'email', 'phone'];
+    for (const field of required) {
+      if (!body[field] || String(body[field]).trim() === '') {
+        return jsonResponse({ status: 'error', message: `Missing field: ${field}` }, 400);
       }
-    } else if (e && e.parameter) {
-      payload = e.parameter;
     }
 
-    var action = payload.action || (payload.body && payload.body.action) || 'bls_register';
-    var body = payload.body || payload;
-
-    // Standardize input fields across both naming conventions
-    var fullName = String(body.fullName || body.full_name || body.name || '').trim();
-    var email = String(body.email || '').trim().toLowerCase();
-    var phone = String(body.phone || body.phoneNumber || '').trim();
-    var university = String(body.university || body.univ || 'General').trim();
-    var track = String(body.track || body.targetTrack || 'SMC / BLS').trim();
-    var gradYear = String(body.gradYear || body.grad_year || '2024').trim();
-    var location = String(body.location || 'Egypt').trim();
-    var paymentMethod = String(body.paymentMethod || body.payment_method || (body.gp_applied ? 'GP' : 'Vodafone Cash')).trim();
-    var providerRef = String(body.providerRef || body.transaction_id || body.refNumber || 'N/A').trim();
-    var referralId = String(body.referralId || body.referral_id || 'GA-000').trim().toUpperCase();
-    var gpAwarded = Number(body.gpAwarded || (body.boughtCoffee || body.patron_booster ? 250 : 200));
-
-    if (!fullName || !email || !phone) {
-      return jsonResponse({
-        status: 'error',
-        message: 'Missing mandatory fields (fullName, email, phone).'
-      }, 400);
+    // GP-applied registrations skip the transaction ID requirement;
+    // cash registrations must have one.
+    if (!body.gp_applied && (!body.transaction_id || String(body.transaction_id).trim().length < 4)) {
+      return jsonResponse({ status: 'error', message: 'Missing or invalid transaction_id' }, 400);
     }
 
-    var ss = SpreadsheetApp.getActiveSpreadsheet();
-    var sheet = ss.getSheetByName(MASTER_SHEET_NAME) || createMasterSheet(ss);
+    const ss = SpreadsheetApp.getActiveSpreadsheet();
+    const sheet = ss.getSheetByName(SHEET_NAME) || createRegistrationSheet(ss);
 
-    // Generate sequential GA-ID
-    var gaId = getNextSequentialGaId(ss, sheet);
-    var timestamp = new Date();
-    var status = body.gp_applied ? 'pending_gp_confirmation' : 'pending_payment_verification';
+    const gaId = getNextGaId(ss);
+    const timestamp = new Date();
+    const status = body.gp_applied ? 'pending_gp_confirmation' : 'pending_payment_verification';
 
     sheet.appendRow([
       timestamp,
       gaId,
-      fullName,
-      email,
-      phone,
-      university,
-      gradYear,
-      location,
-      track,
-      paymentMethod,
-      providerRef,
-      referralId,
-      gpAwarded,
+      body.full_name,
+      body.email,
+      body.phone,
+      WORKSHOP_ID,
+      body.gp_applied ? 'GP' : 'Vodafone Cash',
+      body.transaction_id || '',
+      body.patron_booster ? 'YES' : 'NO',
+      body.referral_id || '',
       status,
-      false // sabri_cv_unlocked / digital_bonus_unlocked
+      false, // sabri_cv_unlocked — flips to TRUE only after a human confirms payment
     ]);
 
-    // Dispatch Real-Time Telemetry Email Alert to Information Office
-    dispatchCandidateAlert({
-      fullName: fullName,
-      email: email,
-      phone: phone,
-      university: university,
-      track: track,
-      gaId: gaId,
-      paymentMethod: paymentMethod,
-      providerRef: providerRef
-    });
+    dispatchSignupAlert({ gaId, fullName: body.full_name, email: body.email, phone: body.phone,
+      referralId: body.referral_id, transactionId: body.transaction_id, gpApplied: body.gp_applied });
 
+    // The CV bonus is promised on the site, but it should not actually
+    // unlock until a human confirms the payment/GP deduction — otherwise
+    // someone could submit a fake transaction ID and get the bonus for
+    // free. So the response tells the user it's reserved, not unlocked.
     return jsonResponse({
       status: 'success',
       gaId: gaId,
-      gpBalance: gpAwarded,
       registrationStatus: status,
-      digitalBonusUnlocked: false,
-      message: 'Registration recorded successfully in SudaGene Sovereign Ledger.'
-    }, 200);
+      unlockSabriCv: false,
+      message: 'Registration received. GA-ID reserved pending verification.',
+    });
 
   } catch (err) {
-    return jsonResponse({
-      status: 'error',
-      message: 'Internal ledger processing error: ' + err.toString()
-    }, 500);
+    return jsonResponse({ status: 'error', message: String(err) }, 500);
+  }
+}
+
+/**
+ * Mints the next sequential GA-ID using a counter stored in a dedicated
+ * 'Meta' sheet cell — NOT by counting rows (rows can be deleted/reordered)
+ * and NOT by timestamp (guaranteed to eventually collide with manually
+ * assigned IDs, which is exactly the bug the manual registry just had
+ * fixed). LockService prevents two simultaneous submissions from getting
+ * the same number.
+ */
+function getNextGaId(ss) {
+  const lock = LockService.getScriptLock();
+  lock.waitLock(10000);
+  try {
+    let meta = ss.getSheetByName('Meta');
+    if (!meta) {
+      meta = ss.insertSheet('Meta');
+      meta.getRange(COUNTER_CELL).setValue(NEXT_ID_START);
+    }
+    const current = meta.getRange(COUNTER_CELL).getValue();
+    const next = (Number(current) || NEXT_ID_START) ;
+    meta.getRange(COUNTER_CELL).setValue(next + 1);
+    return `GA-${next}`;
   } finally {
     lock.releaseLock();
   }
 }
 
 /**
- * Handle GET requests (Public Member & Credential Verification)
+ * Sends a real-time email alert when someone registers. Wrapped in try/catch
+ * so a mail-quota error or bad address never blocks the actual registration
+ * from being saved — the sheet row is the source of truth, the email is a
+ * best-effort notification on top of it.
  */
-function doGet(e) {
-  var params = (e && e.parameter) ? e.parameter : {};
-  var action = params.action || 'lookup';
-  var queryId = String(params.id || params.q || params.gaId || '').trim().toUpperCase();
-
-  if (action === 'stats') {
-    return jsonResponse({
-      status: 'success',
-      members: 2441,
-      courses: 28,
-      vignettes: 2500,
-      faculties: 54
-    });
-  }
-
-  if (!queryId) {
-    return jsonResponse({ status: 'error', message: 'No GA-ID provided for lookup.' }, 400);
-  }
-
-  var normalizedId = queryId.startsWith('GA-') ? queryId : 'GA-' + queryId.replace('GA', '');
-
-  var ss = SpreadsheetApp.getActiveSpreadsheet();
-  var sheet = ss.getSheetByName(MASTER_SHEET_NAME);
-
-  if (!sheet) {
-    return jsonResponse({ status: 'not_found', message: 'Ledger table not initialized.' }, 404);
-  }
-
-  var data = sheet.getDataRange().getValues();
-  for (var i = 1; i < data.length; i++) {
-    var row = data[i];
-    var rowGaId = String(row[1] || '').trim().toUpperCase();
-
-    if (rowGaId === normalizedId) {
-      return jsonResponse({
-        status: 'found',
-        gaId: rowGaId,
-        name: row[2],
-        university: row[5],
-        track: row[8],
-        gp: row[12] || 200,
-        verified: true,
-        tier: 'ACCREDITED'
-      });
-    }
-  }
-
-  return jsonResponse({
-    status: 'not_found',
-    gaId: normalizedId,
-    verified: false,
-    message: 'ID not found in master ledger.'
-  }, 404);
-}
-
-/**
- * Real-Time Telemetry Alert Dispatcher (SudaGene Global Network)
- */
-function dispatchCandidateAlert(data) {
+function dispatchSignupAlert(data) {
   try {
-    var recipient = 'amjadgorashi32@gmail.com';
-    var candidateName = data.fullName || 'Anonymous Doctor';
-    var track = data.track || 'SMC / BLS';
-    var phone = data.phone || 'N/A';
-    var gaId = data.gaId || 'GA-PENDING';
-    var email = data.email || 'N/A';
-    var university = data.university || 'N/A';
-    var paymentMethod = data.paymentMethod || 'Vodafone Cash';
-    var providerRef = data.providerRef || 'N/A';
-
-    var subject = '[SudaGene Alert] New Node Activated: ' + candidateName + ' - ' + track;
-    
-    var body = '=== SUDAGENE GLOBAL OPERATIONS ALERT ===\n\n' +
-      'A new clinical candidate node has been activated on the Sovereign Gateway:\n\n' +
-      '• Candidate Name:  ' + candidateName + '\n' +
-      '• Minted GA-ID:    ' + gaId + '\n' +
-      '• Track / Target:  ' + track + '\n' +
-      '• WhatsApp Phone:  ' + phone + '\n' +
-      '• Email Address:   ' + email + '\n' +
-      '• University:      ' + university + '\n' +
-      '• Payment Rail:    ' + paymentMethod + ' (' + providerRef + ')\n' +
-      '• Activation Time: ' + new Date().toISOString() + '\n\n' +
-      'Audit Reference: SudaGene-MoeGene-Telemetry\n' +
-      '========================================';
-
-    MailApp.sendEmail({
-      to: recipient,
-      subject: subject,
-      body: body
-    });
-    Logger.log('Alert email dispatched to ' + recipient + ' for ' + gaId);
+    const recipient = 'amjadgorashi32@gmail.com';
+    const subject = `[BLS Signup] ${data.fullName || 'New candidate'} — ${data.gaId}`;
+    const body = [
+      'New BLS workshop registration received.',
+      '',
+      `GA-ID: ${data.gaId}`,
+      `Name: ${data.fullName || 'N/A'}`,
+      `Email: ${data.email || 'N/A'}`,
+      `Phone: ${data.phone || 'N/A'}`,
+      `Payment: ${data.gpApplied ? 'GP applied' : `Vodafone Cash (ref: ${data.transactionId || 'N/A'})`}`,
+      `Referral: ${data.referralId || 'none'}`,
+      `Time: ${new Date().toISOString()}`,
+    ].join('\n');
+    MailApp.sendEmail({ to: recipient, subject, body });
   } catch (err) {
-    Logger.log('Failed to dispatch alert email: ' + err.toString());
+    Logger.log('Signup alert email failed: ' + err.toString());
   }
 }
 
-/**
- * Mint the next sequential GA-ID with fallback
- */
-function getNextSequentialGaId(ss, sheet) {
-  try {
-    var meta = ss.getSheetByName('Meta');
-    if (!meta) {
-      meta = ss.insertSheet('Meta');
-      meta.getRange(COUNTER_CELL).setValue(NEXT_ID_START);
-    }
-    var current = meta.getRange(COUNTER_CELL).getValue();
-    var next = Number(current) || NEXT_ID_START;
-    meta.getRange(COUNTER_CELL).setValue(next + 1);
-    return 'GA-' + next;
-  } catch (e) {
-    var rowCount = sheet.getLastRow();
-    return 'GA-' + (1000 + rowCount);
-  }
-}
-
-/**
- * Initialize Master Ledger Sheet
- */
-function createMasterSheet(ss) {
-  var sheet = ss.insertSheet(MASTER_SHEET_NAME);
+function createRegistrationSheet(ss) {
+  const sheet = ss.insertSheet(SHEET_NAME);
   sheet.appendRow([
-    'Timestamp',
-    'GA-ID',
-    'Full Name',
-    'Email',
-    'Phone',
-    'University',
-    'Grad Year',
-    'Location',
-    'Track',
-    'Payment Method',
-    'Transaction Ref',
-    'Referral ID',
-    'GP Balance',
-    'Status',
-    'Sabri CV Unlocked'
+    'Timestamp', 'GA-ID', 'Full Name', 'Email', 'Phone', 'Workshop',
+    'Payment Method', 'Transaction ID', 'Patron Booster', 'Referral ID', 'Status', 'Sabri CV Unlocked',
   ]);
   return sheet;
 }
 
-/**
- * Helper to build JSON responses
- */
 function jsonResponse(obj, code) {
   return ContentService
     .createTextOutput(JSON.stringify(obj))
     .setMimeType(ContentService.MimeType.JSON);
+}
+
+/**
+ * Manual verification step (run this yourself, or wire a simple sidebar
+ * UI to it, after you've checked the Vodafone Cash SMS/statement or
+ * confirmed the GP deduction). This is the human-in-the-loop step that
+ * keeps the CV bonus from being claimable with a fake transaction ID.
+ */
+function confirmPayment(gaId) {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const sheet = ss.getSheetByName(SHEET_NAME);
+  const data = sheet.getDataRange().getValues();
+  for (let i = 1; i < data.length; i++) {
+    if (data[i][1] === gaId) {
+      sheet.getRange(i + 1, 11).setValue('verified');   // Status column
+      sheet.getRange(i + 1, 12).setValue(true);          // Sabri CV Unlocked column
+      return `Confirmed ${gaId}`;
+    }
+  }
+  return `${gaId} not found`;
 }
