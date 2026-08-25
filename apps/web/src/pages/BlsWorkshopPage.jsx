@@ -1,14 +1,15 @@
 /**
  * src/pages/BlsWorkshopPage.jsx
  * AHA BLS & Resuscitation Workshop Page (Multi-Hub: Cairo Dokki & Sudan Hub)
- * Apple / 2027 Futuristic Luxury Design System
+ * 2027 Apple / VisionOS Spatial Design System
  */
 
 import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
-import { ShieldCheck, Award, Smartphone, CheckCircle2, Sparkles, Coffee, MessageCircle, HeartPulse, Clock, MapPin, ArrowRight, ArrowLeft, Globe, RefreshCw } from 'lucide-react';
+import { ShieldCheck, Award, Smartphone, CheckCircle2, Sparkles, Coffee, MessageCircle, ArrowRight, ArrowLeft, HeartPulse, Clock, MapPin, Globe } from 'lucide-react';
 import Layout from '@/components/site/Layout';
+import { PageHeader, Section, StateBlock } from '@/components/site/Bits';
 import { useLang } from '@/i18n/LanguageContext';
 import { submitBlsRegistration } from '@/lib/geneApi';
 
@@ -16,19 +17,25 @@ const HUBS = {
   cairo: {
     id: 'bls_dokki_2026_08_28',
     name: { en: 'Dokki Hub (Cairo, Egypt)', ar: 'مقر الدقي (القاهرة، مصر)' },
-    date: { en: 'Friday, August 28, 2026 • 09:00 Cairo', ar: 'الجمعة ٢٨ أغسطس ٢٠٢٦ • ٠٩:٠٠ صباحاً بتوقيت القاهرة' },
+    date: { en: 'Friday, August 28, 2026 • 09:00 Cairo', ar: 'الجمعة ٢٨ أغسطس ٢٠٢٦ • ٠٩:٠٠ صباحاً' },
     location: { en: 'Dokki Clinical Simulation Suite, Cairo', ar: 'مقر المحاكاة السريرية — الدقي، الجيزة' },
-    price: '3,000 EGP',
-    paymentMethod: { en: 'Vodafone Cash to +20 101 592 2628', ar: 'تحويل Vodafone Cash للرقم 01015922628' },
+    priceDisplay: 'EGP 3,000',
+    priceVal: 3000,
+    currency: 'EGP',
+    paymentLabel: { en: 'Vodafone Cash', ar: 'فودافون كاش (Vodafone Cash)' },
+    paymentHint: { en: 'Transfer to +20 101 592 2628 and enter reference', ar: 'حوّل إلى 01015922628 وأدخل الرقم المرجعي' },
     targetDate: new Date('2026-08-28T09:00:00+02:00').getTime(),
   },
   sudan: {
     id: 'bls_sudan_2026_09_10',
-    name: { en: 'Sudan National Hub (Khartoum / Red Sea)', ar: 'المقر القومي للسودان (الخرطوم / البحر الأحمر)' },
-    date: { en: 'Thursday, September 10, 2026 • 09:00 Sudan', ar: 'الخميس ١٠ سبتمبر ٢٠٢٦ • ٠٩:٠٠ صباحاً بتوقيت السودان' },
+    name: { en: 'Sudan National Hub', ar: 'المقر القومي للسودان' },
+    date: { en: 'Thursday, September 10, 2026 • 09:00 Sudan', ar: 'الخميس ١٠ سبتمبر ٢٠٢٦ • ٠٩:٠٠ صباحاً' },
     location: { en: 'Clinical Resuscitation Training Center, Sudan', ar: 'مركز التدريب والإنعاش السريري — السودان' },
-    price: '35,000 SDG / $40',
-    paymentMethod: { en: 'Bankak (بنكك) / Barq (برق) Remittance', ar: 'تحويل بنكك (Bankak) / تطبيق برق' },
+    priceDisplay: '35,000 SDG / $40',
+    priceVal: 35000,
+    currency: 'SDG',
+    paymentLabel: { en: 'Bankak / Barq Remittance', ar: 'بنكك (Bankak) / تطبيق برق' },
+    paymentHint: { en: 'Send to official merchant account and enter receipt reference', ar: 'أرسل للحساب المعتمد وأدخل رقم الإشعار المرجعي' },
     targetDate: new Date('2026-09-10T09:00:00+02:00').getTime(),
   }
 };
@@ -47,9 +54,11 @@ const useCountdown = (target) => {
 };
 
 const CountdownBlock = ({ label, value }) => (
-  <div className="rounded-2xl border border-[#00F2FE]/20 bg-[#0A0F1D]/90 backdrop-blur-md p-4 text-center shadow-lg hover:border-[#00F2FE]/50 transition-all">
-    <div className="font-mono text-3xl sm:text-4xl font-black text-white">{String(value).padStart(2, '0')}</div>
-    <div className="mt-1 text-[11px] font-bold uppercase tracking-wider text-[#00F2FE]">{label}</div>
+  <div className="flex flex-col items-center justify-center rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-xl transition-all duration-500 hover:bg-white/10 hover:border-white/20 shadow-xl">
+    <div className="font-mono text-3xl font-light tracking-tighter text-white sm:text-5xl">
+      {String(value).padStart(2, '0')}
+    </div>
+    <div className="mt-2 text-[10px] font-bold tracking-widest text-[#00F2FE] uppercase">{label}</div>
   </div>
 );
 
@@ -85,13 +94,13 @@ const useReferralCapture = () => {
   return referralId;
 };
 
-const inputClass = 'min-h-[48px] rounded-xl border border-slate-800 bg-slate-900/90 px-4 text-sm text-slate-100 outline-none focus:border-[#00F2FE] transition-all shadow-inner';
+const inputClass = 'min-h-[52px] w-full rounded-2xl border border-white/10 bg-slate-900/60 px-5 text-[15px] text-white outline-none transition-all duration-300 placeholder:text-slate-500 hover:bg-slate-900/80 focus:border-[#00F2FE]/60 focus:bg-slate-900 focus:ring-4 focus:ring-[#00F2FE]/15';
 
 const Field = ({ label, children, hint }) => (
-  <label className="flex flex-col gap-2 text-sm text-slate-300">
-    <span className="font-semibold text-white">{label}</span>
+  <label className="flex flex-col gap-2">
+    <span className="text-[13px] font-semibold tracking-wide text-slate-300">{label}</span>
     {children}
-    {hint && <span className="text-xs text-slate-500">{hint}</span>}
+    {hint && <span className="text-[11px] text-slate-500">{hint}</span>}
   </label>
 );
 
@@ -122,11 +131,11 @@ const BlsWorkshopPage = () => {
   const onSubmit = async (event) => {
     event.preventDefault();
     const nextErrors = {};
-    if (form.fullName.trim().length < 3) nextErrors.fullName = isRtl ? 'أدخل اسمك الكامل.' : 'Enter your full name.';
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) nextErrors.email = isRtl ? 'بريد إلكتروني غير صالح.' : 'Enter a valid email.';
+    if (form.fullName.trim().length < 3) nextErrors.fullName = isRtl ? 'أدخل اسمك الكامل.' : 'Enter your full legal name.';
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) nextErrors.email = isRtl ? 'بريد إلكتروني غير صالح.' : 'Enter a valid email address.';
     if (!form.phone.trim()) nextErrors.phone = isRtl ? 'أدخل رقم هاتفك.' : 'Enter your phone number.';
     if (!form.gpApplied && form.transactionId.trim().length < 4) {
-      nextErrors.transactionId = isRtl ? 'أدخل رقم العملية / المرجع المالي.' : 'Enter the transaction / transfer reference ID.';
+      nextErrors.transactionId = isRtl ? 'أدخل رقم العملية / الإشعار المرجعي.' : 'Enter the transaction / reference ID.';
     }
     setErrors(nextErrors);
     if (Object.keys(nextErrors).length) return;
@@ -154,27 +163,27 @@ const BlsWorkshopPage = () => {
   return (
     <Layout>
       <Helmet>
-        <title>{isRtl ? `ورشة الإنعاش القلبي (BLS) — ${activeHubData.name.ar}` : `BLS Workshop — ${activeHubData.name.en} | GemIInI Academy`}</title>
-        <meta
-          name="description"
-          content="Basic Life Support workshop. SMC and AHA accredited. Multi-hub training in Cairo and Sudan with clinical MTC simulation."
-        />
+        <title>{isRtl ? `ورشة دعم الحياة الأساسي (BLS) — ${activeHubData.name.ar}` : `BLS Workshop — ${activeHubData.name.en} | GemIInI Academy`}</title>
       </Helmet>
 
-      <div className="py-12 bg-[#04080F] text-slate-100 font-sans relative overflow-hidden" dir={isRtl ? 'rtl' : 'ltr'}>
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-rose-500/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="relative pt-12 pb-24 bg-[#04080F] min-h-screen text-slate-100 font-sans" dir={isRtl ? 'rtl' : 'ltr'}>
+        
+        {/* Ambient Spatial Glow Orbs */}
+        <div className="pointer-events-none absolute inset-0 flex items-center justify-center overflow-hidden z-0">
+          <div className="h-[45rem] w-[45rem] rounded-full bg-gradient-to-tr from-[#00F2FE]/15 via-rose-500/10 to-[#B48028]/10 blur-[130px]" />
+        </div>
 
-        <div className="max-w-4xl mx-auto px-4 relative z-10">
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6">
           
-          {/* Hub Switcher Pill */}
-          <div className="flex justify-center mb-8">
-            <div className="inline-flex p-1.5 rounded-2xl bg-slate-900/90 border border-slate-800 backdrop-blur-md shadow-2xl">
+          {/* Dual-Hub Spatial Toggle */}
+          <div className="flex justify-center mb-10">
+            <div className="inline-flex p-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-2xl shadow-2xl">
               <button
                 type="button"
                 onClick={() => switchHub('cairo')}
-                className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all ${
+                className={`flex items-center gap-2 px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 ${
                   selectedHub === 'cairo'
-                    ? 'bg-[#00F2FE] text-slate-950 shadow-[0_0_15px_rgba(0,242,254,0.3)]'
+                    ? 'bg-gradient-to-r from-[#00F2FE] to-[#38BDF8] text-slate-950 shadow-[0_0_20px_rgba(0,242,254,0.4)]'
                     : 'text-slate-400 hover:text-white'
                 }`}
               >
@@ -183,250 +192,217 @@ const BlsWorkshopPage = () => {
               <button
                 type="button"
                 onClick={() => switchHub('sudan')}
-                className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all ${
+                className={`flex items-center gap-2 px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 ${
                   selectedHub === 'sudan'
-                    ? 'bg-[#00F2FE] text-slate-950 shadow-[0_0_15px_rgba(0,242,254,0.3)]'
+                    ? 'bg-gradient-to-r from-[#00F2FE] to-[#38BDF8] text-slate-950 shadow-[0_0_20px_rgba(0,242,254,0.4)]'
                     : 'text-slate-400 hover:text-white'
                 }`}
               >
                 <span>🇸🇩 {isRtl ? 'مقر السودان (١٠ سبتمبر)' : 'Sudan Hub (Sept 10)'}</span>
-                <span className="px-1.5 py-0.5 bg-[#B48028] text-white text-[10px] font-black rounded uppercase">NEW</span>
+                <span className="px-2 py-0.5 bg-[#B48028] text-white text-[10px] font-black rounded-full uppercase tracking-wider">NEW</span>
               </button>
             </div>
           </div>
 
-          {/* Header */}
-          <div className="text-center mb-10">
-            <span className="inline-flex items-center gap-1.5 px-4 py-1.5 bg-rose-500/10 border border-rose-500/30 text-rose-400 text-xs font-mono font-bold rounded-full uppercase tracking-wider mb-3">
-              <HeartPulse className="w-4 h-4" />
-              <span>{isRtl ? 'اعتماد الإنعاش القلبي والسريري' : 'AHA & SMC Resuscitation Accreditation'}</span>
-            </span>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
-              {isRtl ? 'ورشة الدعم الحياتي الأساسي والإنعاش القلبي (BLS)' : 'Basic Life Support (BLS) & Resuscitation Workshop'}
+          {/* Header Title */}
+          <div className="text-center mb-12">
+            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white">
+              {isRtl ? 'دعم الحياة الأساسي (BLS)' : 'Basic Life Support (BLS)'}
             </h1>
-            <p className="text-sm sm:text-base text-slate-400 mt-3 flex flex-wrap items-center justify-center gap-2">
+            <p className="mt-4 text-base sm:text-lg text-slate-400 max-w-xl mx-auto flex items-center justify-center gap-2">
               <Clock className="w-4 h-4 text-[#00F2FE]" />
               <span>{activeHubData.date[lang] || activeHubData.date.en}</span>
-              <span className="text-slate-600 hidden sm:inline">•</span>
+              <span className="text-slate-600">•</span>
               <MapPin className="w-4 h-4 text-[#B48028]" />
               <span>{activeHubData.location[lang] || activeHubData.location.en}</span>
             </p>
           </div>
 
-          {/* Countdown Timer */}
+          {/* Floating Glass Countdown Widget */}
           {!countdown.ended && (
-            <div className="mb-12 grid grid-cols-4 gap-3 max-w-xl mx-auto">
+            <div className="mb-12 grid grid-cols-4 gap-3 sm:gap-6 max-w-2xl mx-auto">
               <CountdownBlock label={isRtl ? 'أيام' : 'DAYS'} value={countdown.days} />
-              <CountdownBlock label={isRtl ? 'ساعات' : 'HRS'} value={countdown.hours} />
-              <CountdownBlock label={isRtl ? 'دقائق' : 'MIN'} value={countdown.mins} />
-              <CountdownBlock label={isRtl ? 'ثواني' : 'SEC'} value={countdown.secs} />
+              <CountdownBlock label={isRtl ? 'ساعات' : 'HOURS'} value={countdown.hours} />
+              <CountdownBlock label={isRtl ? 'دقائق' : 'MINS'} value={countdown.mins} />
+              <CountdownBlock label={isRtl ? 'ثواني' : 'SECS'} value={countdown.secs} />
             </div>
           )}
 
-          {/* Accreditation Badges */}
-          <div className="mb-10 grid gap-4 sm:grid-cols-3">
-            <div className="flex items-center gap-3 rounded-2xl border border-slate-800 bg-[#0A0F1D] p-5 shadow-lg">
-              <ShieldCheck className="h-7 w-7 text-teal-400" strokeWidth={1.8} />
-              <div>
-                <p className="text-sm font-bold text-white">SMC Accredited</p>
-                <p className="text-xs text-slate-400">{isRtl ? 'معتمد من المجلس الطبي' : 'Sudan Medical Council'}</p>
-              </div>
+          {/* Spatial Floating Badges */}
+          <div className="mb-10 flex flex-wrap justify-center gap-3 sm:gap-4">
+            <div className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2.5 backdrop-blur-xl shadow-lg">
+              <ShieldCheck className="h-4 w-4 text-teal-400" />
+              <span className="text-sm font-medium tracking-tight text-slate-200">SMC {isRtl ? 'معتمد' : 'Accredited'}</span>
             </div>
-            <div className="flex items-center gap-3 rounded-2xl border border-slate-800 bg-[#0A0F1D] p-5 shadow-lg">
-              <Award className="h-7 w-7 text-[#00F2FE]" strokeWidth={1.8} />
-              <div>
-                <p className="text-sm font-bold text-white">AHA Guidelines</p>
-                <p className="text-xs text-slate-400">{isRtl ? 'مطابق لمعايير AHA الدولية' : 'International Standard'}</p>
-              </div>
+            <div className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2.5 backdrop-blur-xl shadow-lg">
+              <Award className="h-4 w-4 text-[#00F2FE]" />
+              <span className="text-sm font-medium tracking-tight text-slate-200">AHA {isRtl ? 'معتمد' : 'Accredited'}</span>
             </div>
-            <div className="flex items-center gap-3 rounded-2xl border border-[#B48028]/40 bg-[#0A0F1D] p-5 shadow-lg">
-              <Sparkles className="h-7 w-7 text-[#B48028]" strokeWidth={1.8} />
-              <div>
-                <p className="text-sm font-bold text-white">{isRtl ? 'مكافأة الأعضاء' : 'Member Bonus'}</p>
-                <p className="text-xs text-slate-400">
-                  {isRtl ? 'سيرة ذاتية احترافية — د. محمد صبري' : 'Pro CV Module — Dr. Sabri'}
-                </p>
-              </div>
+            <div className="flex items-center gap-2 rounded-full border border-[#B48028]/40 bg-[#B48028]/10 px-5 py-2.5 backdrop-blur-xl shadow-[0_0_20px_rgba(180,128,40,0.2)]">
+              <Sparkles className="h-4 w-4 text-[#B48028]" />
+              <span className="text-sm font-bold tracking-tight text-[#B48028]">
+                {isRtl ? 'سيرة ذاتية احترافية مجاناً — د. صبري' : 'Pro CV Bonus Included — Dr. Sabri'}
+              </span>
             </div>
           </div>
 
           {/* Referral Banner */}
           {referralId && (
-            <div className="mb-6 rounded-xl border border-[#00F2FE]/40 bg-[#00F2FE]/10 px-5 py-3.5 text-xs sm:text-sm text-slate-200 flex items-center justify-between">
-              <span>{isRtl ? 'تمت الإحالة عبر المعرف السيادي:' : 'Referred by Sovereign ID:'} <strong>{referralId}</strong></span>
-              <span className="px-2 py-0.5 bg-[#00F2FE] text-slate-950 font-bold font-mono rounded text-xs">+50 GP Referral</span>
+            <div className="mb-8 rounded-2xl border border-[#00F2FE]/30 bg-[#00F2FE]/10 p-4 text-center text-sm text-slate-200 backdrop-blur-xl">
+              {isRtl ? 'تمت الإحالة عبر المعرف السيادي:' : 'Referred by Sovereign ID:'} <strong className="font-mono text-[#00F2FE] ml-1">{referralId}</strong> (+50 GP Grant)
             </div>
           )}
 
-          {/* Riyadh Desk Inquiries */}
-          <a
-            href="https://wa.me/966550476176"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mb-8 flex items-center gap-3 rounded-2xl border border-slate-800 bg-[#0A0F1D] hover:border-teal-500/50 p-4 text-xs sm:text-sm transition-all shadow-md group"
-          >
-            <div className="p-2 bg-emerald-500/10 rounded-xl text-emerald-400">
-              <MessageCircle className="h-5 w-5" strokeWidth={1.8} />
-            </div>
-            <div>
-              <span className="font-semibold text-white">
-                {isRtl
-                  ? 'لديك استفسار بخصوص الترخيص أو الانتقال إلى السعودية؟ راسل مكتبنا في الرياض'
-                  : 'Questions about KSA licensing or relocation? Message our Riyadh desk'}
-              </span>
-              <p className="text-[11px] text-slate-400 mt-0.5">{isRtl ? 'استشارات الاعتماد والتنسيب السريري' : 'Clinical Placement & Fellowship Guidance'}</p>
-            </div>
-          </a>
-
-          {/* Form / Result Area */}
+          {/* Form or Success Screen */}
           {status === 'done' ? (
-            <div className="rounded-2xl border border-emerald-500/50 bg-[#0A0F1D] p-8 shadow-2xl animate-in fade-in">
-              <div className="flex items-start gap-4">
-                <div className="p-3 bg-emerald-500/15 border border-emerald-500 rounded-xl text-emerald-400">
-                  <CheckCircle2 className="h-8 w-8" strokeWidth={2} />
+            <div className="overflow-hidden rounded-3xl border border-teal-500/30 bg-slate-900/60 p-8 sm:p-12 backdrop-blur-2xl shadow-2xl transition-all duration-700 animate-in fade-in slide-in-from-bottom-8">
+              <div className="flex flex-col items-center text-center">
+                <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-teal-500/20 ring-8 ring-teal-500/10">
+                  <CheckCircle2 className="h-10 w-10 text-teal-400" />
                 </div>
-                <div>
-                  <h2 className="font-display text-2xl font-bold text-white">
-                    {isRtl ? 'تم استلام تسجيلك بنجاح وإرسال بريد الترحيب' : 'Registration Received & CRM Email Dispatched'}
-                  </h2>
-                  <p className="mt-2 text-sm text-slate-300">
-                    {isRtl
-                      ? `رقمك السيادي المحجوز: ${result?.gaId || 'GA-PENDING'} — المقر: ${activeHubData.name.ar} — الحالة: قيد التحقق والتأكيد.`
-                      : `Provisional GA-ID: ${result?.gaId || 'GA-PENDING'} — Hub: ${activeHubData.name.en} — status: pending verification.`}
-                  </p>
-                  <p className="mt-3 text-xs sm:text-sm text-teal-300 bg-teal-500/10 border border-teal-500/30 rounded-xl p-3">
-                    {isRtl
-                      ? 'تم إرسال بريد تأكيد رسمي يحتوي على رابط البورتال الشخصي وتعليمات الحضور.'
-                      : 'An official onboarding email with your personalized portal link and attendance instructions has been sent.'}
-                  </p>
-                </div>
+                <h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-white">
+                  {isRtl ? 'تم تأكيد طلب التسجيل وإرسال البريد' : 'Registration Secured & Onboarding Dispatched'}
+                </h2>
+                <p className="mt-4 text-lg text-slate-300">
+                  {isRtl ? 'رقمك المعرف السيادي: ' : 'Provisional Ticket: '}
+                  <span className="font-mono font-black text-[#00F2FE] bg-white/10 px-3 py-1 rounded-xl ml-2">{result?.gaId || 'GA-RESERVED'}</span>
+                </p>
+                <p className="mt-4 text-sm text-slate-400 max-w-md mx-auto leading-relaxed">
+                  {isRtl
+                    ? `طلبك في مقر (${activeHubData.name.ar}) قيد مراجعة الدفع والتأكيد. تم إرسال بريد رسمي برابط البورتال وتعليمات الحضور.`
+                    : `Your reservation for (${activeHubData.name.en}) is pending verification. An onboarding email with your profile link has been sent.`}
+                </p>
               </div>
 
-              {/* Riyadh Desk Intercept */}
-              <div className="mt-8 rounded-2xl border border-[#B48028]/40 bg-[#121B2A] p-6">
-                <p className="text-sm font-bold text-white">
+              {/* Riyadh Placement Intercept */}
+              <div className="mt-10 rounded-2xl border border-[#B48028]/30 bg-[#B48028]/10 p-6 sm:p-8 text-center backdrop-blur-xl">
+                <h3 className="text-base font-bold text-white mb-2">
+                  {isRtl ? 'السفر والعمل في المملكة العربية السعودية؟' : 'Relocating or Licensing in KSA?'}
+                </h3>
+                <p className="text-sm text-slate-400 mb-6 max-w-md mx-auto">
                   {isRtl
-                    ? 'هل تحتاج مساعدة في الترخيص أو الانتقال أو التنسيب السريري في السعودية؟'
-                    : 'Need help with KSA licensing, relocation, or clinical placement?'}
-                </p>
-                <p className="text-xs text-slate-400 mt-1">
-                  {isRtl ? 'مستشارونا في مكتب الرياض جاهزون لمراجعة مسارك المهني فوراً.' : 'Our Riyadh desk consultants are available to assist with your placement roadmap.'}
+                    ? 'تحدث مباشرة مع فريق مكتب الرياض للحصول على الاستشارات السريرية والتنسيب الوظيفي.'
+                    : 'Speak with our Riyadh desk for licensing, residency, and clinical placement assistance.'}
                 </p>
                 <a
                   href={buildKsaWhatsappLink({ gaId: result?.gaId, fullName: form.fullName, hubName: activeHubData.name.en })}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-4 inline-flex items-center gap-2 rounded-xl bg-[#B48028] hover:bg-[#96671E] px-5 py-2.5 text-xs font-bold text-white shadow-lg transition-colors"
+                  className="inline-flex items-center gap-2 rounded-full bg-[#B48028] hover:bg-[#96671E] px-8 py-3.5 text-sm font-bold text-white transition-transform hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(180,128,40,0.4)]"
                 >
-                  <MessageCircle className="h-4 w-4" />
-                  <span>{isRtl ? 'مراسلة مكتب الرياض عبر واتساب' : 'Message Riyadh Desk via WhatsApp'}</span>
+                  <MessageCircle className="h-5 w-5" />
+                  <span>{isRtl ? 'تواصل مع مكتب الرياض عبر واتساب' : 'Connect with Riyadh Desk'}</span>
                 </a>
               </div>
             </div>
           ) : (
-            <form onSubmit={onSubmit} className="rounded-2xl border border-slate-800 bg-[#0A0F1D] p-6 sm:p-8 shadow-2xl space-y-6">
-              <div className="flex items-center justify-between border-b border-slate-800 pb-4">
-                <h3 className="text-xl font-bold text-white">
-                  {isRtl ? `تأكيد حجز مقعد — ${activeHubData.name.ar}` : `Seat Reservation — ${activeHubData.name.en}`}
-                </h3>
-                <span className="px-3 py-1 bg-[#00F2FE]/10 border border-[#00F2FE]/30 text-[#00F2FE] text-xs font-mono font-bold rounded-lg">
-                  {activeHubData.price}
-                </span>
-              </div>
-
-              <div className="grid gap-5 sm:grid-cols-2">
+            <form onSubmit={onSubmit} className="relative overflow-hidden rounded-3xl border border-white/10 bg-slate-900/40 p-6 sm:p-10 backdrop-blur-2xl shadow-2xl">
+              <div className="grid gap-6 sm:grid-cols-2">
                 <div className="sm:col-span-2">
-                  <Field label={isRtl ? 'الاسم الكامل (كما في الشهادة الطبية)' : 'Full Name (as on Medical Degree)'}>
+                  <Field label={isRtl ? 'الاسم الكامل (كما في الشهادة الطبية)' : 'Full Legal Name'}>
                     <input value={form.fullName} onChange={update('fullName')} className={inputClass} placeholder="Dr. Full Name" />
                   </Field>
-                  {errors.fullName && <p className="mt-1.5 text-xs text-rose-400">{errors.fullName}</p>}
+                  {errors.fullName && <p className="mt-2 text-xs font-medium text-rose-400">{errors.fullName}</p>}
                 </div>
                 <div>
                   <Field label={isRtl ? 'البريد الإلكتروني' : 'Email Address'}>
                     <input type="email" value={form.email} onChange={update('email')} className={inputClass} placeholder="doctor@example.com" />
                   </Field>
-                  {errors.email && <p className="mt-1.5 text-xs text-rose-400">{errors.email}</p>}
+                  {errors.email && <p className="mt-2 text-xs font-medium text-rose-400">{errors.email}</p>}
                 </div>
                 <div>
-                  <Field label={isRtl ? 'رقم الهاتف / واتساب' : 'Phone / WhatsApp'}>
-                    <input value={form.phone} onChange={update('phone')} className={inputClass} placeholder="+20 101 ... / +249 9..." />
+                  <Field label={isRtl ? 'رقم الهاتف / واتساب' : 'Phone Number'}>
+                    <input value={form.phone} onChange={update('phone')} className={inputClass} placeholder="+20 100 ... / +249 9..." />
                   </Field>
-                  {errors.phone && <p className="mt-1.5 text-xs text-rose-400">{errors.phone}</p>}
+                  {errors.phone && <p className="mt-2 text-xs font-medium text-rose-400">{errors.phone}</p>}
                 </div>
-              </div>
 
-              {/* Payment Section */}
-              <div className="rounded-2xl border border-slate-800 bg-[#04080F] p-6">
-                <div className="mb-4 flex items-center gap-3">
-                  <div className="p-2 bg-rose-500/10 rounded-xl text-rose-400 border border-rose-500/30">
-                    <Smartphone className="h-5 w-5" strokeWidth={1.8} />
+                {/* Glassy Payment Card */}
+                <div className="sm:col-span-2 mt-4 overflow-hidden rounded-2xl border border-white/10 bg-black/40 p-6 backdrop-blur-xl">
+                  <div className="mb-5 flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#00F2FE]/20">
+                        <Smartphone className="h-5 w-5 text-[#00F2FE]" />
+                      </div>
+                      <div>
+                        <h3 className="font-display text-lg font-bold tracking-tight text-white">
+                          {activeHubData.paymentLabel[lang] || activeHubData.paymentLabel.en}
+                        </h3>
+                        <p className="text-xs text-slate-400">
+                          {activeHubData.paymentHint[lang] || activeHubData.paymentHint.en}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="text-end">
+                      <span className="block text-2xl font-bold tracking-tighter text-white">{activeHubData.priceDisplay}</span>
+                    </div>
+                  </div>
+                  
+                  <label className="mb-5 flex cursor-pointer items-center gap-3 rounded-xl border border-white/5 bg-white/5 p-4 transition-colors hover:bg-white/10">
+                    <div className="relative flex items-center">
+                      <input type="checkbox" checked={form.gpApplied} onChange={update('gpApplied')} className="peer sr-only" />
+                      <div className="h-5 w-5 rounded-lg border border-slate-500 bg-transparent transition-all peer-checked:border-[#00F2FE] peer-checked:bg-[#00F2FE]"></div>
+                      <CheckCircle2 className="absolute inset-0 h-5 w-5 text-slate-950 opacity-0 transition-opacity peer-checked:opacity-100" />
+                    </div>
+                    <span className="text-sm font-medium text-slate-200">
+                      {isRtl ? 'استخدام رصيد نقاط GemIInI (GP) بدلاً من الدفع النقدي' : 'Apply GemIInI Points (GP) Ledger Balance'}
+                    </span>
+                  </label>
+
+                  {!form.gpApplied && (
+                    <div className="animate-in fade-in slide-in-from-top-2">
+                      <Field
+                        label={isRtl ? 'رقم العملية / الإشعار المرجعي' : 'Transaction Reference / Receipt ID'}
+                        hint={isRtl ? 'أدخل الرقم المرجعي للتحويل المستلم في الرسالة.' : 'As shown in your transfer confirmation receipt.'}
+                      >
+                        <input value={form.transactionId} onChange={update('transactionId')} className={inputClass} placeholder="e.g. 1098765432" />
+                      </Field>
+                      {errors.transactionId && <p className="mt-2 text-xs font-medium text-rose-400">{errors.transactionId}</p>}
+                    </div>
+                  )}
+                </div>
+
+                {/* Expedite Patron Boost */}
+                <label className="sm:col-span-2 group flex cursor-pointer items-start gap-4 rounded-2xl border border-[#B48028]/30 bg-gradient-to-r from-[#B48028]/10 to-transparent p-5 transition-all hover:border-[#B48028]/50">
+                  <div className="relative mt-0.5 flex items-center">
+                    <input type="checkbox" checked={form.patronBooster} onChange={update('patronBooster')} className="peer sr-only" />
+                    <div className="h-5 w-5 rounded-lg border border-[#B48028]/50 bg-transparent transition-all peer-checked:border-[#B48028] peer-checked:bg-[#B48028]"></div>
+                    <CheckCircle2 className="absolute inset-0 h-5 w-5 text-white opacity-0 transition-opacity peer-checked:opacity-100" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-base text-white">
-                      {isRtl ? 'طريقة الدفع والتأكيد المالي' : 'Payment Method & Transfer Reference'}
-                    </h4>
-                    <p className="text-xs text-slate-400">
-                      {activeHubData.paymentMethod[lang] || activeHubData.paymentMethod.en}
-                    </p>
+                    <span className="flex items-center gap-2 text-[15px] font-bold text-white">
+                      <Coffee className="h-4 w-4 text-[#B48028]" />
+                      {isRtl ? 'تسريع المراجعة وتأييد المبادرة (اختياري)' : 'Expedited Priority Review (Optional)'}
+                    </span>
+                    <span className="mt-1 block text-sm text-slate-400">
+                      {isRtl
+                        ? 'تخطى طابور الانتظار وتمتع بمراجعة يدوية فورية وتأكيد حجز مقعدك.'
+                        : 'Skip the queue. Upgrades your registration to priority manual processing.'}
+                    </span>
                   </div>
-                </div>
-
-                <label className="mb-4 flex items-center gap-2.5 text-xs sm:text-sm text-slate-300 cursor-pointer bg-slate-900/60 p-3 rounded-xl border border-slate-800">
-                  <input type="checkbox" checked={form.gpApplied} onChange={update('gpApplied')} className="w-4 h-4 rounded text-[#00F2FE]" />
-                  <span>{isRtl ? 'استخدام رصيد نقاط GemIInI (GP) لتغطية الرسوم' : 'Apply GemIInI Points (GP) balance instead of cash'}</span>
                 </label>
 
-                {!form.gpApplied && (
-                  <div className="mt-4">
-                    <Field
-                      label={isRtl ? 'رقم العملية المرجعي (Transaction Reference ID)' : 'Transaction Reference / Receipt ID'}
-                      hint={isRtl ? 'أدخل الرقم المرجعي للتحويل كما يظهر في إشعار البنك أو رسالة التحويل.' : 'As shown in your bank transfer or remittance receipt.'}
-                    >
-                      <input value={form.transactionId} onChange={update('transactionId')} className={inputClass} placeholder="e.g. 194038291 / Bankak Ref" />
-                    </Field>
-                    {errors.transactionId && <p className="mt-1.5 text-xs text-rose-400">{errors.transactionId}</p>}
+                {status === 'error' && (
+                  <div className="sm:col-span-2 p-4 bg-rose-500/10 border border-rose-500/30 rounded-2xl text-xs text-rose-300">
+                    {isRtl ? 'حدث خطأ أثناء إرسال التسجيل. يرجى المحاولة مرة أخرى.' : 'An error occurred while processing. Please retry.'}
                   </div>
                 )}
-              </div>
 
-              {/* Patron Booster */}
-              <label className="flex items-start gap-3 rounded-2xl border border-[#B48028]/30 bg-[#B48028]/5 p-4 cursor-pointer hover:border-[#B48028]/60 transition-all">
-                <input type="checkbox" checked={form.patronBooster} onChange={update('patronBooster')} className="mt-1 h-4 w-4 rounded" />
-                <span className="flex items-start gap-2.5">
-                  <Coffee className="mt-0.5 h-5 w-5 text-[#B48028] flex-shrink-0" strokeWidth={1.8} />
-                  <span>
-                    <span className="block text-xs sm:text-sm font-bold text-white">
-                      {isRtl ? 'مساهمة داعم للمبادرة الأكاديمية (اختياري)' : 'Patron contribution (optional)'}
+                <div className="sm:col-span-2 mt-4">
+                  <button
+                    type="submit"
+                    disabled={status === 'loading'}
+                    className="group relative flex min-h-[56px] w-full items-center justify-center overflow-hidden rounded-2xl bg-white px-8 text-base font-bold text-slate-950 transition-all hover:bg-[#00F2FE] active:scale-[0.98] disabled:opacity-60 shadow-xl"
+                  >
+                    <span className="relative z-10 flex items-center gap-2">
+                      {status === 'loading'
+                        ? (isRtl ? 'جاري المعالجة والتأمين...' : 'Processing Securely...')
+                        : (isRtl ? `تأكيد حجز مقعد ${activeHubData.name.ar}` : `Secure Seat in ${activeHubData.name.en}`)}
+                      {status !== 'loading' && (isRtl ? <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" /> : <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />)}
                     </span>
-                    <span className="block text-xs text-slate-400 mt-0.5">
-                      {isRtl
-                        ? 'تساهم في دعم تدريب الأطباء المتضررين من النزاع وتسريع مراجعة وتأكيد تسجيلك يدوياً.'
-                        : 'Supports displaced physician training & prioritizes your manual verification review.'}
-                    </span>
-                  </span>
-                </span>
-              </label>
-
-              {status === 'error' && (
-                <div className="p-4 bg-rose-500/10 border border-rose-500/30 rounded-xl text-xs text-rose-300">
-                  {isRtl ? 'حدث خطأ أثناء إرسال التسجيل. يرجى المحاولة مرة أخرى أو التواصل معنا عبر واتساب.' : 'An error occurred while submitting your registration. Please retry or contact support.'}
+                  </button>
                 </div>
-              )}
-
-              <button
-                type="submit"
-                disabled={status === 'loading'}
-                className="w-full py-3.5 rounded-xl bg-[#00F2FE] hover:bg-[#00D2DE] text-slate-950 font-extrabold text-sm transition-all shadow-[0_0_20px_rgba(0,242,254,0.3)] active:scale-[0.99] disabled:opacity-60 flex items-center justify-center gap-2"
-              >
-                {status === 'loading' ? (
-                  <span>{isRtl ? 'جاري تسجيل وتوثيق المقعد...' : 'Registering Seat...'}</span>
-                ) : (
-                  <>
-                    <span>{isRtl ? `تأكيد حجز مقعد ${activeHubData.name.ar}` : `Confirm Seat in ${activeHubData.name.en}`}</span>
-                    {isRtl ? <ArrowLeft className="w-4 h-4" /> : <ArrowRight className="w-4 h-4" />}
-                  </>
-                )}
-              </button>
+              </div>
             </form>
           )}
 
