@@ -1,471 +1,499 @@
 /**
- * SudaGene Consortium & GemIInI Academy — Master Sovereign Backend Engine
- * Strict Integrity 5-Tab Google Sheets Ledger & Atomic Transaction Ingestion
- *
- * Target Sheet: GemIInI Master Registry 2026
- * Schema:
- *   - Tab 1: MASTER_AUTH
- *   - Tab 2: PAYMENT_AUDIT_LOG
- *   - Tab 3: GEMIINI_CLINICAL_TELEMETRY
- *   - Tab 4: QUEUE_FALLBACK
- *   - Tab 5: CONCIERGE_FASTTRACK
+ * ============================================================================
+ * GemIInI Sovereign Backend & Clinical Certification Gateway (Code.gs)
+ * Single Source of Truth (SSOT) Architecture — Version 3.3 (Cross-Desk Unified)
+ * Target Workbook: GemIInI Master Registry 2026 (1X74wS42KR5WpMusd8L_3-5LCDSIz9m7JHNdgY-rTbxs)
+ * ============================================================================
  */
 
-const NEXT_ID_START = 6291;
-const WORKSHOP_ID_CAIRO = 'BLS-2026-08-CAIRO';
-const INBOX_FOLDER_NAME = '01_RECEIPTS_INBOX';
+const CONFIG = {
+  SHEET_AUTH: 'MASTER_AUTH',
+  SHEET_PAYMENTS: 'PAYMENT_AUDIT_LOG',
+  SHEET_TELEMETRY: 'TELEMETRY',
+  SHEET_QUEUE: 'QUEUE_FALLBACK',
+  SHEET_ROSTER: 'BLS_ROSTER',
+  SECRET_SALT: 'GEMIINI_SOVEREIGN_SALT_2026',
+  LOCK_TIMEOUT_MS: 15000,
+  PRICING: {
+    BLS_CAIRO_AUG28: {
+      MEMBER_EGP: 2000,
+      NON_MEMBER_EGP: 3500,
+      CURRENCY: 'EGP',
+      CAPACITY_MAX: 12
+    }
+  }
+};
 
+/**
+ * Public Sanitized Read API (doGet)
+ * Handles direct browser verification (registry.html) and public leaderboard queries.
+ */
 function doGet(e) {
-  return handleRequest(e);
+  try {
+    const params = (e && e.parameter) || {};
+    const action = String(params.action || 'lookup').toUpperCase();
+    const ss = SpreadsheetApp.getActiveSpreadsheet();
+
+    if (action === 'LOOKUP' || action === 'VERIFY') {
+      return jsonResponse(handleLookup({ gaId: params.id || params.gaId }, ss));
+    }
+
+    if (action === 'LEADERBOARD') {
+      return jsonResponse(handleLeaderboard(params, ss));
+    }
+
+    return jsonResponse({ success: true, message: 'GemIInI Sovereign API Ready' });
+  } catch (err) {
+    return jsonResponse({ success: false, error: err.message }, 500);
+  }
 }
 
+/**
+ * Transactional Mutating API (doPost)
+ * Wrapped under LockService concurrency control.
+ */
 function doPost(e) {
-  return handleRequest(e);
-}
-
-function handleRequest(e) {
-  try {
-    let payload = {};
-    if (e && e.postData && e.postData.contents) {
-      try {
-        payload = JSON.parse(e.postData.contents);
-      } catch (parseErr) {
-        payload = e.parameter || {};
-      }
-    } else if (e && e.parameter) {
-      payload = e.parameter;
-    }
-
-    const action = payload.action || 'ping';
-
-    // 1. ATOMIC PORTAL INTAKE (/join & Registration Gateway)
-    if (action === 'portal_intake' || action === 'register') {
-      return handlePortalIntake(payload);
-    }
-
-    // 2. BLS PHYSICAL CLINICAL WORKSHOP (Cairo Dokki Hub - 3,000 EGP)
-    if (action === 'bls_register') {
-      return handleBlsRegister(payload);
-    }
-
-    // 3. CONCIERGE FAST-TRACK VISA & EXAM TRAVEL
-    if (action === 'concierge_fast_track') {
-      return handleConciergeFastTrack(payload);
-    }
-
-    // 4. CLINICAL SIMULATION & TELEMETRY INGESTION (Strict Zero Defaults)
-    if (action === 'log_telemetry') {
-      return handleLogTelemetry(payload);
-    }
-
-    // 5. SOVEREIGN MEMBER LOOKUP (Strict Database Query, Zero Mock Overrides)
-    if (action === 'lookup') {
-      return handleLookup(payload);
-    }
-
-    // 6. SOVEREIGN MERIT LEADERBOARD
-    if (action === 'leaderboard') {
-      return handleLeaderboard(payload);
-    }
-
-    return jsonResponse({ status: 'success', message: 'GemIInI Sovereign API active', timestamp: new Date().toISOString() });
-  } catch (err) {
-    return jsonResponse({ status: 'error', message: err.toString() }, 500);
-  }
-}
-
-// ==============================================================================
-// 1. ATOMIC PORTAL INTAKE HANDLER
-// ==============================================================================
-function handlePortalIntake(payload) {
   const lock = LockService.getScriptLock();
   try {
-    lock.waitLock(10000); // 10-Second Concurrency Lock
-
+    lock.waitLock(CONFIG.LOCK_TIMEOUT_MS);
+    
+    if (!e || !e.postData || !e.postData.contents) {
+      return jsonResponse({ success: false, error: 'EMPTY_PAYLOAD' }, 400);
+    }
+    
+    const payload = JSON.parse(e.postData.contents);
+    const action = String(payload.action || '').toUpperCase();
     const ss = SpreadsheetApp.getActiveSpreadsheet();
-    const authSheet = getOrCreateSheet(ss, 'MASTER_AUTH', [
-      'Timestamp', 'GA_ID', 'Full_Name_Arabic', 'Full_Name_English', 'Email_Address', 
-      'WhatsApp_Phone', 'Canonical_University', 'Graduation_Year', 'Primary_Track', 
-      'GP_Balance', 'Account_Status', 'Course_Completion_Rate', 'Diagnostic_Accuracy', 
-      'Study_Streak_Days', 'Standardized_Title', 'SudaPass_Hash', 'Drive_Folder_URL'
-    ]);
-
-    const auditSheet = getOrCreateSheet(ss, 'PAYMENT_AUDIT_LOG', [
-      'Audit_Timestamp', 'Transaction_Ref', 'Candidate_GA_ID', 'Payment_Channel', 
-      'Amount_Submitted', 'Receipt_Drive_Link', 'Verification_Status', 'Audited_By_Officer', 'Verification_Timestamp'
-    ]);
-
-    const txRef = String(payload.provider_ref || payload.transaction_ref || payload.transactionId || '').trim().toUpperCase();
-    const email = String(payload.email || payload.email_address || '').trim().toLowerCase();
-    const phone = String(payload.phone || payload.whatsapp || payload.phone_whatsapp || '').trim();
-    const nameAr = String(payload.full_name_ar || payload.name_ar || '').trim();
-    const nameEn = String(payload.full_name_en || payload.fullName || payload.name || 'Doctor').trim();
-
-    // 1. Deduplication Gate
-    if (txRef && txRef !== 'MANUAL' && isDuplicateTransaction(auditSheet, txRef)) {
-      return jsonResponse({ status: 'error', code: 'DUPLICATE_TX', message: 'Transaction reference already processed.' }, 409);
+    
+    switch (action) {
+      case 'LOOKUP':
+      case 'VERIFY':
+        return jsonResponse(handleLookup(payload, ss));
+        
+      case 'REGISTER_USER':
+      case 'REGISTER':
+      case 'PORTAL_INTAKE':
+        return jsonResponse(handleRegisterUser(payload, ss));
+        
+      case 'BLS_REGISTER':
+      case 'SUBMIT_BLS':
+        return jsonResponse(handleBlsRegister(payload, ss));
+        
+      case 'LOG_TELEMETRY':
+      case 'LOG_CLINICAL_ATTEMPT':
+        return jsonResponse(handleLogTelemetry(payload, ss));
+        
+      case 'LEADERBOARD':
+        return jsonResponse(handleLeaderboard(payload, ss));
+        
+      default:
+        return jsonResponse({ success: false, error: 'INVALID_ACTION: ' + action }, 400);
     }
-
-    // 2. Identity Resolution or Sequential Minting (Zero Math.random())
-    let gaId = resolveExistingGaId(authSheet, email, phone);
-    let isNewMember = false;
-
-    if (!gaId) {
-      isNewMember = true;
-      gaId = mintSequentialGaId(ss, authSheet);
-      
-      authSheet.appendRow([
-        new Date().toISOString(),
-        gaId,
-        nameAr || nameEn,
-        nameEn,
-        email,
-        phone,
-        payload.canonical_university || payload.university || 'University of Khartoum',
-        Number(payload.graduation_year) || 2024,
-        payload.primary_track || payload.track || 'SMC_LICENSURE',
-        25, // Initial Explorer Balance
-        'EXPLORER',
-        0, // Initial CCR%
-        0, // Initial Accuracy%
-        1, // Day 1 Streak
-        payload.standardized_title || 'Clinical Trainee',
-        generateSudaPassHash(gaId, email),
-        '' // Workspace Drive URL
-      ]);
-    }
-
-    // 3. Save Receipt Screenshot to Drive if base64 provided
-    let receiptUrl = '';
-    if (payload.receipt_base64) {
-      receiptUrl = saveReceiptToDrive(gaId, txRef, payload.receipt_base64);
-    }
-
-    // 4. Log to PAYMENT_AUDIT_LOG
-    if (txRef) {
-      auditSheet.appendRow([
-        new Date().toISOString(),
-        txRef,
-        gaId,
-        payload.payment_channel || payload.paymentMethod || 'VODAFONE_CASH_EG',
-        payload.amount_submitted || payload.amount || 0,
-        receiptUrl,
-        'PENDING_AUDIT',
-        '', // Audited_By_Officer
-        '' // Verification_Timestamp
-      ]);
-    }
-
-    return jsonResponse({
-      status: 'success',
-      gaId: gaId,
-      gpBalance: isNewMember ? 25 : getMemberGp(authSheet, gaId),
-      tier: isNewMember ? 'EXPLORER' : 'EXISTING',
-      message: 'Intake transaction committed atomically.'
-    });
   } catch (err) {
-    return jsonResponse({ status: 'error', message: err.toString() }, 500);
+    return jsonResponse({ success: false, error: err.message }, 500);
   } finally {
     lock.releaseLock();
   }
 }
 
-// ==============================================================================
-// 2. INSTALLABLE APPROVAL & GP BUMP TRIGGER
-// ==============================================================================
-function onEditApprovalTrigger(e) {
-  if (!e || !e.range) return;
-  const sheet = e.range.getSheet();
-  if (sheet.getName() !== 'PAYMENT_AUDIT_LOG') return;
+/**
+ * 1. REAL LOOKUP (Zero hardcoded overrides)
+ */
+function handleLookup(payload, ss) {
+  const gaId = String(payload.gaId || payload.id || '').trim().toUpperCase();
+  if (!gaId) {
+    return { success: false, error: 'GA_ID_REQUIRED' };
+  }
 
-  const col = e.range.getColumn();
-  const row = e.range.getRow();
-  const val = String(e.range.getValue()).trim().toUpperCase();
+  const authSheet = getOrCreateSheet(ss, CONFIG.SHEET_AUTH);
+  const data = authSheet.getDataRange().getValues();
+  
+  if (data.length <= 1) {
+    return { success: false, error: 'USER_NOT_FOUND', verified: false };
+  }
 
-  // Column G = Verification_Status (Column 7)
-  if (col === 7 && val === 'VERIFIED') {
-    const lock = LockService.getScriptLock();
-    try {
-      lock.waitLock(10000);
-      const ss = SpreadsheetApp.getActiveSpreadsheet();
-      const authSheet = ss.getSheetByName('MASTER_AUTH');
-      const gaId = String(sheet.getRange(row, 3).getValue()).trim();
-      const officer = Session.getActiveUser().getEmail() || 'GA-STAFF';
+  const headers = data[0];
+  const idIdx = headers.indexOf('GA_ID');
+  const nameIdx = headers.indexOf('LEGAL_NAME') !== -1 ? headers.indexOf('LEGAL_NAME') : 1;
+  const univIdx = headers.indexOf('UNIVERSITY') !== -1 ? headers.indexOf('UNIVERSITY') : 4;
+  const stageIdx = headers.indexOf('CAREER_STAGE') !== -1 ? headers.indexOf('CAREER_STAGE') : 5;
+  const statusIdx = headers.indexOf('STATUS') !== -1 ? headers.indexOf('STATUS') : 6;
 
-      // Update Audit Log metadata
-      sheet.getRange(row, 8).setValue(officer);
-      sheet.getRange(row, 9).setValue(new Date().toISOString());
-
-      // Bump MASTER_AUTH to Pathfinder Tier (+475 GP -> 500 GP total)
-      bumpCandidateToPathfinder(authSheet, gaId);
-    } catch (err) {
-      Logger.log('Approval Trigger Error: ' + err);
-    } finally {
-      lock.releaseLock();
+  for (let i = 1; i < data.length; i++) {
+    if (String(data[i][idIdx]).trim().toUpperCase() === gaId) {
+      const telemetry = getTelemetryForUser(ss, gaId);
+      const isAccredited = String(data[i][statusIdx]).toUpperCase() === 'ACTIVE' || 
+                           String(data[i][statusIdx]).toUpperCase() === 'VERIFIED' || 
+                           String(data[i][statusIdx]).toUpperCase() === 'ACCREDITED';
+      return {
+        success: true,
+        verified: isAccredited,
+        user: {
+          gaId: data[i][idIdx],
+          legalName: data[i][nameIdx],
+          university: data[i][univIdx],
+          careerStage: data[i][stageIdx],
+          status: data[i][statusIdx]
+        },
+        telemetry: telemetry
+      };
     }
   }
+
+  return { success: false, error: 'USER_NOT_FOUND', verified: false, message: 'UNVERIFIED / RECORD NOT FOUND' };
 }
 
-// ==============================================================================
-// 3. BLS PHYSICAL CLINICAL WORKSHOP (Single Physical 3,000 EGP Track)
-// ==============================================================================
-function handleBlsRegister(payload) {
-  const lock = LockService.getScriptLock();
-  try {
-    lock.waitLock(10000);
-    const ss = SpreadsheetApp.getActiveSpreadsheet();
-    const authSheet = getOrCreateSheet(ss, 'MASTER_AUTH', []);
-    const sheet = getOrCreateSheet(ss, 'BLS_Workshop_Intake', [
-      'Timestamp', 'GA_ID', 'Full Name', 'Email', 'Phone', 'Hub', 
-      'Payment Method', 'Transaction ID', 'Priority Patron', 'Status'
-    ]);
+/**
+ * 2. DETERMINISTIC SEQUENTIAL ID MINTING
+ */
+function handleRegisterUser(payload, ss) {
+  const legalName = String(payload.legalName || payload.fullName || payload.full_name_en || payload.full_name_ar || '').trim();
+  const email = String(payload.email || '').trim().toLowerCase();
+  const phone = String(payload.phone || payload.phone_whatsapp || '').trim();
+  const university = String(payload.university || payload.canonical_university || 'University of Khartoum').trim();
+  const careerStage = String(payload.careerStage || payload.primary_track || 'Clinical Student').trim();
 
-    const fullName = payload.fullName || 'Doctor';
-    const email = String(payload.email || '').trim().toLowerCase();
-    const phone = String(payload.phone || '').trim();
-    const txId = payload.transactionId || 'Manual Coordination';
-    const priority = payload.expeditedCoffee ? 'VIP_COFFEE_PATRON' : 'STANDARD';
-
-    // Strict Sequential Minting or Existing Lookup (Zero Math.random())
-    let gaId = resolveExistingGaId(authSheet, email, phone);
-    if (!gaId) {
-      gaId = mintSequentialGaId(ss, authSheet);
-      authSheet.appendRow([
-        new Date().toISOString(),
-        gaId,
-        fullName,
-        fullName,
-        email,
-        phone,
-        payload.university || 'Medical Faculty',
-        2024,
-        'BLS_RESUSCITATION',
-        25,
-        'EXPLORER',
-        0, 0, 1,
-        'BLS Candidate',
-        generateSudaPassHash(gaId, email),
-        ''
-      ]);
-    }
-
-    sheet.appendRow([
-      new Date().toISOString(),
-      gaId,
-      fullName,
-      email,
-      phone,
-      'Cairo Dokki Hub (Aug 28 • 3,000 EGP)',
-      'Vodafone Cash (+20 101 592 2628)',
-      txId,
-      priority,
-      'PENDING_CONFIRMATION'
-    ]);
-
-    return jsonResponse({
-      status: 'success',
-      gaId: gaId,
-      message: 'BLS Workshop seat reserved successfully.'
-    });
-  } catch (err) {
-    return jsonResponse({ status: 'error', message: err.toString() }, 500);
-  } finally {
-    lock.releaseLock();
+  if (!legalName || !email) {
+    return { success: false, error: 'MISSING_MANDATORY_REGISTRATION_FIELDS' };
   }
-}
 
-// ==============================================================================
-// 4. CONCIERGE FAST-TRACK VISA HANDLER
-// ==============================================================================
-function handleConciergeFastTrack(payload) {
-  const body = payload.body || payload;
-  const ss = SpreadsheetApp.getActiveSpreadsheet();
-  const sheet = getOrCreateSheet(ss, 'CONCIERGE_FASTTRACK', [
-    'Timestamp', 'Full Name', 'WhatsApp', 'Target Exam', 'Status', 'Contacted'
-  ]);
+  const authSheet = getOrCreateSheet(ss, CONFIG.SHEET_AUTH);
+  
+  // Check duplicate email
+  const data = authSheet.getDataRange().getValues();
+  for (let i = 1; i < data.length; i++) {
+    if (String(data[i][2]).trim().toLowerCase() === email) {
+      const existingId = String(data[i][0]);
+      return {
+        success: true,
+        gaId: existingId,
+        isExisting: true,
+        message: 'EXISTING_USER_RETRIEVED'
+      };
+    }
+  }
 
-  sheet.appendRow([
-    new Date().toISOString(),
-    body.full_name || body.fullName || '',
-    body.whatsapp || body.phone || '',
-    body.target_exam || body.targetExam || 'General Medical',
-    'URGENT_2HR_SLA',
-    'NO'
-  ]);
+  const gaId = mintNextGaId(authSheet);
+  const timestamp = new Date().toISOString();
+  const sudaPassHash = generateSudaPassHash(gaId, timestamp);
 
-  return jsonResponse({ status: 'success', message: 'Fast-Track request secured.' });
-}
-
-// ==============================================================================
-// 5. CLINICAL TELEMETRY HANDLER (Strict Mathematical Zero Defaults)
-// ==============================================================================
-function handleLogTelemetry(payload) {
-  const ss = SpreadsheetApp.getActiveSpreadsheet();
-  const sheet = getOrCreateSheet(ss, 'GEMIINI_CLINICAL_TELEMETRY', [
-    'GA_ID', 'Full_Name', 'Role', 'University', 'Hub', 'GP', 'CCR', 'Accuracy', 'Streak', 'Bonus', 'Status', 'Last_Module', 'Timestamp'
-  ]);
-
-  const gaId = payload.ga_id || payload.gaId || 'GA-1131';
-  sheet.appendRow([
+  authSheet.appendRow([
     gaId,
-    payload.full_name || 'Candidate',
-    payload.role || 'Member',
-    payload.university || 'Medical Faculty',
-    payload.hub || 'MTC Simulator',
-    Number(payload.gp) || 0,        // Strict mathematical zero default
-    Number(payload.ccr) || 0,       // Strict mathematical zero default
-    Number(payload.accuracy) || 0,  // Strict mathematical zero default
-    Number(payload.streak) || 0,    // Strict mathematical zero default
-    Number(payload.bonus) || 10,
-    'Active',
-    payload.last_module || 'STEMI Acute Case',
-    new Date().toISOString()
+    legalName,
+    email,
+    phone,
+    university,
+    careerStage,
+    'ACTIVE',
+    sudaPassHash,
+    timestamp
   ]);
 
-  return jsonResponse({ status: 'success', message: 'Telemetry logged (+10 GP).' });
+  // Initialize strict-zero telemetry record (25 starting GP for Explorer tier)
+  const telemetrySheet = getOrCreateSheet(ss, CONFIG.SHEET_TELEMETRY);
+  telemetrySheet.appendRow([
+    gaId,
+    25, // Initial GP
+    0,  // CCR %
+    0,  // Accuracy %
+    0,  // Streak Days
+    timestamp
+  ]);
+
+  return {
+    success: true,
+    gaId: gaId,
+    gpBalance: 25,
+    tier: 'EXPLORER',
+    sudaPassHash: sudaPassHash,
+    message: 'USER_REGISTERED_SUCCESSFULLY'
+  };
 }
 
-// ==============================================================================
-// 6. SOVEREIGN MEMBER LOOKUP (Strict Database Query, Zero Mock Overrides)
-// ==============================================================================
-function handleLookup(payload) {
-  const id = String(payload.id || '').trim().toUpperCase().replace('-', '');
-  const ss = SpreadsheetApp.getActiveSpreadsheet();
-  const authSheet = ss.getSheetByName('MASTER_AUTH');
-  if (!authSheet) return jsonResponse({ status: 'error', message: 'Registry not found' }, 404);
+/**
+ * 3. BLS COURSE REGISTRATION & PAYMENT AUDIT
+ * (Single physical track in Cairo on August 28, 2026)
+ */
+function handleBlsRegister(payload, ss) {
+  let gaId = String(payload.gaId || payload.ga_id || '').trim().toUpperCase();
+  const fullName = String(payload.fullName || payload.full_name || '').trim();
+  const email = String(payload.email || '').trim().toLowerCase();
+  const phone = String(payload.phone || payload.phone_whatsapp || '').trim();
+  const txRef = String(payload.txRef || payload.transaction_ref || payload.provider_ref || '').trim().toUpperCase();
+  const paymentMethod = String(payload.paymentMethod || payload.payment_channel || 'VODAFONE_CASH_EG').trim();
+  
+  const authSheet = getOrCreateSheet(ss, CONFIG.SHEET_AUTH);
 
-  const data = authSheet.getDataRange().getValues();
-  for (let i = 1; i < data.length; i++) {
-    const rowId = String(data[i][1]).toUpperCase().replace('-', '');
-    if (rowId === id) {
-      return jsonResponse({
-        status: 'success',
-        member: {
-          gaId: data[i][1],
-          name: data[i][3] || data[i][2],
-          role: data[i][14] || 'Verified Member',
-          university: data[i][6],
-          tier: data[i][10] || 'EXPLORER',
-          gp: Number(data[i][9]) || 0,
-          ccr: Number(data[i][11]) || 0,
-          accuracy: Number(data[i][12]) || 0,
-          streak: Number(data[i][13]) || 0,
-          verified: true,
-          sudapass: true
-        }
-      });
+  // If candidate has no GA-ID, mint one
+  if (!gaId || !userExists(authSheet, gaId)) {
+    if (fullName && email) {
+      gaId = mintNextGaId(authSheet);
+      const timestamp = new Date().toISOString();
+      const sudaPassHash = generateSudaPassHash(gaId, timestamp);
+      authSheet.appendRow([gaId, fullName, email, phone, 'BLS Attendee', 'Candidate', 'ACTIVE', sudaPassHash, timestamp]);
+      const telSheet = getOrCreateSheet(ss, CONFIG.SHEET_TELEMETRY);
+      telSheet.appendRow([gaId, 25, 0, 0, 0, timestamp]);
+    } else {
+      return { success: false, error: 'AUTHENTICATED_GA_ID_OR_NAME_EMAIL_REQUIRED' };
     }
   }
 
-  return jsonResponse({ status: 'error', message: 'Member not found' }, 404);
+  const isMember = true; // Registered member
+
+  // Check seat capacity (12 Max)
+  const rosterSheet = getOrCreateSheet(ss, CONFIG.SHEET_ROSTER);
+  const currentRosterSize = Math.max(0, rosterSheet.getLastRow() - 1);
+  if (currentRosterSize >= CONFIG.PRICING.BLS_CAIRO_AUG28.CAPACITY_MAX) {
+    return { success: false, error: 'ROSTER_FULL_WAITLIST_AVAILABLE', waitlist: true };
+  }
+
+  // Deduplicate Transaction Reference
+  const paymentSheet = getOrCreateSheet(ss, CONFIG.SHEET_PAYMENTS);
+  if (txRef && isDuplicateTransaction(paymentSheet, txRef)) {
+    return { success: false, error: 'DUPLICATE_TRANSACTION_REFERENCE' };
+  }
+
+  const courseFee = isMember 
+    ? CONFIG.PRICING.BLS_CAIRO_AUG28.MEMBER_EGP 
+    : CONFIG.PRICING.BLS_CAIRO_AUG28.NON_MEMBER_EGP;
+
+  const timestamp = new Date().toISOString();
+
+  // Log Payment Audit
+  paymentSheet.appendRow([
+    timestamp,
+    gaId,
+    txRef,
+    paymentMethod,
+    courseFee,
+    CONFIG.PRICING.BLS_CAIRO_AUG28.CURRENCY,
+    'PENDING_VERIFICATION',
+    'BLS_CAIRO_AUG28'
+  ]);
+
+  // Log Roster
+  rosterSheet.appendRow([
+    gaId,
+    'AHA_BLS_PROVIDER',
+    '2026-08-28',
+    'Cairo Simulation Center (Amanirena Hub)',
+    courseFee,
+    txRef,
+    'CONFIRMED_PENDING_PAYMENT_CLEAR'
+  ]);
+
+  return {
+    success: true,
+    gaId: gaId,
+    courseFee: courseFee,
+    currency: CONFIG.PRICING.BLS_CAIRO_AUG28.CURRENCY,
+    sessionDate: '2026-08-28',
+    venue: 'Cairo Simulation Center (Amanirena Hub)',
+    rosterIndex: currentRosterSize + 1
+  };
 }
 
-function handleLeaderboard() {
-  const ss = SpreadsheetApp.getActiveSpreadsheet();
-  const authSheet = ss.getSheetByName('MASTER_AUTH');
-  if (!authSheet) return jsonResponse({ status: 'success', members: [] });
+/**
+ * 4. STRICT-ZERO TELEMETRY LOGGER
+ */
+function handleLogTelemetry(payload, ss) {
+  const gaId = String(payload.gaId || payload.ga_id || '').trim().toUpperCase();
+  if (!gaId) {
+    return { success: false, error: 'GA_ID_REQUIRED' };
+  }
 
-  const data = authSheet.getDataRange().getValues();
-  const members = [];
+  const scorePercent = Math.max(0, Math.min(100, Number(payload.scorePercent || payload.score) || 0));
+  const passed = scorePercent >= 70;
+  const earnedGp = passed ? 10 : 2;
+
+  const telemetrySheet = getOrCreateSheet(ss, CONFIG.SHEET_TELEMETRY);
+  const data = telemetrySheet.getDataRange().getValues();
+  const timestamp = new Date().toISOString();
+
   for (let i = 1; i < data.length; i++) {
-    members.push({
-      gaId: data[i][1],
-      name: data[i][3] || data[i][2],
-      university: data[i][6],
-      gp: Number(data[i][9]) || 0,
-      ccr: Number(data[i][11]) || 0,
-      accuracy: Number(data[i][12]) || 0,
-      streak: Number(data[i][13]) || 0
+    if (String(data[i][0]).trim().toUpperCase() === gaId) {
+      const currentGp = Number(data[i][1]) || 0;
+      const currentCcr = Number(data[i][2]) || 0;
+      const currentAcc = Number(data[i][3]) || 0;
+      const currentStreak = Number(data[i][4]) || 0;
+
+      const newGp = currentGp + earnedGp;
+      const newCcr = Math.min(100, currentCcr + 5);
+      const newAcc = currentAcc === 0 ? scorePercent : Math.round((currentAcc + scorePercent) / 2);
+      const newStreak = currentStreak + 1;
+
+      telemetrySheet.getRange(i + 1, 2, 1, 5).setValues([[
+        newGp,
+        newCcr,
+        newAcc,
+        newStreak,
+        timestamp
+      ]]);
+
+      return {
+        success: true,
+        updated: true,
+        gaId: gaId,
+        gp: newGp,
+        ccr: newCcr,
+        accuracy: newAcc,
+        streak: newStreak,
+        earnedGp: earnedGp
+      };
+    }
+  }
+
+  // New telemetry row if not present
+  telemetrySheet.appendRow([gaId, earnedGp, 5, scorePercent, 1, timestamp]);
+  return {
+    success: true,
+    created: true,
+    gaId: gaId,
+    gp: earnedGp,
+    ccr: 5,
+    accuracy: scorePercent,
+    streak: 1,
+    earnedGp: earnedGp
+  };
+}
+
+/**
+ * 5. LEADERBOARD COMPUTATION
+ */
+function handleLeaderboard(payload, ss) {
+  const authSheet = getOrCreateSheet(ss, CONFIG.SHEET_AUTH);
+  const telSheet = getOrCreateSheet(ss, CONFIG.SHEET_TELEMETRY);
+  
+  const authData = authSheet.getDataRange().getValues();
+  const telData = telSheet.getDataRange().getValues();
+  
+  const telMap = {};
+  for (let i = 1; i < telData.length; i++) {
+    const id = String(telData[i][0]).trim().toUpperCase();
+    telMap[id] = {
+      gp: Number(telData[i][1]) || 0,
+      ccr: Number(telData[i][2]) || 0,
+      accuracy: Number(telData[i][3]) || 0,
+      streak: Number(telData[i][4]) || 0
+    };
+  }
+
+  const candidates = [];
+  for (let i = 1; i < authData.length; i++) {
+    const id = String(authData[i][0]).trim().toUpperCase();
+    if (!id) continue;
+
+    const t = telMap[id] || { gp: 0, ccr: 0, accuracy: 0, streak: 0 };
+    const sRank = t.gp + (t.ccr * 10) + (t.accuracy * 5) + (t.streak * 20);
+
+    candidates.push({
+      id: id,
+      name: String(authData[i][1]),
+      university: String(authData[i][4]),
+      careerStage: String(authData[i][5]),
+      gp: t.gp,
+      ccr: t.ccr,
+      accuracy: t.accuracy,
+      streak: t.streak,
+      sRank: Math.round(sRank)
     });
   }
 
-  members.sort((a, b) => b.gp - a.gp);
-  return jsonResponse({ status: 'success', members: members.slice(0, 50) });
+  candidates.sort((a, b) => b.sRank - a.sRank);
+  return {
+    success: true,
+    count: candidates.length,
+    items: candidates.slice(0, 50)
+  };
 }
 
-// ==============================================================================
-// UTILITY HELPERS
-// ==============================================================================
-function getOrCreateSheet(ss, name, headers) {
-  let sheet = ss.getSheetByName(name);
-  if (!sheet) {
-    sheet = ss.insertSheet(name);
-    if (headers && headers.length > 0) sheet.appendRow(headers);
+/**
+ * HELPER UTILITIES
+ */
+function mintNextGaId(authSheet) {
+  const data = authSheet.getDataRange().getValues();
+  if (data.length <= 1) {
+    return 'GA-1001';
   }
-  return sheet;
+  
+  let maxId = 1000;
+  for (let i = 1; i < data.length; i++) {
+    const rawId = String(data[i][0]);
+    const match = rawId.match(/^GA-(\d+)$/i);
+    if (match && match[1]) {
+      const num = parseInt(match[1], 10);
+      if (!isNaN(num) && num > maxId) maxId = num;
+    }
+  }
+  return 'GA-' + (maxId + 1);
 }
 
-function isDuplicateTransaction(auditSheet, txRef) {
-  const data = auditSheet.getDataRange().getValues();
+function generateSudaPassHash(gaId, timestamp) {
+  const raw = gaId + '|' + timestamp + '|' + CONFIG.SECRET_SALT;
+  const digest = Utilities.computeDigest(Utilities.DigestAlgorithm.SHA_256, raw);
+  return digest.map(function(byte) {
+    const v = (byte < 0 ? byte + 256 : byte).toString(16);
+    return v.length === 1 ? '0' + v : v;
+  }).join('');
+}
+
+function isDuplicateTransaction(paymentSheet, txRef) {
+  if (!txRef) return false;
+  const data = paymentSheet.getDataRange().getValues();
+  const normalized = String(txRef).trim().toUpperCase();
   for (let i = 1; i < data.length; i++) {
-    if (String(data[i][1]).trim().toUpperCase() === txRef) return true;
+    if (String(data[i][2]).trim().toUpperCase() === normalized) {
+      return true;
+    }
   }
   return false;
 }
 
-function resolveExistingGaId(authSheet, email, phone) {
-  if (!email && !phone) return null;
+function userExists(authSheet, gaId) {
   const data = authSheet.getDataRange().getValues();
+  const normalized = String(gaId).trim().toUpperCase();
   for (let i = 1; i < data.length; i++) {
-    const rowEmail = String(data[i][4]).trim().toLowerCase();
-    const rowPhone = String(data[i][5]).trim();
-    if (email && rowEmail === email) return data[i][1];
-    if (phone && rowPhone && rowPhone.endsWith(phone.slice(-9))) return data[i][1];
+    if (String(data[i][0]).trim().toUpperCase() === normalized) return true;
   }
-  return null;
+  return false;
 }
 
-function mintSequentialGaId(ss, authSheet) {
-  let metaSheet = ss.getSheetByName('Meta');
-  if (!metaSheet) {
-    metaSheet = ss.insertSheet('Meta');
-    metaSheet.getRange('A1').setValue(NEXT_ID_START);
-  }
-  let currentId = Number(metaSheet.getRange('A1').getValue()) || NEXT_ID_START;
-  metaSheet.getRange('A1').setValue(currentId + 1);
-  return `GA-${currentId}`;
-}
-
-function getMemberGp(authSheet, gaId) {
-  const data = authSheet.getDataRange().getValues();
+function getTelemetryForUser(ss, gaId) {
+  const sheet = getOrCreateSheet(ss, CONFIG.SHEET_TELEMETRY);
+  const data = sheet.getDataRange().getValues();
+  const normalized = String(gaId).trim().toUpperCase();
   for (let i = 1; i < data.length; i++) {
-    if (String(data[i][1]).trim() === gaId) return Number(data[i][9]) || 0;
-  }
-  return 0;
-}
-
-function bumpCandidateToPathfinder(authSheet, gaId) {
-  const data = authSheet.getDataRange().getValues();
-  for (let i = 1; i < data.length; i++) {
-    if (String(data[i][1]).trim() === gaId) {
-      const currentGp = Number(data[i][9]) || 0;
-      authSheet.getRange(i + 1, 10).setValue(currentGp + 475); // Bump to 500 GP
-      authSheet.getRange(i + 1, 11).setValue('PATHFINDER');
-      break;
+    if (String(data[i][0]).trim().toUpperCase() === normalized) {
+      return {
+        gp: Number(data[i][1]) || 0,
+        ccr: Number(data[i][2]) || 0,
+        accuracy: Number(data[i][3]) || 0,
+        streak: Number(data[i][4]) || 0,
+        lastUpdated: data[i][5] || null
+      };
     }
   }
+  return { gp: 0, ccr: 0, accuracy: 0, streak: 0, lastUpdated: null };
 }
 
-function generateSudaPassHash(gaId, email) {
-  const raw = `${gaId}:${email}:${new Date().getTime()}:GEMIINI_SOVEREIGN`;
-  const signature = Utilities.computeDigest(Utilities.DigestAlgorithm.SHA_256, raw);
-  return signature.map(b => ('0' + (b & 0xFF).toString(16)).slice(-2)).join('').slice(0, 32);
-}
-
-function saveReceiptToDrive(gaId, txRef, base64Data) {
-  try {
-    let folders = DriveApp.getFoldersByName(INBOX_FOLDER_NAME);
-    let folder = folders.hasNext() ? folders.next() : DriveApp.createFolder(INBOX_FOLDER_NAME);
-    const decoded = Utilities.base64Decode(base64Data.replace(/^data:image\/\w+;base64,/, ''));
-    const blob = Utilities.newBlob(decoded, 'image/jpeg', `RECEIPT_${gaId}_${txRef}.jpg`);
-    const file = folder.createFile(blob);
-    return file.getUrl();
-  } catch (e) {
-    return 'DRIVE_SAVE_FAILED';
+function getOrCreateSheet(ss, sheetName) {
+  let sheet = ss.getSheetByName(sheetName);
+  if (!sheet) {
+    sheet = ss.insertSheet(sheetName);
+    if (sheetName === CONFIG.SHEET_AUTH) {
+      sheet.appendRow(['GA_ID', 'LEGAL_NAME', 'EMAIL', 'PHONE', 'UNIVERSITY', 'CAREER_STAGE', 'STATUS', 'SUDAPASS_HASH', 'CREATED_AT']);
+    } else if (sheetName === CONFIG.SHEET_PAYMENTS) {
+      sheet.appendRow(['TIMESTAMP', 'GA_ID', 'TX_REF', 'PAYMENT_METHOD', 'AMOUNT', 'CURRENCY', 'STATUS', 'COURSE_CODE']);
+    } else if (sheetName === CONFIG.SHEET_TELEMETRY) {
+      sheet.appendRow(['GA_ID', 'GP', 'CCR_PERCENT', 'ACCURACY_PERCENT', 'STREAK_DAYS', 'LAST_UPDATED']);
+    } else if (sheetName === CONFIG.SHEET_ROSTER) {
+      sheet.appendRow(['GA_ID', 'COURSE_NAME', 'DATE', 'VENUE', 'FEE_PAID', 'TX_REF', 'STATUS']);
+    }
   }
+  return sheet;
 }
 
-function jsonResponse(obj, statusCode) {
+function jsonResponse(obj, status) {
   const output = ContentService.createTextOutput(JSON.stringify(obj));
   output.setMimeType(ContentService.MimeType.JSON);
   return output;
