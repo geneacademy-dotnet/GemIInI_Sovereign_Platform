@@ -16,6 +16,8 @@
  * Col 11: CREATED_AT
  * Col 12: REFERRAL_ID (Affiliate GA-ID, e.g., GA-000)
  * Col 13: WORKSHOP_TRACK (e.g., BLS_DOKKI_CAIRO_AUG28_2026)
+ * Col 14: PAYMENT_METHOD (VODAFONE | BANK)
+ * Col 15: BOUGHT_COFFEE (TRUE | FALSE)
  */
 
 const SHEET_NAME = "GA_MASTER_REGISTRY";
@@ -37,7 +39,9 @@ function getOrInitSheet(ss) {
       "IDEMPOTENCY_KEY",
       "CREATED_AT",
       "REFERRAL_ID",
-      "WORKSHOP_TRACK"
+      "WORKSHOP_TRACK",
+      "PAYMENT_METHOD",
+      "BOUGHT_COFFEE"
     ];
     sheet.appendRow(headers);
     sheet.getRange("1:1").setFontWeight("bold").setBackground("#0f172a").setFontColor("#38bdf8");
@@ -105,22 +109,26 @@ function doPost(e) {
       const referralId = normalizeGaId(payload.referralId || "GA-000");
       const idempotencyKey = String(payload.idempotencyKey || "").trim();
       const workshopTrack = "BLS_DOKKI_CAIRO_AUG28_2026";
+      const paymentMethod = String(payload.paymentMethod || "VODAFONE").toUpperCase();
+      const boughtCoffee = Boolean(payload.boughtCoffee === true || payload.boughtCoffee === "true");
+      
+      // Calculate GP balance: 250 GP if coffee upsell selected, otherwise 200 GP welcome baseline
+      const initialGp = boughtCoffee ? 250 : 200;
       const now = new Date().toISOString();
 
       // Idempotency / Duplicate Check
       if (lastRow > 1) {
-        const data = sheet.getRange(2, 1, lastRow - 1, 13).getValues();
+        const data = sheet.getRange(2, 1, lastRow - 1, 15).getValues();
         for (let i = 0; i < data.length; i++) {
           const rowIdemp = String(data[i][9] || "");
-          const rowEmail = String(data[i][3] || "").toLowerCase();
           const rowRef = String(data[i][8] || "");
 
           if ((idempotencyKey && rowIdemp === idempotencyKey) ||
-              (providerRef && rowRef === providerRef && providerRef !== "DEFERRED_VIA_WHATSAPP")) {
+              (providerRef && rowRef === providerRef && providerRef !== "INSTAPAY_VIA_WHATSAPP_GATE")) {
             return jsonResponse({
               status: "success",
               gaId: String(data[i][0]),
-              gpBalance: data[i][6] || 50,
+              gpBalance: data[i][6] || initialGp,
               unlock_sabri_cv: true,
               workshop: "BLS Dokki Cairo - 28 Aug 2026",
               message: "Existing registration confirmed with Dr. Sabri bonus active.",
@@ -133,7 +141,6 @@ function doPost(e) {
       // Mint Sequential GA-ID (GA- + index)
       const nextIndex = lastRow >= 2 ? (lastRow + 1000) : 1001;
       const newGaId = "GA-" + nextIndex;
-      const initialGp = 50; // Credit 50 GP for BLS workshop registration
       const accreditationStatus = "PENDING_AUDIT";
 
       // Append row to master registry
@@ -150,17 +157,21 @@ function doPost(e) {
         idempotencyKey,
         now,
         referralId,
-        workshopTrack
+        workshopTrack,
+        paymentMethod,
+        boughtCoffee
       ]);
 
       return jsonResponse({
         status: "success",
         gaId: newGaId,
         gpBalance: initialGp,
+        paymentMethod: paymentMethod,
+        boughtCoffee: boughtCoffee,
         unlock_sabri_cv: true,
         workshop: "BLS Dokki Cairo - 28 Aug 2026",
         referralLogged: referralId,
-        message: "BLS seat successfully reserved and GemIInI ID minted. Dr. Mohamed Sabri CV module unlocked."
+        message: "BLS seat reserved and GemIInI ID minted with " + initialGp + " GP. Dr. Sabri CV module unlocked."
       });
     }
 
@@ -177,18 +188,20 @@ function doPost(e) {
       const idempotencyKey = String(payload.idempotencyKey || "").trim();
       const referralId = normalizeGaId(payload.referralId || "GA-000");
       const track = String(payload.track || "gemiini");
+      const paymentMethod = String(payload.paymentMethod || "VODAFONE").toUpperCase();
+      const boughtCoffee = Boolean(payload.boughtCoffee === true || payload.boughtCoffee === "true");
+      const initialGp = boughtCoffee ? 250 : (payload.gpAwarded || 25);
       const now = new Date().toISOString();
 
       if (lastRow > 1) {
-        const data = sheet.getRange(2, 1, lastRow - 1, 13).getValues();
+        const data = sheet.getRange(2, 1, lastRow - 1, 15).getValues();
         for (let i = 0; i < data.length; i++) {
           const rowIdemp = String(data[i][9] || "");
-          const rowEmail = String(data[i][3] || "").toLowerCase();
           if (idempotencyKey && rowIdemp === idempotencyKey) {
             return jsonResponse({
               status: "success",
               gaId: String(data[i][0]),
-              gpBalance: data[i][6] || 25,
+              gpBalance: data[i][6] || initialGp,
               message: "Idempotent record returned.",
               isDuplicate: true
             });
@@ -198,7 +211,6 @@ function doPost(e) {
 
       const nextIndex = lastRow >= 2 ? (lastRow + 1000) : 1001;
       const newGaId = "GA-" + nextIndex;
-      const initialGp = 25;
       const accreditationStatus = "PENDING_AUDIT";
 
       sheet.appendRow([
@@ -214,7 +226,9 @@ function doPost(e) {
         idempotencyKey,
         now,
         referralId,
-        track
+        track,
+        paymentMethod,
+        boughtCoffee
       ]);
 
       return jsonResponse({
@@ -237,7 +251,7 @@ function doPost(e) {
       }
 
       if (lastRow > 1) {
-        const data = sheet.getRange(2, 1, lastRow - 1, 13).getValues();
+        const data = sheet.getRange(2, 1, lastRow - 1, 15).getValues();
         for (let i = 0; i < data.length; i++) {
           if (normalizeGaId(data[i][0]) === targetId) {
             sheet.getRange(i + 2, 9).setValue(providerRef);
@@ -277,7 +291,7 @@ function doGet(e) {
       return jsonResponse({ status: "success", count: 0, members: [] });
     }
 
-    const data = sheet.getRange(2, 1, lastRow - 1, 13).getValues();
+    const data = sheet.getRange(2, 1, lastRow - 1, 15).getValues();
 
     // 1. STATS
     if (action === "stats") {

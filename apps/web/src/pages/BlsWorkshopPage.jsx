@@ -23,10 +23,9 @@ import {
     GraduationCap,
     Mic,
     Building2,
-    ChevronDown,
-    ChevronUp,
     MessageCircle,
-    Zap
+    CheckSquare,
+    Square
 } from 'lucide-react';
 import Layout from '@/components/site/Layout';
 import { Section } from '@/components/site/Bits';
@@ -55,7 +54,7 @@ const BlsWorkshopPage = () => {
     const navigate = useNavigate();
     const [searchParams] = useSearchParams();
 
-    // Capture referral ID
+    // Capture referral affiliate ID from URL (?ref=GA-000)
     const rawRef = searchParams.get('ref') || searchParams.get('affiliate') || '';
     const [referralId, setReferralId] = useState('');
 
@@ -70,17 +69,19 @@ const BlsWorkshopPage = () => {
         }
     }, [rawRef]);
 
-    const [paymentChannel, setPaymentChannel] = useState('vodafone'); // 'vodafone' | 'instapay_bankak'
-    const [enableCoffeeBooster, setEnableCoffeeBooster] = useState(false); // +50 GP Booster ($5 / 250 EGP)
+    // Payment Routing state: 'VODAFONE' vs 'BANK'
+    const [paymentMethod, setPaymentMethod] = useState('VODAFONE');
+    // "Two Cups of Coffee" Upsell state
+    const [boughtCoffee, setBoughtCoffee] = useState(false);
 
+    // Form inputs state
     const [form, setForm] = useState({
         fullName: '',
         email: '',
         phone: '',
         university: CANONICAL_UNIVERSITIES[0],
         role: 'house_officer',
-        providerRef: '',
-        contactedWhatsApp: false
+        providerRef: ''
     });
 
     const [loading, setLoading] = useState(false);
@@ -88,27 +89,31 @@ const BlsWorkshopPage = () => {
     const [mintedResult, setMintedResult] = useState(null);
     const [copied, setCopied] = useState(false);
 
+    const calculatedGp = boughtCoffee ? 250 : 200;
+    const totalAmountEgp = boughtCoffee ? 3250 : 3000;
+
     const handleCopy = (text) => {
         navigator.clipboard.writeText(text);
         setCopied(true);
         setTimeout(() => setCopied(false), 2000);
     };
 
-    const baseGp = 200;
-    const totalGp = enableCoffeeBooster ? (baseGp + 50) : baseGp;
-    const totalAmountEgp = enableCoffeeBooster ? 3250 : 3000;
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError('');
 
         if (!form.fullName.trim() || !form.email.trim() || !form.phone.trim()) {
-            setError(lang === 'ar' ? 'يرجى إكمال البيانات المطلوبة' : 'Please complete all required fields');
+            setError(lang === 'ar' ? 'يرجى إكمال جميع الحقول الإلزامية' : 'Please complete all required fields');
             return;
         }
 
-        if (paymentChannel === 'vodafone' && !form.providerRef.trim()) {
-            setError(lang === 'ar' ? 'يرجى إدخال رقم العملية من رسالة فودافون كاش' : 'Please enter the Vodafone Cash transaction ID');
+        if (paymentMethod === 'VODAFONE' && !form.providerRef.trim()) {
+            setError(lang === 'ar' ? 'يرجى إدخال رقم العملية من رسالة فودافون كاش' : 'Please enter your Vodafone Cash transaction ID');
+            return;
+        }
+
+        if (paymentMethod === 'BANK' && !form.providerRef.trim()) {
+            setError(lang === 'ar' ? 'يرجى إدخال رقم إشعار التحويل البنكي أو اسم المحول' : 'Please enter your bank transfer receipt number or account name');
             return;
         }
 
@@ -118,10 +123,12 @@ const BlsWorkshopPage = () => {
             const idempotencyKey = generateIdempotencyKey({
                 email: form.email,
                 phone: form.phone,
-                booster: enableCoffeeBooster,
-                ref: form.providerRef || 'INSTAPAY_WHATSAPP'
+                method: paymentMethod,
+                coffee: boughtCoffee,
+                ref: form.providerRef
             });
 
+            // Action Required 2: Payload with paymentMethod and boughtCoffee
             const payload = {
                 action: 'bls_registration',
                 fullName: form.fullName,
@@ -130,12 +137,12 @@ const BlsWorkshopPage = () => {
                 university: form.university,
                 role: form.role,
                 workshopTrack: 'BLS_DOKKI_CAIRO_AUG28_2026',
-                paymentChannel: paymentChannel === 'vodafone' ? 'VODAFONE_CASH_EGP' : 'INSTAPAY_BANKAK_MANUAL',
+                paymentMethod: paymentMethod, // 'VODAFONE' | 'BANK'
+                boughtCoffee: boughtCoffee,   // boolean
                 feeAmount: totalAmountEgp,
-                providerRef: form.providerRef || 'INSTAPAY_VIA_WHATSAPP_GATE',
+                providerRef: form.providerRef,
                 referralId: referralId || 'GA-000',
-                gpAwarded: totalGp,
-                coffeeBoosterActive: enableCoffeeBooster,
+                gpAwarded: calculatedGp,
                 idempotencyKey
             };
 
@@ -149,15 +156,16 @@ const BlsWorkshopPage = () => {
                     email: form.email,
                     phone: form.phone,
                     university: form.university,
-                    gpBalance: totalGp,
+                    gpBalance: calculatedGp,
+                    paymentMethod: paymentMethod,
+                    boughtCoffee: boughtCoffee,
                     referralId: referralId || 'GA-000',
                     sabriBonusUnlocked: true,
-                    workshopDate: '28 August 2026',
-                    location: 'Dokki, Cairo, Egypt',
-                    tier: enableCoffeeBooster ? 'BLS Attendee + Coffee Booster (+250 GP)' : 'BLS Cairo Attendee (200 GP)'
+                    workshopDate: 'Friday, August 28, 2026',
+                    location: 'Dokki, Cairo, Egypt'
                 };
 
-                // Store session
+                // Save in user presence session
                 localStorage.setItem('gemiini_presence_id', gaId);
                 localStorage.setItem('gemiini_member_profile', JSON.stringify(finalResult));
 
@@ -176,16 +184,16 @@ const BlsWorkshopPage = () => {
     return (
         <Layout>
             <Helmet>
-                <title>Basic Life Support (BLS) Workshop & Sovereign GemIInI Profile | GemIInI Academy</title>
+                <title>Basic Life Support (BLS) Workshop — Cairo | GemIInI Academy</title>
                 <meta
                     name="description"
-                    content="احجز مقعدك في ورشة BLS الرسمية بالقاهرة - معتمدة من AHA وSMC. احصل فوراً على بروفايل GemIInI ID برصيد 200 نقطة GP وبونص د. محمد صبري."
+                    content="ورشة الإنعاش القلبي الرئوي الأساسي (BLS) المعتمدة من مجلس التخصصات الطبية وجمعية القلب الأمريكية - 28 أغسطس 2026 بالدقي، القاهرة."
                 />
             </Helmet>
 
             <Section className="py-12 bg-[#04080F] text-white min-h-screen">
                 <div className="mx-auto max-w-4xl px-4">
-                    {/* SUCCESS MODAL / MINTED CREDENTIAL VIEW */}
+                    {/* SUCCESS VIEW: DYNAMIC MINTED CREDENTIAL CARD (200 GP or 250 GP) */}
                     {mintedResult ? (
                         <div className="p-8 rounded-3xl bg-slate-900 border border-emerald-500/40 shadow-2xl relative overflow-hidden animate-in fade-in zoom-in duration-300">
                             <div className="absolute top-0 right-0 left-0 h-2 bg-gradient-to-r from-emerald-400 via-cyan-400 to-amber-400"></div>
@@ -195,7 +203,7 @@ const BlsWorkshopPage = () => {
                                     <CheckCircle2 className="w-12 h-12" />
                                 </div>
                                 <h2 className="text-2xl md:text-3xl font-black text-white">
-                                    {lang === 'ar' ? 'تم تأكيد حجزك وإصدار بروفايل GemIInI ID السيادي' : 'GemIInI Profile Minted with Living GP Balance'}
+                                    {lang === 'ar' ? 'تم تأكيد حجزك وإصدار بروفايل GemIInI ID' : 'BLS Seat Confirmed & GemIInI ID Minted'}
                                 </h2>
                                 <p className="text-xs md:text-sm text-gray-400 mt-1">
                                     {lang === 'ar'
@@ -204,7 +212,7 @@ const BlsWorkshopPage = () => {
                                 </p>
                             </div>
 
-                            {/* MINTED ID CARD */}
+                            {/* MINTED CREDENTIAL CARD */}
                             <div className="p-6 rounded-2xl bg-black/60 border border-white/10 space-y-4 mb-6">
                                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-white/10">
                                     <div>
@@ -229,7 +237,7 @@ const BlsWorkshopPage = () => {
                                         <strong className="text-white text-sm">{mintedResult.name}</strong>
                                     </div>
                                     <div>
-                                        <span className="text-gray-400 block mb-0.5">Living Wallet Endowment:</span>
+                                        <span className="text-gray-400 block mb-0.5">Living Ledger Balance:</span>
                                         <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-emerald-500/20 text-emerald-300 font-bold text-sm">
                                             <Coins className="w-4 h-4 text-amber-400" />
                                             +{mintedResult.gpBalance} GemIInI Points (GP) Credited
@@ -240,8 +248,8 @@ const BlsWorkshopPage = () => {
                                         <span className="text-amber-300 font-bold">{mintedResult.referralId}</span>
                                     </div>
                                     <div>
-                                        <span className="text-gray-400 block mb-0.5">Clinical Recognition:</span>
-                                        <span className="text-cyan-300 font-bold">1 GP = 1 Certified Educational Hour</span>
+                                        <span className="text-gray-400 block mb-0.5">Clinical Hours Equivalent:</span>
+                                        <span className="text-cyan-300 font-bold">{mintedResult.gpBalance} Hours of Clinical Credit</span>
                                     </div>
                                 </div>
                             </div>
@@ -302,7 +310,7 @@ const BlsWorkshopPage = () => {
                                 </h1>
                                 <p className="text-sm md:text-base text-gray-300 mt-3 max-w-2xl mx-auto">
                                     {lang === 'ar'
-                                        ? 'تدريب عملي ومحاكاة سريرية حية على الإنعاش وإنقاذ الحياة، مع إصدار بروفايل GemIInI ID برصيد 200 نقطة GP وبونص د. محمد صبري.'
+                                        ? 'تدريب عملي ومحاكاة سريرية حية على الإنعاش، مع إصدار بروفايل GemIInI ID برصيد 200 نقطة GP وبونص د. محمد صبري.'
                                         : 'Hands-on clinical resuscitation training in Cairo with 200 GP loaded profile & Dr. Mohamed Sabri bonus.'}
                                 </p>
 
@@ -335,7 +343,7 @@ const BlsWorkshopPage = () => {
                                 </div>
                             </div>
 
-                            {/* SMART GEMIINI POINTS (GP) EXPLAINER BOX */}
+                            {/* 1. THE SMART GP ECOSYSTEM INFO-BOX (EXPLICIT DEFINITION & UTILITY) */}
                             <div className="p-6 rounded-3xl bg-slate-900/90 border border-cyan-500/30 mb-8 backdrop-blur-md shadow-xl">
                                 <div className="flex items-center gap-3 mb-4">
                                     <div className="p-2.5 rounded-xl bg-amber-500/20 text-amber-400">
@@ -343,9 +351,9 @@ const BlsWorkshopPage = () => {
                                     </div>
                                     <div>
                                         <h3 className="text-base font-bold text-white flex items-center gap-2">
-                                            <span>ما هي نقاط جيميني (GemIInI Points - GP)؟</span>
-                                            <span className="text-[10px] font-mono bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 px-2 py-0.5 rounded-full">
-                                                1 GP = ساعة تعليمية معتمدة
+                                            <span>ما هي نقاط جيميني (What are GemIInI Points - GP)؟</span>
+                                            <span className="text-[10px] font-mono bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 px-2 py-0.5 rounded-full font-bold">
+                                                1 GP = 1 Hour of Clinical Credit
                                             </span>
                                         </h3>
                                         <p className="text-xs text-gray-400 mt-0.5">
@@ -356,15 +364,15 @@ const BlsWorkshopPage = () => {
 
                                 <div className="space-y-4 pt-3 border-t border-white/10 text-xs leading-relaxed text-gray-300">
                                     <p>
-                                        نقاط GP ليست كوبونات خصم، بل <strong>أصل رقمي سريري</strong> يمثل رصيد ساعات التعليم الطبي المعتمد. رصيدك المبدئي (<strong>200 GP</strong>) يمنحك مباشرة إمكانية:
+                                        <strong>1 GP = 1 Hour of Clinical Credit.</strong> It is your dynamic digital asset. Attending this workshop instantly awards you <strong>200 GP</strong>. Accumulate GP to unlock Continuous Professional Development (CPD) modules, SMC/USMLE exam simulators, physical gifts, MedTalks speaker slots, or fast-track recruitment into our paid global faculty.
                                     </p>
 
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                                         <div className="p-3 rounded-2xl bg-black/40 border border-white/5 flex items-start gap-2.5">
                                             <GraduationCap className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" />
                                             <div>
-                                                <strong className="text-white block">برامج التعليم الطبي المستمر (CPD & Modules)</strong>
-                                                <span className="text-gray-400 text-[11px]">فتح بنوك أسئلة USMLE وPLAB وSMC ومسارات الجينوم والمعلوماتية الحيوية مجاناً.</span>
+                                                <strong className="text-white block">ساعات معتمدة للتعليم الطبي (CPD)</strong>
+                                                <span className="text-gray-400 text-[11px]">تحويل النقاط إلى شهادات ساعات CPD رسمية (1,000 GP = 10 ساعات).</span>
                                             </div>
                                         </div>
 
@@ -372,7 +380,7 @@ const BlsWorkshopPage = () => {
                                             <Gift className="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" />
                                             <div>
                                                 <strong className="text-white block">محرك الجوائز والحقائب الجراحية (Gifts)</strong>
-                                                <span className="text-gray-400 text-[11px]">استبدال النقاط بحقائب خياطة جراحية (Suture Kits) واشتراكات منصات طبية كبرى.</span>
+                                                <span className="text-gray-400 text-[11px]">استبدال النقاط بأطقم خياطة جراحية (Suture Kits) واشتراكات منصات طبية كبرى.</span>
                                             </div>
                                         </div>
 
@@ -395,73 +403,23 @@ const BlsWorkshopPage = () => {
                                 </div>
                             </div>
 
-                            {/* VALUE ARCHITECTURE TABLE */}
-                            <div className="p-5 rounded-3xl bg-slate-900/60 border border-white/10 mb-8 overflow-x-auto">
-                                <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-cyan-400 mb-3">
-                                    هيكلية القيمة المالية والأكاديمية للاشتراك (Value Architecture):
-                                </h4>
-                                <table className="w-full text-xs font-mono text-right">
-                                    <thead>
-                                        <tr className="border-b border-white/10 text-gray-400">
-                                            <th className="pb-2">الأصل / الخدمة</th>
-                                            <th className="pb-2 text-center">القيمة المالية</th>
-                                            <th className="pb-2 text-center">العائد الفوري المكتسب</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody className="divide-y divide-white/5 text-gray-300">
-                                        <tr>
-                                            <td className="py-2.5 font-bold text-white">ورشة BLS السريرية المعتمدة</td>
-                                            <td className="py-2.5 text-center text-cyan-300">3,000 ج.م</td>
-                                            <td className="py-2.5 text-center text-emerald-400">تدريب عملي واختبار حي بمعايير AHA & SMC</td>
-                                        </tr>
-                                        <tr>
-                                            <td className="py-2.5 font-bold text-white">بروفايل GemIInI ID السحابي + CV د. صبري</td>
-                                            <td className="py-2.5 text-center text-emerald-400">مشمول مجاناً ($150)</td>
-                                            <td className="py-2.5 text-center text-white">بناء وتوثيق السيرة الذاتية المهنية</td>
-                                        </tr>
-                                        <tr>
-                                            <td className="py-2.5 font-bold text-white">رصيد المنحة المبدئي (Onboarding Endowment)</td>
-                                            <td className="py-2.5 text-center text-amber-300">مشمول مجاناً</td>
-                                            <td className="py-2.5 text-center text-amber-300 font-bold">+200 GP فورياً (يعادل 200 ساعة تدريب)</td>
-                                        </tr>
-                                        {enableCoffeeBooster && (
-                                            <tr className="bg-amber-500/10">
-                                                <td className="py-2.5 font-bold text-amber-300 flex items-center gap-1.5">
-                                                    <Coffee className="w-3.5 h-3.5" />
-                                                    <span>خيار تعزيز القهوة (Coffee Booster)</span>
-                                                </td>
-                                                <td className="py-2.5 text-center text-amber-300 font-bold">+250 ج.م ($5)</td>
-                                                <td className="py-2.5 text-center text-amber-300 font-bold">+50 GP إضافية وتفعيل فوري ذو أولوية</td>
-                                            </tr>
-                                        )}
-                                    </tbody>
-                                </table>
-                            </div>
-
-                            {/* THE COFFEE BOOSTER TOGGLE */}
-                            <div
-                                onClick={() => setEnableCoffeeBooster(!enableCoffeeBooster)}
-                                className={`p-4 rounded-2xl border cursor-pointer transition-all mb-8 flex items-center justify-between ${
-                                    enableCoffeeBooster
-                                        ? 'border-amber-400 bg-amber-950/40 ring-1 ring-amber-400 shadow-xl'
-                                        : 'border-white/10 bg-white/5 hover:border-white/20'
-                                }`}
-                            >
+                            {/* DR. MOHAMED SABRI EXCLUSIVE BONUS BANNER */}
+                            <div className="p-5 rounded-2xl bg-gradient-to-r from-amber-500/15 via-purple-500/10 to-cyan-500/15 border border-amber-500/40 mb-8 flex flex-col sm:flex-row items-center justify-between gap-4">
                                 <div className="flex items-center gap-3">
-                                    <div className="p-2 rounded-xl bg-amber-500/20 text-amber-400">
-                                        <Coffee className="w-5 h-5" />
+                                    <div className="p-2.5 rounded-xl bg-amber-500/20 text-amber-300">
+                                        <Gift className="w-6 h-6" />
                                     </div>
                                     <div>
-                                        <span className="text-[10px] font-mono uppercase tracking-wider text-amber-400 font-bold block">
-                                            THE COFFEE BOOSTER (+50 GP ACCELERATOR)
+                                        <span className="text-[10px] font-mono font-bold text-amber-400 uppercase tracking-wider block">
+                                            EXCLUSIVE WEB INTAKE BONUS
                                         </span>
-                                        <h4 className="text-xs font-bold text-white">
-                                            ادعم المكتب الأكاديمي بكوبين قهوة (250 ج.م / $5) وسرّع اعتمادك مع +50 GP إضافية!
-                                        </h4>
+                                        <h3 className="text-sm font-bold text-white">
+                                            بونص حصري: ورشة التحول الرقمي وصناعة السيرة الذاتية الطبية مع د. محمد صبري
+                                        </h3>
                                     </div>
                                 </div>
-                                <span className="px-3 py-1 rounded-full font-mono text-xs font-bold flex-shrink-0 bg-amber-500/20 text-amber-300 border border-amber-500/30">
-                                    {enableCoffeeBooster ? 'مفعل (+50 GP)' : 'تفعيل الخيار'}
+                                <span className="px-3 py-1 rounded-full bg-amber-500/20 border border-amber-500/40 text-amber-300 text-xs font-mono font-bold flex-shrink-0">
+                                    FREE WITH THIS TICKET
                                 </span>
                             </div>
 
@@ -478,7 +436,7 @@ const BlsWorkshopPage = () => {
                                 <div>
                                     <div className="flex items-center justify-between mb-4">
                                         <h3 className="text-sm font-bold text-cyan-400 font-mono flex items-center gap-2">
-                                            <span>01.</span> بيانات الطبيب / المتدرب
+                                            <span>01.</span> {lang === 'ar' ? 'بيانات الطبيب / المتدرب' : 'Physician Profile'}
                                         </h3>
                                         {referralId && (
                                             <span className="text-[11px] font-mono text-amber-300 bg-amber-500/10 border border-amber-500/20 px-2.5 py-1 rounded-lg">
@@ -549,53 +507,53 @@ const BlsWorkshopPage = () => {
                                     </div>
                                 </div>
 
-                                {/* SECTION 2: PAYMENT CHANNELS */}
+                                {/* SECTION 2: PAYMENT ROUTING (VODAFONE CASH vs BANK TRANSFER / INSTAPAY) */}
                                 <div className="pt-4 border-t border-white/10">
                                     <h3 className="text-sm font-bold text-cyan-400 font-mono mb-3 flex items-center gap-2">
                                         <span>02.</span> قنوات السداد وتأكيد التفعيل
                                     </h3>
 
-                                    {/* CHANNEL TABS */}
+                                    {/* SLEEK UI TOGGLE */}
                                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
                                         <div
-                                            onClick={() => setPaymentChannel('vodafone')}
-                                            className={`p-3.5 rounded-xl border cursor-pointer flex items-center justify-between ${
-                                                paymentChannel === 'vodafone'
-                                                    ? 'border-red-500 bg-red-500/10 text-red-300 font-bold'
-                                                    : 'border-white/10 bg-white/5 text-gray-400'
+                                            onClick={() => setPaymentMethod('VODAFONE')}
+                                            className={`p-3.5 rounded-xl border cursor-pointer flex items-center justify-between transition-all ${
+                                                paymentMethod === 'VODAFONE'
+                                                    ? 'border-red-500 bg-red-500/10 text-red-300 font-bold shadow-lg shadow-red-500/10'
+                                                    : 'border-white/10 bg-white/5 text-gray-400 hover:border-white/20'
                                             }`}
                                         >
                                             <div className="flex items-center gap-2">
                                                 <Smartphone className="w-4 h-4 text-red-400" />
-                                                <span className="text-xs">فودافون كاش السريع (Vodafone Cash)</span>
+                                                <span className="text-xs">فودافون كاش (Vodafone Cash - Egypt)</span>
                                             </div>
-                                            {paymentChannel === 'vodafone' && <CheckCircle2 className="w-4 h-4 text-red-400" />}
+                                            {paymentMethod === 'VODAFONE' && <CheckCircle2 className="w-4 h-4 text-red-400" />}
                                         </div>
 
                                         <div
-                                            onClick={() => setPaymentChannel('instapay_bankak')}
-                                            className={`p-3.5 rounded-xl border cursor-pointer flex items-center justify-between ${
-                                                paymentChannel === 'instapay_bankak'
-                                                    ? 'border-emerald-500 bg-emerald-500/10 text-emerald-300 font-bold'
-                                                    : 'border-white/10 bg-white/5 text-gray-400'
+                                            onClick={() => setPaymentMethod('BANK')}
+                                            className={`p-3.5 rounded-xl border cursor-pointer flex items-center justify-between transition-all ${
+                                                paymentMethod === 'BANK'
+                                                    ? 'border-emerald-500 bg-emerald-500/10 text-emerald-300 font-bold shadow-lg shadow-emerald-500/10'
+                                                    : 'border-white/10 bg-white/5 text-gray-400 hover:border-white/20'
                                             }`}
                                         >
                                             <div className="flex items-center gap-2">
                                                 <Building2 className="w-4 h-4 text-emerald-400" />
-                                                <span className="text-xs">تحويل بنكي / InstaPay / بنكك (عبر واتساب)</span>
+                                                <span className="text-xs">تحويل بنكي / InstaPay / بنكك (Manual Validation)</span>
                                             </div>
-                                            {paymentChannel === 'instapay_bankak' && <CheckCircle2 className="w-4 h-4 text-emerald-400" />}
+                                            {paymentMethod === 'BANK' && <CheckCircle2 className="w-4 h-4 text-emerald-400" />}
                                         </div>
                                     </div>
 
-                                    {/* VODAFONE BOX */}
-                                    {paymentChannel === 'vodafone' ? (
+                                    {/* CONDITIONAL UI: VODAFONE CASH (01015922628) */}
+                                    {paymentMethod === 'VODAFONE' ? (
                                         <div className="p-4 rounded-2xl bg-red-500/5 border border-red-500/20 space-y-3">
                                             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                                                 <div>
                                                     <strong className="text-sm text-white block">محفظة فودافون كاش الرسمية</strong>
                                                     <span className="text-xs text-gray-400">
-                                                        المبلغ الإجمالي: <strong className="text-red-300">{totalAmountEgp.toLocaleString()} ج.م</strong>
+                                                        المبلغ: <strong className="text-red-300">{totalAmountEgp.toLocaleString()} جنيه مصري</strong>
                                                     </span>
                                                 </div>
                                                 <div className="flex items-center gap-2">
@@ -625,20 +583,20 @@ const BlsWorkshopPage = () => {
                                                     required
                                                     value={form.providerRef}
                                                     onChange={(e) => setForm({ ...form, providerRef: e.target.value })}
-                                                    placeholder="مثال: TRX-992817462 أو رقم المعاملة"
+                                                    placeholder="مثال: TRX-992817462 أو رقم المعاملة من الرسالة"
                                                     className="w-full px-4 py-2.5 rounded-xl bg-black/60 border border-white/15 text-white font-mono text-xs focus:border-cyan-400 focus:outline-none"
                                                 />
                                             </div>
                                         </div>
                                     ) : (
-                                        /* INSTAPAY & BANKAK GATEWAY VIA WHATSAPP */
+                                        /* CONDITIONAL UI: BANK TRANSFER / INSTAPAY (WHATSAPP ACTIVATION GATE) */
                                         <div className="p-4 rounded-2xl bg-emerald-500/5 border border-emerald-500/20 space-y-3">
                                             <div className="flex items-start gap-3">
                                                 <Building2 className="w-6 h-6 text-emerald-400 flex-shrink-0 mt-0.5" />
                                                 <div>
-                                                    <strong className="text-sm text-white block">بوابة التحويل البنكي / InstaPay / بنكك</strong>
+                                                    <strong className="text-sm text-white block">Bank transfers require manual validation</strong>
                                                     <p className="text-xs text-gray-300 mt-1 leading-relaxed">
-                                                        نظراً لمتطلبات التدقيق المؤسسي والتحويلات الخارجية، <strong>يتم تأكيد التحويل يدوياً عبر مكتب العمليات الأكاديمية على واتساب</strong> للحصول على الحساب المعتمد والتفعيل الفوري لبروفايلك.
+                                                        Click here to contact our Academic Desk via WhatsApp (+20 101 592 2628) for the verified account details, then paste your transfer receipt number below.
                                                     </p>
                                                 </div>
                                             </div>
@@ -646,33 +604,61 @@ const BlsWorkshopPage = () => {
                                             <div className="flex flex-col sm:flex-row items-center justify-between gap-3 p-3.5 rounded-xl bg-black/40 border border-white/5">
                                                 <div className="flex items-center gap-2">
                                                     <MessageCircle className="w-4 h-4 text-emerald-400" />
-                                                    <span className="text-xs font-mono text-emerald-300">مكتب العمليات الأكاديمية: <strong>+20 101 592 2628</strong></span>
+                                                    <span className="text-xs font-mono text-emerald-300">واتساب الإدارة: <strong>+20 101 592 2628</strong></span>
                                                 </div>
                                                 <a
                                                     href={`https://wa.me/201015922628?text=${encodeURIComponent('السلام عليكم، أرغب في سداد رسوم ورشة BLS عبر التحويل البنكي / InstaPay / بنكك. اسمي: ' + (form.fullName || 'طبيب'))}`}
                                                     target="_blank"
                                                     rel="noopener noreferrer"
-                                                    className="px-4 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs font-mono transition-all flex items-center gap-1.5"
+                                                    className="px-4 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs font-mono transition-all flex items-center gap-1.5 shadow-lg shadow-emerald-500/20"
                                                 >
                                                     <MessageCircle className="w-4 h-4" />
-                                                    <span>إرسال الإشعار وتأكيد التفعيل الفوري ➔</span>
+                                                    <span>مراسلة المكتب الأكاديمي على واتساب ➔</span>
                                                 </a>
                                             </div>
 
                                             <div>
                                                 <label className="block text-xs text-gray-300 mb-1 font-medium">
-                                                    رقم المعاملة أو اسم الحساب المحول منه (اختياري)
+                                                    رقم إشعار التحويل / اسم الحساب المحول منه *
                                                 </label>
                                                 <input
                                                     type="text"
+                                                    required
                                                     value={form.providerRef}
                                                     onChange={(e) => setForm({ ...form, providerRef: e.target.value })}
-                                                    placeholder="مثال: تحويل إنستاباي أو إشعار بنكك"
+                                                    placeholder="مثال: رقم العملية من تطبيق البنك أو إنستاباي أو بنكك"
                                                     className="w-full px-4 py-2.5 rounded-xl bg-black/60 border border-white/15 text-white font-mono text-xs focus:border-cyan-400 focus:outline-none"
                                                 />
                                             </div>
                                         </div>
                                     )}
+                                </div>
+
+                                {/* THE "TWO CUPS OF COFFEE" UPSELL CHECKBOX */}
+                                <div
+                                    onClick={() => setBoughtCoffee(!boughtCoffee)}
+                                    className={`p-4 rounded-2xl border cursor-pointer transition-all flex items-center justify-between ${
+                                        boughtCoffee
+                                            ? 'border-amber-400 bg-amber-950/40 ring-1 ring-amber-400 shadow-xl'
+                                            : 'border-white/10 bg-white/5 hover:border-white/20'
+                                    }`}
+                                >
+                                    <div className="flex items-center gap-3">
+                                        <div className="text-amber-400">
+                                            {boughtCoffee ? <CheckSquare className="w-5 h-5" /> : <Square className="w-5 h-5 text-gray-400" />}
+                                        </div>
+                                        <div>
+                                            <h4 className="text-xs font-bold text-white flex items-center gap-1.5">
+                                                <span>Support the Consortium: Buy our Academic Desk two cups of coffee ☕ (250 EGP)</span>
+                                            </h4>
+                                            <p className="text-[11px] text-amber-300 mt-0.5">
+                                                Expedite your manual review, and instantly credit your ledger with an extra <strong>+50 GemIInI Points (GP)</strong>!
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <span className="px-2.5 py-1 rounded-full font-mono text-[11px] font-bold flex-shrink-0 bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                                        {boughtCoffee ? '+50 GP Active (Total 250 GP)' : '+50 GP Booster'}
+                                    </span>
                                 </div>
 
                                 <button
@@ -681,12 +667,12 @@ const BlsWorkshopPage = () => {
                                     className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-red-500 via-rose-500 to-amber-500 hover:opacity-95 text-white font-black text-sm tracking-wide shadow-xl shadow-red-500/20 transition-all flex items-center justify-center gap-2 disabled:opacity-50"
                                 >
                                     {loading ? (
-                                        <span>جارٍ إصدار البروفايل وتفعيل رصيد {totalGp} GP...</span>
+                                        <span>جارٍ حجز المقعد وإصدار بروفايل {calculatedGp} GP...</span>
                                     ) : (
                                         <>
                                             <CheckCircle2 className="w-5 h-5" />
                                             <span>
-                                                تأكيد الحجز وإصدار بروفايل GemIInI ID برصيد {totalGp} GP وبونص د. صبري ➔
+                                                تأكيد الحجز وإصدار GemIInI ID برصيد {calculatedGp} GP وبونص د. صبري ➔
                                             </span>
                                         </>
                                     )}
