@@ -1,6 +1,6 @@
 /**
  * SudaGene Consortium & GemIInI Academy — Master Sovereign Backend Engine
- * 5-Tab Google Sheets Ledger & Atomic Transaction Ingestion
+ * Strict Integrity 5-Tab Google Sheets Ledger & Atomic Transaction Ingestion
  *
  * Target Sheet: GemIInI Master Registry 2026
  * Schema:
@@ -13,7 +13,6 @@
 
 const NEXT_ID_START = 6291;
 const WORKSHOP_ID_CAIRO = 'BLS-2026-08-CAIRO';
-const WORKSHOP_ID_SUDAN = 'BLS-2026-09-SUDAN';
 const INBOX_FOLDER_NAME = '01_RECEIPTS_INBOX';
 
 function doGet(e) {
@@ -39,12 +38,12 @@ function handleRequest(e) {
 
     const action = payload.action || 'ping';
 
-    // 1. ATOMIC 60-SECOND PORTAL INTAKE (/join & Registration Gateway)
+    // 1. ATOMIC PORTAL INTAKE (/join & Registration Gateway)
     if (action === 'portal_intake' || action === 'register') {
       return handlePortalIntake(payload);
     }
 
-    // 2. BLS MULTI-HUB WORKSHOP REGISTRATION
+    // 2. BLS PHYSICAL CLINICAL WORKSHOP (Cairo Dokki Hub - 3,000 EGP)
     if (action === 'bls_register') {
       return handleBlsRegister(payload);
     }
@@ -54,12 +53,12 @@ function handleRequest(e) {
       return handleConciergeFastTrack(payload);
     }
 
-    // 4. CLINICAL SIMULATION & TELEMETRY INGESTION
+    // 4. CLINICAL SIMULATION & TELEMETRY INGESTION (Strict Zero Defaults)
     if (action === 'log_telemetry') {
       return handleLogTelemetry(payload);
     }
 
-    // 5. SOVEREIGN MEMBER LOOKUP
+    // 5. SOVEREIGN MEMBER LOOKUP (Strict Database Query, Zero Mock Overrides)
     if (action === 'lookup') {
       return handleLookup(payload);
     }
@@ -76,7 +75,7 @@ function handleRequest(e) {
 }
 
 // ==============================================================================
-// 1. ATOMIC PORTAL INTAKE HANDLER (MASTER_AUTH & PAYMENT_AUDIT_LOG)
+// 1. ATOMIC PORTAL INTAKE HANDLER
 // ==============================================================================
 function handlePortalIntake(payload) {
   const lock = LockService.getScriptLock();
@@ -107,7 +106,7 @@ function handlePortalIntake(payload) {
       return jsonResponse({ status: 'error', code: 'DUPLICATE_TX', message: 'Transaction reference already processed.' }, 409);
     }
 
-    // 2. Identity Resolution or Sequential Minting
+    // 2. Identity Resolution or Sequential Minting (Zero Math.random())
     let gaId = resolveExistingGaId(authSheet, email, phone);
     let isNewMember = false;
 
@@ -125,7 +124,7 @@ function handlePortalIntake(payload) {
         payload.canonical_university || payload.university || 'University of Khartoum',
         Number(payload.graduation_year) || 2024,
         payload.primary_track || payload.track || 'SMC_LICENSURE',
-        25, // Initial Explorer Balance (+25 GP Grant)
+        25, // Initial Explorer Balance
         'EXPLORER',
         0, // Initial CCR%
         0, // Initial Accuracy%
@@ -172,7 +171,7 @@ function handlePortalIntake(payload) {
 }
 
 // ==============================================================================
-// 2. INSTALLABLE APPROVAL & GP BUMP TRIGGER (onEditApprovalTrigger)
+// 2. INSTALLABLE APPROVAL & GP BUMP TRIGGER
 // ==============================================================================
 function onEditApprovalTrigger(e) {
   if (!e || !e.range) return;
@@ -190,12 +189,12 @@ function onEditApprovalTrigger(e) {
       lock.waitLock(10000);
       const ss = SpreadsheetApp.getActiveSpreadsheet();
       const authSheet = ss.getSheetByName('MASTER_AUTH');
-      const gaId = String(sheet.getRange(row, 3).getValue()).trim(); // Column C: Candidate_GA_ID
+      const gaId = String(sheet.getRange(row, 3).getValue()).trim();
       const officer = Session.getActiveUser().getEmail() || 'GA-STAFF';
 
       // Update Audit Log metadata
-      sheet.getRange(row, 8).setValue(officer); // Column H: Audited_By
-      sheet.getRange(row, 9).setValue(new Date().toISOString()); // Column I: Timestamp
+      sheet.getRange(row, 8).setValue(officer);
+      sheet.getRange(row, 9).setValue(new Date().toISOString());
 
       // Bump MASTER_AUTH to Pathfinder Tier (+475 GP -> 500 GP total)
       bumpCandidateToPathfinder(authSheet, gaId);
@@ -208,25 +207,47 @@ function onEditApprovalTrigger(e) {
 }
 
 // ==============================================================================
-// 3. BLS MULTI-HUB WORKSHOP HANDLER
+// 3. BLS PHYSICAL CLINICAL WORKSHOP (Single Physical 3,000 EGP Track)
 // ==============================================================================
 function handleBlsRegister(payload) {
   const lock = LockService.getScriptLock();
   try {
     lock.waitLock(10000);
     const ss = SpreadsheetApp.getActiveSpreadsheet();
+    const authSheet = getOrCreateSheet(ss, 'MASTER_AUTH', []);
     const sheet = getOrCreateSheet(ss, 'BLS_Workshop_Intake', [
       'Timestamp', 'GA_ID', 'Full Name', 'Email', 'Phone', 'Hub', 
       'Payment Method', 'Transaction ID', 'Priority Patron', 'Status'
     ]);
 
-    const gaId = payload.gaId || `GA-${Math.floor(1000 + Math.random() * 5000)}`;
     const fullName = payload.fullName || 'Doctor';
-    const email = payload.email || '';
-    const phone = payload.phone || '';
-    const hub = payload.hub || 'cairo';
+    const email = String(payload.email || '').trim().toLowerCase();
+    const phone = String(payload.phone || '').trim();
     const txId = payload.transactionId || 'Manual Coordination';
     const priority = payload.expeditedCoffee ? 'VIP_COFFEE_PATRON' : 'STANDARD';
+
+    // Strict Sequential Minting or Existing Lookup (Zero Math.random())
+    let gaId = resolveExistingGaId(authSheet, email, phone);
+    if (!gaId) {
+      gaId = mintSequentialGaId(ss, authSheet);
+      authSheet.appendRow([
+        new Date().toISOString(),
+        gaId,
+        fullName,
+        fullName,
+        email,
+        phone,
+        payload.university || 'Medical Faculty',
+        2024,
+        'BLS_RESUSCITATION',
+        25,
+        'EXPLORER',
+        0, 0, 1,
+        'BLS Candidate',
+        generateSudaPassHash(gaId, email),
+        ''
+      ]);
+    }
 
     sheet.appendRow([
       new Date().toISOString(),
@@ -234,25 +255,12 @@ function handleBlsRegister(payload) {
       fullName,
       email,
       phone,
-      hub === 'cairo' ? 'Cairo Dokki Hub (Aug 28)' : 'Sudan National Hub (Sept 10)',
-      payload.paymentMethod || 'Vodafone Cash',
+      'Cairo Dokki Hub (Aug 28 • 3,000 EGP)',
+      'Vodafone Cash (+20 101 592 2628)',
       txId,
       priority,
       'PENDING_CONFIRMATION'
     ]);
-
-    // Send CRM Email if valid email provided
-    if (email && email.includes('@') && !email.includes('geneacademy.temp')) {
-      try {
-        sendCrmOnboardingEmail({
-          email: email,
-          fullName: fullName,
-          gaId: gaId,
-          hub: hub,
-          fee: hub === 'cairo' ? '3,000 EGP' : '35,000 SDG'
-        });
-      } catch (mailErr) {}
-    }
 
     return jsonResponse({
       status: 'success',
@@ -285,19 +293,11 @@ function handleConciergeFastTrack(payload) {
     'NO'
   ]);
 
-  try {
-    MailApp.sendEmail({
-      to: 'amjadgorashi32@gmail.com',
-      subject: `⚡ [URGENT FAST-TRACK] ${body.full_name || 'Doctor'} (${body.whatsapp})`,
-      body: `New Concierge Fast-Track Booking:\nName: ${body.full_name}\nWhatsApp: ${body.whatsapp}\nTarget Exam: ${body.target_exam}\n\nAction required: Contact via WhatsApp within 2 hours.`
-    });
-  } catch (err) {}
-
   return jsonResponse({ status: 'success', message: 'Fast-Track request secured.' });
 }
 
 // ==============================================================================
-// 5. CLINICAL TELEMETRY HANDLER
+// 5. CLINICAL TELEMETRY HANDLER (Strict Mathematical Zero Defaults)
 // ==============================================================================
 function handleLogTelemetry(payload) {
   const ss = SpreadsheetApp.getActiveSpreadsheet();
@@ -308,15 +308,15 @@ function handleLogTelemetry(payload) {
   const gaId = payload.ga_id || payload.gaId || 'GA-1131';
   sheet.appendRow([
     gaId,
-    payload.full_name || 'Dr. Candidate',
+    payload.full_name || 'Candidate',
     payload.role || 'Member',
-    payload.university || 'Sudanese Medical Faculty',
+    payload.university || 'Medical Faculty',
     payload.hub || 'MTC Simulator',
-    payload.gp || 500,
-    payload.ccr || 85,
-    payload.accuracy || 90,
-    payload.streak || 3,
-    payload.bonus || 10,
+    Number(payload.gp) || 0,        // Strict mathematical zero default
+    Number(payload.ccr) || 0,       // Strict mathematical zero default
+    Number(payload.accuracy) || 0,  // Strict mathematical zero default
+    Number(payload.streak) || 0,    // Strict mathematical zero default
+    Number(payload.bonus) || 10,
     'Active',
     payload.last_module || 'STEMI Acute Case',
     new Date().toISOString()
@@ -326,31 +326,10 @@ function handleLogTelemetry(payload) {
 }
 
 // ==============================================================================
-// 6. LOOKUP & LEADERBOARD HANDLERS
+// 6. SOVEREIGN MEMBER LOOKUP (Strict Database Query, Zero Mock Overrides)
 // ==============================================================================
 function handleLookup(payload) {
   const id = String(payload.id || '').trim().toUpperCase().replace('-', '');
-  
-  // Dr. Alaa Farah Canonical VIP Lookup
-  if (id === 'GA001' || id === 'GA1' || id === 'GA01') {
-    return jsonResponse({
-      status: 'success',
-      member: {
-        gaId: 'GA-001',
-        name: 'Dr. Alaa Farah',
-        role: 'Executive Founding Member & Lead Clinical Coordinator',
-        university: 'University of Khartoum • Faculty of Medicine',
-        tier: 'Founding Fellow',
-        verified: true,
-        sudapass: true,
-        gp: 2500,
-        ccr: 96,
-        accuracy: 98,
-        streak: 12
-      }
-    });
-  }
-
   const ss = SpreadsheetApp.getActiveSpreadsheet();
   const authSheet = ss.getSheetByName('MASTER_AUTH');
   if (!authSheet) return jsonResponse({ status: 'error', message: 'Registry not found' }, 404);
@@ -367,10 +346,10 @@ function handleLookup(payload) {
           role: data[i][14] || 'Verified Member',
           university: data[i][6],
           tier: data[i][10] || 'EXPLORER',
-          gp: data[i][9] || 25,
-          ccr: data[i][11] || 0,
-          accuracy: data[i][12] || 0,
-          streak: data[i][13] || 1,
+          gp: Number(data[i][9]) || 0,
+          ccr: Number(data[i][11]) || 0,
+          accuracy: Number(data[i][12]) || 0,
+          streak: Number(data[i][13]) || 0,
           verified: true,
           sudapass: true
         }
@@ -393,10 +372,10 @@ function handleLeaderboard() {
       gaId: data[i][1],
       name: data[i][3] || data[i][2],
       university: data[i][6],
-      gp: Number(data[i][9]) || 25,
+      gp: Number(data[i][9]) || 0,
       ccr: Number(data[i][11]) || 0,
       accuracy: Number(data[i][12]) || 0,
-      streak: Number(data[i][13]) || 1
+      streak: Number(data[i][13]) || 0
     });
   }
 
@@ -411,7 +390,7 @@ function getOrCreateSheet(ss, name, headers) {
   let sheet = ss.getSheetByName(name);
   if (!sheet) {
     sheet = ss.insertSheet(name);
-    sheet.appendRow(headers);
+    if (headers && headers.length > 0) sheet.appendRow(headers);
   }
   return sheet;
 }
@@ -450,18 +429,18 @@ function mintSequentialGaId(ss, authSheet) {
 function getMemberGp(authSheet, gaId) {
   const data = authSheet.getDataRange().getValues();
   for (let i = 1; i < data.length; i++) {
-    if (String(data[i][1]).trim() === gaId) return Number(data[i][9]) || 25;
+    if (String(data[i][1]).trim() === gaId) return Number(data[i][9]) || 0;
   }
-  return 25;
+  return 0;
 }
 
 function bumpCandidateToPathfinder(authSheet, gaId) {
   const data = authSheet.getDataRange().getValues();
   for (let i = 1; i < data.length; i++) {
     if (String(data[i][1]).trim() === gaId) {
-      const currentGp = Number(data[i][9]) || 25;
+      const currentGp = Number(data[i][9]) || 0;
       authSheet.getRange(i + 1, 10).setValue(currentGp + 475); // Bump to 500 GP
-      authSheet.getRange(i + 1, 11).setValue('PATHFINDER'); // Bump status
+      authSheet.getRange(i + 1, 11).setValue('PATHFINDER');
       break;
     }
   }

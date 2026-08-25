@@ -1,81 +1,44 @@
 /**
  * src/pages/BlsWorkshopPage.jsx
- * GemIInI Academy — Dual-Hub Multi-Center BLS Workshop Portal
- * 2027 Apple / VisionOS Spatial Aesthetics & Resilient Fail-Safe Lead Segmentation
+ * GemIInI Academy — Cairo Dokki In-Person BLS & Resuscitation Wet Lab
+ * 2027 Apple / VisionOS Spatial UI & Zero-Fail Lead Coordination
  */
 
-import React, { useEffect, useState } from 'react';
-import { useSearchParams, Link } from 'react-router-dom';
+import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { 
-  ShieldCheck, Award, Zap, Activity, Users, Globe2, BookOpen, 
-  ArrowRight, ArrowLeft, Sparkles, CheckCircle2, ChevronRight,
-  Flame, Stethoscope, Dna, Play, HeartPulse, Building2, Microscope,
-  Search, ExternalLink, Compass, Layers, Fingerprint, MapPin, 
-  DatabaseZap, Clock, Phone, AlertCircle, Coffee
+  HeartPulse, MapPin, CheckCircle2, ArrowRight, ArrowLeft,
+  Sparkles, Coffee, Phone, Zap
 } from 'lucide-react';
 import Layout from '@/components/site/Layout';
 import { useLang } from '@/i18n/LanguageContext';
 import { submitBlsRegistration } from '@/lib/geneApi';
 
-export const WORKSHOP_HUBS = {
-  cairo: {
-    id: 'cairo',
-    name: { en: 'Cairo Dokki Hub', ar: 'فرع القاهرة (الدقي)' },
-    venue: { en: 'Dokki Hands-On Simulation Center, Giza', ar: 'مركز الدقي للمحاكاة والتدريب السريري، الجيزة' },
-    dateIso: '2026-08-28T09:00:00+02:00',
+const inputClass = 'h-12 w-full rounded-2xl border border-white/10 bg-white/5 px-4 text-sm text-white outline-none transition-all placeholder:text-white/40 focus:border-[#00F2FE]/50 focus:bg-white/10 focus:ring-2 focus:ring-[#00F2FE]/20';
+
+export default function BlsWorkshopPage() {
+  const { lang, isRtl } = useLang();
+  
+  const workshopInfo = {
+    venue: { en: 'Dokki Hands-On Simulation Center, Giza, Egypt', ar: 'مركز الدقي للمحاكاة والتدريب السريري، الجيزة، مصر' },
     dateFormatted: { en: 'Friday, August 28, 2026', ar: 'الجمعة، ٢٨ أغسطس ٢٠٢٦' },
     seatsRemaining: 4,
     fee: { amount: '3,000', currency: 'EGP' },
     paymentAccount: '+20 101 592 2628',
     paymentLabel: { en: 'Vodafone Cash', ar: 'فودافون كاش (Vodafone Cash)' },
-    flag: '🇪🇬',
-  },
-  sudan: {
-    id: 'sudan',
-    name: { en: 'Sudan National Hub', ar: 'المقر الوطني بالسودان' },
-    venue: { en: 'Clinical Skills Lab, Port Sudan / Wad Medani', ar: 'معمل المهارات السريرية، بورتسودان / ود مدني' },
-    dateIso: '2026-09-10T09:00:00+02:00',
-    dateFormatted: { en: 'Thursday, September 10, 2026', ar: 'الخميس، ١٠ سبتمبر ٢٠٢٦' },
-    seatsRemaining: 18,
-    fee: { amount: '35,000', currency: 'SDG', usd: '$40' },
-    paymentAccount: 'Bankak / Barq Remittance',
-    paymentLabel: { en: 'Bankak (Bank of Khartoum)', ar: 'بنكك (بنك الخرطوم) أو تحويل فوري' },
-    flag: '🇸🇩',
-  },
-};
-
-const inputClass = 'h-12 w-full rounded-2xl border border-white/10 bg-white/5 px-4 text-sm text-white outline-none transition-all placeholder:text-white/40 focus:border-[#00F2FE]/50 focus:bg-white/10 focus:ring-2 focus:ring-[#00F2FE]/20';
-
-export default function BlsWorkshopPage() {
-  const { lang, isRtl } = useLang();
-  const [searchParams, setSearchParams] = useSearchParams();
-  
-  const initialHub = searchParams.get('hub') === 'sudan' ? 'sudan' : 'cairo';
-  const [selectedHub, setSelectedHub] = useState(initialHub);
-  const hubData = WORKSHOP_HUBS[selectedHub];
+  };
 
   const [form, setForm] = useState({
     fullName: '',
     email: '',
     phone: '',
-    gaId: '',
     currentStatus: 'general_practitioner',
-    paymentMethod: 'vodafone_cash',
     transactionId: '',
-    expeditedCoffee: false,
-    useGpPoints: false
+    expeditedCoffee: false
   });
 
-  const [status, setStatus] = useState('idle'); // idle | loading | done
+  const [status, setStatus] = useState('idle');
   const [errors, setErrors] = useState({});
-  const [submittedData, setSubmittedData] = useState(null);
-
-  // Sync hub with URL param
-  const handleHubChange = (hubId) => {
-    setSelectedHub(hubId);
-    setSearchParams({ hub: hubId });
-  };
 
   const validate = () => {
     const errs = {};
@@ -91,47 +54,37 @@ export default function BlsWorkshopPage() {
 
     setStatus('loading');
 
-    // Build rich segmented payload
     const payload = {
       fullName: form.fullName.trim(),
       email: form.email.trim() || `${form.phone.replace(/[^0-9]/g, '')}@geneacademy.temp`,
       phone: form.phone.trim(),
-      gaId: form.gaId.trim().toUpperCase(),
-      hub: selectedHub,
-      hubName: hubData.name.en,
-      dateFormatted: hubData.dateFormatted.en,
+      hub: 'cairo',
       currentStatus: form.currentStatus,
-      paymentMethod: form.paymentMethod,
+      paymentMethod: 'Vodafone Cash',
       transactionId: form.transactionId.trim() || 'Manual Coordination',
       expeditedCoffee: form.expeditedCoffee,
-      segmentTag: form.expeditedCoffee ? 'VIP_PRIORITY_COFFEE_PATRON' : 'STANDARD_CLINICAL_COHORT',
-      intakeTier: selectedHub === 'cairo' ? 'Cairo Dokki In-Person' : 'Sudan National In-Person',
       timestamp: new Date().toISOString()
     };
 
-    // Save locally to safeguard lead
     try {
       localStorage.setItem('last_bls_registration', JSON.stringify(payload));
     } catch {}
 
-    // Dispatch to Apps Script backend with graceful fail-safe
     try {
       await submitBlsRegistration(payload);
     } catch (err) {
       console.log('Background sync logging:', err);
     }
 
-    setSubmittedData(payload);
     setStatus('done');
   };
 
   const getWhatsAppConfirmationUrl = () => {
     const name = form.fullName || 'Doctor';
-    const hubText = selectedHub === 'cairo' ? 'Cairo Dokki Hub (Aug 28)' : 'Sudan National Hub (Sept 10)';
     const tx = form.transactionId ? `Tx ID: ${form.transactionId}` : 'Payment confirmation attached';
     const coffeeText = form.expeditedCoffee ? ' [Expedited Priority + Coffee Patron]' : '';
     const text = encodeURIComponent(
-      `Hello GemIInI Team! 👋\n\nI have reserved my seat for the BLS Workshop:\n• Name: Dr. ${name}\n• Hub: ${hubText}${coffeeText}\n• Phone: ${form.phone}\n• ${tx}\n\nPlease confirm my seat registration.`
+      `Hello GemIInI Team! 👋\n\nI have reserved my seat for the Cairo BLS Workshop (Aug 28):\n• Name: Dr. ${name}${coffeeText}\n• Phone: ${form.phone}\n• ${tx}\n\nPlease confirm my seat registration.`
     );
     return `https://wa.me/201015922628?text=${text}`;
   };
@@ -139,68 +92,40 @@ export default function BlsWorkshopPage() {
   return (
     <Layout>
       <Helmet>
-        <title>{isRtl ? 'حجز مقعد: ورشة الإنعاش القلبي والرئوي BLS | أكاديمية جيميني' : 'BLS & Resuscitation Workshop Registration | GemIInI Academy'}</title>
+        <title>{isRtl ? 'ورشة الإنعاش القلبي والرئوي المتقدمة (BLS) | القاهرة | أكاديمية جيميني' : 'Advanced BLS Clinical Resuscitation Workshop | Cairo Dokki'}</title>
       </Helmet>
 
       <div className="bg-[#04080F] text-slate-100 min-h-screen py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden" dir={isRtl ? 'rtl' : 'ltr'}>
         
-        {/* Ambient Glow */}
         <div className="pointer-events-none absolute top-10 left-1/2 -translate-x-1/2 w-[40rem] h-[40rem] bg-gradient-to-br from-[#00F2FE]/15 via-teal-500/10 to-amber-500/10 rounded-full blur-[140px]" />
 
         <div className="max-w-4xl mx-auto relative z-10">
           
-          {/* Header Title */}
           <div className="text-center mb-10">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl mb-4 text-xs font-mono font-bold text-[#00F2FE] uppercase tracking-widest">
               <HeartPulse className="w-4 h-4 text-[#00F2FE] animate-pulse" />
-              <span>{isRtl ? 'التدريب السريري العملي والإنعاش' : 'Hands-On Resuscitation & Emergency Care'}</span>
+              <span>{isRtl ? 'التدريب السريري الحضوري — القاهرة' : 'Hands-On Clinical Training — Cairo Dokki Hub'}</span>
             </div>
             
             <h1 className="font-display text-3xl sm:text-5xl font-black text-white tracking-tight">
               {isRtl ? 'ورشة دعم الحياة الأساسي المتقدمة (BLS)' : 'Advanced BLS & Clinical Resuscitation'}
             </h1>
             
-            <p className="mt-3 text-slate-300 text-sm sm:text-base max-w-xl mx-auto font-light">
+            <p className="mt-3 text-slate-300 text-sm sm:text-base max-w-xl mx-auto font-light leading-relaxed">
               {isRtl 
-                ? 'تدريب عملي مكثف على أحدث بروتوكولات الإنعاش وتدبير مجرى الهواء والرجفان القلبي مع منح الاعتماد والساعات المعتمدة.'
-                : 'Intensive hands-on airway management, high-quality CPR, and defibrillation wet-lab credentialing.'}
+                ? 'تدريب عملي مكثف على أحدث بروتوكولات الإنعاش وتدبير مجرى الهواء والرجفان القلبي مع منح الساعات المعتمدة.'
+                : 'Intensive hands-on airway management, high-quality CPR, and defibrillation wet-lab credentialing in Dokki, Cairo.'}
             </p>
 
-            {/* Dual Hub Switcher Pill */}
-            <div className="mt-8 inline-flex items-center p-1.5 rounded-full border border-white/15 bg-white/5 backdrop-blur-2xl shadow-2xl">
-              <button
-                type="button"
-                onClick={() => handleHubChange('cairo')}
-                className={`flex items-center gap-2 px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all ${
-                  selectedHub === 'cairo' 
-                    ? 'bg-[#00F2FE] text-slate-950 shadow-lg shadow-[#00F2FE]/20' 
-                    : 'text-slate-300 hover:text-white'
-                }`}
-              >
-                <span>🇪🇬</span>
-                <span>{isRtl ? 'فرع القاهرة (٢٨ أغسطس)' : 'Cairo Dokki Hub (Aug 28)'}</span>
-              </button>
-
-              <button
-                type="button"
-                onClick={() => handleHubChange('sudan')}
-                className={`flex items-center gap-2 px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all ${
-                  selectedHub === 'sudan' 
-                    ? 'bg-[#00F2FE] text-slate-950 shadow-lg shadow-[#00F2FE]/20' 
-                    : 'text-slate-300 hover:text-white'
-                }`}
-              >
-                <span>🇸🇩</span>
-                <span>{isRtl ? 'فرع السودان (١٠ سبتمبر)' : 'Sudan Hub (Sept 10)'}</span>
-              </button>
+            <div className="mt-6 inline-flex items-center gap-3 px-6 py-2.5 rounded-full border border-amber-500/30 bg-amber-500/10 text-amber-300 text-xs font-bold shadow-lg">
+              <MapPin className="w-4 h-4 text-amber-400" />
+              <span>{isRtl ? 'الجمعة، ٢٨ أغسطس ٢٠٢٦ • مركز الدقي للمحاكاة' : 'Friday, August 28, 2026 • Dokki Hands-On Center (4 Seats Left)'}</span>
             </div>
           </div>
 
-          {/* MAIN INTAKE CARD */}
           <div className="rounded-[2.5rem] border border-white/15 bg-white/5 backdrop-blur-3xl p-6 sm:p-10 shadow-2xl">
             
             {status === 'done' ? (
-              /* SUCCESS STATE — WARM DOCTOR-TO-DOCTOR CONFIRMATION */
               <div className="text-center py-8 space-y-6 animate-in fade-in zoom-in-95">
                 <div className="flex h-16 w-16 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-400 mx-auto border border-emerald-500/30">
                   <CheckCircle2 className="h-8 w-8" />
@@ -208,31 +133,30 @@ export default function BlsWorkshopPage() {
 
                 <div className="space-y-2">
                   <h3 className="font-display text-2xl sm:text-3xl font-bold text-white">
-                    {isRtl ? `تم تسجيل طلبك بنجاح د. ${form.fullName || ''}` : `Seat Request Recorded, Dr. ${form.fullName || ''}!`}
+                    {isRtl ? `تم تسجيل طلبك بنجاح د. ${form.fullName}` : `Seat Request Recorded, Dr. ${form.fullName}!`}
                   </h3>
                   <p className="text-sm text-slate-300 max-w-md mx-auto leading-relaxed">
                     {isRtl
-                      ? `تم حجز مقعدك المبدئي في ورشة ${hubData.name.ar} (${hubData.dateFormatted.ar}). لتأكيد المقعد فوراً، يرجى مشاركة إشعار التحويل عبر الواتساب مع فريق التنسيق:`
-                      : `Your provisional seat in the ${hubData.name.en} (${hubData.dateFormatted.en}) is securely logged. To confirm immediately, share your payment receipt with our coordination desk:`}
+                      ? 'تم حجز مقعدك المبدئي في ورشة القاهرة (٢٨ أغسطس). لتأكيد المقعد فوراً، يرجى مشاركة إشعار التحويل عبر الواتساب مع فريق التنسيق:'
+                      : 'Your provisional seat in the Cairo Dokki Workshop (Aug 28) is securely logged. To confirm immediately, share your payment receipt with our coordination desk:'}
                   </p>
                 </div>
 
-                {/* Instant WhatsApp Action Card */}
                 <div className="p-6 rounded-2xl border border-emerald-500/30 bg-emerald-500/10 max-w-md mx-auto space-y-4">
                   <div className="flex items-center justify-between text-xs font-mono text-emerald-300">
-                    <span>{isRtl ? 'المقر المحدد:' : 'Target Hub:'}</span>
-                    <span className="font-bold">{hubData.name.en}</span>
+                    <span>{isRtl ? 'رسوم التسجيل:' : 'Workshop Fee:'}</span>
+                    <span className="font-bold">3,000 EGP</span>
                   </div>
                   <div className="flex items-center justify-between text-xs font-mono text-emerald-300">
-                    <span>{isRtl ? 'رسوم التسجيل:' : 'Fee:'}</span>
-                    <span className="font-bold">{hubData.fee.amount} {hubData.fee.currency}</span>
+                    <span>{isRtl ? 'حساب فودافون كاش:' : 'Vodafone Cash Account:'}</span>
+                    <span className="font-bold">+20 101 592 2628</span>
                   </div>
 
                   <a
                     href={getWhatsAppConfirmationUrl()}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex items-center justify-center gap-2.5 w-full py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-sm shadow-xl transition-all active:scale-95"
+                    className="flex items-center justify-center gap-2.5 w-full py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-sm shadow-xl transition-all"
                   >
                     <Phone className="w-4 h-4" />
                     <span>{isRtl ? 'تأكيد المقعد عبر الواتساب الآن' : 'Confirm on WhatsApp Instantly'}</span>
@@ -242,20 +166,16 @@ export default function BlsWorkshopPage() {
                 <div className="pt-4">
                   <button
                     type="button"
-                    onClick={() => { setStatus('idle'); setForm({ ...form, fullName: '', phone: '', transactionId: '' }); }}
+                    onClick={() => { setStatus('idle'); setForm({ fullName: '', phone: '', email: '', currentStatus: 'general_practitioner', transactionId: '', expeditedCoffee: false }); }}
                     className="text-xs text-slate-400 hover:text-white underline font-mono"
                   >
                     {isRtl ? 'تسجيل زميل أو مقعد إضافي' : 'Register another colleague or seat'}
                   </button>
                 </div>
               </div>
-
             ) : (
-
-              /* INTAKE FORM */
               <form onSubmit={handleSubmit} className="space-y-6">
                 
-                {/* Dynamic Warm Pre-Submission Notice (Replaces cold authority jargon) */}
                 <div className="rounded-2xl border border-[#00F2FE]/20 bg-[#00F2FE]/5 p-4 flex items-start gap-3 text-start">
                   <Sparkles className="w-5 h-5 text-[#00F2FE] flex-shrink-0 mt-0.5" />
                   <div className="text-xs sm:text-sm text-slate-300 space-y-1">
@@ -264,13 +184,12 @@ export default function BlsWorkshopPage() {
                     </p>
                     <p className="leading-relaxed text-slate-300/90">
                       {isRtl
-                        ? `المقاعد محدودة لضمان التدريب العملي الفردي (${hubData.seatsRemaining} مقاعد متبقية لورشة ${hubData.name.ar}). التحويل يتم مباشرة عبر ${hubData.paymentLabel.ar}.`
-                        : `Seats are capped to ensure dedicated 1-on-1 mannequin time (${hubData.seatsRemaining} seats left for ${hubData.name.en}). Payment is processed directly via ${hubData.paymentLabel.en}.`}
+                        ? 'المقاعد محدودة لضمان التدريب العملي الفردي (٤ مقاعد متبقية لورشة القاهرة). التحويل يتم مباشرة عبر فودافون كاش على الرقم +20 101 592 2628.'
+                        : 'Seats are capped to ensure dedicated 1-on-1 mannequin time (4 seats left for Cairo). Payment is processed via Vodafone Cash (+20 101 592 2628).'}
                     </p>
                   </div>
                 </div>
 
-                {/* Candidate Info Grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-start">
                   <div>
                     <label className="block text-xs font-semibold text-slate-300 mb-1.5">
@@ -296,7 +215,7 @@ export default function BlsWorkshopPage() {
                       required
                       value={form.phone}
                       onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                      placeholder="+249 / +20 / +966"
+                      placeholder="+20 / +249"
                       className={inputClass}
                     />
                     {errors.phone && <p className="text-xs text-rose-400 mt-1">{errors.phone}</p>}
@@ -306,7 +225,7 @@ export default function BlsWorkshopPage() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-start">
                   <div>
                     <label className="block text-xs font-semibold text-slate-300 mb-1.5">
-                      {isRtl ? 'البريد الإلكتروني (اختياري)' : 'Email Address (Optional)'}
+                      {isRtl ? 'البريد الإلكتروني' : 'Email Address'}
                     </label>
                     <input
                       type="email"
@@ -330,39 +249,36 @@ export default function BlsWorkshopPage() {
                       <option value="resident">{isRtl ? 'طبيب مقيم (Resident)' : 'Clinical Resident'}</option>
                       <option value="specialist">{isRtl ? 'أخصائي / استشاري' : 'Specialist / Consultant'}</option>
                       <option value="medical_student">{isRtl ? 'طالب طب (السنوات السريرية)' : 'Senior Medical Student'}</option>
-                      <option value="nurse_paramedic">{isRtl ? 'تمريض / رعاية حرجة' : 'Critical Care / Nursing'}</option>
                     </select>
                   </div>
                 </div>
 
-                {/* Payment Breakdown Box */}
                 <div className="rounded-2xl border border-white/10 bg-black/40 p-5 space-y-3 text-start">
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-xs font-bold text-white uppercase tracking-wider">{hubData.paymentLabel.en}</p>
-                      <p className="text-xs font-mono text-[#00F2FE] mt-0.5">{hubData.paymentAccount}</p>
+                      <p className="text-xs font-bold text-white uppercase tracking-wider">Vodafone Cash (Egypt)</p>
+                      <p className="text-xs font-mono text-[#00F2FE] mt-0.5">+20 101 592 2628</p>
                     </div>
                     <div className="text-end">
                       <p className="text-xs text-slate-400">{isRtl ? 'المبلغ المستحق' : 'Workshop Fee'}</p>
-                      <p className="font-mono text-xl font-bold text-white">{hubData.fee.amount} <span className="text-xs text-slate-400">{hubData.fee.currency}</span></p>
+                      <p className="font-mono text-xl font-bold text-white">3,000 <span className="text-xs text-slate-400">EGP</span></p>
                     </div>
                   </div>
 
                   <div className="pt-2 border-t border-white/10">
                     <label className="block text-xs font-semibold text-slate-300 mb-1.5">
-                      {isRtl ? 'رقم المعاملة / إشعار التحويل (إن وجد)' : 'Transaction ID / Reference (If already paid)'}
+                      {isRtl ? 'رقم المعاملة / إشعار التحويل (اختياري)' : 'Transaction ID / Reference (Optional)'}
                     </label>
                     <input
                       type="text"
                       value={form.transactionId}
                       onChange={(e) => setForm({ ...form, transactionId: e.target.value })}
-                      placeholder={isRtl ? 'أدخل رقم الحوالة أو اكتب (تنسيق عبر الواتساب)' : 'Enter reference ID or type "WhatsApp Desk"'}
+                      placeholder={isRtl ? 'أدخل رقم الحوالة أو اترك فارغاً للتنسيق عبر الواتساب' : 'Enter reference ID or leave blank for WhatsApp desk'}
                       className={inputClass}
                     />
                   </div>
                 </div>
 
-                {/* Friendly Coffee / Priority Review Addon (Simplified language) */}
                 <div className="rounded-2xl border border-amber-500/20 bg-amber-500/5 p-4 text-start">
                   <label className="flex items-start gap-3 cursor-pointer select-none">
                     <input
@@ -385,7 +301,6 @@ export default function BlsWorkshopPage() {
                   </label>
                 </div>
 
-                {/* Submit Action */}
                 <button
                   type="submit"
                   disabled={status === 'loading'}
@@ -398,7 +313,7 @@ export default function BlsWorkshopPage() {
                     </div>
                   ) : (
                     <>
-                      <span>{isRtl ? `حجز المقعد في ${hubData.name.ar}` : `Secure Seat in ${hubData.name.en}`}</span>
+                      <span>{isRtl ? 'حجز المقعد في ورشة القاهرة (٣,٠٠٠ جنيه)' : 'Secure Seat in Cairo Dokki Hub (3,000 EGP)'}</span>
                       {isRtl ? <ArrowLeft className="w-4 h-4" /> : <ArrowRight className="w-4 h-4" />}
                     </>
                   )}
