@@ -20,8 +20,12 @@ import {
     GraduationCap,
     Clock,
     Flame,
-    CheckSquare,
-    Square
+    Lock,
+    ExternalLink,
+    Zap,
+    MessageSquare,
+    Globe,
+    Send
 } from 'lucide-react';
 import SovereignClient, { generateIdempotencyKey, normalizeGaId } from '@/services/sovereignService';
 
@@ -45,7 +49,6 @@ export const SovereignGateway = ({ onRegistered }) => {
     const [selectedUni, setSelectedUni] = useState(UNIVERSITIES_WITH_COHORTS[0].name);
     
     const [paymentMethod, setPaymentMethod] = useState('VODAFONE');
-    const [patronActive, setPatronActive] = useState(false);
 
     const [form, setForm] = useState({
         fullName: '',
@@ -58,12 +61,16 @@ export const SovereignGateway = ({ onRegistered }) => {
     const [error, setError] = useState('');
     const [minted, setMinted] = useState(null);
 
+    // KSA Post-Submission Intercept Modal State
+    const [showKsaModal, setShowKsaModal] = useState(false);
+    const [ksaQuestion, setKsaQuestion] = useState('');
+
     const isDisruptedCohort = parseInt(gradYear) >= 2022 && parseInt(gradYear) <= 2026 && location === 'Egypt';
     const isSmcUrgent = track === 'SMC';
     const matchedUni = UNIVERSITIES_WITH_COHORTS.find(u => u.name === selectedUni);
 
-    const calculatedGp = patronActive ? 250 : 200;
-    const feeAmount = patronActive ? 3250 : 3000;
+    const feeAmount = 3000;
+    const calculatedGp = 200;
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -84,7 +91,7 @@ export const SovereignGateway = ({ onRegistered }) => {
             });
 
             const payload = {
-                action: 'bls_registration',
+                action: 'bls_register',
                 fullName: form.fullName.trim(),
                 email: form.email.trim(),
                 phone: form.phone.trim(),
@@ -93,7 +100,6 @@ export const SovereignGateway = ({ onRegistered }) => {
                 location: location,
                 track: track,
                 paymentMethod: paymentMethod,
-                boughtCoffee: patronActive,
                 feeAmount: feeAmount,
                 providerRef: form.providerRef.trim(),
                 referralId: localStorage.getItem('gemiini_affiliate_ref') || 'GA-000',
@@ -109,13 +115,15 @@ export const SovereignGateway = ({ onRegistered }) => {
                     gaId,
                     name: form.fullName,
                     gpBalance: res.gpBalance || calculatedGp,
-                    sabriBonusUnlocked: true
+                    digitalBonusUnlocked: true,
+                    track: track
                 };
 
                 localStorage.setItem('gemiini_presence_id', gaId);
                 localStorage.setItem('gemiini_member_profile', JSON.stringify(finalData));
 
                 setMinted(finalData);
+                setShowKsaModal(true); // TRIGGER POST-SUBMISSION INTERCEPT MODAL
                 if (onRegistered) onRegistered(finalData);
             } else {
                 setError(res.message || 'تعذر تأكيد التسجيل في السجل المركزي.');
@@ -127,22 +135,52 @@ export const SovereignGateway = ({ onRegistered }) => {
         }
     };
 
+    const handleKsaSubmit = (e) => {
+        e.preventDefault();
+        const baseMsg = `مرحباً مكتب العمليات بالمملكة العربية السعودية (KSA Node):\n\nأنا الطبيب: ${minted?.name || form.fullName}\nالمعرف الرقمي: ${minted?.gaId || 'GA-PENDING'}\nالمسار المستهدف: ${track}\n\nاستفساري بخصوص التصنيف / التوظيف السريري:\n${ksaQuestion || 'أرغب في الحصول على استشارة فورية لترخيص الهيئة السعودية والتنسيق السريري.'}`;
+        const url = `https://wa.me/966550476176?text=${encodeURIComponent(baseMsg)}`;
+        window.open(url, '_blank');
+        setShowKsaModal(false);
+    };
+
     return (
-        <div id="sovereign-intake" className="p-6 sm:p-10 rounded-3xl bg-[#080C14] border border-cyan-500/20 shadow-2xl space-y-8 max-w-3xl mx-auto">
+        <div id="sovereign-intake" className="p-6 sm:p-10 rounded-3xl bg-[#080C14] border border-cyan-500/20 shadow-2xl space-y-8 max-w-3xl mx-auto relative">
             
+            {/* KSA OPERATIONS DESK FLOATING BADGE */}
+            <div className="flex flex-wrap items-center justify-between gap-3 p-3.5 rounded-2xl bg-gradient-to-r from-emerald-950/40 via-slate-900 to-slate-900 border border-emerald-500/30 text-xs">
+                <div className="flex items-center gap-2.5">
+                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <Globe className="w-4 h-4 text-emerald-400" />
+                    <div>
+                        <strong className="text-white block font-mono text-[11px]">KSA OPERATIONS DESK / مكتب العمليات بالمملكة</strong>
+                        <span className="text-[10px] text-gray-400">تنسيق التراخيص (SCFHS) والتوزيع السريري في السعودية</span>
+                    </div>
+                </div>
+                <a
+                    href="https://wa.me/966550476176?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D9%85%D9%83%D8%AA%D8%A8%20%D8%B9%D9%85%D9%84%D9%8A%D8%A7%D8%AA%20%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9%20(KSA%20Node)%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A7%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D8%A9%20%D8%A7%D9%84%D8%AA%D8%B1%D8%A7%D8%AE%D9%8A%D8%B5%20%D8%A7%D9%84%D9%85%D9%87%D9%86%D9%8A%D8%A9."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-3 py-1.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold font-mono text-xs transition-all flex items-center gap-1.5 shadow-lg shadow-emerald-500/20"
+                >
+                    <Smartphone className="w-3.5 h-3.5" />
+                    <span>+966 55 047 6176 ➔</span>
+                </a>
+            </div>
+
+            {/* 1. HEADER */}
             <div className="text-center space-y-2">
                 <span className="px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-mono font-bold">
-                    ADAPTIVE CLINICAL INTAKE GATEWAY
+                    ADAPTIVE CLINICAL INTAKE & SETTLEMENT
                 </span>
                 <h3 className="text-2xl sm:text-3xl font-black text-white">
-                    بوابة التنسيق السريري وتوثيق المعرف الرقمي (GA-ID)
+                    استمارة الحجز والتوثيق الأكاديمي المعتمد
                 </h3>
                 <p className="text-xs text-gray-400">
                     النظام يتكيف تلقائياً مع دفعتك وجامعتك لربطك بمسار الاعتماد الدولي.
                 </p>
             </div>
 
-            {/* CONDITIONAL REACTIVE BANNERS */}
+            {/* 2. ADAPTIVE CONVERSATIONAL BANNERS */}
             <div className="space-y-3">
                 {isDisruptedCohort && (
                     <div className="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-200 text-xs flex items-start gap-3 animate-fadeIn">
@@ -177,6 +215,7 @@ export const SovereignGateway = ({ onRegistered }) => {
                 )}
             </div>
 
+            {/* 3. CONFIRMED MINTED STATE */}
             {minted ? (
                 <div className="p-8 rounded-3xl bg-slate-900 border border-emerald-500/40 text-center space-y-4">
                     <span className="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-mono font-bold">
@@ -185,8 +224,17 @@ export const SovereignGateway = ({ onRegistered }) => {
                     <h3 className="text-4xl font-mono font-black text-cyan-400">{minted.gaId}</h3>
                     <p className="text-sm text-gray-300">{minted.name}</p>
                     <div className="p-3 rounded-xl bg-black/40 text-amber-300 font-mono text-xs">
-                        الرصيد المودع: +{minted.gpBalance} GP · بونص د. صبري مفعل
+                        الرصيد المودع: +{minted.gpBalance} GP · حقيبة التحول الرقمي والسيرة الذاتية مفعلة
                     </div>
+                    
+                    <button
+                        type="button"
+                        onClick={() => setShowKsaModal(true)}
+                        className="px-5 py-2.5 rounded-xl bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-500/50 text-emerald-300 text-xs font-bold transition-all inline-flex items-center gap-2"
+                    >
+                        <MessageSquare className="w-4 h-4" />
+                        <span>طلب استشارة الترخيص والتسكين في السعودية (KSA Node) ➔</span>
+                    </button>
                 </div>
             ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
@@ -217,14 +265,14 @@ export const SovereignGateway = ({ onRegistered }) => {
                             <label className="block text-gray-300 mb-1">المسار المهني المستهدف</label>
                             <select value={track} onChange={(e) => setTrack(e.target.value)} className="w-full px-3 py-2 rounded-xl bg-black/50 border border-white/15 text-white focus:border-cyan-400 focus:outline-none">
                                 <option value="SMC">المجلس الطبي السوداني (SMC)</option>
+                                <option value="SCFHS">البورد والترخيص السعودي (SCFHS / KSA)</option>
                                 <option value="PLAB">الزمالة البريطانية (PLAB / UK-GMC)</option>
                                 <option value="USMLE">المعادلة الأمريكية (USMLE)</option>
-                                <option value="SCFHS">البورد والترخيص السعودي / الخليجي</option>
                             </select>
                         </div>
                     </div>
 
-                    {/* CANDIDATE INFO */}
+                    {/* CANDIDATE CONTACT INFO */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
                             <label className="block text-xs text-gray-300 mb-1">الاسم الرباعي الرسمي *</label>
@@ -248,8 +296,35 @@ export const SovereignGateway = ({ onRegistered }) => {
                         </div>
                     </div>
 
-                    {/* PAYMENT METHOD TOGGLE */}
-                    <div className="pt-4 border-t border-white/10 space-y-4">
+                    {/* 4. PROFESSIONAL ORDER SUMMARY RECEIPT BLOCK */}
+                    <div className="p-5 rounded-2xl bg-black/60 border border-white/15 space-y-3">
+                        <div className="flex items-center justify-between pb-2.5 border-b border-white/10 text-xs font-mono">
+                            <span className="text-gray-400 uppercase tracking-wider">ORDER SUMMARY / ملخص الحجز</span>
+                            <span className="text-cyan-400 font-bold">COHORT: AUG 28, 2026</span>
+                        </div>
+                        <div className="space-y-1.5 text-xs">
+                            <div className="flex justify-between text-gray-300">
+                                <span>1. الورشة السريرية للإنعاش القلبي (BLS Provider) — مركز د. صبري</span>
+                                <span className="font-mono text-white">مشمول</span>
+                            </div>
+                            <div className="flex justify-between text-gray-300">
+                                <span>2. توثيق المعرف الرقمي الدائم (GA-ID) ومنحة 200 GP — أكاديمية جيميني</span>
+                                <span className="font-mono text-emerald-400">مشمول ($150 مجاناً)</span>
+                            </div>
+                            <div className="flex justify-between text-gray-300">
+                                <span>3. حقيبة التحول الرقمي وهندسة السيرة الذاتية — حصرياً من Gene Academy</span>
+                                <span className="font-mono text-purple-400">مشمول مجاناً</span>
+                            </div>
+                        </div>
+                        <div className="pt-2.5 border-t border-white/10 flex items-center justify-between">
+                            <span className="text-xs text-gray-300 font-bold">إجمالي الاستثمار السريري:</span>
+                            <span className="text-lg font-mono font-black text-amber-400">3,000 ج.م</span>
+                        </div>
+                    </div>
+
+                    {/* 5. PAYMENT METHOD TOGGLE */}
+                    <div className="pt-2 space-y-4">
+                        <label className="block text-xs text-gray-300 font-bold">اختر قناة السداد المعتمدة:</label>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                             <div onClick={() => setPaymentMethod('VODAFONE')} className={`p-4 rounded-xl border cursor-pointer flex items-center justify-between text-xs transition-all ${paymentMethod === 'VODAFONE' ? 'border-red-500 bg-red-500/10 text-red-300 font-bold' : 'border-white/10 bg-white/5 text-gray-400'}`}>
                                 <span>فودافون كاش (Vodafone Cash — 3,000 EGP)</span>
@@ -282,18 +357,23 @@ export const SovereignGateway = ({ onRegistered }) => {
                             <label className="block text-xs text-gray-300 mb-1">رقم العملية / الإشعار من الرسالة *</label>
                             <input type="text" required placeholder="TRX-XXXXXXXX أو رقم التحويل" value={form.providerRef} onChange={(e) => setForm({ ...form, providerRef: e.target.value })} className="w-full px-4 py-2.5 rounded-xl bg-black/60 border border-white/15 text-white font-mono text-xs focus:border-cyan-400 focus:outline-none" />
                         </div>
+
+                        {/* PROFESSIONAL CANCELLATION & REFUND POLICY */}
+                        <div className="p-3 rounded-xl bg-slate-900/80 border border-white/10 text-[11px] text-gray-400 flex items-center gap-2 font-mono">
+                            <Lock className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+                            <span>🔒 معاملة آمنة. قابلة للاسترداد بنسبة 100% حتى 48 ساعة قبل موعد الجلسة السريرية. محمية ببروتوكولات كونسورتيوم سوداجين.</span>
+                        </div>
                     </div>
 
-                    {/* PATRON BOOSTER */}
-                    <div onClick={() => setPatronActive(!patronActive)} className={`p-4 rounded-2xl border cursor-pointer flex items-center justify-between transition-all ${patronActive ? 'border-amber-400 bg-amber-950/40' : 'border-white/10 bg-white/5'}`}>
-                        <div className="flex items-center gap-3">
-                            {patronActive ? <CheckSquare className="w-5 h-5 text-amber-400" /> : <Square className="w-5 h-5 text-gray-400" />}
-                            <div>
-                                <strong className="text-xs text-white block">باقة راعي الكونسورتيوم (+50 GP / 250 EGP)</strong>
-                                <span className="text-[11px] text-amber-300">تسريع التدقيق وإضافة +50 GP فورية (إجمالي 250 GP)!</span>
-                            </div>
+                    {/* 6. THE 10% - 30% MEMBERSHIP UPSELL (THE GOLDEN HOOK) */}
+                    <div className="p-5 rounded-2xl bg-gradient-to-r from-amber-500/15 via-amber-900/20 to-slate-900 border border-amber-500/40 shadow-lg space-y-2">
+                        <div className="flex items-center gap-2 text-amber-400 text-xs font-bold font-mono">
+                            <Zap className="w-4 h-4" />
+                            <span>💡 هل أنت عضو مسجل في منظومة GemIInI؟</span>
                         </div>
-                        <span className="font-mono text-xs text-amber-300 font-bold">{patronActive ? '250 GP' : '+50 GP'}</span>
+                        <p className="text-xs text-gray-200 leading-relaxed">
+                            قم بتفعيل ملفك الرقمي عبر <a href="https://dev-members.geneacademy.net" target="_blank" rel="noopener noreferrer" className="text-amber-300 underline font-bold">members.geneacademy.net</a> للحصول فوراً على <strong>خصم 10%</strong> على ورشة اليوم، والترقي في الرتب الأكاديمية لفتح <strong>خصومات تصل إلى 30%</strong> على كافة الدورات والامتحانات السريرية القادمة.
+                        </p>
                     </div>
 
                     {error && (
@@ -303,9 +383,72 @@ export const SovereignGateway = ({ onRegistered }) => {
                     )}
 
                     <button type="submit" disabled={loading} className="w-full py-4 rounded-2xl bg-gradient-to-r from-red-500 via-rose-500 to-amber-500 text-white font-black text-sm shadow-xl shadow-red-500/20 hover:opacity-95 transition-all">
-                        {loading ? 'جارٍ تسجيل البيانات في السجل المركزي...' : `تأكيد الحجز وإصدار المعرف برصيد ${calculatedGp} GP وبونص د. صبري ➔`}
+                        {loading ? 'جارٍ تسجيل البيانات في السجل المركزي...' : 'تأكيد الحجز وإصدار المعرف برصيد 200 GP وبونص التحول الرقمي ➔'}
                     </button>
                 </form>
+            )}
+
+            {/* POST-SUBMISSION INTERCEPT MODAL (KSA COMMUNITY HUB) */}
+            {showKsaModal && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fadeIn">
+                    <div className="bg-[#0A0F1D] border border-emerald-500/40 rounded-3xl p-6 sm:p-8 max-w-lg w-full shadow-2xl space-y-5 text-right relative">
+                        <button
+                            onClick={() => setShowKsaModal(false)}
+                            className="absolute top-4 left-4 text-gray-400 hover:text-white text-sm font-mono"
+                        >
+                            ✕ إغلاق
+                        </button>
+
+                        <div className="flex items-center gap-3 border-b border-white/10 pb-4">
+                            <div className="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center">
+                                <Globe className="w-6 h-6" />
+                            </div>
+                            <div>
+                                <span className="text-[10px] font-mono text-emerald-400 font-bold uppercase tracking-wider block">KSA LICENSING & RELOCATION INTERCEPT</span>
+                                <h4 className="text-base font-bold text-white">تنسيق التراخيص والتسكين السريري بالسعودية</h4>
+                            </div>
+                        </div>
+
+                        <div className="p-4 rounded-2xl bg-black/50 border border-white/10 text-xs text-gray-300 space-y-2">
+                            <p className="font-semibold text-white">
+                                مرحباً د. {minted?.name || form.fullName} — تم تثبيت معرفك الرقمي ({minted?.gaId || 'GA-CONFIRMED'}).
+                            </p>
+                            <p className="text-emerald-300">
+                                هل ترغب في الحصول على استشارة فورية أو مساعدة في تراخيص الهيئة السعودية للتخصصات الصحية (SCFHS) أو التسكين والتوظيف في مستشفيات المملكة؟
+                            </p>
+                        </div>
+
+                        <form onSubmit={handleKsaSubmit} className="space-y-4">
+                            <div>
+                                <label className="block text-xs text-gray-300 mb-1">اكتب استفسارك لمكتب العمليات بالمملكة:</label>
+                                <textarea
+                                    rows="3"
+                                    placeholder="مثال: أرغب في معرفة شروط امتحان البرومترك ونقل الترخيص إلى المستشفيات السعودية..."
+                                    value={ksaQuestion}
+                                    onChange={(e) => setKsaQuestion(e.target.value)}
+                                    className="w-full px-4 py-2.5 rounded-xl bg-black/60 border border-white/15 text-white text-xs focus:border-emerald-400 focus:outline-none"
+                                ></textarea>
+                            </div>
+
+                            <div className="flex gap-3">
+                                <button
+                                    type="submit"
+                                    className="flex-1 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs transition-all flex items-center justify-center gap-2"
+                                >
+                                    <Send className="w-3.5 h-3.5" />
+                                    <span>إرسال الاستفسار لمكتب السعودية عبر WhatsApp ➔</span>
+                                </button>
+                                <button
+                                    type="button"
+                                    onClick={() => setShowKsaModal(false)}
+                                    className="px-4 py-3 rounded-xl bg-white/5 hover:bg-white/10 text-gray-300 text-xs transition-all"
+                                >
+                                    لاحقاً
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             )}
         </div>
     );

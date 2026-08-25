@@ -1,219 +1,276 @@
 /**
- * Code.gs — GemIInI Academy Master Backend (Google Apps Script)
- * SudaGene Consortium · GemIInI Academy
- *
- * Provides concurrency-locked auto-minting for GA-ID sequential credentials,
- * public verification lookup, and exam/registry integration.
+ * GemIInI Sovereign Platform & SudaGene Consortium - Master Backend Engine
+ * 
+ * Features:
+ * 1. Concurrency control via LockService.getScriptLock(10000)
+ * 2. Sequential GA-ID minting based on master row counts (GA-1001+)
+ * 3. Universal parameter mapping (supports camelCase & snake_case)
+ * 4. Real-time Telemetry Email Alerts to amjadgorashi32@gmail.com
+ * 5. Public lookup and verification endpoint via doGet(e)
  */
 
-const SPREADSHEET_ID = "1g8V2fJqgZ0Uj0x9s9Z3j5k7l8m9n0p1q2r3s4t5u6v"; // Default active active spreadsheet or active sheet
-const MASTER_SHEET_NAME = "GA_MASTER_REGISTRY";
-const EXAM_SHEET_NAME = "GA_EXAM_SUBMISSIONS";
-
-function getMasterSheet() {
-  const ss = SpreadsheetApp.getActiveSpreadsheet();
-  let sheet = ss.getSheetByName(MASTER_SHEET_NAME);
-  if (!sheet) {
-    sheet = ss.insertSheet(MASTER_SHEET_NAME);
-    // Ensure standard 15-column schema header
-    sheet.appendRow([
-      "TIMESTAMP",
-      "GA_ID",
-      "FULL_NAME",
-      "EMAIL",
-      "PHONE",
-      "UNIVERSITY",
-      "ROLE",
-      "TRACK",
-      "PAYMENT_METHOD",
-      "PROVIDER_REF",
-      "BOUGHT_COFFEE",
-      "GP_BALANCE",
-      "STATUS",
-      "REFERRAL_ID",
-      "IDEMPOTENCY_KEY"
-    ]);
-  }
-  return sheet;
-}
-
-function normalizeGaId(rawId) {
-  if (!rawId) return "GA-000";
-  const str = String(rawId).trim().toUpperCase();
-  if (str.startsWith("GA-")) return str;
-  if (str.startsWith("GA")) return "GA-" + str.substring(2);
-  return "GA-" + str;
-}
+var MASTER_SHEET_NAME = 'GA_MASTER_REGISTRY';
+var COUNTER_CELL = 'A1';
+var NEXT_ID_START = 6291;
 
 /**
- * Handles HTTP GET: Public ID Verification Lookup
- * Usage: https://script.google.com/.../exec?action=lookup&id=GA-1001
- */
-function doGet(e) {
-  const action = (e && e.parameter && e.parameter.action) ? e.parameter.action : "lookup";
-  const searchId = (e && e.parameter && e.parameter.id) ? normalizeGaId(e.parameter.id) : "";
-
-  if (action === "lookup" && searchId) {
-    const sheet = getMasterSheet();
-    const data = sheet.getDataRange().getValues();
-    
-    // Search GA_ID column (index 1)
-    for (let i = 1; i < data.length; i++) {
-      const row = data[i];
-      const rowGaId = normalizeGaId(row[1]);
-      if (rowGaId === searchId) {
-        const result = {
-          found: true,
-          member: {
-            id: rowGaId,
-            gaId: rowGaId,
-            fullName: row[2],
-            name: row[2],
-            email: row[3],
-            phone: row[4],
-            university: row[5],
-            role: row[6],
-            track: row[7],
-            gpBalance: row[11],
-            gp: row[11],
-            status: row[12],
-            verified: true
-          }
-        };
-        return ContentService.createTextOutput(JSON.stringify(result))
-          .setMimeType(ContentService.MimeType.JSON);
-      }
-    }
-    
-    return ContentService.createTextOutput(JSON.stringify({ found: false, message: "ID not found in master ledger" }))
-      .setMimeType(ContentService.MimeType.JSON);
-  }
-
-  return ContentService.createTextOutput(JSON.stringify({ status: "alive", system: "GemIInI Master Ledger API" }))
-    .setMimeType(ContentService.MimeType.JSON);
-}
-
-/**
- * Handles HTTP POST: Registration Intake & Exam Grading
+ * Handle POST requests (Registrations & Ledger Sync)
  */
 function doPost(e) {
-  const lock = LockService.getScriptLock();
+  var lock = LockService.getScriptLock();
   try {
-    lock.waitLock(10000); // 10-second concurrency lock to guarantee sequential GA-ID minting
+    lock.waitLock(10000); // 10-second concurrency lock
+  } catch (lockErr) {
+    return jsonResponse({
+      status: 'error',
+      message: 'Server is experiencing high traffic. Please retry in a few moments.'
+    }, 429);
+  }
 
-    let payload = {};
-    if (e && e.postData && e.postData.contents) {
-      payload = JSON.parse(e.postData.contents);
+  try {
+    var rawContents = (e && e.postData && e.postData.contents) ? e.postData.contents : '';
+    var payload = {};
+
+    if (rawContents) {
+      try {
+        payload = JSON.parse(rawContents);
+      } catch (jsonErr) {
+        // Fallback for urlencoded form posts
+        payload = e.parameter || {};
+      }
+    } else if (e && e.parameter) {
+      payload = e.parameter;
     }
 
-    const action = String(payload.action || "bls_registration").toLowerCase();
+    var action = payload.action || (payload.body && payload.body.action) || 'bls_register';
+    var body = payload.body || payload;
 
-    // =========================================================================
-    // 1. BLS WORKSHOP INTAKE & GA-ID MINTING
-    // =========================================================================
-    if (action === "bls_registration" || action === "bls_register") {
-      const sheet = getMasterSheet();
-      const data = sheet.getDataRange().getValues();
+    // Standardize input fields across both naming conventions
+    var fullName = String(body.fullName || body.full_name || body.name || '').trim();
+    var email = String(body.email || '').trim().toLowerCase();
+    var phone = String(body.phone || body.phoneNumber || '').trim();
+    var university = String(body.university || body.univ || 'General').trim();
+    var track = String(body.track || body.targetTrack || 'SMC / BLS').trim();
+    var gradYear = String(body.gradYear || body.grad_year || '2024').trim();
+    var location = String(body.location || 'Egypt').trim();
+    var paymentMethod = String(body.paymentMethod || body.payment_method || (body.gp_applied ? 'GP' : 'Vodafone Cash')).trim();
+    var providerRef = String(body.providerRef || body.transaction_id || body.refNumber || 'N/A').trim();
+    var referralId = String(body.referralId || body.referral_id || 'GA-000').trim().toUpperCase();
+    var gpAwarded = Number(body.gpAwarded || (body.boughtCoffee || body.patron_booster ? 250 : 200));
 
-      const email = String(payload.email || "").trim().toLowerCase();
-      const phone = String(payload.phone || "").trim();
-      const fullName = String(payload.fullName || payload.full_name || "").trim();
-      const univ = String(payload.university || payload.univ || "Medical Faculty").trim();
-      const role = String(payload.role || "Trainee").trim();
-      const providerRef = String(payload.providerRef || payload.provider_ref || "").trim();
-      const referralId = normalizeGaId(payload.referralId || payload.referral_id || payload.ref || "GA-000");
-      const idempotencyKey = String(payload.idempotencyKey || payload.idempotency_key || "").trim();
-      const workshopTrack = "BLS_DOKKI_CAIRO_AUG28_2026";
-      const paymentMethod = String(payload.paymentMethod || payload.payment_method || "VODAFONE").toUpperCase();
-      const boughtCoffee = Boolean(
-        payload.boughtCoffee === true || payload.boughtCoffee === "true" ||
-        payload.bought_coffee === true || payload.bought_coffee === "true" ||
-        payload.coffee === true || payload.coffee === "true"
-      );
-
-      if (!fullName || !email || !phone) {
-        return ContentService.createTextOutput(JSON.stringify({
-          status: "error",
-          message: "Missing required fields: fullName, email, or phone"
-        })).setMimeType(ContentService.MimeType.JSON);
-      }
-
-      // Check Idempotency & Duplicate Provider Ref
-      for (let i = 1; i < data.length; i++) {
-        const row = data[i];
-        if (idempotencyKey && row[14] === idempotencyKey) {
-          return ContentService.createTextOutput(JSON.stringify({
-            status: "success",
-            gaId: row[1],
-            gpBalance: row[11],
-            message: "Idempotent record returned",
-            isDuplicate: true
-          })).setMimeType(ContentService.MimeType.JSON);
-        }
-        if (providerRef && row[9] === providerRef && providerRef !== "CASH") {
-          return ContentService.createTextOutput(JSON.stringify({
-            status: "success",
-            gaId: row[1],
-            gpBalance: row[11],
-            message: "Transaction ref already verified",
-            isDuplicate: true
-          })).setMimeType(ContentService.MimeType.JSON);
-        }
-      }
-
-      // Sequential GA-ID minting (GA-1000 + rowCount)
-      const rowCount = data.length; // e.g. if 1 header row, next is row 2 -> GA-1001
-      const sequentialNumber = 1000 + rowCount;
-      const mintedGaId = "GA-" + sequentialNumber;
-      const initialGp = boughtCoffee ? 250 : 200;
-
-      // Append row to GA_MASTER_REGISTRY
-      sheet.appendRow([
-        new Date().toISOString(),
-        mintedGaId,
-        fullName,
-        email,
-        phone,
-        univ,
-        role,
-        workshopTrack,
-        paymentMethod,
-        providerRef,
-        boughtCoffee ? "YES" : "NO",
-        initialGp,
-        "VERIFIED_INTAKE",
-        referralId,
-        idempotencyKey
-      ]);
-
-      const responsePayload = {
-        status: "success",
-        gaId: mintedGaId,
-        fullName: fullName,
-        email: email,
-        gpBalance: initialGp,
-        sabriBonusUnlocked: true,
-        workshopDate: "Friday, August 28, 2026",
-        location: "Dr. Sabri Training Center (Lic. 1549) — Dokki, Cairo",
-        message: "Registration recorded successfully in Master Ledger"
-      };
-
-      return ContentService.createTextOutput(JSON.stringify(responsePayload))
-        .setMimeType(ContentService.MimeType.JSON);
+    if (!fullName || !email || !phone) {
+      return jsonResponse({
+        status: 'error',
+        message: 'Missing mandatory fields (fullName, email, phone).'
+      }, 400);
     }
 
-    // Unrecognized Action
-    return ContentService.createTextOutput(JSON.stringify({
-      status: "error",
-      message: "Unrecognized action: " + action
-    })).setMimeType(ContentService.MimeType.JSON);
+    var ss = SpreadsheetApp.getActiveSpreadsheet();
+    var sheet = ss.getSheetByName(MASTER_SHEET_NAME) || createMasterSheet(ss);
 
-  } catch (error) {
-    return ContentService.createTextOutput(JSON.stringify({
-      status: "error",
-      message: error.toString()
-    })).setMimeType(ContentService.MimeType.JSON);
+    // Generate sequential GA-ID
+    var gaId = getNextSequentialGaId(ss, sheet);
+    var timestamp = new Date();
+    var status = body.gp_applied ? 'pending_gp_confirmation' : 'pending_payment_verification';
+
+    sheet.appendRow([
+      timestamp,
+      gaId,
+      fullName,
+      email,
+      phone,
+      university,
+      gradYear,
+      location,
+      track,
+      paymentMethod,
+      providerRef,
+      referralId,
+      gpAwarded,
+      status,
+      false // sabri_cv_unlocked / digital_bonus_unlocked
+    ]);
+
+    // Dispatch Real-Time Telemetry Email Alert to Information Office
+    dispatchCandidateAlert({
+      fullName: fullName,
+      email: email,
+      phone: phone,
+      university: university,
+      track: track,
+      gaId: gaId,
+      paymentMethod: paymentMethod,
+      providerRef: providerRef
+    });
+
+    return jsonResponse({
+      status: 'success',
+      gaId: gaId,
+      gpBalance: gpAwarded,
+      registrationStatus: status,
+      digitalBonusUnlocked: false,
+      message: 'Registration recorded successfully in SudaGene Sovereign Ledger.'
+    }, 200);
+
+  } catch (err) {
+    return jsonResponse({
+      status: 'error',
+      message: 'Internal ledger processing error: ' + err.toString()
+    }, 500);
   } finally {
     lock.releaseLock();
   }
+}
+
+/**
+ * Handle GET requests (Public Member & Credential Verification)
+ */
+function doGet(e) {
+  var params = (e && e.parameter) ? e.parameter : {};
+  var action = params.action || 'lookup';
+  var queryId = String(params.id || params.q || params.gaId || '').trim().toUpperCase();
+
+  if (action === 'stats') {
+    return jsonResponse({
+      status: 'success',
+      members: 2441,
+      courses: 28,
+      vignettes: 2500,
+      faculties: 54
+    });
+  }
+
+  if (!queryId) {
+    return jsonResponse({ status: 'error', message: 'No GA-ID provided for lookup.' }, 400);
+  }
+
+  var normalizedId = queryId.startsWith('GA-') ? queryId : 'GA-' + queryId.replace('GA', '');
+
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var sheet = ss.getSheetByName(MASTER_SHEET_NAME);
+
+  if (!sheet) {
+    return jsonResponse({ status: 'not_found', message: 'Ledger table not initialized.' }, 404);
+  }
+
+  var data = sheet.getDataRange().getValues();
+  for (var i = 1; i < data.length; i++) {
+    var row = data[i];
+    var rowGaId = String(row[1] || '').trim().toUpperCase();
+
+    if (rowGaId === normalizedId) {
+      return jsonResponse({
+        status: 'found',
+        gaId: rowGaId,
+        name: row[2],
+        university: row[5],
+        track: row[8],
+        gp: row[12] || 200,
+        verified: true,
+        tier: 'ACCREDITED'
+      });
+    }
+  }
+
+  return jsonResponse({
+    status: 'not_found',
+    gaId: normalizedId,
+    verified: false,
+    message: 'ID not found in master ledger.'
+  }, 404);
+}
+
+/**
+ * Real-Time Telemetry Alert Dispatcher (SudaGene Global Network)
+ */
+function dispatchCandidateAlert(data) {
+  try {
+    var recipient = 'amjadgorashi32@gmail.com';
+    var candidateName = data.fullName || 'Anonymous Doctor';
+    var track = data.track || 'SMC / BLS';
+    var phone = data.phone || 'N/A';
+    var gaId = data.gaId || 'GA-PENDING';
+    var email = data.email || 'N/A';
+    var university = data.university || 'N/A';
+    var paymentMethod = data.paymentMethod || 'Vodafone Cash';
+    var providerRef = data.providerRef || 'N/A';
+
+    var subject = '[SudaGene Alert] New Node Activated: ' + candidateName + ' - ' + track;
+    
+    var body = '=== SUDAGENE GLOBAL OPERATIONS ALERT ===\n\n' +
+      'A new clinical candidate node has been activated on the Sovereign Gateway:\n\n' +
+      '• Candidate Name:  ' + candidateName + '\n' +
+      '• Minted GA-ID:    ' + gaId + '\n' +
+      '• Track / Target:  ' + track + '\n' +
+      '• WhatsApp Phone:  ' + phone + '\n' +
+      '• Email Address:   ' + email + '\n' +
+      '• University:      ' + university + '\n' +
+      '• Payment Rail:    ' + paymentMethod + ' (' + providerRef + ')\n' +
+      '• Activation Time: ' + new Date().toISOString() + '\n\n' +
+      'Audit Reference: SudaGene-MoeGene-Telemetry\n' +
+      '========================================';
+
+    MailApp.sendEmail({
+      to: recipient,
+      subject: subject,
+      body: body
+    });
+    Logger.log('Alert email dispatched to ' + recipient + ' for ' + gaId);
+  } catch (err) {
+    Logger.log('Failed to dispatch alert email: ' + err.toString());
+  }
+}
+
+/**
+ * Mint the next sequential GA-ID with fallback
+ */
+function getNextSequentialGaId(ss, sheet) {
+  try {
+    var meta = ss.getSheetByName('Meta');
+    if (!meta) {
+      meta = ss.insertSheet('Meta');
+      meta.getRange(COUNTER_CELL).setValue(NEXT_ID_START);
+    }
+    var current = meta.getRange(COUNTER_CELL).getValue();
+    var next = Number(current) || NEXT_ID_START;
+    meta.getRange(COUNTER_CELL).setValue(next + 1);
+    return 'GA-' + next;
+  } catch (e) {
+    var rowCount = sheet.getLastRow();
+    return 'GA-' + (1000 + rowCount);
+  }
+}
+
+/**
+ * Initialize Master Ledger Sheet
+ */
+function createMasterSheet(ss) {
+  var sheet = ss.insertSheet(MASTER_SHEET_NAME);
+  sheet.appendRow([
+    'Timestamp',
+    'GA-ID',
+    'Full Name',
+    'Email',
+    'Phone',
+    'University',
+    'Grad Year',
+    'Location',
+    'Track',
+    'Payment Method',
+    'Transaction Ref',
+    'Referral ID',
+    'GP Balance',
+    'Status',
+    'Sabri CV Unlocked'
+  ]);
+  return sheet;
+}
+
+/**
+ * Helper to build JSON responses
+ */
+function jsonResponse(obj, code) {
+  return ContentService
+    .createTextOutput(JSON.stringify(obj))
+    .setMimeType(ContentService.MimeType.JSON);
 }
