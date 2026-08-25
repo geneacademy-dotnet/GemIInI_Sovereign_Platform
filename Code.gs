@@ -1,23 +1,18 @@
 /**
- * GemIInI Academy — Sovereign Platform & BLS Workshop Backend (Google Apps Script Web App)
+ * GemIInI Academy — Sovereign Platform, CRM Dispatch Engine & Multi-Hub Ingestion (Code.gs)
  *
- * Deploy: Extensions > Apps Script in your Google Sheet, paste this in,
- * then Deploy > New deployment > Web app.
- *   - Execute as: Me
- *   - Who has access: Anyone
- *
- * IMPORTANT — GA-ID numbering:
- * Sequential numbering begins at NEXT_ID_START = 6291 (locked through GA-6290).
+ * Automated Web App + Sheets Custom Menu Ops:
+ *   - Auto GA-ID Minting (NEXT_ID_START = 6291)
+ *   - Multi-Hub BLS Ingestion: Cairo Dokki (Aug 28) & Sudan Hub (Sept 10)
+ *   - 1-Click CRM Blast Menu: Sends customized onboarding emails via MailApp
  */
 
 const SHEET_NAME = 'BLS_Registrations';
-const COUNTER_CELL = 'A1'; // on a separate 'Meta' sheet
-const NEXT_ID_START = 6291; // first free ID after the Aug 2026 registry lock
-const WORKSHOP_ID = 'bls_dokki_2026_08_28';
+const COUNTER_CELL = 'A1';
+const NEXT_ID_START = 6291;
+const WORKSHOP_ID_CAIRO = 'bls_dokki_2026_08_28';
+const WORKSHOP_ID_SUDAN = 'bls_sudan_2026_09_10';
 
-/**
- * Verified Real-World Seed Baseline from Master Workbooks
- */
 const VERIFIED_INITIAL_BASELINE = [
   { gaId: "GA-3521", name: "الشريف عمر عثمان", role: "Medical Fellow", univ: "University of Khartoum '21", hub: "Khartoum", gp: 750, ccr: 75, accuracy: 92.5, streak: 12, bonus: 50, verified: true },
   { gaId: "GA-305", name: "Ehssan Isam", role: "BSS Surgical Fellow", univ: "National University (NUSU)", hub: "Khartoum", gp: 750, ccr: 65, accuracy: 88.0, streak: 10, bonus: 50, verified: true },
@@ -29,10 +24,6 @@ const VERIFIED_INITIAL_BASELINE = [
   { gaId: "GA-3400", name: "Nusaiba Alnuman", role: "Clinical Candidate", univ: "University of Khartoum '21", hub: "Khartoum", gp: 500, ccr: 60, accuracy: 78.0, streak: 4, bonus: 0, verified: true }
 ];
 
-/**
- * Composite leaderboard score. Missing/unrecorded telemetry strictly
- * defaults to 0 — never a flattering placeholder.
- */
 function calculateSovereignScore(gp, ccr, accuracy, streak, mentorshipBonus) {
   const safeGp = Math.max(0, Number(gp) || 0);
   const safeCcr = Math.max(0, Math.min(100, Number(ccr) || 0));
@@ -42,9 +33,6 @@ function calculateSovereignScore(gp, ccr, accuracy, streak, mentorshipBonus) {
   return Math.round(safeGp + safeCcr * 10 + safeAcc * 5 + safeStreak * 20 + safeBonus);
 }
 
-/**
- * doGet handles read-only queries (leaderboard, lookup/verify)
- */
 function doGet(e) {
   try {
     const ss = SpreadsheetApp.getActiveSpreadsheet();
@@ -84,7 +72,6 @@ function doGet(e) {
         }
       }
 
-      // If no sheet entries yet, fall back to verified real baseline
       if (ranked.length === 0) {
         for (const base of VERIFIED_INITIAL_BASELINE) {
           ranked.push({
@@ -103,15 +90,12 @@ function doGet(e) {
     if (action === 'lookup' || action === 'verify') {
       const searchId = (e && e.parameter && e.parameter.id || '').toUpperCase().trim();
       if (!searchId) return jsonResponse({ status: 'error', found: false, message: 'ID not provided' });
-
       const cleanSearch = searchId.replace(/[^A-Za-z0-9]/g, '').toUpperCase();
 
-      // Check verified baseline first
       for (const base of VERIFIED_INITIAL_BASELINE) {
         if (base.gaId.replace(/[^A-Za-z0-9]/g, '').toUpperCase() === cleanSearch) {
           return jsonResponse({
-            status: 'success',
-            found: true,
+            status: 'success', found: true,
             member: {
               id: base.gaId, name: base.name, role: base.role, univ: base.univ,
               gp: base.gp, ccr: base.ccr, accuracy: base.accuracy, streak: base.streak,
@@ -127,8 +111,7 @@ function doGet(e) {
           const rowId = String(row[0]).replace(/[^A-Za-z0-9]/g, '').toUpperCase();
           if (rowId === cleanSearch) {
             return jsonResponse({
-              status: 'success',
-              found: true,
+              status: 'success', found: true,
               member: {
                 id: String(row[0]), name: String(row[1]),
                 role: String(row[2] || 'Candidate'), univ: String(row[3] || 'Unspecified faculty'),
@@ -157,7 +140,7 @@ function doPost(e) {
     }
     const action = payload.action;
 
-    // 1. LIVE TELEMETRY LOGGING (MTC Simulation Attempt)
+    // 1. LIVE TELEMETRY LOGGING
     if (action === 'log_telemetry' || action === 'log_clinical_attempt') {
       const candidateGaId = String(payload.ga_id || payload.gaId || '').trim().toUpperCase();
       const moduleId = String(payload.module_id || payload.moduleId || 'MTC-CARDIO-101');
@@ -185,7 +168,7 @@ function doPost(e) {
       });
     }
 
-    // 2. BLS WORKSHOP REGISTRATION
+    // 2. MULTI-HUB BLS REGISTRATION (Cairo Dokki & Sudan Hub)
     if (action === 'bls_register') {
       const body = payload.body || payload;
       const required = ['full_name', 'email', 'phone'];
@@ -199,6 +182,7 @@ function doPost(e) {
         return jsonResponse({ status: 'error', message: 'Missing or invalid transaction_id' }, 400);
       }
 
+      const workshopTarget = body.workshop || WORKSHOP_ID_CAIRO;
       const ss = SpreadsheetApp.getActiveSpreadsheet();
       const sheet = ss.getSheetByName(SHEET_NAME) || createRegistrationSheet(ss);
       const gaId = getNextGaId(ss);
@@ -206,23 +190,32 @@ function doPost(e) {
       const status = body.gp_applied ? 'pending_gp_confirmation' : 'pending_payment_verification';
 
       sheet.appendRow([
-        timestamp, gaId, body.full_name, body.email, body.phone, WORKSHOP_ID,
-        body.gp_applied ? 'GP' : 'Vodafone Cash', body.transaction_id || '',
-        body.patron_booster ? 'YES' : 'NO', body.referral_id || '', status, false
+        timestamp, gaId, body.full_name, body.email, body.phone, workshopTarget,
+        body.gp_applied ? 'GP' : 'Vodafone Cash / Remittance', body.transaction_id || '',
+        body.patron_booster ? 'YES' : 'NO', body.referral_id || '', status, false, ''
       ]);
+
+      // Trigger Onboarding CRM Email
+      sendCrmOnboardingEmail({
+        fullName: body.full_name,
+        email: body.email,
+        gaId: gaId,
+        status: status,
+        workshop: workshopTarget
+      });
 
       dispatchSignupAlert({
         gaId, fullName: body.full_name, email: body.email, phone: body.phone,
-        referralId: body.referral_id, transactionId: body.transaction_id, gpApplied: body.gp_applied
+        referralId: body.referral_id, transactionId: body.transaction_id, gpApplied: body.gp_applied, workshop: workshopTarget
       });
 
       return jsonResponse({
         status: 'success', gaId, registrationStatus: status, unlockSabriCv: false,
-        message: 'Registration received. GA-ID reserved pending verification.'
+        message: 'Registration received. GA-ID reserved and onboarding CRM dispatched.'
       });
     }
 
-    // 3. GENERAL REGISTRATION & ONBOARDING (+25 GP Bounty)
+    // 3. GENERAL REGISTRATION & ONBOARDING (+25 GP)
     const body = payload.body || payload;
     const fullName = body.full_name || body.fullName || '';
     const phone = body.phone || '';
@@ -248,7 +241,7 @@ function doPost(e) {
     const gpBalance = 25;
     regSheet.appendRow([
       new Date(), assignedId, fullName, email, phone, body.workshop || 'General Member',
-      body.payment_method || 'Free Onboarding', 'PROVISIONAL', 'NO', '', 'PROVISIONAL', false
+      body.payment_method || 'Free Onboarding', 'PROVISIONAL', 'NO', '', 'PROVISIONAL', false, ''
     ]);
 
     return jsonResponse({
@@ -259,6 +252,108 @@ function doPost(e) {
   } catch (err) {
     return jsonResponse({ status: 'error', message: String(err) }, 500);
   }
+}
+
+/**
+ * Sends Personalized Master CRM Dispatch Email
+ */
+function sendCrmOnboardingEmail(data) {
+  try {
+    const isSudan = String(data.workshop).includes('sudan');
+    const workshopTitle = isSudan ? "Sudan Resuscitation Hub (Sept 10, 2026)" : "Dokki, Cairo Hub (August 28, 2026)";
+    const subject = `🟢 Action Required: Your Sovereign GA-ID, Portal Access & BLS Workshop Status`;
+
+    const htmlBody = `
+      <div style="font-family: Arial, sans-serif; background-color: #04080F; color: #E2E8F0; padding: 24px; border-radius: 16px; max-width: 600px; margin: auto; border: 1px solid #1E293B;">
+        <div style="text-align: center; margin-bottom: 20px;">
+          <h1 style="color: #00F2FE; margin: 0; font-size: 24px;">GemIInI Academy</h1>
+          <p style="color: #94A3B8; font-size: 12px; margin-top: 4px; letter-spacing: 2px;">SOVEREIGN HEALTHCARE & CLINICAL SIMULATION</p>
+        </div>
+
+        <p style="font-size: 15px; line-height: 1.6;">Dear <strong>Dr. ${data.fullName}</strong>,</p>
+        <p style="font-size: 14px; color: #94A3B8; line-height: 1.6;">
+          Welcome to the <strong>GemIInI Academy Sovereign Registry</strong>. This email contains your official credentialing data, instructions to access your clinical dashboard, and your upcoming simulation workshop logistics.
+        </p>
+
+        <div style="background-color: #0A0F1D; border: 1px solid #00F2FE33; border-radius: 12px; padding: 18px; margin: 20px 0;">
+          <h3 style="color: #00F2FE; margin-top: 0; font-size: 16px;">1. Your Sovereign Credentials 🔐</h3>
+          <p style="margin: 6px 0; font-size: 14px;"><strong>Official GA-ID:</strong> <span style="font-family: monospace; color: #00F2FE; font-weight: bold; background: #00F2FE1A; padding: 3px 8px; border-radius: 6px;">${data.gaId}</span></p>
+          <p style="margin: 6px 0; font-size: 14px;"><strong>Account Status:</strong> <span style="color: #F59E0B;">${data.status}</span></p>
+          <div style="margin-top: 14px;">
+            <a href="https://members.geneacademy.net/profile?id=${data.gaId}" style="background-color: #00F2FE; color: #04080F; padding: 10px 18px; border-radius: 8px; font-weight: bold; text-decoration: none; font-size: 13px; display: inline-block;">🔗 Access My Sovereign Profile</a>
+          </div>
+        </div>
+
+        <div style="background-color: #0A0F1D; border: 1px solid #334155; border-radius: 12px; padding: 18px; margin: 20px 0;">
+          <h3 style="color: #38BDF8; margin-top: 0; font-size: 16px;">2. AHA-BLS Workshop (${workshopTitle})</h3>
+          <p style="font-size: 13px; color: #CBD5E1; margin: 6px 0;"><strong>Session Details:</strong> ${isSudan ? 'Thursday, September 10, 2026' : 'Friday, August 28, 2026'}</p>
+          <p style="font-size: 13px; color: #CBD5E1; margin: 6px 0;"><strong>Location:</strong> ${isSudan ? 'Khartoum / Port Sudan Clinical Hub' : 'Dokki, Cairo (Full Maps pin provided upon gate check-in)'}</p>
+          <p style="font-size: 13px; color: #CBD5E1; margin: 6px 0;"><strong>Verification Gate:</strong> Please have your digital profile open on your phone at reception. Your <strong>${data.gaId}</strong> is your entry pass.</p>
+        </div>
+
+        <div style="background-color: #0A0F1D; border: 1px solid #B4802855; border-radius: 12px; padding: 18px; margin: 20px 0;">
+          <h3 style="color: #F59E0B; margin-top: 0; font-size: 16px;">3. Multi-Hub Transfer Option (Cairo ↔ Sudan) 🇸🇩</h3>
+          <p style="font-size: 13px; color: #94A3B8; line-height: 1.5; margin: 6px 0;">
+            If you are based in Sudan, or wish to transfer your booking to the upcoming <strong>Sudan Hub (Sept 10)</strong>, you can secure or manage your seat directly via our sovereign portal:
+          </p>
+          <div style="margin-top: 10px;">
+            <a href="https://members.geneacademy.net/bls?hub=sudan" style="background-color: #B48028; color: #FFFFFF; padding: 8px 16px; border-radius: 8px; font-weight: bold; text-decoration: none; font-size: 12px; display: inline-block;">🔗 Manage / Book Sudan Cohort (Sept 10)</a>
+          </div>
+        </div>
+
+        <div style="text-align: center; border-top: 1px solid #1E293B; padding-top: 16px; margin-top: 24px; color: #64748B; font-size: 11px;">
+          <p style="margin: 2px 0;">GemIInI Academy | Clinical Operations & Sovereign Data Team</p>
+          <p style="margin: 2px 0;">MTC™ Clinical Reasoning Simulator • All Rights Reserved © 2026</p>
+        </div>
+      </div>
+    `;
+
+    MailApp.sendEmail({
+      to: data.email,
+      subject: subject,
+      htmlBody: htmlBody
+    });
+  } catch (err) {
+    Logger.log("CRM Dispatch Email Warning: " + err.toString());
+  }
+}
+
+/**
+ * Custom Menu in Google Sheets for 1-Click Operations
+ */
+function onOpen() {
+  const ui = SpreadsheetApp.getUi();
+  ui.createMenu('🚀 GemIInI Sovereign Ops')
+    .addItem('📧 Blast CRM Onboarding to Unsent Candidates', 'blastUnsentOnboardingEmails')
+    .addItem('✅ Confirm Selected Payment (Unlock CV & SudaPass)', 'confirmSelectedPaymentFromMenu')
+    .addToUi();
+}
+
+function blastUnsentOnboardingEmails() {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const sheet = ss.getSheetByName(SHEET_NAME);
+  if (!sheet || sheet.getLastRow() <= 1) return;
+
+  const data = sheet.getDataRange().getValues();
+  let count = 0;
+
+  for (let i = 1; i < data.length; i++) {
+    const row = data[i];
+    const gaId = String(row[1] || '');
+    const fullName = String(row[2] || '');
+    const email = String(row[3] || '');
+    const workshop = String(row[5] || WORKSHOP_ID_CAIRO);
+    const status = String(row[10] || 'pending_payment_verification');
+    const emailSent = String(row[12] || '').toUpperCase() === 'SENT';
+
+    if (gaId && email && !emailSent) {
+      sendCrmOnboardingEmail({ fullName, email, gaId, status, workshop });
+      sheet.getRange(i + 1, 13).setValue('SENT');
+      count++;
+    }
+  }
+
+  SpreadsheetApp.getUi().alert(`✅ Successfully blasted ${count} CRM Onboarding Emails!`);
 }
 
 function getNextGaId(ss) {
@@ -282,7 +377,7 @@ function getNextGaId(ss) {
 function dispatchSignupAlert(data) {
   try {
     const recipient = 'amjadgorashi32@gmail.com';
-    const subject = `[BLS Signup] ${data.fullName || 'New candidate'} — ${data.gaId}`;
+    const subject = `[BLS Signup] ${data.fullName || 'New candidate'} — ${data.gaId} (${data.workshop})`;
     const body = [
       'New BLS workshop registration received.',
       '',
@@ -290,6 +385,7 @@ function dispatchSignupAlert(data) {
       `Name: ${data.fullName || 'N/A'}`,
       `Email: ${data.email || 'N/A'}`,
       `Phone: ${data.phone || 'N/A'}`,
+      `Workshop: ${data.workshop || 'Cairo'}`,
       `Payment: ${data.gpApplied ? 'GP applied' : `Vodafone Cash (ref: ${data.transactionId || 'N/A'})`}`,
       `Referral: ${data.referralId || 'none'}`,
       `Time: ${new Date().toISOString()}`,
@@ -304,7 +400,7 @@ function createRegistrationSheet(ss) {
   const sheet = ss.insertSheet(SHEET_NAME);
   sheet.appendRow([
     'Timestamp', 'GA-ID', 'Full Name', 'Email', 'Phone', 'Workshop',
-    'Payment Method', 'Transaction ID', 'Patron Booster', 'Referral ID', 'Status', 'Sabri CV Unlocked'
+    'Payment Method', 'Transaction ID', 'Patron Booster', 'Referral ID', 'Status', 'Sabri CV Unlocked', 'CRM_Email_Sent'
   ]);
   return sheet;
 }

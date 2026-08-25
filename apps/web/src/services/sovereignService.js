@@ -1,10 +1,3 @@
-
-export const generateIdempotencyKey = (prefix = 'TX') => {
-  const ts = Date.now().toString(36);
-  const rand = Math.random().toString(36).substring(2, 7);
-  return `${prefix}-${ts}-${rand}`.toUpperCase();
-};
-
 /**
  * Isolated service layer for the Google Apps Script / Google Sheets backend & PocketBase fallback.
  *
@@ -40,6 +33,12 @@ export const throttle = async () => {
   const wait = RATE_LIMIT_MS - (Date.now() - lastCallAt);
   if (wait > 0) await new Promise((resolve) => setTimeout(resolve, wait));
   lastCallAt = Date.now();
+};
+
+export const generateIdempotencyKey = (prefix = 'TX') => {
+  const ts = Date.now().toString(36);
+  const rand = Math.random().toString(36).substring(2, 7);
+  return `${prefix}-${ts}-${rand}`.toUpperCase();
 };
 
 export const callRemote = async (action, params = {}, method = 'GET') => {
@@ -186,7 +185,16 @@ export const submitBlsRegistration = async (payload) => {
   return { gaId: null, unlockSabriCv: false, recordId: record.id };
 };
 
-/** Sovereign client object for drop-in component usage */
+/** Bulk extract for admin */
+export const bulkExtract = async (range) => {
+  if (!config.adminProxyPath) throw new Error('admin_proxy_not_configured');
+  const response = await fetch(`${config.adminProxyPath}?range=${encodeURIComponent(range)}`, {
+    headers: { Accept: 'application/json', Authorization: `Bearer ${pb.authStore.token}` },
+  });
+  if (!response.ok) throw new Error(`admin_request_failed_${response.status}`);
+  return response.json();
+};
+
 export const SovereignClient = {
   lookup: lookupMember,
   register: submitRegistration,
