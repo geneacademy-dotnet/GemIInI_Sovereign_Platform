@@ -1,16 +1,18 @@
 /**
  * src/components/LeaderboardWidget.jsx
  * Sovereign Leaderboard Widget with Composite Score (S_rank)
+ * STRICT INTEGRITY: Zero fabricated fallback data. Displays only verified remote records.
  */
 
 import React, { useState, useEffect } from 'react';
-import { Trophy, Medal, MapPin, Building2, Globe, ShieldCheck, Loader2 } from 'lucide-react';
+import { Trophy, Medal, MapPin, Building2, Globe, ShieldCheck, Loader2, AlertCircle, RefreshCw } from 'lucide-react';
 import { callRemote } from '@/services/sovereignService';
 
 export default function LeaderboardWidget({ currentMemberGaId }) {
   const [scope, setScope] = useState('national'); // 'national' | 'regional' | 'university'
   const [filterVal, setFilterVal] = useState('');
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
   const [leaderboardData, setLeaderboardData] = useState([]);
 
   useEffect(() => {
@@ -19,32 +21,18 @@ export default function LeaderboardWidget({ currentMemberGaId }) {
 
   const fetchLeaderboard = async () => {
     setLoading(true);
+    setError(null);
     try {
       const res = await callRemote('leaderboard', { scope, filter: filterVal }, 'GET');
-      if (res && res.status === 'success' && res.items && res.items.length > 0) {
+      if (res && res.status === 'success' && Array.isArray(res.items)) {
         setLeaderboardData(res.items);
       } else {
-        // Fallback default mock telemetry data for seamless presentation
-        setLeaderboardData([
-          { rank: 1, gaId: 'GA-000', name: 'Dr. Mohamed Ahmed Gabriel', univ: 'University of Khartoum', hub: 'Khartoum', gp: 100000, ccr: 100, accuracy: 99, streak: 365, sRank: 108345, verified: true },
-          { rank: 2, gaId: 'GA-001', name: 'Dr. Alaa Mursi', univ: 'University of Khartoum', hub: 'Khartoum', gp: 48000, ccr: 98, accuracy: 96, streak: 210, sRank: 53660, verified: true },
-          { rank: 3, gaId: 'GA-004', name: 'Dr. Safaa Hassan', univ: 'University of Gezira', hub: 'Kuwait Desk', gp: 42000, ccr: 95, accuracy: 94, streak: 180, sRank: 47020, verified: true },
-          { rank: 4, gaId: 'GA-008', name: 'Dr. Fatima Zahra', univ: 'Al-Neelain University', hub: 'Cairo Hub', gp: 18500, ccr: 92, accuracy: 91, streak: 120, sRank: 22275, verified: true },
-          { rank: 5, gaId: 'GA-011', name: 'Eng. Amjad Gorashi', univ: 'University of Khartoum', hub: 'Riyadh Hub', gp: 24000, ccr: 90, accuracy: 88, streak: 90, sRank: 27140, verified: true },
-          { rank: 6, gaId: 'GA-1042', name: 'Dr. Ahmed Alnoor', univ: 'Omdurman Islamic University', hub: 'Khartoum', gp: 6400, ccr: 88, accuracy: 92, streak: 45, sRank: 8640, verified: true },
-          { rank: 7, gaId: 'GA-2080', name: 'Dr. Samar Siddig', univ: 'Ahfad University for Women', hub: 'Omdurman', gp: 5200, ccr: 85, accuracy: 89, streak: 38, sRank: 7255, verified: true },
-          { rank: 8, gaId: 'GA-3015', name: 'Dr. Zainab Siddig', univ: 'National University (Sudan)', hub: 'Khartoum', gp: 4800, ccr: 84, accuracy: 87, streak: 30, sRank: 6675, verified: false },
-        ]);
+        setLeaderboardData([]);
       }
     } catch (err) {
-      console.warn('[Leaderboard] Remote fetch fallback:', err);
-      setLeaderboardData([
-        { rank: 1, gaId: 'GA-000', name: 'Dr. Mohamed Ahmed Gabriel', univ: 'University of Khartoum', hub: 'Khartoum', gp: 100000, ccr: 100, accuracy: 99, streak: 365, sRank: 108345, verified: true },
-        { rank: 2, gaId: 'GA-001', name: 'Dr. Alaa Mursi', univ: 'University of Khartoum', hub: 'Khartoum', gp: 48000, ccr: 98, accuracy: 96, streak: 210, sRank: 53660, verified: true },
-        { rank: 3, gaId: 'GA-004', name: 'Dr. Safaa Hassan', univ: 'University of Gezira', hub: 'Kuwait Desk', gp: 42000, ccr: 95, accuracy: 94, streak: 180, sRank: 47020, verified: true },
-        { rank: 4, gaId: 'GA-008', name: 'Dr. Fatima Zahra', univ: 'Al-Neelain University', hub: 'Cairo Hub', gp: 18500, ccr: 92, accuracy: 91, streak: 120, sRank: 22275, verified: true },
-        { rank: 5, gaId: 'GA-011', name: 'Eng. Amjad Gorashi', univ: 'University of Khartoum', hub: 'Riyadh Hub', gp: 24000, ccr: 90, accuracy: 88, streak: 90, sRank: 27140, verified: true },
-      ]);
+      console.warn('[Leaderboard] Remote fetch offline:', err);
+      setError('Unable to sync live leaderboard standings. Please check connection or retry.');
+      setLeaderboardData([]);
     } finally {
       setLoading(false);
     }
@@ -62,7 +50,7 @@ export default function LeaderboardWidget({ currentMemberGaId }) {
             <Trophy className="w-5 h-5 text-[#B48028]" />
             <span>Sovereign Merit Leaderboard</span>
           </h2>
-          <p className="text-xs text-slate-400">Ranked by Composite Clinical Standing (S_rank)</p>
+          <p className="text-xs text-slate-400">Ranked strictly by verified clinical telemetry (S_rank)</p>
         </div>
 
         <div className="flex bg-[#0A0F1D] p-1 rounded-xl border border-slate-800 text-xs">
@@ -91,9 +79,32 @@ export default function LeaderboardWidget({ currentMemberGaId }) {
       </div>
 
       {loading ? (
-        <div className="py-12 flex justify-center items-center text-slate-400">
-          <Loader2 className="w-6 h-6 animate-spin mr-2" />
-          <span>Calculating verified standings...</span>
+        <div className="py-12 flex flex-col justify-center items-center text-slate-400 space-y-2">
+          <Loader2 className="w-6 h-6 animate-spin text-[#00F2FE]" />
+          <span className="text-xs font-medium">Querying verified clinical registry...</span>
+        </div>
+      ) : error ? (
+        <div className="py-10 text-center space-y-3">
+          <div className="inline-flex p-3 bg-amber-500/10 border border-amber-500/30 rounded-full text-amber-400">
+            <AlertCircle className="w-6 h-6" />
+          </div>
+          <p className="text-xs text-slate-300">{error}</p>
+          <button
+            type="button"
+            onClick={fetchLeaderboard}
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-slate-900 border border-slate-700 text-xs text-slate-200 rounded-lg hover:bg-slate-800 transition-colors"
+          >
+            <RefreshCw className="w-3.5 h-3.5" />
+            <span>Retry Sync</span>
+          </button>
+        </div>
+      ) : leaderboardData.length === 0 ? (
+        <div className="py-12 text-center space-y-2 border border-dashed border-slate-800 rounded-xl p-6">
+          <Trophy className="w-8 h-8 text-slate-600 mx-auto mb-2" />
+          <p className="text-sm font-semibold text-slate-300">No Verified Candidates in this Scope Yet</p>
+          <p className="text-xs text-slate-500 max-w-md mx-auto">
+            Standings populate automatically as physicians authenticate their GA-ID and complete clinical simulation audits.
+          </p>
         </div>
       ) : (
         <>
@@ -103,8 +114,6 @@ export default function LeaderboardWidget({ currentMemberGaId }) {
               {topThree.map((member, idx) => {
                 const isGold = idx === 0;
                 const isSilver = idx === 1;
-                const isBronze = idx === 2;
-
                 return (
                   <div
                     key={member.gaId}

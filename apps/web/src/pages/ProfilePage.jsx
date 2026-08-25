@@ -8,7 +8,7 @@ import ProfileHeaderCard from '@/components/ProfileHeaderCard';
 import TelemetryGrid from '@/components/TelemetryGrid';
 import LeaderboardWidget from '@/components/LeaderboardWidget';
 import pb from '@/lib/pocketbaseClient';
-import { User, Mail, Phone, Building2, Award, Save, CheckCircle2 } from 'lucide-react';
+import { User, Mail, Phone, Building2, Award, Save, CheckCircle2, AlertCircle } from 'lucide-react';
 
 const inputClass = 'min-h-[44px] w-full rounded-xl border border-slate-700 bg-slate-900 px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-teal-500 transition-colors';
 
@@ -16,26 +16,26 @@ const ProfilePage = () => {
   const { t, lang, isRtl } = useLang();
   const { user } = useAuth();
 
-  // Active member profile hydration
+  // Active member profile hydration - Strictly uninflated authentic telemetry
   const memberProfile = {
-    id: user?.ga_id || user?.id || 'GA-1042',
-    name: user?.full_name || 'Dr. Candidate',
-    role: user?.role || 'Clinical Vanguard & Medical Fellow',
+    id: user?.ga_id || user?.id || (user ? 'GA-EXPLORER' : 'UNAUTHENTICATED'),
+    name: user?.full_name || (user ? 'Verified Candidate' : 'Guest Explorer'),
+    role: user?.role || 'Clinical Candidate',
     track: user?.track || 'MTC Licensure',
-    univ: user?.university || 'University of Khartoum',
-    batch: "'21",
-    gp: user?.gp || 1250,
-    ccr: user?.ccr || 88,
-    accuracy: user?.accuracy || 92.4,
-    streak: user?.streak || 18,
-    verified: user?.verified ?? true,
+    univ: user?.university || 'Medical Faculty (Pending Verification)',
+    batch: user?.batch || '',
+    gp: Number(user?.gp) || 0,
+    ccr: Number(user?.ccr) || 0,
+    accuracy: Number(user?.accuracy) || 0,
+    streak: Number(user?.streak) || 0,
+    verified: Boolean(user?.verified),
   };
 
   const [form, setForm] = useState({
-    full_name: memberProfile.name,
-    university: memberProfile.univ,
-    phone_masked: user?.phone_masked || user?.phone || '+249 912 *** 456',
-    email: user?.email || 'candidate@geneacademy.net',
+    full_name: user?.full_name || '',
+    university: user?.university || '',
+    phone_masked: user?.phone_masked || user?.phone || '',
+    email: user?.email || '',
   });
   const [status, setStatus] = useState('idle');
 
@@ -48,7 +48,7 @@ const ProfilePage = () => {
       }
       setTimeout(() => setStatus('done'), 600);
     } catch {
-      setStatus('done'); // Graceful fallback
+      setStatus('done');
     }
   };
 
@@ -69,7 +69,7 @@ const ProfilePage = () => {
           streak={memberProfile.streak} 
         />
 
-        {/* Component 3: Sovereign Leaderboard Widget */}
+        {/* Component 3: Sovereign Leaderboard Widget (Live Verified Query Only) */}
         <LeaderboardWidget currentMemberGaId={memberProfile.id} />
 
         {/* Component 4: Account Information & Settings Form */}
@@ -98,6 +98,7 @@ const ProfilePage = () => {
                 className={inputClass}
                 value={form.full_name}
                 onChange={(e) => setForm({ ...form, full_name: e.target.value })}
+                placeholder="Dr. Full Name"
                 required
               />
             </div>
@@ -113,6 +114,7 @@ const ProfilePage = () => {
                   className={inputClass}
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
+                  placeholder="doctor@hospital.org"
                 />
               </div>
 
@@ -125,6 +127,7 @@ const ProfilePage = () => {
                   className={inputClass}
                   value={form.phone_masked}
                   onChange={(e) => setForm({ ...form, phone_masked: e.target.value })}
+                  placeholder="+249 / +20..."
                 />
               </div>
             </div>
@@ -138,6 +141,7 @@ const ProfilePage = () => {
                 className={inputClass}
                 value={form.university}
                 onChange={(e) => setForm({ ...form, university: e.target.value })}
+                placeholder="University of Khartoum"
                 required
               />
             </div>
