@@ -26,7 +26,8 @@ import {
     CheckSquare,
     Square,
     Clock,
-    Flame
+    Flame,
+    ExternalLink
 } from 'lucide-react';
 import Layout from '@/components/site/Layout';
 import { Section } from '@/components/site/Bits';
@@ -55,7 +56,7 @@ const BlsWorkshopPage = () => {
     const navigate = useNavigate();
     const [searchParams] = useSearchParams();
 
-    // Capture referral affiliate ID from URL (?ref=GA-000)
+    // 1. Referral Capture (?ref=GA-000)
     const rawRef = searchParams.get('ref') || searchParams.get('affiliate') || '';
     const [referralId, setReferralId] = useState('');
 
@@ -70,7 +71,7 @@ const BlsWorkshopPage = () => {
         }
     }, [rawRef]);
 
-    // Live Countdown Timer to August 28, 2026 09:00:00 GMT+2
+    // 2. Live Countdown Timer to August 28, 2026 09:00:00 GMT+2
     const [timeLeft, setTimeLeft] = useState({ days: '03', hours: '14', mins: '28', secs: '45' });
     useEffect(() => {
         const target = new Date('August 28, 2026 09:00:00 GMT+0200').getTime();
@@ -89,12 +90,11 @@ const BlsWorkshopPage = () => {
         return () => clearInterval(interval);
     }, []);
 
-    // Payment Routing state: 'VODAFONE' vs 'BANK'
+    // 3. Payment Method & Coffee Booster State
     const [paymentMethod, setPaymentMethod] = useState('VODAFONE');
-    // Consortium Patron Booster state
-    const [patronActive, setPatronActive] = useState(false);
+    const [boughtCoffee, setBoughtCoffee] = useState(false);
 
-    // Sanitized Form inputs state
+    // 4. Sanitized Form State
     const [form, setForm] = useState({
         fullName: '',
         email: '',
@@ -109,8 +109,8 @@ const BlsWorkshopPage = () => {
     const [mintedResult, setMintedResult] = useState(null);
     const [copied, setCopied] = useState(false);
 
-    const calculatedGp = patronActive ? 250 : 200;
-    const totalAmountEgp = patronActive ? 3250 : 3000;
+    const calculatedGp = boughtCoffee ? 250 : 200;
+    const totalAmountEgp = boughtCoffee ? 3250 : 3000;
 
     const handleCopy = (text) => {
         navigator.clipboard.writeText(text);
@@ -118,6 +118,7 @@ const BlsWorkshopPage = () => {
         setTimeout(() => setCopied(false), 2000);
     };
 
+    // 5. Submit Handler linked to Hardened SovereignClient.register
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError('');
@@ -128,7 +129,7 @@ const BlsWorkshopPage = () => {
         }
 
         if (!form.providerRef.trim()) {
-            setError(lang === 'ar' ? 'يرجى إدخال رقم العملية أو الإشعار' : 'Please enter your payment transaction reference');
+            setError(lang === 'ar' ? 'يرجى إدخال رقم العملية أو الإشعار البنكي' : 'Please enter your payment transaction reference');
             return;
         }
 
@@ -139,44 +140,46 @@ const BlsWorkshopPage = () => {
                 email: form.email,
                 phone: form.phone,
                 method: paymentMethod,
-                patron: patronActive,
+                coffee: boughtCoffee,
                 ref: form.providerRef
             });
 
+            // Canonical payload structure matching Code.gs
             const payload = {
                 action: 'bls_registration',
-                fullName: form.fullName,
-                email: form.email,
-                phone: form.phone,
+                fullName: form.fullName.trim(),
+                email: form.email.trim(),
+                phone: form.phone.trim(),
                 university: form.university,
                 role: form.role,
                 workshopTrack: 'BLS_DOKKI_CAIRO_AUG28_2026',
                 paymentMethod: paymentMethod,
-                boughtCoffee: patronActive,
+                boughtCoffee: boughtCoffee,
                 feeAmount: totalAmountEgp,
-                providerRef: form.providerRef,
+                providerRef: form.providerRef.trim(),
                 referralId: referralId || 'GA-000',
                 gpAwarded: calculatedGp,
                 idempotencyKey
             };
 
+            // Call hardened SovereignClient with FIFO Mutex and PB circuit breaker
             const res = await SovereignClient.register(payload);
 
             if (res && (res.status === 'success' || res.gaId)) {
                 const gaId = normalizeGaId(res.gaId || 'GA-1001');
                 const finalResult = {
                     gaId,
-                    name: form.fullName,
-                    email: form.email,
-                    phone: form.phone,
+                    name: form.fullName.trim(),
+                    email: form.email.trim(),
+                    phone: form.phone.trim(),
                     university: form.university,
-                    gpBalance: calculatedGp,
+                    gpBalance: res.gpBalance || calculatedGp,
                     paymentMethod: paymentMethod,
-                    boughtCoffee: patronActive,
+                    boughtCoffee: boughtCoffee,
                     referralId: referralId || 'GA-000',
                     sabriBonusUnlocked: true,
                     workshopDate: 'Friday, August 28, 2026',
-                    location: 'Dokki, Cairo, Egypt'
+                    location: 'Dr. Sabri Training Center (Lic. 1549) — Dokki, Cairo'
                 };
 
                 localStorage.setItem('gemiini_presence_id', gaId);
@@ -184,11 +187,11 @@ const BlsWorkshopPage = () => {
 
                 setMintedResult(finalResult);
             } else {
-                setError(res.message || res.error || 'Registration failed. Please try again.');
+                setError(res.message || res.error || 'تعذر تأكيد التسجيل في السجل المركزي. يرجى التواصل مع الدعم الأكاديمي.');
             }
         } catch (err) {
             console.error('BLS Intake error:', err);
-            setError(err.message || 'System error during automated intake.');
+            setError(err.message || 'حدث خطأ في الاتصال بالسجل المركزي. يرجى المحاولة أو التواصل عبر واتساب.');
         } finally {
             setLoading(false);
         }
@@ -200,18 +203,18 @@ const BlsWorkshopPage = () => {
                 <title>البرنامج السريري المتقدم للإنعاش القلبي الرئوي (BLS) — القاهرة | GemIInI Academy</title>
                 <meta
                     name="description"
-                    content="البرنامج السريري المعتمد للإنعاش القلبي الرئوي (BLS) — دفعة القاهرة 28 أغسطس 2026. تدريب عملي بمحاكيات GemIInI عالية الدقة واعتماد المجلس الطبي السوداني وجمعية القلب الأمريكية."
+                    content="البرنامج السريري المعتمد للإنعاش القلبي الرئوي (BLS) — دفعة القاهرة 28 أغسطس 2026. محاكاة سريرية واختبار معتمد من المجلس الطبي وجمعية القلب الأمريكية مع 200 GP."
                 />
             </Helmet>
 
             <Section className="py-12 bg-[#04080F] text-white min-h-screen">
                 <div className="mx-auto max-w-4xl px-4 space-y-16">
                     
-                    {/* STAGE 1: HERO & LIVE COUNTDOWN & STRICT CAPACITY */}
+                    {/* STAGE 1: ATTENTION (HERO & LIVE COUNTDOWN & STRICT CAPACITY) */}
                     <div className="text-center space-y-6">
                         <div className="inline-flex flex-wrap items-center justify-center gap-2 rounded-full bg-slate-900/90 border border-white/10 px-4 py-1.5 text-xs font-mono text-gray-300">
                             <span className="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
-                            <span className="text-white font-bold">جلسة محاكاة سريرية عالية الدقة</span>
+                            <span className="text-white font-bold">جلسة محاكاة سريرية معتمدة — القاهرة</span>
                             <span className="text-gray-500">|</span>
                             <span className="text-cyan-300">اعتماد AHA & SMC</span>
                         </div>
@@ -224,7 +227,7 @@ const BlsWorkshopPage = () => {
                         </h1>
 
                         <p className="text-gray-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
-                            محاكاة سريرية 1:1 على دمى الإنعاش الذكية الخاصة بأكاديمية جيميني، بالتعاون الأكاديمي مع مركز د. صبري للتدريب (ترخيص 1549)، مع توثيق الساعات المعرفية بـ <strong>200 نقطة GP</strong> في السجل العام.
+                            تدريب عملي ومحاكاة سريرية حية بمركز د. صبري للتدريب (ترخيص 1549)، مع توثيق الساعات المعرفية بـ <strong>200 نقطة GP</strong> وفتح بونص التحول الرقمي والسيرة الذاتية السريرية.
                         </p>
 
                         {/* LIVE COUNTDOWN ENGINE */}
@@ -258,13 +261,13 @@ const BlsWorkshopPage = () => {
                                 </span>
                                 <span className="text-red-400 font-bold flex items-center gap-1">
                                     <Flame className="w-4 h-4" />
-                                    مقاعد محدودة جداً لضمان نسبة 1:1 على الدمى
+                                    مقاعد محدودة لضمان المعايير السريرية
                                 </span>
                             </div>
                         </div>
                     </div>
 
-                    {/* STAGE 2: THE INSTITUTIONAL HERITAGE STORY (TIMES NEW ROMAN / EDITORIAL SERIF) */}
+                    {/* STAGE 2: INSTITUTIONAL COLLABORATION & DIGITAL ACCELERATOR */}
                     <div className="p-8 sm:p-12 rounded-3xl bg-slate-900/90 border border-amber-500/30 shadow-2xl relative overflow-hidden backdrop-blur-md">
                         <div className="flex items-center gap-3 mb-6">
                             <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 text-lg">
@@ -272,29 +275,26 @@ const BlsWorkshopPage = () => {
                             </div>
                             <div>
                                 <span className="text-xs font-mono uppercase tracking-widest text-amber-400 font-bold block">
-                                    THE INSTITUTIONAL LEGACY & B2B INFRASTRUCTURE
+                                    ACADEMIC ECOSYSTEM & DIGITAL ACCELERATOR
                                 </span>
                                 <h2 className="text-xl sm:text-2xl font-bold text-white font-serif mt-0.5">
-                                    قصة التأسيس: كيف تحولت جيميني من دراسة الاحتياج إلى تزويد المراكز بالمحاكيات
+                                    المنظومة المتكاملة: التدريب السريري المعتمد والتأهيل الرقمي الدولي
                                 </h2>
                             </div>
                         </div>
 
                         <div className="space-y-4 text-gray-200 text-sm sm:text-base leading-relaxed font-serif">
                             <p className="text-justify">
-                                لم تبدأ أكاديمية جيميني كمنصة تجارية تبحث عن بيع المقاعد، بل انطلقت من دراسة تشخيصية دقيقة لاحتياجات الأطباء والكوادر السريرية في مسارات الهجرة والاعتماد الدولي. بدأنا مسار التدريب العملي بشكل مستقل، وخرّجنا دفعتنا التأسيسية الأولى المكونة من <strong>7 أطباء متميزين</strong> أثبتوا كفاءتهم السريرية في مختلف المستشفيات.
-                            </p>
-                            <p className="text-justify">
-                                وبعقلية مؤسسية لا تقبل المساومة، قمنا بإعادة استثمار كامل العوائد في الاستحواذ على أحدث <strong>دمى الإنعاش القلبي عالية الدقة (High-Fidelity CPR Mannequins)</strong> لتكون ملكاً خالصاً لبنيتنا التحتية الطبية (GLOMEt B2B Network).
+                                تنعقد هذه الدورة المتميزة ثمرةً للتعاون الأكاديمي بين <strong>أكاديمية جيميني (GemIInI Academy)</strong> و<strong>مركز د. صبري للتدريب الطبي المتقدم (ترخيص 1549)</strong> لتزويد الأطباء والممارسين بتدريب عملي عالي المستوى يلبي المعايير المعتمدة لجمعية القلب الأمريكية (AHA) والمجلس الطبي السوداني (SMC).
                             </p>
                             <p className="text-justify border-r-2 border-amber-400 pr-4 text-amber-100 font-bold italic">
-                                "واليوم، لا نكتفي بحجز قاعة تدريب، بل تقوم أكاديمية جيميني بتزويد مركز د. صبري للتدريب بالدمى والمعدات السريرية لهذه الدفعة. نحن من يصنع معيار الكفاءة، لأننا نؤمن بأن التدريب الطبي الحقيقي يُبنى على التجهيز الرصين لا الدعاية."
+                                "تعمل أكاديمية جيميني كمسرّع رقمي ومهني متكامل؛ حيث لا يحصل المتدرب على شهادة الإنعاش فحسب، بل يُمنح هوية رقمية موثقة (GA-ID)، ورصيد 200 نقطة معرفية (GP)، وحقيبة هندسة السيرة الذاتية الطبية لفتح آفاق التوظيف الدولي."
                             </p>
                         </div>
 
                         <div className="mt-8 pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-gray-400">
-                            <span>🎖️ الدفعة التأسيسية: 7 خريجين معتمدين</span>
-                            <span>🔬 البنية التحتية: GLOMEt Clinical Hardware Network</span>
+                            <span>📜 الاعتماد السريري: AHA & SMC Accredited</span>
+                            <span>💎 المنحة الرقمية: 200 GemIInI Points (GP)</span>
                             <span>📍 الموقع الميداني: Dokki Clinical Center</span>
                         </div>
                     </div>
@@ -314,9 +314,9 @@ const BlsWorkshopPage = () => {
                             </div>
 
                             <div className="p-6 rounded-3xl bg-slate-900 border border-white/10 hover:border-amber-500/40 transition-all">
-                                <span className="text-3xl sm:text-4xl font-mono font-black text-amber-400 block mb-1">7</span>
-                                <span className="text-xs text-gray-300 font-bold block">خريجو الدفعة الأولى</span>
-                                <span className="text-[10px] text-gray-500 font-mono">Inaugural BLS Fellows</span>
+                                <span className="text-3xl sm:text-4xl font-mono font-black text-amber-400 block mb-1">100%</span>
+                                <span className="text-xs text-gray-300 font-bold block">محاكاة عملية حية</span>
+                                <span className="text-[10px] text-gray-500 font-mono">Hands-on CPR Training</span>
                             </div>
 
                             <div className="p-6 rounded-3xl bg-slate-900 border border-white/10 hover:border-emerald-500/40 transition-all">
@@ -564,24 +564,24 @@ const BlsWorkshopPage = () => {
                                 </div>
 
                                 <div
-                                    onClick={() => setPatronActive(!patronActive)}
+                                    onClick={() => setBoughtCoffee(!boughtCoffee)}
                                     className={`p-4 sm:p-5 rounded-2xl border cursor-pointer flex items-center justify-between transition-all ${
-                                        patronActive
+                                        boughtCoffee
                                             ? 'border-amber-400 bg-amber-950/40 ring-1 ring-amber-400'
                                             : 'border-white/10 bg-white/5'
                                     }`}
                                 >
                                     <div className="flex items-center gap-3">
-                                        {patronActive ? <CheckSquare className="w-5 h-5 text-amber-400" /> : <Square className="w-5 h-5 text-gray-400" />}
+                                        {boughtCoffee ? <CheckSquare className="w-5 h-5 text-amber-400" /> : <Square className="w-5 h-5 text-gray-400" />}
                                         <div>
                                             <strong className="text-xs sm:text-sm text-white block">باقة راعي الكونسورتيوم (Consortium Patron Booster — 250 EGP)</strong>
                                             <p className="text-[11px] text-amber-300 mt-0.5">
-                                                المساهمة في التوسع المستمر لشبكة المحاكيات الطبية، تفعيل التدقيق السريع للطلب، ومنح رصيد إضافي <strong>+50 GP</strong> (إجمالي 250 GP)!
+                                                المساهمة في التوسع المستمر للبرامج السريرية، تفعيل التدقيق السريع، ومنح رصيد إضافي <strong>+50 GP</strong> (إجمالي 250 GP)!
                                             </p>
                                         </div>
                                     </div>
                                     <span className="px-3 py-1 rounded-full font-mono text-[11px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30 flex-shrink-0">
-                                        {patronActive ? '+50 GP Active (Total 250 GP)' : '+50 GP Booster'}
+                                        {boughtCoffee ? '+50 GP Active (Total 250 GP)' : '+50 GP Booster'}
                                     </span>
                                 </div>
 
@@ -597,7 +597,7 @@ const BlsWorkshopPage = () => {
                                     className="w-full py-4 rounded-2xl bg-gradient-to-r from-red-500 via-rose-500 to-amber-500 text-white font-black text-sm shadow-xl shadow-red-500/20 hover:opacity-95 transition-all flex items-center justify-center gap-2 disabled:opacity-50"
                                 >
                                     {loading ? (
-                                        <span>جارٍ معالجة الحجز وإصدار الهوية...</span>
+                                        <span>جارٍ معالجة الحجز وتوثيق القيد في السجل المركزي...</span>
                                     ) : (
                                         <span>تأكيد الحجز وإصدار GemIInI ID برصيد {calculatedGp} GP وبونص د. صبري ➔</span>
                                     )}

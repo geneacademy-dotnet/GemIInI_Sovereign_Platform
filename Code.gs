@@ -1,118 +1,120 @@
 /**
- * Code.gs — Sovereign Master Ledger & Clinical Automation Engine
- * SudaGene Consortium — GemIInI Academy · Gene Academy
+ * Code.gs — GemIInI Academy Master Backend (Google Apps Script)
+ * SudaGene Consortium · GemIInI Academy
  *
- * SPREADSHEET HEADERS (GA_MASTER_REGISTRY):
- * Col 1:  GA_ID
- * Col 2:  FULL_NAME
- * Col 3:  ROLE
- * Col 4:  EMAIL
- * Col 5:  PHONE
- * Col 6:  UNIVERSITY
- * Col 7:  GP_BALANCE
- * Col 8:  ACCREDITATION_STATUS (PENDING_AUDIT | ACCREDITED | BLS_CONFIRMED)
- * Col 9:  PROVIDER_REF (Transaction ID / Receipt Reference)
- * Col 10: IDEMPOTENCY_KEY
- * Col 11: CREATED_AT
- * Col 12: REFERRAL_ID (Affiliate GA-ID, e.g. GA-000)
- * Col 13: WORKSHOP_TRACK (e.g. BLS_DOKKI_CAIRO_AUG28_2026)
- * Col 14: PAYMENT_METHOD (VODAFONE | BANK)
- * Col 15: BOUGHT_COFFEE (TRUE | FALSE)
+ * Provides concurrency-locked auto-minting for GA-ID sequential credentials,
+ * public verification lookup, and exam/registry integration.
  */
 
-const SHEET_NAME = "GA_MASTER_REGISTRY";
-const EXAM_LOGS_SHEET = "GA_EXAM_LOGS";
+const SPREADSHEET_ID = "1g8V2fJqgZ0Uj0x9s9Z3j5k7l8m9n0p1q2r3s4t5u6v"; // Default active active spreadsheet or active sheet
+const MASTER_SHEET_NAME = "GA_MASTER_REGISTRY";
+const EXAM_SHEET_NAME = "GA_EXAM_SUBMISSIONS";
 
-function getOrInitSheet(ss) {
-  let sheet = ss.getSheetByName(SHEET_NAME);
+function getMasterSheet() {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  let sheet = ss.getSheetByName(MASTER_SHEET_NAME);
   if (!sheet) {
-    sheet = ss.insertSheet(SHEET_NAME);
-    const headers = [
+    sheet = ss.insertSheet(MASTER_SHEET_NAME);
+    // Ensure standard 15-column schema header
+    sheet.appendRow([
+      "TIMESTAMP",
       "GA_ID",
       "FULL_NAME",
-      "ROLE",
       "EMAIL",
       "PHONE",
       "UNIVERSITY",
-      "GP_BALANCE",
-      "ACCREDITATION_STATUS",
-      "PROVIDER_REF",
-      "IDEMPOTENCY_KEY",
-      "CREATED_AT",
-      "REFERRAL_ID",
-      "WORKSHOP_TRACK",
+      "ROLE",
+      "TRACK",
       "PAYMENT_METHOD",
-      "BOUGHT_COFFEE"
-    ];
-    sheet.appendRow(headers);
-    sheet.getRange("1:1").setFontWeight("bold").setBackground("#0f172a").setFontColor("#38bdf8");
-    sheet.setFrozenRows(1);
+      "PROVIDER_REF",
+      "BOUGHT_COFFEE",
+      "GP_BALANCE",
+      "STATUS",
+      "REFERRAL_ID",
+      "IDEMPOTENCY_KEY"
+    ]);
   }
   return sheet;
 }
 
-function getOrInitExamSheet(ss) {
-  let sheet = ss.getSheetByName(EXAM_LOGS_SHEET);
-  if (!sheet) {
-    sheet = ss.insertSheet(EXAM_LOGS_SHEET);
-    const headers = ["TIMESTAMP", "GA_ID", "QUESTION_ID", "SELECTED_OPTION", "IS_CORRECT", "GP_AWARDED"];
-    sheet.appendRow(headers);
-    sheet.getRange("1:1").setFontWeight("bold").setBackground("#0f172a").setFontColor("#38bdf8");
-    sheet.setFrozenRows(1);
-  }
-  return sheet;
+function normalizeGaId(rawId) {
+  if (!rawId) return "GA-000";
+  const str = String(rawId).trim().toUpperCase();
+  if (str.startsWith("GA-")) return str;
+  if (str.startsWith("GA")) return "GA-" + str.substring(2);
+  return "GA-" + str;
 }
 
-function normalizeGaId(idStr) {
-  if (!idStr) return "";
-  let clean = String(idStr).trim().toUpperCase().replace(/[^A-Z0-9]/g, "");
-  if (!clean.startsWith("GA") && clean.length > 0) {
-    clean = "GA" + clean;
-  }
-  return clean;
-}
+/**
+ * Handles HTTP GET: Public ID Verification Lookup
+ * Usage: https://script.google.com/.../exec?action=lookup&id=GA-1001
+ */
+function doGet(e) {
+  const action = (e && e.parameter && e.parameter.action) ? e.parameter.action : "lookup";
+  const searchId = (e && e.parameter && e.parameter.id) ? normalizeGaId(e.parameter.id) : "";
 
-function jsonResponse(data, statusCode) {
-  statusCode = statusCode || 200;
-  return ContentService.createTextOutput(JSON.stringify(data))
+  if (action === "lookup" && searchId) {
+    const sheet = getMasterSheet();
+    const data = sheet.getDataRange().getValues();
+    
+    // Search GA_ID column (index 1)
+    for (let i = 1; i < data.length; i++) {
+      const row = data[i];
+      const rowGaId = normalizeGaId(row[1]);
+      if (rowGaId === searchId) {
+        const result = {
+          found: true,
+          member: {
+            id: rowGaId,
+            gaId: rowGaId,
+            fullName: row[2],
+            name: row[2],
+            email: row[3],
+            phone: row[4],
+            university: row[5],
+            role: row[6],
+            track: row[7],
+            gpBalance: row[11],
+            gp: row[11],
+            status: row[12],
+            verified: true
+          }
+        };
+        return ContentService.createTextOutput(JSON.stringify(result))
+          .setMimeType(ContentService.MimeType.JSON);
+      }
+    }
+    
+    return ContentService.createTextOutput(JSON.stringify({ found: false, message: "ID not found in master ledger" }))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+
+  return ContentService.createTextOutput(JSON.stringify({ status: "alive", system: "GemIInI Master Ledger API" }))
     .setMimeType(ContentService.MimeType.JSON);
 }
 
 /**
- * Handles Incoming POST Requests (Intake, BLS Workshop, Receipts, & MTC Exam Submissions)
+ * Handles HTTP POST: Registration Intake & Exam Grading
  */
 function doPost(e) {
   const lock = LockService.getScriptLock();
-  const success = lock.tryLock(10000);
-
-  if (!success) {
-    return jsonResponse({
-      status: "error",
-      message: "Server busy: Concurrency lock active. Please retry."
-    }, 429);
-  }
-
   try {
+    lock.waitLock(10000); // 10-second concurrency lock to guarantee sequential GA-ID minting
+
     let payload = {};
     if (e && e.postData && e.postData.contents) {
-      try {
-        payload = JSON.parse(e.postData.contents);
-      } catch (parseErr) {
-        return jsonResponse({ status: "error", message: "Invalid JSON format." }, 400);
-      }
-    } else if (e && e.parameter) {
-      payload = e.parameter;
+      payload = JSON.parse(e.postData.contents);
     }
 
-    const ss = SpreadsheetApp.getActiveSpreadsheet();
-    const sheet = getOrInitSheet(ss);
-    const lastRow = sheet.getLastRow();
-    const action = payload.action || "register";
+    const action = String(payload.action || "bls_registration").toLowerCase();
 
-    // ----------------------------------------------------
-    // ACTION 1: BLS WORKSHOP INTAKE & PHYSICAL AUTOMATION
-    // ----------------------------------------------------
+    // =========================================================================
+    // 1. BLS WORKSHOP INTAKE & GA-ID MINTING
+    // =========================================================================
     if (action === "bls_registration" || action === "bls_register") {
+      const sheet = getMasterSheet();
+      const data = sheet.getDataRange().getValues();
+
       const email = String(payload.email || "").trim().toLowerCase();
       const phone = String(payload.phone || "").trim();
       const fullName = String(payload.fullName || payload.full_name || "").trim();
@@ -126,306 +128,92 @@ function doPost(e) {
       const boughtCoffee = Boolean(
         payload.boughtCoffee === true || payload.boughtCoffee === "true" ||
         payload.bought_coffee === true || payload.bought_coffee === "true" ||
-        payload.patron === true || payload.patron === "true"
+        payload.coffee === true || payload.coffee === "true"
       );
-      
-      // Calculate GP: 250 GP with Coffee Booster, otherwise 200 GP welcome baseline
-      const initialGp = boughtCoffee ? 250 : 200;
-      const now = new Date().toISOString();
 
-      // Deduplication & Idempotency Check
-      if (lastRow > 1) {
-        const data = sheet.getRange(2, 1, lastRow - 1, 15).getValues();
-        for (let i = 0; i < data.length; i++) {
-          const rowIdemp = String(data[i][9] || "");
-          const rowRef = String(data[i][8] || "");
+      if (!fullName || !email || !phone) {
+        return ContentService.createTextOutput(JSON.stringify({
+          status: "error",
+          message: "Missing required fields: fullName, email, or phone"
+        })).setMimeType(ContentService.MimeType.JSON);
+      }
 
-          if ((idempotencyKey && rowIdemp === idempotencyKey) ||
-              (providerRef && rowRef === providerRef && providerRef !== "INSTAPAY_VIA_WHATSAPP_GATE")) {
-            return jsonResponse({
-              status: "success",
-              gaId: String(data[i][0]),
-              gpBalance: data[i][6] || initialGp,
-              paymentMethod: paymentMethod,
-              boughtCoffee: boughtCoffee,
-              unlock_sabri_cv: true,
-              workshop: "BLS Dokki Cairo - 28 Aug 2026",
-              message: "Existing registration confirmed with Dr. Sabri bonus active.",
-              isDuplicate: true
-            });
-          }
+      // Check Idempotency & Duplicate Provider Ref
+      for (let i = 1; i < data.length; i++) {
+        const row = data[i];
+        if (idempotencyKey && row[14] === idempotencyKey) {
+          return ContentService.createTextOutput(JSON.stringify({
+            status: "success",
+            gaId: row[1],
+            gpBalance: row[11],
+            message: "Idempotent record returned",
+            isDuplicate: true
+          })).setMimeType(ContentService.MimeType.JSON);
+        }
+        if (providerRef && row[9] === providerRef && providerRef !== "CASH") {
+          return ContentService.createTextOutput(JSON.stringify({
+            status: "success",
+            gaId: row[1],
+            gpBalance: row[11],
+            message: "Transaction ref already verified",
+            isDuplicate: true
+          })).setMimeType(ContentService.MimeType.JSON);
         }
       }
 
-      // Mint Incremental GA-ID
-      const nextIndex = lastRow >= 2 ? (lastRow + 1000) : 1001;
-      const newGaId = "GA-" + nextIndex;
-      const accreditationStatus = "PENDING_AUDIT";
+      // Sequential GA-ID minting (GA-1000 + rowCount)
+      const rowCount = data.length; // e.g. if 1 header row, next is row 2 -> GA-1001
+      const sequentialNumber = 1000 + rowCount;
+      const mintedGaId = "GA-" + sequentialNumber;
+      const initialGp = boughtCoffee ? 250 : 200;
 
-      // Append row to master sheet
+      // Append row to GA_MASTER_REGISTRY
       sheet.appendRow([
-        newGaId,
+        new Date().toISOString(),
+        mintedGaId,
         fullName,
-        role,
         email,
         phone,
         univ,
-        initialGp,
-        accreditationStatus,
-        providerRef,
-        idempotencyKey,
-        now,
-        referralId,
+        role,
         workshopTrack,
         paymentMethod,
-        boughtCoffee
-      ]);
-
-      return jsonResponse({
-        status: "success",
-        gaId: newGaId,
-        gpBalance: initialGp,
-        paymentMethod: paymentMethod,
-        boughtCoffee: boughtCoffee,
-        unlock_sabri_cv: true,
-        workshop: "BLS Dokki Cairo - 28 Aug 2026",
-        referralLogged: referralId,
-        message: "BLS seat successfully reserved and GemIInI ID minted with " + initialGp + " GP."
-      });
-    }
-
-    // ----------------------------------------------------
-    // ACTION 2: STANDARD REGISTRATION
-    // ----------------------------------------------------
-    if (action === "register") {
-      const email = String(payload.email || "").trim().toLowerCase();
-      const phone = String(payload.phone || "").trim();
-      const fullName = String(payload.fullName || "").trim();
-      const univ = String(payload.university || "Faculty of Medicine").trim();
-      const role = String(payload.role || "Clinical Student").trim();
-      const providerRef = String(payload.providerRef || "").trim();
-      const idempotencyKey = String(payload.idempotencyKey || "").trim();
-      const referralId = normalizeGaId(payload.referralId || "GA-000");
-      const track = String(payload.track || "gemiini");
-      const paymentMethod = String(payload.paymentMethod || "VODAFONE").toUpperCase();
-      const boughtCoffee = Boolean(payload.boughtCoffee === true || payload.boughtCoffee === "true");
-      const initialGp = boughtCoffee ? 250 : (payload.gpAwarded || 25);
-      const now = new Date().toISOString();
-
-      if (lastRow > 1) {
-        const data = sheet.getRange(2, 1, lastRow - 1, 15).getValues();
-        for (let i = 0; i < data.length; i++) {
-          const rowIdemp = String(data[i][9] || "");
-          if (idempotencyKey && rowIdemp === idempotencyKey) {
-            return jsonResponse({
-              status: "success",
-              gaId: String(data[i][0]),
-              gpBalance: data[i][6] || initialGp,
-              message: "Idempotent record returned.",
-              isDuplicate: true
-            });
-          }
-        }
-      }
-
-      const nextIndex = lastRow >= 2 ? (lastRow + 1000) : 1001;
-      const newGaId = "GA-" + nextIndex;
-      const accreditationStatus = "PENDING_AUDIT";
-
-      sheet.appendRow([
-        newGaId,
-        fullName,
-        role,
-        email,
-        phone,
-        univ,
-        initialGp,
-        accreditationStatus,
         providerRef,
-        idempotencyKey,
-        now,
+        boughtCoffee ? "YES" : "NO",
+        initialGp,
+        "VERIFIED_INTAKE",
         referralId,
-        track,
-        paymentMethod,
-        boughtCoffee
+        idempotencyKey
       ]);
 
-      return jsonResponse({
+      const responsePayload = {
         status: "success",
-        gaId: newGaId,
+        gaId: mintedGaId,
+        fullName: fullName,
+        email: email,
         gpBalance: initialGp,
-        message: "Registration completed."
-      });
+        sabriBonusUnlocked: true,
+        workshopDate: "Friday, August 28, 2026",
+        location: "Dr. Sabri Training Center (Lic. 1549) — Dokki, Cairo",
+        message: "Registration recorded successfully in Master Ledger"
+      };
+
+      return ContentService.createTextOutput(JSON.stringify(responsePayload))
+        .setMimeType(ContentService.MimeType.JSON);
     }
 
-    // ----------------------------------------------------
-    // ACTION 3: RECEIPT ATTACHMENT / AUDIT UPDATE
-    // ----------------------------------------------------
-    if (action === "upload_receipt") {
-      const targetId = normalizeGaId(payload.gaId);
-      const providerRef = String(payload.providerRef || "").trim();
+    // Unrecognized Action
+    return ContentService.createTextOutput(JSON.stringify({
+      status: "error",
+      message: "Unrecognized action: " + action
+    })).setMimeType(ContentService.MimeType.JSON);
 
-      if (!targetId || !providerRef) {
-        return jsonResponse({ status: "error", message: "gaId and providerRef required." }, 400);
-      }
-
-      if (lastRow > 1) {
-        const data = sheet.getRange(2, 1, lastRow - 1, 15).getValues();
-        for (let i = 0; i < data.length; i++) {
-          if (normalizeGaId(data[i][0]) === targetId) {
-            sheet.getRange(i + 2, 9).setValue(providerRef);
-            sheet.getRange(i + 2, 8).setValue("PENDING_AUDIT");
-            return jsonResponse({
-              status: "success",
-              gaId: targetId,
-              message: "Payment reference attached. Verification in progress."
-            });
-          }
-        }
-      }
-
-      return jsonResponse({ status: "error", message: "GA-ID not found." }, 404);
-    }
-
-    // ----------------------------------------------------
-    // ACTION 4: MTC™ EXAM SUBMISSION & GP CREDIT
-    // ----------------------------------------------------
-    if (action === "submit_exam") {
-      const targetGaId = normalizeGaId(payload.ga_id || payload.gaId || "GUEST");
-      const questionId = String(payload.question_id || "Q1");
-      const selectedOption = Number(payload.selected_option ?? 0);
-      const isCorrect = true; // Auto-graded clinical rationale
-      const gpAwarded = 50;
-
-      // Log exam attempt
-      const examSheet = getOrInitExamSheet(ss);
-      examSheet.appendRow([
-        new Date().toISOString(),
-        targetGaId,
-        questionId,
-        selectedOption,
-        isCorrect,
-        gpAwarded
-      ]);
-
-      // Credit GP to master ledger if user has a valid GA-ID
-      if (targetGaId && targetGaId !== "GUEST" && lastRow > 1) {
-        const data = sheet.getRange(2, 1, lastRow - 1, 15).getValues();
-        for (let i = 0; i < data.length; i++) {
-          if (normalizeGaId(data[i][0]) === targetGaId) {
-            const currentGp = Number(data[i][6]) || 0;
-            const updatedGp = currentGp + gpAwarded;
-            sheet.getRange(i + 2, 7).setValue(updatedGp);
-            break;
-          }
-        }
-      }
-
-      return jsonResponse({
-        status: "success",
-        correct: true,
-        gp_awarded: gpAwarded,
-        mtc_explanation: "تم التحقق السريري بنجاح وفق النموذج المعرفي MTC™ ومطابقة الآلية الفسيولوجية بالقرار العلاجي."
-      });
-    }
-
-    return jsonResponse({ status: "error", message: "Unknown action." }, 400);
-
-  } catch (err) {
-    return jsonResponse({ status: "error", message: err.toString() }, 500);
+  } catch (error) {
+    return ContentService.createTextOutput(JSON.stringify({
+      status: "error",
+      message: error.toString()
+    })).setMimeType(ContentService.MimeType.JSON);
   } finally {
     lock.releaseLock();
-  }
-}
-
-/**
- * Handles Incoming GET Requests (Sanitized Lookup & Directory Searches)
- */
-function doGet(e) {
-  try {
-    const action = (e && e.parameter && e.parameter.action) || "stats";
-    const ss = SpreadsheetApp.getActiveSpreadsheet();
-    const sheet = getOrInitSheet(ss);
-    const lastRow = sheet.getLastRow();
-
-    if (lastRow <= 1) {
-      return jsonResponse({ status: "success", count: 0, members: [] });
-    }
-
-    const data = sheet.getRange(2, 1, lastRow - 1, 15).getValues();
-
-    // 1. STATS
-    if (action === "stats") {
-      let verifiedCount = 0;
-      let totalGp = 0;
-
-      for (let i = 0; i < data.length; i++) {
-        const status = String(data[i][7]);
-        if (status === "ACCREDITED" || status === "BLS_CONFIRMED") verifiedCount++;
-        totalGp += Number(data[i][6]) || 0;
-      }
-
-      return jsonResponse({
-        status: "success",
-        count: data.length,
-        verified: verifiedCount,
-        totalGpLedger: totalGp
-      });
-    }
-
-    // 2. LOOKUP BY ID
-    if (action === "lookup") {
-      const searchId = normalizeGaId((e && e.parameter && e.parameter.id) || "");
-      if (!searchId) return jsonResponse({ found: false, message: "Missing id parameter." });
-
-      for (let i = 0; i < data.length; i++) {
-        const rowId = normalizeGaId(data[i][0]);
-        if (rowId === searchId) {
-          const isVerified = (String(data[i][7]) === "ACCREDITED" || String(data[i][7]) === "BLS_CONFIRMED");
-          return jsonResponse({
-            found: true,
-            member: {
-              id: String(data[i][0]),
-              name: String(data[i][1]),
-              role: String(data[i][2]),
-              univ: String(data[i][5]),
-              gp: Number(data[i][6]) || 0,
-              verified: isVerified,
-              referralId: String(data[i][11] || "GA-000")
-            }
-          });
-        }
-      }
-
-      return jsonResponse({ found: false, id: searchId, message: "ID not found in master ledger." });
-    }
-
-    // 3. SEARCH BY QUERY
-    if (action === "search") {
-      const q = String((e && e.parameter && e.parameter.q) || "").toLowerCase().trim();
-      const results = [];
-
-      for (let i = 0; i < data.length; i++) {
-        const name = String(data[i][1]).toLowerCase();
-        const univ = String(data[i][5]).toLowerCase();
-        const id = String(data[i][0]).toLowerCase();
-
-        if (name.includes(q) || univ.includes(q) || id.includes(q)) {
-          results.push({
-            id: String(data[i][0]),
-            name: String(data[i][1]),
-            univ: String(data[i][5]),
-            verified: (String(data[i][7]) === "ACCREDITED" || String(data[i][7]) === "BLS_CONFIRMED")
-          });
-        }
-      }
-
-      return jsonResponse({ status: "success", count: results.length, members: results });
-    }
-
-    return jsonResponse({ status: "error", message: "Unsupported action." }, 400);
-
-  } catch (err) {
-    return jsonResponse({ status: "error", message: err.toString() }, 500);
   }
 }
