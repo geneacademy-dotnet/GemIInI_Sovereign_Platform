@@ -27,6 +27,7 @@ import {
 } from 'lucide-react';
 import Layout from '@/components/site/Layout';
 import HolographicTiltCard from '@/components/HolographicTiltCard';
+import MtcSimulationRunner from '@/components/MtcSimulationRunner';
 import { useLang } from '@/i18n/LanguageContext';
 import { useAuth } from '@/contexts/AuthContext';
 import { SOVEREIGN_ECOSYSTEM } from '@/data/sovereign-config';
