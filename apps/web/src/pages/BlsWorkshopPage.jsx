@@ -1,16 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
-import { ShieldCheck, Award, Smartphone, CheckCircle2, Sparkles, Coffee, MessageCircle } from 'lucide-react';
+import { ShieldCheck, Award, Smartphone, CheckCircle2, Sparkles, Coffee, MessageCircle, CreditCard } from 'lucide-react';
 import Layout from '@/components/site/Layout';
 import { PageHeader, Section, StateBlock } from '@/components/site/Bits';
 import { useLang } from '@/i18n/LanguageContext';
 import { submitBlsRegistration } from '@/lib/geneApi';
 
-// ---------------------------------------------------------------------------
-// Countdown to the workshop start. Pure client-side timer, no claims about
-// data — safe to ship without separate verification.
-// ---------------------------------------------------------------------------
 const WORKSHOP_START = new Date('2026-08-28T09:00:00+02:00').getTime();
 
 const useCountdown = (target) => {
@@ -43,16 +39,6 @@ const buildKsaWhatsappLink = ({ gaId, fullName }) => {
     return `https://wa.me/966550476176?text=${encodeURIComponent(lines.join('\n'))}`;
 };
 
-// ---------------------------------------------------------------------------
-// STEP 1: Referral capture.
-// Reads ?ref=GA-000 from the URL (e.g. geneacademy.net/bls?ref=GA-000),
-// validates the shape loosely (doesn't hit the backend to confirm the ID is
-// real — that check belongs server-side), and persists it in
-// sessionStorage so it survives a page reload before the user submits the
-// form. Falls back to any previously-captured ref if the current URL has
-// none, so a referral isn't lost if the user navigates around the site
-// before registering.
-// ---------------------------------------------------------------------------
 const REF_STORAGE_KEY = 'gemiini_referral_id';
 
 const useReferralCapture = () => {
@@ -88,17 +74,27 @@ const WORKSHOP = {
     title: { en: 'Basic Life Support (BLS) Workshop', ar: 'ورشة الدعم الحياتي الأساسي (BLS)' },
     date: 'August 28, 2026',
     location: { en: 'Dokki, Cairo, Egypt', ar: 'الدقي، القاهرة، مصر' },
-    price: 3000, // EGP — fixed on the client for display only; the source of
-                 // truth for the charge is your own Vodafone merchant
-                 // account, never a value posted from the browser.
+    price: 3000,
 };
 
 const BlsWorkshopPage = () => {
     const { lang } = useLang();
     const referralId = useReferralCapture();
     const countdown = useCountdown(WORKSHOP_START);
-    const [form, setForm] = useState({ fullName: '', email: '', phone: '', transactionId: '', gpApplied: false, patronBooster: false });
-    const [status, setStatus] = useState('idle'); // idle | loading | done | error
+    
+    const [hasExistingId, setHasExistingId] = useState(false);
+    const [existingGaId, setExistingGaId] = useState('');
+    const [paymentRail, setPaymentRail] = useState('VODAFONE'); // VODAFONE | BARQ | GP
+
+    const [form, setForm] = useState({
+        fullName: '',
+        email: '',
+        phone: '',
+        transactionId: '',
+        patronBooster: false
+    });
+
+    const [status, setStatus] = useState('idle');
     const [errors, setErrors] = useState({});
     const [result, setResult] = useState(null);
 
@@ -111,10 +107,11 @@ const BlsWorkshopPage = () => {
         if (form.fullName.trim().length < 3) nextErrors.fullName = lang === 'ar' ? 'أدخل اسمك الكامل.' : 'Enter your full name.';
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) nextErrors.email = lang === 'ar' ? 'بريد إلكتروني غير صالح.' : 'Enter a valid email.';
         if (!form.phone.trim()) nextErrors.phone = lang === 'ar' ? 'أدخل رقم هاتفك.' : 'Enter your phone number.';
-        if (!form.gpApplied && form.transactionId.trim().length < 4) {
+        
+        if (paymentRail !== 'GP' && form.transactionId.trim().length < 4) {
             nextErrors.transactionId = lang === 'ar'
-                ? 'أدخل رقم عملية Vodafone Cash.'
-                : 'Enter the Vodafone Cash transaction ID.';
+                ? 'أدخل رقم الإشعار أو مرجع التحويل.'
+                : 'Enter the transaction ID or remittance reference.';
         }
         setErrors(nextErrors);
         if (Object.keys(nextErrors).length) return;
@@ -126,8 +123,10 @@ const BlsWorkshopPage = () => {
                 fullName: form.fullName.trim(),
                 email: form.email.trim(),
                 phone: form.phone.trim(),
-                transactionId: form.gpApplied ? null : form.transactionId.trim(),
-                gpApplied: form.gpApplied,
+                transactionId: paymentRail === 'GP' ? null : form.transactionId.trim(),
+                gpApplied: paymentRail === 'GP',
+                paymentMethod: paymentRail === 'BARQ' ? 'Barq (KSA)' : (paymentRail === 'GP' ? 'GP Points' : 'Vodafone Cash'),
+                existingGaId: hasExistingId ? existingGaId.trim() : null,
                 patronBooster: form.patronBooster,
                 referralId: referralId || null,
             };
@@ -166,7 +165,6 @@ const BlsWorkshopPage = () => {
             </Section>
 
             <Section rail="max-w-[56rem]">
-                {/* Accreditation + bonus banner */}
                 <div className="mb-8 grid gap-4 sm:grid-cols-3">
                     <div className="flex items-center gap-3 rounded-2xl border border-border bg-card p-5">
                         <ShieldCheck className="h-6 w-6 text-[hsl(var(--teal))]" strokeWidth={1.8} />
@@ -208,8 +206,8 @@ const BlsWorkshopPage = () => {
                     <MessageCircle className="h-5 w-5 text-[hsl(var(--teal))]" strokeWidth={1.8} />
                     <span>
                         {lang === 'ar'
-                            ? 'لديك استفسار بخصوص الترخيص أو الانتقال إلى السعودية؟ راسل مكتبنا في الرياض'
-                            : 'Questions about KSA licensing or relocation? Message our Riyadh desk'}
+                            ? 'لديك استفسار بخصوص الترخيص أو الانتقال إلى السعودية؟ راسل مكتبنا في الرياض (+966 55 047 6176)'
+                            : 'Questions about KSA licensing or relocation? Message our Riyadh desk (+966 55 047 6176)'}
                     </span>
                 </a>
 
@@ -219,12 +217,12 @@ const BlsWorkshopPage = () => {
                             <CheckCircle2 className="mt-0.5 h-6 w-6 text-[hsl(var(--teal))]" strokeWidth={1.8} />
                             <div>
                                 <h2 className="font-display text-xl font-semibold">
-                                    {lang === 'ar' ? 'تم استلام التسجيل' : 'Registration received'}
+                                    {lang === 'ar' ? 'تم استلام التسجيل بنجاح' : 'Registration received successfully'}
                                 </h2>
                                 <p className="mt-2 text-sm text-muted-foreground">
-                                    {lang === 'ar'
-                                        ? `رقمك المؤقت: ${result?.gaId || '—'} — الحالة: قيد التحقق من الدفع.`
-                                        : `Provisional GA-ID: ${result?.gaId || '—'} — status: pending payment verification.`}
+                                    {result?.isExistingMember 
+                                        ? (lang === 'ar' ? `تم ربط الحجز بمعرفك المسجل: ${result?.gaId}` : `Linked to your existing member ID: ${result?.gaId}`)
+                                        : (lang === 'ar' ? `رقمك المؤقت: ${result?.gaId || '—'} — الحالة: قيد التحقق من الدفع.` : `Provisional GA-ID: ${result?.gaId || '—'} — status: pending payment verification.`)}
                                 </p>
                                 {result?.unlockSabriCv && (
                                     <p className="mt-3 text-sm">
@@ -236,10 +234,7 @@ const BlsWorkshopPage = () => {
                             </div>
                         </div>
 
-                        {/* Post-submission intercept: offers KSA assistance before the
-                            user leaves, with the just-minted context pre-filled into
-                            the WhatsApp message. Only appears after a real
-                            registration exists — never fabricates a GA-ID to show it. */}
+                        {/* Post-submission intercept: KSA Assistance */}
                         <div className="mt-6 rounded-xl border border-[hsl(var(--accent))]/30 bg-[hsl(var(--accent))]/8 p-5">
                             <p className="text-sm font-medium">
                                 {lang === 'ar'
@@ -253,7 +248,7 @@ const BlsWorkshopPage = () => {
                                 className="mt-3 inline-flex items-center gap-2 rounded-lg bg-[hsl(var(--accent))] px-4 py-2 text-sm font-medium text-black"
                             >
                                 <MessageCircle className="h-4 w-4" strokeWidth={1.8} />
-                                {lang === 'ar' ? 'راسل مكتب الرياض' : 'Message the Riyadh desk'}
+                                {lang === 'ar' ? 'راسل مكتب الرياض عبر WhatsApp' : 'Message the Riyadh desk via WhatsApp'}
                             </a>
                         </div>
 
@@ -265,8 +260,8 @@ const BlsWorkshopPage = () => {
                             </h3>
                             <p className="mt-2 text-xs text-muted-foreground leading-relaxed">
                                 {lang === 'ar' 
-                                    ? 'سجل الدخول إلى members.geneacademy.net باستخدام GA-ID الجديد الخاص بك، انضم إلى مجتمع BLS، وانشر تعريفاً مهنياً عن نفسك لتحصل فوراً على 100 نقطة إضافية.' 
-                                    : 'Log into members.geneacademy.net using your new GA-ID, join the BLS Clinical Community, and publish your first professional introduction to instantly receive +100 GP.'}
+                                    ? 'سجل الدخول إلى members.geneacademy.net باستخدام GA-ID الخاص بك، انضم إلى مجتمع BLS، وانشر تعريفاً مهنياً عن نفسك لتحصل فوراً على 100 نقطة إضافية.' 
+                                    : 'Log into members.geneacademy.net using your GA-ID, join the BLS Clinical Community, and publish your first professional introduction to instantly receive +100 GP.'}
                             </p>
                             <a href="https://members.geneacademy.net/community" target="_blank" rel="noopener noreferrer" className="mt-3 inline-block font-mono text-xs font-bold text-[hsl(var(--accent))] hover:underline">
                                 {lang === 'ar' ? 'المطالبة بالمكافأة ➔' : 'Claim Bounty ➔'}
@@ -275,6 +270,34 @@ const BlsWorkshopPage = () => {
                     </div>
                 ) : (
                     <form onSubmit={onSubmit} className="grid gap-5 sm:grid-cols-2">
+                        
+                        {/* EXISTING MEMBER TOGGLE */}
+                        <div className="sm:col-span-2 p-4 rounded-2xl border border-[hsl(var(--teal))]/30 bg-[hsl(var(--teal))]/5 flex flex-col gap-3">
+                            <label className="flex items-center gap-2 text-sm font-medium cursor-pointer">
+                                <input
+                                    type="checkbox"
+                                    checked={hasExistingId}
+                                    onChange={(e) => setHasExistingId(e.target.checked)}
+                                    className="h-4 w-4 rounded border-border"
+                                />
+                                <span>{lang === 'ar' ? 'هل أنت عضو مسجل مسبقاً ولديك معرف رقمي (GA-ID)؟' : 'Already a registered member with an existing GA-ID?'}</span>
+                            </label>
+                            {hasExistingId && (
+                                <div>
+                                    <input
+                                        type="text"
+                                        placeholder="GA-XXXX (e.g. GA-001, GA-1234)"
+                                        value={existingGaId}
+                                        onChange={(e) => setExistingGaId(e.target.value)}
+                                        className={inputClass + ' w-full font-mono uppercase text-xs'}
+                                    />
+                                    <span className="text-[11px] text-muted-foreground mt-1 block">
+                                        {lang === 'ar' ? 'سيتم ربط تسجيلك بملفك الأكاديمي الحالي ورصيد نقاطك دون إصدار معرف جديد.' : 'Your registration will link to your existing profile and GP balance.'}
+                                    </span>
+                                </div>
+                            )}
+                        </div>
+
                         <div className="sm:col-span-2">
                             <Field label={lang === 'ar' ? 'الاسم الكامل' : 'Full name'}>
                                 <input value={form.fullName} onChange={update('fullName')} className={inputClass} />
@@ -288,47 +311,96 @@ const BlsWorkshopPage = () => {
                             {errors.email && <p className="mt-1.5 text-xs text-destructive">{errors.email}</p>}
                         </div>
                         <div>
-                            <Field label={lang === 'ar' ? 'رقم الهاتف' : 'Phone'}>
+                            <Field label={lang === 'ar' ? 'رقم الهاتف (WhatsApp)' : 'Phone (WhatsApp)'}>
                                 <input value={form.phone} onChange={update('phone')} className={inputClass} />
                             </Field>
                             {errors.phone && <p className="mt-1.5 text-xs text-destructive">{errors.phone}</p>}
                         </div>
 
-                        {/* Vodafone Cash intake */}
-                        <div className="sm:col-span-2 rounded-2xl border border-border bg-card p-6">
-                            <div className="mb-4 flex items-center gap-3">
-                                <Smartphone className="h-5 w-5 text-[hsl(var(--accent))]" strokeWidth={1.8} />
+                        {/* PAYMENT CHANNELS SELECTION */}
+                        <div className="sm:col-span-2 rounded-2xl border border-border bg-card p-6 space-y-4">
+                            <div className="flex items-center gap-3">
+                                <CreditCard className="h-5 w-5 text-[hsl(var(--accent))]" strokeWidth={1.8} />
                                 <h3 className="font-display text-lg font-semibold">
-                                    {lang === 'ar' ? 'الدفع عبر Vodafone Cash' : 'Pay via Vodafone Cash'}
+                                    {lang === 'ar' ? 'طريقة السداد المعتمدة (3,000 ج.م)' : 'Select Payment Method (EGP 3,000)'}
                                 </h3>
                             </div>
-                            <p className="mb-4 text-sm text-muted-foreground">
-                                {lang === 'ar'
-                                    ? `المبلغ: ${WORKSHOP.price} جنيه مصري. أرسل المبلغ ثم أدخل رقم العملية بالأسفل.`
-                                    : `Amount: EGP ${WORKSHOP.price}. Send the payment, then enter the transaction ID below.`}
-                            </p>
-                            <label className="mb-4 flex items-center gap-2 text-sm">
-                                <input type="checkbox" checked={form.gpApplied} onChange={update('gpApplied')} />
-                                {lang === 'ar' ? 'أستخدم نقاط GemIInI (GP) بدلاً من الدفع النقدي' : 'Applying GemIInI Points (GP) instead of cash'}
-                            </label>
-                            {!form.gpApplied && (
-                                <>
+
+                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+                                <div
+                                    onClick={() => setPaymentRail('VODAFONE')}
+                                    className={`p-4 rounded-xl border cursor-pointer flex flex-col justify-between transition-all ${paymentRail === 'VODAFONE' ? 'border-[hsl(var(--accent))] bg-[hsl(var(--accent))]/10 font-bold' : 'border-border bg-card/50'}`}
+                                >
+                                    <span>{lang === 'ar' ? 'فودافون كاش (مصر)' : 'Vodafone Cash (Egypt)'}</span>
+                                    <span className="font-mono text-[10px] text-muted-foreground mt-1">01015922628</span>
+                                </div>
+
+                                <div
+                                    onClick={() => setPaymentRail('BARQ')}
+                                    className={`p-4 rounded-xl border cursor-pointer flex flex-col justify-between transition-all ${paymentRail === 'BARQ' ? 'border-[hsl(var(--teal))] bg-[hsl(var(--teal))]/10 font-bold text-[hsl(var(--teal))]' : 'border-border bg-card/50'}`}
+                                >
+                                    <span>{lang === 'ar' ? 'برق / تحويل من السعودية (KSA)' : 'Barq / KSA Remittance'}</span>
+                                    <span className="font-mono text-[10px] mt-1">+20 101 592 2628</span>
+                                </div>
+
+                                <div
+                                    onClick={() => setPaymentRail('GP')}
+                                    className={`p-4 rounded-xl border cursor-pointer flex flex-col justify-between transition-all ${paymentRail === 'GP' ? 'border-purple-500 bg-purple-500/10 font-bold text-purple-300' : 'border-border bg-card/50'}`}
+                                >
+                                    <span>{lang === 'ar' ? 'نقاط GemIInI (GP)' : 'GemIInI Points (GP)'}</span>
+                                    <span className="text-[10px] text-muted-foreground mt-1">{lang === 'ar' ? 'للأعضاء المسجلين' : 'For Members'}</span>
+                                </div>
+                            </div>
+
+                            {paymentRail === 'VODAFONE' && (
+                                <div className="p-3.5 rounded-xl bg-card border border-border text-xs space-y-1">
+                                    <p className="text-muted-foreground">
+                                        {lang === 'ar'
+                                            ? 'حوّل المبلغ (3,000 ج.م) إلى محفظة فودافون كاش الرسمية:'
+                                            : 'Transfer EGP 3,000 to the official Vodafone Cash wallet:'}
+                                    </p>
+                                    <p className="font-mono text-sm font-bold text-white">01015922628</p>
+                                </div>
+                            )}
+
+                            {paymentRail === 'BARQ' && (
+                                <div className="p-3.5 rounded-xl bg-[hsl(var(--teal))]/10 border border-[hsl(var(--teal))]/30 text-xs space-y-2">
+                                    <p className="text-white font-semibold">
+                                        {lang === 'ar'
+                                            ? 'التحويل عبر تطبيق برق (Barq) أو الحوالات السريعة من السعودية والخليج:'
+                                            : 'Transfer via Barq app or instant remittance from Saudi Arabia / Gulf:'}
+                                    </p>
+                                    <p className="text-muted-foreground leading-relaxed">
+                                        {lang === 'ar'
+                                            ? 'أرسل الحوالة ثم أرسل صورة الإشعار مباشرة إلى WhatsApp مكتب العمليات الأكاديمي:'
+                                            : 'Complete transfer and send receipt to the Academic Operations WhatsApp:'}
+                                    </p>
+                                    <a
+                                        href="https://wa.me/201015922628?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D9%85%D9%83%D8%AA%D8%A8%20%D8%A7%D9%84%D8%B9%D9%85%D9%84%D9%8A%D8%A7%D8%AA%D8%8C%20%D9%87%D8%B0%D8%A7%20%D8%A5%D8%B4%D8%B9%D8%A7%D8%B1%20%D8%AA%D8%AD%D9%88%D9%8A%D9%84%20%D8%A8%D8%B1%D9%82%20(Barq)%20%D9%84%D9%88%D8%B1%D8%B4%D8%A9%20BLS."
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[hsl(var(--teal))] text-black font-bold text-xs"
+                                    >
+                                        <MessageCircle className="h-3.5 w-3.5" />
+                                        <span>إرسال إشعار برق عبر WhatsApp (+20 101 592 2628) ➔</span>
+                                    </a>
+                                </div>
+                            )}
+
+                            {paymentRail !== 'GP' && (
+                                <div>
                                     <Field
-                                        label={lang === 'ar' ? 'رقم عملية Vodafone Cash' : 'Vodafone Cash Transaction ID'}
-                                        hint={lang === 'ar' ? 'كما يظهر في رسالة التأكيد.' : 'As shown in your confirmation SMS.'}
+                                        label={lang === 'ar' ? 'رقم العملية / المرجع (Transaction ID)' : 'Transaction ID / Reference Number'}
+                                        hint={lang === 'ar' ? 'أدخل رقم المعاملة من رسالة فودافون كاش أو إشعار تحويل تطبيق برق.' : 'As shown in your confirmation SMS or Barq remittance receipt.'}
                                     >
                                         <input value={form.transactionId} onChange={update('transactionId')} className={inputClass} />
                                     </Field>
                                     {errors.transactionId && <p className="mt-1.5 text-xs text-destructive">{errors.transactionId}</p>}
-                                </>
+                                </div>
                             )}
                         </div>
 
-                        {/* Optional patron contribution — expedites manual review.
-                            GP-award amount intentionally left out of the UI copy:
-                            it appeared only in an unverified document this
-                            session, not confirmed by GA000 directly. Wire the
-                            real number in once confirmed. */}
+                        {/* Optional patron contribution */}
                         <label className="sm:col-span-2 flex items-start gap-3 rounded-2xl border border-[hsl(var(--accent))]/30 bg-[hsl(var(--accent))]/8 p-4 cursor-pointer">
                             <input type="checkbox" checked={form.patronBooster} onChange={update('patronBooster')} className="mt-0.5 h-4 w-4" />
                             <span className="flex items-start gap-2">
@@ -339,7 +411,7 @@ const BlsWorkshopPage = () => {
                                     </span>
                                     <span className="block text-xs text-muted-foreground">
                                         {lang === 'ar'
-                                            ? 'يسرّع مراجعة تسجيلك يدوياً.'
+                                            ? 'يسرّع مراجعة وتأكيد تسجيلك يدوياً.'
                                             : "Expedites the manual review of your registration."}
                                     </span>
                                 </span>
@@ -359,8 +431,8 @@ const BlsWorkshopPage = () => {
                                 className="min-h-[48px] w-full rounded-xl bg-primary px-6 text-sm font-medium text-primary-foreground transition-transform active:scale-[0.98] disabled:opacity-60 sm:w-auto"
                             >
                                 {status === 'loading'
-                                    ? (lang === 'ar' ? 'جارٍ الإرسال...' : 'Submitting...')
-                                    : (lang === 'ar' ? 'سجّل الآن' : 'Register now')}
+                                    ? (lang === 'ar' ? 'جارٍ تسجيل البيانات...' : 'Submitting...')
+                                    : (lang === 'ar' ? 'تأكيد الحجز والتسجيل' : 'Confirm Registration')}
                             </button>
                         </div>
                     </form>

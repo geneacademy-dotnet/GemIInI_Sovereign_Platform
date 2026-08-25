@@ -156,6 +156,8 @@ export const submitBlsRegistration = async (payload) => {
         phone: payload.phone,
         transaction_id: payload.transactionId || '',
         gp_applied: Boolean(payload.gpApplied),
+        payment_method: payload.paymentMethod || (payload.gpApplied ? 'GP' : 'Vodafone Cash'),
+        existing_ga_id: payload.existingGaId || '',
         patron_booster: Boolean(payload.patronBooster),
         referral_id: payload.referralId || '',
         status: payload.gpApplied ? 'pending_gp_confirmation' : 'pending_payment_verification',
