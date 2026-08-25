@@ -197,22 +197,33 @@ export const SovereignClient = {
   /** Member Registration (Preflight-Free POST with Idempotency) */
   register: async (registrationData) => {
     const idempotencyKey = registrationData.idempotencyKey || generateIdempotencyKey(registrationData);
+    const action = registrationData.action || "register";
+    const isBls = action === "bls_registration" || Boolean(registrationData.workshopTrack);
+
     const sanitizedPayload = {
+      action,
       fullName: String(registrationData.fullName || "").trim(),
+      fullNameEn: String(registrationData.fullNameEn || "").trim(),
       email: String(registrationData.email || "").toLowerCase().trim(),
       phone: String(registrationData.phone || "").trim(),
       university: String(registrationData.university || "").trim(),
       role: registrationData.role || "clinical_student",
       providerRef: String(registrationData.providerRef || "").trim(),
       paymentChannel: registrationData.paymentChannel || "Vodafone Cash",
-      track: registrationData.track || "GemIInI",
+      track: registrationData.track || registrationData.workshopTrack || "GemIInI",
+      workshopTrack: registrationData.workshopTrack || "",
+      feeAmount: registrationData.feeAmount || (isBls ? 3000 : 0),
+      referralId: registrationData.referralId || "GA-000",
+      unlock_digital_transformation: Boolean(registrationData.unlock_digital_transformation || isBls),
       idempotencyKey,
     };
 
-    const remoteRes = await callRemote("register", sanitizedPayload, "POST");
-    if (remoteRes && !remoteRes.offlineFallback && remoteRes.status === "success") {
+    const remoteRes = await callRemote(action, sanitizedPayload, "POST");
+    if (remoteRes && !remoteRes.offlineFallback && (remoteRes.status === "success" || remoteRes.gaId)) {
       return remoteRes;
     }
+
+    const defaultGp = isBls ? 50 : 25;
 
     // Circuit Breaker: Queue locally in PocketBase and localStorage
     try {
@@ -230,10 +241,11 @@ export const SovereignClient = {
 
       return {
         status: "success",
-        gaId: "GA-SYNC-PENDING",
-        gpBalance: 25,
+        gaId: isBls ? "GA-BLS-PENDING" : "GA-SYNC-PENDING",
+        gpBalance: defaultGp,
         syncedToMaster: false,
         pbId: pbRecord.id,
+        unlock_digital_transformation: true,
         message: "Verification logged — pending central ledger sync.",
       };
     } catch (pbErr) {
@@ -244,9 +256,10 @@ export const SovereignClient = {
 
       return {
         status: "success",
-        gaId: "GA-LOCAL-PENDING",
-        gpBalance: 25,
+        gaId: isBls ? "GA-BLS-LOCAL" : "GA-LOCAL-PENDING",
+        gpBalance: defaultGp,
         syncedToMaster: false,
+        unlock_digital_transformation: true,
         message: "Verification saved locally — will synchronize once online.",
       };
     }
