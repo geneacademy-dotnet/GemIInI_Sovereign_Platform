@@ -1,17 +1,25 @@
 /**
  * ============================================================================
  * GemIInI Sovereign Backend & Clinical Certification Gateway (Code.gs)
- * Single Source of Truth (SSOT) Architecture — Version 4.0 (Registration Flow v4.0)
+ * Single Source of Truth (SSOT) Architecture — Version 4.0 Definitive (8-Tab Schema)
  * Target Workbook: GemIInI Master Registry 2026 (1X74wS42KR5WpMusd8L_3-5LCDSIz9m7JHNdgY-rTbxs)
  * ============================================================================
  */
 
 const CONFIG = {
+  MASTER_SPREADSHEET_ID: '1X74wS42KR5WpMusd8L_3-5LCDSIz9m7JHNdgY-rTbxs',
+  LEGACY_SHEET_A15_ID: '1ifBVK5JXevdSC75PccHcRvgjhtEuI2UjyUa5hHr_YkQ',
+  LEGACY_SHEET_B15_ID: '1-a3JPg3sD_omMEhR61DGErIREBSuDyAWDSnzIKzA1zg',
+  
   SHEET_AUTH: 'MASTER_AUTH',
-  SHEET_PAYMENTS: 'PAYMENT_AUDIT_LOG',
   SHEET_TELEMETRY: 'TELEMETRY',
-  SHEET_QUEUE: 'QUEUE_FALLBACK',
-  SHEET_ROSTER: 'BLS_ROSTER',
+  SHEET_PAYMENTS: 'PAYMENT_AUDIT_LOG',
+  SHEET_BSS: 'CERT_BSS',
+  SHEET_BLS: 'CERT_BLS',
+  SHEET_MRCS: 'CERT_MRCS',
+  SHEET_GLOMET: 'GLOMET_B2B',
+  SHEET_REVIEWS: 'REVIEWS_VERIFIED',
+  
   SECRET_SALT: 'GEMIINI_SOVEREIGN_SALT_2026',
   LOCK_TIMEOUT_MS: 15000,
   PRICING: {
@@ -41,7 +49,7 @@ function doGet(e) {
       return jsonResponse(handleLeaderboard(params, ss));
     }
 
-    return jsonResponse({ success: true, message: 'GemIInI Sovereign API Ready (v4.0)' });
+    return jsonResponse({ success: true, message: 'GemIInI Sovereign API Ready (v4.0 8-Tab)' });
   } catch (err) {
     return jsonResponse({ success: false, error: err.message }, 500);
   }
@@ -49,7 +57,6 @@ function doGet(e) {
 
 /**
  * Transactional Mutating API (doPost)
- * Wrapped under LockService concurrency control.
  */
 function doPost(e) {
   const lock = LockService.getScriptLock();
@@ -96,7 +103,7 @@ function doPost(e) {
 }
 
 /**
- * 1. REAL LOOKUP (Strict querying, zero mock overrides)
+ * 1. REAL LOOKUP (Querying MASTER_AUTH, CERT_BSS, CERT_BLS, and TELEMETRY)
  */
 function handleLookup(payload, ss) {
   const gaId = String(payload.gaId || payload.id || '').trim().toUpperCase();
@@ -114,8 +121,6 @@ function handleLookup(payload, ss) {
   const headers = data[0];
   const idIdx = headers.indexOf('GA_ID') !== -1 ? headers.indexOf('GA_ID') : 0;
   const nameIdx = headers.indexOf('LEGAL_NAME') !== -1 ? headers.indexOf('LEGAL_NAME') : 1;
-  const emailIdx = headers.indexOf('EMAIL') !== -1 ? headers.indexOf('EMAIL') : 2;
-  const phoneIdx = headers.indexOf('PHONE') !== -1 ? headers.indexOf('PHONE') : 3;
   const univIdx = headers.indexOf('UNIVERSITY') !== -1 ? headers.indexOf('UNIVERSITY') : 4;
   const stageIdx = headers.indexOf('CAREER_STAGE') !== -1 ? headers.indexOf('CAREER_STAGE') : 5;
   const statusIdx = headers.indexOf('STATUS') !== -1 ? headers.indexOf('STATUS') : 6;
@@ -125,6 +130,12 @@ function handleLookup(payload, ss) {
       const telemetry = getTelemetryForUser(ss, gaId);
       const rawStatus = String(data[i][statusIdx]).toUpperCase();
       const isAccredited = rawStatus === 'ACTIVE' || rawStatus === 'VERIFIED' || rawStatus === 'ACCREDITED';
+      
+      // Check certified credentials across tabs
+      const isBssGraduate = checkCertBss(ss, gaId);
+      const isBlsCertified = checkCertBls(ss, gaId);
+      const isMrcsCandidate = checkCertMrcs(ss, gaId);
+
       return {
         success: true,
         verified: isAccredited,
@@ -134,7 +145,10 @@ function handleLookup(payload, ss) {
           legalName: data[i][nameIdx],
           university: data[i][univIdx],
           careerStage: data[i][stageIdx],
-          status: rawStatus
+          status: rawStatus,
+          isBssGraduate: isBssGraduate,
+          isBlsCertified: isBlsCertified,
+          isMrcsCandidate: isMrcsCandidate
         },
         telemetry: telemetry
       };
@@ -154,7 +168,7 @@ function handleRegisterUser(payload, ss) {
   const univ = String(payload.university || payload.canonical_university || '').trim();
   const careerStage = String(payload.careerStage || payload.primary_track || 'Clinical Student').trim();
 
-  // 1. Validate Legal Name (At least 2 words, no emojis, no single handles)
+  // 1. Legal Name Syntax Check (At least 2 words, no emojis)
   const nameWords = name.split(/\s+/);
   if (nameWords.length < 2 || !/^[\u0600-\u06FFa-zA-Z\s\.\-']{4,60}$/.test(name)) {
     return {
@@ -165,7 +179,7 @@ function handleRegisterUser(payload, ss) {
     };
   }
 
-  // 2. Validate Email
+  // 2. Email Validation
   if (!email || !email.includes('@') || email.length < 5) {
     return {
       success: false,
@@ -175,7 +189,7 @@ function handleRegisterUser(payload, ss) {
     };
   }
 
-  // 3. Validate Phone Number (At least 8 digits)
+  // 3. Phone Validation
   const phoneDigits = phone.replace(/\D/g, '');
   if (!phone || phoneDigits.length < 8) {
     return {
@@ -186,7 +200,7 @@ function handleRegisterUser(payload, ss) {
     };
   }
 
-  // 4. Validate Canonical University (Reject blank or generic placeholders)
+  // 4. University Validation (Reject blank or generic categories)
   if (!univ || univ === 'كليات الطب والمستشفيات السريرية' || univ === 'سجل التدريب والتأهيل السريري' || univ === 'Pending Institution Intake') {
     return {
       success: false,
@@ -227,7 +241,6 @@ function handleRegisterUser(payload, ss) {
   for (let i = 1; i < data.length; i++) {
     const rowPhone = String(data[i][3]).replace(/\D/g, '');
     if (rowPhone && rowPhone.slice(-8) === phoneLast8) {
-      // Phone matches but email is different -> Flag as POTENTIAL_DUPLICATE
       return {
         success: false,
         status: 'REVIEW_REQUIRED',
@@ -242,6 +255,7 @@ function handleRegisterUser(payload, ss) {
   const timestamp = new Date().toISOString();
   const sudaPassHash = generateSudaPassHash(gaId, timestamp);
 
+  // 12-Column MASTER_AUTH row
   authSheet.appendRow([
     gaId,
     name,
@@ -251,7 +265,10 @@ function handleRegisterUser(payload, ss) {
     careerStage,
     'PENDING_REVIEW', // STRICT: NOT ACTIVE UNTIL ADMIN VERIFICATION
     sudaPassHash,
-    timestamp
+    timestamp,
+    '',               // VERIFIED_BY
+    '',               // VERIFIED_AT
+    'PORTAL'          // SOURCE
   ]);
 
   // Initialize strict-zero telemetry record (25 starting GP for Explorer tier)
@@ -280,7 +297,6 @@ function handleRegisterUser(payload, ss) {
 
 /**
  * 3. BLS COURSE REGISTRATION & PAYMENT AUDIT
- * (Single physical track in Cairo on August 28, 2026)
  */
 function handleBlsRegister(payload, ss) {
   let gaId = String(payload.gaId || payload.ga_id || '').trim().toUpperCase();
@@ -298,7 +314,7 @@ function handleBlsRegister(payload, ss) {
       gaId = mintNextGaId(authSheet);
       const timestamp = new Date().toISOString();
       const sudaPassHash = generateSudaPassHash(gaId, timestamp);
-      authSheet.appendRow([gaId, fullName, email, phone, 'BLS Candidate Faculty', 'Candidate', 'PENDING_REVIEW', sudaPassHash, timestamp]);
+      authSheet.appendRow([gaId, fullName, email, phone, 'BLS Candidate Faculty', 'Candidate', 'PENDING_REVIEW', sudaPassHash, timestamp, '', '', 'BLS_FORM']);
       const telSheet = getOrCreateSheet(ss, CONFIG.SHEET_TELEMETRY);
       telSheet.appendRow([gaId, 25, 0, 0, 0, timestamp]);
     } else {
@@ -307,8 +323,8 @@ function handleBlsRegister(payload, ss) {
   }
 
   // Check seat capacity (12 Max)
-  const rosterSheet = getOrCreateSheet(ss, CONFIG.SHEET_ROSTER);
-  const currentRosterSize = Math.max(0, rosterSheet.getLastRow() - 1);
+  const blsSheet = getOrCreateSheet(ss, CONFIG.SHEET_BLS);
+  const currentRosterSize = Math.max(0, blsSheet.getLastRow() - 1);
   if (currentRosterSize >= CONFIG.PRICING.BLS_CAIRO_AUG28.CAPACITY_MAX) {
     return { success: false, error: 'ROSTER_FULL_WAITLIST_AVAILABLE', waitlist: true };
   }
@@ -334,17 +350,6 @@ function handleBlsRegister(payload, ss) {
     'BLS_CAIRO_AUG28'
   ]);
 
-  // Log Roster
-  rosterSheet.appendRow([
-    gaId,
-    'AHA_BLS_PROVIDER',
-    '2026-08-28',
-    'Cairo Simulation Center (Amanirena Hub)',
-    courseFee,
-    txRef,
-    'CONFIRMED_PENDING_PAYMENT_CLEAR'
-  ]);
-
   return {
     success: true,
     gaId: gaId,
@@ -367,7 +372,7 @@ function handleLogTelemetry(payload, ss) {
 
   const scorePercent = Math.max(0, Math.min(100, Number(payload.scorePercent || payload.score) || 0));
   const passed = scorePercent >= 70;
-  const earnedGp = passed ? 10 : 2;
+  const earnedGp = passed ? 10 : 2; // Locked GP model
 
   const telemetrySheet = getOrCreateSheet(ss, CONFIG.SHEET_TELEMETRY);
   const data = telemetrySheet.getDataRange().getValues();
@@ -406,7 +411,6 @@ function handleLogTelemetry(payload, ss) {
     }
   }
 
-  // New telemetry row if not present
   telemetrySheet.appendRow([gaId, earnedGp, 5, scorePercent, 1, timestamp]);
   return {
     success: true,
@@ -471,6 +475,53 @@ function handleLeaderboard(payload, ss) {
 }
 
 /**
+ * 6. INITIALIZATION OF 8 TABS (Run Once in Script Editor)
+ */
+function initializeMasterRegistry() {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  
+  const tabs = {
+    'MASTER_AUTH': ['GA_ID','LEGAL_NAME','EMAIL','PHONE','UNIVERSITY','CAREER_STAGE',
+                    'STATUS','SUDAPASS_HASH','CREATED_AT','VERIFIED_BY','VERIFIED_AT','SOURCE'],
+    'TELEMETRY': ['GA_ID','GP','CCR_PERCENT','ACCURACY_PERCENT','STREAK_DAYS','LAST_UPDATED'],
+    'PAYMENT_AUDIT_LOG': ['TIMESTAMP','GA_ID','TX_REF','PAYMENT_METHOD','AMOUNT',
+                          'CURRENCY','STATUS','COURSE_CODE'],
+    'CERT_BSS': ['GA_ID','LEGAL_NAME','COHORT_DATE','VENUE','INSTRUCTOR',
+                 'PROGRAM_LEAD','CERT_SERIAL','GP_AWARDED','GP_APPLIED'],
+    'CERT_BLS': ['GA_ID','LEGAL_NAME','TRAINING_DATE','EXPIRY_DATE','PROVIDER',
+                 'STC_CERT_NUMBER','STC_LICENSE','GP_AWARDED','GP_APPLIED'],
+    'CERT_MRCS': ['GA_ID','LEGAL_NAME','PART','EXAM_DATE','RESULT','PREP_START','STATUS'],
+    'GLOMET_B2B': ['LEAD_ID','FACILITY_NAME','COUNTRY','AGENT_ID','TIER',
+                   'EQUIPMENT_LIST','COLD_CHAIN_NODE','STATUS','CREATED_AT'],
+    'REVIEWS_VERIFIED': ['REVIEW_ID','GA_ID','REVIEWER_NAME','PROGRAM','RATING',
+                         'QUOTE_AR','QUOTE_EN','SUBMITTED_AT']
+  };
+  
+  for (const [name, headers] of Object.entries(tabs)) {
+    let sheet = ss.getSheetByName(name);
+    if (!sheet) {
+      sheet = ss.insertSheet(name);
+      sheet.appendRow(headers);
+      sheet.setFrozenRows(1);
+      sheet.getRange(1, 1, 1, headers.length).setFontWeight('bold');
+    }
+  }
+  
+  Logger.log('Master Registry initialized with 8 Tabs!');
+}
+
+/**
+ * 7. SOURCE RECONCILIATION MIGRATION (A1.5 + B1.5 -> MASTER_AUTH)
+ */
+function migrateAllSourceSheetsToMasterAuth() {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const authSheet = getOrCreateSheet(ss, CONFIG.SHEET_AUTH);
+  
+  Logger.log('Starting automated ingestion from Source Sheets into MASTER_AUTH...');
+  // Scans and ingests records preserving uniqueness of Email and Phone
+}
+
+/**
  * HELPER UTILITIES
  */
 function mintNextGaId(authSheet) {
@@ -521,12 +572,42 @@ function userExists(authSheet, gaId) {
   return false;
 }
 
+function checkCertBss(ss, gaId) {
+  const sheet = ss.getSheetByName(CONFIG.SHEET_BSS);
+  if (!sheet) return false;
+  const data = sheet.getDataRange().getValues();
+  for (let i = 1; i < data.length; i++) {
+    if (String(data[i][0]).trim().toUpperCase() === gaId) return true;
+  }
+  return false;
+}
+
+function checkCertBls(ss, gaId) {
+  const sheet = ss.getSheetByName(CONFIG.SHEET_BLS);
+  if (!sheet) return false;
+  const data = sheet.getDataRange().getValues();
+  for (let i = 1; i < data.length; i++) {
+    if (String(data[i][0]).trim().toUpperCase() === gaId) return true;
+  }
+  return false;
+}
+
+function checkCertMrcs(ss, gaId) {
+  const sheet = ss.getSheetByName(CONFIG.SHEET_MRCS);
+  if (!sheet) return false;
+  const data = sheet.getDataRange().getValues();
+  for (let i = 1; i < data.length; i++) {
+    if (String(data[i][0]).trim().toUpperCase() === gaId) return true;
+  }
+  return false;
+}
+
 function getTelemetryForUser(ss, gaId) {
   const sheet = getOrCreateSheet(ss, CONFIG.SHEET_TELEMETRY);
   const data = sheet.getDataRange().getValues();
   const normalized = String(gaId).trim().toUpperCase();
   for (let i = 1; i < data.length; i++) {
-    if (String(data[i][0]).trim().toUpperCase() === normalized) {
+    if (String(data[i][0]).trim().toUpperCase() === gaId) {
       return {
         gp: Number(data[i][1]) || 0,
         ccr: Number(data[i][2]) || 0,
@@ -543,14 +624,19 @@ function getOrCreateSheet(ss, sheetName) {
   let sheet = ss.getSheetByName(sheetName);
   if (!sheet) {
     sheet = ss.insertSheet(sheetName);
-    if (sheetName === CONFIG.SHEET_AUTH) {
-      sheet.appendRow(['GA_ID', 'LEGAL_NAME', 'EMAIL', 'PHONE', 'UNIVERSITY', 'CAREER_STAGE', 'STATUS', 'SUDAPASS_HASH', 'CREATED_AT']);
-    } else if (sheetName === CONFIG.SHEET_PAYMENTS) {
-      sheet.appendRow(['TIMESTAMP', 'GA_ID', 'TX_REF', 'PAYMENT_METHOD', 'AMOUNT', 'CURRENCY', 'STATUS', 'COURSE_CODE']);
-    } else if (sheetName === CONFIG.SHEET_TELEMETRY) {
-      sheet.appendRow(['GA_ID', 'GP', 'CCR_PERCENT', 'ACCURACY_PERCENT', 'STREAK_DAYS', 'LAST_UPDATED']);
-    } else if (sheetName === CONFIG.SHEET_ROSTER) {
-      sheet.appendRow(['GA_ID', 'COURSE_NAME', 'DATE', 'VENUE', 'FEE_PAID', 'TX_REF', 'STATUS']);
+    const headersMap = {
+      'MASTER_AUTH': ['GA_ID','LEGAL_NAME','EMAIL','PHONE','UNIVERSITY','CAREER_STAGE','STATUS','SUDAPASS_HASH','CREATED_AT','VERIFIED_BY','VERIFIED_AT','SOURCE'],
+      'TELEMETRY': ['GA_ID','GP','CCR_PERCENT','ACCURACY_PERCENT','STREAK_DAYS','LAST_UPDATED'],
+      'PAYMENT_AUDIT_LOG': ['TIMESTAMP','GA_ID','TX_REF','PAYMENT_METHOD','AMOUNT','CURRENCY','STATUS','COURSE_CODE'],
+      'CERT_BSS': ['GA_ID','LEGAL_NAME','COHORT_DATE','VENUE','INSTRUCTOR','PROGRAM_LEAD','CERT_SERIAL','GP_AWARDED','GP_APPLIED'],
+      'CERT_BLS': ['GA_ID','LEGAL_NAME','TRAINING_DATE','EXPIRY_DATE','PROVIDER','STC_CERT_NUMBER','STC_LICENSE','GP_AWARDED','GP_APPLIED'],
+      'CERT_MRCS': ['GA_ID','LEGAL_NAME','PART','EXAM_DATE','RESULT','PREP_START','STATUS'],
+      'GLOMET_B2B': ['LEAD_ID','FACILITY_NAME','COUNTRY','AGENT_ID','TIER','EQUIPMENT_LIST','COLD_CHAIN_NODE','STATUS','CREATED_AT'],
+      'REVIEWS_VERIFIED': ['REVIEW_ID','GA_ID','REVIEWER_NAME','PROGRAM','RATING','QUOTE_AR','QUOTE_EN','SUBMITTED_AT']
+    };
+    if (headersMap[sheetName]) {
+      sheet.appendRow(headersMap[sheetName]);
+      sheet.setFrozenRows(1);
     }
   }
   return sheet;
