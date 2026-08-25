@@ -253,3 +253,14 @@ export const publicStats = [
     { key: 'hero.stat2', value: 28, suffix: '' },
     { key: 'hero.stat3', value: 14, suffix: '' },
 ];
+
+// Verified Master Registry Initial Dataset
+export const gaRegistry = [
+  { id: 'GA-000', name: 'Dr. Mohamed Gibbril', role: 'Founder & CEO — SudaGene Consortium', university: 'Karary University (KU 0089958 2021)', gp: 2500, status: 'ACCREDITED', verified: true, ects: 60.0, hash: 'SUDAPASS-GA000-PERMANENT', signatory: 'SudaGene Consortium Executive Board' },
+  { id: 'GA-001', name: 'Dr. Alaa Mursi Elnour', role: 'Co-Founder & COO', university: 'FRCSI Letterkenny General Hospital', gp: 2500, status: 'ACCREDITED', verified: true, ects: 60.0, hash: 'SUDAPASS-GA001-PERMANENT', signatory: 'SudaGene Consortium Executive Board' },
+  { id: 'GA-004', name: 'Dr. Safaa Elhassan', role: 'Senior Academic Officer', university: 'Omdurman Islamic University (OIU 2016)', gp: 1200, status: 'ACCREDITED', verified: true, ects: 30.0, hash: 'SUDAPASS-GA004-PERMANENT', signatory: 'SudaGene Consortium Executive Board' },
+  { id: 'GA-011', name: 'Eng. Amjad Gurashi', role: 'Systems & GIS Operations Expert', university: 'Alzaiem Alazhari University (AAU 2017)', gp: 1500, status: 'ACCREDITED', verified: true, ects: 35.0, hash: 'SUDAPASS-GA011-PERMANENT', signatory: 'SudaGene Consortium Executive Board' },
+  { id: 'GA-087', name: 'Dr. Ezzia Emad', role: 'Clinical Member (BLS Certified)', university: 'Sudanese Medical Faculty', gp: 250, status: 'ACCREDITED', verified: true, ects: 10.0, hash: 'SUDAPASS-GA087-PERMANENT', signatory: 'Dr. Sabri Training Center & GemIInI' },
+  { id: 'GA-088', name: 'Dr. Mehad Mustafa', role: 'Clinical Member (BLS Certified)', university: 'Sudanese Medical Faculty', gp: 250, status: 'ACCREDITED', verified: true, ects: 10.0, hash: 'SUDAPASS-GA088-PERMANENT', signatory: 'Dr. Sabri Training Center & GemIInI' },
+  { id: 'GA-089', name: 'Dr. Mooz Adam', role: 'Clinical Member (BLS Certified)', university: 'Sudanese Medical Faculty', gp: 250, status: 'ACCREDITED', verified: true, ects: 10.0, hash: 'SUDAPASS-GA089-PERMANENT', signatory: 'Dr. Sabri Training Center & GemIInI' }
+];

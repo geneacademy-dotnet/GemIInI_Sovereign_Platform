@@ -59,3 +59,7 @@ export const geneApi = {
 };
 
 export default SovereignClient;
+
+// Backward compatibility exports for legacy page components
+export const lookupMember = (id) => SovereignClient.lookup(id);
+export const submitRegistration = (payload) => SovereignClient.register(payload);
