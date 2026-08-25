@@ -195,7 +195,22 @@ export const bulkExtract = async (range) => {
   return response.json();
 };
 
+
+/** Concierge Fast-Track Visa & Exam Travel Ingestion */
+export const submitConciergeFastTrack = async (payload) => {
+  const body = {
+    full_name: payload.fullName || payload.full_name,
+    whatsapp: payload.whatsapp || payload.phone,
+    target_exam: payload.targetExam || payload.target_exam || 'MRCS / Prometric',
+    status: 'urgent_concierge_review',
+    timestamp: new Date().toISOString()
+  };
+  if (isRemoteConfigured()) return callRemote('concierge_fast_track', { body }, 'POST');
+  return { status: 'success', message: 'Fast-track logged locally' };
+};
+
 export const SovereignClient = {
+  submitFastTrack: submitConciergeFastTrack,
   lookup: lookupMember,
   register: submitRegistration,
   registerBls: submitBlsRegistration,

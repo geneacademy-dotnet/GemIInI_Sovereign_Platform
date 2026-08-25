@@ -40,6 +40,9 @@ function App() {
                         <Route path="/certifications" element={<CertificationsPage />} />
                         <Route path="/register" element={<RegisterPage />} />
                         <Route path="/bls" element={<BlsWorkshopPage />} />
+        <Route path="/register/bls" element={<BlsWorkshopPage />} />
+        <Route path="/register/sudan" element={<BlsWorkshopPage />} />
+        <Route path="/landing" element={<HomePage />} />
         <Route path="/media" element={<MediaVaultPage />} />
         <Route path="/vault" element={<MediaVaultPage />} />
                         <Route path="/contact" element={<ContactPage />} />

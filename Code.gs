@@ -215,6 +215,38 @@ function doPost(e) {
       });
     }
 
+    
+    // 4. CONCIERGE FAST-TRACK VISA & EXAM INGESTION
+    if (action === 'concierge_fast_track') {
+      const body = payload.body || payload;
+      const fullName = body.full_name || body.fullName || '';
+      const whatsapp = body.whatsapp || body.phone || '';
+      const targetExam = body.target_exam || body.targetExam || 'General Medical';
+
+      const ss = SpreadsheetApp.getActiveSpreadsheet();
+      let sheet = ss.getSheetByName('Concierge_FastTrack');
+      if (!sheet) {
+        sheet = ss.insertSheet('Concierge_FastTrack');
+        sheet.appendRow(['Timestamp', 'Full Name', 'WhatsApp', 'Target Exam', 'Status', 'Contacted']);
+      }
+
+      sheet.appendRow([new Date(), fullName, whatsapp, targetExam, 'URGENT_2HR_SLA', 'NO']);
+      
+      // Dispatch immediate priority notification
+      try {
+        MailApp.sendEmail({
+          to: 'amjadgorashi32@gmail.com',
+          subject: `⚡ [URGENT FAST-TRACK] ${fullName} — ${targetExam} (${whatsapp})`,
+          body: `New Concierge Fast-Track Request:\n\nName: ${fullName}\nWhatsApp: ${whatsapp}\nTarget Exam: ${targetExam}\nTime: ${new Date().toISOString()}\n\nAction required: Contact via WhatsApp within 2 hours.`
+        });
+      } catch (err) {}
+
+      return jsonResponse({
+        status: 'success',
+        message: 'Fast-Track request secured. Concierge desk notified.'
+      });
+    }
+
     // 3. GENERAL REGISTRATION & ONBOARDING (+25 GP)
     const body = payload.body || payload;
     const fullName = body.full_name || body.fullName || '';
