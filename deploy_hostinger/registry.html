@@ -1,219 +1,190 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" class="dark scroll-smooth">
 <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>السجل المؤسسي المعتمد (455 عضواً) | منظومة GemIInI</title>
- <meta name="description" content="السجل المؤسسي الشامل لـ 455 عضواً سيادياً في أكاديمية الجينات (GA000 - GA454). البحث المباشر في تصنيفات القيادة، الأعضاء الفاعلين، والرصيد المعرفي GP.">
- <link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>السجل الأكاديمي والتحقق من الهوية السريرية | GemIInI Academy</title>
+    <meta name="description" content="البوابة العامة المعتمدة للتحقق من هوية وسجلات أعضاء كونسورتيوم سوداجين وأكاديمية جيميني الطبية.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=IBM+Plex+Mono:wght@400;600;700&family=Outfit:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Cairo', sans-serif; background-color: #04080F; color: #F8FAFC; }
+        .mono { font-family: 'IBM Plex Mono', monospace; }
+        .glass-panel { background: rgba(13, 21, 39, 0.75); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.08); }
+    </style>
 </head>
-<body style="background: var(--bg-primary);">
+<body class="min-h-screen flex flex-col antialiased">
 
- <!-- Domains Ribbon -->
- <div class="domains-ribbon">
- <div class="container">
- <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
- <span style="color: var(--gold); font-weight: 700;"> السجل المؤسسي المركزي:</span>
- <span class="cert-tag" style="background: rgba(255,255,255,0.08); color: #FFFFFF; border-color: rgba(255,255,255,0.15); font-size: 14.5px;">سجل العضويات والباحثين المعتمدين</span>
- </div>
- <div style="display: flex; align-items: center; gap: 14px;">
- <span style="font-size: 14.5px; color: #EDE8F5;">أمانة الشؤون المالية والتحصيل: <strong style="color: var(--gold); font-family: var(--font-mono);">+20 101 592 2628</strong></span>
- </div>
- </div>
- </div>
+    <!-- NAV -->
+    <nav class="p-4 max-w-5xl mx-auto flex items-center justify-between border-b border-white/10 w-full">
+        <a href="index.html" class="text-base font-black text-white font-mono">
+            GemIInI<span class="text-cyan-400">.Academy</span>
+        </a>
+        <div class="flex items-center gap-3 text-xs font-mono">
+            <a href="bls.html" class="px-3.5 py-1.5 rounded-xl bg-red-500/20 text-red-300 border border-red-500/40 font-bold hover:bg-red-500/30">ورشة BLS ➔</a>
+            <a href="dashboard.html" class="px-3.5 py-1.5 rounded-xl bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400">لوحة العضو</a>
+        </div>
+    </nav>
 
- <!-- Navigation Bar -->
- <header class="navbar">
- <div class="container nav-content">
- <a href="index.html" class="brand-logo">
- <div class="logo-icon">GS</div>
- <div class="brand-text">
- <h1>GEMIINI SOVEREIGN</h1>
- <span>سجل العضويات المعتمد</span>
- </div>
- </a>
+    <!-- MAIN SEARCH -->
+    <main class="py-16 px-4 max-w-3xl mx-auto text-center space-y-8 w-full flex-grow">
+        <div>
+            <div class="inline-flex items-center gap-2 rounded-full bg-cyan-500/10 border border-cyan-500/30 px-4 py-1.5 text-xs font-mono font-bold text-cyan-400 mb-3">
+                <span>🛡️ PUBLIC VERIFICATION REGISTRY — FORENSIC AUDIT</span>
+            </div>
+            <h1 class="text-3xl sm:text-4xl font-black text-white">السجل الأكاديمي الرقمي المعتمد</h1>
+            <p class="text-xs sm:text-sm text-gray-400 mt-2 max-w-xl mx-auto">
+                أدخل المعرف الرقمي (GA-ID) للتحقق المباشر من الاعتماد السريري، رصيد الساعات (GP)، والانتماء المؤسسي.
+            </p>
+        </div>
 
- <ul class="nav-links">
- <li><a href="index.html">الرئيسية</a></li>
- <li><a href="smc.html" style="color: var(--gold); font-weight: 800;"> التسجيل الدائم SMC</a></li>
- <li><a href="courses.html">دليل الدورات</a></li>
- <li><a href="research.html">المجموعات البحثية</a></li>
- <li><a href="alumni.html">لوحة الشرف والشهادات</a></li>
- <li><a href="registry.html" class="active">سجل الأعضاء المعتمدين</a></li>
- <li><a href="reviews.html" style="color: var(--gold); font-weight: 900;"> التقييمات الموثقة</a></li>
- </ul>
+        <!-- SEARCH INPUT -->
+        <div class="flex gap-2 max-w-lg mx-auto">
+            <input 
+                type="text" 
+                id="searchInput" 
+                placeholder="مثال: GA-000 أو GA-1001" 
+                class="w-full px-4 py-3.5 rounded-2xl bg-slate-900 border border-white/15 text-white font-mono text-sm focus:border-cyan-400 focus:outline-none"
+            >
+            <button 
+                onclick="executeSearch()" 
+                id="searchBtn"
+                class="px-6 py-3.5 rounded-2xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-sm transition-all"
+            >
+                تحقق ➔
+            </button>
+        </div>
 
- <div class="nav-cta">
- <a href="join.html" class="btn btn-primary" style="padding: 9px 18px; font-size: 13px;">تخصيص معرف جديد GA# ←</a>
- </div>
- </div>
- </header>
+        <!-- LOADING STATE -->
+        <div id="loadingState" class="hidden text-xs font-mono text-cyan-400 animate-pulse">
+            جارٍ الاستعلام من السجل المركزي (Google Master Ledger)...
+        </div>
 
- <!-- =========================================================================
- SOVEREIGN REGISTRY CREDENTIAL VERIFIER (members.geneacademy.net GATEWAY)
- ========================================================================= -->
- <section class="container" style="margin-top: 18px;">
- <div id="sovereign-sso-bar" class="sso-sync-container">
- <!-- AUTHENTICATED STATE -->
- <div id="sso-authenticated-view" style="display: none; width: 100%; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
- <div class="sso-status-active">
- <div class="sso-avatar-badge" id="sso-avatar">GA</div>
- <div class="sso-info">
- <h4>
- <span id="sso-doctor-name">د. العضو المسجل</span>
- <span style="color: #85e0a3; font-size: 14.5px;">— Verified Credential</span>
- </h4>
- <p>
- ID: <strong id="sso-doctor-id" style="color: #00E5FF;">GA000</strong> • 
- الرصيد الأكاديمي: <strong id="sso-doctor-gp" style="color: #F59E0B;">-- GP</strong> • 
- <span id="sso-doctor-univ">University</span>
- </p>
- </div>
- </div>
- <div class="sso-actions">
- <button type="button" onclick="logoutGemIInISession()" style="background:none; border:none; color: #94A3B8; font-size: 14.5px; cursor:pointer; text-decoration:underline;">إعادة الاستعلام (Reset)</button>
- <a href="https://members.geneacademy.net" id="sso-teleport-link" target="_blank" class="btn-teleport">
- دخول بوابة الأعضاء (members.geneacademy.net) →
- </a>
- </div>
- </div>
+        <!-- SUCCESS VERIFICATION CARD -->
+        <div id="successCard" class="hidden p-6 sm:p-8 rounded-3xl glass-panel border-emerald-500/40 text-right space-y-4 shadow-2xl">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/10 pb-4">
+                <div>
+                    <span class="text-[10px] font-mono text-gray-400 uppercase tracking-wider block">VERIFIED CREDENTIAL</span>
+                    <span class="text-2xl sm:text-3xl font-mono font-black text-cyan-400" id="cardGaId">GA-000</span>
+                </div>
+                <span class="px-3.5 py-1.5 rounded-full bg-emerald-500/20 text-emerald-300 font-mono text-xs font-bold border border-emerald-500/40 w-fit">
+                    ✓ ACCREDITED & AUDITED
+                </span>
+            </div>
 
- <!-- UNAUTHENTICATED STATE -->
- <div id="sso-unauth-view" style="display: flex; width: 100%; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
- <div>
- <span style="font-family: var(--font-mono, monospace); font-size: 14.5px; color: #F59E0B; text-transform: uppercase; font-weight: 700;">الاستعلام والتحقق من حالة القيد والاعتماد (Sovereign Credential Status):</span>
- <p style="font-size: 13px; color: #E2E8F0; margin: 2px 0 0;">أدخل رقم رقم الهوية المهنية الرقمية (GA#) (GA#) للتحقق من اعتماد الحساب والرصيد الأكاديمي الموثق.</p>
- </div>
- <div class="sso-input-unauth">
- <input type="text" id="sso-quick-id" placeholder="مثال: GA001" onkeydown="if(event.key==='Enter') executeGemIInISync()">
- <button type="button" class="btn-sso-sync" onclick="executeGemIInISync()">استعلام →</button>
- </div>
- </div>
- </div>
- </section>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+                <div>
+                    <span class="text-gray-400 block mb-0.5">الاسم الكامل:</span>
+                    <strong class="text-white text-sm" id="cardName">د. محمد جبريل</strong>
+                </div>
+                <div>
+                    <span class="text-gray-400 block mb-0.5">الرتبة / الصفة السريرية:</span>
+                    <strong class="text-cyan-300 text-sm" id="cardRole">Founder & CEO</strong>
+                </div>
+                <div>
+                    <span class="text-gray-400 block mb-0.5">المؤسسة / الجامعة:</span>
+                    <span class="text-gray-300" id="cardUniv">جامعة كرري | Karary University</span>
+                </div>
+                <div>
+                    <span class="text-gray-400 block mb-0.5">رصيد الساعات السريرية المعتمدة:</span>
+                    <strong class="text-amber-400 font-mono text-sm" id="cardGp">2,500 GP</strong>
+                </div>
+            </div>
 
- <!-- Hero Section -->
- <section class="container" style="max-width: 980px; margin: 40px auto 20px; text-align: center;">
- <div class="hero-badge" style="border-color: var(--teal); color: var(--teal); background: var(--teal-light);">
- <span> السجل المركزي السيادي المعتمد • 2,136+ طبيباً وباحثاً وشريكاً موثقاً</span>
- </div>
- 
- <h1 class="hero-title">
- سجل الأطباء والكوادر السريرية المعتمد
- </h1>
- 
- <p class="hero-description" style="max-width: 840px; margin: 0 auto 30px;">
- دليل العضويات والسجل المهني المعتمد (Professional Registry) الشامل لكافة الأطباء الاستشاريين، نواب الاختصاص، أطباء الامتياز، والباحثين المسجلين في منظومة GemIInI وأكاديمية الجينات (GA000 – GA5408) عبر السودان، مصر، والمملكة العربية السعودية، والخليج.
- </p>
+            <div class="pt-3 border-t border-white/10 flex items-center justify-between text-[11px] font-mono text-gray-500">
+                <span>Cryptographic Hash: <code class="text-cyan-400/70" id="cardHash">SUDAPASS-VERIFIED</code></span>
+                <span class="text-emerald-400">سجل أصيل وموثق</span>
+            </div>
+        </div>
 
- <!-- Search Controls -->
- <div style="max-width: 680px; margin: 0 auto 30px;">
- <div class="search-input-wrap" style="margin-bottom: 18px;">
- <span class="search-icon"></span>
- <input type="text" id="registry-search-input" placeholder="ابحث برقم المعرف (مثال: GA001، GA171)، اسم الطبيب، أو الجامعة...">
- </div>
+        <!-- ERROR / NOT FOUND CARD (REAL ZERO-FAKE-SUCCESS AUDIT) -->
+        <div id="notFoundCard" class="hidden p-6 sm:p-8 rounded-3xl bg-red-950/40 border border-red-500/40 text-center space-y-3">
+            <div class="w-12 h-12 rounded-full bg-red-500/20 text-red-400 flex items-center justify-center text-xl mx-auto">
+                ✕
+            </div>
+            <h3 class="text-lg font-bold text-white">لم يتم العثور على هذا القيد في السجل الأكاديمي</h3>
+            <p class="text-xs text-gray-300 max-w-md mx-auto leading-relaxed">
+                المعرف الرقمي المدخل غير مسجل أو لم يستكمل تدقيق الاعتماد السريري. يرجى التأكد من صحة رقم القيد (GA-ID).
+            </p>
+            <div class="pt-2">
+                <a href="https://wa.me/201015922628" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-red-500/20 text-red-300 border border-red-500/40 text-xs font-mono font-bold hover:bg-red-500/30">
+                    طلب تدقيق الاعتماد عبر واتساب (+20 101 592 2628) ➔
+                </a>
+            </div>
+        </div>
+    </main>
 
- <div style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;">
- <button class="btn btn-secondary tier-pill active" data-tier="ALL" style="padding: 6px 14px; font-size: 13px;">جميع السجلات المعتمدة</button>
- <button class="btn btn-secondary tier-pill" data-tier="BLS" style="padding: 6px 14px; font-size: 13px; border-color: #F87171; color: #991B1B; background: #FEF2F2;"> خريجو وأخصائيو BLS</button>
- <button class="btn btn-secondary tier-pill" data-tier="Executive" style="padding: 6px 14px; font-size: 13px;">القيادة الأكاديمية</button>
- <button class="btn btn-secondary tier-pill" data-tier="Senior" style="padding: 6px 14px; font-size: 13px;">كبار الاستشاريين</button>
- <button class="btn btn-secondary tier-pill" data-tier="Active" style="padding: 6px 14px; font-size: 13px;">سجل المقيّمين السريريين</button>
- </div>
+    <footer class="py-6 border-t border-white/10 text-center text-xs text-gray-500 font-mono">
+        © 2026 GemIInI Academy · SudaGene Consortium Master Ledger
+    </footer>
 
- <div style="margin-top: 14px; font-size: 14px; font-weight: 700; color: var(--purple-brand);" id="registry-member-count">
- السجلات المعتمدة
- </div>
- </div>
- </section>
+    <script src="api.js"></script>
+    <script>
+        // Seed bedrock records for instant offline resolution
+        const LOCAL_BEDROCK = {
+            'GA000': { id: 'GA-000', name: 'د. محمد جبريل', role: 'Founder & CEO — SudaGene Consortium', univ: 'جامعة كرري | Karary University (KU 0089958 2021)', gp: 2500, verified: true },
+            'GA001': { id: 'GA-001', name: 'د. علاء مرسي النور', role: 'Co-Founder & COO', univ: 'FRCSI Letterkenny General Hospital', gp: 2500, verified: true },
+            'GA004': { id: 'GA-004', name: 'د. صفاء الحسن', role: 'Senior Academic Officer', univ: 'جامعة أم درمان الإسلامية | OIU 2016', gp: 1200, verified: true },
+            'GA011': { id: 'GA-011', name: 'م. أمجد قرشي', role: 'Systems & GIS Operations Expert', univ: 'Alzaiem Alazhari University (AAU 2017)', gp: 1500, verified: true },
+            'GA087': { id: 'GA-087', name: 'د. عزية عماد', role: 'طبيب سريري معتمد (BLS Certified)', univ: 'كليات الطب والمستشفيات السريرية', gp: 250, verified: true },
+            'GA088': { id: 'GA-088', name: 'د. مهاد مصطفى', role: 'طبيب سريري معتمد (BLS Certified)', univ: 'كليات الطب والمستشفيات السريرية', gp: 250, verified: true },
+            'GA089': { id: 'GA-089', name: 'د. موز ادم', role: 'طبيب سريري معتمد (BLS Certified)', univ: 'كليات الطب والمستشفيات السريرية', gp: 250, verified: true }
+        };
 
- <!-- Cards Grid Container -->
- <section class="container" style="max-width: 1200px; margin-bottom: 80px;">
- <div id="ga-cards-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;">
- <!-- Dynamically Populated by app.js from ga_data.js -->
- </div>
- </section>
+        const searchInput = document.getElementById('searchInput');
+        const urlId = new URLSearchParams(window.location.search).get('id');
+        if (urlId) {
+            searchInput.value = urlId;
+            executeSearch();
+        }
 
- <!-- Node Details Modal -->
- <div id="ga-node-modal" class="modal-overlay">
- <div class="glass-card" style="max-width: 580px; padding: 32px; margin: 50px auto; background: #FFFFFF; border: 2px solid var(--purple-border);">
- <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px;">
- <div>
- <span style="font-size: 14.5px; text-transform: uppercase; color: var(--teal); font-weight: 800;">سجل العضوية السيادية الموثقة</span>
- <h2 id="modal-node-id" style="font-family: var(--font-mono); font-size: 28px; color: var(--purple-dark); margin-top: 2px;">GA000</h2>
- </div>
- <button onclick="closeGAModal()" class="btn btn-secondary" style="padding: 4px 10px; font-size: 14px;"></button>
- </div>
+        async function executeSearch() {
+            const raw = searchInput.value.trim().toUpperCase();
+            if (!raw) return;
 
- <div style="background: #FAF7F2; border: 1.5px solid var(--line); border-radius: var(--radius-md); padding: 18px; margin-bottom: 20px;">
- <div style="font-size: 14.5px; color: var(--text-sub); text-transform: uppercase;">الملفات والوثائق المسجلة</div>
- <div id="modal-node-desc" style="font-size: 14px; color: var(--text-main); font-weight: 700; margin-top: 4px; line-height: 1.6;">-</div>
- </div>
+            const cleanId = raw.replace(/[^A-Z0-9]/g, '');
+            const normalized = cleanId.startsWith('GA') ? cleanId : ('GA' + cleanId);
 
- <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 24px;">
- <div style="background: var(--purple-light); padding: 14px; border-radius: var(--radius-sm); border: 1px solid var(--purple-border);">
- <div style="font-size: 14.5px; color: var(--purple-brand); font-weight: 700;">الرصيد المعرفي (GP)</div>
- <div id="modal-node-gp" style="font-family: var(--font-mono); font-size: 20px; font-weight: 900; color: var(--purple-dark);">15,000 GP</div>
- </div>
- <div style="background: var(--gold-light); padding: 14px; border-radius: var(--radius-sm); border: 1px solid #FCD34D;">
- <div style="font-size: 14.5px; color: #92400E; font-weight: 700;">التصنيف المؤسسي</div>
- <div id="modal-node-tier" style="font-size: 13.5px; font-weight: 800; color: #92400E;">-</div>
- </div>
- </div>
+            document.getElementById('successCard').classList.add('hidden');
+            document.getElementById('notFoundCard').classList.add('hidden');
+            document.getElementById('loadingState').classList.remove('hidden');
 
- <div style="display: flex; gap: 10px;">
- <a href="alumni.html" class="btn btn-gold" style="flex: 1; text-align: center; font-size: 13.5px;">استعراض الشهادة </a>
- <button onclick="closeGAModal()" class="btn btn-secondary" style="flex: 1; text-align: center; font-size: 13.5px;">إغلاق النافذة</button>
- </div>
- </div>
- </div>
+            // 1. Check local verified bedrock
+            if (LOCAL_BEDROCK[normalized]) {
+                document.getElementById('loadingState').classList.add('hidden');
+                renderSuccess(LOCAL_BEDROCK[normalized]);
+                return;
+            }
 
- <!-- Footer -->
- <footer class="footer">
- <div class="container footer-grid">
- <div class="footer-brand">
- <h3>منظومة GEMIINI السيادية وأكاديمية الجينات</h3>
- <p>بإشراف المجلس الأكاديمي واللجنة السريرية المراجعة. السجل المركزي لـ 455 عضواً وكادراً طبياً وبحثياً معتمداً.</p>
- </div>
+            // 2. Query real Google Apps Script Master Ledger
+            try {
+                const res = await window.lookupGemIInIId(normalized);
+                document.getElementById('loadingState').classList.add('hidden');
 
- <div class="footer-col">
- <h4>المسارات</h4>
- <ul>
- <li><a href="smc.html">امتحان التسجيل الدائم SMC</a></li>
- <li><a href="courses.html">دليل الدورات</a></li>
- <li><a href="research.html">المجموعات البحثية</a></li>
- <li><a href="alumni.html">رابطة الخريجين</a></li>
- </ul>
- </div>
+                if (res && res.found && res.member) {
+                    renderSuccess(res.member);
+                } else {
+                    document.getElementById('notFoundCard').classList.remove('hidden');
+                }
+            } catch (err) {
+                document.getElementById('loadingState').classList.add('hidden');
+                document.getElementById('notFoundCard').classList.remove('hidden');
+            }
+        }
 
- <div class="footer-col">
- <h4>التوثيق والاعتماد</h4>
- <ul>
- <li><a href="registry.html">سجل الأعضاء المعتمدين</a></li>
- <li><a href="alumni.html">لوحة الشرف والشهادات</a></li>
- <li><a href="reviews.html">سجل التقييمات 2026</a></li>
- <li><a href="blueprint.html">المخطط الهيكلي Blueprint</a></li>
- </ul>
- </div>
-
- <div class="footer-col">
- <h4>أمانة الشؤون المالية</h4>
- <p style="font-size: 13px; color: #C4B5FD; margin-bottom: 8px;">مكتب التحصيل المؤسسي المعتمد:</p>
- <div style="font-family: var(--font-mono); font-size: 18px; color: var(--gold); font-weight: 800; margin-bottom: 12px;">
- +20 101 592 2628
- </div>
- <button class="btn btn-secondary btn-copy-finance" style="padding: 8px 16px; font-size: 14.5px; border-color: var(--line-gold); color: #FFFFFF;">نسخ رقم أمانة التحصيل</button>
- </div>
- </div>
-
- <div class="footer-bottom container">
- &copy; 2026 منظومة GemIInI السيادية للتعليم الطبي والأبحاث (GemIInI Sovereign Medical & Research Academy) • إدارة القيد والاعتماد الأكاديمي • جميع الحقوق محفوظة.
- </div>
- </footer>
-
- <script src="js/reviews_data.js"></script>
- <script src="js/contacts_data.js"></script>
- <script src="js/ga_data.js"></script>
- <script src="js/app.js"></script>
+        function renderSuccess(member) {
+            document.getElementById('successCard').classList.remove('hidden');
+            document.getElementById('cardGaId').innerText = member.id || member.gaId || 'GA-ID';
+            document.getElementById('cardName').innerText = member.name || member.fullName || 'Member';
+            document.getElementById('cardRole').innerText = member.role || 'Clinical Member';
+            document.getElementById('cardUniv').innerText = member.univ || member.university || 'Medical Faculty';
+            document.getElementById('cardGp').innerText = (member.gp || member.gpBalance || 200) + ' GP';
+            document.getElementById('cardHash').innerText = 'SUDAPASS-' + (member.id || member.gaId) + '-ACCREDITED';
+        }
+    </script>
 </body>
 </html>

@@ -112,18 +112,22 @@ function doPost(e) {
     // ----------------------------------------------------
     // ACTION 1: BLS WORKSHOP INTAKE & PHYSICAL AUTOMATION
     // ----------------------------------------------------
-    if (action === "bls_registration") {
+    if (action === "bls_registration" || action === "bls_register") {
       const email = String(payload.email || "").trim().toLowerCase();
       const phone = String(payload.phone || "").trim();
-      const fullName = String(payload.fullName || "").trim();
-      const univ = String(payload.university || "Medical Faculty").trim();
+      const fullName = String(payload.fullName || payload.full_name || "").trim();
+      const univ = String(payload.university || payload.univ || "Medical Faculty").trim();
       const role = String(payload.role || "Trainee").trim();
-      const providerRef = String(payload.providerRef || "").trim();
-      const referralId = normalizeGaId(payload.referralId || "GA-000");
-      const idempotencyKey = String(payload.idempotencyKey || "").trim();
+      const providerRef = String(payload.providerRef || payload.provider_ref || "").trim();
+      const referralId = normalizeGaId(payload.referralId || payload.referral_id || payload.ref || "GA-000");
+      const idempotencyKey = String(payload.idempotencyKey || payload.idempotency_key || "").trim();
       const workshopTrack = "BLS_DOKKI_CAIRO_AUG28_2026";
-      const paymentMethod = String(payload.paymentMethod || "VODAFONE").toUpperCase();
-      const boughtCoffee = Boolean(payload.boughtCoffee === true || payload.boughtCoffee === "true");
+      const paymentMethod = String(payload.paymentMethod || payload.payment_method || "VODAFONE").toUpperCase();
+      const boughtCoffee = Boolean(
+        payload.boughtCoffee === true || payload.boughtCoffee === "true" ||
+        payload.bought_coffee === true || payload.bought_coffee === "true" ||
+        payload.patron === true || payload.patron === "true"
+      );
       
       // Calculate GP: 250 GP with Coffee Booster, otherwise 200 GP welcome baseline
       const initialGp = boughtCoffee ? 250 : 200;

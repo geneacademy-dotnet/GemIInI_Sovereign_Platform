@@ -1,184 +1,88 @@
 /**
- * GemIInI Platform Technical Specification & System Architecture
- * Core API & Digital Presence SSO Engine
- * Canonical Backend: Google Apps Script Web App (GAS_URL)
+ * api.js — GemIInI Academy Master Ledger & Verification Client
+ * SudaGene Consortium · GemIInI Academy
+ *
+ * ZERO FAKE SUCCESS POLICY:
+ * If the backend ledger cannot be reached, the system NEVER mints a fake ID.
+ * It returns an explicit error with transaction recovery instructions and direct WhatsApp desk contact.
  */
 
 const APPS_SCRIPT_API_URL = "https://script.google.com/macros/s/AKfycbxAVR42yEQlQMkOBhlcka622FNbSD_3_pIJrNL1bktLyN8TqIYGC2P5cGpUqeZcoql8/exec";
-const GAS_URL = APPS_SCRIPT_API_URL;
-const MEMBER_LMS_URL = "https://member.geneacademy.net";
-
-// The unified session key for the user's Digital Presence
 const GEMIINI_SESSION_KEY = "gemiini_presence_id";
+const GEMIINI_PROFILE_KEY = "gemiini_member_profile";
 
 /**
- * 1. Asynchronous Backend Fetch Handlers
+ * Stores active session ID and profile
  */
-async function apiLookup(gaId) {
-  let cleanId = (gaId || "").toUpperCase().trim();
-  if (!cleanId.startsWith("GA")) cleanId = "GA" + cleanId;
-  
-  try {
-    const res = await fetch(`${APPS_SCRIPT_API_URL}?action=lookup&id=${encodeURIComponent(cleanId)}`);
-    return await res.json();
-  } catch (err) {
-    console.warn("[apiLookup] Network error, checking local GA_DATABASE fallback", err);
-    if (typeof GA_DATABASE !== 'undefined') {
-      const match = GA_DATABASE.find(m => m.id === cleanId || m.id === gaId);
-      if (match) {
-        return { found: true, member: match };
-      }
+function applyGemIInISession(gaId, profileData) {
+    if (!gaId) return;
+    localStorage.setItem(GEMIINI_SESSION_KEY, gaId);
+    if (profileData) {
+        localStorage.setItem(GEMIINI_PROFILE_KEY, JSON.stringify(profileData));
     }
-    return { found: false, error: err.message };
-  }
-}
-
-async function apiSearch(query) {
-  try {
-    const res = await fetch(`${APPS_SCRIPT_API_URL}?action=search&q=${encodeURIComponent(query)}`);
-    return await res.json();
-  } catch (err) {
-    console.warn("[apiSearch] Network error, searching local GA_DATABASE", err);
-    if (typeof GA_DATABASE !== 'undefined') {
-      const q = query.toLowerCase();
-      const results = GA_DATABASE.filter(m => 
-        (m.name && m.name.toLowerCase().includes(q)) || 
-        (m.univ && m.univ.toLowerCase().includes(q)) || 
-        (m.id && m.id.toLowerCase().includes(q))
-      );
-      return { status: "success", count: results.length, members: results };
-    }
-    return { status: "error", error: err.message };
-  }
-}
-
-async function apiRegister(payload) {
-  try {
-    const res = await fetch(APPS_SCRIPT_API_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload)
-    });
-    return await res.json();
-  } catch (err) {
-    return { status: "error", message: err.message };
-  }
-}
-
-async function apiStats() {
-  try {
-    const res = await fetch(`${APPS_SCRIPT_API_URL}?action=stats`);
-    return await res.json();
-  } catch (err) {
-    return { status: "success", count: 2649, verified: 1072, totalGpLedger: 1845200 };
-  }
 }
 
 /**
- * 2. Digital Presence SSO State Manager
+ * Retrieves current active session ID
  */
-async function applyGemIInISession(gaId) {
-  if (!gaId) return;
-  let cleanId = gaId.toUpperCase().trim();
-  if (!cleanId.startsWith("GA")) cleanId = "GA" + cleanId;
-
-  const unauthView = document.getElementById("sso-unauth-view");
-  const authView = document.getElementById("sso-authenticated-view");
-
-  const result = await apiLookup(cleanId);
-  
-  if (result.found && result.member && result.member.verified !== false) {
-    // Lock in the Digital Presence ID
-    localStorage.setItem(GEMIINI_SESSION_KEY, result.member.id);
-
-    const docName = document.getElementById("sso-doctor-name");
-    const docId = document.getElementById("sso-doctor-id");
-    const docGp = document.getElementById("sso-doctor-gp");
-    const docUniv = document.getElementById("sso-doctor-univ");
-    const docTier = document.getElementById("sso-doctor-tier");
-    const driveLink = document.getElementById("profile-drive-link");
-
-    if (docName) docName.textContent = result.member.name || cleanId;
-    if (docId) docId.textContent = result.member.id;
-    if (docGp) docGp.textContent = `${(result.member.gp || 500).toLocaleString()} GP`;
-    if (docUniv) docUniv.textContent = result.member.univ || "جامعة معتمدة";
-    if (docTier) docTier.textContent = result.member.tierLabel || result.member.tier || "Active Member";
-    if (driveLink && result.member.driveUrl) {
-      driveLink.href = result.member.driveUrl;
-      driveLink.style.display = "inline-flex";
-    }
-
-    if (unauthView) unauthView.style.display = "none";
-    if (authView) authView.style.display = "flex";
-  } else {
-    localStorage.removeItem(GEMIINI_SESSION_KEY);
-    showVerificationNotice("رقم GemIInI ID غير موجود أو قيد الاعتماد.");
-  }
-}
-
-function executeGemIInISync() {
-  const input = document.getElementById("sso-quick-id") || document.getElementById("gaInput");
-  if (!input) return;
-  const val = input.value.trim();
-  
-  if (!val) {
-    alert("يرجى إدخال رقم المعرف الخاص بك (GemIInI ID)");
-    return;
-  }
-  
-  applyGemIInISession(val);
-}
-
-function logoutGemIInISession() {
-  localStorage.removeItem(GEMIINI_SESSION_KEY);
-  const unauthView = document.getElementById("sso-unauth-view");
-  const authView = document.getElementById("sso-authenticated-view");
-  
-  if (unauthView) unauthView.style.display = "block";
-  if (authView) authView.style.display = "none";
-  window.location.reload();
-}
-
-function showVerificationNotice(msg) {
-  const notice = document.getElementById("sso-not-found-notice");
-  if (notice) {
-    notice.textContent = msg;
-    notice.style.display = "block";
-  } else {
-    alert(msg);
-  }
+function getActiveGemIInIId() {
+    return localStorage.getItem(GEMIINI_SESSION_KEY) || null;
 }
 
 /**
- * 3. Server-Graded Exam Simulator Check (MTC™ Engine)
+ * Dispatches registration payload to Google Apps Script.
+ * Fails loudly on network or server error to prevent silent data loss.
  */
-async function checkRawAnswer(questionId, selectedIdx) {
-  try {
-    const res = await fetch(APPS_SCRIPT_API_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        action: "submit_exam",
-        ga_id: localStorage.getItem(GEMIINI_SESSION_KEY) || "GUEST",
-        question_id: questionId,
-        selected_option: selectedIdx
-      })
-    });
-    return await res.json();
-  } catch (e) {
-    return {
-      status: "success",
-      correct: true,
-      gp_awarded: 50,
-      mtc_explanation: "تم التحقق السريري بنجاح وفق النموذج المعرفي MTC™."
-    };
-  }
+async function executeGemIInISync(payload) {
+    try {
+        const response = await fetch(APPS_SCRIPT_API_URL, {
+            method: "POST",
+            headers: { "Content-Type": "text/plain;charset=utf-8" },
+            body: JSON.stringify(payload)
+        });
+
+        if (!response.ok) {
+            throw new Error(`Ledger responded with status ${response.status}`);
+        }
+
+        const data = await response.json();
+        
+        if (data.status === "error") {
+            throw new Error(data.message || "Ledger returned an error processing your intake.");
+        }
+
+        return data;
+    } catch (err) {
+        console.error("Ledger sync failure:", err);
+        // Explicit failure return — NO RANDOM / FAKE ID MINTING
+        return {
+            status: "error",
+            error: true,
+            message: "تعذر الاتصال بالسجل المركزي لتأكيد العملية. يرجى التواصل فوراً مع المكتب الأكاديمي عبر واتساب لتأكيد قيدك يدوياً.",
+            rawError: err.message || err.toString()
+        };
+    }
 }
 
-// Auto-init on page load if a Digital Presence session exists
-document.addEventListener("DOMContentLoaded", () => {
-  const savedId = localStorage.getItem(GEMIINI_SESSION_KEY);
-  if (savedId) {
-    applyGemIInISession(savedId);
-  }
-});
+/**
+ * Queries the real master ledger for public verification.
+ * Returns found: false if the ID does not exist in the database.
+ */
+async function lookupGemIInIId(searchId) {
+    if (!searchId) return { found: false, message: "No ID provided" };
+    try {
+        const url = `${APPS_SCRIPT_API_URL}?action=lookup&id=${encodeURIComponent(searchId)}`;
+        const response = await fetch(url);
+        if (!response.ok) throw new Error(`Lookup failed with status ${response.status}`);
+        return await response.json();
+    } catch (err) {
+        console.error("Lookup error:", err);
+        return { found: false, error: true, message: "تعذر التحقق من السجل حالياً. يرجى المحاولة لاحقاً." };
+    }
+}
+
+// Expose globally
+window.applyGemIInISession = applyGemIInISession;
+window.getActiveGemIInIId = getActiveGemIInIId;
+window.executeGemIInISync = executeGemIInISync;
+window.lookupGemIInIId = lookupGemIInIId;

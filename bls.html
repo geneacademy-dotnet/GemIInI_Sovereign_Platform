@@ -321,6 +321,19 @@
         </div>
 
         <!-- THE INTAKE FORM -->
+        <!-- ERROR BANNER (SHOWN ON FAILED / NETWORK REJECTION) -->
+        <div id="errorBanner" class="hidden p-4 rounded-2xl bg-red-950/60 border border-red-500/40 text-red-200 text-xs mb-6 space-y-2">
+            <div class="flex items-center gap-2 font-bold text-red-400">
+                <span>⚠️ تعذر تسجيل البيانات في السجل المركزي:</span>
+            </div>
+            <p id="errorMessage" class="text-gray-300"></p>
+            <div class="pt-2">
+                <a href="https://wa.me/201015922628" target="_blank" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-red-500/20 text-red-300 border border-red-500/40 text-xs font-mono font-bold hover:bg-red-500/30">
+                    مراسلة الدعم الأكاديمي على واتساب (+20 101 592 2628) ➔
+                </a>
+            </div>
+        </div>
+
         <form id="intakeForm" class="p-6 sm:p-10 rounded-3xl glass-panel space-y-6">
             
             <!-- SECTION 1: CANDIDATE INFO -->
@@ -528,14 +541,20 @@
                     body: JSON.stringify(payload)
                 });
                 const res = await response.json();
-                const mintedId = (res && res.gaId) ? res.gaId : ("GA-" + Math.floor(1000 + Math.random() * 9000));
+                
+                if (!res || res.status === 'error' || !res.gaId) {
+                    throw new Error(res.message || 'تعذر تأكيد التسجيل في السجل المركزي. يرجى مراجعة إشعار التحويل.');
+                }
 
-                // Display minted card
+                const mintedId = res.gaId;
+
+                // Display minted card ONLY on true verified success
                 document.getElementById('intakeForm').classList.add('hidden');
+                document.getElementById('errorBanner').classList.add('hidden');
                 document.getElementById('mintedCard').classList.remove('hidden');
                 document.getElementById('resGaId').innerText = mintedId;
                 document.getElementById('resName').innerText = payload.fullName;
-                document.getElementById('resGp').innerText = "+" + calculatedGp + " GP";
+                document.getElementById('resGp').innerText = "+" + (res.gpBalance || calculatedGp) + " GP";
 
                 // Save session
                 localStorage.setItem('gemiini_presence_id', mintedId);
@@ -544,7 +563,13 @@
                     gpBalance: calculatedGp
                 }));
             } catch (err) {
-                alert("تم تسجيل بياناتك بنجاح! رقم قيدك الأكاديمي قيد التوثيق الفوري.");
+                console.error("BLS Submission Error:", err);
+                const btn = document.getElementById('btnSubmit');
+                btn.disabled = false;
+                btn.innerText = "إعادة المحاولة ➔";
+                document.getElementById('errorMessage').innerText = err.message || "حدث خطأ أثناء الاتصال بالخادم. لم يتم خصم أو تأكيد القيد.";
+                document.getElementById('errorBanner').classList.remove('hidden');
+                document.getElementById('errorBanner').scrollIntoView({ behavior: 'smooth' });
             }
         });
     </script>
