@@ -1,14 +1,16 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl" class="dark">
+<html lang="ar" dir="rtl" class="dark scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ورشة الإنعاش القلبي الرئوي الأساسي (BLS) — الدقي، القاهرة | GemIInI Academy</title>
-    <meta name="description" content="ورشة الإنعاش القلبي الرئوي الأساسي (BLS) المعتمدة من مجلس التخصصات الطبية وجمعية القلب الأمريكية - 28 أغسطس 2026 بالدقي، القاهرة.">
-    <!-- Google Fonts -->
+    <title>البرنامج السريري المتقدم للإنعاش القلبي الرئوي (BLS) — القاهرة | GemIInI Academy</title>
+    <meta name="description" content="البرنامج السريري المعتمد للإنعاش القلبي الرئوي (BLS) — دفعة القاهرة 28 أغسطس 2026. تدريب عملي بمحاكيات GemIInI عالية الدقة واعتماد المجلس الطبي السوداني وجمعية القلب الأمريكية.">
+    
+    <!-- Premium Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@400;600;700;800;900&family=IBM+Plex+Mono:wght@400;600;700&family=Outfit:wght@400;600;700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -17,324 +19,534 @@
             theme: {
                 extend: {
                     colors: {
-                        navy: { 950: '#04080F', 900: '#0B1528', 800: '#13233F' },
-                        teal: { 400: '#2DD4BF', 500: '#14B8A6' },
-                        cyan: { 400: '#22D3EE', 500: '#06B6D4' }
+                        obsidian: '#04080F',
+                        navy: { 900: '#080C14', 800: '#0D1527', 700: '#131F38' },
+                        gold: { 400: '#FBBF24', 500: '#F59E0B', 600: '#D97706' },
+                        cyan: { 400: '#38BDF8', 500: '#0EA5E9', 600: '#0284C7' }
                     },
                     fontFamily: {
-                        sans: ['Plus Jakarta Sans', 'Tajawal', 'sans-serif'],
-                        mono: ['IBM Plex Mono', 'monospace']
+                        cairo: ['"Cairo"', 'sans-serif'],
+                        serifArabic: ['"Amiri"', '"Times New Roman"', 'serif'],
+                        serifEnglish: ['"Times New Roman"', 'serif'],
+                        mono: ['"IBM Plex Mono"', 'monospace'],
+                        outfit: ['"Outfit"', 'sans-serif'],
+                        jakarta: ['"Plus Jakarta Sans"', 'sans-serif']
                     }
                 }
             }
-        };
+        }
     </script>
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script src="api.js"></script>
+    
     <style>
-        body { font-family: 'Tajawal', 'Plus Jakarta Sans', sans-serif; background-color: #04080F; color: #F8FAFC; }
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #04080F;
+            color: #F8FAFC;
+        }
+        .editorial-serif {
+            font-family: 'Amiri', 'Times New Roman', serif;
+        }
         .mono { font-family: 'IBM Plex Mono', monospace; }
+        .glass-panel {
+            background: rgba(13, 21, 39, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glow-cyan {
+            box-shadow: 0 0 40px -10px rgba(56, 189, 248, 0.2);
+        }
+        .glow-gold {
+            box-shadow: 0 0 40px -10px rgba(245, 158, 11, 0.2);
+        }
     </style>
 </head>
-<body class="bg-[#04080F] text-slate-100 min-h-screen flex flex-col antialiased selection:bg-cyan-500 selection:text-black">
 
-    <!-- NAVIGATION HEADER -->
-    <header class="border-b border-white/10 bg-slate-950/80 backdrop-blur-md sticky top-0 z-50">
-        <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-            <a href="index.html" class="flex items-center gap-2">
-                <span class="text-xl font-black text-white tracking-wider">Gem<span class="text-cyan-400">IInI</span></span>
-                <span class="text-[10px] mono bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 px-2 py-0.5 rounded">BLS CAIRO</span>
-            </a>
+<body class="min-h-screen flex flex-col antialiased selection:bg-cyan-500 selection:text-black">
+
+    <!-- TOP NAVIGATION -->
+    <nav class="sticky top-0 z-50 bg-[#04080F]/90 backdrop-blur-md border-b border-white/10">
+        <div class="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <a href="verify.html" class="text-xs text-gray-300 hover:text-white mono px-3 py-1.5 rounded-lg border border-white/10">التحقق من السجل</a>
-                <a href="index.html" class="text-xs text-cyan-400 hover:text-cyan-300 mono px-3 py-1.5 rounded-lg bg-cyan-950/50 border border-cyan-500/30">الرئيسية ➔</a>
+                <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-cyan-500 via-indigo-500 to-amber-400 p-[1px] flex items-center justify-center">
+                    <div class="w-full h-full bg-[#04080F] rounded-[11px] flex items-center justify-center text-cyan-400 font-bold font-mono text-sm">GA</div>
+                </div>
+                <div>
+                    <span class="font-outfit font-black text-white tracking-wider text-base">GemIInI<span class="text-cyan-400">.Academy</span></span>
+                    <span class="hidden sm:inline-block text-[10px] text-gray-400 font-mono mr-2">| SudaGene Consortium</span>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-2 sm:gap-4 text-xs font-mono">
+                <a href="#register" class="px-4 py-2 rounded-xl bg-red-500/20 text-red-300 border border-red-500/40 font-bold hover:bg-red-500/30 transition-all">
+                    حجز مقعد سريري (200 GP) ➔
+                </a>
+                <a href="index.html" class="hidden sm:inline-block text-gray-400 hover:text-white transition-colors">
+                    الرئيسية
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- STAGE 1: ATTENTION (HERO & LIVE COUNTDOWN & STRICT CAPACITY) -->
+    <header class="py-16 md:py-20 px-4 text-center max-w-4xl mx-auto space-y-6">
+        <!-- ACCREDITATION PILL -->
+        <div class="inline-flex flex-wrap items-center justify-center gap-2 rounded-full bg-slate-900/90 border border-white/10 px-4 py-1.5 text-xs font-mono text-gray-300">
+            <span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
+            <span class="text-white font-bold">جلسة محاكاة سريرية عالية الدقة</span>
+            <span class="text-gray-500">|</span>
+            <span class="text-cyan-300">اعتماد AHA & SMC</span>
+        </div>
+
+        <h1 class="text-3xl sm:text-5xl md:text-6xl font-black text-white leading-tight tracking-tight">
+            البرنامج السريري المتقدم<br>
+            <span class="bg-gradient-to-r from-red-400 via-amber-300 to-cyan-400 bg-clip-text text-transparent">
+                للإنعاش القلبي الرئوي الأساسي (BLS)
+            </span>
+        </h1>
+
+        <p class="text-gray-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+            محاكاة سريرية 1:1 على دمى الإنعاش الذكية الخاصة بأكاديمية جيميني، بالتعاون الأكاديمي مع مركز د. صبري للتدريب (ترخيص 1549)، مع توثيق الساعات المعرفية بـ <strong>200 نقطة GP</strong> في السجل العام.
+        </p>
+
+        <!-- LIVE COUNTDOWN ENGINE -->
+        <div class="p-6 rounded-3xl glass-panel max-w-2xl mx-auto border-red-500/30 glow-cyan">
+            <div class="text-xs font-mono text-gray-400 mb-3 uppercase tracking-wider">
+                ⏳ الموعد النهائي لانعقاد الدفعة السريرية — القاهرة
+            </div>
+            <div class="grid grid-cols-4 gap-2 text-center font-mono">
+                <div class="p-3 rounded-2xl bg-black/50 border border-white/10">
+                    <span id="days" class="text-2xl sm:text-3xl font-black text-white block">03</span>
+                    <span class="text-[10px] text-gray-400">أيام</span>
+                </div>
+                <div class="p-3 rounded-2xl bg-black/50 border border-white/10">
+                    <span id="hours" class="text-2xl sm:text-3xl font-black text-white block">14</span>
+                    <span class="text-[10px] text-gray-400">ساعة</span>
+                </div>
+                <div class="p-3 rounded-2xl bg-black/50 border border-white/10">
+                    <span id="mins" class="text-2xl sm:text-3xl font-black text-white block">28</span>
+                    <span class="text-[10px] text-gray-400">دقيقة</span>
+                </div>
+                <div class="p-3 rounded-2xl bg-black/50 border border-white/10">
+                    <span id="secs" class="text-2xl sm:text-3xl font-black text-red-400 block">45</span>
+                    <span class="text-[10px] text-gray-400">ثانية</span>
+                </div>
+            </div>
+            <div class="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs text-gray-400 font-mono">
+                <span>📍 مركز د. صبري — الدقي، القاهرة</span>
+                <span class="text-red-400 font-bold">⚠️ مقاعد محدودة جداً لضمان نسبة 1:1 على الدمى</span>
             </div>
         </div>
     </header>
 
-    <!-- MAIN INTAKE CONTENT -->
-    <main class="flex-1 py-12 px-4">
-        <div class="max-w-3xl mx-auto">
-
-            <!-- EVENT BADGE & TITLE -->
-            <div class="text-center mb-10">
-                <div class="inline-flex items-center gap-2 rounded-full bg-red-500/10 border border-red-500/30 px-4 py-1.5 text-xs mono font-bold text-red-400 mb-4">
-                    <i data-lucide="heart-pulse" class="w-4 h-4 text-red-400 animate-pulse"></i>
-                    <span>OFFICIAL PHYSICAL WORKSHOP — CAIRO COHORT</span>
-                </div>
-                <h1 class="text-3xl md:text-5xl font-black text-white tracking-tight">
-                    ورشة الإنعاش القلبي الرئوي الأساسي (BLS)
-                </h1>
-                <p class="text-sm md:text-base text-gray-300 mt-3 max-w-xl mx-auto">
-                    تدريب عملي ومحاكاة سريرية حية على الإنعاش القلبي وإنقاذ الحياة، باعتماد المجلس الطبي السوداني وجمعية القلب الأمريكية.
-                </p>
-
-                <!-- METRICS GRID -->
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-6 text-xs mono">
-                    <div class="p-3.5 rounded-2xl bg-slate-900 border border-white/10 flex items-center justify-center gap-2">
-                        <i data-lucide="calendar" class="w-4 h-4 text-cyan-400"></i>
-                        <span>الجمعة 28 أغسطس 2026</span>
-                    </div>
-                    <div class="p-3.5 rounded-2xl bg-slate-900 border border-white/10 flex items-center justify-center gap-2">
-                        <i data-lucide="map-pin" class="w-4 h-4 text-red-400"></i>
-                        <span>الدقي، الجيزة، القاهرة</span>
-                    </div>
-                    <div class="p-3.5 rounded-2xl bg-slate-900 border border-white/10 flex items-center justify-center gap-2">
-                        <i data-lucide="smartphone" class="w-4 h-4 text-emerald-400"></i>
-                        <span>3,000 جنيه مصري</span>
-                    </div>
+    <!-- STAGE 2: THE INSTITUTIONAL HERITAGE STORY (TIMES NEW ROMAN / EDITORIAL SERIF) -->
+    <section class="py-16 bg-navy-900/80 border-t border-b border-white/10 relative overflow-hidden">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="p-8 sm:p-12 rounded-3xl glass-panel border-amber-500/30 relative">
+                <!-- Watermark Background -->
+                <div class="absolute top-4 left-6 text-7xl font-serif text-white/5 select-none pointer-events-none">
+                    GemIInI
                 </div>
 
-                <!-- DUAL ACCREDITATION -->
-                <div class="flex flex-wrap items-center justify-center gap-3 mt-6">
-                    <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-slate-900 border border-cyan-500/30 text-cyan-300 text-xs mono font-bold">
-                        <i data-lucide="award" class="w-4 h-4 text-cyan-400"></i>
-                        اعتماد المجلس الطبي السوداني (SMC)
-                    </span>
-                    <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-slate-900 border border-red-500/30 text-red-300 text-xs mono font-bold">
-                        <i data-lucide="shield-check" class="w-4 h-4 text-red-400"></i>
-                        معايير جمعية القلب الأمريكية (AHA)
-                    </span>
-                </div>
-            </div>
-
-            <!-- DR. MOHAMED SABRI BONUS BANNER -->
-            <div class="p-5 rounded-2xl bg-gradient-to-r from-amber-500/15 via-purple-500/10 to-cyan-500/15 border border-amber-500/40 mb-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-                <div class="flex items-center gap-3">
-                    <div class="p-2.5 rounded-xl bg-amber-500/20 text-amber-300">
-                        <i data-lucide="gift" class="w-6 h-6"></i>
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 text-lg">
+                        🏛️
                     </div>
                     <div>
-                        <span class="text-[10px] mono font-bold text-amber-400 uppercase tracking-wider block">
-                            بونص حصري لرواد التسجيل عبر المنظومة
+                        <span class="text-xs font-mono uppercase tracking-widest text-amber-400 font-bold block">
+                            THE INSTITUTIONAL LEGACY & B2B INFRASTRUCTURE
                         </span>
-                        <h3 class="text-sm font-bold text-white">
-                            حقيبة التحول الرقمي المهني وصناعة السيرة الذاتية الطبية مع د. محمد صبري
-                        </h3>
+                        <h2 class="text-xl sm:text-2xl font-bold text-white editorial-serif mt-0.5">
+                            قصة التأسيس: كيف تحولت جيميني من دراسة الاحتياج إلى تزويد المراكز بالمحاكيات
+                        </h2>
                     </div>
                 </div>
-                <span class="px-3 py-1 rounded-full bg-amber-500/20 border border-amber-500/40 text-amber-300 text-xs mono font-bold flex-shrink-0">
-                    مجانًا مع التذكرة
-                </span>
-            </div>
 
-            <!-- INTAKE CONTAINER -->
-            <div id="bls-intake-card" class="bg-slate-900/90 border border-white/10 p-6 md:p-8 rounded-3xl backdrop-blur-md shadow-2xl">
-                <form id="bls-form" onsubmit="handleBlsSubmit(event)" class="space-y-6">
-                    <!-- ATTENDEE DETAILS -->
-                    <div>
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-sm font-bold text-cyan-400 mono flex items-center gap-2">
-                                <span>01.</span> بيانات المتدرب / الطبيب
-                            </h3>
-                            <span id="affiliate-badge" class="text-[11px] mono text-amber-300 bg-amber-500/10 border border-amber-500/20 px-2.5 py-1 rounded-lg">
-                                كود الإحالة: <strong id="affiliate-display">GA-000</strong>
-                            </span>
-                        </div>
-
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div>
-                                <label class="block text-xs text-gray-300 mb-1">الاسم الرباعي الكامل *</label>
-                                <input type="text" id="bls-name" required placeholder="د. أحمد عبد الرحمن" class="w-full px-4 py-2.5 rounded-xl bg-black/50 border border-white/15 text-white text-sm focus:border-cyan-400 focus:outline-none">
-                            </div>
-                            <div>
-                                <label class="block text-xs text-gray-300 mb-1">البريد الإلكتروني الأساسي *</label>
-                                <input type="email" id="bls-email" required placeholder="doctor@example.com" class="w-full px-4 py-2.5 rounded-xl bg-black/50 border border-white/15 text-white text-sm focus:border-cyan-400 focus:outline-none">
-                            </div>
-                            <div>
-                                <label class="block text-xs text-gray-300 mb-1">رقم الهاتف / الواتساب *</label>
-                                <input type="tel" id="bls-phone" required placeholder="+20 / +249 ..." class="w-full px-4 py-2.5 rounded-xl bg-black/50 border border-white/15 text-white text-sm focus:border-cyan-400 focus:outline-none">
-                            </div>
-                            <div>
-                                <label class="block text-xs text-gray-300 mb-1">الجامعة / الكلية الطبية *</label>
-                                <select id="bls-univ" class="w-full px-4 py-2.5 rounded-xl bg-black/50 border border-white/15 text-white text-sm focus:border-cyan-400 focus:outline-none">
-                                    <option value="جامعة الخرطوم | University of Khartoum">جامعة الخرطوم</option>
-                                    <option value="جامعة الجزيرة | University of Gezira">جامعة الجزيرة</option>
-                                    <option value="جامعة أم درمان الإسلامية | OIU">جامعة أم درمان الإسلامية</option>
-                                    <option value="جامعة النيلين | Al-Neelain University">جامعة النيلين</option>
-                                    <option value="جامعة الزعيم الأزهري | AAU">جامعة الزعيم الأزهري</option>
-                                    <option value="جامعة العلوم الطبية والتكنولوجيا | UMST">جامعة UMST</option>
-                                    <option value="جامعة القاهرة / كليات الطب المصرية">كليات الطب المصرية (القاهرة / عين شمس...)</option>
-                                    <option value="مؤسسة طبية أخرى">مؤسسة طبية أخرى</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- PAYMENT SECTION -->
-                    <div class="pt-4 border-t border-white/10">
-                        <h3 class="text-sm font-bold text-cyan-400 mono mb-3 flex items-center gap-2">
-                            <span>02.</span> سداد الرسوم عبر فودافون كاش (3,000 جنيه مصري)
-                        </h3>
-
-                        <div class="p-4 rounded-2xl bg-red-500/5 border border-red-500/20 space-y-3">
-                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                                <div class="flex items-center gap-2">
-                                    <i data-lucide="smartphone" class="w-5 h-5 text-red-400"></i>
-                                    <div>
-                                        <strong class="text-sm text-white block">محفظة فودافون كاش الرسمية</strong>
-                                        <span class="text-xs text-gray-400">تحويل مباشر 3,000 ج.م</span>
-                                    </div>
-                                </div>
-                                <div class="flex items-center gap-2">
-                                    <span class="px-3 py-1.5 rounded-xl bg-black/60 border border-white/10 mono text-sm text-red-300 font-bold">
-                                        01015922628
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="p-2.5 rounded-xl bg-black/40 border border-white/5 text-[11px] mono text-gray-300">
-                                كود التحويل السريع: <span class="text-cyan-300 font-bold">*9*7*01015922628*3000#</span>
-                            </div>
-                            <div>
-                                <label class="block text-xs text-gray-300 mb-1">رقم الإشعار / العملية (Vodafone Ref ID) *</label>
-                                <input type="text" id="bls-ref" required placeholder="مثال: TRX-992817462 أو رقم العملية من الرسالة" class="w-full px-4 py-2.5 rounded-xl bg-black/60 border border-white/15 text-white mono text-xs focus:border-cyan-400 focus:outline-none">
-                            </div>
-                        </div>
-                    </div>
-
-                    <button type="submit" id="bls-submit-btn" class="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-red-500 via-rose-500 to-amber-500 hover:opacity-95 text-white font-black text-sm tracking-wide shadow-xl shadow-red-500/20 transition-all flex items-center justify-center gap-2">
-                        <i data-lucide="check-circle-2" class="w-5 h-5"></i>
-                        <span>تأكيد الحجز وإصدار GemIInI ID وبونص د. صبري ➔</span>
-                    </button>
-                </form>
-            </div>
-
-            <!-- SUCCESS RESULT CONTAINER (HIDDEN INITIALLY) -->
-            <div id="bls-success-card" class="hidden p-8 rounded-3xl bg-slate-900 border border-emerald-500/40 shadow-2xl relative overflow-hidden animate-in fade-in zoom-in duration-300">
-                <div class="absolute top-0 right-0 left-0 h-2 bg-gradient-to-r from-emerald-400 via-cyan-400 to-amber-400"></div>
-
-                <div class="text-center mb-8">
-                    <div class="inline-flex p-3 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 mb-3">
-                        <i data-lucide="check-circle-2" class="w-12 h-12"></i>
-                    </div>
-                    <h2 class="text-2xl md:text-3xl font-black text-white">
-                        تم تأكيد حجز مقعدك وإصدار المعرف بنجاح
-                    </h2>
-                    <p class="text-xs md:text-sm text-gray-400 mt-1">
-                        ورشة الإنعاش القلبي الرئوي الأساسي (BLS) — الجمعة 28 أغسطس 2026 — الدقي، القاهرة
+                <!-- Dignified Editorial Narrative -->
+                <div class="space-y-4 text-gray-200 text-sm sm:text-base leading-relaxed editorial-serif">
+                    <p class="text-justify first-letter:text-3xl first-letter:font-bold first-letter:text-amber-400">
+                        لم تبدأ أكاديمية جيميني كمنصة تجارية تبحث عن بيع المقاعد، بل انطلقت من دراسة تشخيصية دقيقة لاحتياجات الأطباء والكوادر السريرية في مسارات الهجرة والاعتماد الدولي. بدأنا مسار التدريب العملي بشكل مستقل، وخرّجنا دفعتنا التأسيسية الأولى المكونة من <strong>7 أطباء متميزين</strong> أثبتوا كفاءتهم السريرية في مختلف المستشفيات.
+                    </p>
+                    <p class="text-justify">
+                        وبعقلية مؤسسية لا تقبل المساومة، قمنا بإعادة استثمار كامل العوائد في الاستحواذ على أحدث <strong>دمى الإنعاش القلبي عالية الدقة (High-Fidelity Adult & Pediatric CPR Mannequins)</strong> لتكون ملكاً خالصاً لبنيتنا التحتية الطبية (GLOMEt B2B Network).
+                    </p>
+                    <p class="text-justify border-r-2 border-amber-400 pr-4 text-amber-100 font-bold italic">
+                        "واليوم، لا نكتفي بحجز قاعة تدريب، بل تقوم أكاديمية جيميني بتزويد مركز د. صبري للتدريب بالدمى والمعدات السريرية لهذه الدفعة. نحن من يصنع معيار الكفاءة، لأننا نؤمن بأن التدريب الطبي الحقيقي يُبنى على التجهيز الرصين لا الدعاية."
                     </p>
                 </div>
 
-                <div class="p-6 rounded-2xl bg-black/60 border border-white/10 space-y-4 mb-6">
-                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-white/10">
-                        <div>
-                            <span class="text-[11px] mono text-gray-400 uppercase block">Assigned GemIInI ID</span>
-                            <span id="res-ga-id" class="text-3xl mono font-black text-cyan-400 tracking-wider">GA-1001</span>
-                        </div>
-                        <button type="button" onclick="copyResultId()" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl bg-cyan-500/20 border border-cyan-500/40 text-cyan-300 text-xs mono font-bold hover:bg-cyan-500/30">
-                            <i data-lucide="copy" class="w-4 h-4"></i>
-                            <span id="copy-btn-text">نسخ المعرف</span>
-                        </button>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs mono">
-                        <div>
-                            <span class="text-gray-400 block mb-0.5">اسم المتدرب:</span>
-                            <strong id="res-name" class="text-white text-sm">د. أحمد عبد الرحمن</strong>
-                        </div>
-                        <div>
-                            <span class="text-gray-400 block mb-0.5">الرصيد المكتسب:</span>
-                            <span class="text-emerald-400 font-bold">+50 GP تم إيداعها في المحفظة</span>
-                        </div>
-                        <div>
-                            <span class="text-gray-400 block mb-0.5">العقدة المحيلة:</span>
-                            <span id="res-ref" class="text-amber-300 font-bold">GA-000</span>
-                        </div>
-                        <div>
-                            <span class="text-gray-400 block mb-0.5">حالة المقعد:</span>
-                            <span class="text-cyan-300 font-bold">مؤكد وموثق في السجل الرئيسي</span>
-                        </div>
-                    </div>
+                <div class="mt-8 pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-gray-400">
+                    <span>🎖️ الدفعة التأسيسية: 7 خريجين معتمدين</span>
+                    <span>🔬 البنية التحتية: GLOMEt Clinical Hardware Network</span>
+                    <span>📍 الموقع الميداني: Dokki Clinical Center</span>
                 </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="p-5 rounded-2xl bg-gradient-to-r from-amber-500/10 via-purple-500/10 to-cyan-500/10 border border-amber-500/30 mb-8 flex items-start gap-3">
-                    <i data-lucide="gift" class="w-8 h-8 text-amber-400 flex-shrink-0 mt-0.5"></i>
+    <!-- STAGE 3: VISUAL ANCHORING & METRICS (PROVING THE ECOSYSTEM IS MASSIVE) -->
+    <section class="py-16 max-w-5xl mx-auto px-4">
+        <div class="text-center mb-10">
+            <span class="text-xs font-mono text-cyan-400 font-bold uppercase tracking-wider block">VERIFIED METRICS & INSTITUTIONAL FOOTPRINT</span>
+            <h3 class="text-2xl sm:text-3xl font-black text-white mt-1">أرقام تتحدث عن ثقل المنظومة</h3>
+            <p class="text-xs sm:text-sm text-gray-400 mt-2">لسنا دورة عابرة؛ أنت تنضم إلى شبكة تضم آلاف الأطباء والباحثين حول العالم.</p>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
+            <div class="p-6 rounded-3xl glass-panel border-white/10 hover:border-cyan-500/40 transition-all">
+                <span class="text-3xl sm:text-4xl font-mono font-black text-cyan-400 block mb-1">1,905+</span>
+                <span class="text-xs text-gray-300 font-bold block">طبيب وباحث مسجل</span>
+                <span class="text-[10px] text-gray-500 font-mono">Global Medical Registry</span>
+            </div>
+
+            <div class="p-6 rounded-3xl glass-panel border-white/10 hover:border-amber-500/40 transition-all">
+                <span class="text-3xl sm:text-4xl font-mono font-black text-amber-400 block mb-1">7</span>
+                <span class="text-xs text-gray-300 font-bold block">خريجو الدفعة الأولى</span>
+                <span class="text-[10px] text-gray-500 font-mono">Inaugural BLS Fellows</span>
+            </div>
+
+            <div class="p-6 rounded-3xl glass-panel border-white/10 hover:border-emerald-500/40 transition-all">
+                <span class="text-3xl sm:text-4xl font-mono font-black text-emerald-400 block mb-1">2,500+</span>
+                <span class="text-xs text-gray-300 font-bold block">حالة وسيناريو سريري</span>
+                <span class="text-[10px] text-gray-500 font-mono">SMC / USMLE Vignettes</span>
+            </div>
+
+            <div class="p-6 rounded-3xl glass-panel border-white/10 hover:border-indigo-500/40 transition-all">
+                <span class="text-3xl sm:text-4xl font-mono font-black text-indigo-400 block mb-1">200 GP</span>
+                <span class="text-xs text-gray-300 font-bold block">منحة الرصيد التأسيسي</span>
+                <span class="text-[10px] text-gray-500 font-mono">1 GP = 1 Certified Hour</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- STAGE 4: THE GEMIINI VALUE MATRIX & EXCLUSIVE DR. SABRI BONUS -->
+    <section class="py-16 bg-navy-900/60 border-t border-b border-white/10">
+        <div class="max-w-4xl mx-auto px-4 space-y-8">
+            
+            <!-- VALUE MATRIX TABLE -->
+            <div class="text-center mb-6">
+                <span class="text-xs font-mono text-cyan-400 font-bold uppercase tracking-wider block">PROGRAM VALUATION ARCHITECTURE</span>
+                <h3 class="text-2xl sm:text-3xl font-black text-white mt-1">ماذا تستلم فعلياً مقابل استثمارك؟</h3>
+            </div>
+
+            <div class="p-6 sm:p-8 rounded-3xl glass-panel overflow-x-auto">
+                <table class="w-full text-right text-xs sm:text-sm">
+                    <thead>
+                        <tr class="border-b border-white/10 text-gray-400 font-mono">
+                            <th class="pb-3 text-right">المكوّن السريري / الأصل الرقمي</th>
+                            <th class="pb-3 text-center">القيمة المؤسسية</th>
+                            <th class="pb-3 text-left">العائد المهني المباشر</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-white/5">
+                        <tr>
+                            <td class="py-4 font-bold text-white">
+                                ورشة الإنعاش القلبي الرئوي العملي (BLS Provider)
+                                <span class="block text-[11px] text-gray-400">محاكاة عملية واختبار معتمد من AHA & SMC</span>
+                            </td>
+                            <td class="py-4 text-center font-mono text-cyan-300 font-bold">3,000 ج.م</td>
+                            <td class="py-4 text-left text-gray-300">متطلب إلزامي للترخيص والزمالات الدولية</td>
+                        </tr>
+                        <tr>
+                            <td class="py-4 font-bold text-white">
+                                هوية GemIInI الرقمية + صفحة التحقق الدائم
+                                <span class="block text-[11px] text-gray-400">سجل موثق ضد التزوير للتقديم على المستشفيات</span>
+                            </td>
+                            <td class="py-4 text-center font-mono text-emerald-300 font-bold">مشمول (150$ مجاناً)</td>
+                            <td class="py-4 text-left text-gray-300">توثيق دولي فوري عبر QR Code والسجل العام</td>
+                        </tr>
+                        <tr>
+                            <td class="py-4 font-bold text-white">
+                                منحة رصيد الساعات السريرية (200 GP)
+                                <span class="block text-[11px] text-gray-400">1 GP = 1 ساعة تعليم طبي معتمد في المنظومة</span>
+                            </td>
+                            <td class="py-4 text-center font-mono text-amber-300 font-bold">مشمول مجاناً</td>
+                            <td class="py-4 text-left text-gray-300">تفتح محاكي امتحانات SMC وبنك الأسئلة السريرية</td>
+                        </tr>
+                        <tr>
+                            <td class="py-4 font-bold text-white">
+                                بونص حصري: ورشة التحول الرقمي والسيرة الذاتية (د. صبري)
+                                <span class="block text-[11px] text-gray-400">تصميم وتحديث السيرة الذاتية الطبية للمنح والوظائف</span>
+                            </td>
+                            <td class="py-4 text-center font-mono text-purple-300 font-bold">بونص مجاني</td>
+                            <td class="py-4 text-left text-gray-300">حقيبة تدريبية سريرية كاملة في لوحة العضو</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- EXCLUSIVE DR. MOHAMED SABRI BANNER -->
+            <div class="p-6 rounded-3xl bg-gradient-to-r from-amber-500/15 via-purple-500/10 to-cyan-500/15 border border-amber-500/30 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-2xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-2xl flex-shrink-0">
+                        🎁
+                    </div>
                     <div>
-                        <span class="text-[10px] mono font-bold uppercase tracking-wider text-amber-400 block">
-                            بونص د. محمد صبري نشط الآن
-                        </span>
-                        <h4 class="text-sm font-bold text-white mt-0.5">
-                            حقيبة التحول الرقمي المهني والسيرة الذاتية السريرية متاحة في لوحة تحكمك
+                        <span class="text-[10px] font-mono font-bold text-amber-400 uppercase tracking-widest block">EXCLUSIVE BONUS UNLOCKED</span>
+                        <h4 class="text-sm sm:text-base font-bold text-white mt-0.5">
+                            ورشة التحول الرقمي وتصميم السيرة الذاتية السريرية — تقديم: د. محمد صبري
                         </h4>
+                        <p class="text-xs text-gray-300 mt-1">تُفعّل الحقيبة التدريبية فوراً داخل لوحة تحكم كل طبيب يسجل عبر هذه البوابة.</p>
                     </div>
                 </div>
+                <span class="px-4 py-2 rounded-xl bg-amber-500 text-slate-950 font-bold text-xs font-mono flex-shrink-0">
+                    مشمولة مجاناً
+                </span>
+            </div>
+        </div>
+    </section>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <a id="res-verify-link" href="verify.html" class="flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-sm shadow-lg shadow-cyan-500/20">
-                        <i data-lucide="shield-check" class="w-4 h-4"></i>
-                        <span>التحقق من السجل العام ➔</span>
-                    </a>
-                    <a href="dashboard.html" class="flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-sm border border-white/10">
-                        <i data-lucide="sparkles" class="w-4 h-4 text-amber-400"></i>
-                        <span>فتح لوحة التحكم وبونص د. صبري ➔</span>
-                    </a>
+    <!-- STAGE 5: THE FRICTIONLESS INTAKE & SETTLEMENT GATE -->
+    <section id="register" class="py-20 max-w-4xl mx-auto px-4">
+        <div class="text-center mb-8">
+            <span class="text-xs font-mono text-red-400 font-bold uppercase tracking-wider block">FINAL STEP: SECURE YOUR PHYSICAL SEAT</span>
+            <h3 class="text-2xl sm:text-4xl font-black text-white mt-1">استمارة الحجز والتسجيل السريري</h3>
+            <p class="text-xs sm:text-sm text-gray-400 mt-2">يتم إصدار رقم المعرف الأكاديمي (GA-ID) وتفعيل رصيد 200 GP فور تأكيد الإشعار.</p>
+        </div>
+
+        <!-- MINTED SUCCESS VIEW (HIDDEN INITIALLY) -->
+        <div id="mintedCard" class="hidden p-8 rounded-3xl bg-slate-900 border border-emerald-500/40 shadow-2xl mb-8 space-y-4 glow-cyan">
+            <div class="text-center pb-4 border-b border-white/10">
+                <span class="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-mono font-bold">تم تأكيد المقعد وإصدار الهوية بنجاح</span>
+                <h3 class="text-3xl font-mono font-black text-cyan-400 mt-2" id="resGaId">GA-1042</h3>
+                <p class="text-xs text-gray-400 mt-1" id="resName">Dr. Firstname Lastname</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-mono">
+                <div class="p-3 rounded-xl bg-black/40">الرصيد المودع: <strong class="text-amber-400" id="resGp">+250 GP</strong></div>
+                <div class="p-3 rounded-xl bg-black/40">بونص د. صبري: <strong class="text-emerald-300">مفعل (حقيبة السيرة الذاتية)</strong></div>
+            </div>
+            <div class="flex gap-3 pt-2">
+                <a href="dashboard.html" class="w-full py-3 rounded-xl bg-cyan-500 text-slate-950 font-bold text-xs text-center">دخول لوحة التحكم والمحفظة ➔</a>
+                <a href="registry.html" class="w-full py-3 rounded-xl glass-panel text-white font-bold text-xs text-center">التحقق في السجل العام ➔</a>
+            </div>
+        </div>
+
+        <!-- THE INTAKE FORM -->
+        <form id="intakeForm" class="p-6 sm:p-10 rounded-3xl glass-panel space-y-6">
+            
+            <!-- SECTION 1: CANDIDATE INFO -->
+            <div>
+                <h4 class="text-xs font-mono font-bold text-cyan-400 mb-3 flex items-center gap-2">
+                    <span>01.</span> البيانات الشخصية والجامعية
+                </h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs text-gray-300 mb-1">الاسم الرباعي الرسمي *</label>
+                        <input type="text" id="fullName" required placeholder="Dr. Firstname Lastname" class="w-full px-4 py-2.5 rounded-xl bg-black/50 border border-white/15 text-white text-sm focus:border-cyan-400 focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs text-gray-300 mb-1">البريد الإلكتروني المهني *</label>
+                        <input type="email" id="email" required placeholder="physician@hospital.edu" class="w-full px-4 py-2.5 rounded-xl bg-black/50 border border-white/15 text-white text-sm focus:border-cyan-400 focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs text-gray-300 mb-1">رقم الهاتف / الواتساب *</label>
+                        <input type="tel" id="phone" required placeholder="+20 100 000 0000" class="w-full px-4 py-2.5 rounded-xl bg-black/50 border border-white/15 text-white text-sm focus:border-cyan-400 focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs text-gray-300 mb-1">الجامعة / الكلية الطبية *</label>
+                        <select id="university" class="w-full px-4 py-2.5 rounded-xl bg-black/50 border border-white/15 text-white text-sm focus:border-cyan-400 focus:outline-none">
+                            <option>جامعة الخرطوم | University of Khartoum</option>
+                            <option>جامعة الجزيرة | University of Gezira</option>
+                            <option>جامعة أم درمان الإسلامية | Omdurman Islamic University</option>
+                            <option>جامعة الزعيم الأزهري | Alzaiem Alazhari University</option>
+                            <option>جامعة النيلين | Al-Neelain University</option>
+                            <option>جامعة كرري | Karary University</option>
+                            <option>كليات الطب المصرية والجامعات الأخرى</option>
+                        </select>
+                    </div>
                 </div>
             </div>
 
-        </div>
-    </main>
-
-    <script>
-        lucide.createIcons();
-
-        // Step 1: Capture & Store Referral ID from URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const refParam = urlParams.get('ref') || urlParams.get('affiliate') || localStorage.getItem('gemiini_affiliate_ref') || 'GA-000';
-        let cleanRef = refParam.toUpperCase().trim();
-        if (!cleanRef.startsWith('GA')) cleanRef = 'GA-' + cleanRef;
-        localStorage.setItem('gemiini_affiliate_ref', cleanRef);
-
-        document.getElementById('affiliate-display').textContent = cleanRef;
-
-        async function handleBlsSubmit(e) {
-            e.preventDefault();
-            const btn = document.getElementById('bls-submit-btn');
-            btn.disabled = true;
-            btn.innerHTML = '<span class="mono">جارٍ حجز المقعد وإصدار GemIInI ID...</span>';
-
-            const payload = {
-                action: 'bls_registration',
-                fullName: document.getElementById('bls-name').value.trim(),
-                email: document.getElementById('bls-email').value.trim(),
-                phone: document.getElementById('bls-phone').value.trim(),
-                university: document.getElementById('bls-univ').value,
-                providerRef: document.getElementById('bls-ref').value.trim(),
-                referralId: cleanRef,
-                idempotencyKey: 'BLS-' + Date.now() + '-' + Math.random().toString(36).substr(2, 6)
-            };
-
-            try {
-                const res = await apiRegister(payload);
-                const assignedId = (res && res.gaId) ? res.gaId : ('GA-' + (Math.floor(Math.random() * 800) + 1000));
+            <!-- SECTION 2: PAYMENT METHOD SELECTION -->
+            <div class="pt-4 border-t border-white/10 space-y-4">
+                <h4 class="text-xs font-mono font-bold text-cyan-400 flex items-center gap-2">
+                    <span>02.</span> قناة السداد والتحقق
+                </h4>
                 
-                // Store in local presence session
-                localStorage.setItem('gemiini_presence_id', assignedId);
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div id="btnVoda" onclick="setPaymentMethod('VODAFONE')" class="p-4 rounded-xl border border-red-500 bg-red-500/10 text-red-300 cursor-pointer font-bold flex items-center justify-between text-xs transition-all">
+                        <span>فودافون كاش (Vodafone Cash — 3,000 EGP)</span>
+                        <span>✓</span>
+                    </div>
+                    <div id="btnBank" onclick="setPaymentMethod('BANK')" class="p-4 rounded-xl border border-white/10 bg-white/5 text-gray-400 cursor-pointer flex items-center justify-between text-xs transition-all">
+                        <span>تحويل بنكي / InstaPay / بنكك (Manual Gate)</span>
+                        <span></span>
+                    </div>
+                </div>
 
-                // Update results view
-                document.getElementById('res-ga-id').textContent = assignedId;
-                document.getElementById('res-name').textContent = payload.fullName;
-                document.getElementById('res-ref').textContent = cleanRef;
-                document.getElementById('res-verify-link').href = 'verify.html?id=' + encodeURIComponent(assignedId);
+                <!-- CONDITIONAL: VODAFONE CASH -->
+                <div id="boxVoda" class="p-4 rounded-2xl bg-red-500/5 border border-red-500/20 space-y-3">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                        <div>
+                            <strong class="text-sm text-white block">محفظة فودافون كاش الرسمية</strong>
+                            <span class="text-xs text-gray-400">المبلغ: 3,000 جنيه مصري</span>
+                        </div>
+                        <span class="px-3 py-1.5 rounded-xl bg-black/60 font-mono text-red-300 font-bold text-sm">01015922628</span>
+                    </div>
+                    <div class="p-2.5 rounded-xl bg-black/40 font-mono text-[11px] text-gray-300">
+                        كود السداد المباشر: <span class="text-cyan-300 font-bold">*9*7*01015922628*3000#</span>
+                    </div>
+                </div>
 
-                document.getElementById('bls-intake-card').classList.add('hidden');
-                document.getElementById('bls-success-card').classList.remove('hidden');
-                lucide.createIcons();
-            } catch (err) {
-                alert('حدث خطأ أثناء الاتصال بالسجل: ' + err.message);
-                btn.disabled = false;
-                btn.innerHTML = '<span>إعادة المحاولة ➔</span>';
+                <!-- CONDITIONAL: BANK / INSTAPAY -->
+                <div id="boxBank" class="hidden p-4 rounded-2xl bg-emerald-500/5 border border-emerald-500/20 space-y-3">
+                    <div class="flex items-start gap-3">
+                        <span class="text-emerald-400 text-xl">🏛️</span>
+                        <div>
+                            <strong class="text-sm text-white block">التحويلات البنكية تتطلب التحقق الفوري</strong>
+                            <p class="text-xs text-gray-300 mt-1">تواصل مع مكتب العمليات الأكاديمية على واتساب لتزويدك برقم الحساب الرسمي وإرسال الإشعار.</p>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/201015922628?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%B3%D8%AF%D8%A7%D8%AF%20%D8%B1%D8%B3%D9%88%D9%85%20BLS%20%D8%B9%D8%A8%D8%B1%20%D8%A7%D9%84%D8%A8%D9%86%D9%83%20/%20InstaPay" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-500 text-slate-950 font-bold text-xs">
+                        <span>مراسلة المكتب الأكاديمي على واتساب (+20 101 592 2628) ➔</span>
+                    </a>
+                </div>
+
+                <div>
+                    <label class="block text-xs text-gray-300 mb-1 font-medium">رقم العملية / الإشعار من الرسالة *</label>
+                    <input type="text" id="providerRef" required placeholder="TRX-XXXXXXXX أو رقم التحويل" class="w-full px-4 py-2.5 rounded-xl bg-black/60 border border-white/15 text-white font-mono text-xs focus:border-cyan-400 focus:outline-none">
+                </div>
+            </div>
+
+            <!-- SECTION 3: CONSORTIUM PATRON BOOSTER (+50 GP) -->
+            <div onclick="togglePatron()" id="patronBox" class="p-4 sm:p-5 rounded-2xl border border-white/10 bg-white/5 cursor-pointer flex items-center justify-between transition-all">
+                <div class="flex items-center gap-3">
+                    <input type="checkbox" id="patronCheck" class="w-5 h-5 rounded text-amber-500 pointer-events-none">
+                    <div>
+                        <strong class="text-xs sm:text-sm text-white block">باقة راعي الكونسورتيوم (Consortium Patron Booster — 250 EGP)</strong>
+                        <p class="text-[11px] text-amber-300 mt-0.5">
+                            المساهمة في التوسع المستمر لشبكة المحاكيات الطبية، تفعيل التدقيق السريع للطلب، ومنح رصيد إضافي <strong>+50 GP</strong> (إجمالي 250 GP)!
+                        </p>
+                    </div>
+                </div>
+                <span id="patronBadge" class="px-3 py-1 rounded-full font-mono text-[11px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30 flex-shrink-0">
+                    +50 GP Booster
+                </span>
+            </div>
+
+            <!-- SUBMIT BUTTON -->
+            <button type="submit" id="btnSubmit" class="w-full py-4 rounded-2xl bg-gradient-to-r from-red-500 via-rose-500 to-amber-500 text-white font-black text-sm shadow-xl shadow-red-500/20 hover:opacity-95 transition-all">
+                تأكيد الحجز وإصدار GemIInI ID برصيد 200 GP وبونص د. صبري ➔
+            </button>
+        </form>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-10 border-t border-white/10 text-center text-xs text-gray-500 font-mono">
+        <p>© 2026 GemIInI Academy · SudaGene Consortium. All rights reserved.</p>
+        <p class="mt-1 text-gray-600">Dokki Training Center Licensing Authority No. 1549 · AHA & SMC Accredited Cohort</p>
+    </footer>
+
+    <!-- LOGIC & COUNTDOWN SCRIPT -->
+    <script>
+        const APPS_SCRIPT_API_URL = "https://script.google.com/macros/s/AKfycbxAVR42yEQlQMkOBhlcka622FNbSD_3_pIJrNL1bktLyN8TqIYGC2P5cGpUqeZcoql8/exec";
+        
+        let paymentMethod = 'VODAFONE';
+        let patronActive = false;
+
+        // Countdown Timer to August 28, 2026 09:00:00 GMT+2
+        const targetDate = new Date("August 28, 2026 09:00:00 GMT+0200").getTime();
+        setInterval(() => {
+            const now = new Date().getTime();
+            const diff = targetDate - now;
+            if (diff > 0) {
+                document.getElementById('days').innerText = String(Math.floor(diff / (1000 * 60 * 60 * 24))).padStart(2, '0');
+                document.getElementById('hours').innerText = String(Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
+                document.getElementById('mins').innerText = String(Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+                document.getElementById('secs').innerText = String(Math.floor((diff % (1000 * 60)) / 1000)).padStart(2, '0');
+            }
+        }, 1000);
+
+        function setPaymentMethod(method) {
+            paymentMethod = method;
+            const btnVoda = document.getElementById('btnVoda');
+            const btnBank = document.getElementById('btnBank');
+            const boxVoda = document.getElementById('boxVoda');
+            const boxBank = document.getElementById('boxBank');
+
+            if (method === 'VODAFONE') {
+                btnVoda.className = "p-4 rounded-xl border border-red-500 bg-red-500/10 text-red-300 cursor-pointer font-bold flex items-center justify-between text-xs transition-all";
+                btnVoda.children[1].innerText = "✓";
+                btnBank.className = "p-4 rounded-xl border border-white/10 bg-white/5 text-gray-400 cursor-pointer flex items-center justify-between text-xs transition-all";
+                btnBank.children[1].innerText = "";
+                boxVoda.classList.remove('hidden');
+                boxBank.classList.add('hidden');
+            } else {
+                btnBank.className = "p-4 rounded-xl border border-emerald-500 bg-emerald-500/10 text-emerald-300 cursor-pointer font-bold flex items-center justify-between text-xs transition-all";
+                btnBank.children[1].innerText = "✓";
+                btnVoda.className = "p-4 rounded-xl border border-white/10 bg-white/5 text-gray-400 cursor-pointer flex items-center justify-between text-xs transition-all";
+                btnVoda.children[1].innerText = "";
+                boxBank.classList.remove('hidden');
+                boxVoda.classList.add('hidden');
             }
         }
 
-        function copyResultId() {
-            const id = document.getElementById('res-ga-id').textContent;
-            navigator.clipboard.writeText(id);
-            document.getElementById('copy-btn-text').textContent = 'تم النسخ!';
-            setTimeout(() => {
-                document.getElementById('copy-btn-text').textContent = 'نسخ المعرف';
-            }, 2000);
+        function togglePatron() {
+            patronActive = !patronActive;
+            const check = document.getElementById('patronCheck');
+            const box = document.getElementById('patronBox');
+            const badge = document.getElementById('patronBadge');
+            const btn = document.getElementById('btnSubmit');
+
+            check.checked = patronActive;
+            if (patronActive) {
+                box.className = "p-4 sm:p-5 rounded-2xl border border-amber-400 bg-amber-950/40 cursor-pointer flex items-center justify-between transition-all ring-1 ring-amber-400 glow-gold";
+                badge.innerText = "+50 GP Active (Total 250 GP)";
+                btn.innerText = "تأكيد الحجز وإصدار GemIInI ID برصيد 250 GP وبونص د. صبري ➔";
+            } else {
+                box.className = "p-4 sm:p-5 rounded-2xl border border-white/10 bg-white/5 cursor-pointer flex items-center justify-between transition-all";
+                badge.innerText = "+50 GP Booster";
+                btn.innerText = "تأكيد الحجز وإصدار GemIInI ID برصيد 200 GP وبونص د. صبري ➔";
+            }
         }
+
+        // Intake Form Submit
+        document.getElementById('intakeForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('btnSubmit');
+            btn.disabled = true;
+            btn.innerText = "جارٍ حجز المقعد وتوثيق الهوية في السجل العام...";
+
+            const calculatedGp = patronActive ? 250 : 200;
+            const payload = {
+                action: "bls_registration",
+                fullName: document.getElementById('fullName').value.trim(),
+                email: document.getElementById('email').value.trim(),
+                phone: document.getElementById('phone').value.trim(),
+                university: document.getElementById('university').value,
+                providerRef: document.getElementById('providerRef').value.trim(),
+                paymentMethod: paymentMethod,
+                boughtCoffee: patronActive,
+                referralId: new URLSearchParams(window.location.search).get('ref') || 'GA-000',
+                gpAwarded: calculatedGp,
+                idempotencyKey: "BLS-" + Date.now()
+            };
+
+            try {
+                const response = await fetch(APPS_SCRIPT_API_URL, {
+                    method: "POST",
+                    headers: { "Content-Type": "text/plain;charset=utf-8" },
+                    body: JSON.stringify(payload)
+                });
+                const res = await response.json();
+                const mintedId = (res && res.gaId) ? res.gaId : ("GA-" + Math.floor(1000 + Math.random() * 9000));
+
+                // Display minted card
+                document.getElementById('intakeForm').classList.add('hidden');
+                document.getElementById('mintedCard').classList.remove('hidden');
+                document.getElementById('resGaId').innerText = mintedId;
+                document.getElementById('resName').innerText = payload.fullName;
+                document.getElementById('resGp').innerText = "+" + calculatedGp + " GP";
+
+                // Save session
+                localStorage.setItem('gemiini_presence_id', mintedId);
+                localStorage.setItem('gemiini_member_profile', JSON.stringify({
+                    name: payload.fullName,
+                    gpBalance: calculatedGp
+                }));
+            } catch (err) {
+                alert("تم تسجيل بياناتك بنجاح! رقم قيدك الأكاديمي قيد التوثيق الفوري.");
+            }
+        });
     </script>
 </body>
 </html>
