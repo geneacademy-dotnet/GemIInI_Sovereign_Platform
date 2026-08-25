@@ -1,6 +1,16 @@
 # Archive and Local Deployments
 archive_backups/
 deploy_hostinger.zip
+deploy.zip
 portal.zip
+dist/
+dist.zip
 .vscode/
 *.log
+
+# Ignore Heavy Build Archives
+*.zip
+*.tar.gz
+node_modules/
+.env.local
+.DS_Store
