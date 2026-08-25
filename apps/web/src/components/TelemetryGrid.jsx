@@ -1,90 +1,78 @@
 /**
  * src/components/TelemetryGrid.jsx
- * Clinical Telemetry & Quantitative Standing Grid
+ * Clinical Telemetry & Diagnostic Quantitative Standing Grid
  */
 
 import React from 'react';
 import { Flame, Target, BookOpen } from 'lucide-react';
+import { useLang } from '@/i18n/LanguageContext';
 
-export default function TelemetryGrid({ ccr = 84, accuracy = 91.4, streak = 18 }) {
-  // SVG Radial Math for CCR Meter
+export default function TelemetryGrid({ ccr = 0, accuracy = 0, streak = 0 }) {
+  const { isRtl } = useLang();
   const radius = 38;
   const circumference = 2 * Math.PI * radius;
   const strokeDashoffset = circumference - (ccr / 100) * circumference;
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full my-6">
-      {/* Card A: Course Completion Rate (CCR) */}
-      <div className="bg-[#04080F] border border-slate-800 rounded-2xl p-5 flex items-center justify-between shadow-lg">
+    <div className="my-6 grid w-full grid-cols-1 gap-4 md:grid-cols-3 font-sans" dir={isRtl ? 'rtl' : 'ltr'}>
+      {/* Card 1: Course Completion Rate */}
+      <div className="flex items-center justify-between rounded-2xl border border-slate-800 bg-[#04080F] p-5 shadow-lg">
         <div>
-          <div className="flex items-center space-x-2 text-slate-400 text-xs font-semibold mb-1">
-            <BookOpen className="w-4 h-4 text-[#00F2FE]" />
-            <span>Course Completion Rate</span>
+          <div className="mb-1 flex items-center gap-2 text-xs font-semibold text-slate-400">
+            <BookOpen className="h-4 w-4 text-[#00F2FE]" strokeWidth={1.8} />
+            <span>{isRtl ? 'نسبة إكمال المنهج (CCR)' : 'Course Completion Rate'}</span>
           </div>
-          <p className="text-2xl font-bold text-white font-mono">{ccr}% <span className="text-xs text-slate-400 font-sans">CCR</span></p>
-          <p className="text-[11px] text-slate-400 mt-1">Weighted module progress</p>
+          <p className="font-mono text-2xl font-bold text-white">{ccr}% <span className="font-sans text-xs text-slate-500">CCR</span></p>
+          <p className="mt-1 text-[11px] text-slate-500">{isRtl ? 'تقدم الوحدات المعتمدة' : 'Weighted module progress'}</p>
         </div>
-
-        {/* Radial SVG Meter */}
-        <div className="relative w-20 h-20 flex items-center justify-center">
-          <svg className="w-full h-full transform -rotate-90">
+        <div className="relative flex h-20 w-20 items-center justify-center">
+          <svg className="h-full w-full -rotate-90 transform">
             <circle cx="40" cy="40" r={radius} stroke="#1E293B" strokeWidth="6" fill="transparent" />
             <circle
-              cx="40"
-              cy="40"
-              r={radius}
-              stroke="#00F2FE"
-              strokeWidth="6"
-              strokeDasharray={circumference}
-              strokeDashoffset={strokeDashoffset}
-              strokeLinecap="round"
-              fill="transparent"
+              cx="40" cy="40" r={radius} stroke="#00F2FE" strokeWidth="6"
+              strokeDasharray={circumference} strokeDashoffset={strokeDashoffset} strokeLinecap="round" fill="transparent"
             />
           </svg>
-          <span className="absolute text-xs font-bold text-white font-mono">{ccr}%</span>
+          <span className="absolute font-mono text-xs font-bold text-white">{ccr}%</span>
         </div>
       </div>
 
-      {/* Card B: Diagnostic First-Pass Accuracy */}
-      <div className="bg-[#04080F] border border-slate-800 rounded-2xl p-5 flex flex-col justify-between shadow-lg">
+      {/* Card 2: Diagnostic Accuracy */}
+      <div className="flex flex-col justify-between rounded-2xl border border-slate-800 bg-[#04080F] p-5 shadow-lg">
         <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-2 text-slate-400 text-xs font-semibold">
-            <Target className="w-4 h-4 text-emerald-400" />
-            <span>First-Pass Accuracy</span>
+          <div className="flex items-center gap-2 text-xs font-semibold text-slate-400">
+            <Target className="h-4 w-4 text-emerald-400" strokeWidth={1.8} />
+            <span>{isRtl ? 'دقة التشخيص الأولى' : 'First-Pass Accuracy'}</span>
           </div>
-          <span className="text-[10px] px-2 py-0.5 bg-emerald-500/10 text-emerald-300 font-semibold rounded-full border border-emerald-500/30">
+          <span className="rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2 py-0.5 text-[10px] font-semibold text-emerald-400">
             MTC™ 3-Step
           </span>
         </div>
         <div className="my-2">
-          <p className="text-3xl font-extrabold text-white font-mono">{accuracy}%</p>
-          <p className="text-[11px] text-slate-400">Simulation block initial score average</p>
+          <p className="font-mono text-3xl font-extrabold text-white">{accuracy}%</p>
+          <p className="text-[11px] text-slate-500">{isRtl ? 'متوسط دقة التقييمات السريرية' : 'Simulation block initial score average'}</p>
         </div>
-        <div className="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
-          <div className="bg-emerald-400 h-full rounded-full" style={{ width: `${accuracy}%` }} />
+        <div className="h-1.5 w-full overflow-hidden rounded-full bg-slate-800">
+          <div className="h-full rounded-full bg-emerald-500 transition-all duration-500" style={{ width: `${accuracy}%` }} />
         </div>
       </div>
 
-      {/* Card C: Active Study Streak */}
-      <div className="bg-[#04080F] border border-slate-800 rounded-2xl p-5 flex flex-col justify-between shadow-lg">
+      {/* Card 3: Study Streak */}
+      <div className="flex flex-col justify-between rounded-2xl border border-slate-800 bg-[#04080F] p-5 shadow-lg">
         <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-2 text-slate-400 text-xs font-semibold">
-            <Flame className="w-4 h-4 text-amber-500" />
-            <span>Study Streak</span>
+          <div className="flex items-center gap-2 text-xs font-semibold text-slate-400">
+            <Flame className="h-4 w-4 text-amber-400" strokeWidth={1.8} />
+            <span>{isRtl ? 'أيام الاستمرارية والنشاط' : 'Study Streak'}</span>
           </div>
-          <span className="text-[10px] px-2 py-0.5 bg-amber-500/10 text-amber-300 font-semibold rounded-full border border-amber-500/30 font-mono">
-            +15% GP Multiplier
-          </span>
+          <span className="text-[10px] font-mono text-amber-400 font-semibold">+15% Multiplier</span>
         </div>
         <div className="my-2">
-          <p className="text-3xl font-extrabold text-white font-mono flex items-center space-x-1.5">
+          <p className="flex items-center gap-1.5 font-mono text-3xl font-extrabold text-white">
             <span>{streak}</span>
-            <span className="text-sm font-sans text-slate-300 font-semibold">Days Active</span>
-            <span className="text-lg">🔥</span>
+            <span className="font-sans text-sm font-semibold text-slate-400">{isRtl ? 'يوم متواصل' : 'Days Active'}</span>
           </p>
-          <p className="text-[11px] text-slate-400">Daily case audits & pod reviews</p>
+          <p className="text-[11px] text-slate-500">{isRtl ? 'المراجعات السريرية وخلايا النشر' : 'Daily case audits & pod reviews'}</p>
         </div>
-        <div className="text-[10px] text-slate-400 font-mono">Next milestone: 21 Days (+20% Acceleration)</div>
       </div>
     </div>
   );

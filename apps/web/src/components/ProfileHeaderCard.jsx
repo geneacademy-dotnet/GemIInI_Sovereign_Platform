@@ -5,79 +5,70 @@
 
 import React, { useState } from 'react';
 import { ShieldCheck, Award, Share2, Check, ExternalLink } from 'lucide-react';
+import { useLang } from '@/i18n/LanguageContext';
 
 export default function ProfileHeaderCard({ member }) {
+  const { isRtl } = useLang();
   const [copied, setCopied] = useState(false);
 
-  const gaId = member?.id || member?.gaId || 'GA-1000';
-  const name = member?.name || 'Dr. Candidate';
+  const gaId = member?.id || member?.gaId || 'GA-UNVERIFIED';
+  const name = member?.name || 'Candidate';
   const role = member?.role || 'Clinical Vanguard';
-  const track = member?.track || 'MTC Licensure';
-  const univ = member?.univ || member?.university || 'University of Khartoum';
-  const batch = member?.batch || "'21";
-  const gp = Number(member?.gp) || 25;
+  const univ = member?.univ || member?.university || 'Canonical Faculty';
+  const gp = Number(member?.gp) || 0;
   const cpdHours = (gp / 100).toFixed(1);
   const isVerified = Boolean(member?.verified);
 
-  // Standardized 3-Part Title
-  const standardizedTitle = `${role} | ${track} | ${univ} ${batch}`;
-
   const handleShareCv = () => {
-    const verifyUrl = `https://members.geneacademy.net/verify/${gaId}`;
+    const verifyUrl = `${window.location.origin}/verify?id=${encodeURIComponent(gaId)}`;
     navigator.clipboard.writeText(verifyUrl);
     setCopied(true);
     setTimeout(() => setCopied(false), 2500);
   };
 
   return (
-    <div className="w-full bg-[#04080F] border border-slate-800 rounded-2xl p-6 sm:p-8 text-white shadow-2xl relative overflow-hidden">
-      {/* Background Ambient Glow */}
-      <div className="absolute top-0 right-0 w-64 h-64 bg-[#B48028]/10 rounded-full blur-3xl pointer-events-none" />
+    <div className="relative w-full overflow-hidden rounded-2xl border border-slate-800 bg-[#04080F] p-6 shadow-2xl sm:p-8 font-sans" dir={isRtl ? 'rtl' : 'ltr'}>
+      {/* Subtle Cyan Glow */}
+      <div className="absolute top-0 right-0 w-80 h-80 bg-[#00F2FE]/5 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 relative z-10">
-        {/* Left: Identity Matrix */}
+      <div className="relative z-10 flex flex-col justify-between gap-6 md:flex-row md:items-center">
         <div className="space-y-3">
-          <div className="flex items-center space-x-3">
-            <span className="px-3.5 py-1 bg-slate-900 border border-slate-700 text-[#00F2FE] font-mono text-sm font-bold rounded-lg tracking-wider">
+          <div className="flex items-center gap-3">
+            <span className="rounded-lg border border-slate-700 bg-slate-900 px-3.5 py-1 font-mono text-sm font-bold tracking-wider text-[#00F2FE]">
               {gaId}
             </span>
             {isVerified ? (
-              <span className="inline-flex items-center space-x-1 px-3 py-1 bg-emerald-500/10 border border-emerald-500/40 text-emerald-400 text-xs font-semibold rounded-full">
-                <ShieldCheck className="w-3.5 h-3.5" />
-                <span>SudaPass Accredited</span>
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-500/40 bg-emerald-500/10 px-3 py-1 text-xs font-semibold text-emerald-400">
+                <ShieldCheck className="h-3.5 w-3.5" strokeWidth={1.8} />
+                <span>{isRtl ? 'عضو سيادي موثق' : 'Verified Sovereign'}</span>
               </span>
             ) : (
-              <span className="px-3 py-1 bg-amber-500/10 border border-amber-500/40 text-amber-300 text-xs font-semibold rounded-full">
-                Provisional Explorer
+              <span className="rounded-full border border-amber-500/40 bg-amber-500/10 px-3 py-1 text-xs font-semibold text-amber-400">
+                {isRtl ? 'قيد التوثيق الأكاديمي' : 'Unverified / In Training'}
               </span>
             )}
           </div>
-
-          <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white">{name}</h1>
-          <p className="text-xs sm:text-sm text-slate-300 font-medium tracking-wide">
-            {standardizedTitle}
-          </p>
+          <h1 className="font-display text-2xl font-extrabold text-white tracking-tight sm:text-3xl">{name}</h1>
+          <p className="text-xs font-medium tracking-wide text-slate-400 sm:text-sm">{role} · {univ}</p>
         </div>
 
-        {/* Right: GP Wallet Pill & Recruiter Share */}
-        <div className="flex flex-col sm:flex-row md:flex-col items-start md:items-end gap-3">
-          <div className="px-5 py-2.5 bg-gradient-to-r from-[#0A0F1D] to-slate-900 border border-[#B48028]/40 rounded-xl shadow-lg flex items-center space-x-3">
-            <Award className="w-5 h-5 text-[#B48028]" />
+        <div className="flex flex-col items-start gap-3 sm:flex-row md:flex-col md:items-end">
+          <div className="flex items-center gap-3 rounded-xl border border-[#B48028]/40 bg-[#0A0F1D] px-5 py-2.5 shadow-lg">
+            <Award className="h-5 w-5 text-[#B48028]" strokeWidth={1.8} />
             <div>
-              <p className="text-xs text-slate-400 uppercase tracking-widest font-bold">CPD Wallet</p>
-              <p className="text-base font-bold text-white font-mono">
-                {gp} GP <span className="text-slate-400 font-normal">|</span> <span className="text-[#00F2FE]">{cpdHours} CPD Hrs</span>
+              <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400">{isRtl ? 'رصيد النقاط والساعات' : 'GP & CPD Balance'}</p>
+              <p className="font-mono text-base font-bold text-white">
+                {gp} GP <span className="font-normal text-slate-600">|</span> <span className="text-[#00F2FE]">{cpdHours} CPD Hrs</span>
               </p>
             </div>
           </div>
-
           <button
             type="button"
             onClick={handleShareCv}
-            className="flex items-center space-x-2 px-4 py-2 bg-slate-900 hover:bg-slate-800 border border-slate-700 text-xs text-slate-200 font-semibold rounded-xl transition-colors shadow-sm"
+            className="flex items-center gap-2 rounded-xl border border-slate-800 bg-slate-900 px-4 py-2 text-xs font-semibold text-slate-200 shadow-sm transition-colors hover:bg-slate-800"
           >
-            {copied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Share2 className="w-3.5 h-3.5 text-slate-400" />}
-            <span>{copied ? 'Digital CV Link Copied' : 'Share Digital CV Link'}</span>
+            {copied ? <Check className="h-3.5 w-3.5 text-emerald-400" /> : <Share2 className="h-3.5 w-3.5 text-slate-400" />}
+            <span>{copied ? (isRtl ? 'تم نسخ رابط التوثيق' : 'Verify link copied') : (isRtl ? 'مشاركة رابط التوثيق' : 'Share verify link')}</span>
           </button>
         </div>
       </div>
