@@ -91,7 +91,7 @@ const BlsWorkshopPage = () => {
                         </h1>
 
                         <p className="text-gray-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
-                            تدريب عملي ومحاكاة سريرية حية بمركز د. صبري للتدريب (ترخيص 1549)، مع توثيق الساعات المعرفية بـ <strong>200 نقطة GP</strong> وفتح بونص التحول الرقمي والسيرة الذاتية السريرية.
+                            تدريب عملي ومحاكاة سريرية حية بمركز د. صبري للتدريب (ترخيص 1549)، مع توثيق الساعات المعرفية بـ <strong>200 نقطة GP</strong> وحقيبة التحول الرقمي والسيرة الذاتية المهنية من أكاديمية جيميني.
                         </p>
 
                         {/* LIVE COUNTDOWN ENGINE */}
@@ -121,7 +121,7 @@ const BlsWorkshopPage = () => {
                             <div className="mt-4 pt-3 border-t border-white/10 flex flex-wrap items-center justify-between text-xs text-gray-400 font-mono gap-2">
                                 <span className="flex items-center gap-1.5">
                                     <MapPin className="w-4 h-4 text-red-400" />
-                                    مركز د. صبري — الدقي، القاهرة
+                                    مركز د. صبري للتدريب (ترخيص 1549) — الدقي، القاهرة
                                 </span>
                                 <span className="text-red-400 font-bold flex items-center gap-1">
                                     <Flame className="w-4 h-4" />
@@ -153,7 +153,7 @@ const BlsWorkshopPage = () => {
                                 <tbody className="divide-y divide-white/5">
                                     <tr>
                                         <td className="py-4 font-bold text-white">
-                                            ورشة الإنعاش القلبي الرئوي العملي (BLS Provider)
+                                            ورشة الإنعاش القلبي الرئوي العملي (BLS Provider) — مركز د. صبري
                                             <span className="block text-[11px] text-gray-400">محاكاة عملية واختبار معتمد من AHA & SMC</span>
                                         </td>
                                         <td className="py-4 text-center font-mono text-cyan-300 font-bold">3,000 ج.م</td>
@@ -177,7 +177,7 @@ const BlsWorkshopPage = () => {
                                     </tr>
                                     <tr>
                                         <td className="py-4 font-bold text-white">
-                                            بونص حصري: ورشة التحول الرقمي والسيرة الذاتية (د. صبري)
+                                            بونص حصري: حقيبة التحول الرقمي وهندسة السيرة الذاتية (Gene Academy)
                                             <span className="block text-[11px] text-gray-400">تصميم وتحديث السيرة الذاتية الطبية للمنح والوظائف</span>
                                         </td>
                                         <td className="py-4 text-center font-mono text-purple-300 font-bold">بونص مجاني</td>
@@ -187,21 +187,21 @@ const BlsWorkshopPage = () => {
                             </table>
                         </div>
 
-                        {/* DR. MOHAMED SABRI BONUS BANNER */}
-                        <div className="p-6 rounded-3xl bg-gradient-to-r from-amber-500/15 via-purple-500/10 to-cyan-500/15 border border-amber-500/30 flex flex-col sm:flex-row items-center justify-between gap-4">
+                        {/* GENE ACADEMY DIGITAL BONUS BANNER */}
+                        <div className="p-6 rounded-3xl bg-gradient-to-r from-purple-500/15 via-indigo-500/10 to-cyan-500/15 border border-purple-500/30 flex flex-col sm:flex-row items-center justify-between gap-4">
                             <div className="flex items-center gap-4">
-                                <div className="w-12 h-12 rounded-2xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-2xl flex-shrink-0">
+                                <div className="w-12 h-12 rounded-2xl bg-purple-500/20 text-purple-300 flex items-center justify-center text-2xl flex-shrink-0">
                                     🎁
                                 </div>
                                 <div>
-                                    <span className="text-[10px] font-mono font-bold text-amber-400 uppercase tracking-widest block">EXCLUSIVE BONUS UNLOCKED</span>
+                                    <span className="text-[10px] font-mono font-bold text-purple-400 uppercase tracking-widest block">GENE ACADEMY EXCLUSIVE FEATURE</span>
                                     <h4 className="text-sm sm:text-base font-bold text-white mt-0.5">
-                                        ورشة التحول الرقمي وتصميم السيرة الذاتية السريرية — تقديم: د. محمد صبري
+                                        حقيبة التحول الرقمي وهندسة السيرة الذاتية والملف المهني (LinkedIn & CV Portfolio)
                                     </h4>
-                                    <p className="text-xs text-gray-300 mt-1">تُفعّل الحقيبة التدريبية فوراً داخل لوحة تحكم كل طبيب يسجل عبر هذه البوابة.</p>
+                                    <p className="text-xs text-gray-300 mt-1">ميزة حصرية من أكاديمية جيميني تُفعّل تلقائياً داخل لوحة العضو عند إتمام الحجز.</p>
                                 </div>
                             </div>
-                            <span className="px-4 py-2 rounded-xl bg-amber-500 text-slate-950 font-bold text-xs font-mono flex-shrink-0">
+                            <span className="px-4 py-2 rounded-xl bg-purple-500 text-white font-bold text-xs font-mono flex-shrink-0">
                                 مشمولة مجاناً
                             </span>
                         </div>
