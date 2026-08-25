@@ -3,6 +3,7 @@ import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { Dna, Globe, LogOut, Menu, ShieldCheck, X } from 'lucide-react';
 import { useLang } from '@/i18n/LanguageContext';
 import { useAuth } from '@/contexts/AuthContext';
+import IdGateModal from '@/components/IdGateModal';
 import { sessionRef } from '@/lib/geneApi';
 import { cn } from '@/lib/utils';
 
@@ -51,7 +52,8 @@ export const Brand = ({ light = false }) => {
 
 const Header = () => {
     const { t, lang, toggleLang } = useLang();
-    const { isAuthed, logout } = useAuth();
+    const { isAuthed, logout, setUser } = useAuth();
+  const [isGateOpen, setIsGateOpen] = useState(false);
     const navigate = useNavigate();
     const [open, setOpen] = useState(false);
     const links = isAuthed ? memberLinks : publicLinks;
@@ -200,12 +202,22 @@ const Footer = () => {
     );
 };
 
-const Layout = ({ children }) => (
-    <div className="flex min-h-screen flex-col">
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
-    </div>
-);
+const Layout = ({ children }) => {
+    const [isGateOpen, setIsGateOpen] = useState(false);
+    const { setUser } = useAuth();
+
+    return (
+        <div className="flex min-h-screen flex-col">
+            <Header onOpenGate={() => setIsGateOpen(true)} />
+            <main className="flex-1">{children}</main>
+            <Footer />
+            <IdGateModal 
+                isOpen={isGateOpen} 
+                onClose={() => setIsGateOpen(false)} 
+                onHydrateProfile={(m) => { if (setUser) setUser(m); }} 
+            />
+        </div>
+    );
+};
 
 export default Layout;
