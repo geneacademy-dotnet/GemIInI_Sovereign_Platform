@@ -249,7 +249,41 @@ export const submitConciergeFastTrack = async (payload) => {
   return { status: 'success', message: 'Fast-track logged locally' };
 };
 
+
+/** Desk 2 Atomic 60-Second Portal Intake Gateway */
+export const submitPortalIntake = async (payload) => {
+  try {
+    if (isRemoteConfigured()) {
+      const data = await callRemote('portal_intake', payload, 'POST');
+      if (data && data.status === 'success') {
+        localStorage.setItem('gemiini_sovereign_session', JSON.stringify(data));
+        return data;
+      }
+      throw new Error(data?.message || 'Submission rejected');
+    }
+    // Local / Offline fallback
+    const minted = {
+      status: 'success',
+      gaId: payload.gaId || `GA-${Math.floor(6300 + Math.random() * 900)}`,
+      gpBalance: 25,
+      tier: 'EXPLORER',
+      message: 'Intake transaction committed locally.'
+    };
+    localStorage.setItem('gemiini_sovereign_session', JSON.stringify(minted));
+    return minted;
+  } catch (err) {
+    // Fail-Closed Queueing
+    try {
+      const queue = JSON.parse(localStorage.getItem('pending_registrations') || '[]');
+      queue.push({ payload, timestamp: new Date().toISOString() });
+      localStorage.setItem('pending_registrations', JSON.stringify(queue));
+    } catch {}
+    throw err;
+  }
+};
+
 export const SovereignClient = {
+  submitPortalIntake,
   submitFastTrack: submitConciergeFastTrack,
   lookup: lookupMember,
   register: submitRegistration,

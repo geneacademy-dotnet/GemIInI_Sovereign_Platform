@@ -39,6 +39,7 @@ function App() {
                         <Route path="/verify" element={<VerifyPage />} />
                         <Route path="/certifications" element={<CertificationsPage />} />
                         <Route path="/register" element={<RegisterPage />} />
+        <Route path="/join" element={<RegisterPage />} />
                         <Route path="/bls" element={<BlsWorkshopPage />} />
         <Route path="/register/bls" element={<BlsWorkshopPage />} />
         <Route path="/register/sudan" element={<BlsWorkshopPage />} />
