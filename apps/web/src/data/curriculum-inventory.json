@@ -3,7 +3,7 @@
     "gemiini": {
       "name": "GemIInI Academy",
       "code": "GEMIINI",
-      "badge": "Clinical Licensure & Fellowship",
+      "badge": "Clinical Licensure & Fellowships",
       "color": "hsl(173, 80%, 40%)",
       "theme": "Teal"
     },
@@ -17,7 +17,7 @@
     "glomet": {
       "name": "GLOMEt HQ",
       "code": "GLOMET",
-      "badge": "B2B Infrastructure & Logistics",
+      "badge": "B2B Infrastructure & Supply",
       "color": "hsl(43, 96%, 56%)",
       "theme": "Gold"
     }
@@ -26,136 +26,136 @@
     {
       "id": "tier_1_active",
       "label": {
-        "en": "Tier 1: Modules We Do Provide (Active Curriculum)",
-        "ar": "المستوى الأول: البرامج المعتمدة والمفعّلة (المنهج النشط)"
+        "en": "Tier 1: Modules We Do Provide (Active Catalog)",
+        "ar": "المستوى الأول: البرامج المعتمدة والمفعّلة (الكتالوج النشط)"
       },
-      "description": "Foundational and core offerings currently active across clinical licensure, molecular biology, surgical skills, and B2B supply chains.",
+      "description": "Fully established, production-ready modules currently running across clinical licensure, international fellowships, molecular medicine, and B2B infrastructure.",
       "modules": [
         {
           "code": "SMC-101",
           "title": "Internal Medicine & Pathophysiology (MTC™ 1.0)",
           "title_ar": "الباطنية العامة والفيزيولوجيا المرضية",
-          "category": "Clinical Licensure",
+          "track": "Clinical Licensure",
           "pillar": "gemiini",
           "level": 4,
           "credits": "3.0 ECTS",
-          "focus": "High-yield acute care, fluid/electrolyte management, DKA, and ABG interpretation."
+          "focus": "High-yield acute care, fluid/electrolyte management, DKA protocols, and ABG interpretation."
         },
         {
           "code": "SMC-102",
           "title": "General Surgery & Trauma Emergencies (MTC™ 2.0)",
           "title_ar": "الجراحة العامة وطوارئ الإصابات",
-          "category": "Clinical Licensure",
+          "track": "Clinical Licensure",
           "pillar": "gemiini",
           "level": 4,
           "credits": "3.0 ECTS",
-          "focus": "Surgical emergencies, acute abdomen triage, and tension pneumothorax management."
+          "focus": "Practical surgical emergency triage, acute abdomen management, and tension pneumothorax protocols."
         },
         {
           "code": "SMC-103",
           "title": "Obstetrics & Gynecology (MTC™ 3.0)",
           "title_ar": "النساء والتوليد",
-          "category": "Clinical Licensure",
+          "track": "Clinical Licensure",
           "pillar": "gemiini",
           "level": 4,
           "credits": "3.0 ECTS",
-          "focus": "PPH protocols, pre-eclampsia management, and CTG interpretation."
+          "focus": "Maternal-fetal clinical guidelines, PPH emergency protocols, pre-eclampsia, and CTG interpretation."
         },
         {
           "code": "SMC-104",
           "title": "Pediatrics & Neonatology (MTC™ 4.0)",
           "title_ar": "طب الأطفال وحديثي الولادة",
-          "category": "Clinical Licensure",
+          "track": "Clinical Licensure",
           "pillar": "gemiini",
           "level": 4,
           "credits": "3.0 ECTS",
-          "focus": "NRP algorithms, severe dehydration, and pediatric airway care."
+          "focus": "Core pediatric and neonatal care focusing on NRP resuscitation algorithms and severe dehydration management."
         },
         {
           "code": "SMC-105",
           "title": "Medical Ethics & Forensic Medicine (MTC™ 5.0)",
           "title_ar": "الأخلاقيات الطبية والطب الشرعي",
-          "category": "Clinical Licensure",
+          "track": "Clinical Licensure",
           "pillar": "gemiini",
           "level": 3,
           "credits": "2.0 ECTS",
-          "focus": "Informed consent, death certification, and medical law."
+          "focus": "Medical law, emergency informed consent, death certification, and forensic traumatology."
         },
         {
           "code": "SMC-106",
           "title": "Clinical Pharmacology & Toxicology (MTC™ 6.0)",
           "title_ar": "علم الأدوية السريري والسموم",
-          "category": "Clinical Licensure",
+          "track": "Clinical Licensure",
           "pillar": "gemiini",
           "level": 4,
           "credits": "2.5 ECTS",
-          "focus": "Antimicrobial stewardship, drug titration, and emergency toxicology."
+          "focus": "Applied ward pharmacology, antimicrobial stewardship, therapeutic drug titration, and emergency toxicology."
         },
         {
           "code": "SMC-107",
           "title": "Diagnostic Radiology & Lab Medicine (MTC™ 7.0)",
           "title_ar": "الأشعة التشخيصية والطب المخبري",
-          "category": "Clinical Licensure",
+          "track": "Clinical Licensure",
           "pillar": "gemiini",
           "level": 4,
           "credits": "2.5 ECTS",
-          "focus": "Chest X-rays, emergency brain CTs, and FAST ultrasounds."
+          "focus": "Systematic interpretation of chest X-rays, emergency brain CTs, FAST ultrasounds, and lab biomarkers."
         },
         {
           "code": "SMC-108",
           "title": "Community Medicine & Epidemiology (MTC™ 8.0)",
           "title_ar": "طب المجتمع والوبائيات",
-          "category": "Clinical Licensure",
+          "track": "Clinical Licensure",
           "pillar": "gemiini",
           "level": 3,
           "credits": "2.0 ECTS",
-          "focus": "Outbreak investigation, vaccination schedules, and biostatistics."
+          "focus": "Public health, outbreak investigation, regional vaccination schedules, and board-level biostatistics."
         },
         {
           "code": "SURG-201",
           "title": "MRCS Part A: Foundation Sciences & Critical Care",
           "title_ar": "زمالة الجراحة البريطانية MRCS Part A",
-          "category": "International Fellowships",
+          "track": "International Fellowships",
           "pillar": "gemiini",
           "level": 5,
           "credits": "5.0 ECTS",
-          "focus": "Regional surgical anatomy, pathology, and perioperative care for UK/Irish surgical colleges."
+          "focus": "Comprehensive preparation for the Intercollegiate MRCS Part A exam covering regional anatomy, pathology, and perioperative care."
         },
         {
           "code": "GERM-206",
           "title": "German Medical License (Approbation) & FSP Track",
           "title_ar": "المسار الطبي الألماني (Approbation & FSP)",
-          "category": "International Fellowships",
+          "track": "International Fellowships",
           "pillar": "gemiini",
           "level": 5,
           "credits": "6.0 ECTS",
-          "focus": "Language and clinical pathway (FSP C1 / KP) for full medical licensure in Germany."
+          "focus": "Complete language and clinical pathway (Fachsprachprüfung C1 and Kenntnisprüfung) for medical licensing in Germany."
         },
         {
           "code": "SKILL-301",
           "title": "Basic Surgical Skills (BSS-1 & BSS-2) Cairo Cohort",
           "title_ar": "المهارات الجراحية الأساسية (دفعة القاهرة)",
-          "category": "Surgical & Simulation Skills",
+          "track": "Surgical & Simulation Skills",
           "pillar": "gemiini",
           "level": 4,
           "credits": "2.0 ECTS",
-          "focus": "Hands-on suturing, knot-tying, tissue handling, and laparoscopic box trainer navigation."
+          "focus": "Hands-on simulation covering instrument handling, suturing, knot-tying, and laparoscopic box trainer navigation."
         },
         {
           "code": "SKILL-303",
           "title": "Basic Life Support (BLS) & CPR Certification",
           "title_ar": "شهادة الدعم الحياتي الأساسي والإنعاش القلبي (BLS)",
-          "category": "Surgical & Simulation Skills",
+          "track": "Surgical & Simulation Skills",
           "pillar": "gemiini",
           "level": 3,
           "credits": "1.5 ECTS",
-          "focus": "AHA-compliant resuscitation, AED deployment, Dokki Cairo hands-on + Kuwait online accredited track."
+          "focus": "Official AHA-compliant clinical resuscitation, AED deployment, team dynamics (Dokki Cairo hands-on + Kuwait online accredited track)."
         },
         {
           "code": "MM-101",
           "title": "Molecular Medicine 1.0: DNA Architecture",
           "title_ar": "الطب الجزيئي 1.0: بنية الحمض النووي DNA",
-          "category": "Molecular Medicine",
+          "track": "Molecular Medicine",
           "pillar": "geneacademy",
           "level": 5,
           "credits": "2.0 ECTS",
@@ -165,7 +165,7 @@
           "code": "MM-102",
           "title": "Molecular Medicine 2.0: RNA Biology & Transcription",
           "title_ar": "الطب الجزيئي 2.0: بيولوجيا الحمض النووي الريبي RNA",
-          "category": "Molecular Medicine",
+          "track": "Molecular Medicine",
           "pillar": "geneacademy",
           "level": 5,
           "credits": "2.0 ECTS",
@@ -175,7 +175,7 @@
           "code": "MM-104",
           "title": "Molecular Medicine 4.0: Oncology & Tumor Genetics",
           "title_ar": "الطب الجزيئي 4.0: الوراثة والجينات السرطانية",
-          "category": "Molecular Medicine",
+          "track": "Molecular Medicine",
           "pillar": "geneacademy",
           "level": 5,
           "credits": "2.0 ECTS",
@@ -185,7 +185,7 @@
           "code": "MM-105",
           "title": "Molecular Medicine 5.0: Recombinant DNA & CRISPR",
           "title_ar": "الطب الجزيئي 5.0: تقنيات DNA المؤتلف وتعديل الجينات CRISPR",
-          "category": "Molecular Medicine",
+          "track": "Molecular Medicine",
           "pillar": "geneacademy",
           "level": 5,
           "credits": "2.0 ECTS",
@@ -195,7 +195,7 @@
           "code": "MM-108",
           "title": "Molecular Medicine 8.0: Clinical Exome Sequencing (WES)",
           "title_ar": "الطب الجزيئي 8.0: التسلسل السريري للإكسوم الشامل WES",
-          "category": "Molecular Medicine",
+          "track": "Molecular Medicine",
           "pillar": "geneacademy",
           "level": 5,
           "credits": "3.0 ECTS",
@@ -205,57 +205,116 @@
           "code": "POD-401",
           "title": "15:5:1 Research Pods: Translational Oncology",
           "title_ar": "كبسولات الأبحاث 15:5:1: أورام الطب الانتقالي",
-          "category": "Research Mentorship",
+          "track": "Research Mentorship",
           "pillar": "geneacademy",
           "level": 5,
           "credits": "4.0 ECTS",
-          "focus": "Collaborative active research cohorts investigating ctDNA and cell-free RNA signatures."
+          "focus": "Collaborative active research cohorts investigating circulating tumor DNA (ctDNA) and cell-free RNA signatures."
         },
         {
           "code": "RESC-501",
           "title": "The 100 Papers Project & Thesis Support",
           "title_ar": "مشروع 100 ورقة بحثية ودعم الأطروحات",
-          "category": "Academic Rescue",
+          "track": "Academic Rescue",
           "pillar": "geneacademy",
           "level": 5,
           "credits": "5.0 ECTS",
-          "focus": "Academic rescue and mentorship for displaced Master's/PhD candidates to finalize theses and publish."
+          "focus": "Academic rescue and mentorship for displaced Master's/PhD candidates to finalize theses and publish in high-impact journals."
         },
         {
           "code": "GLOM-601",
           "title": "Turnkey Medical Laboratory Setup (B2B)",
           "title_ar": "تجهيز المختبرات الطبية المتكاملة (B2B)",
-          "category": "B2B Infrastructure",
+          "track": "B2B Infrastructure",
           "pillar": "glomet",
           "level": 5,
           "credits": "B2B / Infra",
-          "focus": "End-to-end laboratory architecture, diagnostics procurement, and PCR cleanrooms."
+          "focus": "End-to-end clinical diagnostic facility design, equipment procurement, and ISO-compliant PCR cleanrooms."
         },
         {
           "code": "GLOM-701",
           "title": "Reagent Supply Chain & Cold-Chain Logistics",
           "title_ar": "سلاسل إمداد الكواشف واللوجستيات المبردة",
-          "category": "B2B Logistics",
+          "track": "B2B Logistics",
           "pillar": "glomet",
           "level": 5,
           "credits": "B2B / Supply",
-          "focus": "Medical diagnostic supply forecasting, cold-chain preservation, and regional distribution."
+          "focus": "Medical diagnostic supply forecasting, cold-chain preservation, and regional distributor logistics."
         }
       ]
     },
     {
       "id": "tier_2_expansion",
       "label": {
-        "en": "Tier 2: Modules We Could Provide (Scalable Extensions)",
+        "en": "Tier 2: Modules We Could Provide (Expansion Pipeline)",
         "ar": "المستوى الثاني: برامج التوسع والجاهزية المستقبلية"
       },
-      "description": "High-demand tracks derived from intake surveys, language requirements, and crisis adaptation frameworks.",
+      "description": "Pre-clinical foundational extensions, crisis genomics adaptation, and high-demand international preparation tracks.",
       "modules": [
+        {
+          "code": "ANAT-01",
+          "title": "Gross & Microscopic Anatomy",
+          "title_ar": "التشريح العياني والمجهري الأساسي",
+          "track": "Pre-Clinical Foundations",
+          "pillar": "gemiini",
+          "level": 2,
+          "credits": "4.0 ECTS",
+          "focus": "Core pre-clinical foundational structural mastery covering osteology, organ systems, and tissue histology."
+        },
+        {
+          "code": "PHYS-01",
+          "title": "Human System Physiology",
+          "title_ar": "علم وظائف الأعضاء (الفيزيولوجيا البشرية)",
+          "track": "Pre-Clinical Foundations",
+          "pillar": "gemiini",
+          "level": 2,
+          "credits": "4.0 ECTS",
+          "focus": "Comprehensive systemic functional mechanics, cellular transport, neurophysiology, and hemodynamic regulation."
+        },
+        {
+          "code": "PATH-01",
+          "title": "General & Systemic Pathology",
+          "title_ar": "علم الأمراض العام والجهازي",
+          "track": "Pre-Clinical Foundations",
+          "pillar": "gemiini",
+          "level": 3,
+          "credits": "4.0 ECTS",
+          "focus": "Bridging fundamental cellular injury mechanisms, inflammation, neoplasia, and organ system disease manifestations."
+        },
+        {
+          "code": "NEUR-01",
+          "title": "Neuroanatomy & Clinical Neurology Foundations",
+          "title_ar": "تشريح الجهاز العصبي وأسس الأعصاب السريرية",
+          "track": "Pre-Clinical Foundations",
+          "pillar": "gemiini",
+          "level": 3,
+          "credits": "3.0 ECTS",
+          "focus": "Detailed structural and tract mapping of the central and peripheral nervous systems with clinical correlation."
+        },
+        {
+          "code": "BIOINF-01",
+          "title": "Bioinformatics & Computable Biomedical Knowledge",
+          "track": "Computational Biology",
+          "pillar": "geneacademy",
+          "level": 4,
+          "credits": "3.5 ECTS",
+          "focus": "Advanced computational data analysis techniques for genomics, transcriptomics, and biomedical ontology exploration."
+        },
+        {
+          "code": "AI-MED-01",
+          "title": "Artificial Intelligence in Modern Medicine",
+          "title_ar": "الذكاء الاصطناعي في الطب المعاصر",
+          "track": "Medical AI",
+          "pillar": "geneacademy",
+          "level": 4,
+          "credits": "3.0 ECTS",
+          "focus": "Exploring machine learning diagnostic tools, radiographic computer vision models, and predictive clinical algorithms."
+        },
         {
           "code": "MMG-701",
           "title": "Advanced Medical Genetics & Genomics (Crisis Adaptation)",
           "title_ar": "علم الوراثة والجينوم الطبي المتقدم (التكيف في مناطق الأزمات)",
-          "category": "Crisis Genomics",
+          "track": "Crisis Genomics",
           "pillar": "geneacademy",
           "level": 5,
           "credits": "4.0 ECTS",
@@ -265,7 +324,7 @@
           "code": "MMG-702",
           "title": "Clinical Genetic Pedigree Analysis & Counseling",
           "title_ar": "تحليل شجرة العائلة الوراثية والاستشارة الجينية السريرية",
-          "category": "Clinical Genomics",
+          "track": "Clinical Genomics",
           "pillar": "geneacademy",
           "level": 5,
           "credits": "3.0 ECTS",
@@ -275,7 +334,7 @@
           "code": "MMG-703",
           "title": "Genomic Epidemiology & Outbreak Surveillance",
           "title_ar": "الوبائيات الجينية وترصد الفاشيات المرضية",
-          "category": "Epidemiology",
+          "track": "Epidemiology",
           "pillar": "geneacademy",
           "level": 5,
           "credits": "3.0 ECTS",
@@ -285,27 +344,17 @@
           "code": "LANG-101",
           "title": "OET / IELTS Academic Medical Preparation Tracks",
           "title_ar": "مسارات الإعداد اللغوي الطبي الأكاديمي (OET / IELTS)",
-          "category": "Language & Licensure",
+          "track": "Language & Licensure",
           "pillar": "gemiini",
           "level": 4,
           "credits": "3.0 ECTS",
-          "focus": "Specialized English language modules tailored for international medical councils (GMC UK, IMC Ireland, AHPRA Australia)."
-        },
-        {
-          "code": "USMLE-202",
-          "title": "USMLE Step 1 & Step 2 CK Preparation Courses",
-          "title_ar": "مسار الإعداد للمعادلة الأمريكية USMLE Step 1 & Step 2 CK",
-          "category": "International Fellowships",
-          "pillar": "gemiini",
-          "level": 5,
-          "credits": "6.0 ECTS",
-          "focus": "Structured high-yield clinical science and board review bridging molecular mechanisms to US clinical vignette logic."
+          "focus": "Specialized medical English language modules tailored for international medical councils (GMC UK, IMC Ireland, AHPRA Australia)."
         },
         {
           "code": "SURG-202",
           "title": "MRCS Part B OSCE Preparation",
           "title_ar": "الإعداد العملي لاختبار MRCS Part B OSCE",
-          "category": "Surgical Fellowships",
+          "track": "Surgical Fellowships",
           "pillar": "gemiini",
           "level": 5,
           "credits": "4.0 ECTS",
@@ -315,7 +364,7 @@
           "code": "RESC-502",
           "title": "Advanced Clinical Research Design & Methodology",
           "title_ar": "تصميم الأبحاث السريرية والمنهجية المتقدمة",
-          "category": "Research Design",
+          "track": "Research Design",
           "pillar": "geneacademy",
           "level": 5,
           "credits": "3.0 ECTS",
@@ -326,16 +375,47 @@
     {
       "id": "tier_3_strategic",
       "label": {
-        "en": "Tier 3: Modules We Should Provide (Strategic Roadmap Additions)",
-        "ar": "المستوى الثالث: الركائز الاستراتيجية وخارطة الطريق المستقبلية"
+        "en": "Tier 3: Modules We Should Provide (Strategic Priorities & Board Mastery)",
+        "ar": "المستوى الثالث: الركائز الاستراتيجية والزمالات الدولية الكبرى"
       },
-      "description": "High-impact priorities aligned with global clinical safety, AI precision medicine, and digital health governance.",
+      "description": "High-priority international board suites, clinical safety compliance, and healthcare leadership architectures.",
       "modules": [
+        {
+          "code": "USMLE-SLEDGE",
+          "title": "USMLE Step 1, 2, & 3 Preparation ('The Sledgehammer' Track)",
+          "title_ar": "برنامج المعادلة الأمريكية الشامل USMLE (مسار Sledgehammer المكثف)",
+          "track": "International Boards",
+          "pillar": "gemiini",
+          "level": 5,
+          "credits": "12.0 ECTS",
+          "hours": "500 Hours",
+          "focus": "Intensive 500-hour comprehensive preparation suite targeting international residency matching across USMLE Step 1, Step 2 CK, and Step 3."
+        },
+        {
+          "code": "PLAB-UK",
+          "title": "PLAB Preparation Pathway (PLAB 1 & 2 / UKMLA)",
+          "title_ar": "مسار المعادلة البريطانية PLAB / UKMLA",
+          "track": "International Boards",
+          "pillar": "gemiini",
+          "level": 5,
+          "credits": "6.0 ECTS",
+          "focus": "Targeted clinical and theoretical preparation for UK General Medical Council (GMC) validation and NHS clinical onboarding."
+        },
+        {
+          "code": "MRCP-UK",
+          "title": "MRCP Masterclass Track (Part 1, Part 2 & PACES)",
+          "title_ar": "ماستركلاس زمالة الباطنية البريطانية MRCP",
+          "track": "International Boards",
+          "pillar": "gemiini",
+          "level": 5,
+          "credits": "8.0 ECTS",
+          "focus": "Structured institutional preparation for Membership of the Royal Colleges of Physicians across theory and bedside PACES stations."
+        },
         {
           "code": "MTC-000",
           "title": "Clinical Documentation & Technical Writing Standards (MTC™ Compliance Module)",
           "title_ar": "معايير التوثيق السريري والكتابة الطبية الاحترافية (وحدة الامتثال MTC™)",
-          "category": "Academic Governance",
+          "track": "Academic Governance",
           "pillar": "gemiini",
           "level": 5,
           "credits": "2.0 ECTS / 1.5 SCH",
@@ -391,7 +471,7 @@
           "code": "AI-601",
           "title": "AI-Driven Clinical Decision Support & Variant Interpretation",
           "title_ar": "دعم القرار السريري بالذكاء الاصطناعي وتفسير المتغيرات الجينية",
-          "category": "Precision Medicine",
+          "track": "Medical AI & Genomics",
           "pillar": "geneacademy",
           "level": 5,
           "credits": "4.0 ECTS",
@@ -401,7 +481,7 @@
           "code": "TELE-301",
           "title": "Digital Health & Telemedicine in Conflict Zones",
           "title_ar": "الصحة الرقمية والطب الاتصالي في مناطق النزاعات",
-          "category": "Digital Health",
+          "track": "Digital Health",
           "pillar": "gemiini",
           "level": 4,
           "credits": "3.0 ECTS",
@@ -411,7 +491,7 @@
           "code": "TECH-201",
           "title": "Tech for Doctors & Health Informatics",
           "title_ar": "التقنية للأطباء والمعلوماتية الصحية السريرية",
-          "category": "Health Informatics",
+          "track": "Health Informatics",
           "pillar": "gemiini",
           "level": 4,
           "credits": "3.0 ECTS",
@@ -421,7 +501,7 @@
           "code": "LEAD-501",
           "title": "Medical Leadership & Public Health Policy",
           "title_ar": "القيادة الطبية وحوكمة السياسات الصحية العامة",
-          "category": "Leadership & Policy",
+          "track": "Leadership & Policy",
           "pillar": "gemiini",
           "level": 5,
           "credits": "3.0 ECTS",
@@ -431,7 +511,7 @@
           "code": "PALS-302",
           "title": "Advanced Neonatal & Pediatric Life Support (NRP / PALS Simulation)",
           "title_ar": "الإنعاش المتقدم للأطفال وحديثي الولادة (محاكاة NRP / PALS)",
-          "category": "Simulation & Critical Care",
+          "track": "Simulation & Critical Care",
           "pillar": "gemiini",
           "level": 4,
           "credits": "2.0 ECTS",
