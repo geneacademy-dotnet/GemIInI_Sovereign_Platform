@@ -26,10 +26,11 @@
     {
       "id": "tier_1_active",
       "label": {
-        "en": "Tier 1: Modules We Do Provide (Active Core & Operational)",
-        "ar": "المستوى الأول: البرامج المعتمدة والمفعّلة (المنهج الأساسي والتشغيلي)"
+        "en": "1. Modules We Do Provide (Active Core & Operational)",
+        "ar": "١. البرامج المعتمدة والمفعّلة (المنهج الأساسي والتشغيلي)"
       },
-      "description": "Currently active, fully calibrated with sanitized clinical language, and part of the core academy and infrastructure tracks.",
+      "description": "These modules are currently active, fully calibrated with sanitized clinical language, and part of the core academy and infrastructure tracks.",
+      "description_ar": "هذه البرامج مفعّلة حالياً بالكامل ومعايرة بلغة سريرية دقيقة، وتشكل المسارات الأساسية للأكاديمية والبنية التحتية.",
       "modules": [
         {
           "code": "SMC-101",
@@ -69,7 +70,7 @@
           "pillar": "gemiini",
           "level": 4,
           "credits": "3.0 ECTS",
-          "focus": "Core pediatric care, NRP algorithms, severe dehydration, and pediatric airway management."
+          "focus": "Core pediatric care, NRP algorithms, dehydration, and pediatric airway management."
         },
         {
           "code": "SMC-105",
@@ -89,7 +90,7 @@
           "pillar": "gemiini",
           "level": 4,
           "credits": "2.5 ECTS",
-          "focus": "Applied pharmacology, antimicrobial stewardship, therapeutic drug titration, and emergency toxicology."
+          "focus": "Applied pharmacology, antimicrobial stewardship, and emergency toxicology."
         },
         {
           "code": "SMC-107",
@@ -109,7 +110,7 @@
           "pillar": "gemiini",
           "level": 3,
           "credits": "2.0 ECTS",
-          "focus": "Outbreak investigation, vaccination schedules, and board-level biostatistics."
+          "focus": "Outbreak investigation, vaccination schedules, and biostatistics."
         },
         {
           "code": "SURG-201",
@@ -139,7 +140,7 @@
           "pillar": "gemiini",
           "level": 4,
           "credits": "2.0 ECTS",
-          "focus": "Hands-on simulation covering suturing geometry, anastomoses, and laparoscopy box trainer navigation."
+          "focus": "Hands-on simulation covering suturing geometry, anastomoses, and laparoscopy."
         },
         {
           "code": "SKILL-303",
@@ -153,13 +154,13 @@
         },
         {
           "code": "MM-101-108",
-          "title": "Molecular Medicine Series (1.0 to 8.0)",
+          "title": "GeneAcademy Molecular Medicine Series (DNA, RNA, Oncology, CRISPR, and WES)",
           "title_ar": "سلسلة الطب الجزيئي 1.0 إلى 8.0 (DNA, RNA, Oncology, CRISPR, WES)",
           "track": "Molecular Medicine",
           "pillar": "geneacademy",
           "level": 5,
           "credits": "8.0 ECTS",
-          "focus": "Advanced genetic architecture, clinical transcriptomics, and next-generation sequencing pipelines (DNA, RNA, Oncology, CRISPR, and WES)."
+          "focus": "Advanced genetic architecture, clinical transcriptomics, and next-generation sequencing pipelines."
         },
         {
           "code": "POD-401",
@@ -179,47 +180,38 @@
           "pillar": "geneacademy",
           "level": 5,
           "credits": "5.0 ECTS",
-          "focus": "Academic rescue for displaced researchers and stalled Master's/PhD theses."
+          "focus": "Academic rescue for displaced researchers and stalled theses."
         },
         {
-          "code": "GLOM-601",
-          "title": "Turnkey Medical Laboratory Setup (B2B)",
-          "title_ar": "تجهيز المختبرات الطبية المتكاملة (B2B)",
-          "track": "B2B Infrastructure",
+          "code": "GLOM-601-701",
+          "title": "GLOMEt B2B Infrastructure & Reagent Supply Chain",
+          "title_ar": "تجهيز المختبرات الطبية وسلاسل إمداد الكواشف (GLOMEt)",
+          "track": "B2B Infrastructure & Logistics",
           "pillar": "glomet",
           "level": 5,
-          "credits": "B2B / Infra",
-          "focus": "End-to-end clinical diagnostic facility design, equipment procurement, and PCR cleanrooms."
-        },
-        {
-          "code": "GLOM-701",
-          "title": "Reagent Supply Chain & Cold-Chain Logistics",
-          "title_ar": "سلاسل إمداد الكواشف واللوجستيات المبردة",
-          "track": "B2B Logistics",
-          "pillar": "glomet",
-          "level": 5,
-          "credits": "B2B / Supply",
-          "focus": "Turnkey medical laboratory supply forecasting and cold-chain logistics."
+          "credits": "B2B Infra",
+          "focus": "Turnkey medical laboratory setup and cold-chain logistics."
         }
       ]
     },
     {
       "id": "tier_2_expansion",
       "label": {
-        "en": "Tier 2: Modules We Could Provide (Pipeline & Expansion)",
-        "ar": "المستوى الثاني: برامج التوسع والجاهزية المستقبلية"
+        "en": "2. Modules We Could Provide (Pipeline & Expansion)",
+        "ar": "٢. برامج التوسع والجاهزية المستقبلية"
       },
-      "description": "Natural extensions of existing tracks scaled for secondary deployment based on regional demand and faculty bandwidth.",
+      "description": "These represent natural extensions of our existing tracks that are scaled for secondary deployment based on regional demand and faculty bandwidth.",
+      "description_ar": "تمثل هذه البرامج توسعات طبيعية لمساراتنا الحالية المجهزة للإطلاق التدريجي وفق متطلبات المنطقة وطاقة الهيئة التدريسية.",
       "modules": [
         {
-          "code": "SUBS-401",
-          "title": "Advanced Clinical Subspecialties Track (Cardiology, Pulmonology & Critical Care)",
-          "title_ar": "مسار التخصصات الدقيقة (القلب، الصدرية، والعناية المركزة)",
+          "code": "FELL-401",
+          "title": "Advanced Clinical Subspecialties Track (Cardiology, Pulmonology, and Critical Care Fellowships)",
+          "title_ar": "مسار الزمالات الدقيقة (أمراض القلب، الصدرية، والعناية المركزة)",
           "track": "Advanced Fellowships",
           "pillar": "gemiini",
           "level": 5,
           "credits": "6.0 ECTS",
-          "focus": "Expanding past general internal medicine into specialized fellowship preparation and subspecialty board review."
+          "focus": "Expanding past general internal medicine into specialized fellowship preparation."
         },
         {
           "code": "SURG-202",
@@ -229,7 +221,7 @@
           "pillar": "gemiini",
           "level": 5,
           "credits": "5.0 ECTS",
-          "focus": "Extending Cairo surgical simulation infrastructure (SKILL-301) into a dedicated physical OSCE training camp."
+          "focus": "Extending our Cairo surgical simulation infrastructure (SKILL-301) into a dedicated physical OSCE training camp."
         },
         {
           "code": "BIO-501",
@@ -239,37 +231,18 @@
           "pillar": "geneacademy",
           "level": 5,
           "credits": "4.5 ECTS",
-          "focus": "Scaling MM-108 exome sequencing track into an independent certification for clinical molecular pathologists."
-        },
-        {
-          "code": "USMLE-210",
-          "title": "USMLE Step 1 & Step 2 CK Clinical Mastery Track",
-          "title_ar": "مسار المعادلة الأمريكية USMLE Step 1 & Step 2 CK",
-          "track": "International Boards",
-          "pillar": "gemiini",
-          "level": 5,
-          "credits": "8.0 ECTS",
-          "focus": "Comprehensive USMLE preparation bridging basic molecular mechanisms directly to US clinical vignette logic."
-        },
-        {
-          "code": "LANG-101",
-          "title": "OET / IELTS Academic Medical Preparation Tracks",
-          "title_ar": "مسارات الإعداد اللغوي الطبي الأكاديمي (OET / IELTS)",
-          "track": "Language & Licensure",
-          "pillar": "gemiini",
-          "level": 4,
-          "credits": "3.0 ECTS",
-          "focus": "Specialized medical English language modules tailored for international medical councils (GMC UK, IMC Ireland, AHPRA Australia)."
+          "focus": "Scaling our MM-108 exome sequencing track into an independent certification for clinical molecular pathologists."
         }
       ]
     },
     {
       "id": "tier_3_strategic",
       "label": {
-        "en": "Tier 3: Modules We SHOULD Provide (Strategic Imperatives)",
-        "ar": "المستوى الثالث: الركائز الاستراتيجية عالية الأولوية"
+        "en": "3. Modules We SHOULD Provide (Strategic Imperatives)",
+        "ar": "٣. الركائز الاستراتيجية عالية الأولوية"
       },
-      "description": "Critical prioritized additions securing complete frontline clinical competency, exam readiness, and institutional management value.",
+      "description": "⚠️ IMPORTANT HIGHLIGHT: Based on our clinical training framework, curriculum gaps, and market positioning, the following modules must be prioritized to secure complete clinical competency, exam readiness, and institutional value:",
+      "description_ar": "⚠️ أولوية قصوى: بناءً على إطار التدريب السريري وسد الفجوات التعليمية، تم وضع هذه الوحدات كأولوية استراتيجية لضمان الكفاءة السريرية الكاملة والجاهزية المهنية:",
       "modules": [
         {
           "code": "EM-302",
@@ -279,8 +252,8 @@
           "pillar": "gemiini",
           "level": 5,
           "credits": "4.0 ECTS",
-          "focus": "Dedicated algorithmic emergency room framework covering multi-system trauma stabilization, hemorrhagic shock management, and rapid triage workflows.",
-          "rationale": "While we cover individual internal medicine and surgical trauma emergencies (SMC-101, SMC-102), doctors on the frontline require a dedicated, algorithmic emergency room framework."
+          "focus": "Algorithmic emergency room framework covering multi-system trauma stabilization, shock management, and rapid triage workflows.",
+          "rationale": "While we cover individual internal medicine and surgical trauma emergencies (SMC-101, SMC-102), doctors on the frontline require a dedicated, algorithmic emergency room framework covering multi-system trauma stabilization, shock management, and rapid triage workflows."
         },
         {
           "code": "RES-310",
@@ -290,8 +263,8 @@
           "pillar": "geneacademy",
           "level": 5,
           "credits": "4.0 ECTS",
-          "focus": "Foundational bridge module in protocol design, ethical clearances, GCP compliance, and advanced biostatistics before entering high-output publishing pods.",
-          "rationale": "Directly empowers POD-401 research pods and RESC-501 thesis support by establishing rigorous protocol design and biostatistical literacy."
+          "focus": "Foundational bridge module in protocol design, ethical clearances, and advanced biostatistics before entering high-output publishing pods.",
+          "rationale": "Our POD-401 and RESC-501 research tracks actively produce papers and theses, but learners need a foundational bridge module in protocol design, ethical clearances, and advanced biostatistics before entering high-output publishing pods."
         },
         {
           "code": "MGT-400",
@@ -301,8 +274,8 @@
           "pillar": "glomet",
           "level": 5,
           "credits": "3.5 ECTS",
-          "focus": "Bridging clinical licensing (SMC) and B2B infrastructure (GLOMEt), equipping doctors with business, operational, and regulatory skills for clinics and diagnostic facilities.",
-          "rationale": "Equips doctors with essential business, operational, and regulatory skills required to manage private clinics or modern diagnostic facilities successfully."
+          "focus": "Equips doctors with essential business, operational, and regulatory skills required to manage private clinics or modern diagnostic facilities successfully.",
+          "rationale": "Bridging the gap between clinical licensing (SMC) and B2B infrastructure (GLOMEt), this module equips doctors with essential business, operational, and regulatory skills required to manage private clinics or modern diagnostic facilities successfully."
         },
         {
           "code": "MTC-000",
@@ -313,63 +286,46 @@
           "level": 5,
           "credits": "2.0 ECTS / 1.5 SCH",
           "hours": "60 Notional Hours",
-          "instructor": "Academic Directorate & MTC™ Audit Board",
           "focus": "Mandatory quality assurance training to eradicate tenfold dosing errors, decimal tracking failures, SI unit mislabeling, and binomial nomenclature collisions.",
           "syllabus": {
-            "rationale": "Historical board exam recalls (such as SMC RAW datasets) demonstrate that a critical percentage of medical errors stem not from diagnostic miscalculations, but from systemic communication breakdowns. Mislabeled SI units, trailing/missing decimal points, unstandardized abbreviations, and incorrect binomial nomenclature introduce fatal vulnerabilities into patient charts and research manuscripts.",
+            "rationale": "Mislabeled SI units, trailing/missing decimal points, and unstandardized abbreviations introduce fatal vulnerabilities into patient charts.",
             "objectives": [
-              "Master SI Unit Integrity: Eliminate tenfold dosing errors by enforcing strict metric standards (proper spacing, leading zeros for decimals, correct unit formatting).",
-              "Enforce Taxonomic & Nosological Precision: Apply official glossary guidelines and italicized binomial nomenclature to prevent data collisions.",
-              "Optimize Electronic Health Record (EHR) Safety: Draft unambiguous admission notes, surgical sign-outs, and transfer summaries.",
-              "Streamline Research Reporting: Align clinical case reports and academic manuscripts with international journal publishing standards."
+              "Eliminate tenfold dosing errors by enforcing strict metric standards.",
+              "Enforce taxonomic and nosological precision.",
+              "Optimize Electronic Health Record (EHR) Safety.",
+              "Streamline research reporting to international journal publishing standards."
             ],
             "units": [
               {
                 "unit": "Unit 1: The Anatomy of a Medical Error in Documentation",
                 "topics": [
                   "Typography as a clinical safety tool",
-                  "Hazards of 'The Clinic Way' vs standardized medical writing",
-                  "Case studies on decimal point failures and unit mislabeling"
+                  "Hazards of 'The Clinic Way' vs standardized medical writing"
                 ]
               },
               {
                 "unit": "Unit 2: SI Unit Regulations & Prescription Safety",
                 "topics": [
-                  "Rules for dosing notation (avoiding dangerous abbreviations like U or IU)",
-                  "Safe handling of electrolytes, chemotherapy orders, and continuous infusion rates"
+                  "Rules for dosing notation",
+                  "Safe handling of electrolytes and chemotherapy orders"
                 ]
               },
               {
                 "unit": "Unit 3: Nosology, Terminology, and Data Harmonization",
                 "topics": [
-                  "Eliminating synonymous jargon and aligning with the unified glossary",
-                  "Correct formatting of disease entities, syndromes, and pharmacological agents"
+                  "Unified glossary alignment",
+                  "Correct formatting of disease entities"
                 ]
               },
               {
                 "unit": "Unit 4: Institutional Auditing & MTC™ Forensic Review",
                 "topics": [
-                  "Implementing the MTC™ framework for self-auditing clinical logs",
-                  "Preparing error-free handover notes and discharge letters (Arztbrief adaptation)"
+                  "Self-auditing clinical logs",
+                  "Preparing error-free handover notes"
                 ]
               }
-            ],
-            "assessment": {
-              "formative": "Weekly technical writing practical audits correcting intentionally flawed patient charts and prescription logs.",
-              "summative": "Comprehensive 3-hour forensic document sanitization exam correcting SI, formatting, and structural errors within a simulated hospital database."
-            }
+            ]
           }
-        },
-        {
-          "code": "USMLE-SLEDGE",
-          "title": "USMLE Step 1, 2, & 3 Preparation ('The Sledgehammer' Track)",
-          "title_ar": "برنامج المعادلة الأمريكية الشامل USMLE (مسار Sledgehammer المكثف)",
-          "track": "International Boards",
-          "pillar": "gemiini",
-          "level": 5,
-          "credits": "12.0 ECTS",
-          "hours": "500 Hours",
-          "focus": "Intensive 500-hour comprehensive preparation suite targeting international residency matching across USMLE Step 1, Step 2 CK, and Step 3."
         }
       ]
     }

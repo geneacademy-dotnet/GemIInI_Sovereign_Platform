@@ -12,6 +12,7 @@ const publicLinks = [
     { to: '/about', key: 'nav.about' },
     { to: '/services', key: 'nav.services' },
     { to: '/courses', key: 'nav.courses' },
+  { to: '/media', key: 'nav.media', label: 'Media Vault', label_ar: 'الخزينة المرئية' },
     { to: '/verify', key: 'nav.verify' },
     { to: '/certifications', key: 'nav.certifications' },
     { to: '/contact', key: 'nav.contact' },
@@ -20,7 +21,9 @@ const publicLinks = [
 const memberLinks = [
     { to: '/dashboard', key: 'nav.dashboard' },
     { to: '/communities', key: 'nav.communities' },
+  { to: '/media', key: 'nav.media', label: 'Media Vault', label_ar: 'الخزينة المرئية' },
     { to: '/courses', key: 'nav.courses' },
+  { to: '/media', key: 'nav.media', label: 'Media Vault', label_ar: 'الخزينة المرئية' },
     { to: '/profile', key: 'nav.profile' },
 ];
 

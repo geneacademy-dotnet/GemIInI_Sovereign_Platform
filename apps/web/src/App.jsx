@@ -21,6 +21,7 @@ import CommunitiesPage from '@/pages/CommunitiesPage';
 import QuizPage from '@/pages/QuizPage';
 import ProfilePage from '@/pages/ProfilePage';
 import BlsWorkshopPage from '@/pages/BlsWorkshopPage';
+import MediaVaultPage from '@/pages/MediaVaultPage';
 
 function App() {
     return (
@@ -39,6 +40,8 @@ function App() {
                         <Route path="/certifications" element={<CertificationsPage />} />
                         <Route path="/register" element={<RegisterPage />} />
                         <Route path="/bls" element={<BlsWorkshopPage />} />
+        <Route path="/media" element={<MediaVaultPage />} />
+        <Route path="/vault" element={<MediaVaultPage />} />
                         <Route path="/contact" element={<ContactPage />} />
                         <Route path="/login" element={<LoginPage />} />
                         <Route path="/signup" element={<SignupPage />} />
