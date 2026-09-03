@@ -182,7 +182,7 @@ const DashboardPage = () => {
                                         <span className="px-2 py-0.5 rounded bg-emerald-200 text-emerald-800 text-[10px] font-bold">Passed ✓</span>
                                     </div>
                                     <p className="text-[11px] text-slate-600 mb-2">
-                                        Cairo Cohort • Signed by Dr. Ahmed Ezz (Head of Surgery)
+                                        Cairo Cohort • Signed by Dr. Alaa Abdelhafiz Mursi Farah (Surgical Program Lead)
                                     </p>
                                     <div className="text-[10px] font-mono text-emerald-700 font-bold">
                                         35 Verified Surgical Graduates

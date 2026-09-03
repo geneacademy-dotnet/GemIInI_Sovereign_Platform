@@ -1,910 +1,357 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr" class="scroll-smooth">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GemIInI Medical Journal of Evidence Synthesis | GJMR</title>
-<meta name="description" content="The peer-reviewed academic organ of the GemIInI Consortium, publishing robust medical evidence synthesis, policy white papers, and the Mechanism-to-Clinic (MTC) methodology.">
-<link rel="canonical" href="https://geneacademy.net/journal.html">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SudaGene Consortium | Pre-Collegiate Fellowship &amp; Medical Evidence Synthesis</title>
+  <meta name="description" content="The SudaGene Consortium operates the National Pre-Medical Academy in Exile. We provide the free Open Pre-Collegiate Fellowship (Sudanese Biology Curriculum) and bridge genomic biology with clinical realities through the MTC framework.">
+  <link rel="canonical" href="https://geneacademy.net/">
 
-<!-- Google Analytics 4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-H1Q67PP2DJ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-H1Q67PP2DJ', { 'send_page_view': true, 'anonymize_ip': true });
-</script>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-H1Q67PP2DJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-H1Q67PP2DJ', { 'anonymize_ip': true });
+  </script>
 
-<!-- Core API -->
-<script src="api.js"></script>
-
-<!-- Canonical Schema.org Data (MedicalWebPage) -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "MedicalWebPage",
-  "name": "GemIInI Medical Journal of Evidence Synthesis | GJMR",
-  "url": "https://geneacademy.net/journal.html",
-  "description": "The peer-reviewed academic organ of the GemIInI Consortium, publishing robust medical evidence synthesis.",
-  "publisher": {
-    "@type": "Organization",
-    "name": "GemIInI SudaGene Platform"
+  <!-- Canonical Schema.org Data (MedicalBusiness & EducationalOrganization) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "EducationalOrganization",
+        "@id": "https://geneacademy.net/#organization",
+        "name": "SudaGene Medical Platform",
+        "alternateName": "GemIInI Academy",
+        "url": "https://geneacademy.net",
+        "logo": "https://geneacademy.net/assets/logo.png",
+        "founder": {
+          "@type": "Person",
+          "@id": "https://geneacademy.net/#founder",
+          "name": "Dr. Mohamed Gibbril",
+          "jobTitle": "Founder & Executive Director",
+          "alumniOf": "University of Khartoum Faculty of Medicine"
+        },
+        "department": [
+          {
+            "@type": "EducationalOrganization",
+            "name": "GemIInI Academy",
+            "description": "The Software & Digital Engine governing the GA-ID credential ledger and MTC framework."
+          },
+          {
+            "@type": "MedicalBusiness",
+            "name": "GLOMEt",
+            "description": "Global Medical Tech providing turnkey laboratory infrastructure and genomic literacy."
+          },
+          {
+            "@type": "Periodical",
+            "name": "GemIInI Journal of Medical Research",
+            "alternateName": "GJMR"
+          }
+        ]
+      }
+    ]
   }
-}
-</script>
-
-<!-- Typography: Cairo (Arabic authority) + IBM Plex Mono (technical data) -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-<style>
-/* ── Design Tokens (Independent Vanilla CSS — Zero Tailwind) ────────────────── */
-:root {
-  --bg:           #F8FAFC;
-  --panel:        #FFFFFF;
-  --navy:         #0B132B;
-  --navy-mid:     #1C2C4A;
-  --ink:          #1E2A3F;
-  --slate:        #51607A;
-  --muted:        #94A3B8;
-  --blue:         #0284C7;
-  --blue-dark:    #05688F;
-  --gold:         #B48028;
-  --gold-bright:  #D4AF37;
-  --gold-soft:    #FEF3C7;
-  --gold-border:  #D4AF37;
-  --border:       #E2E8F0;
-  --border-dark:  #CBD5E1;
-  --maxw:         800px;
-  --maxw-wide:    1100px;
-}
-
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--ink);
-  font-family: 'Cairo', system-ui, sans-serif;
-  font-size: 18px;
-  line-height: 1.85;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* Arabic body: Cairo. English/numbers/IDs: IBM Plex Mono */
-.mono { font-family: 'IBM Plex Mono', monospace; }
-
-h1, h2, h3, h4 {
-  font-family: 'Cairo', sans-serif;
-  color: var(--navy);
-  margin: 0 0 16px 0;
-  font-weight: 800;
-  line-height: 1.35;
-}
-
-p { margin: 0 0 22px 0; }
-a { color: var(--blue); text-decoration: none; }
-a:hover { text-decoration: underline; }
-a:focus-visible, button:focus-visible {
-  outline: 2px solid var(--blue);
-  outline-offset: 3px;
-  border-radius: 2px;
-}
-
-.wrap       { max-width: var(--maxw);      margin: 0 auto; padding: 0 clamp(20px, 5vw, 48px); }
-.wrap-wide  { max-width: var(--maxw-wide); margin: 0 auto; padding: 0 clamp(20px, 5vw, 48px); }
-
-/* ── Utility Bar ──────────────────────────────────────────────────────────── */
-.utility-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 14px clamp(20px, 5vw, 48px);
-  border-bottom: 1px solid var(--border);
-  background: var(--panel);
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  gap: 12px;
-}
-
-.wordmark {
-  font-family: 'IBM Plex Mono', monospace;
-  font-weight: 700;
-  color: var(--navy);
-  font-size: 13px;
-  letter-spacing: 0.02em;
-  direction: ltr;
-  white-space: nowrap;
-}
-.wordmark .sep { color: var(--gold); margin: 0 6px; }
-
-.inquiry-btn {
-  font-family: 'Cairo', sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--navy);
-  background: var(--gold-soft);
-  border: 1px solid var(--gold-border);
-  padding: 6px 14px;
-  border-radius: 20px;
-  white-space: nowrap;
-  transition: background 0.15s ease;
-}
-.inquiry-btn:hover { background: #FDE68A; text-decoration: none; }
-
-/* ── Ecosystem Registry Badge ─────────────────────────────────────────────── */
-.registry-badge-bar {
-  background: var(--navy);
-  padding: 10px clamp(20px, 5vw, 48px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.registry-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--gold-bright);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-.registry-badge::before {
-  content: '';
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--gold-bright);
-  flex-shrink: 0;
-}
-
-.registry-divider {
-  width: 1px;
-  height: 14px;
-  background: rgba(212, 175, 55, 0.3);
-}
-
-/* ── Journal Hero ─────────────────────────────────────────────────────────── */
-.journal-hero {
-  padding: 80px 0 60px;
-  background: var(--panel);
-  border-bottom: 1px solid var(--border);
-  text-align: center;
-}
-
-.issue-meta {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--blue-dark);
-  background: var(--bg);
-  border: 1px solid var(--border);
-  padding: 6px 16px;
-  border-radius: 20px;
-  margin-bottom: 32px;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
-.issue-meta::before {
-  content: '';
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--gold-bright);
-}
-
-.journal-hero h1 {
-  font-size: clamp(28px, 4.5vw, 44px);
-  line-height: 1.3;
-  margin-bottom: 16px;
-  font-weight: 900;
-}
-
-.journal-hero .subtitle {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 14px;
-  color: var(--slate);
-  margin-bottom: 28px;
-  letter-spacing: 0.02em;
-}
-
-.author-byline {
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--ink);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-.author-byline .author-name { color: var(--navy); }
-.author-byline .author-sep  { color: var(--muted); }
-
-/* ── Gold Rule Divider ────────────────────────────────────────────────────── */
-.gold-rule {
-  border: none;
-  height: 2px;
-  background: linear-gradient(90deg, transparent 0%, var(--gold-bright) 30%, var(--gold-bright) 70%, transparent 100%);
-  margin: 48px 0;
-  opacity: 0.4;
-}
-
-/* ── Editorial Prose ──────────────────────────────────────────────────────── */
-.prose-editorial {
-  padding: 64px 0;
-}
-
-.prose-editorial p {
-  font-size: 19px;
-  color: var(--ink);
-  text-align: justify;
-}
-
-.prose-editorial p strong {
-  color: var(--navy);
-  font-weight: 800;
-}
-
-.prose-editorial em {
-  font-style: normal;
-  color: var(--navy-mid);
-  font-weight: 600;
-  border-bottom: 1px solid var(--gold-border);
-}
-
-/* ── Archival Pull-Quote Box ──────────────────────────────────────────────── */
-.archival-box {
-  margin: 48px 0;
-  padding: 36px;
-  background: linear-gradient(135deg, #FEFCE8 0%, var(--panel) 100%);
-  border-right: 4px solid var(--gold-bright);
-  border-radius: 0 8px 8px 0;
-  box-shadow: 0 4px 24px rgba(11, 19, 43, 0.04);
-}
-
-.archival-box .archival-meta {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--gold);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  margin-bottom: 20px;
-}
-
-.archival-meta-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--gold-bright);
-  flex-shrink: 0;
-}
-
-.archival-box blockquote {
-  margin: 0;
-  font-family: 'Cairo', sans-serif;
-  font-size: 22px;
-  font-weight: 700;
-  line-height: 1.65;
-  color: var(--navy);
-}
-
-.archival-box .archival-source {
-  margin-top: 20px;
-  padding-top: 20px;
-  border-top: 1px solid var(--border);
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 16px;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 12px;
-  color: var(--slate);
-}
-
-/* ── Independent Charter Box ────────────────────────────────────────────────── */
-.Independent-box {
-  margin: 48px 0;
-  padding: 40px;
-  background: var(--navy);
-  color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 12px 40px rgba(11, 19, 43, 0.2);
-  position: relative;
-  overflow: hidden;
-}
-
-.Independent-box::before {
-  content: '';
-  position: absolute;
-  top: 0; right: 0;
-  width: 200px; height: 200px;
-  background: radial-gradient(circle at top right, rgba(212,175,55,0.08) 0%, transparent 70%);
-  pointer-events: none;
-}
-
-.Independent-box .Independent-meta {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--gold-bright);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.Independent-meta-line {
-  flex: 1;
-  height: 1px;
-  background: rgba(212, 175, 55, 0.25);
-}
-
-.Independent-box p {
-  color: #E2E8F0;
-  font-size: 20px;
-  font-weight: 600;
-  line-height: 1.7;
-  text-align: right;
-  margin: 0;
-  position: relative;
-  z-index: 1;
-}
-
-.Independent-box p strong {
-  color: #fff;
-}
-
-/* ── About the Journal Panel ──────────────────────────────────────────────── */
-.journal-panel {
-  background: var(--panel);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  overflow: hidden;
-  margin-bottom: 56px;
-}
-
-.journal-panel-header {
-  padding: 18px 32px;
-  background: var(--navy);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 16px;
-}
-
-.journal-panel-header .panel-title {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--gold-bright);
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
-}
-
-.journal-panel-header .panel-tag {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px;
-  font-weight: 600;
-  color: rgba(212, 175, 55, 0.6);
-  letter-spacing: 0.04em;
-}
-
-.journal-panel-body {
-  padding: 32px;
-}
-
-.info-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-}
-
-.info-col h4 {
-  font-size: 17px;
-  margin-bottom: 10px;
-  color: var(--navy);
-}
-
-.info-col p {
-  font-size: 15px;
-  color: var(--slate);
-  line-height: 1.65;
-  margin: 0;
-}
-
-.info-col:last-child {
-  border-right: 1px solid var(--border);
-  padding-right: 40px;
-}
-
-/* ── Inquiry Form Section ─────────────────────────────────────────────────── */
-.form-section {
-  background: var(--panel);
-  border-top: 3px solid var(--gold-bright);
-  padding: 80px 0;
-}
-
-.form-section-header {
-  text-align: center;
-  margin-bottom: 48px;
-}
-
-.form-section-header h2 {
-  font-size: 30px;
-  margin-bottom: 12px;
-}
-
-.form-section-header p {
-  font-size: 16px;
-  color: var(--slate);
-  max-width: 48ch;
-  margin: 0 auto;
-}
-
-.contact-form {
-  max-width: 520px;
-  margin: 0 auto;
-}
-
-.form-group {
-  margin-bottom: 22px;
-}
-
-.form-group label {
-  display: block;
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--navy);
-  margin-bottom: 8px;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-  width: 100%;
-  padding: 12px 16px;
-  border: 1.5px solid var(--border-dark);
-  border-radius: 8px;
-  font-family: 'Cairo', sans-serif;
-  font-size: 15px;
-  background: var(--bg);
-  color: var(--ink);
-  transition: border-color 0.15s ease, background 0.15s ease;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: var(--blue);
-  background: var(--panel);
-}
-
-.form-group .field-note {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px;
-  color: var(--muted);
-  margin-top: 5px;
-  display: block;
-}
-
-.btn {
-  display: block;
-  width: 100%;
-  text-align: center;
-  font-family: 'Cairo', sans-serif;
-  font-weight: 800;
-  font-size: 16px;
-  padding: 15px 24px;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  transition: background 0.15s ease, opacity 0.15s ease;
-}
-
-.btn-navy {
-  background: var(--navy);
-  color: #fff;
-}
-
-.btn-navy:hover { background: var(--navy-mid); }
-.btn:disabled   { opacity: 0.65; cursor: not-allowed; }
-
-.status-msg {
-  margin-top: 16px;
-  padding: 16px;
-  border-radius: 8px;
-  font-size: 14px;
-  font-weight: 600;
-  text-align: center;
-  display: none;
-}
-
-.status-success {
-  background: #F0FDF4;
-  border: 1px solid #86EFAC;
-  color: #166534;
-  display: block;
-}
-
-.status-error {
-  background: #FEF2F2;
-  border: 1px solid #FECACA;
-  color: #B91C1C;
-  display: block;
-}
-
-/* ── Footer ───────────────────────────────────────────────────────────────── */
-footer {
-  padding: 48px 0;
-  border-top: 1px solid var(--border);
-  background: var(--navy);
-  text-align: center;
-}
-
-footer p {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 12px;
-  color: rgba(148, 163, 184, 0.8);
-  margin: 0;
-  letter-spacing: 0.03em;
-}
-
-footer .footer-brand {
-  font-weight: 700;
-  color: var(--gold-bright);
-}
-
-/* ── Responsive ───────────────────────────────────────────────────────────── */
-@media (max-width: 720px) {
-  .info-grid { grid-template-columns: 1fr; gap: 28px; }
-  .info-col:last-child { border-right: none; padding-right: 0; border-top: 1px solid var(--border); padding-top: 28px; }
-  .archival-box .archival-source { flex-direction: column; gap: 8px; }
-  .utility-bar { flex-wrap: wrap; }
-  .registry-badge-bar { justify-content: flex-start; }
-}
-</style>
-</head>
-<body>
-
-<!-- ── Sticky Utility Bar ────────────────────────────────────────────────── -->
-<div class="utility-bar">
-  <span class="wordmark">Gene Academy <span class="sep">&times;</span> GJMR</span>
-  <a class="inquiry-btn" href="#inquiry">تقديم ورقة / تواصل</a>
-</div>
-
-<!-- ── Ecosystem Registry Badge ─────────────────────────────────────────── -->
-<div class="registry-badge-bar">
-  <span class="registry-badge mono">Indexed in GemIInI Independent Registry</span>
-  <div class="registry-divider"></div>
-  <span class="registry-badge mono">SudaGene Research Centre (SGRC)</span>
-  <div class="registry-divider"></div>
-  <span class="registry-badge mono">ICMJE &amp; COPE Compliant</span>
-</div>
-
-<!-- ── Journal Hero ──────────────────────────────────────────────────────── -->
-<header class="journal-hero">
-  <div class="wrap">
-    <div class="issue-meta mono">Vol. 1 &bull; No. 1 &bull; August 2026 &bull; GJMR</div>
-    <h1>مجلة GemIInI للبحوث<br>والممارسات الطبية السودانية</h1>
-    <p class="subtitle mono">GemIInI Journal of Sudanese Medical Research &amp; Practice</p>
-    <div class="author-byline">
-      <span class="author-name">د. محمد جبريل</span>
-      <span class="author-sep">—</span>
-      <span>مؤسس ورئيس التحرير</span>
-      <span class="author-sep">|</span>
-      <span class="mono" style="font-size:13px; color: var(--slate);">GA-000</span>
-    </div>
-    <p style="font-size:16px; color:var(--slate); margin-top:12px; margin-bottom:0;">
-      لماذا أطلقنا هذا المنبر في وقت الحرب؟
-    </p>
-  </div>
-</header>
-
-<!-- ── Main Editorial Content ────────────────────────────────────────────── -->
-<main class="wrap">
-
-  <div class="prose-editorial">
-
-    <!-- About the Journal Info Panel -->
-    <div class="journal-panel">
-      <div class="journal-panel-header">
-        <span class="panel-title mono">About the Journal &bull; Independent Governance</span>
-        <span class="panel-tag mono">ICMJE &amp; COPE Compliant</span>
-      </div>
-      <div class="journal-panel-body">
-        <div class="info-grid">
-          <div class="info-col">
-            <h4>ميثاق المجلة وهوية النشر</h4>
-            <p>تلتزم المجلة بنشر الأبحاث السريرية الأصيلة، تقارير الحالات النادرة، ودراسات الطب الجزيئي وعلم الوراثة. تشترط المجلة أن يكون <strong>السؤال البحثي مصمماً وموجهاً لمعالجة الأولويات الصحية الوطنية</strong>، وبقيادة مباشرة من باحثين سودانيين.</p>
-          </div>
-          <div class="info-col">
-            <h4>هرم التلمذة والتوجيه البحثي</h4>
-            <p><strong class="mono">SGRC 15:5:1</strong> — نموذج تأهيل بحثي هرمي: 15 باحثاً ناشئاً يوجّههم 5 أطباء متقدمين، تحت إشراف استشاري رئيسي واحد، لضمان الرصانة العلمية والانتماء الوطني للسؤال البحثي.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <p>لم يكن قرار إصدار هذه المجلة قراراً احتفالياً. كان قراراً بأن نوثّق الحقيقة كما هي، لا كما نتمنى أن تكون. وأفضل نقطة انطلاق لهذا التوثيق ليست بياناتنا نحن، بل شهادة رجل قضى في هذا الميدان أكثر من خمسين عاماً.</p>
-
-    <p>في عام <span class="mono">2013</span>، نشر الأستاذ الدكتور <strong>أحمد محمد الحسن (<span class="mono">1930–2022</span>)</strong> — مؤسس معهد الأمراض المتوطنة بجامعة الخرطوم <span class="mono">(IEND)</span>، العميد الأسبق لكلية الطب، رائد علم الأمراض والطب الجزيئي، ووزير التعليم العالي والبحث العلمي الأسبق — ورقة مرجعية بعنوان <em>«مشكلات البحث العلمي ومحنة الباحثين في بعض الدول النامية: السودان مثالاً»</em> في المجلة الدولية لأبحاث السودان. لم تكن ورقة تنظيرية؛ بل كانت شهادة ميدانية مباشرة، صيغت بلغة هادئة ومقتصدة، توثّق كيف تحوّلت العقوبات الاقتصادية ونقص التمويل إلى عائق فعلي أمام تشخيص المرضى وعلاجهم.</p>
-
-    <p>الأرقام التي أوردها لا تحتاج تعليقاً. عدد الأطباء والكوادر الطبية الذين غادروا السودان ارتفع من <strong><span class="mono">960</span> فرداً في عام <span class="mono">2000</span></strong> إلى <strong><span class="mono">6,590</span> في عام <span class="mono">2011</span> وحده</strong>. وفي معهده هو تحديداً — معهد الأمراض المتوطنة، أحد أكثر المؤسسات البحثية السودانية إنتاجية — كانت الغالبية العظمى من حاملي الماجستير والدكتوراه في المناعة والأحياء الجزيئية بلا وظائف أو معامل مستقرة.</p>
-
-    <p>لكن الأهم من الأرقام هو المصطلح الدقيق الذي صاغه البروفيسور الحسن لوصف نمط استغلالي كان يتكرر في التعاون الدولي: <strong>«الصيادون وجامعو الثمار» <span class="mono">(Hunters &amp; Gatherers)</span></strong>. وصف به الباحثين الشباب الذين ينضمون كأدوات جمع بيانات لمشاريع بحثية صُمّمت بالكامل خارج السودان، دون أي دور حقيقي في التصميم المنهجي أو التحليل الإحصائي أو حتى معرفة ما إذا كانت أولويات البحث تخدم الأولويات الوطنية أصلاً.</p>
-
-    <hr class="gold-rule">
-
-    <!-- Archival Pull-Quote: Prof. El Hassan -->
-    <div class="archival-box">
-      <div class="archival-meta">
-        <div class="archival-meta-dot"></div>
-        <span class="mono">شهادة أرشيفية &bull; الأستاذ الدكتور أحمد محمد الحسن (<span class="mono">1930–2022</span>)</span>
-      </div>
-      <blockquote>
-        «لبعضنا ممن نقترب من نهاية مسيرتنا المهنية، من المؤلم أن نرى ما يحدث للوطن. ويجب علينا أن نواصل بذل جهدنا في هذه الأوقات لدعم الأجيال القادمة من الباحثين والأطباء.»
-      </blockquote>
-      <div class="archival-source">
-        <span>— مؤسس <span class="mono">IEND</span>، رائد أبحاث اللشمانيا والمايستوما</span>
-        <span class="mono">المجلة الدولية لأبحاث السودان، 2013</span>
-      </div>
-    </div>
-
-    <p>هذه الورقة نُشرت قبل عقد كامل من اندلاع الحرب الحالية في <span class="mono">2023</span>. والواقع اليوم أثقل بكثير مما وصفه: نزوح مؤسسي كامل، انهيار في السجلات الورقية، وانقطاع فعلي عن الجامعات والمستشفيات التي كانت الأساس. ما نبنيه اليوم ليس مجرد استجابة لأزمة <span class="mono">2013</span>، بل لأزمة أعمق وأحدث، وأي إطار نستعير من تلك المرحلة يجب أن يُقرأ بوصفه خط أساس تاريخي.</p>
-
-    <p>يتصل بهذا الانقطاع نداءٌ تاريخي آخر أطلقه الأستاذ الدكتور <strong>منتصر إبراهيم <span class="mono">(IEND)</span></strong> في <strong><span class="mono">مارس 2023</span></strong> — عشية اندلاع النزاع — داعياً إلى تأسيس <em>«المجلس الوطني للثقافة والوعي الجينومي»</em>. كان تحذيره قاطعاً: إن تغييب علم الجينات والطب الجزيئي عن الممارسة السريرية الوطنية ليس مجرد نقص أكاديمي، بل هو حرمان مباشر للمرضى من التشخيص الدقيق، وتكريس لما يُعرف بـ <strong>«الفجوة الجينومية الإفريقية» <span class="mono">(African Genomic Gap)</span></strong>.</p>
-
-    <p>هذا العدد الأول من مجلتنا لا يفتتح بإنجاز. <strong>يفتتح بالتزام مهني واستقلالي صارم:</strong> أن لا نكرر نمط «الصيادين وجامعي الثمار» الذي حذّر منه البروفيسور الحسن. كل بحث يُنشر هنا يجب أن يحمل توقيع باحث سوداني كمصمم فعلي للسؤال البحثي، لا كجامع بيانات لسؤال صُمّم في مكان آخر.</p>
-
-    <!-- Independent Charter Box -->
-    <div class="Independent-box">
-      <div class="Independent-meta mono">
-        <span>الميثاق المستقل للتضامن المهني</span>
-        <div class="Independent-meta-line"></div>
-        <span class="mono">GJMR Editorial Charter — 2026</span>
-      </div>
-      <p>
-        «ولكن قبل كل شيء: إن تعاوننا وتكاتفنا نحن — أطباء وباحثي السودان معاً في الداخل والمهجر — وبناء مؤسساتنا السيادية الذاتية، هو حجر الزاوية الذي لا يمكن لأي تحالف خارجي أن يعوضه أو يقوم مقامه.»
-      </p>
-    </div>
-
-    <p>لسنا في موقع الادعاء بأننا حللنا مشكلة استمرت لعقود. لكننا في موقع يسمح لنا بالتوثيق الصادق، وبمحاولة جادة لبناء البنية التي غابت: <strong>سجل مهني رقمي موثق ومستقل <span class="mono">SudaPass</span> يتابع الطبيب والباحث من أول محاضرة أحياء إلى آخر امتحان تخصص، بلا انقطاع، مهما تعطلت المؤسسات من حوله.</strong> هذا هو العمل. لا أكثر، ولا أقل.</p>
-    </div>
-
-    <!-- ── Scientific Publishing Architecture (ICMJE/COPE Policies) ── -->
-    <div class="prose-editorial" dir="ltr" style="padding-top: 0; text-align: left;">
-      <!-- Featured Institutional Output & The Diagnostic Sieve -->
-      <div class="journal-panel">
-        <div class="journal-panel-header">
-          <span class="panel-title mono">Featured Output &bull; The Diagnostic Sieve</span>
-          <span class="panel-tag mono">Epistemic Authority</span>
-        </div>
-        <div class="journal-panel-body">
-          <div class="info-grid">
-            <div class="info-col">
-              <h4>Meta-Analytic Excellence (Journals)</h4>
-              <p>The <em>100 Project Paper Marathon</em> actively filters and synthesizes historical clinical data. As part of our commitment to epistemic authority, we regularly feature and celebrate high-impact clinical truth extracted from the rich archives of national publishers like the <strong>Sudan Journal of Medical Sciences (SJMS)</strong>, <strong>Sudan Medical Journal (SMJ)</strong>, and <strong>Sudanese Journal of Public Health (SJPH)</strong>.</p>
-            </div>
-            <div class="info-col">
-              <h4>Institutional Spotlight (Academia &amp; Policy)</h4>
-              <p>Our genomic economics and clinical syntheses are designed to elevate and celebrate the incredible historical output of institutions like the <strong>Institute of Endemic Diseases (IEND)</strong>, the <strong>Mycetoma Research Center (MRC)</strong>, and the <strong>Sudan National Medical Specialization Board (SMSB)</strong>. We supply decision-grade policy to diaspora forums (SMA-UK, SSSP) to ensure resource allocation is governed by hard data.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Masthead -->
-      <div class="journal-panel">
-        <div class="journal-panel-header">
-          <span class="panel-title mono">The Masthead &bull; Editorial Board</span>
-          <span class="panel-tag mono">GJMR Leadership</span>
-        </div>
-        <div class="journal-panel-body">
-          <div class="info-grid">
-            <div class="info-col">
-              <h4>Editor-in-Chief</h4>
-              <p><strong>Dr. Mohamed Gibbril</strong> (GA-000)<br>Founder, GemIInI Independent Framework</p>
-              
-              <h4 style="margin-top: 16px;">Surgical Evidence Editor</h4>
-              <p><strong>Dr. Alaa Abdelhafiz Mursi Farah</strong> (GA-001)<br>Co-Founder &amp; Surgical Program Lead</p>
-            </div>
-            <div class="info-col">
-              <h4>Pharmacological Review Editor</h4>
-              <p><strong>Dr. Safaa Abdelgadir</strong> (GA-004)<br>Academic Dean &amp; Officer, Pharmacology</p>
-              
-              <h4 style="margin-top: 16px;">Managing Editor of Telemetry</h4>
-              <p><strong>Eng. Amjad Gorashi</strong> (GA-011)<br>Head of Operations &amp; Telemetry Infrastructure</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Peer-Review & Ethics -->
-      <div class="journal-panel">
-        <div class="journal-panel-header">
-          <span class="panel-title mono">Editorial Policies &bull; ICMJE &amp; COPE</span>
-          <span class="panel-tag mono">Strict Enforcement</span>
-        </div>
-        <div class="journal-panel-body">
-          <div class="info-grid">
-            <div class="info-col">
-              <h4>Peer-Review Policy</h4>
-              <p>GJMR employs a rigorous <strong>double-blind peer-review</strong> process. Submissions generated from the 100 Project Paper Marathon are reviewed independently by Tier 2 Senior Reviewers. Reviewers assess methodological validity, statistical integrity, and alignment with national health priorities.</p>
-            </div>
-            <div class="info-col">
-              <h4>Ethics &amp; Authorship (COPE)</h4>
-              <p>We enforce zero-tolerance for ghost authorship and data fabrication. Authorship credit strictly follows <strong>ICMJE guidelines</strong>. All authors must submit conflict of interest (COI) disclosures. Plagiarism is grounds for immediate expulsion from the SudaPass registry.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Information for Authors -->
-      <div class="journal-panel">
-        <div class="journal-panel-header">
-          <span class="panel-title mono">Information for Authors &bull; Submissions</span>
-          <span class="panel-tag mono">Author Guidelines</span>
-        </div>
-        <div class="journal-panel-body">
-          <div class="info-grid">
-            <div class="info-col">
-              <h4>Manuscript Formatting</h4>
-              <p>Manuscripts must adhere to the Vancouver referencing style. Systematic reviews must include PRISMA flow diagrams. All clinical data analyses must attach a Data Availability Statement verifying ethical data sourcing.</p>
-            </div>
-            <div class="info-col">
-              <h4>Open Access &amp; Licensing</h4>
-              <p>All articles are published under a <strong>CC BY-NC 4.0</strong> (Creative Commons) license. Authors retain copyright while permitting unrestricted academic dissemination, data synthesis, and pedagogical translation with proper attribution. No Article Processing Charges (APCs) are levied for submissions accepted in this inaugural volume.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-</main>
-
-<!-- ── Editorial Inquiry Form ────────────────────────────────────────────── -->
-<section id="inquiry" class="form-section">
-  <div class="wrap">
-    <div class="form-section-header">
-      <h2>التواصل مع هيئة التحرير</h2>
-      <p>لتقديم الأوراق البحثية، طلبات الانضمام لهرم التلمذة، أو الاستفسارات الأكاديمية.</p>
-    </div>
-
-    <form class="contact-form" id="journalInquiryForm" onsubmit="handleJournalInquiry(event)">
-
-      <div class="form-group">
-        <label for="inqLegalName">الاسم الكامل (كما سيظهر في النشر)</label>
-        <input type="text" id="inqLegalName" autocomplete="name" required>
-      </div>
-
-      <div class="form-group">
-        <label for="inqEmail">البريد الإلكتروني المعتمد</label>
-        <input type="email" id="inqEmail" dir="ltr" autocomplete="email" required>
-        <span class="field-note mono">institutional or professional email preferred</span>
-      </div>
-
-      <div class="form-group">
-        <label for="inqUniversity">المؤسسة الأكاديمية أو البحثية</label>
-        <input type="text" id="inqUniversity" required>
-      </div>
-
-      <div class="form-group">
-        <label for="inqResearchFocus">محور البحث أو التخصص</label>
-        <input type="text" id="inqResearchFocus" placeholder="مثال: أمراض الدم، الطب الجزيئي، الأوبئة المتوطنة">
-      </div>
-
-      <div class="form-group">
-        <label for="inqType">نوع المراسلة</label>
-        <select id="inqType" required>
-          <option value="SUBMISSION">تقديم ورقة بحثية أولية</option>
-          <option value="APPRENTICESHIP">طلب انضمام لبرنامج التوجيه (SGRC 15:5:1)</option>
-          <option value="INQUIRY">استفسار أكاديمي عام</option>
-          <option value="PEER_REVIEW">طلب الانضمام لهيئة التحكيم</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label for="inqMessage">ملخص الرسالة أو البحث</label>
-        <textarea id="inqMessage" rows="5" required placeholder="نبذة مختصرة عن موضوع البحث أو طبيعة الاستفسار..."></textarea>
-      </div>
-
-      <button type="submit" class="btn btn-navy" id="inqSubmitBtn">إرسال إلى السجل المركزي</button>
-      <div id="inqStatus" class="status-msg"></div>
-    </form>
-  </div>
-</section>
-
-<!-- ── Footer ─────────────────────────────────────────────────────────────── -->
-<footer>
-  <div class="wrap-wide">
-    <p>
-      <span class="footer-brand mono">&copy; 2026 Gene Academy</span>
-      <span style="color: rgba(148,163,184,0.4); margin: 0 8px;">|</span>
-      <span class="mono">SudaGene Medical Consortium</span>
-      <span style="color: rgba(148,163,184,0.4); margin: 0 8px;">|</span>
-      <span class="mono">GJMR ISSN: Pending Registration</span>
-    </p>
-  </div>
-</footer>
-
-<!-- ── Form Handler Script ────────────────────────────────────────────────── -->
-<script>
-  async function handleJournalInquiry(e) {
-    e.preventDefault();
-    const btn    = document.getElementById('inqSubmitBtn');
-    const status = document.getElementById('inqStatus');
-
-    // Strict named-key payload — maps directly to Code.gs SSOT column schema
-    const payload = {
-      action:        'JOURNAL_INQUIRY',
-      legalName:     document.getElementById('inqLegalName').value.trim(),
-      email:         document.getElementById('inqEmail').value.trim(),
-      university:    document.getElementById('inqUniversity').value.trim(),
-      researchFocus: document.getElementById('inqResearchFocus').value.trim(),
-      inquiryType:   document.getElementById('inqType').value,
-      message:       document.getElementById('inqMessage').value.trim(),
-      timestamp:     new Date().toISOString(),
-      source:        'GJMR_JOURNAL_FORM_v2'
-    };
-
-    btn.disabled      = true;
-    btn.textContent   = 'جاري التحقق والإرسال...';
-    status.style.display = 'none';
-    status.className  = 'status-msg';
-
-    try {
-      if (typeof executeGemIInISync === 'undefined') {
-        throw new Error('API connector (api.js) is not loaded.');
+  </script>
+
+  <!-- Canonical Design Tokens & Fonts -->
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              navy: '#123B5D',
+              teal: '#168C8C',
+              gold: '#C9A227',
+              bg: '#F7FAFC',
+              card: '#FFFFFF',
+              dark: '#1F2937',
+              muted: '#64748B',
+              emerald: '#16805B'
+            }
+          },
+          fontFamily: {
+            heading: ['Montserrat', 'Tajawal', 'sans-serif'],
+            body: ['Inter', 'Cairo', 'sans-serif'],
+            mono: ['"IBM Plex Mono"', 'monospace']
+          }
+        }
       }
-
-      await executeGemIInISync(payload);
-
-      status.classList.add('status-success');
-      status.textContent = 'تم استلام مشاركتك وتوثيقها في السجل المركزي المعتمد. سيتواصل معك فريق التحرير خلال 72 ساعة.';
-      document.getElementById('journalInquiryForm').reset();
-
-      // GA4 event
-      if (typeof gtag === 'function') {
-        gtag('event', 'journal_inquiry_submitted', {
-          event_category: 'GJMR',
-          event_label: payload.inquiryType
-        });
-      }
-
-    } catch (err) {
-      console.error('GJMR Inquiry Error:', err);
-      status.classList.add('status-error');
-      status.textContent = 'تعذر الإرسال إلى السجل المركزي. يرجى المحاولة مرة أخرى أو التواصل عبر البريد المباشر.';
-    } finally {
-      btn.disabled    = false;
-      btn.textContent = 'إرسال إلى السجل المركزي';
     }
-  }
-</script>
+  </script>
+</head>
+
+<body class="bg-[#F7FAFC] text-[#1F2937] font-body antialiased selection:bg-teal-100 selection:text-teal-900">
+
+  <!-- TOP UTILITY BAR -->
+  <div class="bg-[#123B5D] text-slate-200 text-xs py-2 px-4 border-b border-slate-700 font-mono">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-2 hidden md:flex">
+        <span class="w-2 h-2 rounded-full bg-[#16805B]"></span>
+        <span>GENE ACADEMY &bull; INDEPENDENT MEDICAL ECOSYSTEM</span>
+      </div>
+      <div class="flex items-center gap-4 ml-auto">
+        <div class="flex items-center gap-1 font-bold">
+          <span class="text-white">English</span>
+          <span class="text-slate-500">/</span>
+          <a href="index_ar.html" class="text-slate-300 hover:text-white transition font-sans">العربية</a>
+        </div>
+        <span class="text-slate-500 hidden sm:inline">|</span>
+        <a href="auth.html" class="text-slate-300 hover:text-white font-bold transition flex items-center gap-1">
+          Member Sign In <span aria-hidden="true">&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN HEADER & NAVIGATION -->
+  <header class="bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="index.html" class="flex items-center gap-3 shrink-0 group">
+        <div class="w-11 h-11 rounded-xl bg-[#123B5D] text-white font-black flex items-center justify-center font-mono text-base shadow-sm group-hover:bg-[#168C8C] transition-colors">
+          GA
+        </div>
+        <div>
+          <span class="text-xl font-bold font-heading text-[#123B5D] tracking-tight block">Gene Academy</span>
+          <span class="text-[10px] font-mono text-[#64748B] block tracking-wider uppercase">MEDICAL &amp; GENOMIC CONSORTIUM</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden lg:flex items-center gap-6 text-sm font-semibold text-[#1F2937]" id="desktop-nav">
+        
+        <!-- Programs Dropdown -->
+        <div class="relative group">
+          <button class="hover:text-[#168C8C] transition pb-1 flex items-center gap-1">
+            Programs
+            <svg class="w-4 h-4 text-slate-400 group-hover:text-[#168C8C] transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div class="absolute left-0 top-full pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-64 z-50">
+            <div class="bg-white border border-slate-200 rounded-xl shadow-xl overflow-hidden flex flex-col py-2">
+              <a href="courses.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Clinical Training</a>
+              <a href="smc.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">SMC Preparation</a>
+              <a href="molecular.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Molecular Medicine</a>
+              <a href="research.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Research Training</a>
+              <a href="stem.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Junior STEM</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Professional Identity Dropdown -->
+        <div class="relative group">
+          <button class="hover:text-[#168C8C] transition pb-1 flex items-center gap-1">
+            Professional Identity
+            <svg class="w-4 h-4 text-slate-400 group-hover:text-[#168C8C] transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div class="absolute left-0 top-full pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-64 z-50">
+            <div class="bg-white border border-slate-200 rounded-xl shadow-xl overflow-hidden flex flex-col py-2">
+              <a href="identity.html#how-it-works" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">How It Works</a>
+              <a href="identity.html#training-records" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Training Records</a>
+              <a href="verify.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Verification</a>
+              <a href="identity.html#progress" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Member Progress</a>
+              <a href="identity.html#employer" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Employer & Institutional Use</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Research Dropdown -->
+        <div class="relative group">
+          <button class="hover:text-[#168C8C] transition pb-1 flex items-center gap-1">
+            Research
+            <svg class="w-4 h-4 text-slate-400 group-hover:text-[#168C8C] transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div class="absolute left-0 top-full pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-64 z-50">
+            <div class="bg-white border border-slate-200 rounded-xl shadow-xl overflow-hidden flex flex-col py-2">
+              <a href="journal.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">GJMR (Medical Journal)</a>
+              <a href="index.html#services" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">GLOMEt</a>
+              <a href="research.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">SudaGene Research Centre</a>
+              <div class="border-t border-slate-100 my-1"></div>
+              <a href="ideas.html" class="px-4 py-2 hover:bg-slate-50 font-bold text-[#123B5D] hover:text-[#168C8C] transition">Submit a Research Idea</a>
+            </div>
+          </div>
+        </div>
+
+        <a href="universities.html" class="hover:text-[#168C8C] transition pb-1">Universities</a>
+
+        <!-- Institutions Dropdown -->
+        <div class="relative group">
+          <button class="hover:text-[#168C8C] transition pb-1 flex items-center gap-1">
+            Institutions
+            <svg class="w-4 h-4 text-slate-400 group-hover:text-[#168C8C] transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div class="absolute left-0 top-full pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-72 z-50">
+            <div class="bg-white border border-slate-200 rounded-xl shadow-xl overflow-hidden flex flex-col py-2">
+              <a href="academic-solutions.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Academic Solutions</a>
+              <a href="partnerships.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Training Partnerships</a>
+              <a href="academic-solutions.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Curriculum Support</a>
+              <div class="border-t border-slate-100 my-1"></div>
+              <a href="institutions.html" class="px-4 py-2 hover:bg-slate-50 font-bold text-[#123B5D] hover:text-[#168C8C] transition">Request a Partnership Briefing</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <!-- CTA & Mobile Menu Button -->
+      <div class="flex items-center gap-4 shrink-0">
+        <a href="join.html" class="hidden sm:inline-flex px-5 py-2.5 rounded-xl bg-[#123B5D] hover:bg-[#0E2E49] text-white font-heading font-semibold text-xs sm:text-sm shadow-md transition-all">
+          Join Our Network
+        </a>
+        
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobile-menu-toggle" class="lg:hidden p-2 text-slate-600 hover:text-[#123B5D] transition">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Navigation Overlay (Hidden by default) -->
+    <div id="mobile-nav" class="hidden lg:hidden bg-white border-t border-slate-200 shadow-xl absolute top-full left-0 w-full z-40 max-h-[80vh] overflow-y-auto">
+      <div class="flex flex-col p-4 space-y-4 font-bold text-[#123B5D]">
+        <a href="courses.html" class="block pb-2 border-b border-slate-100 text-[#168C8C]">Programs &rarr;</a>
+        <a href="verify.html" class="block pb-2 border-b border-slate-100 text-[#168C8C]">Professional Identity &rarr;</a>
+        <a href="research.html" class="block pb-2 border-b border-slate-100 text-[#168C8C]">Research &rarr;</a>
+        <a href="universities.html" class="block pb-2 border-b border-slate-100">Universities</a>
+        <a href="institutions.html" class="block pb-2 border-b border-slate-100 text-[#168C8C]">Institutions &rarr;</a>
+        <a href="join.html" class="block text-center mt-4 px-5 py-3 rounded-xl bg-[#123B5D] text-white font-heading font-semibold text-sm shadow-md">
+          Join Our Network
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- JOURNAL HERO SECTION (Magazine Style) -->
+  <main class="bg-[#F7FAFC] pt-12 pb-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      
+      <!-- Issue Meta -->
+      <div class="flex items-center justify-center gap-3 mb-8">
+        <span class="w-2 h-2 rounded-full bg-[#C9A227]"></span>
+        <span class="font-mono text-xs font-bold text-[#123B5D] uppercase tracking-widest">Issue 01 &bull; August 2026</span>
+        <span class="w-2 h-2 rounded-full bg-[#C9A227]"></span>
+      </div>
+
+      <!-- Title -->
+      <div class="text-center max-w-4xl mx-auto mb-16">
+        <h1 class="text-5xl md:text-6xl font-black font-heading text-[#123B5D] leading-tight mb-6">
+          GemIInI Journal of Medical Research
+        </h1>
+        <p class="text-xl text-[#64748B] font-body max-w-2xl mx-auto">
+          The peer-reviewed academic organ of the SudaGene Consortium, publishing robust medical evidence synthesis and the Mechanism-to-Clinic (MTC) methodology.
+        </p>
+      </div>
+
+      <!-- EDITORIAL: A WORD FROM DR ALAA MURSI -->
+      <div class="bg-white rounded-3xl shadow-xl overflow-hidden mb-20 border border-slate-100">
+        <div class="grid md:grid-cols-5">
+          <!-- Image/Brand Column -->
+          <div class="bg-[#123B5D] p-12 text-white flex flex-col justify-center items-center md:col-span-2 relative overflow-hidden">
+             <!-- Decorative -->
+             <div class="absolute -top-24 -right-24 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
+             
+             <div class="w-24 h-24 rounded-full border-4 border-[#C9A227] mb-6 flex items-center justify-center bg-white/10 backdrop-blur-sm shadow-inner">
+                <span class="text-3xl font-black text-[#C9A227]">AM</span>
+             </div>
+             <h3 class="text-2xl font-bold font-heading mb-1 text-center">Dr. Alaa Mursi</h3>
+             <p class="text-sm font-mono text-[#168C8C] mb-6 text-center uppercase tracking-wider">Surgical Program Lead<br>Architect of BSS</p>
+             <div class="w-12 h-1 bg-[#C9A227] rounded-full"></div>
+          </div>
+          
+          <!-- Prose Column -->
+          <div class="p-10 md:p-16 md:col-span-3 flex flex-col justify-center">
+            <h2 class="text-3xl font-bold font-heading text-[#123B5D] mb-6 relative">
+              The Sovereign Scalpel: A Return to Evidence
+              <span class="absolute -bottom-3 left-0 w-16 h-1 bg-[#168C8C] rounded"></span>
+            </h2>
+            <div class="prose prose-lg text-[#1F2937] font-body text-justify leading-relaxed">
+              <p>
+                In an era where surgical training is increasingly fragmented, our mandate remains unapologetically rigorous. The Mechanism-to-Clinic (MTC) framework is not merely a pedagogical tool; it is the definitive bridge between raw genomic biology and the trauma bay.
+              </p>
+              <p>
+                As we launch the <em>GemIInI Journal of Medical Research</em>, we demand more than systematic reviews. We demand tactical intelligence. Whether you are operating in the stabilization points of Khartoum or researching out of Cairo, your clinical evidence forms the backbone of our sovereign registry.
+              </p>
+              <p class="font-bold text-[#123B5D]">
+                Stand fast. Publish your truths. Defend the curriculum.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FEATURED INSTITUTIONS GRID -->
+      <div class="mb-20">
+        <div class="flex items-end justify-between border-b-2 border-slate-200 pb-4 mb-10">
+          <div>
+            <h2 class="text-3xl font-black font-heading text-[#123B5D]">Featured Institutions</h2>
+            <p class="text-[#64748B] font-mono text-sm mt-1">THE CANONICAL REGISTRY OF SUDANESE FACULTIES</p>
+          </div>
+          <a href="universities.html" class="text-[#168C8C] font-bold hover:text-[#123B5D] transition hidden sm:block">View Complete Registry &rarr;</a>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          <!-- Institution Card 1 -->
+          <div class="bg-white border border-slate-200 rounded-2xl p-8 hover:shadow-xl transition-shadow group relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-1 bg-[#16805B] transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+            <div class="text-[10px] font-mono text-[#64748B] mb-2 uppercase tracking-widest">Est. 1924 &bull; Khartoum</div>
+            <h3 class="text-xl font-bold font-heading text-[#123B5D] mb-3">University of Khartoum Faculty of Medicine</h3>
+            <p class="text-sm text-[#64748B] line-clamp-3">The foundational bedrock of Sudanese medical education, contributing over a century of epidemiological data and surgical protocols to the regional corpus.</p>
+          </div>
+
+          <!-- Institution Card 2 -->
+          <div class="bg-white border border-slate-200 rounded-2xl p-8 hover:shadow-xl transition-shadow group relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-1 bg-[#C9A227] transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+            <div class="text-[10px] font-mono text-[#64748B] mb-2 uppercase tracking-widest">Est. 1993 &bull; Gezira</div>
+            <h3 class="text-xl font-bold font-heading text-[#123B5D] mb-3">University of Gezira Faculty of Medicine</h3>
+            <p class="text-sm text-[#64748B] line-clamp-3">Pioneers of the community-oriented medical education model, emphasizing endemic disease tracking and public health intervention frameworks.</p>
+          </div>
+
+          <!-- Institution Card 3 -->
+          <div class="bg-white border border-slate-200 rounded-2xl p-8 hover:shadow-xl transition-shadow group relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-1 bg-[#0284C7] transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+            <div class="text-[10px] font-mono text-[#64748B] mb-2 uppercase tracking-widest">Est. 1990 &bull; Khartoum</div>
+            <h3 class="text-xl font-bold font-heading text-[#123B5D] mb-3">Omdurman Islamic University</h3>
+            <p class="text-sm text-[#64748B] line-clamp-3">Providing robust clinical pharmacology and surgical training, with a vast alumni network integrated into the SudaGene mentoring cascade.</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- CALL TO ACTION: SUBMIT ARTICLES -->
+      <div class="bg-gradient-to-br from-[#123B5D] to-[#1C2C4A] rounded-3xl p-10 md:p-16 text-center text-white relative overflow-hidden shadow-2xl">
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3N2Zz4=')]"></div>
+        <div class="relative z-10 max-w-2xl mx-auto">
+          <span class="inline-block py-1 px-3 rounded-full bg-[#C9A227]/20 border border-[#C9A227]/50 text-[#FDE68A] text-xs font-mono font-bold tracking-widest mb-6">OPEN CALL FOR EVIDENCE</span>
+          <h2 class="text-3xl md:text-4xl font-black font-heading mb-6">Contribute to the Medical Archive</h2>
+          <p class="text-slate-300 text-lg mb-10 leading-relaxed">
+            We are actively soliciting clinical vignettes, MTC blueprints, and pharmacological audits from scholars globally. Ensure your institution's legacy is codified in the sovereign registry.
+          </p>
+          <a href="#submit" class="inline-flex items-center justify-center gap-3 bg-[#C9A227] hover:bg-[#FDE68A] text-[#123B5D] px-8 py-4 rounded-full font-bold transition-all transform hover:scale-105 shadow-lg shadow-[#C9A227]/30">
+            Submit Your Article
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-white border-t border-slate-200 py-12 text-center">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="w-12 h-12 rounded-xl bg-[#123B5D] text-white font-black flex items-center justify-center font-mono text-lg shadow-sm mx-auto mb-6">GA</div>
+      <p class="text-[#64748B] font-mono text-sm mb-2">GemIInI SudaGene Consortium &copy; 2026</p>
+      <p class="text-slate-400 text-xs">Secured by SudaPass&trade; Cryptographic Ledger</p>
+    </div>
+  </footer>
 
 </body>
 </html>
