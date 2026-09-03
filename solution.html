@@ -1,4 +1,4 @@
-﻿﻿﻿<!DOCTYPE html>
+﻿﻿<!DOCTYPE html>
 <html lang="en" dir="ltr" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
@@ -233,12 +233,11 @@
       </div>
     </div>
   </header>
-
-  <!-- CSS FOR STRICT ACADEMIC AESTHETIC -->
+  <!-- CSS FOR SOLUTION PAGE -->
   <style>
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      background-color: #FFFFFF;
+      background-color: #FAFAFA;
       color: #111827;
       -webkit-font-smoothing: antialiased;
     }
@@ -246,216 +245,97 @@
       font-family: 'IBM Plex Mono', monospace;
     }
     
-    /* Negative Space Logo for SGSJ */
-    .sgsj-logo {
-      display: inline-flex;
-      background: #0B132B;
-      color: #FFF;
-      font-weight: 900;
-      letter-spacing: -0.06em;
-      padding: 0.1em 0.3em;
-      border-radius: 2px;
-      line-height: 1;
-    }
-
-    /* Academic Layout Specifics */
-    .journal-header {
-      border-bottom: 4px solid #0B132B;
-      padding-bottom: 2rem;
-      margin-bottom: 3rem;
-    }
-    .section-title {
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: #0B132B;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      border-bottom: 2px solid #E5E7EB;
-      padding-bottom: 0.5rem;
-      margin-bottom: 2rem;
-    }
-    
-    /* Article Card */
-    .article-card {
-      padding: 2rem 0;
-      border-bottom: 1px solid #E5E7EB;
-    }
-    .article-card:last-child {
-      border-bottom: none;
-    }
-    .article-type {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.75rem;
-      font-weight: 700;
-      color: #168C8C;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-bottom: 0.5rem;
-    }
-    .article-title {
-      font-size: 1.75rem;
-      font-weight: 800;
-      color: #0B132B;
-      line-height: 1.3;
-      margin-bottom: 0.75rem;
-    }
-    .article-title:hover {
-      color: #168C8C;
-      cursor: pointer;
-    }
-    .article-authors {
-      font-size: 1rem;
-      color: #374151;
-      margin-bottom: 1rem;
-    }
-    .article-abstract {
-      font-size: 1.05rem;
-      line-height: 1.7;
-      color: #4B5563;
-      margin-bottom: 1.5rem;
-    }
-    .article-meta {
-      display: flex;
-      gap: 1.5rem;
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.85rem;
-      color: #6B7280;
-    }
-    .btn-submit {
-      display: inline-block;
-      background: #0B132B;
-      color: #FFF;
-      font-weight: 700;
-      padding: 0.75rem 1.5rem;
-      border-radius: 4px;
-      transition: background 0.2s;
-    }
-    .btn-submit:hover {
-      background: #1C2C4A;
+    .glass-card {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(229, 231, 235, 1);
+      box-shadow: 0 10px 40px -10px rgba(0,0,0,0.05);
     }
   </style>
 
-  <main class="pt-12 pb-32 max-w-6xl mx-auto px-4 sm:px-6">
-    
-    <!-- JOURNAL HERO / HEADER -->
-    <header class="journal-header text-center mt-8">
-      <div class="mb-6">
-        <div class="sgsj-logo text-5xl md:text-7xl">SGSJ</div>
-      </div>
-      <h1 class="text-3xl md:text-4xl font-black text-[#0B132B] mb-4">
-        SudaGene Scientific Journal
-      </h1>
-      <p class="text-lg text-[#4B5563] font-medium max-w-2xl mx-auto font-mono">
-        The Official Sovereign Evidence Registry of the GeneAcademy Consortium.
-      </p>
-    </header>
+  <main class="pt-16 pb-32 relative overflow-hidden">
+    <!-- Decorative elements -->
+    <div class="absolute top-0 right-0 w-96 h-96 bg-[#168C8C]/10 rounded-full blur-[100px] pointer-events-none -z-10"></div>
+    <div class="absolute bottom-0 left-0 w-96 h-96 bg-[#C9A227]/10 rounded-full blur-[100px] pointer-events-none -z-10"></div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
       
-      <!-- MAIN CONTENT: ARTICLES -->
-      <div class="lg:col-span-8">
-        <h2 class="section-title">Latest Publications</h2>
-        
-        <div class="articles-list">
-          
-          <!-- The 100 Paper Project -->
-          <article class="article-card">
-            <div class="article-type">Critical Appraisal</div>
-            <h3 class="article-title">
-              The 100 Paper Project: Critical Appraisal of Scientific Sudanese Literature
-            </h3>
-            <div class="article-authors">
-              <span class="font-semibold text-[#0B132B]">GemIInI Academic Consortium</span>
-            </div>
-            <p class="article-abstract">
-              Our flagship continuous academic initiative. In this project, we rigorously read, dissect, and critically appraise 100 foundational and contemporary scientific Sudanese papers. This systematic review serves to establish a sovereign baseline of evidence synthesis for our clinicians.
-            </p>
-            <div class="article-meta">
-              <span>Status: Ongoing</span>
-              <span>Focus: Sudanese Medical Literature</span>
-              <a href="#" class="text-[#168C8C] hover:underline font-bold">View Appraisals &rarr;</a>
-            </div>
-          </article>
-
-        </div>
-        <div class="mt-8 text-center lg:text-left">
-          <a href="#" class="text-[#0B132B] font-bold hover:underline font-mono text-sm">View Entire Archive &rarr;</a>
-        </div>
-      </div>
-
-      <!-- SIDEBAR: EDITORIAL & SUBMISSION -->
-      <div class="lg:col-span-4 space-y-10">
-        
-        <!-- Dr Alaa Editorial Box -->
-        <div class="bg-[#F8FAFC] p-6 rounded-xl border border-[#E5E7EB]">
-          <h2 class="text-sm font-bold text-[#0B132B] uppercase tracking-wider mb-4 border-b border-[#E5E7EB] pb-2">From the Academic Director</h2>
-          <div class="flex items-center gap-4 mb-4">
-            <div class="w-14 h-14 rounded-full border-2 border-[#C9A227] flex items-center justify-center bg-[#0B132B] shrink-0">
-              <span class="text-lg font-black text-[#C9A227]">AM</span>
-            </div>
-            <div>
-              <p class="font-bold text-[#0B132B] leading-tight">Dr. Alaa Mursi</p>
-              <p class="text-[10px] font-mono text-[#168C8C] uppercase">GA-001 | FMRCS</p>
-            </div>
-          </div>
-          <p class="text-sm text-[#4B5563] leading-relaxed italic mb-4">
-            "We are not a passive repository of knowledge. We are the active catalyst—the chemistry—that unites the complex biology of the SudaGene platform. Your submissions here forge the sovereign medical registry."
+      <div class="text-center mb-16">
+        <p class="font-mono font-bold text-[#168C8C] tracking-widest uppercase text-sm mb-4">[ONBOARDING LEDGER: THE TRIAGE COMMITMENT]</p>
+        <h1 class="text-4xl md:text-5xl font-black text-[#0B132B] mb-6 leading-tight">
+          The "Three Coffees" Diagnostic: Dedicated Academic Solutions
+        </h1>
+        <div class="prose prose-lg text-[#4B5563] mx-auto font-body leading-relaxed max-w-2xl text-justify">
+          <p class="mb-4">
+            Are you skeptical? Are you an overwhelmed first-year medical student looking for a clear direction? We built this entry gate specifically for you.
+          </p>
+          <p>
+            We do not believe in $500 corporate gatekeeping, nor do we entertain endless theoretical debates. We dedicate our operational academy directly to individual minds who are ready to move.
           </p>
         </div>
+      </div>
 
-        <!-- Information for Authors -->
-        <div>
-          <h2 class="text-sm font-bold text-[#0B132B] uppercase tracking-wider mb-4 border-b border-[#0B132B] pb-2">Information for Authors</h2>
-          
-          <div class="space-y-4 text-sm text-[#374151]">
-            <p>
-              SGSJ publishes high-fidelity medical research, strictly focusing on the Mechanism-to-Clinic (MTC) translation. 
-            </p>
-            <div>
-              <strong class="block text-[#0B132B] mb-1">Accepted Formats:</strong>
-              <ul class="list-disc list-inside space-y-1 ml-1 text-[#4B5563]">
-                <li>Clinical Vignettes</li>
-                <li>Evidence Syntheses</li>
-                <li>MTC Blueprints</li>
-                <li>Textbook Modules</li>
-              </ul>
-            </div>
-            <div>
-              <strong class="block text-[#0B132B] mb-1">Peer Review Mandate:</strong>
-              <p class="text-xs text-[#6B7280]">
-                All manuscripts undergo rigorous double-blind peer review by the GemIInI Academic Consortium to ensure clinical validity and demographic accuracy.
-              </p>
-            </div>
-          </div>
-
-          <div class="mt-6">
-            <a href="#" class="btn-submit w-full text-center">Submit Manuscript</a>
-            <p class="text-[10px] text-center text-[#6B7280] mt-2 font-mono">View full submission guidelines</p>
-          </div>
+      <div class="glass-card p-8 md:p-12 rounded-3xl relative">
+        <div class="absolute -top-6 -left-6 w-12 h-12 bg-[#0B132B] rounded-xl shadow-lg flex items-center justify-center text-white">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
         </div>
+        
+        <p class="text-xl font-bold text-[#0B132B] mb-8 text-center border-b border-[#E5E7EB] pb-6">
+          The Commitment: For the symbolic cost of three cups of coffee (payable via Vodafone Cash or Bankak to our clearing desk):
+        </p>
+        
+        <ol class="space-y-10">
+          <li class="flex gap-6">
+            <div class="w-10 h-10 rounded-full bg-[#0B132B] text-white flex items-center justify-center font-mono font-bold shrink-0 text-xl shadow-md">1</div>
+            <div>
+              <strong class="text-[#0B132B] block text-xl mb-1">The Intake Dossier</strong>
+              <span class="text-[#4B5563] text-lg block leading-relaxed">Our academic desk opens your personalized file and evaluates your current curricular standing.</span>
+            </div>
+          </li>
+          <li class="flex gap-6">
+            <div class="w-10 h-10 rounded-full bg-[#0B132B] text-white flex items-center justify-center font-mono font-bold shrink-0 text-xl shadow-md">2</div>
+            <div>
+              <strong class="text-[#0B132B] block text-xl mb-1">The 1-on-1 Academic Diagnostic</strong>
+              <span class="text-[#4B5563] text-lg block leading-relaxed">You sit down for an individualized academic interview with our clinical leads (Dr. Alaa Mursi & Dr. Mohamed Gibbril).</span>
+            </div>
+          </li>
+          <li class="flex gap-6">
+            <div class="w-10 h-10 rounded-full bg-[#C9A227] text-[#0B132B] flex items-center justify-center font-mono font-bold shrink-0 text-xl shadow-md">3</div>
+            <div>
+              <strong class="text-[#0B132B] block text-xl mb-1">The Activation Grant</strong>
+              <span class="text-[#4B5563] text-lg block leading-relaxed">Upon completion of your intake, your permanent GA-ID is credited with 100 GemIInI Points (GP), instantly integrating you into our weekly career pods and clinical rounds.</span>
+            </div>
+          </li>
+        </ol>
 
-        <!-- Metric Callout -->
-        <div class="bg-[#0B132B] text-white p-6 rounded-xl">
-          <p class="text-xs font-mono text-slate-400 uppercase tracking-widest mb-1">Consortium Reach</p>
-          <p class="text-3xl font-black mb-1">63+</p>
-          <p class="text-sm text-slate-300">Canonical Faculties Integrated</p>
+        <!-- THE 3-DAY SLA -->
+        <div class="mt-12 bg-[#0B132B] p-6 rounded-2xl text-white shadow-lg border border-[#1C2C4A]">
+           <div class="flex items-center gap-3 mb-2">
+             <svg class="w-5 h-5 text-[#C9A227]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+             <h4 class="font-bold text-[#C9A227] font-mono tracking-wide">VERIFICATION SLA: 72 HOURS</h4>
+           </div>
+           <p class="text-slate-300 text-sm leading-relaxed font-semibold">
+             Verifying the GemIInI profile takes 3 days because we rigorously audit your bio, credentials, and academic work/papers. This is a human operational audit, ensuring the sanctuary doors remain secure.
+           </p>
         </div>
-
+        
+        <div class="mt-8 pt-8 border-t border-[#E5E7EB] text-center">
+           <p class="text-[#168C8C] font-semibold italic text-lg max-w-xl mx-auto">
+             "A nominal token to separate the serious from the cynical. We invest our time in those who invest in themselves."
+           </p>
+        </div>
       </div>
 
     </div>
-  
-    
-    </div>
-
   </main>
 
   <!-- FOOTER -->
-  <footer class="bg-[#F8FAFC] border-t border-[#E5E7EB] py-12 text-center">
+  <footer class="bg-white border-t border-[#E5E7EB] py-12 text-center">
     <div class="max-w-7xl mx-auto px-4">
-      <div class="sgsj-logo text-xl mb-4">SGSJ</div>
-      <p class="text-[#64748B] font-mono text-sm mb-1">GemIInI SudaGene Consortium &copy; 2026</p>
-      <p class="text-[#9CA3AF] text-xs">ISSN: Pending | Secured by SudaPass&trade;</p>
+      <div class="w-12 h-12 rounded-xl bg-[#0B132B] text-white font-black flex items-center justify-center font-mono text-lg shadow-sm mx-auto mb-6">GA</div>
+      <p class="text-[#64748B] font-mono text-sm mb-2">GemIInI SudaGene Consortium &copy; 2026</p>
+      <p class="text-[#9CA3AF] text-xs">Secured by SudaPass&trade; Cryptographic Ledger</p>
     </div>
   </footer>
 
