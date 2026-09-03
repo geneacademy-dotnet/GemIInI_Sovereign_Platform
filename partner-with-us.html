@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <!-- iubenda Cookie & Consent Banner -->
@@ -99,7 +99,6 @@ _iub.csConfiguration = {"siteId":4659147,"cookiePolicyId":32190221,"lang":"en","
     transition:background .2s;
   }
   .ga-brand:hover .ga-badge{background:#168C8C;}
-  .ga-brand-text{}
   .ga-brand-name{display:block; font-weight:800; color:var(--navy); font-size:1.1rem; line-height:1.2;}
   .ga-brand-sub{display:block; font-family:'IBM Plex Mono',monospace; font-size:10px; color:#64748B; letter-spacing:.08em; text-transform:uppercase;}
   .ga-nav{display:none; align-items:center; gap:24px; font-size:.9rem; font-weight:700;}
@@ -436,7 +435,7 @@ _iub.csConfiguration = {"siteId":4659147,"cookiePolicyId":32190221,"lang":"en","
     <div class="evidence-grid">
       <div class="ev-card">
         <span class="label label-verified">Institutional Reach</span>
-        <div class="figure">63+ medical faculties</div>
+        <div class="figure">40 medical faculties</div>
         <p>Verified institutional directory listings connected to Gene Academy pathways across Sudan and the region.</p>
       </div>
       <div class="ev-card">
@@ -445,9 +444,9 @@ _iub.csConfiguration = {"siteId":4659147,"cookiePolicyId":32190221,"lang":"en","
         <p>Structured diagnostic and reasoning scenarios across 8 core SMC modules, authored and quality-checked.</p>
       </div>
       <div class="ev-card">
-        <span class="label label-partner">AHA BLS Partner</span>
-        <div class="figure">Lic. 1549</div>
-        <p>Accredited BLS training under AHA Licence 1549. Consortium instructors hold verified AHA credentials activated on the GemIInI platform.</p>
+        <span class="label label-partner">BLS Simulation</span>
+        <div class="figure">Consortium-Accredited</div>
+        <p>Consortium-accredited BLS simulation training. Instructors hold verified clinical credentials activated on the GemIInI platform.</p>
       </div>
       <div class="ev-card">
         <span class="label label-outcome">National SMC Pass Rate</span>
@@ -713,14 +712,17 @@ _iub.csConfiguration = {"siteId":4659147,"cookiePolicyId":32190221,"lang":"en","
 
     try {
       if (typeof executeGemIInISync !== 'function') throw new Error('API connector missing.');
-      await executeGemIInISync(payload);
+      const result = await executeGemIInISync(payload);
+      if (!result || result.success === false) {
+        throw new Error(result?.error || 'SERVER_ERROR');
+      }
       if (window.GemIInITracker) window.GemIInITracker.trackPartnerFormSubmit('individual');
       status.classList.add('status-success');
       status.textContent = 'Registration received. Your GA-ID will be assigned and confirmed by email.';
       document.getElementById('formIndividual').reset();
     } catch(err) {
       status.classList.add('status-error');
-      status.textContent = 'Submission failed. Please try again or contact mohamedgibbril@gmail.com.';
+      status.textContent = 'Submission failed. Please try again or contact admissions@geneacademy.net.';
     } finally {
       btn.disabled = false; btn.textContent = 'Register as an individual';
     }
@@ -749,14 +751,17 @@ _iub.csConfiguration = {"siteId":4659147,"cookiePolicyId":32190221,"lang":"en","
 
     try {
       if (typeof executeGemIInISync !== 'function') throw new Error('API connector missing.');
-      await executeGemIInISync(payload);
+      const result = await executeGemIInISync(payload);
+      if (!result || result.success === false) {
+        throw new Error(result?.error || 'SERVER_ERROR');
+      }
       if (window.GemIInITracker) window.GemIInITracker.trackPartnerFormSubmit('business');
       status.classList.add('status-success');
       status.textContent = 'Business profile request received. Our institutional partnerships desk will contact you within 24 hours.';
       document.getElementById('formBusiness').reset();
     } catch(err) {
       status.classList.add('status-error');
-      status.textContent = 'Submission failed. Please try again or contact amjadgorashi32@gmail.com.';
+      status.textContent = 'Submission failed. Please try again or contact b2b@geneacademy.net.';
     } finally {
       btn.disabled = false; btn.textContent = 'Submit business profile request';
     }
