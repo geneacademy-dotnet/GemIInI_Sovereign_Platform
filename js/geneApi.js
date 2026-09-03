@@ -1,10 +1,10 @@
-﻿/**
+/**
  * SudaGene Consortium - Independent Telemetry API
  * Features: IndexedDB Offline Caching & Background Sync Queue
  */
 
 const GeneAPI = (function() {
-    const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwe3rUYJgtSjcnPaKxJOiPsmA19yglrXyWJtAVq0fy4rPi1zLUIacZaWpC4Yhg0x5Ux/exec";
+    const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwagVvADiYJ58WChvd_AUCYKrjqWJ5kKHIe2pIOPi1Nx2nE_4BVyVV3ifYkmib3Hbvk/exec";
     const DB_NAME = "SudaGeneDB";
     const STORE_QUEUE = "offline_queue";
     const STORE_CACHE = "api_cache";

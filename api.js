@@ -1,13 +1,13 @@
-﻿/**
+/**
  * ============================================================================
  * GENEACADEMY & SUDAGENE RESILIENT API CLIENT (V4.6 ENTERPRISE)
  * Target: Hostinger Production Edge â€¢ Unified Apps Script Single Source of Truth
- * Active Endpoint: AKfycbwe3rUYJgtSjcnPaKxJOiPsmA19yglrXyWJtAVq0fy4rPi1zLUIacZaWpC4Yhg0x5Ux
+ * Active Endpoint: AKfycbwagVvADiYJ58WChvd_AUCYKrjqWJ5kKHIe2pIOPi1Nx2nE_4BVyVV3ifYkmib3Hbvk
  * ============================================================================
  */
 
 const GEMIINI_CONFIG = {
-  ENDPOINT: 'https://script.google.com/macros/s/AKfycbwe3rUYJgtSjcnPaKxJOiPsmA19yglrXyWJtAVq0fy4rPi1zLUIacZaWpC4Yhg0x5Ux/exec',
+  ENDPOINT: 'https://script.google.com/macros/s/AKfycbwagVvADiYJ58WChvd_AUCYKrjqWJ5kKHIe2pIOPi1Nx2nE_4BVyVV3ifYkmib3Hbvk/exec',
   TIMEOUT_MS: 15000
 };
 
