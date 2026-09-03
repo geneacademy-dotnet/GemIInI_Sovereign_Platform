@@ -1,6 +1,6 @@
-/**
- * WhatsAppReceiptWebhook.gs — Secondary Automation Router
- * SudaGene Consortium — GemIInI Academy · Gene Academy
+﻿/**
+ * WhatsAppReceiptWebhook.gs â€” Secondary Automation Router
+ * SudaGene Consortium â€” GemIInI Academy Â· Gene Academy
  *
  * Receives WhatsApp Business Webhooks or Manual Desk Ingestion
  * and calls the Master Ledger Auto-Minter in Code.gs
@@ -28,11 +28,11 @@ function handleWhatsAppWebhook(e) {
       const providerRef = trxMatch ? trxMatch[0] : ("WA-MANUAL-" + Date.now());
       
       // Parse Coffee booster flag
-      const isCoffee = msgText.includes("250") || msgText.includes("قهوة") || msgText.includes("coffee");
+      const isCoffee = msgText.includes("250") || msgText.includes("Ù‚Ù‡ÙˆØ©") || msgText.includes("coffee");
       const feeAmount = isCoffee ? 3250 : 3000;
       
       // Parse candidate name
-      const nameMatch = msgText.match(/(?:د\.|دكتور|Dr\.?)\s*([\u0600-\u06FFa-zA-Z\s]{3,30})/);
+      const nameMatch = msgText.match(/(?:Ø¯\.|Ø¯ÙƒØªÙˆØ±|Dr\.?)\s*([\u0600-\u06FFa-zA-Z\s]{3,30})/);
       const fullName = nameMatch ? nameMatch[0] : ("Dr. " + fromPhone);
 
       // Construct auto-minter payload
@@ -79,15 +79,15 @@ function handleWhatsAppWebhook(e) {
  * Sends Instant Confirmation Back to Candidate's WhatsApp
  */
 function sendWhatsAppConfirmation(toPhone, gaId, gpBalance, doctorName) {
-  const replyText = "🏛️ *GemIInI Academy — Independent Credential Issued*\n\n" +
+  const replyText = "ðŸ›ï¸ *GemIInI Academy â€” Independent Credential Issued*\n\n" +
     "Dear " + doctorName + ",\n\n" +
     "Your registration has been confirmed for the *BLS Cairo Workshop (Friday, 28 Aug 2026)*.\n\n" +
-    "🆔 *GemIInI ID:* `" + gaId + "`\n" +
-    "💎 *Living Ledger Credit:* `+" + gpBalance + " GP` (Certified Clinical Hours)\n" +
-    "🎁 *Bonus:* Dr. Mohamed Sabri Digital Transformation & CV Module Unlocked!\n\n" +
-    "🔗 *Verify in Master Registry:* https://geneacademy.net/verify?id=" + encodeURIComponent(gaId) + "\n" +
-    "🚀 *Member Cockpit:* https://geneacademy.net/dashboard\n\n" +
-    "— *GemIInI Academy Operations Desk*";
+    "ðŸ†” *GemIInI ID:* `" + gaId + "`\n" +
+    "ðŸ’Ž *Living Ledger Credit:* `+" + gpBalance + " GP` (Certified Clinical Hours)\n" +
+    "ðŸŽ *Bonus:* Dr. Mohamed Sabri Digital Transformation & CV Module Unlocked!\n\n" +
+    "ðŸ”— *Verify in Master Registry:* https://geneacademy.net/verify?id=" + encodeURIComponent(gaId) + "\n" +
+    "ðŸš€ *Member Cockpit:* https://geneacademy.net/dashboard\n\n" +
+    "â€” *GemIInI Academy Operations Desk*";
 
   const url = "https://graph.facebook.com/v18.0/" + PHONE_NUMBER_ID + "/messages";
   const payload = {

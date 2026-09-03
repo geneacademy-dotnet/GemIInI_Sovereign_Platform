@@ -1,4 +1,4 @@
-/**
+﻿/**
  * src/pages/HomePage.jsx
  * SudaGene Consortium & GemIInI Academy Sovereign Portal
  * 2027 Apple / VisionOS Spatial Design System
@@ -37,7 +37,7 @@ const SovereignWalletGraphic = () => (
       <div className="space-y-1 text-start">
         <p className="font-mono text-xs tracking-widest text-slate-400">GA-1131</p>
         <h3 className="font-display text-2xl font-bold tracking-tight text-white">Dr. Amjad Mohamed</h3>
-        <p className="text-xs font-medium text-slate-400">University of Khartoum • Faculty of Medicine</p>
+        <p className="text-xs font-medium text-slate-400">University of Khartoum â€¢ Faculty of Medicine</p>
       </div>
       <div className="mt-8 flex items-center justify-between border-t border-white/10 pt-4">
         <div className="text-start">
@@ -80,11 +80,11 @@ const VisaFastTrackForm = () => {
       <div className="flex h-full min-h-[280px] flex-col items-center justify-center rounded-3xl border border-amber-500/30 bg-amber-500/10 p-8 text-center backdrop-blur-xl animate-in fade-in zoom-in-95">
         <CheckCircle2 className="mb-4 h-12 w-12 text-amber-400" />
         <h4 className="mb-2 font-display text-xl font-bold text-white">
-          {isRtl ? 'تم استلام طلبك السريع بنجاح' : 'Fast-Track Request Secured'}
+          {isRtl ? 'ØªÙ… Ø§Ø³ØªÙ„Ø§Ù… Ø·Ù„Ø¨Ùƒ Ø§Ù„Ø³Ø±ÙŠØ¹ Ø¨Ù†Ø¬Ø§Ø­' : 'Fast-Track Request Secured'}
         </h4>
         <p className="text-sm text-amber-200/80 max-w-sm">
           {isRtl 
-            ? 'سيقوم فريق الكونسيرج الطبي بالتواصل معك عبر الواتساب خلال ساعتين لترتيب التأشيرة السريعة وحجز الامتحان.' 
+            ? 'Ø³ÙŠÙ‚ÙˆÙ… ÙØ±ÙŠÙ‚ Ø§Ù„ÙƒÙˆÙ†Ø³ÙŠØ±Ø¬ Ø§Ù„Ø·Ø¨ÙŠ Ø¨Ø§Ù„ØªÙˆØ§ØµÙ„ Ù…Ø¹Ùƒ Ø¹Ø¨Ø± Ø§Ù„ÙˆØ§ØªØ³Ø§Ø¨ Ø®Ù„Ø§Ù„ Ø³Ø§Ø¹ØªÙŠÙ† Ù„ØªØ±ØªÙŠØ¨ Ø§Ù„ØªØ£Ø´ÙŠØ±Ø© Ø§Ù„Ø³Ø±ÙŠØ¹Ø© ÙˆØ­Ø¬Ø² Ø§Ù„Ø§Ù…ØªØ­Ø§Ù†.' 
             : 'Our medical concierge desk will contact you via WhatsApp within 2 hours to process your visa, flights, and exam booking.'}
         </p>
       </div>
@@ -99,7 +99,7 @@ const VisaFastTrackForm = () => {
           type="text"
           value={form.fullName}
           onChange={(e) => setForm({ ...form, fullName: e.target.value })}
-          placeholder={isRtl ? 'الاسم الكامل (كما في جواز السفر)' : 'Full Legal Name (as on Passport)'}
+          placeholder={isRtl ? 'Ø§Ù„Ø§Ø³Ù… Ø§Ù„ÙƒØ§Ù…Ù„ (ÙƒÙ…Ø§ ÙÙŠ Ø¬ÙˆØ§Ø² Ø§Ù„Ø³ÙØ±)' : 'Full Legal Name (as on Passport)'}
           className={inputClass}
         />
       </div>
@@ -109,7 +109,7 @@ const VisaFastTrackForm = () => {
           type="text"
           value={form.whatsapp}
           onChange={(e) => setForm({ ...form, whatsapp: e.target.value })}
-          placeholder={isRtl ? 'رقم الواتساب (+249 / +20)' : 'WhatsApp Number (+249 / +20)'}
+          placeholder={isRtl ? 'Ø±Ù‚Ù… Ø§Ù„ÙˆØ§ØªØ³Ø§Ø¨ (+249 / +20)' : 'WhatsApp Number (+249 / +20)'}
           className={inputClass}
         />
         <select
@@ -121,7 +121,7 @@ const VisaFastTrackForm = () => {
           <option value="prometric">Prometric (Saudi / DHA / Qatar)</option>
           <option value="plab">PLAB 1 / OET UK</option>
           <option value="approbation">German Approbation / FSP</option>
-          <option value="other">{isRtl ? 'أخرى / زيارة وتدريب سريري' : 'Other / Clinical Training Visit'}</option>
+          <option value="other">{isRtl ? 'Ø£Ø®Ø±Ù‰ / Ø²ÙŠØ§Ø±Ø© ÙˆØªØ¯Ø±ÙŠØ¨ Ø³Ø±ÙŠØ±ÙŠ' : 'Other / Clinical Training Visit'}</option>
         </select>
       </div>
       <button 
@@ -134,7 +134,7 @@ const VisaFastTrackForm = () => {
         ) : (
           <>
             <PlaneTakeoff className="h-5 w-5" />
-            <span>{isRtl ? 'أرسل الطلب العاجل للكونسيرج (SLA ساعتين)' : 'Request Urgent Fast-Track (2hr SLA)'}</span>
+            <span>{isRtl ? 'Ø£Ø±Ø³Ù„ Ø§Ù„Ø·Ù„Ø¨ Ø§Ù„Ø¹Ø§Ø¬Ù„ Ù„Ù„ÙƒÙˆÙ†Ø³ÙŠØ±Ø¬ (SLA Ø³Ø§Ø¹ØªÙŠÙ†)' : 'Request Urgent Fast-Track (2hr SLA)'}</span>
           </>
         )}
       </button>
@@ -158,10 +158,10 @@ export default function HomePage() {
   return (
     <Layout>
       <Helmet>
-        <title>{isRtl ? 'أكاديمية جيميني وسوداجين | المنظومة السريرية والجينومية السيادية' : 'GemIInI Academy & SudaGene | Sovereign Medical & Genomic Ecosystem'}</title>
+        <title>{isRtl ? 'Ø£ÙƒØ§Ø¯ÙŠÙ…ÙŠØ© Ø¬ÙŠÙ…ÙŠÙ†ÙŠ ÙˆØ³ÙˆØ¯Ø§Ø¬ÙŠÙ† | Ø§Ù„Ù…Ù†Ø¸ÙˆÙ…Ø© Ø§Ù„Ø³Ø±ÙŠØ±ÙŠØ© ÙˆØ§Ù„Ø¬ÙŠÙ†ÙˆÙ…ÙŠØ© Ø§Ù„Ø³ÙŠØ§Ø¯ÙŠØ©' : 'GemIInI Academy & SudaGene | Sovereign Medical & Genomic Ecosystem'}</title>
         <meta
           name="description"
-          content="The Decentralized Bio-Medical & Clinical Licensure Platform for North Africa and Middle East. Mechanism-to-Clinic (MTC™) simulation, Translational Genomics, and Cryptographic Credentialing."
+          content="The Decentralized Bio-Medical & Clinical Licensure Platform for North Africa and Middle East. Mechanism-to-Clinic (MTCâ„¢) simulation, Translational Genomics, and Cryptographic Credentialing."
         />
       </Helmet>
 
@@ -181,15 +181,15 @@ export default function HomePage() {
               <div className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full border border-white/10 bg-white/5 shadow-2xl backdrop-blur-2xl mb-8 hover:border-[#00F2FE]/50 transition-all duration-500">
                 <span className="flex h-2 w-2 rounded-full bg-[#00F2FE] animate-pulse" />
                 <span className="text-xs font-mono font-bold tracking-widest text-[#00F2FE] uppercase">
-                  {isRtl ? 'الشبكة السريرية والجينومية اللامركزية' : 'The Decentralized Clinical Network'}
+                  {isRtl ? 'Ø§Ù„Ø´Ø¨ÙƒØ© Ø§Ù„Ø³Ø±ÙŠØ±ÙŠØ© ÙˆØ§Ù„Ø¬ÙŠÙ†ÙˆÙ…ÙŠØ© Ø§Ù„Ù„Ø§Ù…Ø±ÙƒØ²ÙŠØ©' : 'The Decentralized Clinical Network'}
                 </span>
               </div>
 
               <h1 className="font-display text-5xl sm:text-7xl lg:text-8xl font-black tracking-tight text-white leading-[1.05]">
                 {isRtl ? (
                   <>
-                    إرثٌ <span className="bg-gradient-to-r from-[#00F2FE] via-[#38BDF8] to-teal-400 bg-clip-text text-transparent">لا ينكسر</span>.<br />
-                    مستقبل الطب الرقمي.
+                    Ø¥Ø±Ø«ÙŒ <span className="bg-gradient-to-r from-[#00F2FE] via-[#38BDF8] to-teal-400 bg-clip-text text-transparent">Ù„Ø§ ÙŠÙ†ÙƒØ³Ø±</span>.<br />
+                    Ù…Ø³ØªÙ‚Ø¨Ù„ Ø§Ù„Ø·Ø¨ Ø§Ù„Ø±Ù‚Ù…ÙŠ.
                   </>
                 ) : (
                   <>
@@ -201,8 +201,8 @@ export default function HomePage() {
 
               <p className="mt-8 text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto font-light leading-relaxed">
                 {isRtl
-                  ? 'وُلدنا من رحم الصمود لحماية وتطوير الإرث الطبي السوداني في وجه الانهيار المؤسسي. محاكاة سريرية تراكمية MTC™، أبحاث أورام دقيقة، ومقعدك في المعامل الحقيقية هو هويتك التي لا تُمحى.'
-                  : 'Forged in resilience. Founded to protect and elevate the medical legacy against institutional disruption. Your indestructible clinical identity starts with verified MTC™ simulation and wet labs.'}
+                  ? 'ÙˆÙÙ„Ø¯Ù†Ø§ Ù…Ù† Ø±Ø­Ù… Ø§Ù„ØµÙ…ÙˆØ¯ Ù„Ø­Ù…Ø§ÙŠØ© ÙˆØªØ·ÙˆÙŠØ± Ø§Ù„Ø¥Ø±Ø« Ø§Ù„Ø·Ø¨ÙŠ Ø§Ù„Ø³ÙˆØ¯Ø§Ù†ÙŠ ÙÙŠ ÙˆØ¬Ù‡ Ø§Ù„Ø§Ù†Ù‡ÙŠØ§Ø± Ø§Ù„Ù…Ø¤Ø³Ø³ÙŠ. Ù…Ø­Ø§ÙƒØ§Ø© Ø³Ø±ÙŠØ±ÙŠØ© ØªØ±Ø§ÙƒÙ…ÙŠØ© MTCâ„¢ØŒ Ø£Ø¨Ø­Ø§Ø« Ø£ÙˆØ±Ø§Ù… Ø¯Ù‚ÙŠÙ‚Ø©ØŒ ÙˆÙ…Ù‚Ø¹Ø¯Ùƒ ÙÙŠ Ø§Ù„Ù…Ø¹Ø§Ù…Ù„ Ø§Ù„Ø­Ù‚ÙŠÙ‚ÙŠØ© Ù‡Ùˆ Ù‡ÙˆÙŠØªÙƒ Ø§Ù„ØªÙŠ Ù„Ø§ ØªÙÙ…Ø­Ù‰.'
+                  : 'Forged in resilience. Founded to protect and elevate the medical legacy against institutional disruption. Your indestructible clinical identity starts with verified MTCâ„¢ simulation and wet labs.'}
               </p>
 
               {/* Cohort CTAs */}
@@ -212,7 +212,7 @@ export default function HomePage() {
                   className="group relative inline-flex items-center gap-2.5 rounded-full bg-white px-8 py-4 text-sm sm:text-base font-bold text-slate-950 transition-all duration-300 hover:bg-[#00F2FE] hover:shadow-[0_0_30px_rgba(0,242,254,0.4)] active:scale-95 shadow-xl"
                 >
                   <MapPin className="w-4 h-4 text-slate-950" />
-                  <span>{isRtl ? 'تثبيت التسجيل السريري: القاهرة (٢٨ أغسطس)' : 'Book Cairo Hub (Aug 28)'}</span>
+                  <span>{isRtl ? 'ØªØ«Ø¨ÙŠØª Ø§Ù„ØªØ³Ø¬ÙŠÙ„ Ø§Ù„Ø³Ø±ÙŠØ±ÙŠ: Ø§Ù„Ù‚Ø§Ù‡Ø±Ø© (Ù¢Ù¨ Ø£ØºØ³Ø·Ø³)' : 'Book Cairo Hub (Aug 28)'}</span>
                 </Link>
 
                 <Link
@@ -220,7 +220,7 @@ export default function HomePage() {
                   className="inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/5 px-8 py-4 text-sm sm:text-base font-bold text-white backdrop-blur-xl transition-all duration-300 hover:bg-white/10 hover:border-white/20 active:scale-95 shadow-xl"
                 >
                   <MapPin className="w-4 h-4 text-[#00F2FE]" />
-                  <span>{isRtl ? 'تثبيت التسجيل السريري: السودان (١٠ سبتمبر)' : 'Book Sudan Hub (Sept 10)'}</span>
+                  <span>{isRtl ? 'ØªØ«Ø¨ÙŠØª Ø§Ù„ØªØ³Ø¬ÙŠÙ„ Ø§Ù„Ø³Ø±ÙŠØ±ÙŠ: Ø§Ù„Ø³ÙˆØ¯Ø§Ù† (Ù¡Ù  Ø³Ø¨ØªÙ…Ø¨Ø±)' : 'Book Sudan Hub (Sept 10)'}</span>
                 </Link>
               </div>
 
@@ -242,15 +242,15 @@ export default function HomePage() {
               <div className="text-start">
                 <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-amber-500/20 px-3.5 py-1.5 text-xs font-bold uppercase tracking-widest text-amber-400 border border-amber-500/30">
                   <Zap className="h-4 w-4" />
-                  <span>{isRtl ? 'شراكة لوجستية حصرية — كونسيرج مصر' : 'Exclusive Medical Concierge Partner'}</span>
+                  <span>{isRtl ? 'Ø´Ø±Ø§ÙƒØ© Ù„ÙˆØ¬Ø³ØªÙŠØ© Ø­ØµØ±ÙŠØ© â€” ÙƒÙˆÙ†Ø³ÙŠØ±Ø¬ Ù…ØµØ±' : 'Exclusive Medical Concierge Partner'}</span>
                 </div>
                 <h2 className="font-display text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-snug">
-                  {isRtl ? 'طريقك السريع والمباشر إلى مصر للامتحانات والتدريب.' : 'Your Express Route to Egypt for Medical Exams.'}
+                  {isRtl ? 'Ø·Ø±ÙŠÙ‚Ùƒ Ø§Ù„Ø³Ø±ÙŠØ¹ ÙˆØ§Ù„Ù…Ø¨Ø§Ø´Ø± Ø¥Ù„Ù‰ Ù…ØµØ± Ù„Ù„Ø§Ù…ØªØ­Ø§Ù†Ø§Øª ÙˆØ§Ù„ØªØ¯Ø±ÙŠØ¨.' : 'Your Express Route to Egypt for Medical Exams.'}
                 </h2>
                 <p className="mt-4 text-base leading-relaxed text-amber-100/70 font-light">
                   {isRtl
-                    ? 'نحن الشريك الرسمي لأكبر شركات الكونسيرج والخدمات الطبية المميزة في مصر. إذا كنت في السودان وتخطط للسفر خلال الشهر القادم لامتحانات (MRCS, Prometric, PLAB)، نوفر لك تأشيرات سريعة، حجوزات مخفضة، وتنسيقاً فورياً للامتحانات.'
-                    : 'We are the official partner to Egypt’s premium medical concierge. If you are in Sudan and need to travel next month for your MRCS, Prometric, or PLAB exams, we provide express visas, verified transit logistics, and instant exam seat booking.'}
+                    ? 'Ù†Ø­Ù† Ø§Ù„Ø´Ø±ÙŠÙƒ Ø§Ù„Ø±Ø³Ù…ÙŠ Ù„Ø£ÙƒØ¨Ø± Ø´Ø±ÙƒØ§Øª Ø§Ù„ÙƒÙˆÙ†Ø³ÙŠØ±Ø¬ ÙˆØ§Ù„Ø®Ø¯Ù…Ø§Øª Ø§Ù„Ø·Ø¨ÙŠØ© Ø§Ù„Ù…Ù…ÙŠØ²Ø© ÙÙŠ Ù…ØµØ±. Ø¥Ø°Ø§ ÙƒÙ†Øª ÙÙŠ Ø§Ù„Ø³ÙˆØ¯Ø§Ù† ÙˆØªØ®Ø·Ø· Ù„Ù„Ø³ÙØ± Ø®Ù„Ø§Ù„ Ø§Ù„Ø´Ù‡Ø± Ø§Ù„Ù‚Ø§Ø¯Ù… Ù„Ø§Ù…ØªØ­Ø§Ù†Ø§Øª (MRCS, Prometric, PLAB)ØŒ Ù†ÙˆÙØ± Ù„Ùƒ ØªØ£Ø´ÙŠØ±Ø§Øª Ø³Ø±ÙŠØ¹Ø©ØŒ Ø­Ø¬ÙˆØ²Ø§Øª Ù…Ø®ÙØ¶Ø©ØŒ ÙˆØªÙ†Ø³ÙŠÙ‚Ø§Ù‹ ÙÙˆØ±ÙŠØ§Ù‹ Ù„Ù„Ø§Ù…ØªØ­Ø§Ù†Ø§Øª.'
+                    : 'We are the official partner to Egyptâ€™s premium medical concierge. If you are in Sudan and need to travel next month for your MRCS, Prometric, or PLAB exams, we provide express visas, verified transit logistics, and instant exam seat booking.'}
                 </p>
                 
                 <ul className="mt-6 space-y-3">
@@ -258,13 +258,13 @@ export default function HomePage() {
                     <div className="flex h-6 w-6 items-center justify-center rounded-full bg-amber-500/20 text-amber-400 flex-shrink-0">
                       <CalendarCheck className="h-3.5 w-3.5" />
                     </div>
-                    <span>{isRtl ? 'استخراج التأشيرات والترتيبات في وقت قياسي' : 'Express Visa Processing & Border Clearance'}</span>
+                    <span>{isRtl ? 'Ø§Ø³ØªØ®Ø±Ø§Ø¬ Ø§Ù„ØªØ£Ø´ÙŠØ±Ø§Øª ÙˆØ§Ù„ØªØ±ØªÙŠØ¨Ø§Øª ÙÙŠ ÙˆÙ‚Øª Ù‚ÙŠØ§Ø³ÙŠ' : 'Express Visa Processing & Border Clearance'}</span>
                   </li>
                   <li className="flex items-center gap-3 text-sm font-medium text-white/90">
                     <div className="flex h-6 w-6 items-center justify-center rounded-full bg-amber-500/20 text-amber-400 flex-shrink-0">
                       <Globe2 className="h-3.5 w-3.5" />
                     </div>
-                    <span>{isRtl ? 'حجز فوري ومؤكد لمقاعد Prometric وامتحانات الزمالات الملكية' : 'Guaranteed Prometric & Royal College Exam Seat Reservation'}</span>
+                    <span>{isRtl ? 'Ø­Ø¬Ø² ÙÙˆØ±ÙŠ ÙˆÙ…Ø¤ÙƒØ¯ Ù„Ù…Ù‚Ø§Ø¹Ø¯ Prometric ÙˆØ§Ù…ØªØ­Ø§Ù†Ø§Øª Ø§Ù„Ø²Ù…Ø§Ù„Ø§Øª Ø§Ù„Ù…Ù„ÙƒÙŠØ©' : 'Guaranteed Prometric & Royal College Exam Seat Reservation'}</span>
                   </li>
                 </ul>
               </div>
@@ -283,7 +283,7 @@ export default function HomePage() {
         {/* ========================================================================= */}
         <section className="py-6 border-y border-white/5 bg-slate-950/80 backdrop-blur-xl overflow-hidden">
           <div className="max-w-6xl mx-auto px-4 flex flex-wrap items-center justify-center gap-6 sm:gap-10 text-xs sm:text-sm font-semibold text-slate-500 tracking-wide">
-            <span className="text-slate-400 font-mono text-xs uppercase tracking-widest">{isRtl ? 'تمثيل أكاديمي موحد:' : 'Institutional Representation:'}</span>
+            <span className="text-slate-400 font-mono text-xs uppercase tracking-widest">{isRtl ? 'ØªÙ…Ø«ÙŠÙ„ Ø£ÙƒØ§Ø¯ÙŠÙ…ÙŠ Ù…ÙˆØ­Ø¯:' : 'Institutional Representation:'}</span>
             {medicalFaculties.slice(0, 7).map((fac, i) => (
               <span key={i} className="hover:text-slate-300 transition-colors">{fac}</span>
             ))}
@@ -299,10 +299,10 @@ export default function HomePage() {
               Core Capabilities
             </span>
             <h2 className="font-display text-3xl sm:text-5xl font-black text-white mt-4 tracking-tight">
-              {isRtl ? 'نظام بيئي سريري وجينومي متكامل' : 'A Unified Clinical Ecosystem'}
+              {isRtl ? 'Ù†Ø¸Ø§Ù… Ø¨ÙŠØ¦ÙŠ Ø³Ø±ÙŠØ±ÙŠ ÙˆØ¬ÙŠÙ†ÙˆÙ…ÙŠ Ù…ØªÙƒØ§Ù…Ù„' : 'A Unified Clinical Ecosystem'}
             </h2>
             <p className="text-slate-400 text-sm sm:text-base mt-3 max-w-xl mx-auto">
-              {isRtl ? 'تكامل المحاكاة السريرية، أبحاث الجينوم التراجمية، وسجل الاعتماد السيادي.' : 'Integrated clinical reasoning, precision oncology pods, and cryptographic ledger verification.'}
+              {isRtl ? 'ØªÙƒØ§Ù…Ù„ Ø§Ù„Ù…Ø­Ø§ÙƒØ§Ø© Ø§Ù„Ø³Ø±ÙŠØ±ÙŠØ©ØŒ Ø£Ø¨Ø­Ø§Ø« Ø§Ù„Ø¬ÙŠÙ†ÙˆÙ… Ø§Ù„ØªØ±Ø§Ø¬Ù…ÙŠØ©ØŒ ÙˆØ³Ø¬Ù„ Ø§Ù„Ø§Ø¹ØªÙ…Ø§Ø¯ Ø§Ù„Ø³ÙŠØ§Ø¯ÙŠ.' : 'Integrated clinical reasoning, precision oncology pods, and cryptographic ledger verification.'}
             </p>
           </div>
 
@@ -317,11 +317,11 @@ export default function HomePage() {
                     <MapPin className="w-6 h-6" />
                   </div>
                   <h3 className="font-display text-2xl sm:text-3xl font-bold text-white tracking-tight">
-                    {isRtl ? 'معامل المحاكاة الحضورية (BSS & BLS Wet Labs)' : 'Offline Simulation Hubs (Cairo & Sudan)'}
+                    {isRtl ? 'Ù…Ø¹Ø§Ù…Ù„ Ø§Ù„Ù…Ø­Ø§ÙƒØ§Ø© Ø§Ù„Ø­Ø¶ÙˆØ±ÙŠØ© (BSS & BLS Wet Labs)' : 'Offline Simulation Hubs (Cairo & Sudan)'}
                   </h3>
                   <p className="text-slate-300 text-sm sm:text-base mt-3 leading-relaxed max-w-lg">
                     {isRtl
-                      ? 'انضم إلى دورات دعم الحياة الأساسي (BLS) والمهارات الجراحية (BSS) في القاهرة والخرطوم. تدريب عملي مكثف يربط هويتك الرقمية بالاعتماد السريري الفعلي.'
+                      ? 'Ø§Ù†Ø¶Ù… Ø¥Ù„Ù‰ Ø¯ÙˆØ±Ø§Øª Ø¯Ø¹Ù… Ø§Ù„Ø­ÙŠØ§Ø© Ø§Ù„Ø£Ø³Ø§Ø³ÙŠ (BLS) ÙˆØ§Ù„Ù…Ù‡Ø§Ø±Ø§Øª Ø§Ù„Ø¬Ø±Ø§Ø­ÙŠØ© (BSS) ÙÙŠ Ø§Ù„Ù‚Ø§Ù‡Ø±Ø© ÙˆØ§Ù„Ø®Ø±Ø·ÙˆÙ…. ØªØ¯Ø±ÙŠØ¨ Ø¹Ù…Ù„ÙŠ Ù…ÙƒØ«Ù ÙŠØ±Ø¨Ø· Ù‡ÙˆÙŠØªÙƒ Ø§Ù„Ø±Ù‚Ù…ÙŠØ© Ø¨Ø§Ù„Ø§Ø¹ØªÙ…Ø§Ø¯ Ø§Ù„Ø³Ø±ÙŠØ±ÙŠ Ø§Ù„ÙØ¹Ù„ÙŠ.'
                       : 'Join rigorous BLS and BSS wet-labs in Cairo and Khartoum. Hands-on credentialing that permanently anchors your physical skills to your digital Sovereign profile.'}
                   </p>
                 </div>
@@ -331,7 +331,7 @@ export default function HomePage() {
                     onClick={() => setShowSim(!showSim)}
                     className="inline-flex items-center gap-2 rounded-full bg-[#00F2FE] text-slate-950 px-6 py-3 text-xs sm:text-sm font-bold shadow-lg hover:bg-[#38BDF8] transition-all"
                   >
-                    <span>{isRtl ? 'تجربة المحاكي الآن' : 'Test Diagnostic Simulator'}</span>
+                    <span>{isRtl ? 'ØªØ¬Ø±Ø¨Ø© Ø§Ù„Ù…Ø­Ø§ÙƒÙŠ Ø§Ù„Ø¢Ù†' : 'Test Diagnostic Simulator'}</span>
                     {isRtl ? <ArrowLeft className="w-4 h-4" /> : <ArrowRight className="w-4 h-4" />}
                   </button>
                   <span className="text-xs text-slate-400 font-mono">58 Verified Surgical Alumni</span>
@@ -348,11 +348,11 @@ export default function HomePage() {
                     <DatabaseZap className="w-6 h-6" />
                   </div>
                   <h3 className="font-display text-xl sm:text-2xl font-bold text-white tracking-tight">
-                    {isRtl ? 'نموذج MTC™ الممتاز' : 'MTC™ Premium Framework'}
+                    {isRtl ? 'Ù†Ù…ÙˆØ°Ø¬ MTCâ„¢ Ø§Ù„Ù…Ù…ØªØ§Ø²' : 'MTCâ„¢ Premium Framework'}
                   </h3>
                   <p className="text-slate-300 text-xs sm:text-sm mt-3 leading-relaxed">
                     {isRtl
-                      ? 'تجديد الشهادات والتعليم الطبي المستمر عبر أحدث أدوات التفكير السريري المدمجة بنظام المحاكاة.'
+                      ? 'ØªØ¬Ø¯ÙŠØ¯ Ø§Ù„Ø´Ù‡Ø§Ø¯Ø§Øª ÙˆØ§Ù„ØªØ¹Ù„ÙŠÙ… Ø§Ù„Ø·Ø¨ÙŠ Ø§Ù„Ù…Ø³ØªÙ…Ø± Ø¹Ø¨Ø± Ø£Ø­Ø¯Ø« Ø£Ø¯ÙˆØ§Øª Ø§Ù„ØªÙÙƒÙŠØ± Ø§Ù„Ø³Ø±ÙŠØ±ÙŠ Ø§Ù„Ù…Ø¯Ù…Ø¬Ø© Ø¨Ù†Ø¸Ø§Ù… Ø§Ù„Ù…Ø­Ø§ÙƒØ§Ø©.'
                       : 'Renew certifications and log digital CPD hours through our proprietary Mechanism-to-Clinic clinical reasoning engine.'}
                   </p>
                 </div>
@@ -369,11 +369,11 @@ export default function HomePage() {
                   <Fingerprint className="h-6 w-6" />
                 </div>
                 <h3 className="font-display text-2xl font-bold text-white mb-2">
-                  {isRtl ? 'السجل السيادي (GA-ID)' : 'The Sovereign GA-ID & CPD Wallet'}
+                  {isRtl ? 'Ø§Ù„Ø³Ø¬Ù„ Ø§Ù„Ø³ÙŠØ§Ø¯ÙŠ (GA-ID)' : 'The Sovereign GA-ID & CPD Wallet'}
                 </h3>
                 <p className="text-slate-300 text-sm leading-relaxed">
                   {isRtl
-                    ? 'معرف مهني مشفر لا يمكن تدميره، يجمع نقاطك وإنجازاتك في دفتر أستاذ واحد. هويتك الطبية آمنة في الكلاود بغض النظر عن الظروف على الأرض.'
+                    ? 'Ù…Ø¹Ø±Ù Ù…Ù‡Ù†ÙŠ Ù…Ø´ÙØ± Ù„Ø§ ÙŠÙ…ÙƒÙ† ØªØ¯Ù…ÙŠØ±Ù‡ØŒ ÙŠØ¬Ù…Ø¹ Ù†Ù‚Ø§Ø·Ùƒ ÙˆØ¥Ù†Ø¬Ø§Ø²Ø§ØªÙƒ ÙÙŠ Ø¯ÙØªØ± Ø£Ø³ØªØ§Ø° ÙˆØ§Ø­Ø¯. Ù‡ÙˆÙŠØªÙƒ Ø§Ù„Ø·Ø¨ÙŠØ© Ø¢Ù…Ù†Ø© ÙÙŠ Ø§Ù„ÙƒÙ„Ø§ÙˆØ¯ Ø¨ØºØ¶ Ø§Ù„Ù†Ø¸Ø± Ø¹Ù† Ø§Ù„Ø¸Ø±ÙˆÙ Ø¹Ù„Ù‰ Ø§Ù„Ø£Ø±Ø¶.'
                     : 'An indestructible, encrypted professional identifier bridging your clinical telemetry and GP wallet globally. Your medical identity, secured in the cloud regardless of conditions on the ground.'}
                 </p>
               </div>
@@ -381,7 +381,7 @@ export default function HomePage() {
                 to="/profile"
                 className="whitespace-nowrap rounded-full bg-white hover:bg-[#00F2FE] px-8 py-3.5 text-sm font-bold text-slate-950 transition-all shadow-xl active:scale-95"
               >
-                {isRtl ? 'افتح محفظتك الآن' : 'Unlock Your Wallet'}
+                {isRtl ? 'Ø§ÙØªØ­ Ù…Ø­ÙØ¸ØªÙƒ Ø§Ù„Ø¢Ù†' : 'Unlock Your Wallet'}
               </Link>
             </div>
 
@@ -411,10 +411,10 @@ export default function HomePage() {
         <section className="py-20 border-t border-white/10 bg-slate-950/60 backdrop-blur-2xl">
           <div className="max-w-3xl mx-auto px-4 text-center">
             <h2 className="font-display text-2xl sm:text-3xl font-bold text-white tracking-tight">
-              {isRtl ? 'الاستعلام الفوري عن السجل السيادي' : 'Instant SudaPass Sovereign Lookup'}
+              {isRtl ? 'Ø§Ù„Ø§Ø³ØªØ¹Ù„Ø§Ù… Ø§Ù„ÙÙˆØ±ÙŠ Ø¹Ù† Ø§Ù„Ø³Ø¬Ù„ Ø§Ù„Ø³ÙŠØ§Ø¯ÙŠ' : 'Instant SudaPass Sovereign Lookup'}
             </h2>
             <p className="text-sm text-slate-400 mt-2">
-              {isRtl ? 'أدخل الرقم السيادي (مثل GA-3521 أو GA-305) للتحقق من الاعتماد والرصيد السريري:' : 'Enter any GA-ID (e.g. GA-3521 or GA-305) to verify clinical standing:'}
+              {isRtl ? 'Ø£Ø¯Ø®Ù„ Ø§Ù„Ø±Ù‚Ù… Ø§Ù„Ø³ÙŠØ§Ø¯ÙŠ (Ù…Ø«Ù„ GA-3521 Ø£Ùˆ GA-305) Ù„Ù„ØªØ­Ù‚Ù‚ Ù…Ù† Ø§Ù„Ø§Ø¹ØªÙ…Ø§Ø¯ ÙˆØ§Ù„Ø±ØµÙŠØ¯ Ø§Ù„Ø³Ø±ÙŠØ±ÙŠ:' : 'Enter any GA-ID (e.g. GA-3521 or GA-305) to verify clinical standing:'}
             </p>
 
             <form
@@ -436,7 +436,7 @@ export default function HomePage() {
                 type="submit"
                 className="rounded-full bg-[#00F2FE] hover:bg-[#38BDF8] text-slate-950 px-6 py-2.5 text-xs font-bold transition-all shadow-md flex-shrink-0"
               >
-                {isRtl ? 'استعلام' : 'Lookup'}
+                {isRtl ? 'Ø§Ø³ØªØ¹Ù„Ø§Ù…' : 'Lookup'}
               </button>
             </form>
           </div>
@@ -448,11 +448,11 @@ export default function HomePage() {
         <section className="py-20 border-t border-white/10 text-center relative overflow-hidden">
           <div className="max-w-4xl mx-auto px-4 relative z-10">
             <h2 className="font-display text-3xl sm:text-4xl font-black text-white tracking-tight">
-              {isRtl ? 'انضم إلى السجل السيادي الموحد اليوم' : 'Authenticate Your Sovereign Clinical Standing'}
+              {isRtl ? 'Ø§Ù†Ø¶Ù… Ø¥Ù„Ù‰ Ø§Ù„Ø³Ø¬Ù„ Ø§Ù„Ø³ÙŠØ§Ø¯ÙŠ Ø§Ù„Ù…ÙˆØ­Ø¯ Ø§Ù„ÙŠÙˆÙ…' : 'Authenticate Your Sovereign Clinical Standing'}
             </h2>
             <p className="text-sm sm:text-base text-slate-400 mt-3 max-w-xl mx-auto">
               {isRtl
-                ? 'سجل الآن واحصل على ٢٥ نقطة GP فورية مع تفعيل معرفك السيادي غير القابل للتكرار.'
+                ? 'Ø³Ø¬Ù„ Ø§Ù„Ø¢Ù† ÙˆØ§Ø­ØµÙ„ Ø¹Ù„Ù‰ Ù¢Ù¥ Ù†Ù‚Ø·Ø© GP ÙÙˆØ±ÙŠØ© Ù…Ø¹ ØªÙØ¹ÙŠÙ„ Ù…Ø¹Ø±ÙÙƒ Ø§Ù„Ø³ÙŠØ§Ø¯ÙŠ ØºÙŠØ± Ø§Ù„Ù‚Ø§Ø¨Ù„ Ù„Ù„ØªÙƒØ±Ø§Ø±.'
                 : 'Mint your sovereign GA-ID with instant +25 GP grant and join 1,200+ clinicians across 90+ faculties.'}
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-4">
@@ -460,13 +460,13 @@ export default function HomePage() {
                 to="/register"
                 className="rounded-full bg-[#00F2FE] hover:bg-[#38BDF8] text-slate-950 px-8 py-3.5 text-sm font-bold shadow-xl transition-all active:scale-95"
               >
-                {isRtl ? 'التسجيل في السجل السيادي (+25 GP)' : 'Mint Sovereign Profile (+25 GP)'}
+                {isRtl ? 'Ø§Ù„ØªØ³Ø¬ÙŠÙ„ ÙÙŠ Ø§Ù„Ø³Ø¬Ù„ Ø§Ù„Ø³ÙŠØ§Ø¯ÙŠ (+25 GP)' : 'Mint Sovereign Profile (+25 GP)'}
               </Link>
               <Link
                 to="/verify"
                 className="rounded-full border border-white/10 bg-white/5 hover:bg-white/10 text-white px-8 py-3.5 text-sm font-bold backdrop-blur-xl transition-all shadow-lg"
               >
-                {isRtl ? 'التحقق من الشهادات والاعتمادات' : 'Verify SudaPass Credential'}
+                {isRtl ? 'Ø§Ù„ØªØ­Ù‚Ù‚ Ù…Ù† Ø§Ù„Ø´Ù‡Ø§Ø¯Ø§Øª ÙˆØ§Ù„Ø§Ø¹ØªÙ…Ø§Ø¯Ø§Øª' : 'Verify SudaPass Credential'}
               </Link>
             </div>
           </div>

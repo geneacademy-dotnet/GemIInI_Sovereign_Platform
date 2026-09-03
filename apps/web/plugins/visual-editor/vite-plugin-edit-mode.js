@@ -1,4 +1,4 @@
-import { context } from 'esbuild';
+﻿import { context } from 'esbuild';
 import { resolve } from 'path';
 import { fileURLToPath } from 'url';
 import { EDIT_MODE_STYLES } from './ui/inline-edit/styles.js';

@@ -1,4 +1,4 @@
-import { PARENT_TOOLBAR_HEIGHT } from '../../../constants/layout.js';
+﻿import { PARENT_TOOLBAR_HEIGHT } from '../../../constants/layout.js';
 import { isInFixedContext } from '../../../utils/dom-utils.js';
 
 let _toolbarElement = null;
@@ -56,7 +56,7 @@ export function positionToolbar() {
     const scrollX = fixed ? 0 : window.scrollX;
     const scrollY = fixed ? 0 : window.scrollY;
 
-    // Use the side locked when the toolbar was shown — don't re-evaluate on scroll.
+    // Use the side locked when the toolbar was shown â€” don't re-evaluate on scroll.
     const baseTop = (toolbarSide === 'above'
         ? targetBounds.top - toolbarHeight - GAP
         : targetBounds.bottom + GAP) + scrollY;

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { useSearchParams } from 'react-router-dom';
 import { Search, ShieldCheck, CheckCircle2, AlertCircle, ExternalLink, QrCode, Sparkles, Copy, Check, Clock } from 'lucide-react';
@@ -104,8 +104,8 @@ const VerifyPage = () => {
     return (
         <Layout>
             <Helmet>
-                <title>Verify GA-ID Credential | التحقق من السجل السيادي</title>
-                <meta name="description" content="منظومة التحقق الرقمي اللامركزي للشهادات والعضويات الطبية والسريرية الصادرة من أكاديمية سوداجين." />
+                <title>Verify GA-ID Credential | Ø§Ù„ØªØ­Ù‚Ù‚ Ù…Ù† Ø§Ù„Ø³Ø¬Ù„ Ø§Ù„Ø³ÙŠØ§Ø¯ÙŠ</title>
+                <meta name="description" content="Ù…Ù†Ø¸ÙˆÙ…Ø© Ø§Ù„ØªØ­Ù‚Ù‚ Ø§Ù„Ø±Ù‚Ù…ÙŠ Ø§Ù„Ù„Ø§Ù…Ø±ÙƒØ²ÙŠ Ù„Ù„Ø´Ù‡Ø§Ø¯Ø§Øª ÙˆØ§Ù„Ø¹Ø¶ÙˆÙŠØ§Øª Ø§Ù„Ø·Ø¨ÙŠØ© ÙˆØ§Ù„Ø³Ø±ÙŠØ±ÙŠØ© Ø§Ù„ØµØ§Ø¯Ø±Ø© Ù…Ù† Ø£ÙƒØ§Ø¯ÙŠÙ…ÙŠØ© Ø³ÙˆØ¯Ø§Ø¬ÙŠÙ†." />
             </Helmet>
 
             <section className="bg-[#04080F] text-white py-16 min-h-screen">
@@ -117,11 +117,11 @@ const VerifyPage = () => {
                             DECENTRALIZED MEDICAL REGISTRY VERIFIER
                         </span>
                         <h1 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight">
-                            {lang === 'ar' ? 'التحقق الفوري من العضوية السيادية' : 'Instant Sovereign Credential Verification'}
+                            {lang === 'ar' ? 'Ø§Ù„ØªØ­Ù‚Ù‚ Ø§Ù„ÙÙˆØ±ÙŠ Ù…Ù† Ø§Ù„Ø¹Ø¶ÙˆÙŠØ© Ø§Ù„Ø³ÙŠØ§Ø¯ÙŠØ©' : 'Instant Sovereign Credential Verification'}
                         </h1>
                         <p className="mt-3 text-sm text-gray-400 max-w-2xl mx-auto">
                             {lang === 'ar'
-                                ? 'أدخل المعرف الرقمي (GA-ID) أو الاسم للتحقق من السجل السريري والأكاديمي الصادر والموثق.'
+                                ? 'Ø£Ø¯Ø®Ù„ Ø§Ù„Ù…Ø¹Ø±Ù Ø§Ù„Ø±Ù‚Ù…ÙŠ (GA-ID) Ø£Ùˆ Ø§Ù„Ø§Ø³Ù… Ù„Ù„ØªØ­Ù‚Ù‚ Ù…Ù† Ø§Ù„Ø³Ø¬Ù„ Ø§Ù„Ø³Ø±ÙŠØ±ÙŠ ÙˆØ§Ù„Ø£ÙƒØ§Ø¯ÙŠÙ…ÙŠ Ø§Ù„ØµØ§Ø¯Ø± ÙˆØ§Ù„Ù…ÙˆØ«Ù‚.'
                                 : 'Enter a GA-ID or member name to verify forensic accreditation status across the master ledger.'}
                         </p>
                     </div>
@@ -144,7 +144,7 @@ const VerifyPage = () => {
                                 disabled={loading}
                                 className="px-8 py-3.5 rounded-2xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold font-mono text-sm shadow-lg shadow-cyan-500/20 transition-all flex items-center justify-center gap-2"
                             >
-                                {loading ? 'Checking...' : (lang === 'ar' ? 'تحقق الآن' : 'Verify GA-ID')}
+                                {loading ? 'Checking...' : (lang === 'ar' ? 'ØªØ­Ù‚Ù‚ Ø§Ù„Ø¢Ù†' : 'Verify GA-ID')}
                             </button>
                         </div>
                     </form>
@@ -223,18 +223,18 @@ const VerifyPage = () => {
                                 <div className="p-8 rounded-3xl bg-slate-900/60 border border-red-500/20 text-center max-w-xl mx-auto">
                                     <AlertCircle className="w-12 h-12 text-amber-400 mx-auto mb-3" />
                                     <h3 className="text-lg font-bold text-white mb-1">
-                                        {lang === 'ar' ? 'لم يتم العثور على سجل مطابق' : 'No Matching Sovereign Record Found'}
+                                        {lang === 'ar' ? 'Ù„Ù… ÙŠØªÙ… Ø§Ù„Ø¹Ø«ÙˆØ± Ø¹Ù„Ù‰ Ø³Ø¬Ù„ Ù…Ø·Ø§Ø¨Ù‚' : 'No Matching Sovereign Record Found'}
                                     </h3>
                                     <p className="text-xs text-gray-400 mb-4">
                                         {lang === 'ar'
-                                            ? 'تأكد من كتابة الرقم التعريفي بشكل صحيح (مثال: GA-0171 أو GA-000) أو قم بالتسجيل في المنظومة.'
+                                            ? 'ØªØ£ÙƒØ¯ Ù…Ù† ÙƒØªØ§Ø¨Ø© Ø§Ù„Ø±Ù‚Ù… Ø§Ù„ØªØ¹Ø±ÙŠÙÙŠ Ø¨Ø´ÙƒÙ„ ØµØ­ÙŠØ­ (Ù…Ø«Ø§Ù„: GA-0171 Ø£Ùˆ GA-000) Ø£Ùˆ Ù‚Ù… Ø¨Ø§Ù„ØªØ³Ø¬ÙŠÙ„ ÙÙŠ Ø§Ù„Ù…Ù†Ø¸ÙˆÙ…Ø©.'
                                             : 'Please verify the ID format (e.g. GA-0171, GA-000, GA-001) or register a new credential.'}
                                     </p>
                                     <a
                                         href="/register"
                                         className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs font-mono transition-all"
                                     >
-                                        <span>{lang === 'ar' ? 'تسجيل عضوية جديدة ➔' : 'Register New GA-ID ➔'}</span>
+                                        <span>{lang === 'ar' ? 'ØªØ³Ø¬ÙŠÙ„ Ø¹Ø¶ÙˆÙŠØ© Ø¬Ø¯ÙŠØ¯Ø© âž”' : 'Register New GA-ID âž”'}</span>
                                     </a>
                                 </div>
                             )}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { Heart, Megaphone, MessageSquare, Share2 } from 'lucide-react';
 import Layout from '@/components/site/Layout';
@@ -19,7 +19,7 @@ const CommunitiesPage = () => {
         <Layout>
             <Helmet>
                 <title>Communities | Gene Academy member channels</title>
-                <meta name="description" content="Gene Academy member communities by country, career and institution — announcements, posts, reactions and nested discussion." />
+                <meta name="description" content="Gene Academy member communities by country, career and institution â€” announcements, posts, reactions and nested discussion." />
             </Helmet>
             <PageHeader title={t('comm.title')} subtitle={t('comm.sub')} />
             <Section rail="max-w-[90rem]" action={<DemoBadge />}>
@@ -38,7 +38,7 @@ const CommunitiesPage = () => {
                                     >
                                         <span>
                                             <span className="block font-medium">{lang === 'ar' ? channel.nameAr : channel.name}</span>
-                                            <span className="text-xs opacity-70">{channel.kind} · {channel.members} members</span>
+                                            <span className="text-xs opacity-70">{channel.kind} Â· {channel.members} members</span>
                                         </span>
                                         {channel.unread > 0 && (
                                             <span className="rounded-full bg-[hsl(var(--accent))] px-2 py-0.5 text-[11px] font-medium text-[hsl(var(--accent-foreground))]">
@@ -53,7 +53,7 @@ const CommunitiesPage = () => {
 
                     <div className="space-y-5">
                         {!active || active.posts.length === 0 ? (
-                            <StateBlock message={lang === 'ar' ? 'لا توجد منشورات بعد.' : 'No posts in this channel yet.'} />
+                            <StateBlock message={lang === 'ar' ? 'Ù„Ø§ ØªÙˆØ¬Ø¯ Ù…Ù†Ø´ÙˆØ±Ø§Øª Ø¨Ø¹Ø¯.' : 'No posts in this channel yet.'} />
                         ) : (
                             active.posts.map((post) => {
                                 const liked = reactions[post.id];
@@ -96,7 +96,7 @@ const CommunitiesPage = () => {
                                         {open && (
                                             <div className="mt-5 space-y-4 border-t border-border pt-5">
                                                 {post.comments.length === 0 ? (
-                                                    <p className="text-sm text-muted-foreground">{lang === 'ar' ? 'لا توجد تعليقات.' : 'No comments yet.'}</p>
+                                                    <p className="text-sm text-muted-foreground">{lang === 'ar' ? 'Ù„Ø§ ØªÙˆØ¬Ø¯ ØªØ¹Ù„ÙŠÙ‚Ø§Øª.' : 'No comments yet.'}</p>
                                                 ) : (
                                                     post.comments.map((comment) => (
                                                         <div key={comment.id} className="text-sm">

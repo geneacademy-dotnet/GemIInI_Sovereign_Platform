@@ -1,4 +1,4 @@
-/** Message types sent from the iframe to the parent Horizons frame. */
+﻿/** Message types sent from the iframe to the parent Horizons frame. */
 export const ParentMessage = {
 	EDIT_APPLIED: 'editApplied',
 	EDIT_CANCEL: 'editCancel',

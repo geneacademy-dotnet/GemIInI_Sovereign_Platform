@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Wires mousedown/drag on the SV square to saturation/value callbacks.
  * @param {HTMLElement} squareElement
  * @param {{ onDragStart: (s: number, v: number) => void, onPickChange: (s: number, v: number) => void, onDragEnd: () => void }} callbacks

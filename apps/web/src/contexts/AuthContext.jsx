@@ -1,4 +1,4 @@
-/**
+﻿/**
  * src/contexts/AuthContext.jsx
  * GemIInI Sovereign Resilient Authentication Engine
  * Supports GA-ID / Email / Passwordless SudaPass & PocketBase Hybrid

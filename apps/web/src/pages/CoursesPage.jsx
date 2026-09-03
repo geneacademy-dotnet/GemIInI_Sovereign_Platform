@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { BookOpen, ShieldCheck, Sparkles, Award, FileText, CheckCircle2, Search, X, Filter } from 'lucide-react';
 import Layout from '@/components/site/Layout';
@@ -19,7 +19,7 @@ const PILLAR_COLORS = {
         bg: 'bg-purple-500/5',
         badge: 'bg-purple-500/15 text-purple-300',
         accent: 'text-purple-400',
-        name: 'GeneAcademy®',
+        name: 'GeneAcademyÂ®',
     },
     glomet: {
         border: 'border-[hsl(var(--accent))]/40',
@@ -59,18 +59,18 @@ const CoursesPage = () => {
     return (
         <Layout>
             <Helmet>
-                <title>{lang === 'ar' ? 'سجل البرامج والمناهج الأكاديمية' : 'Curriculum & Inventory Registry'} | GemIInI Academy</title>
+                <title>{lang === 'ar' ? 'Ø³Ø¬Ù„ Ø§Ù„Ø¨Ø±Ø§Ù…Ø¬ ÙˆØ§Ù„Ù…Ù†Ø§Ù‡Ø¬ Ø§Ù„Ø£ÙƒØ§Ø¯ÙŠÙ…ÙŠØ©' : 'Curriculum & Inventory Registry'} | GemIInI Academy</title>
                 <meta
                     name="description"
-                    content="Authoritative curriculum registry: Clinical Licensure, International Boards (USMLE, MRCS, Approbation), Pre-Clinical, Molecular Medicine, and MTC™ Compliance."
+                    content="Authoritative curriculum registry: Clinical Licensure, International Boards (USMLE, MRCS, Approbation), Pre-Clinical, Molecular Medicine, and MTCâ„¢ Compliance."
                 />
             </Helmet>
 
             <PageHeader
-                title={lang === 'ar' ? 'المسارات التخصصية والوحدات السريرية (MTC™) والمناهج المعتمدة' : 'Academic Matrix & Curriculum Inventory'}
+                title={lang === 'ar' ? 'Ø§Ù„Ù…Ø³Ø§Ø±Ø§Øª Ø§Ù„ØªØ®ØµØµÙŠØ© ÙˆØ§Ù„ÙˆØ­Ø¯Ø§Øª Ø§Ù„Ø³Ø±ÙŠØ±ÙŠØ© (MTCâ„¢) ÙˆØ§Ù„Ù…Ù†Ø§Ù‡Ø¬ Ø§Ù„Ù…Ø¹ØªÙ…Ø¯Ø©' : 'Academic Matrix & Curriculum Inventory'}
                 subtitle={lang === 'ar' 
-                    ? 'السجل المعياري الشامل للبرامج السريرية، مسارات الزمالات الدولية، والطب الجزيئي، وأدوات الحوكمة MTC™' 
-                    : 'The authoritative matrix for clinical licensure, international board mastery, molecular genomics, and MTC™ pedagogical quality assurance.'}
+                    ? 'Ø§Ù„Ø³Ø¬Ù„ Ø§Ù„Ù…Ø¹ÙŠØ§Ø±ÙŠ Ø§Ù„Ø´Ø§Ù…Ù„ Ù„Ù„Ø¨Ø±Ø§Ù…Ø¬ Ø§Ù„Ø³Ø±ÙŠØ±ÙŠØ©ØŒ Ù…Ø³Ø§Ø±Ø§Øª Ø§Ù„Ø²Ù…Ø§Ù„Ø§Øª Ø§Ù„Ø¯ÙˆÙ„ÙŠØ©ØŒ ÙˆØ§Ù„Ø·Ø¨ Ø§Ù„Ø¬Ø²ÙŠØ¦ÙŠØŒ ÙˆØ£Ø¯ÙˆØ§Øª Ø§Ù„Ø­ÙˆÙƒÙ…Ø© MTCâ„¢' 
+                    : 'The authoritative matrix for clinical licensure, international board mastery, molecular genomics, and MTCâ„¢ pedagogical quality assurance.'}
             />
 
             <Section rail="max-w-[76rem]">
@@ -106,7 +106,7 @@ const CoursesPage = () => {
                         <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                         <input
                             type="text"
-                            placeholder={lang === 'ar' ? 'ابحث بالكود (مثال: SMC-101، USMLE، MTC-000) أو الموضوع...' : 'Search by code (e.g. SMC-101, USMLE, MTC-000) or topic...'}
+                            placeholder={lang === 'ar' ? 'Ø§Ø¨Ø­Ø« Ø¨Ø§Ù„ÙƒÙˆØ¯ (Ù…Ø«Ø§Ù„: SMC-101ØŒ USMLEØŒ MTC-000) Ø£Ùˆ Ø§Ù„Ù…ÙˆØ¶ÙˆØ¹...' : 'Search by code (e.g. SMC-101, USMLE, MTC-000) or topic...'}
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
                             className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-input bg-card text-xs sm:text-sm outline-none focus:border-[hsl(var(--accent))]"
@@ -120,7 +120,7 @@ const CoursesPage = () => {
                                 selectedPillar === 'ALL' ? 'border-[hsl(var(--accent))] bg-[hsl(var(--accent))]/10 font-bold text-[hsl(var(--accent))]' : 'border-border bg-card'
                             }`}
                         >
-                            {lang === 'ar' ? 'جميع الأركان' : 'All Pillars'}
+                            {lang === 'ar' ? 'Ø¬Ù…ÙŠØ¹ Ø§Ù„Ø£Ø±ÙƒØ§Ù†' : 'All Pillars'}
                         </button>
                         <button
                             onClick={() => setSelectedPillar('gemiini')}
@@ -154,7 +154,7 @@ const CoursesPage = () => {
                     <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-6 text-xs text-muted-foreground scrollbar-none">
                         <span className="flex items-center gap-1 font-medium shrink-0">
                             <Filter className="h-3.5 w-3.5" />
-                            {lang === 'ar' ? 'المسار:' : 'Track:'}
+                            {lang === 'ar' ? 'Ø§Ù„Ù…Ø³Ø§Ø±:' : 'Track:'}
                         </span>
                         <button
                             onClick={() => setSelectedTrack('ALL')}
@@ -162,7 +162,7 @@ const CoursesPage = () => {
                                 selectedTrack === 'ALL' ? 'bg-primary text-primary-foreground font-semibold border-primary' : 'border-border bg-card hover:text-foreground'
                             }`}
                         >
-                            {lang === 'ar' ? 'الكل' : 'All Tracks'}
+                            {lang === 'ar' ? 'Ø§Ù„ÙƒÙ„' : 'All Tracks'}
                         </button>
                         {availableTracks.map((trk) => (
                             <button
@@ -220,7 +220,7 @@ const CoursesPage = () => {
                                             className="font-semibold text-[hsl(var(--accent))] hover:underline flex items-center gap-1"
                                         >
                                             <FileText className="h-3.5 w-3.5" />
-                                            <span>{lang === 'ar' ? 'عرض وثيقة المنهج ➔' : 'View Syllabus ➔'}</span>
+                                            <span>{lang === 'ar' ? 'Ø¹Ø±Ø¶ ÙˆØ«ÙŠÙ‚Ø© Ø§Ù„Ù…Ù†Ù‡Ø¬ âž”' : 'View Syllabus âž”'}</span>
                                         </button>
                                     ) : (
                                         <span className="text-muted-foreground font-medium">
@@ -236,7 +236,7 @@ const CoursesPage = () => {
                 {filteredModules.length === 0 && (
                     <div className="text-center py-16 rounded-2xl border border-dashed border-border bg-card p-8">
                         <p className="text-sm text-muted-foreground">
-                            {lang === 'ar' ? 'لا توجد وحدات مطابقة لبحثك في هذا المستوى أو المسار.' : 'No modules matched your query in this tier or track.'}
+                            {lang === 'ar' ? 'Ù„Ø§ ØªÙˆØ¬Ø¯ ÙˆØ­Ø¯Ø§Øª Ù…Ø·Ø§Ø¨Ù‚Ø© Ù„Ø¨Ø­Ø«Ùƒ ÙÙŠ Ù‡Ø°Ø§ Ø§Ù„Ù…Ø³ØªÙˆÙ‰ Ø£Ùˆ Ø§Ù„Ù…Ø³Ø§Ø±.' : 'No modules matched your query in this tier or track.'}
                         </p>
                     </div>
                 )}
@@ -258,7 +258,7 @@ const CoursesPage = () => {
                                 {activeSyllabusModal.code}
                             </span>
                             <span className="text-xs font-semibold text-muted-foreground">
-                                {activeSyllabusModal.credits} · {activeSyllabusModal.hours}
+                                {activeSyllabusModal.credits} Â· {activeSyllabusModal.hours}
                             </span>
                         </div>
 
@@ -275,7 +275,7 @@ const CoursesPage = () => {
                             <div className="space-y-6 text-xs sm:text-sm">
                                 <div className="rounded-2xl border border-border bg-card/60 p-4">
                                     <h4 className="font-bold text-foreground mb-1">
-                                        {lang === 'ar' ? 'الرؤية والهدف المؤسسي:' : 'Course Overview & Rationale:'}
+                                        {lang === 'ar' ? 'Ø§Ù„Ø±Ø¤ÙŠØ© ÙˆØ§Ù„Ù‡Ø¯Ù Ø§Ù„Ù…Ø¤Ø³Ø³ÙŠ:' : 'Course Overview & Rationale:'}
                                     </h4>
                                     <p className="text-muted-foreground leading-relaxed">
                                         {activeSyllabusModal.syllabus.rationale}
@@ -284,7 +284,7 @@ const CoursesPage = () => {
 
                                 <div>
                                     <h4 className="font-bold text-foreground mb-2">
-                                        {lang === 'ar' ? 'أهداف التعلم الأساسية:' : 'Core Learning Objectives:'}
+                                        {lang === 'ar' ? 'Ø£Ù‡Ø¯Ø§Ù Ø§Ù„ØªØ¹Ù„Ù… Ø§Ù„Ø£Ø³Ø§Ø³ÙŠØ©:' : 'Core Learning Objectives:'}
                                     </h4>
                                     <ul className="space-y-2">
                                         {activeSyllabusModal.syllabus.objectives.map((obj, i) => (
@@ -298,7 +298,7 @@ const CoursesPage = () => {
 
                                 <div>
                                     <h4 className="font-bold text-foreground mb-3">
-                                        {lang === 'ar' ? 'الوحدات والمحاور الدراسية:' : 'Module Units & Content Breakdown:'}
+                                        {lang === 'ar' ? 'Ø§Ù„ÙˆØ­Ø¯Ø§Øª ÙˆØ§Ù„Ù…Ø­Ø§ÙˆØ± Ø§Ù„Ø¯Ø±Ø§Ø³ÙŠØ©:' : 'Module Units & Content Breakdown:'}
                                     </h4>
                                     <div className="grid gap-3 sm:grid-cols-2">
                                         {activeSyllabusModal.syllabus.units.map((u, i) => (
@@ -316,7 +316,7 @@ const CoursesPage = () => {
 
                                 <div className="rounded-2xl border border-[hsl(var(--teal))]/30 bg-[hsl(var(--teal))]/5 p-4 space-y-2">
                                     <h4 className="font-bold text-foreground">
-                                        {lang === 'ar' ? 'نظام التقييم والاعتماد:' : 'Assessment & Certification Structure:'}
+                                        {lang === 'ar' ? 'Ù†Ø¸Ø§Ù… Ø§Ù„ØªÙ‚ÙŠÙŠÙ… ÙˆØ§Ù„Ø§Ø¹ØªÙ…Ø§Ø¯:' : 'Assessment & Certification Structure:'}
                                     </h4>
                                     <p className="text-muted-foreground text-xs leading-relaxed">
                                         <strong>Formative:</strong> {activeSyllabusModal.syllabus.assessment.formative}

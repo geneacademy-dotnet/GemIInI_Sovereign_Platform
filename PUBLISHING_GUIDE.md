@@ -1,4 +1,4 @@
-# GemIInI SudaGene Platform — Publishing & Deployment Guide
+﻿# GemIInI SudaGene Platform â€” Publishing & Deployment Guide
 
 This document outlines the rapid deployment steps to publish the **GemIInI Independent Web Platform** to live production across your official domains: `geneacademy.net`, `members.geneacademy.net`, and `members.geneacademy.net`.
 
@@ -65,8 +65,8 @@ Use these pre-configured query parameters in social media, email campaigns, and 
 ---
 
 ## 5. Architectural Directory Inventory
-* [`index.html`](file:///G:/My%20Drive/GemIInI_Independent_Platform/index.html) — Master Single-Page Independent Web Application
-* [`css/styles.css`](file:///G:/My%20Drive/GemIInI_Independent_Platform/css/styles.css) — Bespoke Obsidian & Cyan Glassmorphism Design System
-* [`js/app.js`](file:///G:/My%20Drive/GemIInI_Independent_Platform/js/app.js) — Core Interactive Engines, AI CRM, MTC Simulator, Diploma Generator
-* [`js/ga_data.js`](file:///G:/My%20Drive/GemIInI_Independent_Platform/js/ga_data.js) — 455 Verified GA Identifiers Database
-* [`deploy_local.bat`](file:///G:/My%20Drive/GemIInI_Independent_Platform/deploy_local.bat) — 1-Click Windows Local Server
+* [`index.html`](file:///G:/My%20Drive/GemIInI_Independent_Platform/index.html) â€” Master Single-Page Independent Web Application
+* [`css/styles.css`](file:///G:/My%20Drive/GemIInI_Independent_Platform/css/styles.css) â€” Bespoke Obsidian & Cyan Glassmorphism Design System
+* [`js/app.js`](file:///G:/My%20Drive/GemIInI_Independent_Platform/js/app.js) â€” Core Interactive Engines, AI CRM, MTC Simulator, Diploma Generator
+* [`js/ga_data.js`](file:///G:/My%20Drive/GemIInI_Independent_Platform/js/ga_data.js) â€” 455 Verified GA Identifiers Database
+* [`deploy_local.bat`](file:///G:/My%20Drive/GemIInI_Independent_Platform/deploy_local.bat) â€” 1-Click Windows Local Server

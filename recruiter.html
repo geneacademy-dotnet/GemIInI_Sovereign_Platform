@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" dir="ltr" class="scroll-smooth bg-[#04080F] text-white">
 <head>
 
@@ -92,7 +92,7 @@ _iub.csConfiguration = {"siteId":4659147,"cookiePolicyId":32190221,"lang":"en","
                 if (data && data.success) {
                     tbody.innerHTML = '';
                     data.items.forEach((u, idx) => {
-                        const rankHtml = idx === 0 ? '👑 1st' : (idx === 1 ? '🥈 2nd' : (idx === 2 ? '🥉 3rd' : `#${idx + 1}`));
+                        const rankHtml = idx === 0 ? 'ðŸ‘‘ 1st' : (idx === 1 ? 'ðŸ¥ˆ 2nd' : (idx === 2 ? 'ðŸ¥‰ 3rd' : `#${idx + 1}`));
                         
                         tbody.innerHTML += `
                             <tr class="data-row transition-colors">
@@ -103,7 +103,7 @@ _iub.csConfiguration = {"siteId":4659147,"cookiePolicyId":32190221,"lang":"en","
                                 </td>
                                 <td class="px-6 py-4">
                                     <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-cyan/10 text-cyan font-mono border border-cyan/20">
-                                        ★ ${u.sRank.toLocaleString()}
+                                        â˜… ${u.sRank.toLocaleString()}
                                     </div>
                                 </td>
                                 <td class="px-6 py-4 text-gray-300">${u.careerStage}</td>

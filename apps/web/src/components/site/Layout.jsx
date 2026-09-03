@@ -1,4 +1,4 @@
-/**
+﻿/**
  * src/components/site/Layout.jsx
  * Unified Sovereign Platform Navigation & Obsidian Frame
  * 2027 Apple / VisionOS Spatial Aesthetics
@@ -22,12 +22,12 @@ export default function Layout({ children }) {
   };
 
   const navLinks = [
-    { path: '/', labelEn: 'Overview', labelAr: 'الرئيسية' },
-    { path: '/bls', labelEn: 'BLS Workshops', labelAr: 'ورش الإنعاش (BLS)', highlight: true },
-    { path: '/courses', labelEn: 'Programs', labelAr: 'البرامج الأكاديمية' },
-    { path: '/profile', labelEn: 'Clinical Cockpit', labelAr: 'منصة الطبيب (SudaPass)' },
-    { path: '/verify', labelEn: 'Verify Credential', labelAr: 'التحقق من الشهادات' },
-    { path: '/vault', labelEn: 'Media Vault', labelAr: 'مكتبة المعامل الحية' },
+    { path: '/', labelEn: 'Overview', labelAr: 'Ø§Ù„Ø±Ø¦ÙŠØ³ÙŠØ©' },
+    { path: '/bls', labelEn: 'BLS Workshops', labelAr: 'ÙˆØ±Ø´ Ø§Ù„Ø¥Ù†Ø¹Ø§Ø´ (BLS)', highlight: true },
+    { path: '/courses', labelEn: 'Programs', labelAr: 'Ø§Ù„Ø¨Ø±Ø§Ù…Ø¬ Ø§Ù„Ø£ÙƒØ§Ø¯ÙŠÙ…ÙŠØ©' },
+    { path: '/profile', labelEn: 'Clinical Cockpit', labelAr: 'Ù…Ù†ØµØ© Ø§Ù„Ø·Ø¨ÙŠØ¨ (SudaPass)' },
+    { path: '/verify', labelEn: 'Verify Credential', labelAr: 'Ø§Ù„ØªØ­Ù‚Ù‚ Ù…Ù† Ø§Ù„Ø´Ù‡Ø§Ø¯Ø§Øª' },
+    { path: '/vault', labelEn: 'Media Vault', labelAr: 'Ù…ÙƒØªØ¨Ø© Ø§Ù„Ù…Ø¹Ø§Ù…Ù„ Ø§Ù„Ø­ÙŠØ©' },
   ];
 
   return (
@@ -87,7 +87,7 @@ export default function Layout({ children }) {
               title="Toggle Language"
             >
               <Globe className="h-3.5 w-3.5 text-[#00F2FE]" />
-              <span className="font-bold">{lang === 'en' ? 'العربية' : 'English'}</span>
+              <span className="font-bold">{lang === 'en' ? 'Ø§Ù„Ø¹Ø±Ø¨ÙŠØ©' : 'English'}</span>
             </button>
 
             {/* Direct SudaPass CTA */}
@@ -96,7 +96,7 @@ export default function Layout({ children }) {
               className="hidden sm:inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#00F2FE] to-[#38BDF8] px-5 py-2 text-xs font-bold text-slate-950 shadow-lg shadow-[#00F2FE]/20 hover:brightness-110 active:scale-95 transition-all"
             >
               <User className="h-3.5 w-3.5" />
-              <span>{isRtl ? 'حسابي الطبي' : 'My SudaPass'}</span>
+              <span>{isRtl ? 'Ø­Ø³Ø§Ø¨ÙŠ Ø§Ù„Ø·Ø¨ÙŠ' : 'My SudaPass'}</span>
             </Link>
 
             {/* Mobile Menu Button */}
@@ -139,7 +139,7 @@ export default function Layout({ children }) {
                 className="flex items-center justify-center gap-2 w-full py-3 rounded-2xl bg-[#00F2FE] text-slate-950 font-bold text-sm shadow-xl"
               >
                 <User className="h-4 w-4" />
-                <span>{isRtl ? 'الدخول إلى SudaPass' : 'Access SudaPass Cockpit'}</span>
+                <span>{isRtl ? 'Ø§Ù„Ø¯Ø®ÙˆÙ„ Ø¥Ù„Ù‰ SudaPass' : 'Access SudaPass Cockpit'}</span>
               </Link>
             </div>
           </div>
@@ -163,7 +163,7 @@ export default function Layout({ children }) {
             </div>
             <p className="text-slate-400 max-w-md leading-relaxed">
               {isRtl
-                ? 'المنظومة الأكاديمية والسريرية والجينومية الموحدة للسودان والمنطقة. ربط المعامل الحضورية بالسجل الرقمي السيادي لحماية الكوادر الطبية.'
+                ? 'Ø§Ù„Ù…Ù†Ø¸ÙˆÙ…Ø© Ø§Ù„Ø£ÙƒØ§Ø¯ÙŠÙ…ÙŠØ© ÙˆØ§Ù„Ø³Ø±ÙŠØ±ÙŠØ© ÙˆØ§Ù„Ø¬ÙŠÙ†ÙˆÙ…ÙŠØ© Ø§Ù„Ù…ÙˆØ­Ø¯Ø© Ù„Ù„Ø³ÙˆØ¯Ø§Ù† ÙˆØ§Ù„Ù…Ù†Ø·Ù‚Ø©. Ø±Ø¨Ø· Ø§Ù„Ù…Ø¹Ø§Ù…Ù„ Ø§Ù„Ø­Ø¶ÙˆØ±ÙŠØ© Ø¨Ø§Ù„Ø³Ø¬Ù„ Ø§Ù„Ø±Ù‚Ù…ÙŠ Ø§Ù„Ø³ÙŠØ§Ø¯ÙŠ Ù„Ø­Ù…Ø§ÙŠØ© Ø§Ù„ÙƒÙˆØ§Ø¯Ø± Ø§Ù„Ø·Ø¨ÙŠØ©.'
                 : 'The unified clinical, academic, and translational genomic ecosystem for Sudan and the region. Grounded in live physical wet labs and cryptographic SudaPass credentials.'}
             </p>
             <p className="text-slate-500 font-mono text-[11px]">
@@ -173,29 +173,29 @@ export default function Layout({ children }) {
 
           {/* Core Routes */}
           <div className="text-start space-y-2">
-            <p className="font-bold text-white uppercase tracking-wider text-[11px]">{isRtl ? 'الروابط الرئيسية' : 'Quick Access'}</p>
+            <p className="font-bold text-white uppercase tracking-wider text-[11px]">{isRtl ? 'Ø§Ù„Ø±ÙˆØ§Ø¨Ø· Ø§Ù„Ø±Ø¦ÙŠØ³ÙŠØ©' : 'Quick Access'}</p>
             <ul className="space-y-1.5">
-              <li><Link to="/bls?hub=cairo" className="hover:text-[#00F2FE] transition-colors">{isRtl ? 'ورشة القاهرة (٢٨ أغسطس)' : 'Cairo Dokki Hub (Aug 28)'}</Link></li>
-              <li><Link to="/bls?hub=sudan" className="hover:text-[#00F2FE] transition-colors">{isRtl ? 'ورشة السودان (١٠ سبتمبر)' : 'Sudan Hub (Sept 10)'}</Link></li>
-              <li><Link to="/courses" className="hover:text-[#00F2FE] transition-colors">{isRtl ? 'البرامج والزمالات' : 'Sovereign Programs'}</Link></li>
-              <li><Link to="/verify" className="hover:text-[#00F2FE] transition-colors">{isRtl ? 'التحقق من الاعتماد' : 'Verify SudaPass Credential'}</Link></li>
+              <li><Link to="/bls?hub=cairo" className="hover:text-[#00F2FE] transition-colors">{isRtl ? 'ÙˆØ±Ø´Ø© Ø§Ù„Ù‚Ø§Ù‡Ø±Ø© (Ù¢Ù¨ Ø£ØºØ³Ø·Ø³)' : 'Cairo Dokki Hub (Aug 28)'}</Link></li>
+              <li><Link to="/bls?hub=sudan" className="hover:text-[#00F2FE] transition-colors">{isRtl ? 'ÙˆØ±Ø´Ø© Ø§Ù„Ø³ÙˆØ¯Ø§Ù† (Ù¡Ù  Ø³Ø¨ØªÙ…Ø¨Ø±)' : 'Sudan Hub (Sept 10)'}</Link></li>
+              <li><Link to="/courses" className="hover:text-[#00F2FE] transition-colors">{isRtl ? 'Ø§Ù„Ø¨Ø±Ø§Ù…Ø¬ ÙˆØ§Ù„Ø²Ù…Ø§Ù„Ø§Øª' : 'Sovereign Programs'}</Link></li>
+              <li><Link to="/verify" className="hover:text-[#00F2FE] transition-colors">{isRtl ? 'Ø§Ù„ØªØ­Ù‚Ù‚ Ù…Ù† Ø§Ù„Ø§Ø¹ØªÙ…Ø§Ø¯' : 'Verify SudaPass Credential'}</Link></li>
             </ul>
           </div>
 
           {/* Coordination Desks */}
           <div className="text-start space-y-2">
-            <p className="font-bold text-white uppercase tracking-wider text-[11px]">{isRtl ? 'مكاتب التنسيق المباشر' : 'Direct Coordination'}</p>
+            <p className="font-bold text-white uppercase tracking-wider text-[11px]">{isRtl ? 'Ù…ÙƒØ§ØªØ¨ Ø§Ù„ØªÙ†Ø³ÙŠÙ‚ Ø§Ù„Ù…Ø¨Ø§Ø´Ø±' : 'Direct Coordination'}</p>
             <ul className="space-y-1.5 font-mono text-[11px]">
-              <li>🇪🇬 Cairo Desk: +20 101 592 2628</li>
-              <li>🇸🇦 Riyadh Hub: +966 55 047 6176</li>
-              <li>🇸🇩 Sudan Desk: direct@geneacademy.net</li>
+              <li>ðŸ‡ªðŸ‡¬ Cairo Desk: +20 101 592 2628</li>
+              <li>ðŸ‡¸ðŸ‡¦ Riyadh Hub: +966 55 047 6176</li>
+              <li>ðŸ‡¸ðŸ‡© Sudan Desk: direct@geneacademy.net</li>
             </ul>
           </div>
 
         </div>
 
         <div className="mt-8 pt-6 border-t border-white/5 text-center text-slate-500 text-[11px] font-mono">
-          © {new Date().getFullYear()} GemIInI Academy & SudaGene Consortium. All rights reserved.
+          Â© {new Date().getFullYear()} GemIInI Academy & SudaGene Consortium. All rights reserved.
         </div>
       </footer>
 

@@ -1,5 +1,5 @@
-/**
- * GemIInI SudaGene Platform — Master Application Logic & Secure Engines
+﻿/**
+ * GemIInI SudaGene Platform â€” Master Application Logic & Secure Engines
  * Includes: Independent Credential Verifier, Universal Member Search,
  * Verified Review Explorer & Deep Audit Modal, Gated Diploma Engine, and MTC Simulator.
  */
@@ -38,7 +38,7 @@ function executeIndependentLookup() {
   if (!input) return;
   const val = input.value.trim().toUpperCase();
   if (!val) {
-    alert("يرجى إدخال رقم رقم الهوية المهنية الرقمية (GA#) للتحقق (مثال: GA001 أو GA171 أو GA3454)");
+    alert("ÙŠØ±Ø¬Ù‰ Ø¥Ø¯Ø®Ø§Ù„ Ø±Ù‚Ù… Ø±Ù‚Ù… Ø§Ù„Ù‡ÙˆÙŠØ© Ø§Ù„Ù…Ù‡Ù†ÙŠØ© Ø§Ù„Ø±Ù‚Ù…ÙŠØ© (GA#) Ù„Ù„ØªØ­Ù‚Ù‚ (Ù…Ø«Ø§Ù„: GA001 Ø£Ùˆ GA171 Ø£Ùˆ GA3454)");
     return;
   }
   applyIndependentStatusView(val);
@@ -72,7 +72,7 @@ function applyIndependentStatusView(gaId) {
     if (nameEl) nameEl.textContent = member.name;
     if (idEl) idEl.textContent = member.id;
     if (gpEl) gpEl.textContent = (member.gp || 500).toLocaleString() + " GP";
-    if (univEl) univEl.textContent = (member.univ || "") + (member.role ? " • " + member.role : "");
+    if (univEl) univEl.textContent = (member.univ || "") + (member.role ? " â€¢ " + member.role : "");
     if (avatarEl) avatarEl.textContent = member.id.substring(0, 4);
 
     if (unauthView) unauthView.style.display = "none";
@@ -86,10 +86,10 @@ function applyIndependentStatusView(gaId) {
     const univEl = document.getElementById("sso-doctor-univ");
     const avatarEl = document.getElementById("sso-avatar");
 
-    if (nameEl) nameEl.textContent = "معرف قيد التسجيل (" + escapeHtml(cleanId) + ")";
+    if (nameEl) nameEl.textContent = "Ù…Ø¹Ø±Ù Ù‚ÙŠØ¯ Ø§Ù„ØªØ³Ø¬ÙŠÙ„ (" + escapeHtml(cleanId) + ")";
     if (idEl) idEl.textContent = escapeHtml(cleanId);
-    if (gpEl) gpEl.textContent = "قيد التدقيق الأكاديمي";
-    if (univEl) univEl.textContent = "لم يكتمل التوثيق النهائي عبر SudaPass";
+    if (gpEl) gpEl.textContent = "Ù‚ÙŠØ¯ Ø§Ù„ØªØ¯Ù‚ÙŠÙ‚ Ø§Ù„Ø£ÙƒØ§Ø¯ÙŠÙ…ÙŠ";
+    if (univEl) univEl.textContent = "Ù„Ù… ÙŠÙƒØªÙ…Ù„ Ø§Ù„ØªÙˆØ«ÙŠÙ‚ Ø§Ù„Ù†Ù‡Ø§Ø¦ÙŠ Ø¹Ø¨Ø± SudaPass";
     if (avatarEl) avatarEl.textContent = "GA";
 
     if (unauthView) unauthView.style.display = "none";
@@ -135,8 +135,8 @@ function initUniversalLookup() {
     if (matches.length === 0) {
       resultBox.innerHTML = `
         <div style="padding: 16px; text-align: center; color: var(--text-muted); font-size: 14px;">
-          لم يتم العثور على سجل معتمد مطابق لـ "<strong>${escapeHtml(query)}</strong>".<br>
-          <span style="font-size: 12px;">يمكنك تقديم طلب التسجيل والاعتماد عبر <a href="join.html" style="color: var(--purple-brand); font-weight: 700;">بوابة التسجيل الرسمية</a>.</span>
+          Ù„Ù… ÙŠØªÙ… Ø§Ù„Ø¹Ø«ÙˆØ± Ø¹Ù„Ù‰ Ø³Ø¬Ù„ Ù…Ø¹ØªÙ…Ø¯ Ù…Ø·Ø§Ø¨Ù‚ Ù„Ù€ "<strong>${escapeHtml(query)}</strong>".<br>
+          <span style="font-size: 12px;">ÙŠÙ…ÙƒÙ†Ùƒ ØªÙ‚Ø¯ÙŠÙ… Ø·Ù„Ø¨ Ø§Ù„ØªØ³Ø¬ÙŠÙ„ ÙˆØ§Ù„Ø§Ø¹ØªÙ…Ø§Ø¯ Ø¹Ø¨Ø± <a href="join.html" style="color: var(--purple-brand); font-weight: 700;">Ø¨ÙˆØ§Ø¨Ø© Ø§Ù„ØªØ³Ø¬ÙŠÙ„ Ø§Ù„Ø±Ø³Ù…ÙŠØ©</a>.</span>
         </div>
       `;
       resultBox.style.display = "block";
@@ -151,14 +151,14 @@ function initUniversalLookup() {
             <div style="display: flex; align-items: center; gap: 8px;">
               <strong style="font-family: var(--font-mono); color: var(--purple-dark); font-size: 15px;">${escapeHtml(m.id)}</strong>
               <span style="font-size: 14px; font-weight: 800; color: var(--text-main);">${escapeHtml(m.name)}</span>
-              ${m.hasReview ? `<span class="cert-tag" style="background: var(--gold-light); color: var(--gold-dark); font-size: 10px;">★ مقيّم معتمد</span>` : ""}
+              ${m.hasReview ? `<span class="cert-tag" style="background: var(--gold-light); color: var(--gold-dark); font-size: 10px;">â˜… Ù…Ù‚ÙŠÙ‘Ù… Ù…Ø¹ØªÙ…Ø¯</span>` : ""}
             </div>
-            <div style="font-size: 12px; color: var(--text-muted); margin-top: 2px;">${escapeHtml(m.univ)} • ${escapeHtml(m.role)}</div>
+            <div style="font-size: 12px; color: var(--text-muted); margin-top: 2px;">${escapeHtml(m.univ)} â€¢ ${escapeHtml(m.role)}</div>
           </div>
           <div style="display: flex; gap: 8px; align-items: center;">
             <span style="font-family: var(--font-mono); font-weight: 800; color: var(--gold); font-size: 13.5px;">${m.gp.toLocaleString()} GP</span>
-            <a href="alumni.html?cert=${encodeURIComponent(m.id)}" class="btn btn-secondary" style="padding: 5px 12px; font-size: 12px;">الشهادة 📜</a>
-            ${m.hasReview ? `<a href="reviews.html?id=${encodeURIComponent(m.id)}" class="btn btn-gold" style="padding: 5px 10px; font-size: 12px;">التقييم ★</a>` : ""}
+            <a href="alumni.html?cert=${encodeURIComponent(m.id)}" class="btn btn-secondary" style="padding: 5px 12px; font-size: 12px;">Ø§Ù„Ø´Ù‡Ø§Ø¯Ø© ðŸ“œ</a>
+            ${m.hasReview ? `<a href="reviews.html?id=${encodeURIComponent(m.id)}" class="btn btn-gold" style="padding: 5px 10px; font-size: 12px;">Ø§Ù„ØªÙ‚ÙŠÙŠÙ… â˜…</a>` : ""}
           </div>
         </div>
       `;
@@ -252,16 +252,16 @@ function renderReviewsList() {
   });
 
   if (countBadge) {
-    countBadge.textContent = `${filtered.length} تقييم سريري موثق`;
+    countBadge.textContent = `${filtered.length} ØªÙ‚ÙŠÙŠÙ… Ø³Ø±ÙŠØ±ÙŠ Ù…ÙˆØ«Ù‚`;
   }
 
   if (filtered.length === 0) {
     container.innerHTML = `
       <div style="grid-column: 1 / -1; background: #FFFFFF; border: 1.5px dashed var(--line); border-radius: var(--radius-md); padding: 40px; text-align: center; color: var(--text-muted);">
-        <span style="font-size: 32px; display: block; margin-bottom: 8px;">🔍</span>
-        <h4 style="font-size: 18px; color: var(--purple-dark); margin-bottom: 6px;">لا توجد تقييمات مطابقة لخيارات الفلترة الحالية</h4>
-        <p style="font-size: 13.5px;">جرب تغيير التخصص، أو إعادة ضبط خانة البحث.</p>
-        <button onclick="resetReviewsFilters()" class="btn btn-secondary" style="margin-top: 14px; padding: 6px 16px;">إعادة ضبط الفلاتر ↺</button>
+        <span style="font-size: 32px; display: block; margin-bottom: 8px;">ðŸ”</span>
+        <h4 style="font-size: 18px; color: var(--purple-dark); margin-bottom: 6px;">Ù„Ø§ ØªÙˆØ¬Ø¯ ØªÙ‚ÙŠÙŠÙ…Ø§Øª Ù…Ø·Ø§Ø¨Ù‚Ø© Ù„Ø®ÙŠØ§Ø±Ø§Øª Ø§Ù„ÙÙ„ØªØ±Ø© Ø§Ù„Ø­Ø§Ù„ÙŠØ©</h4>
+        <p style="font-size: 13.5px;">Ø¬Ø±Ø¨ ØªØºÙŠÙŠØ± Ø§Ù„ØªØ®ØµØµØŒ Ø£Ùˆ Ø¥Ø¹Ø§Ø¯Ø© Ø¶Ø¨Ø· Ø®Ø§Ù†Ø© Ø§Ù„Ø¨Ø­Ø«.</p>
+        <button onclick="resetReviewsFilters()" class="btn btn-secondary" style="margin-top: 14px; padding: 6px 16px;">Ø¥Ø¹Ø§Ø¯Ø© Ø¶Ø¨Ø· Ø§Ù„ÙÙ„Ø§ØªØ± â†º</button>
       </div>
     `;
     return;
@@ -269,7 +269,7 @@ function renderReviewsList() {
 
   let html = "";
   filtered.forEach(rev => {
-    const starString = "★".repeat(Math.round(rev.ratings.questionQuality)) + "☆".repeat(5 - Math.round(rev.ratings.questionQuality));
+    const starString = "â˜…".repeat(Math.round(rev.ratings.questionQuality)) + "â˜†".repeat(5 - Math.round(rev.ratings.questionQuality));
     
     html += `
       <div class="glass-card review-card" style="padding: 28px; display: flex; flex-direction: column; justify-content: space-between; border-top: 4px solid var(--purple-brand); background: #FFFFFF; position: relative;">
@@ -281,7 +281,7 @@ function renderReviewsList() {
                 <span class="cert-tag" style="background: var(--purple-light); color: var(--purple-brand); font-family: var(--font-mono); font-weight: 800; font-size: 12px;">
                   ${escapeHtml(rev.gemiiniId)}
                 </span>
-                <span style="color: var(--teal); font-size: 11px; font-weight: 800;">● موثق رسمياً</span>
+                <span style="color: var(--teal); font-size: 11px; font-weight: 800;">â— Ù…ÙˆØ«Ù‚ Ø±Ø³Ù…ÙŠØ§Ù‹</span>
               </div>
               <h3 style="font-size: 18px; font-weight: 900; color: var(--purple-dark); margin-top: 4px;">
                 ${escapeHtml(rev.doctorName)}
@@ -295,7 +295,7 @@ function renderReviewsList() {
 
           <!-- Unit Tested Badge -->
           <div style="background: #FAF7F2; border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 8px 12px; margin-bottom: 14px; font-size: 12.5px; color: var(--text-main); font-weight: 700;">
-            🧪 <span style="color: var(--purple-brand);">${escapeHtml(rev.unitTested)}</span>
+            ðŸ§ª <span style="color: var(--purple-brand);">${escapeHtml(rev.unitTested)}</span>
           </div>
 
           <!-- Highlight Quote -->
@@ -306,16 +306,16 @@ function renderReviewsList() {
           <!-- 5-Metric Pill Indicators -->
           <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; margin-bottom: 18px; font-size: 11.5px;">
             <div style="background: #FDFBF7; padding: 5px 8px; border-radius: 4px; border: 1px solid var(--line);">
-              <span style="color: var(--text-sub);">جودة الأسئلة:</span> <strong>${rev.ratings.questionQuality}/5 ⭐</strong>
+              <span style="color: var(--text-sub);">Ø¬ÙˆØ¯Ø© Ø§Ù„Ø£Ø³Ø¦Ù„Ø©:</span> <strong>${rev.ratings.questionQuality}/5 â­</strong>
             </div>
             <div style="background: #FDFBF7; padding: 5px 8px; border-radius: 4px; border: 1px solid var(--line);">
-              <span style="color: var(--text-sub);">سرعة الدعم:</span> <strong>${rev.ratings.opsSupportSpeed}/5 ⭐</strong>
+              <span style="color: var(--text-sub);">Ø³Ø±Ø¹Ø© Ø§Ù„Ø¯Ø¹Ù…:</span> <strong>${rev.ratings.opsSupportSpeed}/5 â­</strong>
             </div>
             <div style="background: #FDFBF7; padding: 5px 8px; border-radius: 4px; border: 1px solid var(--line);">
-              <span style="color: var(--text-sub);">سلاسة النظام:</span> <strong>${rev.ratings.registrationEase1}/5 ⭐</strong>
+              <span style="color: var(--text-sub);">Ø³Ù„Ø§Ø³Ø© Ø§Ù„Ù†Ø¸Ø§Ù…:</span> <strong>${rev.ratings.registrationEase1}/5 â­</strong>
             </div>
             <div style="background: #FDFBF7; padding: 5px 8px; border-radius: 4px; border: 1px solid var(--line);">
-              <span style="color: var(--text-sub);">المجتمع الطبي:</span> <strong>${rev.ratings.communityInteraction}/5 ⭐</strong>
+              <span style="color: var(--text-sub);">Ø§Ù„Ù…Ø¬ØªÙ…Ø¹ Ø§Ù„Ø·Ø¨ÙŠ:</span> <strong>${rev.ratings.communityInteraction}/5 â­</strong>
             </div>
           </div>
         </div>
@@ -323,10 +323,10 @@ function renderReviewsList() {
         <!-- Card Footer CTA: Inspect Full 10-Section Audit -->
         <div style="border-top: 1px solid var(--line); padding-top: 14px; display: flex; justify-content: space-between; align-items: center;">
           <span style="font-size: 12px; color: var(--teal); font-weight: 700;">
-            ${rev.challengePassed ? "✓ اجتاز التحدي بنجاح" : "⌛ قيد خوض التحدي"}
+            ${rev.challengePassed ? "âœ“ Ø§Ø¬ØªØ§Ø² Ø§Ù„ØªØ­Ø¯ÙŠ Ø¨Ù†Ø¬Ø§Ø­" : "âŒ› Ù‚ÙŠØ¯ Ø®ÙˆØ¶ Ø§Ù„ØªØ­Ø¯ÙŠ"}
           </span>
           <button onclick="openReviewAuditModal('${escapeHtml(rev.id)}')" class="btn btn-secondary" style="padding: 6px 14px; font-size: 12.5px; border-color: var(--purple-border); color: var(--purple-brand);">
-            عرض تقرير الاستبيان والتدقيق 📋
+            Ø¹Ø±Ø¶ ØªÙ‚Ø±ÙŠØ± Ø§Ù„Ø§Ø³ØªØ¨ÙŠØ§Ù† ÙˆØ§Ù„ØªØ¯Ù‚ÙŠÙ‚ ðŸ“‹
           </button>
         </div>
       </div>
@@ -359,11 +359,11 @@ function openReviewAuditModal(reviewId) {
   const modalContent = document.getElementById("review-audit-modal-content");
   if (!modalOverlay || !modalContent) return;
 
-  const currentGroupsList = rev.currentGroups.map(g => `<li style="margin-bottom: 4px;">• ${escapeHtml(g)}</li>`).join("");
-  const targetTracksList = rev.nextTargetTrack.map(t => `<li style="margin-bottom: 4px;">• ${escapeHtml(t)}</li>`).join("");
-  const futureUnitsList = rev.requestedFutureUnits.map(u => `<li style="margin-bottom: 4px;">• ${escapeHtml(u)}</li>`).join("");
-  const futureProjectsList = rev.futureGemIInIProjects.map(p => `<li style="margin-bottom: 4px;">• ${escapeHtml(p)}</li>`).join("");
-  const barriersList = rev.sudanPracticeBarriers.map(b => `<li style="margin-bottom: 4px; color: var(--red);">⚠️ ${escapeHtml(b)}</li>`).join("");
+  const currentGroupsList = rev.currentGroups.map(g => `<li style="margin-bottom: 4px;">â€¢ ${escapeHtml(g)}</li>`).join("");
+  const targetTracksList = rev.nextTargetTrack.map(t => `<li style="margin-bottom: 4px;">â€¢ ${escapeHtml(t)}</li>`).join("");
+  const futureUnitsList = rev.requestedFutureUnits.map(u => `<li style="margin-bottom: 4px;">â€¢ ${escapeHtml(u)}</li>`).join("");
+  const futureProjectsList = rev.futureGemIInIProjects.map(p => `<li style="margin-bottom: 4px;">â€¢ ${escapeHtml(p)}</li>`).join("");
+  const barriersList = rev.sudanPracticeBarriers.map(b => `<li style="margin-bottom: 4px; color: var(--red);">âš ï¸ ${escapeHtml(b)}</li>`).join("");
 
   modalContent.innerHTML = `
     <div style="padding: 30px;">
@@ -371,18 +371,18 @@ function openReviewAuditModal(reviewId) {
       <div style="display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 2px solid var(--line); padding-bottom: 18px; margin-bottom: 24px;">
         <div>
           <span class="cert-tag" style="background: var(--teal-light); color: var(--teal); font-family: var(--font-mono); font-weight: 800; font-size: 11px;">
-            VERIFIED RESPONSE • ${escapeHtml(rev.id)}
+            VERIFIED RESPONSE â€¢ ${escapeHtml(rev.id)}
           </span>
           <h2 style="font-size: 24px; font-weight: 900; color: var(--purple-dark); margin-top: 6px;">
-            تقرير التدقيق التشغيلي الكامل: ${escapeHtml(rev.doctorName)}
+            ØªÙ‚Ø±ÙŠØ± Ø§Ù„ØªØ¯Ù‚ÙŠÙ‚ Ø§Ù„ØªØ´ØºÙŠÙ„ÙŠ Ø§Ù„ÙƒØ§Ù…Ù„: ${escapeHtml(rev.doctorName)}
           </h2>
           <div style="font-size: 13px; color: var(--text-muted); margin-top: 4px;">
-            تاريخ التقديم: <span style="font-family: var(--font-mono); font-weight: 700;">${escapeHtml(rev.timestamp)}</span> • 
-            المعرف: <span style="font-family: var(--font-mono); color: var(--purple-brand); font-weight: 800;">${escapeHtml(rev.gemiiniId)}</span> • 
-            البريد المشفر: <span style="font-family: var(--font-mono);">${escapeHtml(rev.emailMasked)}</span>
+            ØªØ§Ø±ÙŠØ® Ø§Ù„ØªÙ‚Ø¯ÙŠÙ…: <span style="font-family: var(--font-mono); font-weight: 700;">${escapeHtml(rev.timestamp)}</span> â€¢ 
+            Ø§Ù„Ù…Ø¹Ø±Ù: <span style="font-family: var(--font-mono); color: var(--purple-brand); font-weight: 800;">${escapeHtml(rev.gemiiniId)}</span> â€¢ 
+            Ø§Ù„Ø¨Ø±ÙŠØ¯ Ø§Ù„Ù…Ø´ÙØ±: <span style="font-family: var(--font-mono);">${escapeHtml(rev.emailMasked)}</span>
           </div>
         </div>
-        <button onclick="closeReviewAuditModal()" class="btn btn-secondary" style="padding: 6px 14px; font-size: 16px; border-radius: var(--radius-full);">✕</button>
+        <button onclick="closeReviewAuditModal()" class="btn btn-secondary" style="padding: 6px 14px; font-size: 16px; border-radius: var(--radius-full);">âœ•</button>
       </div>
 
       <!-- 10 Sections Audit Grid -->
@@ -390,26 +390,26 @@ function openReviewAuditModal(reviewId) {
         
         <!-- Section 1 -->
         <div style="background: #FAF7F0; border: 1px solid var(--line); border-radius: var(--radius-md); padding: 18px;">
-          <h4 style="color: var(--purple-dark); font-weight: 800; font-size: 15px; margin-bottom: 8px;">1️⃣ التحقق من الهوية الرقمية والربط المؤسسي</h4>
+          <h4 style="color: var(--purple-dark); font-weight: 800; font-size: 15px; margin-bottom: 8px;">1ï¸âƒ£ Ø§Ù„ØªØ­Ù‚Ù‚ Ù…Ù† Ø§Ù„Ù‡ÙˆÙŠØ© Ø§Ù„Ø±Ù‚Ù…ÙŠØ© ÙˆØ§Ù„Ø±Ø¨Ø· Ø§Ù„Ù…Ø¤Ø³Ø³ÙŠ</h4>
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px;">
-            <div><strong>تحدي الـ 20 سؤالاً:</strong> <span style="color: var(--teal); font-weight: 700;">${escapeHtml(rev.challengeCompleted)}</span></div>
-            <div><strong>توثيق سوداباس (SudaPass):</strong> <span>${escapeHtml(rev.sudaPassStatus)}</span></div>
-            <div><strong>مستوى الحساب:</strong> <span style="color: var(--purple-brand); font-weight: 700;">${escapeHtml(rev.levelReached)}</span></div>
-            <div><strong>مجموعة الواتساب الرسمية:</strong> <span>${rev.whatsappGroupActive ? "✓ تم التفعيل والإضافة" : "قيد المتابعة"}</span></div>
+            <div><strong>ØªØ­Ø¯ÙŠ Ø§Ù„Ù€ 20 Ø³Ø¤Ø§Ù„Ø§Ù‹:</strong> <span style="color: var(--teal); font-weight: 700;">${escapeHtml(rev.challengeCompleted)}</span></div>
+            <div><strong>ØªÙˆØ«ÙŠÙ‚ Ø³ÙˆØ¯Ø§Ø¨Ø§Ø³ (SudaPass):</strong> <span>${escapeHtml(rev.sudaPassStatus)}</span></div>
+            <div><strong>Ù…Ø³ØªÙˆÙ‰ Ø§Ù„Ø­Ø³Ø§Ø¨:</strong> <span style="color: var(--purple-brand); font-weight: 700;">${escapeHtml(rev.levelReached)}</span></div>
+            <div><strong>Ù…Ø¬Ù…ÙˆØ¹Ø© Ø§Ù„ÙˆØ§ØªØ³Ø§Ø¨ Ø§Ù„Ø±Ø³Ù…ÙŠØ©:</strong> <span>${rev.whatsappGroupActive ? "âœ“ ØªÙ… Ø§Ù„ØªÙØ¹ÙŠÙ„ ÙˆØ§Ù„Ø¥Ø¶Ø§ÙØ©" : "Ù‚ÙŠØ¯ Ø§Ù„Ù…ØªØ§Ø¨Ø¹Ø©"}</span></div>
           </div>
         </div>
 
         <!-- Section 2 -->
         <div style="background: #FAF7F0; border: 1px solid var(--line); border-radius: var(--radius-md); padding: 18px;">
-          <h4 style="color: var(--purple-dark); font-weight: 800; font-size: 15px; margin-bottom: 8px;">2️⃣ خارطة المجموعات والمسارات التدريبية</h4>
-          <p><strong>الوحدة التي تم اختبارها:</strong> <span style="color: var(--purple-brand); font-weight: 800;">${escapeHtml(rev.unitTested)}</span></p>
+          <h4 style="color: var(--purple-dark); font-weight: 800; font-size: 15px; margin-bottom: 8px;">2ï¸âƒ£ Ø®Ø§Ø±Ø·Ø© Ø§Ù„Ù…Ø¬Ù…ÙˆØ¹Ø§Øª ÙˆØ§Ù„Ù…Ø³Ø§Ø±Ø§Øª Ø§Ù„ØªØ¯Ø±ÙŠØ¨ÙŠØ©</h4>
+          <p><strong>Ø§Ù„ÙˆØ­Ø¯Ø© Ø§Ù„ØªÙŠ ØªÙ… Ø§Ø®ØªØ¨Ø§Ø±Ù‡Ø§:</strong> <span style="color: var(--purple-brand); font-weight: 800;">${escapeHtml(rev.unitTested)}</span></p>
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; margin-top: 10px;">
             <div>
-              <strong>المجموعات المشترك بها حالياً:</strong>
+              <strong>Ø§Ù„Ù…Ø¬Ù…ÙˆØ¹Ø§Øª Ø§Ù„Ù…Ø´ØªØ±Ùƒ Ø¨Ù‡Ø§ Ø­Ø§Ù„ÙŠØ§Ù‹:</strong>
               <ul style="list-style: none; padding-right: 0; margin-top: 4px; font-size: 12.5px; color: var(--text-muted);">${currentGroupsList}</ul>
             </div>
             <div>
-              <strong>المسار المستهدف القادم:</strong>
+              <strong>Ø§Ù„Ù…Ø³Ø§Ø± Ø§Ù„Ù…Ø³ØªÙ‡Ø¯Ù Ø§Ù„Ù‚Ø§Ø¯Ù…:</strong>
               <ul style="list-style: none; padding-right: 0; margin-top: 4px; font-size: 12.5px; color: var(--text-muted);">${targetTracksList}</ul>
             </div>
           </div>
@@ -417,52 +417,52 @@ function openReviewAuditModal(reviewId) {
 
         <!-- Section 3: Detailed Ratings -->
         <div style="background: #FAF7F0; border: 1px solid var(--line); border-radius: var(--radius-md); padding: 18px;">
-          <h4 style="color: var(--purple-dark); font-weight: 800; font-size: 15px; margin-bottom: 8px;">3️⃣ درجات التقييم وتجربة النظام (1 - 5 نجوم)</h4>
+          <h4 style="color: var(--purple-dark); font-weight: 800; font-size: 15px; margin-bottom: 8px;">3ï¸âƒ£ Ø¯Ø±Ø¬Ø§Øª Ø§Ù„ØªÙ‚ÙŠÙŠÙ… ÙˆØªØ¬Ø±Ø¨Ø© Ø§Ù„Ù†Ø¸Ø§Ù… (1 - 5 Ù†Ø¬ÙˆÙ…)</h4>
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; margin-top: 8px;">
             <div style="background: #FFFFFF; padding: 10px; border-radius: 6px; border: 1px solid var(--line);">
-              <span style="color: var(--text-sub); display: block; font-size: 11.5px;">جودة صياغة الأسئلة</span>
-              <strong style="color: var(--gold); font-size: 16px;">${rev.ratings.questionQuality} / 5 ⭐</strong>
+              <span style="color: var(--text-sub); display: block; font-size: 11.5px;">Ø¬ÙˆØ¯Ø© ØµÙŠØ§ØºØ© Ø§Ù„Ø£Ø³Ø¦Ù„Ø©</span>
+              <strong style="color: var(--gold); font-size: 16px;">${rev.ratings.questionQuality} / 5 â­</strong>
             </div>
             <div style="background: #FFFFFF; padding: 10px; border-radius: 6px; border: 1px solid var(--line);">
-              <span style="color: var(--text-sub); display: block; font-size: 11.5px;">سرعة دعم الفريق</span>
-              <strong style="color: var(--gold); font-size: 16px;">${rev.ratings.opsSupportSpeed} / 5 ⭐</strong>
+              <span style="color: var(--text-sub); display: block; font-size: 11.5px;">Ø³Ø±Ø¹Ø© Ø¯Ø¹Ù… Ø§Ù„ÙØ±ÙŠÙ‚</span>
+              <strong style="color: var(--gold); font-size: 16px;">${rev.ratings.opsSupportSpeed} / 5 â­</strong>
             </div>
             <div style="background: #FFFFFF; padding: 10px; border-radius: 6px; border: 1px solid var(--line);">
-              <span style="color: var(--text-sub); display: block; font-size: 11.5px;">سلاسة التسجيل</span>
-              <strong style="color: var(--gold); font-size: 16px;">${rev.ratings.registrationEase1} / 5 ⭐</strong>
+              <span style="color: var(--text-sub); display: block; font-size: 11.5px;">Ø³Ù„Ø§Ø³Ø© Ø§Ù„ØªØ³Ø¬ÙŠÙ„</span>
+              <strong style="color: var(--gold); font-size: 16px;">${rev.ratings.registrationEase1} / 5 â­</strong>
             </div>
             <div style="background: #FFFFFF; padding: 10px; border-radius: 6px; border: 1px solid var(--line);">
-              <span style="color: var(--text-sub); display: block; font-size: 11.5px;">تفاعل المجتمع الطبي</span>
-              <strong style="color: var(--gold); font-size: 16px;">${rev.ratings.communityInteraction} / 5 ⭐</strong>
+              <span style="color: var(--text-sub); display: block; font-size: 11.5px;">ØªÙØ§Ø¹Ù„ Ø§Ù„Ù…Ø¬ØªÙ…Ø¹ Ø§Ù„Ø·Ø¨ÙŠ</span>
+              <strong style="color: var(--gold); font-size: 16px;">${rev.ratings.communityInteraction} / 5 â­</strong>
             </div>
           </div>
         </div>
 
         <!-- Section 5: Strategic UX & Exclusivity -->
         <div style="background: #FAF7F0; border: 1px solid var(--line); border-radius: var(--radius-md); padding: 18px;">
-          <h4 style="color: var(--purple-dark); font-weight: 800; font-size: 15px; margin-bottom: 8px;">5️⃣ تقييم بيئة المستخدم والتأثير الاستراتيجي</h4>
-          <p><strong>وضوح وسلاسة النظام:</strong> ${escapeHtml(rev.uxClarity)}</p>
-          <p style="margin-top: 6px;"><strong>حصرية المنصة وأسبقيتها في السوق:</strong> <span style="color: var(--teal); font-weight: 700;">${escapeHtml(rev.marketExclusivity)}</span></p>
-          <p style="margin-top: 6px;"><strong>الاستعداد للاعتماد الكلي كمرجع أساسي:</strong> <span style="color: var(--purple-brand); font-weight: 700;">${escapeHtml(rev.fullAdoptionReadiness)}</span></p>
+          <h4 style="color: var(--purple-dark); font-weight: 800; font-size: 15px; margin-bottom: 8px;">5ï¸âƒ£ ØªÙ‚ÙŠÙŠÙ… Ø¨ÙŠØ¦Ø© Ø§Ù„Ù…Ø³ØªØ®Ø¯Ù… ÙˆØ§Ù„ØªØ£Ø«ÙŠØ± Ø§Ù„Ø§Ø³ØªØ±Ø§ØªÙŠØ¬ÙŠ</h4>
+          <p><strong>ÙˆØ¶ÙˆØ­ ÙˆØ³Ù„Ø§Ø³Ø© Ø§Ù„Ù†Ø¸Ø§Ù…:</strong> ${escapeHtml(rev.uxClarity)}</p>
+          <p style="margin-top: 6px;"><strong>Ø­ØµØ±ÙŠØ© Ø§Ù„Ù…Ù†ØµØ© ÙˆØ£Ø³Ø¨Ù‚ÙŠØªÙ‡Ø§ ÙÙŠ Ø§Ù„Ø³ÙˆÙ‚:</strong> <span style="color: var(--teal); font-weight: 700;">${escapeHtml(rev.marketExclusivity)}</span></p>
+          <p style="margin-top: 6px;"><strong>Ø§Ù„Ø§Ø³ØªØ¹Ø¯Ø§Ø¯ Ù„Ù„Ø§Ø¹ØªÙ…Ø§Ø¯ Ø§Ù„ÙƒÙ„ÙŠ ÙƒÙ…Ø±Ø¬Ø¹ Ø£Ø³Ø§Ø³ÙŠ:</strong> <span style="color: var(--purple-brand); font-weight: 700;">${escapeHtml(rev.fullAdoptionReadiness)}</span></p>
         </div>
 
         <!-- Section 6 & 8: Pricing Willingness & SMSB Reality -->
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px;">
           <div style="background: #FAF7F0; border: 1px solid var(--line); border-radius: var(--radius-md); padding: 18px;">
-            <h4 style="color: var(--purple-dark); font-weight: 800; font-size: 15px; margin-bottom: 8px;">6️⃣ باقات الاستثمار والاستعداد المالي</h4>
-            <p><strong>العملة المفضلة:</strong> ${escapeHtml(rev.preferredCurrency)}</p>
-            <p><strong>طريقة التحويل:</strong> ${escapeHtml(rev.preferredPaymentMethod)}</p>
+            <h4 style="color: var(--purple-dark); font-weight: 800; font-size: 15px; margin-bottom: 8px;">6ï¸âƒ£ Ø¨Ø§Ù‚Ø§Øª Ø§Ù„Ø§Ø³ØªØ«Ù…Ø§Ø± ÙˆØ§Ù„Ø§Ø³ØªØ¹Ø¯Ø§Ø¯ Ø§Ù„Ù…Ø§Ù„ÙŠ</h4>
+            <p><strong>Ø§Ù„Ø¹Ù…Ù„Ø© Ø§Ù„Ù…ÙØ¶Ù„Ø©:</strong> ${escapeHtml(rev.preferredCurrency)}</p>
+            <p><strong>Ø·Ø±ÙŠÙ‚Ø© Ø§Ù„ØªØ­ÙˆÙŠÙ„:</strong> ${escapeHtml(rev.preferredPaymentMethod)}</p>
             <div style="margin-top: 8px; font-size: 12.5px; background: #FFFFFF; padding: 8px 12px; border-radius: 6px; border: 1px solid var(--line);">
-              <div>باقة 400 سؤال: <strong>${escapeHtml(rev.pricingWillingness.pack400Q)}</strong></div>
-              <div>باقة 800 سؤال: <strong>${escapeHtml(rev.pricingWillingness.pack800Q)}</strong></div>
-              <div>باقة 1200 سؤال: <strong>${escapeHtml(rev.pricingWillingness.pack1200Q)}</strong></div>
+              <div>Ø¨Ø§Ù‚Ø© 400 Ø³Ø¤Ø§Ù„: <strong>${escapeHtml(rev.pricingWillingness.pack400Q)}</strong></div>
+              <div>Ø¨Ø§Ù‚Ø© 800 Ø³Ø¤Ø§Ù„: <strong>${escapeHtml(rev.pricingWillingness.pack800Q)}</strong></div>
+              <div>Ø¨Ø§Ù‚Ø© 1200 Ø³Ø¤Ø§Ù„: <strong>${escapeHtml(rev.pricingWillingness.pack1200Q)}</strong></div>
             </div>
           </div>
 
           <div style="background: #FAF7F0; border: 1px solid var(--line); border-radius: var(--radius-md); padding: 18px;">
-            <h4 style="color: var(--purple-dark); font-weight: 800; font-size: 15px; margin-bottom: 8px;">8️⃣ تقييم عوائق الممارسة والواقع الطبي بالسودان</h4>
-            <p><strong>التخصصات المستهدفة:</strong> ${escapeHtml(rev.smsbSpecialtyTarget.join("، "))}</p>
-            <strong style="display: block; margin-top: 8px; color: var(--purple-dark);">أبرز العوائق التي تواجه الطبيب في السودان:</strong>
+            <h4 style="color: var(--purple-dark); font-weight: 800; font-size: 15px; margin-bottom: 8px;">8ï¸âƒ£ ØªÙ‚ÙŠÙŠÙ… Ø¹ÙˆØ§Ø¦Ù‚ Ø§Ù„Ù…Ù…Ø§Ø±Ø³Ø© ÙˆØ§Ù„ÙˆØ§Ù‚Ø¹ Ø§Ù„Ø·Ø¨ÙŠ Ø¨Ø§Ù„Ø³ÙˆØ¯Ø§Ù†</h4>
+            <p><strong>Ø§Ù„ØªØ®ØµØµØ§Øª Ø§Ù„Ù…Ø³ØªÙ‡Ø¯ÙØ©:</strong> ${escapeHtml(rev.smsbSpecialtyTarget.join("ØŒ "))}</p>
+            <strong style="display: block; margin-top: 8px; color: var(--purple-dark);">Ø£Ø¨Ø±Ø² Ø§Ù„Ø¹ÙˆØ§Ø¦Ù‚ Ø§Ù„ØªÙŠ ØªÙˆØ§Ø¬Ù‡ Ø§Ù„Ø·Ø¨ÙŠØ¨ ÙÙŠ Ø§Ù„Ø³ÙˆØ¯Ø§Ù†:</strong>
             <ul style="list-style: none; padding-right: 0; margin-top: 4px; font-size: 12px;">${barriersList}</ul>
           </div>
         </div>
@@ -472,9 +472,9 @@ function openReviewAuditModal(reviewId) {
       <!-- Footer Actions -->
       <div style="margin-top: 24px; padding-top: 16px; border-top: 1.5px solid var(--line); display: flex; justify-content: space-between; align-items: center;">
         <span style="font-size: 12px; color: var(--text-sub);">
-          سجل تدقيق رقمي معتمد لدى إدارة المتابعة الأكاديمية والتوثيق السيادي
+          Ø³Ø¬Ù„ ØªØ¯Ù‚ÙŠÙ‚ Ø±Ù‚Ù…ÙŠ Ù…Ø¹ØªÙ…Ø¯ Ù„Ø¯Ù‰ Ø¥Ø¯Ø§Ø±Ø© Ø§Ù„Ù…ØªØ§Ø¨Ø¹Ø© Ø§Ù„Ø£ÙƒØ§Ø¯ÙŠÙ…ÙŠØ© ÙˆØ§Ù„ØªÙˆØ«ÙŠÙ‚ Ø§Ù„Ø³ÙŠØ§Ø¯ÙŠ
         </span>
-        <button onclick="closeReviewAuditModal()" class="btn btn-primary" style="padding: 8px 24px;">إغلاق التقرير ✓</button>
+        <button onclick="closeReviewAuditModal()" class="btn btn-primary" style="padding: 8px 24px;">Ø¥ØºÙ„Ø§Ù‚ Ø§Ù„ØªÙ‚Ø±ÙŠØ± âœ“</button>
       </div>
     </div>
   `;
@@ -524,13 +524,13 @@ function initRegistryCards() {
     });
 
     if (countDisplay) {
-      countDisplay.textContent = `تم العثور على ${filtered.length} طبيب وباحث مسجل`;
+      countDisplay.textContent = `ØªÙ… Ø§Ù„Ø¹Ø«ÙˆØ± Ø¹Ù„Ù‰ ${filtered.length} Ø·Ø¨ÙŠØ¨ ÙˆØ¨Ø§Ø­Ø« Ù…Ø³Ø¬Ù„`;
     }
 
     if (filtered.length === 0) {
       grid.innerHTML = `
         <div style="grid-column: 1 / -1; background: #FFFFFF; border: 1px dashed var(--line); border-radius: var(--radius-md); padding: 40px; text-align: center; color: var(--text-muted);">
-          لم يتم العثور على نتائج مطابقة لـ "${escapeHtml(currentSearch)}".
+          Ù„Ù… ÙŠØªÙ… Ø§Ù„Ø¹Ø«ÙˆØ± Ø¹Ù„Ù‰ Ù†ØªØ§Ø¦Ø¬ Ù…Ø·Ø§Ø¨Ù‚Ø© Ù„Ù€ "${escapeHtml(currentSearch)}".
         </div>
       `;
       return;
@@ -546,7 +546,7 @@ function initRegistryCards() {
               <span class="cert-tag" style="font-family: var(--font-mono); font-weight: 800; font-size: 11px; background: var(--purple-light); color: var(--purple-brand);">
                 ${escapeHtml(m.id)}
               </span>
-              ${m.isBlsCertified ? `<span class="cert-tag" style="background: #FEE2E2; color: #991B1B; font-size: 10.5px; font-weight: 800; border-color: #FCA5A5;">🫀 أخصائي BLS معتمد</span>` : ""}
+              ${m.isBlsCertified ? `<span class="cert-tag" style="background: #FEE2E2; color: #991B1B; font-size: 10.5px; font-weight: 800; border-color: #FCA5A5;">ðŸ«€ Ø£Ø®ØµØ§Ø¦ÙŠ BLS Ù…Ø¹ØªÙ…Ø¯</span>` : ""}
               <span style="font-family: var(--font-mono); color: var(--gold); font-weight: 800; font-size: 12.5px;">
                 ${m.gp.toLocaleString()} GP
               </span>
@@ -558,17 +558,17 @@ function initRegistryCards() {
               ${escapeHtml(m.role)}
             </p>
             <p style="font-size: 11.5px; color: var(--text-muted);">
-              🏛️ ${escapeHtml(m.univ)}
+              ðŸ›ï¸ ${escapeHtml(m.univ)}
             </p>
           </div>
           
           <div style="margin-top: 14px; padding-top: 10px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center;">
             <span style="font-size: 11px; color: var(--text-sub);">
-              ${m.isBlsCertified ? "✓ خريج وأخصائي BLS" : (m.sudaPass ? "✓ SudaPass" : "سجل نشط")}
+              ${m.isBlsCertified ? "âœ“ Ø®Ø±ÙŠØ¬ ÙˆØ£Ø®ØµØ§Ø¦ÙŠ BLS" : (m.sudaPass ? "âœ“ SudaPass" : "Ø³Ø¬Ù„ Ù†Ø´Ø·")}
             </span>
             <div style="display: flex; gap: 6px;">
-              <a href="alumni.html?cert=${encodeURIComponent(m.id)}" class="btn btn-secondary" style="padding: 3px 8px; font-size: 11px;">الشهادة 📜</a>
-              ${m.hasReview ? `<a href="reviews.html?id=${encodeURIComponent(m.id)}" class="btn btn-gold" style="padding: 3px 6px; font-size: 11px;">التقييم ★</a>` : ""}
+              <a href="alumni.html?cert=${encodeURIComponent(m.id)}" class="btn btn-secondary" style="padding: 3px 8px; font-size: 11px;">Ø§Ù„Ø´Ù‡Ø§Ø¯Ø© ðŸ“œ</a>
+              ${m.hasReview ? `<a href="reviews.html?id=${encodeURIComponent(m.id)}" class="btn btn-gold" style="padding: 3px 6px; font-size: 11px;">Ø§Ù„ØªÙ‚ÙŠÙŠÙ… â˜…</a>` : ""}
             </div>
           </div>
         </div>
@@ -579,7 +579,7 @@ function initRegistryCards() {
       html += `
         <div style="grid-column: 1 / -1; text-align: center; margin-top: 20px; padding: 20px;">
           <button id="load-more-ga-btn" class="btn btn-secondary" style="padding: 12px 32px; font-size: 14px; border-color: var(--purple-brand); color: var(--purple-brand); font-weight: 800;">
-            عرض المزيد (+48 طبيب من أصل ${filtered.length}) ➔
+            Ø¹Ø±Ø¶ Ø§Ù„Ù…Ø²ÙŠØ¯ (+48 Ø·Ø¨ÙŠØ¨ Ù…Ù† Ø£ØµÙ„ ${filtered.length}) âž”
           </button>
         </div>
       `;
@@ -633,7 +633,7 @@ function generateOrFindDiploma() {
 
   const val = input.value.trim();
   if (!val) {
-    alert("يرجى إدخال اسم الخريج أو رقم رقم الهوية المهنية الرقمية (GA#) للتحقق (مثال: GA171 أو GA997 أو GA130)");
+    alert("ÙŠØ±Ø¬Ù‰ Ø¥Ø¯Ø®Ø§Ù„ Ø§Ø³Ù… Ø§Ù„Ø®Ø±ÙŠØ¬ Ø£Ùˆ Ø±Ù‚Ù… Ø±Ù‚Ù… Ø§Ù„Ù‡ÙˆÙŠØ© Ø§Ù„Ù…Ù‡Ù†ÙŠØ© Ø§Ù„Ø±Ù‚Ù…ÙŠØ© (GA#) Ù„Ù„ØªØ­Ù‚Ù‚ (Ù…Ø«Ø§Ù„: GA171 Ø£Ùˆ GA997 Ø£Ùˆ GA130)");
     return;
   }
 
@@ -650,12 +650,12 @@ function generateOrFindDiploma() {
     if (nameDisplay) nameDisplay.textContent = foundMember.name;
     
     if (foundMember.isBlsCertified) {
-      if (idDisplay) idDisplay.textContent = "PROFESSIONAL DIGITAL IDENTITY GA NUMBER: " + foundMember.id + " • CERTIFIED BLS PROVIDER • GEMIINI ALUMNI";
-      if (courseDisplay) courseDisplay.textContent = "برنامج دعم الحياة الأساسي المتقدم والإنعاش القلبي الرئوي السريري (Adult & Pediatric BLS Simulation & Resuscitation Certification)";
-      if (gpDisplay) gpDisplay.textContent = "ACADEMIC LEDGER: " + foundMember.gp.toLocaleString() + " GP • BLS Certified & GemIInI Alumni";
+      if (idDisplay) idDisplay.textContent = "PROFESSIONAL DIGITAL IDENTITY GA NUMBER: " + foundMember.id + " â€¢ CERTIFIED BLS PROVIDER â€¢ GEMIINI ALUMNI";
+      if (courseDisplay) courseDisplay.textContent = "Ø¨Ø±Ù†Ø§Ù…Ø¬ Ø¯Ø¹Ù… Ø§Ù„Ø­ÙŠØ§Ø© Ø§Ù„Ø£Ø³Ø§Ø³ÙŠ Ø§Ù„Ù…ØªÙ‚Ø¯Ù… ÙˆØ§Ù„Ø¥Ù†Ø¹Ø§Ø´ Ø§Ù„Ù‚Ù„Ø¨ÙŠ Ø§Ù„Ø±Ø¦ÙˆÙŠ Ø§Ù„Ø³Ø±ÙŠØ±ÙŠ (Adult & Pediatric BLS Simulation & Resuscitation Certification)";
+      if (gpDisplay) gpDisplay.textContent = "ACADEMIC LEDGER: " + foundMember.gp.toLocaleString() + " GP â€¢ BLS Certified & GemIInI Alumni";
     } else {
       if (idDisplay) idDisplay.textContent = "PROFESSIONAL DIGITAL IDENTITY GA NUMBER: " + foundMember.id;
-      if (gpDisplay) gpDisplay.textContent = "ACADEMIC LEDGER: " + foundMember.gp.toLocaleString() + " GP • " + (foundMember.cert || "SudaPass Verified");
+      if (gpDisplay) gpDisplay.textContent = "ACADEMIC LEDGER: " + foundMember.gp.toLocaleString() + " GP â€¢ " + (foundMember.cert || "SudaPass Verified");
     }
 
     preview.style.display = "block";
@@ -668,16 +668,16 @@ function generateOrFindDiploma() {
       createdError.id = "diploma-error-box";
       createdError.style.cssText = "background: #FEF2F2; border: 1.5px solid #F87171; border-radius: var(--radius-md); padding: 18px; text-align: center; color: #991B1B; margin-top: 20px; font-size: 14px;";
       createdError.innerHTML = `
-        <strong>⚠️ تنبيه التحقق الأكاديمي:</strong><br>
-        لم يتم العثور على سجل تخرج أو اعتماد مسجل رسمياً بالاسم أو المعرف "<strong>${escapeHtml(val)}</strong>".<br>
-        <span style="font-size: 12.5px; color: #B91C1C;">يرجى مراجعة إدارة القيد والتسجيل أو تقديم استمارة التوثيق عبر <a href="join.html" style="color: #7F1D1D; text-decoration: underline; font-weight: 700;">بوابة التسجيل</a>.</span>
+        <strong>âš ï¸ ØªÙ†Ø¨ÙŠÙ‡ Ø§Ù„ØªØ­Ù‚Ù‚ Ø§Ù„Ø£ÙƒØ§Ø¯ÙŠÙ…ÙŠ:</strong><br>
+        Ù„Ù… ÙŠØªÙ… Ø§Ù„Ø¹Ø«ÙˆØ± Ø¹Ù„Ù‰ Ø³Ø¬Ù„ ØªØ®Ø±Ø¬ Ø£Ùˆ Ø§Ø¹ØªÙ…Ø§Ø¯ Ù…Ø³Ø¬Ù„ Ø±Ø³Ù…ÙŠØ§Ù‹ Ø¨Ø§Ù„Ø§Ø³Ù… Ø£Ùˆ Ø§Ù„Ù…Ø¹Ø±Ù "<strong>${escapeHtml(val)}</strong>".<br>
+        <span style="font-size: 12.5px; color: #B91C1C;">ÙŠØ±Ø¬Ù‰ Ù…Ø±Ø§Ø¬Ø¹Ø© Ø¥Ø¯Ø§Ø±Ø© Ø§Ù„Ù‚ÙŠØ¯ ÙˆØ§Ù„ØªØ³Ø¬ÙŠÙ„ Ø£Ùˆ ØªÙ‚Ø¯ÙŠÙ… Ø§Ø³ØªÙ…Ø§Ø±Ø© Ø§Ù„ØªÙˆØ«ÙŠÙ‚ Ø¹Ø¨Ø± <a href="join.html" style="color: #7F1D1D; text-decoration: underline; font-weight: 700;">Ø¨ÙˆØ§Ø¨Ø© Ø§Ù„ØªØ³Ø¬ÙŠÙ„</a>.</span>
       `;
       input.parentElement.appendChild(createdError);
     } else {
       errorBox.innerHTML = `
-        <strong>⚠️ تنبيه التحقق الأكاديمي:</strong><br>
-        لم يتم العثور على سجل تخرج أو اعتماد مسجل رسمياً بالاسم أو المعرف "<strong>${escapeHtml(val)}</strong>".<br>
-        <span style="font-size: 12.5px; color: #B91C1C;">يرجى مراجعة إدارة القيد والتسجيل أو تقديم استمارة التوثيق عبر <a href="join.html" style="color: #7F1D1D; text-decoration: underline; font-weight: 700;">بوابة التسجيل</a>.</span>
+        <strong>âš ï¸ ØªÙ†Ø¨ÙŠÙ‡ Ø§Ù„ØªØ­Ù‚Ù‚ Ø§Ù„Ø£ÙƒØ§Ø¯ÙŠÙ…ÙŠ:</strong><br>
+        Ù„Ù… ÙŠØªÙ… Ø§Ù„Ø¹Ø«ÙˆØ± Ø¹Ù„Ù‰ Ø³Ø¬Ù„ ØªØ®Ø±Ø¬ Ø£Ùˆ Ø§Ø¹ØªÙ…Ø§Ø¯ Ù…Ø³Ø¬Ù„ Ø±Ø³Ù…ÙŠØ§Ù‹ Ø¨Ø§Ù„Ø§Ø³Ù… Ø£Ùˆ Ø§Ù„Ù…Ø¹Ø±Ù "<strong>${escapeHtml(val)}</strong>".<br>
+        <span style="font-size: 12.5px; color: #B91C1C;">ÙŠØ±Ø¬Ù‰ Ù…Ø±Ø§Ø¬Ø¹Ø© Ø¥Ø¯Ø§Ø±Ø© Ø§Ù„Ù‚ÙŠØ¯ ÙˆØ§Ù„ØªØ³Ø¬ÙŠÙ„ Ø£Ùˆ ØªÙ‚Ø¯ÙŠÙ… Ø§Ø³ØªÙ…Ø§Ø±Ø© Ø§Ù„ØªÙˆØ«ÙŠÙ‚ Ø¹Ø¨Ø± <a href="join.html" style="color: #7F1D1D; text-decoration: underline; font-weight: 700;">Ø¨ÙˆØ§Ø¨Ø© Ø§Ù„ØªØ³Ø¬ÙŠÙ„</a>.</span>
       `;
       errorBox.style.display = "block";
     }
@@ -690,56 +690,56 @@ window.generateOrFindDiploma = generateOrFindDiploma;
    ========================================================================= */
 const RAW_BANK_DATA = {
   raw1: {
-    meta: "SMC INDEX: #RAW-01-MED-442 • تكرار الامتحان: 92%",
-    specialty: "الطب الباطني • طوارئ القلب والأوعية",
-    prompt: `مريض يبلغ من العمر 58 عاماً، حضر إلى قسم الحوادث يشكو من ألم حاد خلف القص يمتد إلى الذراع الأيسر منذ 3 ساعات. أظهر تخطيط القلب (ECG) ارتفاعاً في القطعة ST في الاتجاهات II, III, aVF (احتشاء سفلي Inferior MI). بعد إعطائه قرص نتروجليسرين تحت اللسان، هبط ضغط دمه فجأة إلى 75/45 mmHg مع وذمة وريدية وداجية (Elevated JVP) ورئتين صافيتين تماماً عند التسمع.<br><br><strong>ما هي الخطوة العلاجية الفورية الأكثر أهمية والأولى في هذا السيناريو السريري؟</strong>`,
+    meta: "SMC INDEX: #RAW-01-MED-442 â€¢ ØªÙƒØ±Ø§Ø± Ø§Ù„Ø§Ù…ØªØ­Ø§Ù†: 92%",
+    specialty: "Ø§Ù„Ø·Ø¨ Ø§Ù„Ø¨Ø§Ø·Ù†ÙŠ â€¢ Ø·ÙˆØ§Ø±Ø¦ Ø§Ù„Ù‚Ù„Ø¨ ÙˆØ§Ù„Ø£ÙˆØ¹ÙŠØ©",
+    prompt: `Ù…Ø±ÙŠØ¶ ÙŠØ¨Ù„Øº Ù…Ù† Ø§Ù„Ø¹Ù…Ø± 58 Ø¹Ø§Ù…Ø§Ù‹ØŒ Ø­Ø¶Ø± Ø¥Ù„Ù‰ Ù‚Ø³Ù… Ø§Ù„Ø­ÙˆØ§Ø¯Ø« ÙŠØ´ÙƒÙˆ Ù…Ù† Ø£Ù„Ù… Ø­Ø§Ø¯ Ø®Ù„Ù Ø§Ù„Ù‚Øµ ÙŠÙ…ØªØ¯ Ø¥Ù„Ù‰ Ø§Ù„Ø°Ø±Ø§Ø¹ Ø§Ù„Ø£ÙŠØ³Ø± Ù…Ù†Ø° 3 Ø³Ø§Ø¹Ø§Øª. Ø£Ø¸Ù‡Ø± ØªØ®Ø·ÙŠØ· Ø§Ù„Ù‚Ù„Ø¨ (ECG) Ø§Ø±ØªÙØ§Ø¹Ø§Ù‹ ÙÙŠ Ø§Ù„Ù‚Ø·Ø¹Ø© ST ÙÙŠ Ø§Ù„Ø§ØªØ¬Ø§Ù‡Ø§Øª II, III, aVF (Ø§Ø­ØªØ´Ø§Ø¡ Ø³ÙÙ„ÙŠ Inferior MI). Ø¨Ø¹Ø¯ Ø¥Ø¹Ø·Ø§Ø¦Ù‡ Ù‚Ø±Øµ Ù†ØªØ±ÙˆØ¬Ù„ÙŠØ³Ø±ÙŠÙ† ØªØ­Øª Ø§Ù„Ù„Ø³Ø§Ù†ØŒ Ù‡Ø¨Ø· Ø¶ØºØ· Ø¯Ù…Ù‡ ÙØ¬Ø£Ø© Ø¥Ù„Ù‰ 75/45 mmHg Ù…Ø¹ ÙˆØ°Ù…Ø© ÙˆØ±ÙŠØ¯ÙŠØ© ÙˆØ¯Ø§Ø¬ÙŠØ© (Elevated JVP) ÙˆØ±Ø¦ØªÙŠÙ† ØµØ§ÙÙŠØªÙŠÙ† ØªÙ…Ø§Ù…Ø§Ù‹ Ø¹Ù†Ø¯ Ø§Ù„ØªØ³Ù…Ø¹.<br><br><strong>Ù…Ø§ Ù‡ÙŠ Ø§Ù„Ø®Ø·ÙˆØ© Ø§Ù„Ø¹Ù„Ø§Ø¬ÙŠØ© Ø§Ù„ÙÙˆØ±ÙŠØ© Ø§Ù„Ø£ÙƒØ«Ø± Ø£Ù‡Ù…ÙŠØ© ÙˆØ§Ù„Ø£ÙˆÙ„Ù‰ ÙÙŠ Ù‡Ø°Ø§ Ø§Ù„Ø³ÙŠÙ†Ø§Ø±ÙŠÙˆ Ø§Ù„Ø³Ø±ÙŠØ±ÙŠØŸ</strong>`,
     options: [
-      { text: "أ) إعطاء جرعة فورية من محاليل الملح الوريدية العادية (0.9% Normal Saline Bolus)", correct: true },
-      { text: "ب) إعطاء جرعة إضافية من النتروجليسرين بالوريد لخفض الألم", correct: false },
-      { text: "ج) إعطاء جرعة عالية من مدر البول فوروسيميد (Lasix) بالوريد", correct: false },
-      { text: "د) إعطاء حاصرات بيتا (Beta-blockers) للسيطرة على معدل النبض", correct: false }
+      { text: "Ø£) Ø¥Ø¹Ø·Ø§Ø¡ Ø¬Ø±Ø¹Ø© ÙÙˆØ±ÙŠØ© Ù…Ù† Ù…Ø­Ø§Ù„ÙŠÙ„ Ø§Ù„Ù…Ù„Ø­ Ø§Ù„ÙˆØ±ÙŠØ¯ÙŠØ© Ø§Ù„Ø¹Ø§Ø¯ÙŠØ© (0.9% Normal Saline Bolus)", correct: true },
+      { text: "Ø¨) Ø¥Ø¹Ø·Ø§Ø¡ Ø¬Ø±Ø¹Ø© Ø¥Ø¶Ø§ÙÙŠØ© Ù…Ù† Ø§Ù„Ù†ØªØ±ÙˆØ¬Ù„ÙŠØ³Ø±ÙŠÙ† Ø¨Ø§Ù„ÙˆØ±ÙŠØ¯ Ù„Ø®ÙØ¶ Ø§Ù„Ø£Ù„Ù…", correct: false },
+      { text: "Ø¬) Ø¥Ø¹Ø·Ø§Ø¡ Ø¬Ø±Ø¹Ø© Ø¹Ø§Ù„ÙŠØ© Ù…Ù† Ù…Ø¯Ø± Ø§Ù„Ø¨ÙˆÙ„ ÙÙˆØ±ÙˆØ³ÙŠÙ…ÙŠØ¯ (Lasix) Ø¨Ø§Ù„ÙˆØ±ÙŠØ¯", correct: false },
+      { text: "Ø¯) Ø¥Ø¹Ø·Ø§Ø¡ Ø­Ø§ØµØ±Ø§Øª Ø¨ÙŠØªØ§ (Beta-blockers) Ù„Ù„Ø³ÙŠØ·Ø±Ø© Ø¹Ù„Ù‰ Ù…Ø¹Ø¯Ù„ Ø§Ù„Ù†Ø¨Ø¶", correct: false }
     ],
-    explanation: "في حالات احتشاء الجدار السفلي، يترافق ما يقارب 30-50% من الحالات مع احتشاء البطين الأيمن (Right Ventricular Infarction). يعتمد النتاج القلبي للبطين الأيمن بشكل حرج على حجم الامتلاء الوريدي (Preload-dependent). إعطاء النترات يسبب توسعاً وريدياً سريعاً وهبوطاً حاداً في الضغط. العلاج الفوري هو تعويض السوائل الوريدية لرفع الـ Preload، وتجنب النترات ومدرات البول تماماً.",
-    formula: "القاعدة الفسيولوجية: CO = HR × SV (حجم النبضة يعتمد كلياً على الـ Preload في اعتلال البطين الأيمن)."
+    explanation: "ÙÙŠ Ø­Ø§Ù„Ø§Øª Ø§Ø­ØªØ´Ø§Ø¡ Ø§Ù„Ø¬Ø¯Ø§Ø± Ø§Ù„Ø³ÙÙ„ÙŠØŒ ÙŠØªØ±Ø§ÙÙ‚ Ù…Ø§ ÙŠÙ‚Ø§Ø±Ø¨ 30-50% Ù…Ù† Ø§Ù„Ø­Ø§Ù„Ø§Øª Ù…Ø¹ Ø§Ø­ØªØ´Ø§Ø¡ Ø§Ù„Ø¨Ø·ÙŠÙ† Ø§Ù„Ø£ÙŠÙ…Ù† (Right Ventricular Infarction). ÙŠØ¹ØªÙ…Ø¯ Ø§Ù„Ù†ØªØ§Ø¬ Ø§Ù„Ù‚Ù„Ø¨ÙŠ Ù„Ù„Ø¨Ø·ÙŠÙ† Ø§Ù„Ø£ÙŠÙ…Ù† Ø¨Ø´ÙƒÙ„ Ø­Ø±Ø¬ Ø¹Ù„Ù‰ Ø­Ø¬Ù… Ø§Ù„Ø§Ù…ØªÙ„Ø§Ø¡ Ø§Ù„ÙˆØ±ÙŠØ¯ÙŠ (Preload-dependent). Ø¥Ø¹Ø·Ø§Ø¡ Ø§Ù„Ù†ØªØ±Ø§Øª ÙŠØ³Ø¨Ø¨ ØªÙˆØ³Ø¹Ø§Ù‹ ÙˆØ±ÙŠØ¯ÙŠØ§Ù‹ Ø³Ø±ÙŠØ¹Ø§Ù‹ ÙˆÙ‡Ø¨ÙˆØ·Ø§Ù‹ Ø­Ø§Ø¯Ø§Ù‹ ÙÙŠ Ø§Ù„Ø¶ØºØ·. Ø§Ù„Ø¹Ù„Ø§Ø¬ Ø§Ù„ÙÙˆØ±ÙŠ Ù‡Ùˆ ØªØ¹ÙˆÙŠØ¶ Ø§Ù„Ø³ÙˆØ§Ø¦Ù„ Ø§Ù„ÙˆØ±ÙŠØ¯ÙŠØ© Ù„Ø±ÙØ¹ Ø§Ù„Ù€ PreloadØŒ ÙˆØªØ¬Ù†Ø¨ Ø§Ù„Ù†ØªØ±Ø§Øª ÙˆÙ…Ø¯Ø±Ø§Øª Ø§Ù„Ø¨ÙˆÙ„ ØªÙ…Ø§Ù…Ø§Ù‹.",
+    formula: "Ø§Ù„Ù‚Ø§Ø¹Ø¯Ø© Ø§Ù„ÙØ³ÙŠÙˆÙ„ÙˆØ¬ÙŠØ©: CO = HR Ã— SV (Ø­Ø¬Ù… Ø§Ù„Ù†Ø¨Ø¶Ø© ÙŠØ¹ØªÙ…Ø¯ ÙƒÙ„ÙŠØ§Ù‹ Ø¹Ù„Ù‰ Ø§Ù„Ù€ Preload ÙÙŠ Ø§Ø¹ØªÙ„Ø§Ù„ Ø§Ù„Ø¨Ø·ÙŠÙ† Ø§Ù„Ø£ÙŠÙ…Ù†)."
   },
   raw2: {
-    meta: "SMC INDEX: #RAW-02-SURG-118 • تكرار الامتحان: 88%",
-    specialty: "الجراحة العامة • إصابات البطن والحوادث الحادة",
-    prompt: `شاب يبلغ من العمر 24 عاماً تعرض لحادث دراجة نارية ونقل للطوارئ. العلامات الحيوية: الضغط 85/50، النبض 125/دقيقة، البطن متيبس مع إيلام عند الجس. أظهر فحص السونار الطارئ (FAST) وجود كمية معتبرة من السوائل الحرة في الحوض والمسافة الكبدية الكلوية (Morison's Pouch).<br><br><strong>ما هو التدبير الجراحي الأنسب والأسرع لإنقاذ حياة المريض؟</strong>`,
+    meta: "SMC INDEX: #RAW-02-SURG-118 â€¢ ØªÙƒØ±Ø§Ø± Ø§Ù„Ø§Ù…ØªØ­Ø§Ù†: 88%",
+    specialty: "Ø§Ù„Ø¬Ø±Ø§Ø­Ø© Ø§Ù„Ø¹Ø§Ù…Ø© â€¢ Ø¥ØµØ§Ø¨Ø§Øª Ø§Ù„Ø¨Ø·Ù† ÙˆØ§Ù„Ø­ÙˆØ§Ø¯Ø« Ø§Ù„Ø­Ø§Ø¯Ø©",
+    prompt: `Ø´Ø§Ø¨ ÙŠØ¨Ù„Øº Ù…Ù† Ø§Ù„Ø¹Ù…Ø± 24 Ø¹Ø§Ù…Ø§Ù‹ ØªØ¹Ø±Ø¶ Ù„Ø­Ø§Ø¯Ø« Ø¯Ø±Ø§Ø¬Ø© Ù†Ø§Ø±ÙŠØ© ÙˆÙ†Ù‚Ù„ Ù„Ù„Ø·ÙˆØ§Ø±Ø¦. Ø§Ù„Ø¹Ù„Ø§Ù…Ø§Øª Ø§Ù„Ø­ÙŠÙˆÙŠØ©: Ø§Ù„Ø¶ØºØ· 85/50ØŒ Ø§Ù„Ù†Ø¨Ø¶ 125/Ø¯Ù‚ÙŠÙ‚Ø©ØŒ Ø§Ù„Ø¨Ø·Ù† Ù…ØªÙŠØ¨Ø³ Ù…Ø¹ Ø¥ÙŠÙ„Ø§Ù… Ø¹Ù†Ø¯ Ø§Ù„Ø¬Ø³. Ø£Ø¸Ù‡Ø± ÙØ­Øµ Ø§Ù„Ø³ÙˆÙ†Ø§Ø± Ø§Ù„Ø·Ø§Ø±Ø¦ (FAST) ÙˆØ¬ÙˆØ¯ ÙƒÙ…ÙŠØ© Ù…Ø¹ØªØ¨Ø±Ø© Ù…Ù† Ø§Ù„Ø³ÙˆØ§Ø¦Ù„ Ø§Ù„Ø­Ø±Ø© ÙÙŠ Ø§Ù„Ø­ÙˆØ¶ ÙˆØ§Ù„Ù…Ø³Ø§ÙØ© Ø§Ù„ÙƒØ¨Ø¯ÙŠØ© Ø§Ù„ÙƒÙ„ÙˆÙŠØ© (Morison's Pouch).<br><br><strong>Ù…Ø§ Ù‡Ùˆ Ø§Ù„ØªØ¯Ø¨ÙŠØ± Ø§Ù„Ø¬Ø±Ø§Ø­ÙŠ Ø§Ù„Ø£Ù†Ø³Ø¨ ÙˆØ§Ù„Ø£Ø³Ø±Ø¹ Ù„Ø¥Ù†Ù‚Ø§Ø° Ø­ÙŠØ§Ø© Ø§Ù„Ù…Ø±ÙŠØ¶ØŸ</strong>`,
     options: [
-      { text: "أ) فتح بطن استكشافي فوري في غرفة العمليات (Exploratory Laparotomy)", correct: true },
-      { text: "ب) إجراء أشعة مقطعية بالصبغة للبطن والحوض (CT Scan)", correct: false },
-      { text: "ج) الملاحظة السريرية في العناية المكثفة مع نقل وحدتي دم", correct: false },
-      { text: "د) سحب السائل بالإبرة تحت توجيه السونار", correct: false }
+      { text: "Ø£) ÙØªØ­ Ø¨Ø·Ù† Ø§Ø³ØªÙƒØ´Ø§ÙÙŠ ÙÙˆØ±ÙŠ ÙÙŠ ØºØ±ÙØ© Ø§Ù„Ø¹Ù…Ù„ÙŠØ§Øª (Exploratory Laparotomy)", correct: true },
+      { text: "Ø¨) Ø¥Ø¬Ø±Ø§Ø¡ Ø£Ø´Ø¹Ø© Ù…Ù‚Ø·Ø¹ÙŠØ© Ø¨Ø§Ù„ØµØ¨ØºØ© Ù„Ù„Ø¨Ø·Ù† ÙˆØ§Ù„Ø­ÙˆØ¶ (CT Scan)", correct: false },
+      { text: "Ø¬) Ø§Ù„Ù…Ù„Ø§Ø­Ø¸Ø© Ø§Ù„Ø³Ø±ÙŠØ±ÙŠØ© ÙÙŠ Ø§Ù„Ø¹Ù†Ø§ÙŠØ© Ø§Ù„Ù…ÙƒØ«ÙØ© Ù…Ø¹ Ù†Ù‚Ù„ ÙˆØ­Ø¯ØªÙŠ Ø¯Ù…", correct: false },
+      { text: "Ø¯) Ø³Ø­Ø¨ Ø§Ù„Ø³Ø§Ø¦Ù„ Ø¨Ø§Ù„Ø¥Ø¨Ø±Ø© ØªØ­Øª ØªÙˆØ¬ÙŠÙ‡ Ø§Ù„Ø³ÙˆÙ†Ø§Ø±", correct: false }
     ],
-    explanation: "مريض الصدمة غير المستقر ديناميكياً (Hemodynamically Unstable) مع FAST إيجابي يُعتبر نزيفاً داخلياً بطنياً نشطاً يستدعي فتح البطن الاستكشافي الفوري لإيقاف النزيف وفق مبادئ Damage Control Surgery، ويُمنع نقله لإجراء الأشعة المقطعية لخطورة التدهور خارج غرفة العمليات.",
-    formula: "القاعدة الجراحية: FAST (+) + Hemodynamic Instability = Immediate Laparotomy."
+    explanation: "Ù…Ø±ÙŠØ¶ Ø§Ù„ØµØ¯Ù…Ø© ØºÙŠØ± Ø§Ù„Ù…Ø³ØªÙ‚Ø± Ø¯ÙŠÙ†Ø§Ù…ÙŠÙƒÙŠØ§Ù‹ (Hemodynamically Unstable) Ù…Ø¹ FAST Ø¥ÙŠØ¬Ø§Ø¨ÙŠ ÙŠÙØ¹ØªØ¨Ø± Ù†Ø²ÙŠÙØ§Ù‹ Ø¯Ø§Ø®Ù„ÙŠØ§Ù‹ Ø¨Ø·Ù†ÙŠØ§Ù‹ Ù†Ø´Ø·Ø§Ù‹ ÙŠØ³ØªØ¯Ø¹ÙŠ ÙØªØ­ Ø§Ù„Ø¨Ø·Ù† Ø§Ù„Ø§Ø³ØªÙƒØ´Ø§ÙÙŠ Ø§Ù„ÙÙˆØ±ÙŠ Ù„Ø¥ÙŠÙ‚Ø§Ù Ø§Ù„Ù†Ø²ÙŠÙ ÙˆÙÙ‚ Ù…Ø¨Ø§Ø¯Ø¦ Damage Control SurgeryØŒ ÙˆÙŠÙÙ…Ù†Ø¹ Ù†Ù‚Ù„Ù‡ Ù„Ø¥Ø¬Ø±Ø§Ø¡ Ø§Ù„Ø£Ø´Ø¹Ø© Ø§Ù„Ù…Ù‚Ø·Ø¹ÙŠØ© Ù„Ø®Ø·ÙˆØ±Ø© Ø§Ù„ØªØ¯Ù‡ÙˆØ± Ø®Ø§Ø±Ø¬ ØºØ±ÙØ© Ø§Ù„Ø¹Ù…Ù„ÙŠØ§Øª.",
+    formula: "Ø§Ù„Ù‚Ø§Ø¹Ø¯Ø© Ø§Ù„Ø¬Ø±Ø§Ø­ÙŠØ©: FAST (+) + Hemodynamic Instability = Immediate Laparotomy."
   },
   raw3: {
-    meta: "SMC INDEX: #RAW-03-PEDS-204 • تكرار الامتحان: 95%",
-    specialty: "طب الأطفال • طوارئ الجهاز التنفسي",
-    prompt: `طفل يبلغ من العمر سنتين يعاني من سعال نباحي (Barking cough) وبحة في الصوت وصرير تنفسي (Stridor) أثناء الراحة مع انسحاب الأضلاع دون زرقة.<br><br><strong>ما هو العلاج الدوائي الفوري عالي الفاعلية المعتمد بالأدلة السريرية؟</strong>`,
+    meta: "SMC INDEX: #RAW-03-PEDS-204 â€¢ ØªÙƒØ±Ø§Ø± Ø§Ù„Ø§Ù…ØªØ­Ø§Ù†: 95%",
+    specialty: "Ø·Ø¨ Ø§Ù„Ø£Ø·ÙØ§Ù„ â€¢ Ø·ÙˆØ§Ø±Ø¦ Ø§Ù„Ø¬Ù‡Ø§Ø² Ø§Ù„ØªÙ†ÙØ³ÙŠ",
+    prompt: `Ø·ÙÙ„ ÙŠØ¨Ù„Øº Ù…Ù† Ø§Ù„Ø¹Ù…Ø± Ø³Ù†ØªÙŠÙ† ÙŠØ¹Ø§Ù†ÙŠ Ù…Ù† Ø³Ø¹Ø§Ù„ Ù†Ø¨Ø§Ø­ÙŠ (Barking cough) ÙˆØ¨Ø­Ø© ÙÙŠ Ø§Ù„ØµÙˆØª ÙˆØµØ±ÙŠØ± ØªÙ†ÙØ³ÙŠ (Stridor) Ø£Ø«Ù†Ø§Ø¡ Ø§Ù„Ø±Ø§Ø­Ø© Ù…Ø¹ Ø§Ù†Ø³Ø­Ø§Ø¨ Ø§Ù„Ø£Ø¶Ù„Ø§Ø¹ Ø¯ÙˆÙ† Ø²Ø±Ù‚Ø©.<br><br><strong>Ù…Ø§ Ù‡Ùˆ Ø§Ù„Ø¹Ù„Ø§Ø¬ Ø§Ù„Ø¯ÙˆØ§Ø¦ÙŠ Ø§Ù„ÙÙˆØ±ÙŠ Ø¹Ø§Ù„ÙŠ Ø§Ù„ÙØ§Ø¹Ù„ÙŠØ© Ø§Ù„Ù…Ø¹ØªÙ…Ø¯ Ø¨Ø§Ù„Ø£Ø¯Ù„Ø© Ø§Ù„Ø³Ø±ÙŠØ±ÙŠØ©ØŸ</strong>`,
     options: [
-      { text: "أ) إعطاء جرعة فموية أو حقن من الديكساميثازون (Dexamethasone) واستنشاق الأدرينالين", correct: true },
-      { text: "ب) إعطاء مضاد حيوي واسع الطيف فوراً", correct: false },
-      { text: "ج) استنشاق بخار الماء الساخن فقط", correct: false },
-      { text: "د) إعطاء موسع شعب هوائية سالبوتامول فقط", correct: false }
+      { text: "Ø£) Ø¥Ø¹Ø·Ø§Ø¡ Ø¬Ø±Ø¹Ø© ÙÙ…ÙˆÙŠØ© Ø£Ùˆ Ø­Ù‚Ù† Ù…Ù† Ø§Ù„Ø¯ÙŠÙƒØ³Ø§Ù…ÙŠØ«Ø§Ø²ÙˆÙ† (Dexamethasone) ÙˆØ§Ø³ØªÙ†Ø´Ø§Ù‚ Ø§Ù„Ø£Ø¯Ø±ÙŠÙ†Ø§Ù„ÙŠÙ†", correct: true },
+      { text: "Ø¨) Ø¥Ø¹Ø·Ø§Ø¡ Ù…Ø¶Ø§Ø¯ Ø­ÙŠÙˆÙŠ ÙˆØ§Ø³Ø¹ Ø§Ù„Ø·ÙŠÙ ÙÙˆØ±Ø§Ù‹", correct: false },
+      { text: "Ø¬) Ø§Ø³ØªÙ†Ø´Ø§Ù‚ Ø¨Ø®Ø§Ø± Ø§Ù„Ù…Ø§Ø¡ Ø§Ù„Ø³Ø§Ø®Ù† ÙÙ‚Ø·", correct: false },
+      { text: "Ø¯) Ø¥Ø¹Ø·Ø§Ø¡ Ù…ÙˆØ³Ø¹ Ø´Ø¹Ø¨ Ù‡ÙˆØ§Ø¦ÙŠØ© Ø³Ø§Ù„Ø¨ÙˆØªØ§Ù…ÙˆÙ„ ÙÙ‚Ø·", correct: false }
     ],
-    explanation: "الحالة تمثل خناقاً حنجرياً متوسطاً إلى شديد (Moderate to Severe Croup). الديكساميثازون (0.6 mg/kg) يقلل وذمة الغشاء المخاطي تحت الحبال الصوتية، ويُضاف الأدرينالين المستنشق لتقليص الأوعية سريعاً وتخفيف الضائقة التنفسية الفورية.",
-    formula: "البروتوكول السريري: Stridor at Rest = Oral Dexamethasone + Nebulized Epinephrine."
+    explanation: "Ø§Ù„Ø­Ø§Ù„Ø© ØªÙ…Ø«Ù„ Ø®Ù†Ø§Ù‚Ø§Ù‹ Ø­Ù†Ø¬Ø±ÙŠØ§Ù‹ Ù…ØªÙˆØ³Ø·Ø§Ù‹ Ø¥Ù„Ù‰ Ø´Ø¯ÙŠØ¯ (Moderate to Severe Croup). Ø§Ù„Ø¯ÙŠÙƒØ³Ø§Ù…ÙŠØ«Ø§Ø²ÙˆÙ† (0.6 mg/kg) ÙŠÙ‚Ù„Ù„ ÙˆØ°Ù…Ø© Ø§Ù„ØºØ´Ø§Ø¡ Ø§Ù„Ù…Ø®Ø§Ø·ÙŠ ØªØ­Øª Ø§Ù„Ø­Ø¨Ø§Ù„ Ø§Ù„ØµÙˆØªÙŠØ©ØŒ ÙˆÙŠÙØ¶Ø§Ù Ø§Ù„Ø£Ø¯Ø±ÙŠÙ†Ø§Ù„ÙŠÙ† Ø§Ù„Ù…Ø³ØªÙ†Ø´Ù‚ Ù„ØªÙ‚Ù„ÙŠØµ Ø§Ù„Ø£ÙˆØ¹ÙŠØ© Ø³Ø±ÙŠØ¹Ø§Ù‹ ÙˆØªØ®ÙÙŠÙ Ø§Ù„Ø¶Ø§Ø¦Ù‚Ø© Ø§Ù„ØªÙ†ÙØ³ÙŠØ© Ø§Ù„ÙÙˆØ±ÙŠØ©.",
+    formula: "Ø§Ù„Ø¨Ø±ÙˆØªÙˆÙƒÙˆÙ„ Ø§Ù„Ø³Ø±ÙŠØ±ÙŠ: Stridor at Rest = Oral Dexamethasone + Nebulized Epinephrine."
   },
   raw5: {
-    meta: "SMC INDEX: #RAW-05-OBS-312 • تكرار الامتحان: 90%",
-    specialty: "النساء والتوليد • طوارئ ما بعد الولادة",
-    prompt: `سيدة تبلغ من العمر 30 عاماً وضعت طفلها الرابع قبل 20 دقيقة. بدأت تنزف دماً غزيراً من المهبل، وعند فحص البطن وُجد الرحم رخواً وغير منقبض (BOGGY UTERUS) فوق مستوى السرة.<br><br><strong>ما هو السبب الأكثر شيوعاً والخطوة التدبيرية الأولى؟</strong>`,
+    meta: "SMC INDEX: #RAW-05-OBS-312 â€¢ ØªÙƒØ±Ø§Ø± Ø§Ù„Ø§Ù…ØªØ­Ø§Ù†: 90%",
+    specialty: "Ø§Ù„Ù†Ø³Ø§Ø¡ ÙˆØ§Ù„ØªÙˆÙ„ÙŠØ¯ â€¢ Ø·ÙˆØ§Ø±Ø¦ Ù…Ø§ Ø¨Ø¹Ø¯ Ø§Ù„ÙˆÙ„Ø§Ø¯Ø©",
+    prompt: `Ø³ÙŠØ¯Ø© ØªØ¨Ù„Øº Ù…Ù† Ø§Ù„Ø¹Ù…Ø± 30 Ø¹Ø§Ù…Ø§Ù‹ ÙˆØ¶Ø¹Øª Ø·ÙÙ„Ù‡Ø§ Ø§Ù„Ø±Ø§Ø¨Ø¹ Ù‚Ø¨Ù„ 20 Ø¯Ù‚ÙŠÙ‚Ø©. Ø¨Ø¯Ø£Øª ØªÙ†Ø²Ù Ø¯Ù…Ø§Ù‹ ØºØ²ÙŠØ±Ø§Ù‹ Ù…Ù† Ø§Ù„Ù…Ù‡Ø¨Ù„ØŒ ÙˆØ¹Ù†Ø¯ ÙØ­Øµ Ø§Ù„Ø¨Ø·Ù† ÙˆÙØ¬Ø¯ Ø§Ù„Ø±Ø­Ù… Ø±Ø®ÙˆØ§Ù‹ ÙˆØºÙŠØ± Ù…Ù†Ù‚Ø¨Ø¶ (BOGGY UTERUS) ÙÙˆÙ‚ Ù…Ø³ØªÙˆÙ‰ Ø§Ù„Ø³Ø±Ø©.<br><br><strong>Ù…Ø§ Ù‡Ùˆ Ø§Ù„Ø³Ø¨Ø¨ Ø§Ù„Ø£ÙƒØ«Ø± Ø´ÙŠÙˆØ¹Ø§Ù‹ ÙˆØ§Ù„Ø®Ø·ÙˆØ© Ø§Ù„ØªØ¯Ø¨ÙŠØ±ÙŠØ© Ø§Ù„Ø£ÙˆÙ„Ù‰ØŸ</strong>`,
     options: [
-      { text: "أ) خمول الرحم (Uterine Atony) • مساج يدوي للرحم وإعطاء الأوكسيتوسين (Oxytocin)", correct: true },
-      { text: "ب) تمزق عنق الرحم • خياطة جراحية فورية", correct: false },
-      { text: "ج) احتباس المشيمة • استئصال الرحم فوراً", correct: false },
-      { text: "د) تجلط الدم المنتشر (DIC) • نقل بلازما مجمدة", correct: false }
+      { text: "Ø£) Ø®Ù…ÙˆÙ„ Ø§Ù„Ø±Ø­Ù… (Uterine Atony) â€¢ Ù…Ø³Ø§Ø¬ ÙŠØ¯ÙˆÙŠ Ù„Ù„Ø±Ø­Ù… ÙˆØ¥Ø¹Ø·Ø§Ø¡ Ø§Ù„Ø£ÙˆÙƒØ³ÙŠØªÙˆØ³ÙŠÙ† (Oxytocin)", correct: true },
+      { text: "Ø¨) ØªÙ…Ø²Ù‚ Ø¹Ù†Ù‚ Ø§Ù„Ø±Ø­Ù… â€¢ Ø®ÙŠØ§Ø·Ø© Ø¬Ø±Ø§Ø­ÙŠØ© ÙÙˆØ±ÙŠØ©", correct: false },
+      { text: "Ø¬) Ø§Ø­ØªØ¨Ø§Ø³ Ø§Ù„Ù…Ø´ÙŠÙ…Ø© â€¢ Ø§Ø³ØªØ¦ØµØ§Ù„ Ø§Ù„Ø±Ø­Ù… ÙÙˆØ±Ø§Ù‹", correct: false },
+      { text: "Ø¯) ØªØ¬Ù„Ø· Ø§Ù„Ø¯Ù… Ø§Ù„Ù…Ù†ØªØ´Ø± (DIC) â€¢ Ù†Ù‚Ù„ Ø¨Ù„Ø§Ø²Ù…Ø§ Ù…Ø¬Ù…Ø¯Ø©", correct: false }
     ],
-    explanation: "خمول الرحم (Uterine Atony) هو السبب في أكثر من 70-80% من نزيف ما بعد الولادة الأولي (PPH). الخط الأول الفوري هو تدليك قاع الرحم يدوياً لتحفيز الانقباض مع إعطاء محفزات تقلص الرحم (Uterotonics مثل Oxytocin/Misoprostol) ومراقبة العلامات الحيوية.",
-    formula: "القاعدة السريرية: Boggy Uterus + PPH = Bimanual Compression + Uterotonic Infusion."
+    explanation: "Ø®Ù…ÙˆÙ„ Ø§Ù„Ø±Ø­Ù… (Uterine Atony) Ù‡Ùˆ Ø§Ù„Ø³Ø¨Ø¨ ÙÙŠ Ø£ÙƒØ«Ø± Ù…Ù† 70-80% Ù…Ù† Ù†Ø²ÙŠÙ Ù…Ø§ Ø¨Ø¹Ø¯ Ø§Ù„ÙˆÙ„Ø§Ø¯Ø© Ø§Ù„Ø£ÙˆÙ„ÙŠ (PPH). Ø§Ù„Ø®Ø· Ø§Ù„Ø£ÙˆÙ„ Ø§Ù„ÙÙˆØ±ÙŠ Ù‡Ùˆ ØªØ¯Ù„ÙŠÙƒ Ù‚Ø§Ø¹ Ø§Ù„Ø±Ø­Ù… ÙŠØ¯ÙˆÙŠØ§Ù‹ Ù„ØªØ­ÙÙŠØ² Ø§Ù„Ø§Ù†Ù‚Ø¨Ø§Ø¶ Ù…Ø¹ Ø¥Ø¹Ø·Ø§Ø¡ Ù…Ø­ÙØ²Ø§Øª ØªÙ‚Ù„Øµ Ø§Ù„Ø±Ø­Ù… (Uterotonics Ù…Ø«Ù„ Oxytocin/Misoprostol) ÙˆÙ…Ø±Ø§Ù‚Ø¨Ø© Ø§Ù„Ø¹Ù„Ø§Ù…Ø§Øª Ø§Ù„Ø­ÙŠÙˆÙŠØ©.",
+    formula: "Ø§Ù„Ù‚Ø§Ø¹Ø¯Ø© Ø§Ù„Ø³Ø±ÙŠØ±ÙŠØ©: Boggy Uterus + PPH = Bimanual Compression + Uterotonic Infusion."
   }
 };
 
@@ -875,7 +875,7 @@ function initFinanceCopyButtons() {
       const number = "+2+20 101 592 2628";
       navigator.clipboard.writeText(number).then(() => {
         const originalText = this.textContent;
-        this.textContent = "تم نسخ رقم أمانة العمليات والتوثيق السريري ✓";
+        this.textContent = "ØªÙ… Ù†Ø³Ø® Ø±Ù‚Ù… Ø£Ù…Ø§Ù†Ø© Ø§Ù„Ø¹Ù…Ù„ÙŠØ§Øª ÙˆØ§Ù„ØªÙˆØ«ÙŠÙ‚ Ø§Ù„Ø³Ø±ÙŠØ±ÙŠ âœ“";
         setTimeout(() => this.textContent = originalText, 2500);
       });
     });
@@ -893,10 +893,10 @@ function submitOperationalAudit() {
 
   let bonusText = '';
   if (refPhone) {
-    bonusText = `\n🎁 تم تسجيل ترشيح الزميل (${escapeHtml(refPhone)}) بنجاح (+100 GP إضافية).`;
+    bonusText = `\nðŸŽ ØªÙ… ØªØ³Ø¬ÙŠÙ„ ØªØ±Ø´ÙŠØ­ Ø§Ù„Ø²Ù…ÙŠÙ„ (${escapeHtml(refPhone)}) Ø¨Ù†Ø¬Ø§Ø­ (+100 GP Ø¥Ø¶Ø§ÙÙŠØ©).`;
   }
 
-  alert(`✅ تم استلام وتوثيق تقييمك التشغيلي بنجاح!\n\nرقم الهوية: ${escapeHtml(gaId)}\nالبريد: ${escapeHtml(email)}\n\nتمت إضافة +100 GP لرصيدك الأكاديمي.${bonusText}\n\nشكراً لمساهمتك الفعالة في بناء وتطوير المنظومة السيادية.`);
+  alert(`âœ… ØªÙ… Ø§Ø³ØªÙ„Ø§Ù… ÙˆØªÙˆØ«ÙŠÙ‚ ØªÙ‚ÙŠÙŠÙ…Ùƒ Ø§Ù„ØªØ´ØºÙŠÙ„ÙŠ Ø¨Ù†Ø¬Ø§Ø­!\n\nØ±Ù‚Ù… Ø§Ù„Ù‡ÙˆÙŠØ©: ${escapeHtml(gaId)}\nØ§Ù„Ø¨Ø±ÙŠØ¯: ${escapeHtml(email)}\n\nØªÙ…Øª Ø¥Ø¶Ø§ÙØ© +100 GP Ù„Ø±ØµÙŠØ¯Ùƒ Ø§Ù„Ø£ÙƒØ§Ø¯ÙŠÙ…ÙŠ.${bonusText}\n\nØ´ÙƒØ±Ø§Ù‹ Ù„Ù…Ø³Ø§Ù‡Ù…ØªÙƒ Ø§Ù„ÙØ¹Ø§Ù„Ø© ÙÙŠ Ø¨Ù†Ø§Ø¡ ÙˆØªØ·ÙˆÙŠØ± Ø§Ù„Ù…Ù†Ø¸ÙˆÙ…Ø© Ø§Ù„Ø³ÙŠØ§Ø¯ÙŠØ©.`);
   
   if (gaIdInput) gaIdInput.value = '';
   if (emailInput) emailInput.value = '';
@@ -933,7 +933,7 @@ function initSplitFlapBoard() {
     { name: "GENOMICS & ONCOLOGY RESEARCH", status: "OPEN", statusClass: "open", cohort: "ANNUAL", mods: "4 GROUPS" }
   ];
 
-  const CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 —";
+  const CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 â€”";
 
   function scrambleInto(el, finalText, duration, delay) {
     return new Promise(resolve => {
@@ -979,7 +979,7 @@ function initSplitFlapBoard() {
   const foot = document.createElement("div");
   foot.className = "board-foot";
   foot.innerHTML = `
-    <span>LIVE REGISTRY FEED • PROFESSIONAL DIGITAL IDENTITY (GA#)</span>
+    <span>LIVE REGISTRY FEED â€¢ PROFESSIONAL DIGITAL IDENTITY (GA#)</span>
     <span>TOTAL VERIFIED NODES: 2,136+</span>
   `;
   board.appendChild(foot);

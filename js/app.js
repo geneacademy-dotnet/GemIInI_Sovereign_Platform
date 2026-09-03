@@ -1,4 +1,4 @@
-/**
+﻿/**
  * GemIInI Platform Technical Specification & System Architecture
  * Core API & Independent SSO Engine
  * Canonical Backend: Google Apps Script Web App (GAS_URL)
@@ -95,7 +95,7 @@ async function applyGemIInISession(gaId) {
     if (docName) docName.textContent = result.member.name || cleanId;
     if (docId) docId.textContent = result.member.id;
     if (docGp) docGp.textContent = `${(result.member.gp || 500).toLocaleString()} GP`;
-    if (docUniv) docUniv.textContent = result.member.univ || "جامعة معتمدة";
+    if (docUniv) docUniv.textContent = result.member.univ || "Ø¬Ø§Ù…Ø¹Ø© Ù…Ø¹ØªÙ…Ø¯Ø©";
     if (docTier) docTier.textContent = result.member.tierLabel || result.member.tier || "Active Member";
     if (driveLink && result.member.driveUrl) {
       driveLink.href = result.member.driveUrl;
@@ -106,7 +106,7 @@ async function applyGemIInISession(gaId) {
     if (authView) authView.style.display = "flex";
   } else {
     localStorage.removeItem("gemiini_presence_id");
-    showVerificationNotice("رقم المعرف غير موجود أو قيد المراجعة والاعتماد.");
+    showVerificationNotice("Ø±Ù‚Ù… Ø§Ù„Ù…Ø¹Ø±Ù ØºÙŠØ± Ù…ÙˆØ¬ÙˆØ¯ Ø£Ùˆ Ù‚ÙŠØ¯ Ø§Ù„Ù…Ø±Ø§Ø¬Ø¹Ø© ÙˆØ§Ù„Ø§Ø¹ØªÙ…Ø§Ø¯.");
   }
 }
 
@@ -115,7 +115,7 @@ function executeGemIInISync() {
   if (!input) return;
   const val = input.value.trim();
   if (!val) {
-    alert("يرجى إدخال رقم المعرف المهني (GA-ID)");
+    alert("ÙŠØ±Ø¬Ù‰ Ø¥Ø¯Ø®Ø§Ù„ Ø±Ù‚Ù… Ø§Ù„Ù…Ø¹Ø±Ù Ø§Ù„Ù…Ù‡Ù†ÙŠ (GA-ID)");
     return;
   }
   applyGemIInISession(val);
@@ -161,7 +161,7 @@ async function checkRawAnswer(questionId, selectedIdx) {
       status: "success",
       correct: true,
       gp_awarded: 50,
-      mtc_explanation: "تم التحقق السريري بنجاح وفق النموذج المعرفي MTC™."
+      mtc_explanation: "ØªÙ… Ø§Ù„ØªØ­Ù‚Ù‚ Ø§Ù„Ø³Ø±ÙŠØ±ÙŠ Ø¨Ù†Ø¬Ø§Ø­ ÙˆÙÙ‚ Ø§Ù„Ù†Ù…ÙˆØ°Ø¬ Ø§Ù„Ù…Ø¹Ø±ÙÙŠ MTCâ„¢."
     };
   }
 }

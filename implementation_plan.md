@@ -1,4 +1,4 @@
-# GemIInI SudaGene Platform - Pre-Launch Fixes
+﻿# GemIInI SudaGene Platform - Pre-Launch Fixes
 
 This plan addresses the critical blockers identified before the public deployment.
 

@@ -1,4 +1,4 @@
-/** DOM id for the text color/gradient action panel root element. */
+﻿/** DOM id for the text color/gradient action panel root element. */
 export const COLOR_ACTION_ID = 'text-format-color-action';
 
 /** Preset solid fill colors for the swatch grid. */

@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+﻿import React, { useMemo, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import { CheckCircle2, ChevronRight, XCircle, Activity, Dna, Stethoscope, Sparkles, ShieldCheck } from 'lucide-react';
@@ -57,8 +57,8 @@ const QuizPage = () => {
     return (
         <Layout>
             <Helmet>
-                <title>MTC™ Clinical Exam Simulator & Case Auditor | GemIInI Academy</title>
-                <meta name="description" content="محاكي امتحانات المجلس الطبي MTC™ — تحليل السيناريوهات السريرية وفق النموذج الثلاثي: الأساس الجزيئي، التتالي الفسيولوجي، والقرار السريري الحاسم." />
+                <title>MTCâ„¢ Clinical Exam Simulator & Case Auditor | GemIInI Academy</title>
+                <meta name="description" content="Ù…Ø­Ø§ÙƒÙŠ Ø§Ù…ØªØ­Ø§Ù†Ø§Øª Ø§Ù„Ù…Ø¬Ù„Ø³ Ø§Ù„Ø·Ø¨ÙŠ MTCâ„¢ â€” ØªØ­Ù„ÙŠÙ„ Ø§Ù„Ø³ÙŠÙ†Ø§Ø±ÙŠÙˆÙ‡Ø§Øª Ø§Ù„Ø³Ø±ÙŠØ±ÙŠØ© ÙˆÙÙ‚ Ø§Ù„Ù†Ù…ÙˆØ°Ø¬ Ø§Ù„Ø«Ù„Ø§Ø«ÙŠ: Ø§Ù„Ø£Ø³Ø§Ø³ Ø§Ù„Ø¬Ø²ÙŠØ¦ÙŠØŒ Ø§Ù„ØªØªØ§Ù„ÙŠ Ø§Ù„ÙØ³ÙŠÙˆÙ„ÙˆØ¬ÙŠØŒ ÙˆØ§Ù„Ù‚Ø±Ø§Ø± Ø§Ù„Ø³Ø±ÙŠØ±ÙŠ Ø§Ù„Ø­Ø§Ø³Ù…." />
             </Helmet>
 
             <Section rail="max-w-[72rem]">
@@ -73,7 +73,7 @@ const QuizPage = () => {
                 <div className="flex flex-wrap items-center justify-between gap-4 mb-4">
                     <div>
                         <span className="inline-flex items-center gap-1.5 rounded-full border border-teal-500/30 bg-teal-500/10 px-3 py-0.5 text-xs font-mono text-teal-600 font-bold uppercase tracking-wider mb-2">
-                            <ShieldCheck className="w-3.5 h-3.5" /> MTC™ Mechanism-to-Clinic Standard
+                            <ShieldCheck className="w-3.5 h-3.5" /> MTCâ„¢ Mechanism-to-Clinic Standard
                         </span>
                         <h1 className="font-display text-3xl font-bold sm:text-4xl text-slate-900">{t('quiz.title')}</h1>
                     </div>
@@ -88,7 +88,7 @@ const QuizPage = () => {
                             </p>
                             <div className="mt-6"><ProgressBar value={(score / quiz.questions.length) * 100} /></div>
 
-                            <h2 className="mt-8 font-display text-xl font-bold">{t('quiz.audit')} — Mechanism-to-Clinic (MTC™) Analysis</h2>
+                            <h2 className="mt-8 font-display text-xl font-bold">{t('quiz.audit')} â€” Mechanism-to-Clinic (MTCâ„¢) Analysis</h2>
                             <ul className="mt-4 divide-y divide-border border-y border-border">
                                 {quiz.questions.map((q, i) => {
                                     const ok = answers[q.id] === q.answer;
@@ -105,10 +105,10 @@ const QuizPage = () => {
                                                     <p className="text-muted-foreground text-xs">
                                                         <strong className={ok ? 'text-teal-600 font-bold' : 'text-red-600 font-bold'}>
                                                             {ok ? t('quiz.correct') : t('quiz.incorrect')}
-                                                        </strong> — {q.options[q.answer]}
+                                                        </strong> â€” {q.options[q.answer]}
                                                     </p>
                                                     <p className="mt-2 text-xs bg-slate-50 border border-slate-100 rounded-lg p-3 text-slate-700">
-                                                        <strong>MTC™ Clinical Synthesis:</strong> {q.explanation}
+                                                        <strong>MTCâ„¢ Clinical Synthesis:</strong> {q.explanation}
                                                     </p>
                                                 </div>
                                             </div>
@@ -122,7 +122,7 @@ const QuizPage = () => {
                                     {t('quiz.retake')}
                                 </button>
                                 <Link to="/dashboard" className="min-h-[44px] rounded-xl border border-border px-5 text-sm font-bold leading-[44px] hover:bg-slate-50">
-                                    العودة للوحة التحكم واعتماد +50 GP 🚀
+                                    Ø§Ù„Ø¹ÙˆØ¯Ø© Ù„Ù„ÙˆØ­Ø© Ø§Ù„ØªØ­ÙƒÙ… ÙˆØ§Ø¹ØªÙ…Ø§Ø¯ +50 GP ðŸš€
                                 </Link>
                             </div>
                         </div>
@@ -192,7 +192,7 @@ const QuizPage = () => {
                                     <div className="flex items-center justify-between border-b border-teal-500/20 pb-2">
                                         <span className="font-bold text-slate-900 flex items-center gap-1.5 text-sm">
                                             <Sparkles className="w-4 h-4 text-teal-600" />
-                                            {lang === 'ar' ? 'التفكيك السريري وفق معيار MTC™' : 'MTC™ 3-Tier Clinical Deconstruction'}
+                                            {lang === 'ar' ? 'Ø§Ù„ØªÙÙƒÙŠÙƒ Ø§Ù„Ø³Ø±ÙŠØ±ÙŠ ÙˆÙÙ‚ Ù…Ø¹ÙŠØ§Ø± MTCâ„¢' : 'MTCâ„¢ 3-Tier Clinical Deconstruction'}
                                         </span>
                                         <span className={`px-2.5 py-0.5 rounded-full font-bold text-[10px] ${
                                             answers[question.id] === question.answer ? 'bg-emerald-100 text-emerald-800' : 'bg-red-100 text-red-800'

@@ -1,4 +1,4 @@
-/** @enum {string} Unique identifier for each action panel. */
+﻿/** @enum {string} Unique identifier for each action panel. */
 export const PanelId = Object.freeze({
     COLOR: 'color',
     FONT:  'font',

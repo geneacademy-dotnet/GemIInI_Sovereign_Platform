@@ -1,5 +1,5 @@
-/**
- * SUDAGENE S_OS — GLOMEt HQ CORE TELEMETRY AUDITING ENGINE
+﻿/**
+ * SUDAGENE S_OS â€” GLOMEt HQ CORE TELEMETRY AUDITING ENGINE
  * DATA INTERCHANGE FORMAT VALIDATOR & INGESTION NODE
  */
 
@@ -64,7 +64,7 @@ export const GLOMEtTelemetryEngine = {
             if (currentTemp < 2.0 || currentTemp > 8.0) {
                 structuredResult.coldChainWarning = "CRITICAL COLD CHAIN BREAK DETECTED: Out of enzyme stabilization bounds.";
             }
-            structuredResult.metrics.internalTemperature = `${currentTemp.toFixed(1)} °C`;
+            structuredResult.metrics.internalTemperature = `${currentTemp.toFixed(1)} Â°C`;
         }
 
         return {

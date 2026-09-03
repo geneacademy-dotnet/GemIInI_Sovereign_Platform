@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import BlsWorkshopPage from '@/pages/BlsWorkshopPage';
 
 const BlsWorkshop = (props) => {

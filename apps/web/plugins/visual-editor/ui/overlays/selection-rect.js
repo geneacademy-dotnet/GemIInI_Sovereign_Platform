@@ -1,4 +1,4 @@
-import { SELECTION_RECT_ID, isInsideEditorUi, getEditId } from '../../constants/selectors.js';
+﻿import { SELECTION_RECT_ID, isInsideEditorUi, getEditId } from '../../constants/selectors.js';
 import { EDIT_BACKGROUND_COLOR, SELECTION_RECT_Z_INDEX, EDIT_BORDER_COLOR } from '../../constants/theme.js';
 import { MIN_SELECTION_CANDIDATE_SIZE, MAX_SELECTED_ELEMENTS } from '../../constants/layout.js';
 import { getAppRoot } from '../../utils/dom-utils.js';

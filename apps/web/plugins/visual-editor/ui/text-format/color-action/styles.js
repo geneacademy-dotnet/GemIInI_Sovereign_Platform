@@ -1,4 +1,4 @@
-import { COLOR_ACTION_ID } from './template.js';
+﻿import { COLOR_ACTION_ID } from './template.js';
 import { PANEL_BG, BORDER_COLOR, BORDER_COLOR_FOCUS, HOVER_BG, BOX_SHADOW_DROPDOWN, COLOR_WHITE } from '../../../constants/theme.js';
 
 /** Injected CSS for the text color and gradient action panel. */

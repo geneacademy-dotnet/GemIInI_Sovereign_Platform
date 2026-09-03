@@ -1,4 +1,4 @@
-/**
+﻿/**
  * GemIInI SudaGene Platform - Fail-Closed Sync Engine
  * ZERO FAKE IDS. Guaranteed local queuing with LockService wait-lock compatibility.
  */

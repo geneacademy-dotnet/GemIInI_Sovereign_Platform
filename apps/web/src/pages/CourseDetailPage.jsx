@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Helmet } from 'react-helmet';
 import { Link, useParams } from 'react-router-dom';
 import { CheckCircle2, Clock, Users } from 'lucide-react';
@@ -22,9 +22,9 @@ const CourseDetailPage = () => {
                     <meta name="description" content="The requested Gene Academy course could not be found." />
                 </Helmet>
                 <Section rail="max-w-[56rem]">
-                    <StateBlock kind="error" message={lang === 'ar' ? 'لم يتم العثور على هذه الدورة.' : 'That course could not be found.'} />
+                    <StateBlock kind="error" message={lang === 'ar' ? 'Ù„Ù… ÙŠØªÙ… Ø§Ù„Ø¹Ø«ÙˆØ± Ø¹Ù„Ù‰ Ù‡Ø°Ù‡ Ø§Ù„Ø¯ÙˆØ±Ø©.' : 'That course could not be found.'} />
                     <Link to="/courses" className="mt-6 inline-block text-sm underline-offset-4 hover:underline">
-                        ← {t('courses.title')}
+                        â† {t('courses.title')}
                     </Link>
                 </Section>
             </Layout>
@@ -44,11 +44,11 @@ const CourseDetailPage = () => {
             <section className="ink-panel text-white">
                 <div className="mx-auto grid max-w-[90rem] gap-10 px-5 py-16 lg:grid-cols-[1.2fr_0.8fr] lg:px-10">
                     <div>
-                        <p className="text-xs uppercase tracking-[0.24em] text-[hsl(var(--accent))]">{course.branch} · {course.track}</p>
+                        <p className="text-xs uppercase tracking-[0.24em] text-[hsl(var(--accent))]">{course.branch} Â· {course.track}</p>
                         <h1 className="mt-4 font-display text-4xl font-semibold leading-tight sm:text-5xl">{title}</h1>
                         <p className="mt-5 max-w-2xl text-white/70">{lang === 'ar' ? course.summaryAr : course.summary}</p>
                         <div className="mt-7 flex flex-wrap gap-6 text-sm text-white/70">
-                            <span className="inline-flex items-center gap-2"><Clock className="h-4 w-4" strokeWidth={1.8} />{course.hours} h · {course.lessons} {t('courses.lessons')}</span>
+                            <span className="inline-flex items-center gap-2"><Clock className="h-4 w-4" strokeWidth={1.8} />{course.hours} h Â· {course.lessons} {t('courses.lessons')}</span>
                             <span className="inline-flex items-center gap-2"><Users className="h-4 w-4" strokeWidth={1.8} />{course.enrolled.toLocaleString('en-US')} {t('courses.enrolled')}</span>
                         </div>
                         <div className="mt-8">

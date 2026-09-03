@@ -1,9 +1,9 @@
-# MASTER HANDOVER v1.0
+﻿# MASTER HANDOVER v1.0
 **Project:** GemIInI SudaGene Platform (SudaGene Consortium)
 **Date:** August 27, 2026
 **Status:** LIVE DEPLOYMENT (ALL SYSTEMS GO)
 
-## ⚠️ AI SYSTEM INSTRUCTIONS
+## âš ï¸ AI SYSTEM INSTRUCTIONS
 **Read this file (`MASTER_HANDOVER_v1.md`) AND `GEMINI.md` before doing anything.**
 Any Antigravity session can reference our foundational conversation ID:
 `Conversation ID: 85451a0f-33f8-4311-a7df-0ff4590444c6`
@@ -13,7 +13,7 @@ Any Antigravity session can reference our foundational conversation ID:
 ## 1. Mandatory Rules
 - **No Fabrication:** Never overwrite live, verified data for the sake of theory. 
 - **Internal CRM:** "WellPlan" is STRICTLY INTERNAL. Never expose it in code, UI, or marketing. 
-- **Public App:** "GemIInI Jaib (جيميناي جيب)" is ALWAYS used for the public companion application.
+- **Public App:** "GemIInI Jaib (Ø¬ÙŠÙ…ÙŠÙ†Ø§ÙŠ Ø¬ÙŠØ¨)" is ALWAYS used for the public companion application.
 - **Registration Gate:** All new registrations must be set to `PENDING_REVIEW`.
 
 ## 2. Leadership Roster
@@ -34,7 +34,7 @@ Any Antigravity session can reference our foundational conversation ID:
 | Event | GP Awarded | Cumulative Baseline |
 | :--- | :---: | :---: |
 | **New Registration** | +25 GP | 25 GP (Provisional Explorer) |
-| **Payment Verified → ACCREDITED** | +475 GP bump | 500 GP (Pathfinder) |
+| **Payment Verified â†’ ACCREDITED** | +475 GP bump | 500 GP (Pathfinder) |
 | **Hands-On Workshop** | +150 GP per workshop | 650 GP / 800 GP |
 | **MTC Clinical Case Passed (>= 70%)**| +10 GP per case | Incremental Telemetry |
 | **MTC Clinical Case Attempted (< 70%)**| +2 GP per case | Participation Telemetry |
@@ -47,7 +47,7 @@ Any Antigravity session can reference our foundational conversation ID:
 ## 6. Design Tokens & Branding
 - **Primary Aesthetic:** "Apple MedMastery" (Glassmorphism, vibrant colors, dark modes).
 - **Mandatory Colors:** `#04080F` (Dark), `#00F2FE` (Cyan/Teal), `#B48028` (Gold). **(DO NOT USE #F59E0B)**.
-- **Footer Mandate:** `© 2026/2027 GemIInI Academy. All Rights Reserved. SudaGene Consortium Network.`
+- **Footer Mandate:** `Â© 2026/2027 GemIInI Academy. All Rights Reserved. SudaGene Consortium Network.`
 
 ## 7. Architecture & APIs
 ### Apps Script (`Code.gs` v3.7)

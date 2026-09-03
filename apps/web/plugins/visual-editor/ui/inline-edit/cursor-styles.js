@@ -1,4 +1,4 @@
-import { getEditing } from "../../state/editing-state.js";
+﻿import { getEditing } from "../../state/editing-state.js";
 import { stopFontSizeEdit, updateTextFormatToolbar, scheduleRepositionEditOverlays } from "../text-format/toolbar/toolbar.js";
 import { hideAllPanels } from "../../state/panel-state.js";
 import { resolveInlineStylesAtRange } from "../../utils/inline-style-state.js";
@@ -34,7 +34,7 @@ function resolveTextColor(element, container) {
 /**
  * Resolves caret/selection presentation state for the formatting toolbar.
  * Bold, italic, and underline are detected independently via ancestor walks
- * so nested markup (`<em><u><strong>…</strong></u></em>`) reports all active styles.
+ * so nested markup (`<em><u><strong>â€¦</strong></u></em>`) reports all active styles.
  * @returns {object|null}
  */
 export function getStylesAtCursor() {

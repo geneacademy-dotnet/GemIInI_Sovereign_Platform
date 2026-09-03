@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Group selection built by a rubber-band drag or shift+click. The committed
  * group is document-ordered and never nested; `_drag*` lives for one gesture.
  */

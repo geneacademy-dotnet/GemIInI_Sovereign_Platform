@@ -1,4 +1,4 @@
-/** Shared DOM-context capture for the unified visual-edit contract. */
+﻿/** Shared DOM-context capture for the unified visual-edit contract. */
 
 const IMPORTANT_STYLES = [
 	'display',
@@ -312,7 +312,7 @@ function stripPublicHtmlPrefix(filePath) {
 /**
  * Extracts source location from a `filePath:line:column` edit id (the
  * format the visual-editor transform writes into `data-edit-id` /
- * `data-edit-assisted-id` — see `transform/inject-attributes.js` and the
+ * `data-edit-assisted-id` â€” see `transform/inject-attributes.js` and the
  * matching parser in `server/source-writer.js`).
  * @param {string} editId
  * @returns {{filePath: string, line: number, column: number}|null}
@@ -361,8 +361,8 @@ function filePathFromReactFiber(element) {
 
 /**
  * Resolves the source file path for `element`. Prefers the visual editor's
- * own `data-edit-id` / `data-edit-assisted-id` attribute — already
- * `filePath:line:col`, no extra work — falling back to walking the React
+ * own `data-edit-id` / `data-edit-assisted-id` attribute â€” already
+ * `filePath:line:col`, no extra work â€” falling back to walking the React
  * Fiber tree for elements the editor hasn't tagged (plain selection-mode
  * clicks).
  * @param {HTMLElement} element

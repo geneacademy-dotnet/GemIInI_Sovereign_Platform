@@ -1,4 +1,4 @@
-/** Numeric spacing and sizing values (px) used to position editor UI. */
+﻿/** Numeric spacing and sizing values (px) used to position editor UI. */
 
 /** Gap (px) between a panel and its anchor element. */
 export const PANEL_GAP = 4;

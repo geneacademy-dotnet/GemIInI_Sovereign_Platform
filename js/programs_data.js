@@ -1,8 +1,8 @@
-const PROGRAMS_DATABASE = [
+﻿const PROGRAMS_DATABASE = [
   {
     "code": "SMC-101",
-    "title": "Internal Medicine & Systemic Pathophysiology (MTC™ 1.0)",
-    "title_ar": "الباطنية العامة والفيزيولوجيا المرضية السريرية",
+    "title": "Internal Medicine & Systemic Pathophysiology (MTCâ„¢ 1.0)",
+    "title_ar": "Ø§Ù„Ø¨Ø§Ø·Ù†ÙŠØ© Ø§Ù„Ø¹Ø§Ù…Ø© ÙˆØ§Ù„ÙÙŠØ²ÙŠÙˆÙ„ÙˆØ¬ÙŠØ§ Ø§Ù„Ù…Ø±Ø¶ÙŠØ© Ø§Ù„Ø³Ø±ÙŠØ±ÙŠØ©",
     "pillar": "GemIInI Academy",
     "pillar_color": "teal",
     "category": "Clinical Licensure (SMC 1-8)",
@@ -18,12 +18,12 @@ const PROGRAMS_DATABASE = [
       "consulted": "Internal Medicine Board & Dr. Alaa Mursi",
       "informed": "Enrolled Candidate (GA-ID), SudaPass Ledger"
     },
-    "description": "Quantitative management of fluid/electrolyte disturbances (Adrogué-Madias sodium deficit calculation), acute coronary syndromes, DKA titration, and acid-base blood gas interpretation."
+    "description": "Quantitative management of fluid/electrolyte disturbances (AdroguÃ©-Madias sodium deficit calculation), acute coronary syndromes, DKA titration, and acid-base blood gas interpretation."
   },
   {
     "code": "SMC-102",
-    "title": "General Surgery & Acute Surgical Emergencies (MTC™ 2.0)",
-    "title_ar": "الجراحة العامة وطوارئ الإصابات الجراحية",
+    "title": "General Surgery & Acute Surgical Emergencies (MTCâ„¢ 2.0)",
+    "title_ar": "Ø§Ù„Ø¬Ø±Ø§Ø­Ø© Ø§Ù„Ø¹Ø§Ù…Ø© ÙˆØ·ÙˆØ§Ø±Ø¦ Ø§Ù„Ø¥ØµØ§Ø¨Ø§Øª Ø§Ù„Ø¬Ø±Ø§Ø­ÙŠØ©",
     "pillar": "GemIInI Academy",
     "pillar_color": "teal",
     "category": "Clinical Licensure (SMC 1-8)",
@@ -43,8 +43,8 @@ const PROGRAMS_DATABASE = [
   },
   {
     "code": "SMC-103",
-    "title": "Obstetrics & Gynecology (MTC™ 3.0)",
-    "title_ar": "النساء والتوليد وحالات الطوارئ الحرجة",
+    "title": "Obstetrics & Gynecology (MTCâ„¢ 3.0)",
+    "title_ar": "Ø§Ù„Ù†Ø³Ø§Ø¡ ÙˆØ§Ù„ØªÙˆÙ„ÙŠØ¯ ÙˆØ­Ø§Ù„Ø§Øª Ø§Ù„Ø·ÙˆØ§Ø±Ø¦ Ø§Ù„Ø­Ø±Ø¬Ø©",
     "pillar": "GemIInI Academy",
     "pillar_color": "teal",
     "category": "Clinical Licensure (SMC 1-8)",
@@ -64,8 +64,8 @@ const PROGRAMS_DATABASE = [
   },
   {
     "code": "SMC-104",
-    "title": "Pediatrics & Neonatal Resuscitation (MTC™ 4.0)",
-    "title_ar": "طب الأطفال والإنعاش الوليدي المتقدم",
+    "title": "Pediatrics & Neonatal Resuscitation (MTCâ„¢ 4.0)",
+    "title_ar": "Ø·Ø¨ Ø§Ù„Ø£Ø·ÙØ§Ù„ ÙˆØ§Ù„Ø¥Ù†Ø¹Ø§Ø´ Ø§Ù„ÙˆÙ„ÙŠØ¯ÙŠ Ø§Ù„Ù…ØªÙ‚Ø¯Ù…",
     "pillar": "GemIInI Academy",
     "pillar_color": "teal",
     "category": "Clinical Licensure (SMC 1-8)",
@@ -85,8 +85,8 @@ const PROGRAMS_DATABASE = [
   },
   {
     "code": "SMC-105",
-    "title": "Medical Ethics, Forensic Medicine & SudaPass Standards (MTC™ 5.0)",
-    "title_ar": "الأخلاقيات الطبية والطب الشرعي ومعايير SudaPass",
+    "title": "Medical Ethics, Forensic Medicine & SudaPass Standards (MTCâ„¢ 5.0)",
+    "title_ar": "Ø§Ù„Ø£Ø®Ù„Ø§Ù‚ÙŠØ§Øª Ø§Ù„Ø·Ø¨ÙŠØ© ÙˆØ§Ù„Ø·Ø¨ Ø§Ù„Ø´Ø±Ø¹ÙŠ ÙˆÙ…Ø¹Ø§ÙŠÙŠØ± SudaPass",
     "pillar": "GemIInI Academy",
     "pillar_color": "teal",
     "category": "Clinical Licensure (SMC 1-8)",
@@ -106,8 +106,8 @@ const PROGRAMS_DATABASE = [
   },
   {
     "code": "SMC-106",
-    "title": "Clinical Pharmacology & Toxicology (MTC™ 6.0)",
-    "title_ar": "علم الأدوية السريرية والسموم الطارئة",
+    "title": "Clinical Pharmacology & Toxicology (MTCâ„¢ 6.0)",
+    "title_ar": "Ø¹Ù„Ù… Ø§Ù„Ø£Ø¯ÙˆÙŠØ© Ø§Ù„Ø³Ø±ÙŠØ±ÙŠØ© ÙˆØ§Ù„Ø³Ù…ÙˆÙ… Ø§Ù„Ø·Ø§Ø±Ø¦Ø©",
     "pillar": "GemIInI Academy",
     "pillar_color": "teal",
     "category": "Clinical Licensure (SMC 1-8)",
@@ -127,8 +127,8 @@ const PROGRAMS_DATABASE = [
   },
   {
     "code": "SMC-107",
-    "title": "Diagnostic Radiology & Laboratory Medicine (MTC™ 7.0)",
-    "title_ar": "الأشعة التشخيصية وقراءة التحاليل المخبرية",
+    "title": "Diagnostic Radiology & Laboratory Medicine (MTCâ„¢ 7.0)",
+    "title_ar": "Ø§Ù„Ø£Ø´Ø¹Ø© Ø§Ù„ØªØ´Ø®ÙŠØµÙŠØ© ÙˆÙ‚Ø±Ø§Ø¡Ø© Ø§Ù„ØªØ­Ø§Ù„ÙŠÙ„ Ø§Ù„Ù…Ø®Ø¨Ø±ÙŠØ©",
     "pillar": "GemIInI Academy",
     "pillar_color": "teal",
     "category": "Clinical Licensure (SMC 1-8)",
@@ -148,8 +148,8 @@ const PROGRAMS_DATABASE = [
   },
   {
     "code": "SMC-108",
-    "title": "Community Medicine, Public Health & Epidemiology (MTC™ 8.0)",
-    "title_ar": "طب المجتمع والصحة العامة والوبائيات الإقليمية",
+    "title": "Community Medicine, Public Health & Epidemiology (MTCâ„¢ 8.0)",
+    "title_ar": "Ø·Ø¨ Ø§Ù„Ù…Ø¬ØªÙ…Ø¹ ÙˆØ§Ù„ØµØ­Ø© Ø§Ù„Ø¹Ø§Ù…Ø© ÙˆØ§Ù„ÙˆØ¨Ø§Ø¦ÙŠØ§Øª Ø§Ù„Ø¥Ù‚Ù„ÙŠÙ…ÙŠØ©",
     "pillar": "GemIInI Academy",
     "pillar_color": "teal",
     "category": "Clinical Licensure (SMC 1-8)",
@@ -170,7 +170,7 @@ const PROGRAMS_DATABASE = [
   {
     "code": "SURG-201",
     "title": "MRCS Part A Foundation Sciences & Critical Care",
-    "title_ar": "الزمالة البريطانية للجراحة MRCS الجزء الأول",
+    "title_ar": "Ø§Ù„Ø²Ù…Ø§Ù„Ø© Ø§Ù„Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠØ© Ù„Ù„Ø¬Ø±Ø§Ø­Ø© MRCS Ø§Ù„Ø¬Ø²Ø¡ Ø§Ù„Ø£ÙˆÙ„",
     "pillar": "GemIInI Academy",
     "pillar_color": "teal",
     "category": "International Fellowships",
@@ -191,7 +191,7 @@ const PROGRAMS_DATABASE = [
   {
     "code": "GERM-206",
     "title": "The GermanGemIInI Approbation & FSP Language Track",
-    "title_ar": "المعادلة الطبية الألمانية واختبار اللغة السريرية FSP",
+    "title_ar": "Ø§Ù„Ù…Ø¹Ø§Ø¯Ù„Ø© Ø§Ù„Ø·Ø¨ÙŠØ© Ø§Ù„Ø£Ù„Ù…Ø§Ù†ÙŠØ© ÙˆØ§Ø®ØªØ¨Ø§Ø± Ø§Ù„Ù„ØºØ© Ø§Ù„Ø³Ø±ÙŠØ±ÙŠØ© FSP",
     "pillar": "GemIInI Academy",
     "pillar_color": "teal",
     "category": "International Fellowships",
@@ -207,12 +207,12 @@ const PROGRAMS_DATABASE = [
       "consulted": "German Healthcare Integration Council",
       "informed": "Candidate, GermanGemIInI Workspace"
     },
-    "description": "Complete pathway for medical licensing in Germany: Fachsprachenprüfung (FSP) clinical communication simulation, Arzt-Patienten-Gespräch, Arztbrief documentation, and Kenntnisprüfung (KP) clinical foundation."
+    "description": "Complete pathway for medical licensing in Germany: FachsprachenprÃ¼fung (FSP) clinical communication simulation, Arzt-Patienten-GesprÃ¤ch, Arztbrief documentation, and KenntnisprÃ¼fung (KP) clinical foundation."
   },
   {
     "code": "SKILL-301",
     "title": "Basic Surgical Skills Cohort (BSS-1 & BSS-2 Hands-On)",
-    "title_ar": "دفعات المهارات الجراحية الأساسية BSS-1 & BSS-2",
+    "title_ar": "Ø¯ÙØ¹Ø§Øª Ø§Ù„Ù…Ù‡Ø§Ø±Ø§Øª Ø§Ù„Ø¬Ø±Ø§Ø­ÙŠØ© Ø§Ù„Ø£Ø³Ø§Ø³ÙŠØ© BSS-1 & BSS-2",
     "pillar": "GemIInI Academy",
     "pillar_color": "teal",
     "category": "Surgical & Simulation Skills",
@@ -233,7 +233,7 @@ const PROGRAMS_DATABASE = [
   {
     "code": "SKILL-303",
     "title": "Basic Life Support & Critical Resuscitation (BLS 105-Hour Track)",
-    "title_ar": "الإنعاش القلبي الرئوي الأساسي المعتمد (105 ساعات)",
+    "title_ar": "Ø§Ù„Ø¥Ù†Ø¹Ø§Ø´ Ø§Ù„Ù‚Ù„Ø¨ÙŠ Ø§Ù„Ø±Ø¦ÙˆÙŠ Ø§Ù„Ø£Ø³Ø§Ø³ÙŠ Ø§Ù„Ù…Ø¹ØªÙ…Ø¯ (105 Ø³Ø§Ø¹Ø§Øª)",
     "pillar": "GemIInI Academy",
     "pillar_color": "teal",
     "category": "Surgical & Simulation Skills",
@@ -253,8 +253,8 @@ const PROGRAMS_DATABASE = [
   },
   {
     "code": "MM-101",
-    "title": "Molecular Medicine MM 1.0 — DNA Architecture & Topology",
-    "title_ar": "الطب الجزيئي 1.0: بنية الـ DNA وديناميكية الالتفاف الفائق",
+    "title": "Molecular Medicine MM 1.0 â€” DNA Architecture & Topology",
+    "title_ar": "Ø§Ù„Ø·Ø¨ Ø§Ù„Ø¬Ø²ÙŠØ¦ÙŠ 1.0: Ø¨Ù†ÙŠØ© Ø§Ù„Ù€ DNA ÙˆØ¯ÙŠÙ†Ø§Ù…ÙŠÙƒÙŠØ© Ø§Ù„Ø§Ù„ØªÙØ§Ù Ø§Ù„ÙØ§Ø¦Ù‚",
     "pillar": "GeneAcademy",
     "pillar_color": "violet",
     "category": "Molecular Medicine (MM 1.0-8.0)",
@@ -274,8 +274,8 @@ const PROGRAMS_DATABASE = [
   },
   {
     "code": "MM-102",
-    "title": "Molecular Medicine MM 2.0 — RNA Biology & Transcriptomics",
-    "title_ar": "الطب الجزيئي 2.0: بيولوجيا الـ RNA والنسخ الجيني",
+    "title": "Molecular Medicine MM 2.0 â€” RNA Biology & Transcriptomics",
+    "title_ar": "Ø§Ù„Ø·Ø¨ Ø§Ù„Ø¬Ø²ÙŠØ¦ÙŠ 2.0: Ø¨ÙŠÙˆÙ„ÙˆØ¬ÙŠØ§ Ø§Ù„Ù€ RNA ÙˆØ§Ù„Ù†Ø³Ø® Ø§Ù„Ø¬ÙŠÙ†ÙŠ",
     "pillar": "GeneAcademy",
     "pillar_color": "violet",
     "category": "Molecular Medicine (MM 1.0-8.0)",
@@ -295,8 +295,8 @@ const PROGRAMS_DATABASE = [
   },
   {
     "code": "MM-104",
-    "title": "Molecular Medicine MM 4.0 — Viral & Cellular Oncogenesis",
-    "title_ar": "الطب الجزيئي 4.0: التسرطن الفيروسي والخلوي ونقاط p53/Rb",
+    "title": "Molecular Medicine MM 4.0 â€” Viral & Cellular Oncogenesis",
+    "title_ar": "Ø§Ù„Ø·Ø¨ Ø§Ù„Ø¬Ø²ÙŠØ¦ÙŠ 4.0: Ø§Ù„ØªØ³Ø±Ø·Ù† Ø§Ù„ÙÙŠØ±ÙˆØ³ÙŠ ÙˆØ§Ù„Ø®Ù„ÙˆÙŠ ÙˆÙ†Ù‚Ø§Ø· p53/Rb",
     "pillar": "GeneAcademy",
     "pillar_color": "violet",
     "category": "Molecular Medicine (MM 1.0-8.0)",
@@ -316,8 +316,8 @@ const PROGRAMS_DATABASE = [
   },
   {
     "code": "MM-105",
-    "title": "Molecular Medicine MM 5.0 — Recombinant DNA & CRISPR-Cas9",
-    "title_ar": "الطب الجزيئي 5.0: تقنيات الـ DNA المعاد تركيبه وتعديل الجينات",
+    "title": "Molecular Medicine MM 5.0 â€” Recombinant DNA & CRISPR-Cas9",
+    "title_ar": "Ø§Ù„Ø·Ø¨ Ø§Ù„Ø¬Ø²ÙŠØ¦ÙŠ 5.0: ØªÙ‚Ù†ÙŠØ§Øª Ø§Ù„Ù€ DNA Ø§Ù„Ù…Ø¹Ø§Ø¯ ØªØ±ÙƒÙŠØ¨Ù‡ ÙˆØªØ¹Ø¯ÙŠÙ„ Ø§Ù„Ø¬ÙŠÙ†Ø§Øª",
     "pillar": "GeneAcademy",
     "pillar_color": "violet",
     "category": "Molecular Medicine (MM 1.0-8.0)",
@@ -337,8 +337,8 @@ const PROGRAMS_DATABASE = [
   },
   {
     "code": "MM-108",
-    "title": "Molecular Medicine MM 8.0 — Clinical Whole Exome Sequencing (WES)",
-    "title_ar": "الطب الجزيئي 8.0: تفسير الفحص الجيني الكامل WES ومعايير ACMG",
+    "title": "Molecular Medicine MM 8.0 â€” Clinical Whole Exome Sequencing (WES)",
+    "title_ar": "Ø§Ù„Ø·Ø¨ Ø§Ù„Ø¬Ø²ÙŠØ¦ÙŠ 8.0: ØªÙØ³ÙŠØ± Ø§Ù„ÙØ­Øµ Ø§Ù„Ø¬ÙŠÙ†ÙŠ Ø§Ù„ÙƒØ§Ù…Ù„ WES ÙˆÙ…Ø¹Ø§ÙŠÙŠØ± ACMG",
     "pillar": "GeneAcademy",
     "pillar_color": "violet",
     "category": "Molecular Medicine (MM 1.0-8.0)",
@@ -358,8 +358,8 @@ const PROGRAMS_DATABASE = [
   },
   {
     "code": "POD-401",
-    "title": "15:5:1 Research Pods — Translational Oncology & Liquid Biopsies",
-    "title_ar": "مجموعات الأبحاث 15:5:1 — أورام السرطان والخزعات السائلة",
+    "title": "15:5:1 Research Pods â€” Translational Oncology & Liquid Biopsies",
+    "title_ar": "Ù…Ø¬Ù…ÙˆØ¹Ø§Øª Ø§Ù„Ø£Ø¨Ø­Ø§Ø« 15:5:1 â€” Ø£ÙˆØ±Ø§Ù… Ø§Ù„Ø³Ø±Ø·Ø§Ù† ÙˆØ§Ù„Ø®Ø²Ø¹Ø§Øª Ø§Ù„Ø³Ø§Ø¦Ù„Ø©",
     "pillar": "GeneAcademy",
     "pillar_color": "violet",
     "category": "15:5:1 Research Mentorship",
@@ -380,7 +380,7 @@ const PROGRAMS_DATABASE = [
   {
     "code": "RESC-501",
     "title": "100 Papers Project & Academic Thesis Rescue Pipeline",
-    "title_ar": "مشروع الـ 100 ورقة بحثية واستكمال الأطروحات الأكاديمية",
+    "title_ar": "Ù…Ø´Ø±ÙˆØ¹ Ø§Ù„Ù€ 100 ÙˆØ±Ù‚Ø© Ø¨Ø­Ø«ÙŠØ© ÙˆØ§Ø³ØªÙƒÙ…Ø§Ù„ Ø§Ù„Ø£Ø·Ø±ÙˆØ­Ø§Øª Ø§Ù„Ø£ÙƒØ§Ø¯ÙŠÙ…ÙŠØ©",
     "pillar": "GeneAcademy",
     "pillar_color": "violet",
     "category": "Research & Academic Rescue",
@@ -401,7 +401,7 @@ const PROGRAMS_DATABASE = [
   {
     "code": "GLOM-601",
     "title": "Level 1-3 Turnkey Diagnostic Laboratory Engineering",
-    "title_ar": "هندسة وتجهيز المختبرات الطبية المتكاملة (المستويات 1-3)",
+    "title_ar": "Ù‡Ù†Ø¯Ø³Ø© ÙˆØªØ¬Ù‡ÙŠØ² Ø§Ù„Ù…Ø®ØªØ¨Ø±Ø§Øª Ø§Ù„Ø·Ø¨ÙŠØ© Ø§Ù„Ù…ØªÙƒØ§Ù…Ù„Ø© (Ø§Ù„Ù…Ø³ØªÙˆÙŠØ§Øª 1-3)",
     "pillar": "GLOMEt HQ",
     "pillar_color": "gold",
     "category": "B2B Infrastructure & Supply",
@@ -422,7 +422,7 @@ const PROGRAMS_DATABASE = [
   {
     "code": "GLOM-701",
     "title": "Automated Hematology Reagent Forecasting & Cold-Chain Logistics",
-    "title_ar": "نمذجة استهلاك كواشف CBC وسلاسل التوريد المبردة",
+    "title_ar": "Ù†Ù…Ø°Ø¬Ø© Ø§Ø³ØªÙ‡Ù„Ø§Ùƒ ÙƒÙˆØ§Ø´Ù CBC ÙˆØ³Ù„Ø§Ø³Ù„ Ø§Ù„ØªÙˆØ±ÙŠØ¯ Ø§Ù„Ù…Ø¨Ø±Ø¯Ø©",
     "pillar": "GLOMEt HQ",
     "pillar_color": "gold",
     "category": "B2B Infrastructure & Supply",

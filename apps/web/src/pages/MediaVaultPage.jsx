@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+﻿import React, { useState, useMemo } from 'react';
 import { useLang } from '@/i18n/LanguageContext';
 import { Link } from 'react-router-dom';
 import mediaData from '@/data/media-vault-manifest.json';
@@ -56,26 +56,26 @@ export default function MediaVaultPage() {
         {/* Breadcrumb & Navigation */}
         <div className="flex items-center gap-2 text-xs font-semibold text-slate-400 mb-8">
           <Link to="/" className="hover:text-teal-400 transition-colors">
-            {isRTL ? 'الرئيسية' : 'Home'}
+            {isRTL ? 'Ø§Ù„Ø±Ø¦ÙŠØ³ÙŠØ©' : 'Home'}
           </Link>
           <ChevronRight className="w-3.5 h-3.5 text-slate-600" />
-          <span className="text-teal-400">{isRTL ? 'خزينة الوسائط والأفلام' : 'Sovereign Media Vault'}</span>
+          <span className="text-teal-400">{isRTL ? 'Ø®Ø²ÙŠÙ†Ø© Ø§Ù„ÙˆØ³Ø§Ø¦Ø· ÙˆØ§Ù„Ø£ÙÙ„Ø§Ù…' : 'Sovereign Media Vault'}</span>
         </div>
 
         {/* Page Hero Header */}
         <div className="text-center max-w-4xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-teal-500/30 bg-teal-950/40 text-teal-400 text-xs font-semibold uppercase tracking-wider mb-4 shadow-[0_0_20px_rgba(20,184,166,0.2)]">
             <Film className="w-4 h-4 animate-pulse" />
-            <span>{isRTL ? 'الخزينة المركزية المعتمدة للوسائط' : 'Central Sovereign Media Vault'}</span>
+            <span>{isRTL ? 'Ø§Ù„Ø®Ø²ÙŠÙ†Ø© Ø§Ù„Ù…Ø±ÙƒØ²ÙŠØ© Ø§Ù„Ù…Ø¹ØªÙ…Ø¯Ø© Ù„Ù„ÙˆØ³Ø§Ø¦Ø·' : 'Central Sovereign Media Vault'}</span>
           </div>
 
           <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-white mb-6">
-            {isRTL ? 'الأرشيف المرئي والسينمائي للسيادة' : 'Sovereign Motion Picture & Media Archive'}
+            {isRTL ? 'Ø§Ù„Ø£Ø±Ø´ÙŠÙ Ø§Ù„Ù…Ø±Ø¦ÙŠ ÙˆØ§Ù„Ø³ÙŠÙ†Ù…Ø§Ø¦ÙŠ Ù„Ù„Ø³ÙŠØ§Ø¯Ø©' : 'Sovereign Motion Picture & Media Archive'}
           </h1>
 
           <p className="text-slate-400 text-base md:text-xl leading-relaxed max-w-3xl mx-auto mb-10">
             {isRTL 
-              ? 'المستودع الرقمي المركزي الموحد لجميع تسجيلات البث المرئي، تدريبات المحاكاة الجراحية، لوحات التشخيص الجزيئي، والأطروحات الأكاديمية الموثقة.'
+              ? 'Ø§Ù„Ù…Ø³ØªÙˆØ¯Ø¹ Ø§Ù„Ø±Ù‚Ù…ÙŠ Ø§Ù„Ù…Ø±ÙƒØ²ÙŠ Ø§Ù„Ù…ÙˆØ­Ø¯ Ù„Ø¬Ù…ÙŠØ¹ ØªØ³Ø¬ÙŠÙ„Ø§Øª Ø§Ù„Ø¨Ø« Ø§Ù„Ù…Ø±Ø¦ÙŠØŒ ØªØ¯Ø±ÙŠØ¨Ø§Øª Ø§Ù„Ù…Ø­Ø§ÙƒØ§Ø© Ø§Ù„Ø¬Ø±Ø§Ø­ÙŠØ©ØŒ Ù„ÙˆØ­Ø§Øª Ø§Ù„ØªØ´Ø®ÙŠØµ Ø§Ù„Ø¬Ø²ÙŠØ¦ÙŠØŒ ÙˆØ§Ù„Ø£Ø·Ø±ÙˆØ­Ø§Øª Ø§Ù„Ø£ÙƒØ§Ø¯ÙŠÙ…ÙŠØ© Ø§Ù„Ù…ÙˆØ«Ù‚Ø©.'
               : 'The unified sovereign digital vault hosting living motion picture broadcasts, hands-on surgical simulation footage, diagnostic pathology plates, and verified academic theses.'}
           </p>
 
@@ -84,7 +84,7 @@ export default function MediaVaultPage() {
             <div className="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 text-center">
               <div className="flex items-center justify-center gap-1.5 text-xs text-teal-400 font-semibold mb-1">
                 <Video className="w-4 h-4" />
-                <span>{isRTL ? 'أفلام وفيديوهات' : 'Motion Videos'}</span>
+                <span>{isRTL ? 'Ø£ÙÙ„Ø§Ù… ÙˆÙÙŠØ¯ÙŠÙˆÙ‡Ø§Øª' : 'Motion Videos'}</span>
               </div>
               <div className="text-2xl font-bold text-white">{stats.videos || 162}+</div>
             </div>
@@ -92,7 +92,7 @@ export default function MediaVaultPage() {
             <div className="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 text-center">
               <div className="flex items-center justify-center gap-1.5 text-xs text-purple-400 font-semibold mb-1">
                 <ImageIcon className="w-4 h-4" />
-                <span>{isRTL ? 'لوحات تشخيصية' : 'Visual Plates'}</span>
+                <span>{isRTL ? 'Ù„ÙˆØ­Ø§Øª ØªØ´Ø®ÙŠØµÙŠØ©' : 'Visual Plates'}</span>
               </div>
               <div className="text-2xl font-bold text-white">{stats.images || 627}+</div>
             </div>
@@ -100,7 +100,7 @@ export default function MediaVaultPage() {
             <div className="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 text-center">
               <div className="flex items-center justify-center gap-1.5 text-xs text-amber-400 font-semibold mb-1">
                 <FileText className="w-4 h-4" />
-                <span>{isRTL ? 'أطروحات ووثائق' : 'Manuscripts'}</span>
+                <span>{isRTL ? 'Ø£Ø·Ø±ÙˆØ­Ø§Øª ÙˆÙˆØ«Ø§Ø¦Ù‚' : 'Manuscripts'}</span>
               </div>
               <div className="text-2xl font-bold text-white">{stats.pdfs || 642}+</div>
             </div>
@@ -108,7 +108,7 @@ export default function MediaVaultPage() {
             <div className="p-4 rounded-2xl bg-gradient-to-br from-teal-950/60 to-slate-900/90 border border-teal-500/40 text-center">
               <div className="flex items-center justify-center gap-1.5 text-xs text-teal-300 font-semibold mb-1">
                 <ShieldCheck className="w-4 h-4" />
-                <span>{isRTL ? 'إجمالي الأرشيف' : 'Vault Total'}</span>
+                <span>{isRTL ? 'Ø¥Ø¬Ù…Ø§Ù„ÙŠ Ø§Ù„Ø£Ø±Ø´ÙŠÙ' : 'Vault Total'}</span>
               </div>
               <div className="text-2xl font-bold text-teal-300">{totalIndexed.toLocaleString()}</div>
             </div>
@@ -124,10 +124,10 @@ export default function MediaVaultPage() {
               </div>
               <div>
                 <h2 className="text-2xl font-bold text-white">
-                  {isRTL ? 'أبرز الأفلام الوثائقية والإنتاج السينمائي' : 'Featured Motion Picture Cinema Reels'}
+                  {isRTL ? 'Ø£Ø¨Ø±Ø² Ø§Ù„Ø£ÙÙ„Ø§Ù… Ø§Ù„ÙˆØ«Ø§Ø¦Ù‚ÙŠØ© ÙˆØ§Ù„Ø¥Ù†ØªØ§Ø¬ Ø§Ù„Ø³ÙŠÙ†Ù…Ø§Ø¦ÙŠ' : 'Featured Motion Picture Cinema Reels'}
                 </h2>
                 <p className="text-xs text-slate-400">
-                  {isRTL ? 'عروض مرئية عالية الدقة لبرامج الأكاديمية والعمليات' : 'High-definition video showcases across academy tracks and operations'}
+                  {isRTL ? 'Ø¹Ø±ÙˆØ¶ Ù…Ø±Ø¦ÙŠØ© Ø¹Ø§Ù„ÙŠØ© Ø§Ù„Ø¯Ù‚Ø© Ù„Ø¨Ø±Ø§Ù…Ø¬ Ø§Ù„Ø£ÙƒØ§Ø¯ÙŠÙ…ÙŠØ© ÙˆØ§Ù„Ø¹Ù…Ù„ÙŠØ§Øª' : 'High-definition video showcases across academy tracks and operations'}
                 </p>
               </div>
             </div>
@@ -191,7 +191,7 @@ export default function MediaVaultPage() {
                       {(reel.size_kb / 1024).toFixed(1)} MB
                     </span>
                     <span className="text-xs font-semibold text-teal-400 flex items-center gap-1">
-                      <span>{isRTL ? 'تشغيل العرض' : 'Play Reel'}</span>
+                      <span>{isRTL ? 'ØªØ´ØºÙŠÙ„ Ø§Ù„Ø¹Ø±Ø¶' : 'Play Reel'}</span>
                       <Play className="w-3 h-3 fill-current" />
                     </span>
                   </div>
@@ -210,10 +210,10 @@ export default function MediaVaultPage() {
               </div>
               <div>
                 <h2 className="text-2xl font-bold text-white">
-                  {isRTL ? 'مستعرض الأرشيف الكامل' : 'Complete Vault Archive Explorer'}
+                  {isRTL ? 'Ù…Ø³ØªØ¹Ø±Ø¶ Ø§Ù„Ø£Ø±Ø´ÙŠÙ Ø§Ù„ÙƒØ§Ù…Ù„' : 'Complete Vault Archive Explorer'}
                 </h2>
                 <p className="text-xs text-slate-400">
-                  {isRTL ? `عرض ${filteredItems.length} عنصر متطابق` : `Displaying ${filteredItems.length} matching vault items`}
+                  {isRTL ? `Ø¹Ø±Ø¶ ${filteredItems.length} Ø¹Ù†ØµØ± Ù…ØªØ·Ø§Ø¨Ù‚` : `Displaying ${filteredItems.length} matching vault items`}
                 </p>
               </div>
             </div>
@@ -223,7 +223,7 @@ export default function MediaVaultPage() {
               <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
               <input
                 type="text"
-                placeholder={isRTL ? 'بحث بالاسم أو المسار...' : 'Search by name or file path...'}
+                placeholder={isRTL ? 'Ø¨Ø­Ø« Ø¨Ø§Ù„Ø§Ø³Ù… Ø£Ùˆ Ø§Ù„Ù…Ø³Ø§Ø±...' : 'Search by name or file path...'}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-900 border border-slate-800 focus:border-teal-500 text-white placeholder-slate-500 text-sm focus:outline-none focus:ring-1 focus:ring-teal-500"
@@ -234,10 +234,10 @@ export default function MediaVaultPage() {
           {/* Category Filter Chips */}
           <div className="flex flex-wrap items-center gap-2 mb-8">
             {[
-              { id: 'all', label: isRTL ? 'جميع الوسائط' : 'All Vault Items', icon: Layers, count: totalIndexed },
-              { id: 'videos', label: isRTL ? 'تسجيلات وفيديوهات' : 'Motion Videos', icon: Video, count: stats.videos },
-              { id: 'images', label: isRTL ? 'لوحات تشخيصية وصور' : 'Diagnostic Visuals', icon: ImageIcon, count: stats.images },
-              { id: 'pdfs', label: isRTL ? 'أطروحات ووثائق' : 'PDFs & Manuscripts', icon: FileText, count: stats.pdfs },
+              { id: 'all', label: isRTL ? 'Ø¬Ù…ÙŠØ¹ Ø§Ù„ÙˆØ³Ø§Ø¦Ø·' : 'All Vault Items', icon: Layers, count: totalIndexed },
+              { id: 'videos', label: isRTL ? 'ØªØ³Ø¬ÙŠÙ„Ø§Øª ÙˆÙÙŠØ¯ÙŠÙˆÙ‡Ø§Øª' : 'Motion Videos', icon: Video, count: stats.videos },
+              { id: 'images', label: isRTL ? 'Ù„ÙˆØ­Ø§Øª ØªØ´Ø®ÙŠØµÙŠØ© ÙˆØµÙˆØ±' : 'Diagnostic Visuals', icon: ImageIcon, count: stats.images },
+              { id: 'pdfs', label: isRTL ? 'Ø£Ø·Ø±ÙˆØ­Ø§Øª ÙˆÙˆØ«Ø§Ø¦Ù‚' : 'PDFs & Manuscripts', icon: FileText, count: stats.pdfs },
             ].map((cat) => {
               const Icon = cat.icon;
               const isActive = selectedCategory === cat.id;
@@ -307,7 +307,7 @@ export default function MediaVaultPage() {
                       {item.size_kb ? `${(item.size_kb > 1024 ? (item.size_kb/1024).toFixed(1) + ' MB' : item.size_kb.toFixed(0) + ' KB')}` : 'Verified'}
                     </span>
                     <span className="text-teal-400 group-hover:underline flex items-center gap-1 text-[11px]">
-                      <span>{isRTL ? 'معاينة' : 'Inspect'}</span>
+                      <span>{isRTL ? 'Ù…Ø¹Ø§ÙŠÙ†Ø©' : 'Inspect'}</span>
                       <Eye className="w-3 h-3" />
                     </span>
                   </div>
@@ -320,10 +320,10 @@ export default function MediaVaultPage() {
             <div className="py-20 text-center rounded-2xl bg-slate-900/50 border border-slate-800">
               <Search className="w-10 h-10 text-slate-600 mx-auto mb-3" />
               <h3 className="text-lg font-bold text-white mb-1">
-                {isRTL ? 'لم يتم العثور على وسائط مطابقة' : 'No Matching Vault Media Found'}
+                {isRTL ? 'Ù„Ù… ÙŠØªÙ… Ø§Ù„Ø¹Ø«ÙˆØ± Ø¹Ù„Ù‰ ÙˆØ³Ø§Ø¦Ø· Ù…Ø·Ø§Ø¨Ù‚Ø©' : 'No Matching Vault Media Found'}
               </h3>
               <p className="text-slate-400 text-xs">
-                {isRTL ? 'يرجى تجربة كلمات بحث أخرى أو تغيير الفئة.' : 'Try adjusting your search terms or category filter.'}
+                {isRTL ? 'ÙŠØ±Ø¬Ù‰ ØªØ¬Ø±Ø¨Ø© ÙƒÙ„Ù…Ø§Øª Ø¨Ø­Ø« Ø£Ø®Ø±Ù‰ Ø£Ùˆ ØªØºÙŠÙŠØ± Ø§Ù„ÙØ¦Ø©.' : 'Try adjusting your search terms or category filter.'}
               </p>
             </div>
           )}
@@ -347,7 +347,7 @@ export default function MediaVaultPage() {
                     {selectedItem.title || selectedItem.name}
                   </h4>
                   <p className="text-xs text-slate-400 font-mono">
-                    Category: {selectedItem.category} • Size: {selectedItem.size_kb ? `${(selectedItem.size_kb > 1024 ? (selectedItem.size_kb/1024).toFixed(1) + ' MB' : selectedItem.size_kb.toFixed(0) + ' KB')}` : 'Indexed'}
+                    Category: {selectedItem.category} â€¢ Size: {selectedItem.size_kb ? `${(selectedItem.size_kb > 1024 ? (selectedItem.size_kb/1024).toFixed(1) + ' MB' : selectedItem.size_kb.toFixed(0) + ' KB')}` : 'Indexed'}
                   </p>
                 </div>
               </div>
@@ -394,7 +394,7 @@ export default function MediaVaultPage() {
                 onClick={() => setSelectedItem(null)}
                 className="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold transition-colors"
               >
-                {isRTL ? 'إغلاق' : 'Close'}
+                {isRTL ? 'Ø¥ØºÙ„Ø§Ù‚' : 'Close'}
               </button>
             </div>
           </div>

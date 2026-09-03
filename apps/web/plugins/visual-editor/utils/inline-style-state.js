@@ -1,4 +1,4 @@
-/** Minimum computed font-weight treated as bold (matches toolbar + toggle-off). */
+﻿/** Minimum computed font-weight treated as bold (matches toolbar + toggle-off). */
 const BOLD_WEIGHT_THRESHOLD = 600;
 
 /**
@@ -68,7 +68,7 @@ export function isNodeUnderlined(node, container) {
 
 /**
  * Resolves coexisting bold / italic / underline at a single DOM position.
- * Each flag is independent — e.g. `<em><u><strong>t</strong></u></em>` is all three.
+ * Each flag is independent â€” e.g. `<em><u><strong>t</strong></u></em>` is all three.
  * @param {Node} node
  * @param {HTMLElement} container
  * @returns {{ isBold: boolean, isItalic: boolean, isUnderline: boolean }}
@@ -83,7 +83,7 @@ export function resolveInlineStylesAtNode(node, container) {
 
 /**
  * Resolves toolbar toggle state for the current selection.
- * Collapsed → styles at caret. Range → active only when every covered text node has the style.
+ * Collapsed â†’ styles at caret. Range â†’ active only when every covered text node has the style.
  * @param {Range} range
  * @param {HTMLElement} container
  * @returns {{ isBold: boolean, isItalic: boolean, isUnderline: boolean }}

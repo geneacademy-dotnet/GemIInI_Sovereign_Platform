@@ -1,4 +1,4 @@
-/**
+﻿/**
  * src/components/TelemetryGrid.jsx
  * Clinical Telemetry & Diagnostic Quantitative Standing Grid
  */
@@ -20,10 +20,10 @@ export default function TelemetryGrid({ ccr = 0, accuracy = 0, streak = 0 }) {
         <div>
           <div className="mb-1 flex items-center gap-2 text-xs font-semibold text-slate-400">
             <BookOpen className="h-4 w-4 text-[#00F2FE]" strokeWidth={1.8} />
-            <span>{isRtl ? 'نسبة إكمال المنهج (CCR)' : 'Course Completion Rate'}</span>
+            <span>{isRtl ? 'Ù†Ø³Ø¨Ø© Ø¥ÙƒÙ…Ø§Ù„ Ø§Ù„Ù…Ù†Ù‡Ø¬ (CCR)' : 'Course Completion Rate'}</span>
           </div>
           <p className="font-mono text-2xl font-bold text-white">{ccr}% <span className="font-sans text-xs text-slate-500">CCR</span></p>
-          <p className="mt-1 text-[11px] text-slate-500">{isRtl ? 'تقدم الوحدات المعتمدة' : 'Weighted module progress'}</p>
+          <p className="mt-1 text-[11px] text-slate-500">{isRtl ? 'ØªÙ‚Ø¯Ù… Ø§Ù„ÙˆØ­Ø¯Ø§Øª Ø§Ù„Ù…Ø¹ØªÙ…Ø¯Ø©' : 'Weighted module progress'}</p>
         </div>
         <div className="relative flex h-20 w-20 items-center justify-center">
           <svg className="h-full w-full -rotate-90 transform">
@@ -42,15 +42,15 @@ export default function TelemetryGrid({ ccr = 0, accuracy = 0, streak = 0 }) {
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2 text-xs font-semibold text-slate-400">
             <Target className="h-4 w-4 text-emerald-400" strokeWidth={1.8} />
-            <span>{isRtl ? 'دقة التشخيص الأولى' : 'First-Pass Accuracy'}</span>
+            <span>{isRtl ? 'Ø¯Ù‚Ø© Ø§Ù„ØªØ´Ø®ÙŠØµ Ø§Ù„Ø£ÙˆÙ„Ù‰' : 'First-Pass Accuracy'}</span>
           </div>
           <span className="rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2 py-0.5 text-[10px] font-semibold text-emerald-400">
-            MTC™ 3-Step
+            MTCâ„¢ 3-Step
           </span>
         </div>
         <div className="my-2">
           <p className="font-mono text-3xl font-extrabold text-white">{accuracy}%</p>
-          <p className="text-[11px] text-slate-500">{isRtl ? 'متوسط دقة التقييمات السريرية' : 'Simulation block initial score average'}</p>
+          <p className="text-[11px] text-slate-500">{isRtl ? 'Ù…ØªÙˆØ³Ø· Ø¯Ù‚Ø© Ø§Ù„ØªÙ‚ÙŠÙŠÙ…Ø§Øª Ø§Ù„Ø³Ø±ÙŠØ±ÙŠØ©' : 'Simulation block initial score average'}</p>
         </div>
         <div className="h-1.5 w-full overflow-hidden rounded-full bg-slate-800">
           <div className="h-full rounded-full bg-emerald-500 transition-all duration-500" style={{ width: `${accuracy}%` }} />
@@ -62,16 +62,16 @@ export default function TelemetryGrid({ ccr = 0, accuracy = 0, streak = 0 }) {
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2 text-xs font-semibold text-slate-400">
             <Flame className="h-4 w-4 text-amber-400" strokeWidth={1.8} />
-            <span>{isRtl ? 'أيام الاستمرارية والنشاط' : 'Study Streak'}</span>
+            <span>{isRtl ? 'Ø£ÙŠØ§Ù… Ø§Ù„Ø§Ø³ØªÙ…Ø±Ø§Ø±ÙŠØ© ÙˆØ§Ù„Ù†Ø´Ø§Ø·' : 'Study Streak'}</span>
           </div>
           <span className="text-[10px] font-mono text-amber-400 font-semibold">+15% Multiplier</span>
         </div>
         <div className="my-2">
           <p className="flex items-center gap-1.5 font-mono text-3xl font-extrabold text-white">
             <span>{streak}</span>
-            <span className="font-sans text-sm font-semibold text-slate-400">{isRtl ? 'يوم متواصل' : 'Days Active'}</span>
+            <span className="font-sans text-sm font-semibold text-slate-400">{isRtl ? 'ÙŠÙˆÙ… Ù…ØªÙˆØ§ØµÙ„' : 'Days Active'}</span>
           </p>
-          <p className="text-[11px] text-slate-500">{isRtl ? 'المراجعات السريرية وخلايا النشر' : 'Daily case audits & pod reviews'}</p>
+          <p className="text-[11px] text-slate-500">{isRtl ? 'Ø§Ù„Ù…Ø±Ø§Ø¬Ø¹Ø§Øª Ø§Ù„Ø³Ø±ÙŠØ±ÙŠØ© ÙˆØ®Ù„Ø§ÙŠØ§ Ø§Ù„Ù†Ø´Ø±' : 'Daily case audits & pod reviews'}</p>
         </div>
       </div>
     </div>

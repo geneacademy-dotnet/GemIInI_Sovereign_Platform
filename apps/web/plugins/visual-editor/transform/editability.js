@@ -1,4 +1,4 @@
-import * as t from '@babel/types';
+﻿import * as t from '@babel/types';
 import { ELEMENT_TYPE_MAP } from '../constants/selectors.js';
 
 export const EDITABLE_HTML_TAGS = ["a", "Link", "button", "Button", "p", "span", "time", "h1", "h2", "h3", "h4", "h5", "h6", "label", "Label", "img"];
@@ -194,7 +194,7 @@ export function evalChildComposition(elementNode, openingNode) {
 					continue;
 				}
 				hasInlineTagChild = true;
-				// `strong`/`em`/… are inline-editable inside a parent but cannot
+				// `strong`/`em`/â€¦ are inline-editable inside a parent but cannot
 				// receive their own edit id (Condition 2 returns early). Only
 				// skip the parent when every inline child could own an id.
 				if (!EDITABLE_HTML_TAGS.includes(childTagName)) {
@@ -221,7 +221,7 @@ export function evalChildComposition(elementNode, openingNode) {
 	// Layout wrappers that only nest id-eligible inline tags (span/a) skip so
 	// the child receives the id. Keep 'allow' when an inline child cannot own
 	// an id (`<p><strong>text</strong></p>`), or when the parent is itself an
-	// editable tag (h1, p, a, button, …) that should own the edit target.
+	// editable tag (h1, p, a, button, â€¦) that should own the edit target.
 	if (!hasTextContent && hasInlineTagChild && !hasIdIneligibleInlineChild) {
 		const parentName = openingNode?.name?.name || openingNode?.name?.property?.name || '';
 		const isFormattingWrapper = INLINE_EDIT_HTML_TAGS.includes(parentName) && parentName !== 'a';

@@ -1,4 +1,4 @@
-/**
+﻿/**
  * SudaGene Consortium - Independent Proctoring Engine
  * Monitors candidate focus, detects tab-switching, and logs violations.
  */
@@ -31,9 +31,9 @@ const GeneProctor = (function() {
 
             // Alert candidate
             if (focusLostCount <= MAX_WARNINGS) {
-                alert(`⚠️ تحذير أمني (${focusLostCount}/${MAX_WARNINGS}):\nلقد قمت بالخروج من شاشة التقييم السريري. هذا يعتبر خرقاً لبروتوكول النزاهة.\nتم خصم 5 GP من رصيدك.`);
+                alert(`âš ï¸ ØªØ­Ø°ÙŠØ± Ø£Ù…Ù†ÙŠ (${focusLostCount}/${MAX_WARNINGS}):\nÙ„Ù‚Ø¯ Ù‚Ù…Øª Ø¨Ø§Ù„Ø®Ø±ÙˆØ¬ Ù…Ù† Ø´Ø§Ø´Ø© Ø§Ù„ØªÙ‚ÙŠÙŠÙ… Ø§Ù„Ø³Ø±ÙŠØ±ÙŠ. Ù‡Ø°Ø§ ÙŠØ¹ØªØ¨Ø± Ø®Ø±Ù‚Ø§Ù‹ Ù„Ø¨Ø±ÙˆØªÙˆÙƒÙˆÙ„ Ø§Ù„Ù†Ø²Ø§Ù‡Ø©.\nØªÙ… Ø®ØµÙ… 5 GP Ù…Ù† Ø±ØµÙŠØ¯Ùƒ.`);
             } else {
-                alert(`🚨 فشل التقييم السريري:\nلقد تجاوزت الحد المسموح من التحذيرات. تم إيقاف الجلسة الحالية وإشعار إدارة السجل.`);
+                alert(`ðŸš¨ ÙØ´Ù„ Ø§Ù„ØªÙ‚ÙŠÙŠÙ… Ø§Ù„Ø³Ø±ÙŠØ±ÙŠ:\nÙ„Ù‚Ø¯ ØªØ¬Ø§ÙˆØ²Øª Ø§Ù„Ø­Ø¯ Ø§Ù„Ù…Ø³Ù…ÙˆØ­ Ù…Ù† Ø§Ù„ØªØ­Ø°ÙŠØ±Ø§Øª. ØªÙ… Ø¥ÙŠÙ‚Ø§Ù Ø§Ù„Ø¬Ù„Ø³Ø© Ø§Ù„Ø­Ø§Ù„ÙŠØ© ÙˆØ¥Ø´Ø¹Ø§Ø± Ø¥Ø¯Ø§Ø±Ø© Ø§Ù„Ø³Ø¬Ù„.`);
                 stopProctoring();
                 // Optionally trigger UI lockdown
                 document.dispatchEvent(new CustomEvent('geneProctorLockdown'));
@@ -50,7 +50,7 @@ const GeneProctor = (function() {
         isActive = true;
         
         document.addEventListener("visibilitychange", handleVisibilityChange);
-        console.log(`🛡️ SudaGene Proctoring Active for ${gaId}`);
+        console.log(`ðŸ›¡ï¸ SudaGene Proctoring Active for ${gaId}`);
     }
 
     function stopProctoring() {
@@ -58,7 +58,7 @@ const GeneProctor = (function() {
         
         isActive = false;
         document.removeEventListener("visibilitychange", handleVisibilityChange);
-        console.log(`🛡️ SudaGene Proctoring Deactivated`);
+        console.log(`ðŸ›¡ï¸ SudaGene Proctoring Deactivated`);
     }
 
     return {

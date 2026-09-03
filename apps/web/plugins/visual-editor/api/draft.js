@@ -1,4 +1,4 @@
-import { ParentMessage } from "../constants/messages.js";
+﻿import { ParentMessage } from "../constants/messages.js";
 import { postToParent } from "../utils/parent-frame.js";
 import { getEditing } from "../state/editing-state.js";
 import { getCurrentEdits, clearHistory, getEditState, getActionPointer } from "../state/history-state.js";
@@ -53,10 +53,10 @@ export function handleDraftDiscard() {
  * request entirely.
  *
  * Parent frame messages emitted:
- * - `DRAFT_SAVE_STARTED` — immediately on call
- * - `DRAFT_APPLIED` — on success, includes server results and current edit state
- * - `DRAFT_SAVE_FAILED` — on server error or network failure, includes error message
- * - `DRAFT_SAVE_FINISHED` — always, delayed by `MIN_LOADING_DISPLAY_MS` for direct-only saves
+ * - `DRAFT_SAVE_STARTED` â€” immediately on call
+ * - `DRAFT_APPLIED` â€” on success, includes server results and current edit state
+ * - `DRAFT_SAVE_FAILED` â€” on server error or network failure, includes error message
+ * - `DRAFT_SAVE_FINISHED` â€” always, delayed by `MIN_LOADING_DISPLAY_MS` for direct-only saves
  *
  * @returns {Promise<void>}
  */

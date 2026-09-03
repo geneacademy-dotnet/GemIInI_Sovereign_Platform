@@ -1,23 +1,23 @@
-/**
- * GemIInI SudaGene Platform — Unified Analytics Engine (analytics.js v3.0)
- * ─────────────────────────────────────────────────────────────────────────────
+﻿/**
+ * GemIInI SudaGene Platform â€” Unified Analytics Engine (analytics.js v3.0)
+ * â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
  * Property  : G-H1Q67PP2DJ
  * Domains   : geneacademy.net + members.geneacademy.net (cross-subdomain)
  * User-ID   : Set on authentication via setAuthenticatedUser()
- * Changelog : v3.0 — cross-domain linker, User-ID layer, learning events,
+ * Changelog : v3.0 â€” cross-domain linker, User-ID layer, learning events,
  *             archetype classification, GPS funnel tracking.
- *             v2.0 — GA4 business event bridge.
- * ─────────────────────────────────────────────────────────────────────────────
- * GOVERNANCE: WellPlan is STRICTLY INTERNAL CRM — never referenced here.
+ *             v2.0 â€” GA4 business event bridge.
+ * â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+ * GOVERNANCE: WellPlan is STRICTLY INTERNAL CRM â€” never referenced here.
  *             All custom events fire on geneacademy.net public surface only.
- * ─────────────────────────────────────────────────────────────────────────────
+ * â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
  */
 (function() {
   'use strict';
 
   const GA_ID = 'G-H1Q67PP2DJ';
 
-  // ── Cross-Subdomain Linker Configuration ─────────────────────────────────
+  // â”€â”€ Cross-Subdomain Linker Configuration â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   // Configures GA4 to treat geneacademy.net and members.geneacademy.net as
   // a single property. Sessions are maintained when a user moves from the
   // public site to the authenticated member portal.
@@ -32,14 +32,14 @@
     });
   }
 
-  // ── Safe gtag wrapper ─────────────────────────────────────────────────────
+  // â”€â”€ Safe gtag wrapper â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   const gtagEvent = function(eventName, params) {
     if (typeof gtag === 'function') {
       gtag('event', eventName, params);
     }
   };
 
-  // ── Session Identity (anonymous until auth) ───────────────────────────────
+  // â”€â”€ Session Identity (anonymous until auth) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   const SESSION_KEY = 'gemiini_anon_session_id';
   let sessionId = sessionStorage.getItem(SESSION_KEY);
   if (!sessionId) {
@@ -47,7 +47,7 @@
     sessionStorage.setItem(SESSION_KEY, sessionId);
   }
 
-  // ── Internal Beacon (to GemIInI SSOT backend) ────────────────────────────
+  // â”€â”€ Internal Beacon (to GemIInI SSOT backend) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   const beaconEvent = function(eventName, eventData) {
     const payload = {
       event:     eventName,
@@ -76,24 +76,24 @@
     }
   };
 
-  // ── Unified track: GA4 + internal beacon ─────────────────────────────────
+  // â”€â”€ Unified track: GA4 + internal beacon â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   const track = function(gaEventName, params, internalName) {
     gtagEvent(gaEventName, params);
     beaconEvent(internalName || gaEventName, params);
   };
 
-  // ── GLOBAL TRACKER API ────────────────────────────────────────────────────
+  // â”€â”€ GLOBAL TRACKER API â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   window.GemIInITracker = {
 
     track: track,
 
-    // ── USER-ID LAYER ─────────────────────────────────────────────────────
+    // â”€â”€ USER-ID LAYER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     // Called immediately after successful authentication on members.geneacademy.net.
     // gaId must be the verified GA-XXXX identifier from the SSOT registry.
     // This links all cross-device and cross-session activity to a single user.
     setAuthenticatedUser: function(gaId, archetype) {
       if (!gaId) return;
-      // Set the User-ID on the GA4 config — this persists for the session
+      // Set the User-ID on the GA4 config â€” this persists for the session
       if (typeof gtag === 'function') {
         gtag('set', 'user_id', gaId);
         gtag('config', GA_ID, { 'user_id': gaId });
@@ -110,7 +110,7 @@
       }, 'USER_AUTH_RESOLVED');
     },
 
-    // ── GPS FUNNEL / ARCHETYPE CLASSIFICATION ─────────────────────────────
+    // â”€â”€ GPS FUNNEL / ARCHETYPE CLASSIFICATION â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     // Fires when the two-question Smart Funnel classifies a registrant.
     // archetype: 'STRANDED_EXPERT' | 'DESPERATE_EXAMINEE' | 'ACADEMIC_SEEKER' | 'B2B_CONNECTOR'
     trackArchetypeClassified: function(archetype, journeyStage, primaryGoal) {
@@ -149,7 +149,7 @@
       }, 'ARCHETYPE_ROUTED');
     },
 
-    // ── PARTNER / B2B FUNNEL ──────────────────────────────────────────────
+    // â”€â”€ PARTNER / B2B FUNNEL â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     trackPartnerModalOpen: function(source) {
       track('partner_funnel_entry', {
         event_category:  'B2B Funnel',
@@ -176,7 +176,7 @@
       }, 'PARTNER_FORM_SUBMIT');
     },
 
-    // ── LEARNING INTERACTION EVENTS ───────────────────────────────────────
+    // â”€â”€ LEARNING INTERACTION EVENTS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     // These fire on members.geneacademy.net LMS interactions.
 
     // Video engagement (called from the LMS video player)
@@ -234,7 +234,7 @@
       }, 'WORKSHOP_REGISTRATION');
     },
 
-    // ── BLS EVENTS ────────────────────────────────────────────────────────
+    // â”€â”€ BLS EVENTS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     trackBlsInterest: function(cohortId) {
       track('bls_workshop_interest', {
         event_category: 'BLS Workshop',
@@ -253,7 +253,7 @@
       }, 'BLS_REGISTRATION');
     },
 
-    // ── JOURNAL / RESEARCH ────────────────────────────────────────────────
+    // â”€â”€ JOURNAL / RESEARCH â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     trackJournalInquiry: function(inquiryType) {
       track('journal_inquiry_submit', {
         event_category: 'Research & Journal',
@@ -263,7 +263,7 @@
       }, 'JOURNAL_INQUIRY');
     },
 
-    // ── CASE STUDY ────────────────────────────────────────────────────────
+    // â”€â”€ CASE STUDY â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     trackCaseStudyRead: function() {
       track('case_study_engagement', {
         event_category: 'University Partnership',
@@ -281,7 +281,7 @@
       }, 'CASE_STUDY_CTA');
     },
 
-    // ── CLINICAL / SMC ────────────────────────────────────────────────────
+    // â”€â”€ CLINICAL / SMC â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     trackProgramInspection: function(programName) {
       track('program_inspection', {
         event_category: 'Clinical Programs',
@@ -290,7 +290,7 @@
       }, 'INSPECT_PROGRAM');
     },
 
-    // ── VERIFICATION ──────────────────────────────────────────────────────
+    // â”€â”€ VERIFICATION â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     trackVerificationAttempt: function() {
       track('verification_attempt', {
         event_category: 'Identity & Trust',
@@ -299,7 +299,7 @@
       }, 'VERIFICATION_ATTEMPT');
     },
 
-    // ── MEMBER PORTAL TRANSITION ──────────────────────────────────────────
+    // â”€â”€ MEMBER PORTAL TRANSITION â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     trackMemberPortalTransition: function(destination) {
       track('member_portal_entry', {
         event_category: 'Member Portal',
@@ -308,7 +308,7 @@
       }, 'TRANSITION_TO_MEMBERS_APP');
     },
 
-    // ── INSTITUTIONAL CTA ─────────────────────────────────────────────────
+    // â”€â”€ INSTITUTIONAL CTA â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     trackInstitutionalCta: function(ctaId, orgType) {
       track('institutional_cta_click', {
         event_category: 'Institutional',
@@ -319,7 +319,7 @@
     }
   };
 
-  // ── AUTO-WIRING ON DOM READY ──────────────────────────────────────────────
+  // â”€â”€ AUTO-WIRING ON DOM READY â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   document.addEventListener('DOMContentLoaded', function() {
 
     // Page view beacon

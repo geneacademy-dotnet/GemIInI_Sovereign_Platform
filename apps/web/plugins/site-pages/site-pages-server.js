@@ -1,4 +1,4 @@
-import { existsSync } from 'node:fs';
+﻿import { existsSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import traverseBabel from '@babel/traverse';
@@ -11,7 +11,7 @@ const PRODUCT_PAGE_FETCH_LIMIT = 100;
 const MAX_PRODUCT_PAGES = 50;
 
 /**
- * Resolves the tag name of a JSX element, unwrapping member expressions (e.g. `Foo.Bar` → `Bar`).
+ * Resolves the tag name of a JSX element, unwrapping member expressions (e.g. `Foo.Bar` â†’ `Bar`).
  *
  * @param {import('@babel/types').JSXOpeningElement['name']} nameNode
  * @returns {string|null}

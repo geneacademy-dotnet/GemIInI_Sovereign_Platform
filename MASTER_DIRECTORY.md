@@ -1,67 +1,67 @@
-# 🏛️ GemIInI SudaGene Platform — Master Independent Directory
+﻿# ðŸ›ï¸ GemIInI SudaGene Platform â€” Master Independent Directory
 ### THE COMPLETE MASTER DIRECTORY: OFFICIAL EMAILS, WEB PORTALS & SSOT WORKBOOKS
-**SudaGene Consortium · GemIInI SudaGene Platform · Geneacademy® · GLOMEt Medical**
+**SudaGene Consortium Â· GemIInI SudaGene Platform Â· GeneacademyÂ® Â· GLOMEt Medical**
 
 ---
 
-## 📬 1. القائمة الكاملة لحسابات البريد الإلكتروني المعتمدة (`@geneacademy.net`)
+## ðŸ“¬ 1. Ø§Ù„Ù‚Ø§Ø¦Ù…Ø© Ø§Ù„ÙƒØ§Ù…Ù„Ø© Ù„Ø­Ø³Ø§Ø¨Ø§Øª Ø§Ù„Ø¨Ø±ÙŠØ¯ Ø§Ù„Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠ Ø§Ù„Ù…Ø¹ØªÙ…Ø¯Ø© (`@geneacademy.net`)
 
-### أ. حسابات القيادة التنفيذية الفعالة (Active Leadership Inboxes):
+### Ø£. Ø­Ø³Ø§Ø¨Ø§Øª Ø§Ù„Ù‚ÙŠØ§Ø¯Ø© Ø§Ù„ØªÙ†ÙÙŠØ°ÙŠØ© Ø§Ù„ÙØ¹Ø§Ù„Ø© (Active Leadership Inboxes):
 
-| الـ ID | الاسم والمنصب القيادي | البريد الرسمي الجديد (`@geneacademy.net`) | البريد الشخصي المرتبط | رقم الهاتف / واتساب |
+| Ø§Ù„Ù€ ID | Ø§Ù„Ø§Ø³Ù… ÙˆØ§Ù„Ù…Ù†ØµØ¨ Ø§Ù„Ù‚ÙŠØ§Ø¯ÙŠ | Ø§Ù„Ø¨Ø±ÙŠØ¯ Ø§Ù„Ø±Ø³Ù…ÙŠ Ø§Ù„Ø¬Ø¯ÙŠØ¯ (`@geneacademy.net`) | Ø§Ù„Ø¨Ø±ÙŠØ¯ Ø§Ù„Ø´Ø®ØµÙŠ Ø§Ù„Ù…Ø±ØªØ¨Ø· | Ø±Ù‚Ù… Ø§Ù„Ù‡Ø§ØªÙ / ÙˆØ§ØªØ³Ø§Ø¨ |
 | :--- | :--- | :--- | :--- | :--- |
-| **GA-000** | **د. محمد أحمد جبريل**<br>*(المؤسس، الرئيس التنفيذي ومدير التعليم)* | `mohamedgibbril@geneacademy.net` | `mohamedgibbril@gmail.com` | **+20 101 592 2628** (مصر) |
-| **GA-001** | **د. آلاء عبد الحفيظ مرسي**<br>*(المدير الطبي ومسؤول الزمالات)* | `alaa.mursi@geneacademy.net` | `a.mursifarah@gmail.com`<br>`amursifarah@gmail.com` | **+353 87 492 3507** (أيرلندا) |
-| **GA-004** | **د. صفاء عبد القادر الحسن**<br>*(رئيس الشؤون الأكاديمية والمناهج)* | `safaa.elhassan@geneacademy.net` | `safaelhassan44@gmail.com` | **+965 50872572** (الكويت) |
-| **GA-011** | **م. أمجد قرشي أحمد**<br>*(رئيس قطاع العمليات والأنظمة الرقمية)* | `amjad.gorashi@geneacademy.net` | `amjadgorashi32@gmail.com` | **+249 96 912 1358** (السودان) |
-| **GA-5405** | **د. محمد صبري محمد أحمد**<br>*(مدير التدريب السريري ومدرب الإنعاش المعتمد)* | `mohamed.sabri@geneacademy.net` | `mohsabri09989@gmail.com` | **+20 117 099 150** (مصر)<br>**+249 11 675 7536** |
+| **GA-000** | **Ø¯. Ù…Ø­Ù…Ø¯ Ø£Ø­Ù…Ø¯ Ø¬Ø¨Ø±ÙŠÙ„**<br>*(Ø§Ù„Ù…Ø¤Ø³Ø³ØŒ Ø§Ù„Ø±Ø¦ÙŠØ³ Ø§Ù„ØªÙ†ÙÙŠØ°ÙŠ ÙˆÙ…Ø¯ÙŠØ± Ø§Ù„ØªØ¹Ù„ÙŠÙ…)* | `mohamedgibbril@geneacademy.net` | `mohamedgibbril@gmail.com` | **+20 101 592 2628** (Ù…ØµØ±) |
+| **GA-001** | **Ø¯. Ø¢Ù„Ø§Ø¡ Ø¹Ø¨Ø¯ Ø§Ù„Ø­ÙÙŠØ¸ Ù…Ø±Ø³ÙŠ**<br>*(Ø§Ù„Ù…Ø¯ÙŠØ± Ø§Ù„Ø·Ø¨ÙŠ ÙˆÙ…Ø³Ø¤ÙˆÙ„ Ø§Ù„Ø²Ù…Ø§Ù„Ø§Øª)* | `alaa.mursi@geneacademy.net` | `a.mursifarah@gmail.com`<br>`amursifarah@gmail.com` | **+353 87 492 3507** (Ø£ÙŠØ±Ù„Ù†Ø¯Ø§) |
+| **GA-004** | **Ø¯. ØµÙØ§Ø¡ Ø¹Ø¨Ø¯ Ø§Ù„Ù‚Ø§Ø¯Ø± Ø§Ù„Ø­Ø³Ù†**<br>*(Ø±Ø¦ÙŠØ³ Ø§Ù„Ø´Ø¤ÙˆÙ† Ø§Ù„Ø£ÙƒØ§Ø¯ÙŠÙ…ÙŠØ© ÙˆØ§Ù„Ù…Ù†Ø§Ù‡Ø¬)* | `safaa.elhassan@geneacademy.net` | `safaelhassan44@gmail.com` | **+965 50872572** (Ø§Ù„ÙƒÙˆÙŠØª) |
+| **GA-011** | **Ù…. Ø£Ù…Ø¬Ø¯ Ù‚Ø±Ø´ÙŠ Ø£Ø­Ù…Ø¯**<br>*(Ø±Ø¦ÙŠØ³ Ù‚Ø·Ø§Ø¹ Ø§Ù„Ø¹Ù…Ù„ÙŠØ§Øª ÙˆØ§Ù„Ø£Ù†Ø¸Ù…Ø© Ø§Ù„Ø±Ù‚Ù…ÙŠØ©)* | `amjad.gorashi@geneacademy.net` | `amjadgorashi32@gmail.com` | **+249 96 912 1358** (Ø§Ù„Ø³ÙˆØ¯Ø§Ù†) |
+| **GA-5405** | **Ø¯. Ù…Ø­Ù…Ø¯ ØµØ¨Ø±ÙŠ Ù…Ø­Ù…Ø¯ Ø£Ø­Ù…Ø¯**<br>*(Ù…Ø¯ÙŠØ± Ø§Ù„ØªØ¯Ø±ÙŠØ¨ Ø§Ù„Ø³Ø±ÙŠØ±ÙŠ ÙˆÙ…Ø¯Ø±Ø¨ Ø§Ù„Ø¥Ù†Ø¹Ø§Ø´ Ø§Ù„Ù…Ø¹ØªÙ…Ø¯)* | `mohamed.sabri@geneacademy.net` | `mohsabri09989@gmail.com` | **+20 117 099 150** (Ù…ØµØ±)<br>**+249 11 675 7536** |
 
 ---
 
-### ب. الصناديق الوظيفية والأقسام العامة (Functional Department Desks):
+### Ø¨. Ø§Ù„ØµÙ†Ø§Ø¯ÙŠÙ‚ Ø§Ù„ÙˆØ¸ÙŠÙÙŠØ© ÙˆØ§Ù„Ø£Ù‚Ø³Ø§Ù… Ø§Ù„Ø¹Ø§Ù…Ø© (Functional Department Desks):
 
-| البريد الوظيفي (Functional Email) | التخصص والمهام | الصفحات المرتبطة في الموقع |
+| Ø§Ù„Ø¨Ø±ÙŠØ¯ Ø§Ù„ÙˆØ¸ÙŠÙÙŠ (Functional Email) | Ø§Ù„ØªØ®ØµØµ ÙˆØ§Ù„Ù…Ù‡Ø§Ù… | Ø§Ù„ØµÙØ­Ø§Øª Ø§Ù„Ù…Ø±ØªØ¨Ø·Ø© ÙÙŠ Ø§Ù„Ù…ÙˆÙ‚Ø¹ |
 | :--- | :--- | :--- |
-| **`b2b@geneacademy.net`** | الشراكات المؤسسية، ترخيص مراكز المحاكاة، وتجهيزات GLOMEt | `partnerships.html`, `index.html` |
-| **`admissions@geneacademy.net`** | تسجيل الأطباء، ورش الـ BLS/BSS، وماراثون امتحانات المجلس الطبي SMC | `join.html`, `bls.html`, `smc.html`, `courses.html` |
-| **`research@geneacademy.net`** | شبكة الأبحاث، مجموعات 15:5:1، وطلب جامعي البيانات المؤهلين | `journal.html`, `research.html` |
-| **`sudapass@geneacademy.net`** | تدقيق الشهادات والهويات الرقمية للوزارات وجهات التوظيف الدولية | `verify.html` |
-| **`info@geneacademy.net`** | الاستفسارات العامة، الدعم الفني، وفوتر المنصة | `about.html`, `evidence.html`, `index.html` |
+| **`b2b@geneacademy.net`** | Ø§Ù„Ø´Ø±Ø§ÙƒØ§Øª Ø§Ù„Ù…Ø¤Ø³Ø³ÙŠØ©ØŒ ØªØ±Ø®ÙŠØµ Ù…Ø±Ø§ÙƒØ² Ø§Ù„Ù…Ø­Ø§ÙƒØ§Ø©ØŒ ÙˆØªØ¬Ù‡ÙŠØ²Ø§Øª GLOMEt | `partnerships.html`, `index.html` |
+| **`admissions@geneacademy.net`** | ØªØ³Ø¬ÙŠÙ„ Ø§Ù„Ø£Ø·Ø¨Ø§Ø¡ØŒ ÙˆØ±Ø´ Ø§Ù„Ù€ BLS/BSSØŒ ÙˆÙ…Ø§Ø±Ø§Ø«ÙˆÙ† Ø§Ù…ØªØ­Ø§Ù†Ø§Øª Ø§Ù„Ù…Ø¬Ù„Ø³ Ø§Ù„Ø·Ø¨ÙŠ SMC | `join.html`, `bls.html`, `smc.html`, `courses.html` |
+| **`research@geneacademy.net`** | Ø´Ø¨ÙƒØ© Ø§Ù„Ø£Ø¨Ø­Ø§Ø«ØŒ Ù…Ø¬Ù…ÙˆØ¹Ø§Øª 15:5:1ØŒ ÙˆØ·Ù„Ø¨ Ø¬Ø§Ù…Ø¹ÙŠ Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª Ø§Ù„Ù…Ø¤Ù‡Ù„ÙŠÙ† | `journal.html`, `research.html` |
+| **`sudapass@geneacademy.net`** | ØªØ¯Ù‚ÙŠÙ‚ Ø§Ù„Ø´Ù‡Ø§Ø¯Ø§Øª ÙˆØ§Ù„Ù‡ÙˆÙŠØ§Øª Ø§Ù„Ø±Ù‚Ù…ÙŠØ© Ù„Ù„ÙˆØ²Ø§Ø±Ø§Øª ÙˆØ¬Ù‡Ø§Øª Ø§Ù„ØªÙˆØ¸ÙŠÙ Ø§Ù„Ø¯ÙˆÙ„ÙŠØ© | `verify.html` |
+| **`info@geneacademy.net`** | Ø§Ù„Ø§Ø³ØªÙØ³Ø§Ø±Ø§Øª Ø§Ù„Ø¹Ø§Ù…Ø©ØŒ Ø§Ù„Ø¯Ø¹Ù… Ø§Ù„ÙÙ†ÙŠØŒ ÙˆÙÙˆØªØ± Ø§Ù„Ù…Ù†ØµØ© | `about.html`, `evidence.html`, `index.html` |
 
 ---
 
-## 🌐 2. القائمة الكاملة للنطاقات والصفحات الرسمية (Official Web Links)
+## ðŸŒ 2. Ø§Ù„Ù‚Ø§Ø¦Ù…Ø© Ø§Ù„ÙƒØ§Ù…Ù„Ø© Ù„Ù„Ù†Ø·Ø§Ù‚Ø§Øª ÙˆØ§Ù„ØµÙØ­Ø§Øª Ø§Ù„Ø±Ø³Ù…ÙŠØ© (Official Web Links)
 
-### أ. النطاقات الثلاثة للمنظومة:
-1. **البوابة العامة المفتوحة (Hostinger Gateway):** [`https://geneacademy.net`](https://geneacademy.net/)
-2. **بوابة الأطباء والتدريب السريري (Members LMS):** [`https://members.geneacademy.net`](https://members.geneacademy.net/)
-3. **التطبيق السريري المصاحب (GemIInI Jaib PWA):** [`https://gemiini.geneacademy.net`](https://gemiini.geneacademy.net/)
+### Ø£. Ø§Ù„Ù†Ø·Ø§Ù‚Ø§Øª Ø§Ù„Ø«Ù„Ø§Ø«Ø© Ù„Ù„Ù…Ù†Ø¸ÙˆÙ…Ø©:
+1. **Ø§Ù„Ø¨ÙˆØ§Ø¨Ø© Ø§Ù„Ø¹Ø§Ù…Ø© Ø§Ù„Ù…ÙØªÙˆØ­Ø© (Hostinger Gateway):** [`https://geneacademy.net`](https://geneacademy.net/)
+2. **Ø¨ÙˆØ§Ø¨Ø© Ø§Ù„Ø£Ø·Ø¨Ø§Ø¡ ÙˆØ§Ù„ØªØ¯Ø±ÙŠØ¨ Ø§Ù„Ø³Ø±ÙŠØ±ÙŠ (Members LMS):** [`https://members.geneacademy.net`](https://members.geneacademy.net/)
+3. **Ø§Ù„ØªØ·Ø¨ÙŠÙ‚ Ø§Ù„Ø³Ø±ÙŠØ±ÙŠ Ø§Ù„Ù…ØµØ§Ø­Ø¨ (GemIInI Jaib PWA):** [`https://gemiini.geneacademy.net`](https://gemiini.geneacademy.net/)
 
-### ب. خريطة الصفحات الـ 11 المعتمدة في حزمة النشر (`public_html`):
+### Ø¨. Ø®Ø±ÙŠØ·Ø© Ø§Ù„ØµÙØ­Ø§Øª Ø§Ù„Ù€ 11 Ø§Ù„Ù…Ø¹ØªÙ…Ø¯Ø© ÙÙŠ Ø­Ø²Ù…Ø© Ø§Ù„Ù†Ø´Ø± (`public_html`):
 
-| # | الصفحة | الرابط المباشر | الوظيفة والمحتوى |
+| # | Ø§Ù„ØµÙØ­Ø© | Ø§Ù„Ø±Ø§Ø¨Ø· Ø§Ù„Ù…Ø¨Ø§Ø´Ø± | Ø§Ù„ÙˆØ¸ÙŠÙØ© ÙˆØ§Ù„Ù…Ø­ØªÙˆÙ‰ |
 | :-: | :--- | :--- | :--- |
-| 1 | **الرئيسية** | [`index.html`](https://geneacademy.net/index.html) | البوابة المؤسسية الثلاثية (أطباء / كليات / تجهيزات GLOMEt) |
-| 2 | **الشراكات المؤسسية** | [`partnerships.html`](https://geneacademy.net/partnerships.html) | ترخيص مراكز المحاكاة، السجل الإلكتروني E-Logbook، وتوريدات المعامل |
-| 3 | **التسجيل السريري** | [`join.html`](https://geneacademy.net/join.html) | استمارة التسجيل الموحدة، محاضرة الليشمانيا، والـ 20Q Starter Bank |
-| 4 | **ورشة الـ BLS** | [`bls.html`](https://geneacademy.net/bls.html) | حجز ورشة الإنعاش القلبي بالقاهرة (مركز د. صبري Lic. 1549) |
-| 5 | **محاكي الـ SMC** | [`smc.html`](https://geneacademy.net/smc.html) | قمرة ماراثون امتحانات المجلس الطبي (2,500 سيناريو تفاعلي) |
-| 6 | **دليل الكليات** | [`universities.html`](https://geneacademy.net/universities.html) | دليل الـ 63+ كلية طبية سودانية وإقليمية مع المودال التحويلي |
-| 7 | **شبكة الأبحاث** | [`journal.html`](https://geneacademy.net/journal.html) | منهجية النشر 15:5:1، معايير ICMJE، وطلب جامعي البيانات |
-| 8 | **التحقق SudaPass** | [`verify.html`](https://geneacademy.net/verify.html) | التحقق السحابي اللحظي من الشهادات والساعات السريرية المشفرة |
-| 9 | **رسالة التأسيس** | [`about.html`](https://geneacademy.net/about.html) | قصة نشأة المؤسسة، إرث بروفيسور أحمد محمد الحسن، والقيادات |
-| 10 | **الأسس العلمية** | [`evidence.html`](https://geneacademy.net/evidence.html) | الأوراق البحثية المحكمة (PLOS ONE، BMC Med Educ، وأدلة AHA) |
-| 11 | **دليل المسارات** | [`courses.html`](https://geneacademy.net/courses.html) | كتالوج الوحدات السريرية الـ 8 وبرامج الزمالات والتطوير المهني |
+| 1 | **Ø§Ù„Ø±Ø¦ÙŠØ³ÙŠØ©** | [`index.html`](https://geneacademy.net/index.html) | Ø§Ù„Ø¨ÙˆØ§Ø¨Ø© Ø§Ù„Ù…Ø¤Ø³Ø³ÙŠØ© Ø§Ù„Ø«Ù„Ø§Ø«ÙŠØ© (Ø£Ø·Ø¨Ø§Ø¡ / ÙƒÙ„ÙŠØ§Øª / ØªØ¬Ù‡ÙŠØ²Ø§Øª GLOMEt) |
+| 2 | **Ø§Ù„Ø´Ø±Ø§ÙƒØ§Øª Ø§Ù„Ù…Ø¤Ø³Ø³ÙŠØ©** | [`partnerships.html`](https://geneacademy.net/partnerships.html) | ØªØ±Ø®ÙŠØµ Ù…Ø±Ø§ÙƒØ² Ø§Ù„Ù…Ø­Ø§ÙƒØ§Ø©ØŒ Ø§Ù„Ø³Ø¬Ù„ Ø§Ù„Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠ E-LogbookØŒ ÙˆØªÙˆØ±ÙŠØ¯Ø§Øª Ø§Ù„Ù…Ø¹Ø§Ù…Ù„ |
+| 3 | **Ø§Ù„ØªØ³Ø¬ÙŠÙ„ Ø§Ù„Ø³Ø±ÙŠØ±ÙŠ** | [`join.html`](https://geneacademy.net/join.html) | Ø§Ø³ØªÙ…Ø§Ø±Ø© Ø§Ù„ØªØ³Ø¬ÙŠÙ„ Ø§Ù„Ù…ÙˆØ­Ø¯Ø©ØŒ Ù…Ø­Ø§Ø¶Ø±Ø© Ø§Ù„Ù„ÙŠØ´Ù…Ø§Ù†ÙŠØ§ØŒ ÙˆØ§Ù„Ù€ 20Q Starter Bank |
+| 4 | **ÙˆØ±Ø´Ø© Ø§Ù„Ù€ BLS** | [`bls.html`](https://geneacademy.net/bls.html) | Ø­Ø¬Ø² ÙˆØ±Ø´Ø© Ø§Ù„Ø¥Ù†Ø¹Ø§Ø´ Ø§Ù„Ù‚Ù„Ø¨ÙŠ Ø¨Ø§Ù„Ù‚Ø§Ù‡Ø±Ø© (Ù…Ø±ÙƒØ² Ø¯. ØµØ¨Ø±ÙŠ Lic. 1549) |
+| 5 | **Ù…Ø­Ø§ÙƒÙŠ Ø§Ù„Ù€ SMC** | [`smc.html`](https://geneacademy.net/smc.html) | Ù‚Ù…Ø±Ø© Ù…Ø§Ø±Ø§Ø«ÙˆÙ† Ø§Ù…ØªØ­Ø§Ù†Ø§Øª Ø§Ù„Ù…Ø¬Ù„Ø³ Ø§Ù„Ø·Ø¨ÙŠ (2,500 Ø³ÙŠÙ†Ø§Ø±ÙŠÙˆ ØªÙØ§Ø¹Ù„ÙŠ) |
+| 6 | **Ø¯Ù„ÙŠÙ„ Ø§Ù„ÙƒÙ„ÙŠØ§Øª** | [`universities.html`](https://geneacademy.net/universities.html) | Ø¯Ù„ÙŠÙ„ Ø§Ù„Ù€ 63+ ÙƒÙ„ÙŠØ© Ø·Ø¨ÙŠØ© Ø³ÙˆØ¯Ø§Ù†ÙŠØ© ÙˆØ¥Ù‚Ù„ÙŠÙ…ÙŠØ© Ù…Ø¹ Ø§Ù„Ù…ÙˆØ¯Ø§Ù„ Ø§Ù„ØªØ­ÙˆÙŠÙ„ÙŠ |
+| 7 | **Ø´Ø¨ÙƒØ© Ø§Ù„Ø£Ø¨Ø­Ø§Ø«** | [`journal.html`](https://geneacademy.net/journal.html) | Ù…Ù†Ù‡Ø¬ÙŠØ© Ø§Ù„Ù†Ø´Ø± 15:5:1ØŒ Ù…Ø¹Ø§ÙŠÙŠØ± ICMJEØŒ ÙˆØ·Ù„Ø¨ Ø¬Ø§Ù…Ø¹ÙŠ Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª |
+| 8 | **Ø§Ù„ØªØ­Ù‚Ù‚ SudaPass** | [`verify.html`](https://geneacademy.net/verify.html) | Ø§Ù„ØªØ­Ù‚Ù‚ Ø§Ù„Ø³Ø­Ø§Ø¨ÙŠ Ø§Ù„Ù„Ø­Ø¸ÙŠ Ù…Ù† Ø§Ù„Ø´Ù‡Ø§Ø¯Ø§Øª ÙˆØ§Ù„Ø³Ø§Ø¹Ø§Øª Ø§Ù„Ø³Ø±ÙŠØ±ÙŠØ© Ø§Ù„Ù…Ø´ÙØ±Ø© |
+| 9 | **Ø±Ø³Ø§Ù„Ø© Ø§Ù„ØªØ£Ø³ÙŠØ³** | [`about.html`](https://geneacademy.net/about.html) | Ù‚ØµØ© Ù†Ø´Ø£Ø© Ø§Ù„Ù…Ø¤Ø³Ø³Ø©ØŒ Ø¥Ø±Ø« Ø¨Ø±ÙˆÙÙŠØ³ÙˆØ± Ø£Ø­Ù…Ø¯ Ù…Ø­Ù…Ø¯ Ø§Ù„Ø­Ø³Ù†ØŒ ÙˆØ§Ù„Ù‚ÙŠØ§Ø¯Ø§Øª |
+| 10 | **Ø§Ù„Ø£Ø³Ø³ Ø§Ù„Ø¹Ù„Ù…ÙŠØ©** | [`evidence.html`](https://geneacademy.net/evidence.html) | Ø§Ù„Ø£ÙˆØ±Ø§Ù‚ Ø§Ù„Ø¨Ø­Ø«ÙŠØ© Ø§Ù„Ù…Ø­ÙƒÙ…Ø© (PLOS ONEØŒ BMC Med EducØŒ ÙˆØ£Ø¯Ù„Ø© AHA) |
+| 11 | **Ø¯Ù„ÙŠÙ„ Ø§Ù„Ù…Ø³Ø§Ø±Ø§Øª** | [`courses.html`](https://geneacademy.net/courses.html) | ÙƒØªØ§Ù„ÙˆØ¬ Ø§Ù„ÙˆØ­Ø¯Ø§Øª Ø§Ù„Ø³Ø±ÙŠØ±ÙŠØ© Ø§Ù„Ù€ 8 ÙˆØ¨Ø±Ø§Ù…Ø¬ Ø§Ù„Ø²Ù…Ø§Ù„Ø§Øª ÙˆØ§Ù„ØªØ·ÙˆÙŠØ± Ø§Ù„Ù…Ù‡Ù†ÙŠ |
 
 ---
 
-## 📊 3. السجلات المركزية وقواعد البيانات (SSOT Database Links)
+## ðŸ“Š 3. Ø§Ù„Ø³Ø¬Ù„Ø§Øª Ø§Ù„Ù…Ø±ÙƒØ²ÙŠØ© ÙˆÙ‚ÙˆØ§Ø¹Ø¯ Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª (SSOT Database Links)
 
-| السجل / المستند | المعرف والرابط المباشر | الوظيفة التشغيلية |
+| Ø§Ù„Ø³Ø¬Ù„ / Ø§Ù„Ù…Ø³ØªÙ†Ø¯ | Ø§Ù„Ù…Ø¹Ø±Ù ÙˆØ§Ù„Ø±Ø§Ø¨Ø· Ø§Ù„Ù…Ø¨Ø§Ø´Ø± | Ø§Ù„ÙˆØ¸ÙŠÙØ© Ø§Ù„ØªØ´ØºÙŠÙ„ÙŠØ© |
 | :--- | :--- | :--- |
-| **السجل السيادي المركزي 2026** | [1X74wS42KR5WpMusd8L_3-5LCDSIz9m7JHNdgY-rTbxs](https://docs.google.com/spreadsheets/d/1X74wS42KR5WpMusd8L_3-5LCDSIz9m7JHNdgY-rTbxs/edit) | قاعدة البيانات الحية المربوطة بـ `Code.gs v4.1` (SSOT) |
-| **سجل متابعة المرشحين (B1.5)** | [1-a3JPg3sD_omMEhR61DGErIREBSuDyAWDSnzIKzA1zg](https://docs.google.com/spreadsheets/d/1-a3JPg3sD_omMEhR61DGErIREBSuDyAWDSnzIKzA1zg/edit) | متابعة ترقيات المستوى الثاني وعمليات الدفع (GA-011) |
-| **بوابة التحقق والاستمارات (A1.5)** | [1ifBVK5JXevdSC75PccHcRvgjhtEuI2UjyUa5hHr_YkQ](https://docs.google.com/spreadsheets/d/1ifBVK5JXevdSC75PccHcRvgjhtEuI2UjyUa5hHr_YkQ/edit) | تدقيق بيانات الكليات ومطابقة الأسماء القانونية (GA-004) |
-| **سجل تقييمات الجودة وتغذية السوق (C2)** | [1tdo9WyanobRORGqs6s4WrBLhJqpA7HgGaOxC2VsOOy4](https://docs.google.com/spreadsheets/d/1tdo9WyanobRORGqs6s4WrBLhJqpA7HgGaOxC2VsOOy4/edit) | استبيانات رضا الأطباء (CSAT) ودراسات الاستعداد للدفع |
-| **المستند الاستراتيجي الشامل** | [Master Strategic Suite Doc](https://docs.google.com/document/d/1Q6dxMa7PeZdwZkXLI3hM7RZFQIXzmUsC57aZh46MSeA/edit?usp=drivesdk&ouid=117409726773844865323) | الميثاق الإداري، الهيكل الحاكم، وخطط التوسع الدولي |
-| **قائمة كليات الطب الوطنية المعتمدة** | [0G unis Doc](https://docs.google.com/document/d/1aU6gX9M7DVQmljwl5rdaI-_XavihH0xEwipq5ylJkkk/edit) | الدليل المعياري المعتمد للـ 63+ كلية طبية سودانية |
+| **Ø§Ù„Ø³Ø¬Ù„ Ø§Ù„Ø³ÙŠØ§Ø¯ÙŠ Ø§Ù„Ù…Ø±ÙƒØ²ÙŠ 2026** | [1X74wS42KR5WpMusd8L_3-5LCDSIz9m7JHNdgY-rTbxs](https://docs.google.com/spreadsheets/d/1X74wS42KR5WpMusd8L_3-5LCDSIz9m7JHNdgY-rTbxs/edit) | Ù‚Ø§Ø¹Ø¯Ø© Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª Ø§Ù„Ø­ÙŠØ© Ø§Ù„Ù…Ø±Ø¨ÙˆØ·Ø© Ø¨Ù€ `Code.gs v4.1` (SSOT) |
+| **Ø³Ø¬Ù„ Ù…ØªØ§Ø¨Ø¹Ø© Ø§Ù„Ù…Ø±Ø´Ø­ÙŠÙ† (B1.5)** | [1-a3JPg3sD_omMEhR61DGErIREBSuDyAWDSnzIKzA1zg](https://docs.google.com/spreadsheets/d/1-a3JPg3sD_omMEhR61DGErIREBSuDyAWDSnzIKzA1zg/edit) | Ù…ØªØ§Ø¨Ø¹Ø© ØªØ±Ù‚ÙŠØ§Øª Ø§Ù„Ù…Ø³ØªÙˆÙ‰ Ø§Ù„Ø«Ø§Ù†ÙŠ ÙˆØ¹Ù…Ù„ÙŠØ§Øª Ø§Ù„Ø¯ÙØ¹ (GA-011) |
+| **Ø¨ÙˆØ§Ø¨Ø© Ø§Ù„ØªØ­Ù‚Ù‚ ÙˆØ§Ù„Ø§Ø³ØªÙ…Ø§Ø±Ø§Øª (A1.5)** | [1ifBVK5JXevdSC75PccHcRvgjhtEuI2UjyUa5hHr_YkQ](https://docs.google.com/spreadsheets/d/1ifBVK5JXevdSC75PccHcRvgjhtEuI2UjyUa5hHr_YkQ/edit) | ØªØ¯Ù‚ÙŠÙ‚ Ø¨ÙŠØ§Ù†Ø§Øª Ø§Ù„ÙƒÙ„ÙŠØ§Øª ÙˆÙ…Ø·Ø§Ø¨Ù‚Ø© Ø§Ù„Ø£Ø³Ù…Ø§Ø¡ Ø§Ù„Ù‚Ø§Ù†ÙˆÙ†ÙŠØ© (GA-004) |
+| **Ø³Ø¬Ù„ ØªÙ‚ÙŠÙŠÙ…Ø§Øª Ø§Ù„Ø¬ÙˆØ¯Ø© ÙˆØªØºØ°ÙŠØ© Ø§Ù„Ø³ÙˆÙ‚ (C2)** | [1tdo9WyanobRORGqs6s4WrBLhJqpA7HgGaOxC2VsOOy4](https://docs.google.com/spreadsheets/d/1tdo9WyanobRORGqs6s4WrBLhJqpA7HgGaOxC2VsOOy4/edit) | Ø§Ø³ØªØ¨ÙŠØ§Ù†Ø§Øª Ø±Ø¶Ø§ Ø§Ù„Ø£Ø·Ø¨Ø§Ø¡ (CSAT) ÙˆØ¯Ø±Ø§Ø³Ø§Øª Ø§Ù„Ø§Ø³ØªØ¹Ø¯Ø§Ø¯ Ù„Ù„Ø¯ÙØ¹ |
+| **Ø§Ù„Ù…Ø³ØªÙ†Ø¯ Ø§Ù„Ø§Ø³ØªØ±Ø§ØªÙŠØ¬ÙŠ Ø§Ù„Ø´Ø§Ù…Ù„** | [Master Strategic Suite Doc](https://docs.google.com/document/d/1Q6dxMa7PeZdwZkXLI3hM7RZFQIXzmUsC57aZh46MSeA/edit?usp=drivesdk&ouid=117409726773844865323) | Ø§Ù„Ù…ÙŠØ«Ø§Ù‚ Ø§Ù„Ø¥Ø¯Ø§Ø±ÙŠØŒ Ø§Ù„Ù‡ÙŠÙƒÙ„ Ø§Ù„Ø­Ø§ÙƒÙ…ØŒ ÙˆØ®Ø·Ø· Ø§Ù„ØªÙˆØ³Ø¹ Ø§Ù„Ø¯ÙˆÙ„ÙŠ |
+| **Ù‚Ø§Ø¦Ù…Ø© ÙƒÙ„ÙŠØ§Øª Ø§Ù„Ø·Ø¨ Ø§Ù„ÙˆØ·Ù†ÙŠØ© Ø§Ù„Ù…Ø¹ØªÙ…Ø¯Ø©** | [0G unis Doc](https://docs.google.com/document/d/1aU6gX9M7DVQmljwl5rdaI-_XavihH0xEwipq5ylJkkk/edit) | Ø§Ù„Ø¯Ù„ÙŠÙ„ Ø§Ù„Ù…Ø¹ÙŠØ§Ø±ÙŠ Ø§Ù„Ù…Ø¹ØªÙ…Ø¯ Ù„Ù„Ù€ 63+ ÙƒÙ„ÙŠØ© Ø·Ø¨ÙŠØ© Ø³ÙˆØ¯Ø§Ù†ÙŠØ© |

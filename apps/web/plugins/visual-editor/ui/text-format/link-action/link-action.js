@@ -1,4 +1,4 @@
-import { getEditing } from '../../../state/editing-state.js';
+﻿import { getEditing } from '../../../state/editing-state.js';
 import { registerPanel, PanelId, setPanelVisible, isPanelVisible } from '../../../state/panel-state.js';
 import { recordEdit } from '../../../state/history-state.js';
 import { notifyDraftStateChanged } from '../../../api/draft-snapshot.js';
@@ -312,11 +312,11 @@ function saveLink() {
     let range = savedLinkRange;
 
     // Source-anchor path: rendered <a>/<Link> from JSX. Update href in place and
-    // persist the attribute edit. We must NOT unwrap — that destroys the contenteditable target.
+    // persist the attribute edit. We must NOT unwrap â€” that destroys the contenteditable target.
     const sourceAnchor = findSourceAnchorInRange(range);
     if (sourceAnchor) {
         // Empty URL on a source anchor would break navigation; no "remove link" semantic
-        // for source-attached anchors — leave as-is.
+        // for source-attached anchors â€” leave as-is.
         if (!url) { hideLinkAction(); return; }
 
         const editId = sourceAnchor.getAttribute('data-edit-id');

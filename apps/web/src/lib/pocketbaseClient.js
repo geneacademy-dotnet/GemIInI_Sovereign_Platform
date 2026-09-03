@@ -1,4 +1,4 @@
-import Pocketbase from 'pocketbase';
+﻿import Pocketbase from 'pocketbase';
 
 const POCKETBASE_API_URL = '/hcgi/platform';
 

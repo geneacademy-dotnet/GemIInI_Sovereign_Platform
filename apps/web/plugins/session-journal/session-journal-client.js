@@ -1,4 +1,4 @@
-const EVENT = 'session-journal:event';
+﻿const EVENT = 'session-journal:event';
 const MAX_TEXT = 2000;
 const MAX_BATCH = 50;
 const FLUSH_INTERVAL_MS = 1000;

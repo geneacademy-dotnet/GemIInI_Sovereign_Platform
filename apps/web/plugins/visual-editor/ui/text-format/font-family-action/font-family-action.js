@@ -1,4 +1,4 @@
-import { registerPanel, PanelId, setPanelVisible, isPanelVisible } from '../../../state/panel-state.js';
+﻿import { registerPanel, PanelId, setPanelVisible, isPanelVisible } from '../../../state/panel-state.js';
 import { getToolbarTarget } from '../toolbar/toolbar.js';
 import { wrapSelectionWithStyle } from '../style-actions.js';
 import { getStylesAtCursor, onSelectionChange } from '../../inline-edit/cursor-styles.js';

@@ -1,7 +1,7 @@
-/**
+﻿/**
  * ============================================================================
  * GENEACADEMY & SUDAGENE RESILIENT API CLIENT (V4.6 ENTERPRISE)
- * Target: Hostinger Production Edge • Unified Apps Script Single Source of Truth
+ * Target: Hostinger Production Edge â€¢ Unified Apps Script Single Source of Truth
  * Active Endpoint: AKfycbwe3rUYJgtSjcnPaKxJOiPsmA19yglrXyWJtAVq0fy4rPi1zLUIacZaWpC4Yhg0x5Ux
  * ============================================================================
  */
@@ -13,7 +13,7 @@ const GEMIINI_CONFIG = {
 
 /**
  * Central transactional dispatcher to the Google Apps Script backend.
- * 🔒 FAIL-CLOSED GUARANTEE: Never returns a fabricated success or fake GA-ID on network failure.
+ * ðŸ”’ FAIL-CLOSED GUARANTEE: Never returns a fabricated success or fake GA-ID on network failure.
  * Throws a real Error on network/server errors so caller handles real error states.
  */
 async function executeGemIInISync(payload) {
@@ -54,7 +54,7 @@ async function executeGemIInISync(payload) {
   } catch (error) {
     clearTimeout(timeoutId);
     console.error('GemIInI API Sync Error:', error);
-    // Explicitly rethrow error — NEVER return fake success or placeholder ID
+    // Explicitly rethrow error â€” NEVER return fake success or placeholder ID
     throw new Error(error.name === 'AbortError' ? 'NETWORK_TIMEOUT: Server took too long to respond' : error.message);
   }
 }

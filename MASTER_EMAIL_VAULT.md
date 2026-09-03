@@ -1,10 +1,10 @@
-# 🔐 GeneAcademy SudaGene Platform — Master Email Credentials Vault
-> **CONFIDENTIAL & RESTRICTED — INTERNAL INFRASTRUCTURE ONLY**
+﻿# ðŸ” GeneAcademy SudaGene Platform â€” Master Email Credentials Vault
+> **CONFIDENTIAL & RESTRICTED â€” INTERNAL INFRASTRUCTURE ONLY**
 > **Domain:** `geneacademy.net` | **Host:** Hostinger Webmail (`https://mail.hostinger.com`)
 
 ---
 
-## 📬 1. Active Leadership Accounts
+## ðŸ“¬ 1. Active Leadership Accounts
 
 | Account | Password | Primary Owner | Forward / Backup |
 | :--- | :--- | :--- | :--- |
@@ -16,7 +16,7 @@
 
 ---
 
-## 🏢 2. Functional Department Desks
+## ðŸ¢ 2. Functional Department Desks
 
 | Account | Password | Scope / Functional Responsibility |
 | :--- | :--- | :--- |
@@ -28,17 +28,17 @@
 
 ---
 
-## 🔄 3. Forwarders to Configure on Hostinger (Aliases)
+## ðŸ”„ 3. Forwarders to Configure on Hostinger (Aliases)
 
-1. `bus.devlop.07@geneacademy.net` ➔ `b2b@geneacademy.net`
-2. `safaa.hassan.04@geneacademy.net` ➔ `safaa.elhassan@geneacademy.net`
-3. `support@geneacademy.net` ➔ `info@geneacademy.net`
-4. `billing@geneacademy.net` ➔ `admissions@geneacademy.net`
-5. `registry@geneacademy.net` ➔ `sudapass@geneacademy.net`
+1. `bus.devlop.07@geneacademy.net` âž” `b2b@geneacademy.net`
+2. `safaa.hassan.04@geneacademy.net` âž” `safaa.elhassan@geneacademy.net`
+3. `support@geneacademy.net` âž” `info@geneacademy.net`
+4. `billing@geneacademy.net` âž” `admissions@geneacademy.net`
+5. `registry@geneacademy.net` âž” `sudapass@geneacademy.net`
 
 ---
 
-## 🌐 4. Webmail Access & Server Settings
+## ðŸŒ 4. Webmail Access & Server Settings
 
 * **Webmail Direct URL:** [`https://mail.hostinger.com`](https://mail.hostinger.com)
 * **Incoming Server (IMAP):** `imap.hostinger.com` (Port 993, SSL)

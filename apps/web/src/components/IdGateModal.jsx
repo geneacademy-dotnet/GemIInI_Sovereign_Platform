@@ -1,4 +1,4 @@
-/**
+﻿/**
  * src/components/IdGateModal.jsx
  * Sovereign Identity Gate for GemIInI Academy
  */

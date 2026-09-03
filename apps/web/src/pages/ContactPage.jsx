@@ -1,4 +1,4 @@
-/**
+﻿/**
  * src/pages/ContactPage.jsx
  * GemIInI Sovereign Coordination Desks & Direct Academic Inquiries
  * 2027 Apple / VisionOS Spatial Aesthetics
@@ -42,39 +42,39 @@ export default function ContactPage() {
 
     const getDirectWhatsAppUrl = () => {
         const text = encodeURIComponent(
-            `Hello GemIInI Coordination Desk! 👋\n\n• Name: ${form.name || 'Doctor/Colleague'}\n• Subject: ${form.subject}\n• Message: ${form.message || 'I would like to inquire about courses and simulation wet-labs.'}`
+            `Hello GemIInI Coordination Desk! ðŸ‘‹\n\nâ€¢ Name: ${form.name || 'Doctor/Colleague'}\nâ€¢ Subject: ${form.subject}\nâ€¢ Message: ${form.message || 'I would like to inquire about courses and simulation wet-labs.'}`
         );
         return `https://wa.me/2+20 101 592 2628?text=${text}`;
     };
 
     const hubs = [
         {
-            flag: '🇪🇬',
-            city: { en: 'Cairo Dokki Hub', ar: 'فرع القاهرة (الدقي)' },
-            address: { en: 'Dokki Hands-On Simulation Center, Giza, Egypt', ar: 'مركز الدقي للمحاكاة الجراحية والسريرية، الجيزة، مصر' },
+            flag: 'ðŸ‡ªðŸ‡¬',
+            city: { en: 'Cairo Dokki Hub', ar: 'ÙØ±Ø¹ Ø§Ù„Ù‚Ø§Ù‡Ø±Ø© (Ø§Ù„Ø¯Ù‚ÙŠ)' },
+            address: { en: 'Dokki Hands-On Simulation Center, Giza, Egypt', ar: 'Ù…Ø±ÙƒØ² Ø§Ù„Ø¯Ù‚ÙŠ Ù„Ù„Ù…Ø­Ø§ÙƒØ§Ø© Ø§Ù„Ø¬Ø±Ø§Ø­ÙŠØ© ÙˆØ§Ù„Ø³Ø±ÙŠØ±ÙŠØ©ØŒ Ø§Ù„Ø¬ÙŠØ²Ø©ØŒ Ù…ØµØ±' },
             phone: '+20 101 592 2628',
-            role: { en: 'Hands-On Wet Labs & Resuscitation Center', ar: 'معامل المحاكاة والمهارات الجراحية والإنعاش' }
+            role: { en: 'Hands-On Wet Labs & Resuscitation Center', ar: 'Ù…Ø¹Ø§Ù…Ù„ Ø§Ù„Ù…Ø­Ø§ÙƒØ§Ø© ÙˆØ§Ù„Ù…Ù‡Ø§Ø±Ø§Øª Ø§Ù„Ø¬Ø±Ø§Ø­ÙŠØ© ÙˆØ§Ù„Ø¥Ù†Ø¹Ø§Ø´' }
         },
         {
-            flag: '🇸🇦',
-            city: { en: 'Riyadh Strategic Desk', ar: 'مكتب الرياض الاستراتيجي' },
-            address: { en: 'Clinical Placement & Fellowship Desk, KSA', ar: 'مكتب التنسيق السريري والزمالات والتوظيف، السعودية' },
+            flag: 'ðŸ‡¸ðŸ‡¦',
+            city: { en: 'Riyadh Strategic Desk', ar: 'Ù…ÙƒØªØ¨ Ø§Ù„Ø±ÙŠØ§Ø¶ Ø§Ù„Ø§Ø³ØªØ±Ø§ØªÙŠØ¬ÙŠ' },
+            address: { en: 'Clinical Placement & Fellowship Desk, KSA', ar: 'Ù…ÙƒØªØ¨ Ø§Ù„ØªÙ†Ø³ÙŠÙ‚ Ø§Ù„Ø³Ø±ÙŠØ±ÙŠ ÙˆØ§Ù„Ø²Ù…Ø§Ù„Ø§Øª ÙˆØ§Ù„ØªÙˆØ¸ÙŠÙØŒ Ø§Ù„Ø³Ø¹ÙˆØ¯ÙŠØ©' },
             phone: '+966 55 047 6176',
-            role: { en: 'Fellowship & Gulf Career Placement', ar: 'الزمالات الملكية والتوظيف السريري بالخليج' }
+            role: { en: 'Fellowship & Gulf Career Placement', ar: 'Ø§Ù„Ø²Ù…Ø§Ù„Ø§Øª Ø§Ù„Ù…Ù„ÙƒÙŠØ© ÙˆØ§Ù„ØªÙˆØ¸ÙŠÙ Ø§Ù„Ø³Ø±ÙŠØ±ÙŠ Ø¨Ø§Ù„Ø®Ù„ÙŠØ¬' }
         },
         {
-            flag: '🇸🇩',
-            city: { en: 'Sudan National Hub', ar: 'المقر الوطني بالسودان' },
-            address: { en: 'Faculty of Medicine Consortium, Port Sudan & Wad Medani', ar: 'تحالف كليات الطب والمهارات السريرية، بورتسودان وود مدني' },
+            flag: 'ðŸ‡¸ðŸ‡©',
+            city: { en: 'Sudan National Hub', ar: 'Ø§Ù„Ù…Ù‚Ø± Ø§Ù„ÙˆØ·Ù†ÙŠ Ø¨Ø§Ù„Ø³ÙˆØ¯Ø§Ù†' },
+            address: { en: 'Faculty of Medicine Consortium, Port Sudan & Wad Medani', ar: 'ØªØ­Ø§Ù„Ù ÙƒÙ„ÙŠØ§Øª Ø§Ù„Ø·Ø¨ ÙˆØ§Ù„Ù…Ù‡Ø§Ø±Ø§Øª Ø§Ù„Ø³Ø±ÙŠØ±ÙŠØ©ØŒ Ø¨ÙˆØ±ØªØ³ÙˆØ¯Ø§Ù† ÙˆÙˆØ¯ Ù…Ø¯Ù†ÙŠ' },
             phone: 'direct@geneacademy.net',
-            role: { en: 'Undergraduate & Licensure Vanguard', ar: 'الامتحانات الوطنية والاعتماد السيادي' }
+            role: { en: 'Undergraduate & Licensure Vanguard', ar: 'Ø§Ù„Ø§Ù…ØªØ­Ø§Ù†Ø§Øª Ø§Ù„ÙˆØ·Ù†ÙŠØ© ÙˆØ§Ù„Ø§Ø¹ØªÙ…Ø§Ø¯ Ø§Ù„Ø³ÙŠØ§Ø¯ÙŠ' }
         }
     ];
 
     return (
         <Layout>
             <Helmet>
-                <title>{isRtl ? 'تواصل معنا | مكاتب التنسيق الأكاديمي والسريري | أكاديمية جيميني' : 'Contact Us | Sovereign Academic & Clinical Coordination Desks'}</title>
+                <title>{isRtl ? 'ØªÙˆØ§ØµÙ„ Ù…Ø¹Ù†Ø§ | Ù…ÙƒØ§ØªØ¨ Ø§Ù„ØªÙ†Ø³ÙŠÙ‚ Ø§Ù„Ø£ÙƒØ§Ø¯ÙŠÙ…ÙŠ ÙˆØ§Ù„Ø³Ø±ÙŠØ±ÙŠ | Ø£ÙƒØ§Ø¯ÙŠÙ…ÙŠØ© Ø¬ÙŠÙ…ÙŠÙ†ÙŠ' : 'Contact Us | Sovereign Academic & Clinical Coordination Desks'}</title>
             </Helmet>
 
             <div className="bg-[#04080F] text-slate-100 min-h-screen py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden" dir={isRtl ? 'rtl' : 'ltr'}>
@@ -88,14 +88,14 @@ export default function ContactPage() {
                     <div className="text-center mb-16">
                         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl mb-4 text-xs font-mono font-bold text-[#00F2FE] uppercase tracking-widest">
                             <Globe2 className="w-4 h-4 text-[#00F2FE]" />
-                            <span>{isRtl ? 'المكاتب والمراكز المعتمدة' : 'Regional Coordination Desks'}</span>
+                            <span>{isRtl ? 'Ø§Ù„Ù…ÙƒØ§ØªØ¨ ÙˆØ§Ù„Ù…Ø±Ø§ÙƒØ² Ø§Ù„Ù…Ø¹ØªÙ…Ø¯Ø©' : 'Regional Coordination Desks'}</span>
                         </div>
                         <h1 className="font-display text-4xl sm:text-5xl font-black text-white tracking-tight">
-                            {isRtl ? 'مكاتب التنسيق والتواصل المباشر' : 'Direct Academic & Clinical Desks'}
+                            {isRtl ? 'Ù…ÙƒØ§ØªØ¨ Ø§Ù„ØªÙ†Ø³ÙŠÙ‚ ÙˆØ§Ù„ØªÙˆØ§ØµÙ„ Ø§Ù„Ù…Ø¨Ø§Ø´Ø±' : 'Direct Academic & Clinical Desks'}
                         </h1>
                         <p className="mt-3 text-slate-300 text-sm sm:text-base max-w-xl mx-auto font-light">
                             {isRtl
-                                ? 'تواصل مباشرة مع منسقي المعامل السريرية بالقاهرة، مكتب التوظيف بالرياض، أو الإدارة الأكاديمية بالسودان.'
+                                ? 'ØªÙˆØ§ØµÙ„ Ù…Ø¨Ø§Ø´Ø±Ø© Ù…Ø¹ Ù…Ù†Ø³Ù‚ÙŠ Ø§Ù„Ù…Ø¹Ø§Ù…Ù„ Ø§Ù„Ø³Ø±ÙŠØ±ÙŠØ© Ø¨Ø§Ù„Ù‚Ø§Ù‡Ø±Ø©ØŒ Ù…ÙƒØªØ¨ Ø§Ù„ØªÙˆØ¸ÙŠÙ Ø¨Ø§Ù„Ø±ÙŠØ§Ø¶ØŒ Ø£Ùˆ Ø§Ù„Ø¥Ø¯Ø§Ø±Ø© Ø§Ù„Ø£ÙƒØ§Ø¯ÙŠÙ…ÙŠØ© Ø¨Ø§Ù„Ø³ÙˆØ¯Ø§Ù†.'
                                 : 'Connect with our simulation coordinators in Cairo, fellowship desk in Riyadh, or academic administration in Sudan.'}
                         </p>
                     </div>
@@ -135,11 +135,11 @@ export default function ContactPage() {
                                     </div>
                                     <div className="space-y-2">
                                         <h3 className="font-display text-2xl font-bold text-white">
-                                            {isRtl ? 'تم استلام رسالتك بنجاح' : 'Message Received Successfully!'}
+                                            {isRtl ? 'ØªÙ… Ø§Ø³ØªÙ„Ø§Ù… Ø±Ø³Ø§Ù„ØªÙƒ Ø¨Ù†Ø¬Ø§Ø­' : 'Message Received Successfully!'}
                                         </h3>
                                         <p className="text-sm text-slate-300 max-w-md mx-auto leading-relaxed">
                                             {isRtl
-                                                ? 'تم تسجيل طلبك لدى مكتب التنسيق الأكاديمي. للتواصل الفوري والمباشر، يمكنك فتح المحادثة عبر الواتساب:'
+                                                ? 'ØªÙ… ØªØ³Ø¬ÙŠÙ„ Ø·Ù„Ø¨Ùƒ Ù„Ø¯Ù‰ Ù…ÙƒØªØ¨ Ø§Ù„ØªÙ†Ø³ÙŠÙ‚ Ø§Ù„Ø£ÙƒØ§Ø¯ÙŠÙ…ÙŠ. Ù„Ù„ØªÙˆØ§ØµÙ„ Ø§Ù„ÙÙˆØ±ÙŠ ÙˆØ§Ù„Ù…Ø¨Ø§Ø´Ø±ØŒ ÙŠÙ…ÙƒÙ†Ùƒ ÙØªØ­ Ø§Ù„Ù…Ø­Ø§Ø¯Ø«Ø© Ø¹Ø¨Ø± Ø§Ù„ÙˆØ§ØªØ³Ø§Ø¨:'
                                                 : 'Your inquiry has been logged with our coordination team. For immediate live response, you can open WhatsApp directly:'}
                                         </p>
                                     </div>
@@ -152,7 +152,7 @@ export default function ContactPage() {
                                             className="flex items-center justify-center gap-2 w-full py-3.5 rounded-2xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-sm shadow-xl transition-all"
                                         >
                                             <Phone className="w-4 h-4" />
-                                            <span>{isRtl ? 'المحادثة الفورية عبر الواتساب' : 'Open WhatsApp Chat Now'}</span>
+                                            <span>{isRtl ? 'Ø§Ù„Ù…Ø­Ø§Ø¯Ø«Ø© Ø§Ù„ÙÙˆØ±ÙŠØ© Ø¹Ø¨Ø± Ø§Ù„ÙˆØ§ØªØ³Ø§Ø¨' : 'Open WhatsApp Chat Now'}</span>
                                         </a>
                                     </div>
 
@@ -162,34 +162,34 @@ export default function ContactPage() {
                                             onClick={() => { setStatus('idle'); setForm({ name: '', email: '', phone: '', subject: 'General Inquiry', message: '' }); }}
                                             className="text-xs text-slate-400 hover:text-white underline font-mono"
                                         >
-                                            {isRtl ? 'إرسال استفسار آخر' : 'Send another inquiry'}
+                                            {isRtl ? 'Ø¥Ø±Ø³Ø§Ù„ Ø§Ø³ØªÙØ³Ø§Ø± Ø¢Ø®Ø±' : 'Send another inquiry'}
                                         </button>
                                     </div>
                                 </div>
                             ) : (
                                 <form onSubmit={handleSubmit} className="space-y-4 text-start">
                                     <h3 className="font-display text-xl font-bold text-white mb-2">
-                                        {isRtl ? 'نموذج التواصل السريع والتنسيق السريري' : 'Quick Inquiry & Clinical Coordination'}
+                                        {isRtl ? 'Ù†Ù…ÙˆØ°Ø¬ Ø§Ù„ØªÙˆØ§ØµÙ„ Ø§Ù„Ø³Ø±ÙŠØ¹ ÙˆØ§Ù„ØªÙ†Ø³ÙŠÙ‚ Ø§Ù„Ø³Ø±ÙŠØ±ÙŠ' : 'Quick Inquiry & Clinical Coordination'}
                                     </h3>
 
                                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                         <div>
                                             <label className="block text-xs font-semibold text-slate-300 mb-1.5">
-                                                {isRtl ? 'الاسم الكامل *' : 'Full Name *'}
+                                                {isRtl ? 'Ø§Ù„Ø§Ø³Ù… Ø§Ù„ÙƒØ§Ù…Ù„ *' : 'Full Name *'}
                                             </label>
                                             <input
                                                 type="text"
                                                 required
                                                 value={form.name}
                                                 onChange={(e) => setForm({ ...form, name: e.target.value })}
-                                                placeholder={isRtl ? 'د. أحمد محمد' : 'Dr. Ahmed Mohamed'}
+                                                placeholder={isRtl ? 'Ø¯. Ø£Ø­Ù…Ø¯ Ù…Ø­Ù…Ø¯' : 'Dr. Ahmed Mohamed'}
                                                 className={inputClass}
                                             />
                                         </div>
 
                                         <div>
                                             <label className="block text-xs font-semibold text-slate-300 mb-1.5">
-                                                {isRtl ? 'رقم الواتساب أو الهاتف *' : 'WhatsApp / Phone *'}
+                                                {isRtl ? 'Ø±Ù‚Ù… Ø§Ù„ÙˆØ§ØªØ³Ø§Ø¨ Ø£Ùˆ Ø§Ù„Ù‡Ø§ØªÙ *' : 'WhatsApp / Phone *'}
                                             </label>
                                             <input
                                                 type="text"
@@ -205,7 +205,7 @@ export default function ContactPage() {
                                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                         <div>
                                             <label className="block text-xs font-semibold text-slate-300 mb-1.5">
-                                                {isRtl ? 'البريد الإلكتروني' : 'Email Address'}
+                                                {isRtl ? 'Ø§Ù„Ø¨Ø±ÙŠØ¯ Ø§Ù„Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠ' : 'Email Address'}
                                             </label>
                                             <input
                                                 type="email"
@@ -218,31 +218,31 @@ export default function ContactPage() {
 
                                         <div>
                                             <label className="block text-xs font-semibold text-slate-300 mb-1.5">
-                                                {isRtl ? 'موضوع الاستفسار' : 'Subject'}
+                                                {isRtl ? 'Ù…ÙˆØ¶ÙˆØ¹ Ø§Ù„Ø§Ø³ØªÙØ³Ø§Ø±' : 'Subject'}
                                             </label>
                                             <select
                                                 value={form.subject}
                                                 onChange={(e) => setForm({ ...form, subject: e.target.value })}
                                                 className={`${inputClass} appearance-none cursor-pointer`}
                                             >
-                                                <option value="Cairo BLS Workshop">{isRtl ? 'البرنامج التدريبي المتقدم للإنعاش القلبي الرئوي الأساسي (AHA BLS Provider) بالقاهرة (BLS)' : 'Cairo BLS Workshop (Aug 28)'}</option>
-                                                <option value="Sudan BLS Workshop">{isRtl ? 'ورشة الإنعاش بالسودان (BLS)' : 'Sudan BLS Workshop (Sept 10)'}</option>
-                                                <option value="Surgical BSS Training">{isRtl ? 'التدريب الجراحي ومعامل المهارات (BSS)' : 'Surgical Skills Wet Labs (BSS)'}</option>
-                                                <option value="Fast-Track Concierge Visa">{isRtl ? 'تأشيرات وترتيبات امتحانات مصر السريعة' : 'Egypt Exam Travel & Fast-Track'}</option>
-                                                <option value="Other Inquiries">{isRtl ? 'استفسارات عامة أو شراكات' : 'General & Institutional Inquiries'}</option>
+                                                <option value="Cairo BLS Workshop">{isRtl ? 'Ø§Ù„Ø¨Ø±Ù†Ø§Ù…Ø¬ Ø§Ù„ØªØ¯Ø±ÙŠØ¨ÙŠ Ø§Ù„Ù…ØªÙ‚Ø¯Ù… Ù„Ù„Ø¥Ù†Ø¹Ø§Ø´ Ø§Ù„Ù‚Ù„Ø¨ÙŠ Ø§Ù„Ø±Ø¦ÙˆÙŠ Ø§Ù„Ø£Ø³Ø§Ø³ÙŠ (AHA BLS Provider) Ø¨Ø§Ù„Ù‚Ø§Ù‡Ø±Ø© (BLS)' : 'Cairo BLS Workshop (Aug 28)'}</option>
+                                                <option value="Sudan BLS Workshop">{isRtl ? 'ÙˆØ±Ø´Ø© Ø§Ù„Ø¥Ù†Ø¹Ø§Ø´ Ø¨Ø§Ù„Ø³ÙˆØ¯Ø§Ù† (BLS)' : 'Sudan BLS Workshop (Sept 10)'}</option>
+                                                <option value="Surgical BSS Training">{isRtl ? 'Ø§Ù„ØªØ¯Ø±ÙŠØ¨ Ø§Ù„Ø¬Ø±Ø§Ø­ÙŠ ÙˆÙ…Ø¹Ø§Ù…Ù„ Ø§Ù„Ù…Ù‡Ø§Ø±Ø§Øª (BSS)' : 'Surgical Skills Wet Labs (BSS)'}</option>
+                                                <option value="Fast-Track Concierge Visa">{isRtl ? 'ØªØ£Ø´ÙŠØ±Ø§Øª ÙˆØªØ±ØªÙŠØ¨Ø§Øª Ø§Ù…ØªØ­Ø§Ù†Ø§Øª Ù…ØµØ± Ø§Ù„Ø³Ø±ÙŠØ¹Ø©' : 'Egypt Exam Travel & Fast-Track'}</option>
+                                                <option value="Other Inquiries">{isRtl ? 'Ø§Ø³ØªÙØ³Ø§Ø±Ø§Øª Ø¹Ø§Ù…Ø© Ø£Ùˆ Ø´Ø±Ø§ÙƒØ§Øª' : 'General & Institutional Inquiries'}</option>
                                             </select>
                                         </div>
                                     </div>
 
                                     <div>
                                         <label className="block text-xs font-semibold text-slate-300 mb-1.5">
-                                            {isRtl ? 'الرسالة أو التفاصيل' : 'Message Details'}
+                                            {isRtl ? 'Ø§Ù„Ø±Ø³Ø§Ù„Ø© Ø£Ùˆ Ø§Ù„ØªÙØ§ØµÙŠÙ„' : 'Message Details'}
                                         </label>
                                         <textarea
                                             rows={4}
                                             value={form.message}
                                             onChange={(e) => setForm({ ...form, message: e.target.value })}
-                                            placeholder={isRtl ? 'اكتب استفسارك هنا...' : 'How can our academic coordination team assist you?'}
+                                            placeholder={isRtl ? 'Ø§ÙƒØªØ¨ Ø§Ø³ØªÙØ³Ø§Ø±Ùƒ Ù‡Ù†Ø§...' : 'How can our academic coordination team assist you?'}
                                             className="w-full rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-white outline-none transition-all placeholder:text-white/40 focus:border-[#00F2FE]/50 focus:bg-white/10 focus:ring-2 focus:ring-[#00F2FE]/20"
                                         />
                                     </div>
@@ -256,7 +256,7 @@ export default function ContactPage() {
                                             <Zap className="h-5 w-5 animate-pulse" />
                                         ) : (
                                             <>
-                                                <span>{isRtl ? 'إرسال الاستفسار' : 'Send Message'}</span>
+                                                <span>{isRtl ? 'Ø¥Ø±Ø³Ø§Ù„ Ø§Ù„Ø§Ø³ØªÙØ³Ø§Ø±' : 'Send Message'}</span>
                                                 {isRtl ? <ArrowRight className="h-4 w-4 rotate-180" /> : <ArrowRight className="h-4 w-4" />}
                                             </>
                                         )}

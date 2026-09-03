@@ -1,4 +1,4 @@
-import { ICON_CHEVRON_DOWN, ICON_BOLD, ICON_ITALIC, ICON_UNDERLINE, ICON_ALIGN_LEFT, ICON_MORE, ICON_LINK, ICON_SPARKLES } from "../../../constants/icons.js";
+﻿import { ICON_CHEVRON_DOWN, ICON_BOLD, ICON_ITALIC, ICON_UNDERLINE, ICON_ALIGN_LEFT, ICON_MORE, ICON_LINK, ICON_SPARKLES } from "../../../constants/icons.js";
 
 /** DOM id for the floating text-format toolbar root element. */
 export const TOOLBAR_ID = 'text-format-toolbar';

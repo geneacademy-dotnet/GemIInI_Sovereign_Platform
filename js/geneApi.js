@@ -1,4 +1,4 @@
-/**
+﻿/**
  * SudaGene Consortium - Independent Telemetry API
  * Features: IndexedDB Offline Caching & Background Sync Queue
  */

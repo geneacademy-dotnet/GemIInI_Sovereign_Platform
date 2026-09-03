@@ -1,4 +1,4 @@
-
+﻿
 /// <reference path="../pb_data/types.d.ts" />
 
 // Routes every _logs row to stdout/stderr on production

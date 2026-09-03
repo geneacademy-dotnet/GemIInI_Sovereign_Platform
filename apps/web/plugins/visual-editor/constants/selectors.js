@@ -1,4 +1,4 @@
-/** CSS properties captured in DOM context payloads sent to the parent frame. */
+﻿/** CSS properties captured in DOM context payloads sent to the parent frame. */
 export const IMPORTANT_STYLES = [
 	'display',
 	'position',

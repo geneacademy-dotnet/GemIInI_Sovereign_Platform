@@ -1,4 +1,4 @@
-export const HOVER_OUTLINE_CLASS = 'inline-editor-hover-outline';
+﻿export const HOVER_OUTLINE_CLASS = 'inline-editor-hover-outline';
 export const LOCKED_OUTLINE_CLASS = 'inline-editor-locked-outline';
 
 /** @param {HTMLElement|HTMLElement[]|null} value @returns {HTMLElement[]} */
@@ -50,7 +50,7 @@ export function releaseHoverOutline() {
 }
 
 /**
- * Solid outline for a committed selection — a drag preview, a shift+click
+ * Solid outline for a committed selection â€” a drag preview, a shift+click
  * group, or the element(s) an open annotation panel targets.
  * @param {HTMLElement|HTMLElement[]} elements
  */

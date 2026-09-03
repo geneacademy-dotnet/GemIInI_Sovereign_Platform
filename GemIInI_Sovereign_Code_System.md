@@ -1,6 +1,6 @@
-# GemIInI SudaGene Platform & SudaGene Consortium
+﻿# GemIInI SudaGene Platform & SudaGene Consortium
 **Full System Architecture & Source Code Export**
-**Release:** v2.0 (August 2026) | **Status:** DEPLOYMENT READY 🚀
+**Release:** v2.0 (August 2026) | **Status:** DEPLOYMENT READY ðŸš€
 
 > [!IMPORTANT]
 > **Strategic Capability**
@@ -18,11 +18,11 @@ This document encapsulates the core frontend and operational code system of the 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GemIInI Academy & SudaGene Consortium | البوابة السريرية والأكاديمية المعتمدة</title>
-    <meta name="description" content="المنظومة السريرية الرقمية الرائدة للأطباء والباحثين: البرنامج التدريبي المتقدم للإنعاش القلبي الرئوي الأساسي (AHA BLS Provider) بالقاهرة، السجل الوطني لكليات الطب الـ 63+، محاكي القرارات السريرية MTC™، والتحقق الفوري SudaPass.">
+    <title>GemIInI Academy & SudaGene Consortium | Ø§Ù„Ø¨ÙˆØ§Ø¨Ø© Ø§Ù„Ø³Ø±ÙŠØ±ÙŠØ© ÙˆØ§Ù„Ø£ÙƒØ§Ø¯ÙŠÙ…ÙŠØ© Ø§Ù„Ù…Ø¹ØªÙ…Ø¯Ø©</title>
+    <meta name="description" content="Ø§Ù„Ù…Ù†Ø¸ÙˆÙ…Ø© Ø§Ù„Ø³Ø±ÙŠØ±ÙŠØ© Ø§Ù„Ø±Ù‚Ù…ÙŠØ© Ø§Ù„Ø±Ø§Ø¦Ø¯Ø© Ù„Ù„Ø£Ø·Ø¨Ø§Ø¡ ÙˆØ§Ù„Ø¨Ø§Ø­Ø«ÙŠÙ†: Ø§Ù„Ø¨Ø±Ù†Ø§Ù…Ø¬ Ø§Ù„ØªØ¯Ø±ÙŠØ¨ÙŠ Ø§Ù„Ù…ØªÙ‚Ø¯Ù… Ù„Ù„Ø¥Ù†Ø¹Ø§Ø´ Ø§Ù„Ù‚Ù„Ø¨ÙŠ Ø§Ù„Ø±Ø¦ÙˆÙŠ Ø§Ù„Ø£Ø³Ø§Ø³ÙŠ (AHA BLS Provider) Ø¨Ø§Ù„Ù‚Ø§Ù‡Ø±Ø©ØŒ Ø§Ù„Ø³Ø¬Ù„ Ø§Ù„ÙˆØ·Ù†ÙŠ Ù„ÙƒÙ„ÙŠØ§Øª Ø§Ù„Ø·Ø¨ Ø§Ù„Ù€ 63+ØŒ Ù…Ø­Ø§ÙƒÙŠ Ø§Ù„Ù‚Ø±Ø§Ø±Ø§Øª Ø§Ù„Ø³Ø±ÙŠØ±ÙŠØ© MTCâ„¢ØŒ ÙˆØ§Ù„ØªØ­Ù‚Ù‚ Ø§Ù„ÙÙˆØ±ÙŠ SudaPass.">
  
-    <meta property="og:title" content="GemIInI Academy | المنظومة السريرية المعتمدة للأطباء">
-    <meta property="og:description" content="سجل في البرنامج التدريبي المتقدم للإنعاش القلبي الرئوي الأساسي (AHA BLS Provider) بالقاهرة، وتصفح السجل الوطني لكليات الطب السودانية الـ 63+ وتدقيق الشهادات.">
+    <meta property="og:title" content="GemIInI Academy | Ø§Ù„Ù…Ù†Ø¸ÙˆÙ…Ø© Ø§Ù„Ø³Ø±ÙŠØ±ÙŠØ© Ø§Ù„Ù…Ø¹ØªÙ…Ø¯Ø© Ù„Ù„Ø£Ø·Ø¨Ø§Ø¡">
+    <meta property="og:description" content="Ø³Ø¬Ù„ ÙÙŠ Ø§Ù„Ø¨Ø±Ù†Ø§Ù…Ø¬ Ø§Ù„ØªØ¯Ø±ÙŠØ¨ÙŠ Ø§Ù„Ù…ØªÙ‚Ø¯Ù… Ù„Ù„Ø¥Ù†Ø¹Ø§Ø´ Ø§Ù„Ù‚Ù„Ø¨ÙŠ Ø§Ù„Ø±Ø¦ÙˆÙŠ Ø§Ù„Ø£Ø³Ø§Ø³ÙŠ (AHA BLS Provider) Ø¨Ø§Ù„Ù‚Ø§Ù‡Ø±Ø©ØŒ ÙˆØªØµÙØ­ Ø§Ù„Ø³Ø¬Ù„ Ø§Ù„ÙˆØ·Ù†ÙŠ Ù„ÙƒÙ„ÙŠØ§Øª Ø§Ù„Ø·Ø¨ Ø§Ù„Ø³ÙˆØ¯Ø§Ù†ÙŠØ© Ø§Ù„Ù€ 63+ ÙˆØªØ¯Ù‚ÙŠÙ‚ Ø§Ù„Ø´Ù‡Ø§Ø¯Ø§Øª.">
     <meta property="og:type" content="website">
  
     <!-- Google tag (gtag.js) -->
@@ -71,11 +71,11 @@ This document encapsulates the core frontend and operational code system of the 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 py-2.5 flex items-center justify-between gap-4 text-xs sm:text-sm">
             <div class="flex items-center gap-2">
                 <span class="w-2.5 h-2.5 rounded-full bg-red-500 animate-ping"></span>
-                <span class="font-bold text-white">البرنامج التدريبي المتقدم للإنعاش القلبي الرئوي الأساسي (AHA BLS Provider) بالقاهرة:</span>
-                <span class="text-gray-400 hidden sm:inline">الجمعة 4 سبتمبر 2026 • تدريب سريري عالي الدقة بنظام المحطة الفردية بمركز د. صبري (ترخيص 1549) بالدقي</span>
+                <span class="font-bold text-white">Ø§Ù„Ø¨Ø±Ù†Ø§Ù…Ø¬ Ø§Ù„ØªØ¯Ø±ÙŠØ¨ÙŠ Ø§Ù„Ù…ØªÙ‚Ø¯Ù… Ù„Ù„Ø¥Ù†Ø¹Ø§Ø´ Ø§Ù„Ù‚Ù„Ø¨ÙŠ Ø§Ù„Ø±Ø¦ÙˆÙŠ Ø§Ù„Ø£Ø³Ø§Ø³ÙŠ (AHA BLS Provider) Ø¨Ø§Ù„Ù‚Ø§Ù‡Ø±Ø©:</span>
+                <span class="text-gray-400 hidden sm:inline">Ø§Ù„Ø¬Ù…Ø¹Ø© 4 Ø³Ø¨ØªÙ…Ø¨Ø± 2026 â€¢ ØªØ¯Ø±ÙŠØ¨ Ø³Ø±ÙŠØ±ÙŠ Ø¹Ø§Ù„ÙŠ Ø§Ù„Ø¯Ù‚Ø© Ø¨Ù†Ø¸Ø§Ù… Ø§Ù„Ù…Ø­Ø·Ø© Ø§Ù„ÙØ±Ø¯ÙŠØ© Ø¨Ù…Ø±ÙƒØ² Ø¯. ØµØ¨Ø±ÙŠ (ØªØ±Ø®ÙŠØµ 1549) Ø¨Ø§Ù„Ø¯Ù‚ÙŠ</span>
             </div>
             <a href="bls.html" class="px-3.5 py-1 rounded-full bg-cyan/10 text-cyan border border-cyan/30 hover:bg-cyan hover:text-obsidian transition-all font-bold text-xs font-mono">
-                تثبيت التسجيل السريري فوري ➔
+                ØªØ«Ø¨ÙŠØª Ø§Ù„ØªØ³Ø¬ÙŠÙ„ Ø§Ù„Ø³Ø±ÙŠØ±ÙŠ ÙÙˆØ±ÙŠ âž”
             </a>
         </div>
     </aside>
@@ -90,17 +90,17 @@ This document encapsulates the core frontend and operational code system of the 
                 </div>
             </a>
             <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-gray-300">
-                <a href="index.html" class="text-cyan font-bold">الرئيسية</a>
-                <a href="courses.html" class="hover:text-cyan transition-colors">المسارات التخصصية والوحدات السريرية (MTC™)</a>
-                <a href="bls.html" class="hover:text-cyan transition-colors">برنامج الإنعاش المتقدم (AHA BLS Provider) - القاهرة</a>
-                <a href="universities.html" class="hover:text-cyan transition-colors">السجل الوطني للجامعات وكليات الطب المعتمدة (63+)</a>
-                <a href="verify.html" class="hover:text-cyan transition-colors font-mono">SudaPass™</a>
+                <a href="index.html" class="text-cyan font-bold">Ø§Ù„Ø±Ø¦ÙŠØ³ÙŠØ©</a>
+                <a href="courses.html" class="hover:text-cyan transition-colors">Ø§Ù„Ù…Ø³Ø§Ø±Ø§Øª Ø§Ù„ØªØ®ØµØµÙŠØ© ÙˆØ§Ù„ÙˆØ­Ø¯Ø§Øª Ø§Ù„Ø³Ø±ÙŠØ±ÙŠØ© (MTCâ„¢)</a>
+                <a href="bls.html" class="hover:text-cyan transition-colors">Ø¨Ø±Ù†Ø§Ù…Ø¬ Ø§Ù„Ø¥Ù†Ø¹Ø§Ø´ Ø§Ù„Ù…ØªÙ‚Ø¯Ù… (AHA BLS Provider) - Ø§Ù„Ù‚Ø§Ù‡Ø±Ø©</a>
+                <a href="universities.html" class="hover:text-cyan transition-colors">Ø§Ù„Ø³Ø¬Ù„ Ø§Ù„ÙˆØ·Ù†ÙŠ Ù„Ù„Ø¬Ø§Ù…Ø¹Ø§Øª ÙˆÙƒÙ„ÙŠØ§Øª Ø§Ù„Ø·Ø¨ Ø§Ù„Ù…Ø¹ØªÙ…Ø¯Ø© (63+)</a>
+                <a href="verify.html" class="hover:text-cyan transition-colors font-mono">SudaPassâ„¢</a>
             </nav>
             <div class="flex items-center gap-3">
                 <a href="https://wa.me/2+20 101 592 2628" target="_blank" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-bold text-gray-200 transition-all font-mono">
-                    <span>أمانة العمليات والتوثيق السريري:</span><span class="text-cyan">+20 101 592 2628</span>
+                    <span>Ø£Ù…Ø§Ù†Ø© Ø§Ù„Ø¹Ù…Ù„ÙŠØ§Øª ÙˆØ§Ù„ØªÙˆØ«ÙŠÙ‚ Ø§Ù„Ø³Ø±ÙŠØ±ÙŠ:</span><span class="text-cyan">+20 101 592 2628</span>
                 </a>
-                <a href="bls.html" class="px-5 py-2.5 rounded-xl bg-cyan text-obsidian font-bold text-xs sm:text-sm glow-btn">تثبيت التسجيل والاعتماد السريري ➔</a>
+                <a href="bls.html" class="px-5 py-2.5 rounded-xl bg-cyan text-obsidian font-bold text-xs sm:text-sm glow-btn">ØªØ«Ø¨ÙŠØª Ø§Ù„ØªØ³Ø¬ÙŠÙ„ ÙˆØ§Ù„Ø§Ø¹ØªÙ…Ø§Ø¯ Ø§Ù„Ø³Ø±ÙŠØ±ÙŠ âž”</a>
             </div>
         </div>
     </header>
@@ -110,21 +110,21 @@ This document encapsulates the core frontend and operational code system of the 
             <div class="lg:col-span-7 space-y-6 text-right">
                 <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan/10 border border-cyan/30 text-xs font-mono text-cyan">
                     <span class="w-2 h-2 rounded-full bg-cyan animate-pulse"></span>
-                    THE Independent CLINICAL PLATFORM · ECTS ACCREDITED
+                    THE Independent CLINICAL PLATFORM Â· ECTS ACCREDITED
                 </div>
                 <h1 class="text-4xl sm:text-6xl font-black text-white leading-[1.15]">
-                    التعليم الطبي المتقدم،<br>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-l from-cyan via-blue-400 to-white">بالمحاكاة السريرية والاعتماد الموثق.</span>
+                    Ø§Ù„ØªØ¹Ù„ÙŠÙ… Ø§Ù„Ø·Ø¨ÙŠ Ø§Ù„Ù…ØªÙ‚Ø¯Ù…ØŒ<br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-l from-cyan via-blue-400 to-white">Ø¨Ø§Ù„Ù…Ø­Ø§ÙƒØ§Ø© Ø§Ù„Ø³Ø±ÙŠØ±ÙŠØ© ÙˆØ§Ù„Ø§Ø¹ØªÙ…Ø§Ø¯ Ø§Ù„Ù…ÙˆØ«Ù‚.</span>
                 </h1>
                 <p class="text-gray-300 text-base sm:text-lg leading-relaxed max-w-2xl">
-                    المظلة السريرية والأكاديمية المعتمدة للأطباء والباحثين في مسارات الترخيص (SMC / MRCS / OET) والتدريب الميداني المتقدم. تدريب عملي 1:1، محاكاة القرارات MTC™، وتوثيق الساعات بالسجل العام.
+                    Ø§Ù„Ù…Ø¸Ù„Ø© Ø§Ù„Ø³Ø±ÙŠØ±ÙŠØ© ÙˆØ§Ù„Ø£ÙƒØ§Ø¯ÙŠÙ…ÙŠØ© Ø§Ù„Ù…Ø¹ØªÙ…Ø¯Ø© Ù„Ù„Ø£Ø·Ø¨Ø§Ø¡ ÙˆØ§Ù„Ø¨Ø§Ø­Ø«ÙŠÙ† ÙÙŠ Ù…Ø³Ø§Ø±Ø§Øª Ø§Ù„ØªØ±Ø®ÙŠØµ (SMC / MRCS / OET) ÙˆØ§Ù„ØªØ¯Ø±ÙŠØ¨ Ø§Ù„Ù…ÙŠØ¯Ø§Ù†ÙŠ Ø§Ù„Ù…ØªÙ‚Ø¯Ù…. ØªØ¯Ø±ÙŠØ¨ Ø¹Ù…Ù„ÙŠ 1:1ØŒ Ù…Ø­Ø§ÙƒØ§Ø© Ø§Ù„Ù‚Ø±Ø§Ø±Ø§Øª MTCâ„¢ØŒ ÙˆØªÙˆØ«ÙŠÙ‚ Ø§Ù„Ø³Ø§Ø¹Ø§Øª Ø¨Ø§Ù„Ø³Ø¬Ù„ Ø§Ù„Ø¹Ø§Ù….
                 </p>
                 <div class="flex flex-wrap gap-4 pt-4">
                     <a href="bls.html" class="px-7 py-4 rounded-2xl bg-cyan text-obsidian font-bold text-sm sm:text-base glow-btn flex items-center gap-3">
-                        <span>حجز برنامج الإنعاش المتقدم (AHA BLS Provider) - القاهرة (28 أغسطس)</span> <span>➔</span>
+                        <span>Ø­Ø¬Ø² Ø¨Ø±Ù†Ø§Ù…Ø¬ Ø§Ù„Ø¥Ù†Ø¹Ø§Ø´ Ø§Ù„Ù…ØªÙ‚Ø¯Ù… (AHA BLS Provider) - Ø§Ù„Ù‚Ø§Ù‡Ø±Ø© (28 Ø£ØºØ³Ø·Ø³)</span> <span>âž”</span>
                     </a>
                     <a href="universities.html" class="px-7 py-4 rounded-2xl bg-surface hover:bg-card text-white font-bold text-sm sm:text-base border border-white/10 hover:border-cyan/40 transition-all flex items-center gap-2">
-                        <span>دليل كليات الطب الـ 63+</span> <span class="text-gold">🎓</span>
+                        <span>Ø¯Ù„ÙŠÙ„ ÙƒÙ„ÙŠØ§Øª Ø§Ù„Ø·Ø¨ Ø§Ù„Ù€ 63+</span> <span class="text-gold">ðŸŽ“</span>
                     </a>
                 </div>
             </div>
@@ -134,24 +134,24 @@ This document encapsulates the core frontend and operational code system of the 
                     <div class="flex items-center justify-between pb-4 border-b border-white/10">
                         <div>
                             <span class="text-[11px] font-mono text-cyan uppercase tracking-wider block">CLINICAL HARDWARE RATIO</span>
-                            <span class="text-2xl font-black text-white">نسبة التدريب: 1:1</span>
+                            <span class="text-2xl font-black text-white">Ù†Ø³Ø¨Ø© Ø§Ù„ØªØ¯Ø±ÙŠØ¨: 1:1</span>
                         </div>
                         <span class="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 text-xs font-bold font-mono">100% HANDS-ON</span>
                     </div>
                     <div class="p-4 rounded-2xl bg-obsidian/60 border border-white/5 space-y-2 text-xs">
                         <div class="flex items-center justify-between">
-                            <span class="font-bold text-white text-sm">دمى الإنعاش الذكية (Smart Manikins)</span>
+                            <span class="font-bold text-white text-sm">Ø¯Ù…Ù‰ Ø§Ù„Ø¥Ù†Ø¹Ø§Ø´ Ø§Ù„Ø°ÙƒÙŠØ© (Smart Manikins)</span>
                             <span class="text-gold font-mono font-bold">+200 GP</span>
                         </div>
-                        <p class="text-gray-400 leading-relaxed">تدريب مباشر لكل طبيب على دمية مستقلة مع قياس فوري لعمق الضغطات والتردد الحركي والارتداد الصدري بمركز د. صبري (ترخيص 1549).</p>
+                        <p class="text-gray-400 leading-relaxed">ØªØ¯Ø±ÙŠØ¨ Ù…Ø¨Ø§Ø´Ø± Ù„ÙƒÙ„ Ø·Ø¨ÙŠØ¨ Ø¹Ù„Ù‰ Ø¯Ù…ÙŠØ© Ù…Ø³ØªÙ‚Ù„Ø© Ù…Ø¹ Ù‚ÙŠØ§Ø³ ÙÙˆØ±ÙŠ Ù„Ø¹Ù…Ù‚ Ø§Ù„Ø¶ØºØ·Ø§Øª ÙˆØ§Ù„ØªØ±Ø¯Ø¯ Ø§Ù„Ø­Ø±ÙƒÙŠ ÙˆØ§Ù„Ø§Ø±ØªØ¯Ø§Ø¯ Ø§Ù„ØµØ¯Ø±ÙŠ Ø¨Ù…Ø±ÙƒØ² Ø¯. ØµØ¨Ø±ÙŠ (ØªØ±Ø®ÙŠØµ 1549).</p>
                     </div>
                     <div class="space-y-2 pt-2">
                         <div class="flex justify-between text-xs font-mono">
-                            <span class="text-gray-400">سعر التسجيل:</span>
-                            <span class="text-white font-bold text-sm">3,000 ج.م</span>
+                            <span class="text-gray-400">Ø³Ø¹Ø± Ø§Ù„ØªØ³Ø¬ÙŠÙ„:</span>
+                            <span class="text-white font-bold text-sm">3,000 Ø¬.Ù…</span>
                         </div>
                         <a href="bls.html" class="block w-full text-center py-3.5 rounded-xl bg-cyan text-obsidian font-bold text-xs sm:text-sm glow-btn">
-                            تأكيد المقعد بالدقي ➔
+                            ØªØ£ÙƒÙŠØ¯ Ø§Ù„Ù…Ù‚Ø¹Ø¯ Ø¨Ø§Ù„Ø¯Ù‚ÙŠ âž”
                         </a>
                     </div>
                 </div>
@@ -160,38 +160,38 @@ This document encapsulates the core frontend and operational code system of the 
  
         <section class="space-y-12">
             <div class="text-center space-y-4 max-w-3xl mx-auto">
-                <h2 class="text-3xl sm:text-4xl font-black text-white">المنظومة السيادية لتطوير الكوادر الطبية</h2>
+                <h2 class="text-3xl sm:text-4xl font-black text-white">Ø§Ù„Ù…Ù†Ø¸ÙˆÙ…Ø© Ø§Ù„Ø³ÙŠØ§Ø¯ÙŠØ© Ù„ØªØ·ÙˆÙŠØ± Ø§Ù„ÙƒÙˆØ§Ø¯Ø± Ø§Ù„Ø·Ø¨ÙŠØ©</h2>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- 1 -->
                 <div class="glass-panel p-6 rounded-2xl space-y-3">
-                    <span class="text-2xl block">🌐</span>
-                    <h3 class="text-lg font-bold text-cyan">عن تحالف سوداجين (SudaGene Consortium)</h3>
-                    <p class="text-sm text-gray-300 leading-relaxed">المنظومة السيادية لتطوير الكوادر الطبية والاعتماد السريري. بنية تحتية رقمية صلبة مُصممة لتمكين الأطباء والعلماء السودانيين، مدعومة بمحركات تقييم قياسية، وموثقة رقمياً بتشفير (SHA-256) لضمان النزاهة والموثوقية المطلقة.</p>
+                    <span class="text-2xl block">ðŸŒ</span>
+                    <h3 class="text-lg font-bold text-cyan">Ø¹Ù† ØªØ­Ø§Ù„Ù Ø³ÙˆØ¯Ø§Ø¬ÙŠÙ† (SudaGene Consortium)</h3>
+                    <p class="text-sm text-gray-300 leading-relaxed">Ø§Ù„Ù…Ù†Ø¸ÙˆÙ…Ø© Ø§Ù„Ø³ÙŠØ§Ø¯ÙŠØ© Ù„ØªØ·ÙˆÙŠØ± Ø§Ù„ÙƒÙˆØ§Ø¯Ø± Ø§Ù„Ø·Ø¨ÙŠØ© ÙˆØ§Ù„Ø§Ø¹ØªÙ…Ø§Ø¯ Ø§Ù„Ø³Ø±ÙŠØ±ÙŠ. Ø¨Ù†ÙŠØ© ØªØ­ØªÙŠØ© Ø±Ù‚Ù…ÙŠØ© ØµÙ„Ø¨Ø© Ù…ÙØµÙ…Ù…Ø© Ù„ØªÙ…ÙƒÙŠÙ† Ø§Ù„Ø£Ø·Ø¨Ø§Ø¡ ÙˆØ§Ù„Ø¹Ù„Ù…Ø§Ø¡ Ø§Ù„Ø³ÙˆØ¯Ø§Ù†ÙŠÙŠÙ†ØŒ Ù…Ø¯Ø¹ÙˆÙ…Ø© Ø¨Ù…Ø­Ø±ÙƒØ§Øª ØªÙ‚ÙŠÙŠÙ… Ù‚ÙŠØ§Ø³ÙŠØ©ØŒ ÙˆÙ…ÙˆØ«Ù‚Ø© Ø±Ù‚Ù…ÙŠØ§Ù‹ Ø¨ØªØ´ÙÙŠØ± (SHA-256) Ù„Ø¶Ù…Ø§Ù† Ø§Ù„Ù†Ø²Ø§Ù‡Ø© ÙˆØ§Ù„Ù…ÙˆØ«ÙˆÙ‚ÙŠØ© Ø§Ù„Ù…Ø·Ù„Ù‚Ø©.</p>
                 </div>
                 <!-- 2 -->
                 <div class="glass-panel p-6 rounded-2xl space-y-3">
-                    <span class="text-2xl block">✈️</span>
-                    <h3 class="text-lg font-bold text-cyan">الحراك المهني العابر للحدود (Independent Global Mobility)</h3>
-                    <p class="text-sm text-gray-300 leading-relaxed">منظومة اعتماد تتجاوز القيود الجغرافية وتحديات الانقطاع الأكاديمي. سجل مهني رقمي لا مركزي (E-Logbook) يرافق الطبيب في كل مكان، ليضمن استمرارية الاعتراف بكفاءته السريرية أمام جهات الترخيص والتوظيف الدولية (NHS, SCFHS, ECFMG).</p>
+                    <span class="text-2xl block">âœˆï¸</span>
+                    <h3 class="text-lg font-bold text-cyan">Ø§Ù„Ø­Ø±Ø§Ùƒ Ø§Ù„Ù…Ù‡Ù†ÙŠ Ø§Ù„Ø¹Ø§Ø¨Ø± Ù„Ù„Ø­Ø¯ÙˆØ¯ (Independent Global Mobility)</h3>
+                    <p class="text-sm text-gray-300 leading-relaxed">Ù…Ù†Ø¸ÙˆÙ…Ø© Ø§Ø¹ØªÙ…Ø§Ø¯ ØªØªØ¬Ø§ÙˆØ² Ø§Ù„Ù‚ÙŠÙˆØ¯ Ø§Ù„Ø¬ØºØ±Ø§ÙÙŠØ© ÙˆØªØ­Ø¯ÙŠØ§Øª Ø§Ù„Ø§Ù†Ù‚Ø·Ø§Ø¹ Ø§Ù„Ø£ÙƒØ§Ø¯ÙŠÙ…ÙŠ. Ø³Ø¬Ù„ Ù…Ù‡Ù†ÙŠ Ø±Ù‚Ù…ÙŠ Ù„Ø§ Ù…Ø±ÙƒØ²ÙŠ (E-Logbook) ÙŠØ±Ø§ÙÙ‚ Ø§Ù„Ø·Ø¨ÙŠØ¨ ÙÙŠ ÙƒÙ„ Ù…ÙƒØ§Ù†ØŒ Ù„ÙŠØ¶Ù…Ù† Ø§Ø³ØªÙ…Ø±Ø§Ø±ÙŠØ© Ø§Ù„Ø§Ø¹ØªØ±Ø§Ù Ø¨ÙƒÙØ§Ø¡ØªÙ‡ Ø§Ù„Ø³Ø±ÙŠØ±ÙŠØ© Ø£Ù…Ø§Ù… Ø¬Ù‡Ø§Øª Ø§Ù„ØªØ±Ø®ÙŠØµ ÙˆØ§Ù„ØªÙˆØ¸ÙŠÙ Ø§Ù„Ø¯ÙˆÙ„ÙŠØ© (NHS, SCFHS, ECFMG).</p>
                 </div>
                 <!-- 3 -->
                 <div class="glass-panel p-6 rounded-2xl space-y-3">
-                    <span class="text-2xl block">🧬</span>
-                    <h3 class="text-lg font-bold text-cyan">الريادة في الطب الجزيئي (Genomic Literacy & Precision Medicine)</h3>
-                    <p class="text-sm text-gray-300 leading-relaxed">الارتقاء بالممارسة الطبية من التشخيص التقليدي إلى الطب الدقيق. نرسخ الثقافة الجينومية والطب الجزيئي (بمعايير Illumina) كقدرة وطنية سيادية، لتأهيل الكوادر السودانية لقيادة قطاعات التكنولوجيا الحيوية والأبحاث المتقدمة.</p>
+                    <span class="text-2xl block">ðŸ§¬</span>
+                    <h3 class="text-lg font-bold text-cyan">Ø§Ù„Ø±ÙŠØ§Ø¯Ø© ÙÙŠ Ø§Ù„Ø·Ø¨ Ø§Ù„Ø¬Ø²ÙŠØ¦ÙŠ (Genomic Literacy & Precision Medicine)</h3>
+                    <p class="text-sm text-gray-300 leading-relaxed">Ø§Ù„Ø§Ø±ØªÙ‚Ø§Ø¡ Ø¨Ø§Ù„Ù…Ù…Ø§Ø±Ø³Ø© Ø§Ù„Ø·Ø¨ÙŠØ© Ù…Ù† Ø§Ù„ØªØ´Ø®ÙŠØµ Ø§Ù„ØªÙ‚Ù„ÙŠØ¯ÙŠ Ø¥Ù„Ù‰ Ø§Ù„Ø·Ø¨ Ø§Ù„Ø¯Ù‚ÙŠÙ‚. Ù†Ø±Ø³Ø® Ø§Ù„Ø«Ù‚Ø§ÙØ© Ø§Ù„Ø¬ÙŠÙ†ÙˆÙ…ÙŠØ© ÙˆØ§Ù„Ø·Ø¨ Ø§Ù„Ø¬Ø²ÙŠØ¦ÙŠ (Ø¨Ù…Ø¹Ø§ÙŠÙŠØ± Illumina) ÙƒÙ‚Ø¯Ø±Ø© ÙˆØ·Ù†ÙŠØ© Ø³ÙŠØ§Ø¯ÙŠØ©ØŒ Ù„ØªØ£Ù‡ÙŠÙ„ Ø§Ù„ÙƒÙˆØ§Ø¯Ø± Ø§Ù„Ø³ÙˆØ¯Ø§Ù†ÙŠØ© Ù„Ù‚ÙŠØ§Ø¯Ø© Ù‚Ø·Ø§Ø¹Ø§Øª Ø§Ù„ØªÙƒÙ†ÙˆÙ„ÙˆØ¬ÙŠØ§ Ø§Ù„Ø­ÙŠÙˆÙŠØ© ÙˆØ§Ù„Ø£Ø¨Ø­Ø§Ø« Ø§Ù„Ù…ØªÙ‚Ø¯Ù…Ø©.</p>
                 </div>
                 <!-- 4 -->
                 <div class="glass-panel p-6 rounded-2xl space-y-3 lg:col-span-2">
-                    <span class="text-2xl block">⚙️</span>
-                    <h3 class="text-lg font-bold text-cyan">محرك جلوميت الاستثماري والتقني (GLOMEt Infrastructure Engine)</h3>
-                    <p class="text-sm text-gray-300 leading-relaxed">اقتصاد طبي مستدام مبني على تكامل قطاع الأعمال (B2B) مع التعليم. نوجه عوائد الشراكات المؤسسية وتجهيزات التحول الرقمي الطبي لتمويل المنح السريرية وتطوير الجيل القادم من علماء التكنولوجيا الحيوية.</p>
+                    <span class="text-2xl block">âš™ï¸</span>
+                    <h3 class="text-lg font-bold text-cyan">Ù…Ø­Ø±Ùƒ Ø¬Ù„ÙˆÙ…ÙŠØª Ø§Ù„Ø§Ø³ØªØ«Ù…Ø§Ø±ÙŠ ÙˆØ§Ù„ØªÙ‚Ù†ÙŠ (GLOMEt Infrastructure Engine)</h3>
+                    <p class="text-sm text-gray-300 leading-relaxed">Ø§Ù‚ØªØµØ§Ø¯ Ø·Ø¨ÙŠ Ù…Ø³ØªØ¯Ø§Ù… Ù…Ø¨Ù†ÙŠ Ø¹Ù„Ù‰ ØªÙƒØ§Ù…Ù„ Ù‚Ø·Ø§Ø¹ Ø§Ù„Ø£Ø¹Ù…Ø§Ù„ (B2B) Ù…Ø¹ Ø§Ù„ØªØ¹Ù„ÙŠÙ…. Ù†ÙˆØ¬Ù‡ Ø¹ÙˆØ§Ø¦Ø¯ Ø§Ù„Ø´Ø±Ø§ÙƒØ§Øª Ø§Ù„Ù…Ø¤Ø³Ø³ÙŠØ© ÙˆØªØ¬Ù‡ÙŠØ²Ø§Øª Ø§Ù„ØªØ­ÙˆÙ„ Ø§Ù„Ø±Ù‚Ù…ÙŠ Ø§Ù„Ø·Ø¨ÙŠ Ù„ØªÙ…ÙˆÙŠÙ„ Ø§Ù„Ù…Ù†Ø­ Ø§Ù„Ø³Ø±ÙŠØ±ÙŠØ© ÙˆØªØ·ÙˆÙŠØ± Ø§Ù„Ø¬ÙŠÙ„ Ø§Ù„Ù‚Ø§Ø¯Ù… Ù…Ù† Ø¹Ù„Ù…Ø§Ø¡ Ø§Ù„ØªÙƒÙ†ÙˆÙ„ÙˆØ¬ÙŠØ§ Ø§Ù„Ø­ÙŠÙˆÙŠØ©.</p>
                 </div>
                 <!-- 5 -->
                 <div class="glass-panel p-6 rounded-2xl space-y-3">
-                    <span class="text-2xl block">📊</span>
-                    <h3 class="text-lg font-bold text-cyan">المعيار الوطني للتقييم السريري (The National Clinical Benchmark)</h3>
-                    <p class="text-sm text-gray-300 leading-relaxed">المرجع الأول لقياس الكفاءة السريرية عبر نموذج (MTC™). تقييمات مبنية على قياس الاستجابة الفسيولوجية واتخاذ القرار التشخيصي، تُوثّق في السجل السيادي (SudaPass) كدليل قاطع للمستشفيات وجهات التوظيف.</p>
+                    <span class="text-2xl block">ðŸ“Š</span>
+                    <h3 class="text-lg font-bold text-cyan">Ø§Ù„Ù…Ø¹ÙŠØ§Ø± Ø§Ù„ÙˆØ·Ù†ÙŠ Ù„Ù„ØªÙ‚ÙŠÙŠÙ… Ø§Ù„Ø³Ø±ÙŠØ±ÙŠ (The National Clinical Benchmark)</h3>
+                    <p class="text-sm text-gray-300 leading-relaxed">Ø§Ù„Ù…Ø±Ø¬Ø¹ Ø§Ù„Ø£ÙˆÙ„ Ù„Ù‚ÙŠØ§Ø³ Ø§Ù„ÙƒÙØ§Ø¡Ø© Ø§Ù„Ø³Ø±ÙŠØ±ÙŠØ© Ø¹Ø¨Ø± Ù†Ù…ÙˆØ°Ø¬ (MTCâ„¢). ØªÙ‚ÙŠÙŠÙ…Ø§Øª Ù…Ø¨Ù†ÙŠØ© Ø¹Ù„Ù‰ Ù‚ÙŠØ§Ø³ Ø§Ù„Ø§Ø³ØªØ¬Ø§Ø¨Ø© Ø§Ù„ÙØ³ÙŠÙˆÙ„ÙˆØ¬ÙŠØ© ÙˆØ§ØªØ®Ø§Ø° Ø§Ù„Ù‚Ø±Ø§Ø± Ø§Ù„ØªØ´Ø®ÙŠØµÙŠØŒ ØªÙÙˆØ«Ù‘Ù‚ ÙÙŠ Ø§Ù„Ø³Ø¬Ù„ Ø§Ù„Ø³ÙŠØ§Ø¯ÙŠ (SudaPass) ÙƒØ¯Ù„ÙŠÙ„ Ù‚Ø§Ø·Ø¹ Ù„Ù„Ù…Ø³ØªØ´ÙÙŠØ§Øª ÙˆØ¬Ù‡Ø§Øª Ø§Ù„ØªÙˆØ¸ÙŠÙ.</p>
                 </div>
             </div>
         </section>
@@ -200,24 +200,24 @@ This document encapsulates the core frontend and operational code system of the 
     <footer class="bg-[#02050B] border-t border-white/10 py-12 text-xs text-gray-400 mt-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
             <div class="space-y-3 md:col-span-2">
-                <span class="text-base font-black text-white block">GemIInI Academy · SudaGene Consortium</span>
-                <p class="text-gray-400 text-xs leading-relaxed max-w-md">المظلة الأكاديمية والسريرية المعتمدة لتأهيل الأطباء والباحثين.</p>
+                <span class="text-base font-black text-white block">GemIInI Academy Â· SudaGene Consortium</span>
+                <p class="text-gray-400 text-xs leading-relaxed max-w-md">Ø§Ù„Ù…Ø¸Ù„Ø© Ø§Ù„Ø£ÙƒØ§Ø¯ÙŠÙ…ÙŠØ© ÙˆØ§Ù„Ø³Ø±ÙŠØ±ÙŠØ© Ø§Ù„Ù…Ø¹ØªÙ…Ø¯Ø© Ù„ØªØ£Ù‡ÙŠÙ„ Ø§Ù„Ø£Ø·Ø¨Ø§Ø¡ ÙˆØ§Ù„Ø¨Ø§Ø­Ø«ÙŠÙ†.</p>
             </div>
             <div>
-                <span class="font-bold text-white block mb-3 text-sm">الروابط الرسمية</span>
+                <span class="font-bold text-white block mb-3 text-sm">Ø§Ù„Ø±ÙˆØ§Ø¨Ø· Ø§Ù„Ø±Ø³Ù…ÙŠØ©</span>
                 <ul class="space-y-2">
-                    <li><a href="bls.html" class="hover:text-cyan transition-colors">برنامج الإنعاش المتقدم (AHA BLS Provider) - القاهرة</a></li>
-                    <li><a href="universities.html" class="hover:text-cyan transition-colors">دليل كليات الطب 63+</a></li>
-                    <li><a href="verify.html" class="hover:text-cyan transition-colors font-mono">التحقق SudaPass™</a></li>
+                    <li><a href="bls.html" class="hover:text-cyan transition-colors">Ø¨Ø±Ù†Ø§Ù…Ø¬ Ø§Ù„Ø¥Ù†Ø¹Ø§Ø´ Ø§Ù„Ù…ØªÙ‚Ø¯Ù… (AHA BLS Provider) - Ø§Ù„Ù‚Ø§Ù‡Ø±Ø©</a></li>
+                    <li><a href="universities.html" class="hover:text-cyan transition-colors">Ø¯Ù„ÙŠÙ„ ÙƒÙ„ÙŠØ§Øª Ø§Ù„Ø·Ø¨ 63+</a></li>
+                    <li><a href="verify.html" class="hover:text-cyan transition-colors font-mono">Ø§Ù„ØªØ­Ù‚Ù‚ SudaPassâ„¢</a></li>
                 </ul>
             </div>
             <div>
-                <span class="font-bold text-white block mb-3 text-sm">أمانة العمليات والتوثيق السريري</span>
+                <span class="font-bold text-white block mb-3 text-sm">Ø£Ù…Ø§Ù†Ø© Ø§Ù„Ø¹Ù…Ù„ÙŠØ§Øª ÙˆØ§Ù„ØªÙˆØ«ÙŠÙ‚ Ø§Ù„Ø³Ø±ÙŠØ±ÙŠ</span>
                 <ul class="space-y-2 font-mono">
-                    <li>فودافون كاش / إنستاباي:</li>
+                    <li>ÙÙˆØ¯Ø§ÙÙˆÙ† ÙƒØ§Ø´ / Ø¥Ù†Ø³ØªØ§Ø¨Ø§ÙŠ:</li>
                     <li class="text-cyan font-bold text-sm">+20 101 592 2628</li>
-                    <li>واتساب: +20 101 592 2628</li>
-                    <li class="text-gray-500">مركز د. صبري (ترخيص 1549) - الدقي</li>
+                    <li>ÙˆØ§ØªØ³Ø§Ø¨: +20 101 592 2628</li>
+                    <li class="text-gray-500">Ù…Ø±ÙƒØ² Ø¯. ØµØ¨Ø±ÙŠ (ØªØ±Ø®ÙŠØµ 1549) - Ø§Ù„Ø¯Ù‚ÙŠ</li>
                 </ul>
     <!-- ADMINISTRATOR CONSOLE: DSII REAL-TIME TRACKING -->
     <section id="admin-dsii-console" class="max-w-7xl mx-auto px-4 sm:px-6 pb-20 hidden">
@@ -226,7 +226,7 @@ This document encapsulates the core frontend and operational code system of the 
                 <div>
                     <h2 class="text-2xl font-black text-white flex items-center gap-3">
                         <span class="w-3 h-3 rounded-full bg-cyan animate-pulse"></span>
-                        وحدة تحكم المراقب (DSII Telemetry)
+                        ÙˆØ­Ø¯Ø© ØªØ­ÙƒÙ… Ø§Ù„Ù…Ø±Ø§Ù‚Ø¨ (DSII Telemetry)
                     </h2>
                     <p class="text-gray-400 font-mono text-sm mt-1">LIVE: EXAM_AUDIT_LOG_STREAM</p>
                 </div>
@@ -247,7 +247,7 @@ This document encapsulates the core frontend and operational code system of the 
                             <span class="text-3xl font-black text-white font-mono" id="dsii-score">100%</span>
                         </div>
                     </div>
-                    <h3 class="font-bold text-gray-300">مؤشر النزاهة الرقمية</h3>
+                    <h3 class="font-bold text-gray-300">Ù…Ø¤Ø´Ø± Ø§Ù„Ù†Ø²Ø§Ù‡Ø© Ø§Ù„Ø±Ù‚Ù…ÙŠØ©</h3>
                     <p class="text-xs text-cyan font-mono mt-1" id="dsii-status">SECURE_UNASSISTED</p>
                 </div>
 
@@ -255,7 +255,7 @@ This document encapsulates the core frontend and operational code system of the 
                 <div class="md:col-span-2 bg-obsidian/50 p-6 rounded-2xl border border-white/5 flex flex-col">
                     <h3 class="font-bold text-white mb-4 flex items-center gap-2">
                         <svg class="w-4 h-4 text-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                        سجل الانتهاكات المباشر
+                        Ø³Ø¬Ù„ Ø§Ù„Ø§Ù†ØªÙ‡Ø§ÙƒØ§Øª Ø§Ù„Ù…Ø¨Ø§Ø´Ø±
                     </h3>
                     <div class="flex-grow bg-[#020408] rounded-xl border border-white/5 p-4 font-mono text-xs overflow-y-auto max-h-48" id="proctor-live-feed">
                         <div class="text-gray-500 mb-2">> Listening to EXAM_AUDIT_LOG stream...</div>
@@ -269,7 +269,7 @@ This document encapsulates the core frontend and operational code system of the 
     <!-- To activate admin view via JS: document.getElementById('admin-dsii-console').classList.remove('hidden'); -->
 
     <footer class="border-t border-white/10 bg-[#020408] py-8 text-center text-gray-500 text-sm font-mono">
-        <p>© 2026 GemIInI Academy. All Rights Reserved. SudaGene Consortium Network.</p>
+        <p>Â© 2026 GemIInI Academy. All Rights Reserved. SudaGene Consortium Network.</p>
     </footer>
 </body>
 </html>
@@ -283,7 +283,7 @@ This document encapsulates the core frontend and operational code system of the 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>منظومة التحقق المهني المعتمد (SudaPass™) | GemIInI Academy</title>
+    <title>Ù…Ù†Ø¸ÙˆÙ…Ø© Ø§Ù„ØªØ­Ù‚Ù‚ Ø§Ù„Ù…Ù‡Ù†ÙŠ Ø§Ù„Ù…Ø¹ØªÙ…Ø¯ (SudaPassâ„¢) | GemIInI Academy</title>
     
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-H1Q67PP2DJ"></script>
@@ -315,22 +315,22 @@ This document encapsulates the core frontend and operational code system of the 
             <a href="index.html" class="flex items-center gap-3">
                 <span class="text-lg font-black text-white">GemIInI<span class="text-cyan">.Verify</span></span>
             </a>
-            <a href="index.html" class="text-cyan hover:text-white font-bold text-xs font-mono">الرئيسية ➔</a>
+            <a href="index.html" class="text-cyan hover:text-white font-bold text-xs font-mono">Ø§Ù„Ø±Ø¦ÙŠØ³ÙŠØ© âž”</a>
         </div>
     </header>
 
     <main class="flex-grow py-16 px-4 sm:px-6 max-w-4xl mx-auto space-y-12">
         <div class="text-center space-y-4">
-            <h1 class="text-3xl sm:text-5xl font-black text-white">منظومة فحص وتوثيق القيد المهني</h1>
-            <p class="text-gray-400 text-sm">تحقق فوري من بيانات الطبيب، الساعات السريرية المكتسبة، والسجل الأكاديمي.</p>
+            <h1 class="text-3xl sm:text-5xl font-black text-white">Ù…Ù†Ø¸ÙˆÙ…Ø© ÙØ­Øµ ÙˆØªÙˆØ«ÙŠÙ‚ Ø§Ù„Ù‚ÙŠØ¯ Ø§Ù„Ù…Ù‡Ù†ÙŠ</h1>
+            <p class="text-gray-400 text-sm">ØªØ­Ù‚Ù‚ ÙÙˆØ±ÙŠ Ù…Ù† Ø¨ÙŠØ§Ù†Ø§Øª Ø§Ù„Ø·Ø¨ÙŠØ¨ØŒ Ø§Ù„Ø³Ø§Ø¹Ø§Øª Ø§Ù„Ø³Ø±ÙŠØ±ÙŠØ© Ø§Ù„Ù…ÙƒØªØ³Ø¨Ø©ØŒ ÙˆØ§Ù„Ø³Ø¬Ù„ Ø§Ù„Ø£ÙƒØ§Ø¯ÙŠÙ…ÙŠ.</p>
         </div>
 
         <div class="glass-panel p-8 sm:p-12 space-y-8">
             <form onsubmit="handleVerification(event)" class="space-y-4 max-w-lg mx-auto">
-                <label class="block text-xs sm:text-sm font-bold text-gray-300 text-right">أدخل رقم التعريف المعتمد (Standardized GA-ID):</label>
+                <label class="block text-xs sm:text-sm font-bold text-gray-300 text-right">Ø£Ø¯Ø®Ù„ Ø±Ù‚Ù… Ø§Ù„ØªØ¹Ø±ÙŠÙ Ø§Ù„Ù…Ø¹ØªÙ…Ø¯ (Standardized GA-ID):</label>
                 <div class="flex flex-col sm:flex-row gap-3">
                     <input type="text" id="gaIdInput" placeholder="GA-1001" required class="input-obsidian font-mono uppercase text-center sm:text-right" dir="ltr">
-                    <button type="submit" id="btnVerify" class="px-8 py-3.5 rounded-xl bg-cyan text-obsidian font-bold text-sm">فحص القيد ➔</button>
+                    <button type="submit" id="btnVerify" class="px-8 py-3.5 rounded-xl bg-cyan text-obsidian font-bold text-sm">ÙØ­Øµ Ø§Ù„Ù‚ÙŠØ¯ âž”</button>
                 </div>
             </form>
 
@@ -350,10 +350,10 @@ This document encapsulates the core frontend and operational code system of the 
             const resBox = document.getElementById('verifyResult');
 
             btn.disabled = true;
-            btn.innerText = "جارٍ الفحص...";
+            btn.innerText = "Ø¬Ø§Ø±Ù Ø§Ù„ÙØ­Øµ...";
             resBox.classList.remove('hidden');
             resBox.className = "max-w-lg mx-auto p-6 rounded-2xl bg-surface border border-white/10 text-gray-300 text-center font-mono text-xs";
-            resBox.innerText = "جارٍ الاتصال بالسجل المركزي المعتمد...";
+            resBox.innerText = "Ø¬Ø§Ø±Ù Ø§Ù„Ø§ØªØµØ§Ù„ Ø¨Ø§Ù„Ø³Ø¬Ù„ Ø§Ù„Ù…Ø±ÙƒØ²ÙŠ Ø§Ù„Ù…Ø¹ØªÙ…Ø¯...";
 
             try {
                 const data = await GeneAPI.get("LOOKUP", { id: input });
@@ -363,34 +363,34 @@ This document encapsulates the core frontend and operational code system of the 
                     resBox.className = "max-w-lg mx-auto p-6 rounded-2xl bg-emerald-950/40 border border-emerald-500/50 text-right space-y-4";
                     resBox.innerHTML = `
                         <div class="flex justify-between border-b border-emerald-500/30 pb-3">
-                            <span class="font-bold text-emerald-400 text-sm">قيد معتمد وموثق بالسجل العام</span>
+                            <span class="font-bold text-emerald-400 text-sm">Ù‚ÙŠØ¯ Ù…Ø¹ØªÙ…Ø¯ ÙˆÙ…ÙˆØ«Ù‚ Ø¨Ø§Ù„Ø³Ø¬Ù„ Ø§Ù„Ø¹Ø§Ù…</span>
                             <span class="font-mono text-xs bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded font-bold">${u.gaId}</span>
                         </div>
                         <div class="space-y-2 text-xs text-gray-200">
-                            <div class="flex justify-between"><span class="text-gray-400">الاسم:</span><span class="font-bold text-white">${u.legalName}</span></div>
-                            <div class="flex justify-between"><span class="text-gray-400">الجامعة:</span><span class="font-bold text-white">${u.university}</span></div>
+                            <div class="flex justify-between"><span class="text-gray-400">Ø§Ù„Ø§Ø³Ù…:</span><span class="font-bold text-white">${u.legalName}</span></div>
+                            <div class="flex justify-between"><span class="text-gray-400">Ø§Ù„Ø¬Ø§Ù…Ø¹Ø©:</span><span class="font-bold text-white">${u.university}</span></div>
                         </div>
                         <div class="pt-4 border-t border-white/10 mt-4">
                             <div class="flex items-center justify-between">
-                                <span class="text-xs text-gray-400 font-bold">مشاركة السجل مع جهات التوظيف B2B (GDPR):</span>
+                                <span class="text-xs text-gray-400 font-bold">Ù…Ø´Ø§Ø±ÙƒØ© Ø§Ù„Ø³Ø¬Ù„ Ù…Ø¹ Ø¬Ù‡Ø§Øª Ø§Ù„ØªÙˆØ¸ÙŠÙ B2B (GDPR):</span>
                                 <label class="relative inline-flex items-center cursor-pointer">
                                   <input type="checkbox" id="consentToggle" class="sr-only peer" onchange="toggleConsent('${u.gaId}', this.checked)">
                                   <div class="w-9 h-5 bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-emerald-500"></div>
                                 </label>
                             </div>
-                            <p id="consentStatus" class="text-[10px] text-gray-500 mt-2 font-mono hidden">جارٍ تحديث التفضيلات...</p>
+                            <p id="consentStatus" class="text-[10px] text-gray-500 mt-2 font-mono hidden">Ø¬Ø§Ø±Ù ØªØ­Ø¯ÙŠØ« Ø§Ù„ØªÙØ¶ÙŠÙ„Ø§Øª...</p>
                         </div>
                     `;
                 } else {
                     resBox.className = "max-w-lg mx-auto p-6 rounded-2xl bg-red-950/40 border border-red-500/50 text-right space-y-2";
-                    resBox.innerHTML = `<div class="font-bold text-red-400 text-sm">✗ لم يتم العثور على قيد مطابق</div>`;
+                    resBox.innerHTML = `<div class="font-bold text-red-400 text-sm">âœ— Ù„Ù… ÙŠØªÙ… Ø§Ù„Ø¹Ø«ÙˆØ± Ø¹Ù„Ù‰ Ù‚ÙŠØ¯ Ù…Ø·Ø§Ø¨Ù‚</div>`;
                 }
             } catch (err) {
                 resBox.className = "max-w-lg mx-auto p-6 rounded-2xl bg-surface border border-white/10 text-gray-400 text-xs";
-                resBox.innerText = "تعذر الاتصال بالسجل حالياً.";
+                resBox.innerText = "ØªØ¹Ø°Ø± Ø§Ù„Ø§ØªØµØ§Ù„ Ø¨Ø§Ù„Ø³Ø¬Ù„ Ø­Ø§Ù„ÙŠØ§Ù‹.";
             } finally {
                 btn.disabled = false;
-                btn.innerText = "فحص القيد ➔";
+                btn.innerText = "ÙØ­Øµ Ø§Ù„Ù‚ÙŠØ¯ âž”";
             }
         }
 
@@ -398,19 +398,19 @@ This document encapsulates the core frontend and operational code system of the 
             const statusEl = document.getElementById('consentStatus');
             statusEl.classList.remove('hidden');
             statusEl.className = "text-[10px] text-cyan mt-2 font-mono";
-            statusEl.innerText = "جارٍ تشفير وتوثيق الموافقة...";
+            statusEl.innerText = "Ø¬Ø§Ø±Ù ØªØ´ÙÙŠØ± ÙˆØªÙˆØ«ÙŠÙ‚ Ø§Ù„Ù…ÙˆØ§ÙÙ‚Ø©...";
 
             try {
                 const res = await GeneAPI.post('UPDATE_CONSENT', { gaId: gaId, consent: isChecked });
                 if (res && res.success) {
                     statusEl.className = "text-[10px] text-emerald-400 mt-2 font-mono";
-                    statusEl.innerText = isChecked ? "تم تفعيل المشاركة بنجاح." : "تم إيقاف المشاركة بنجاح.";
+                    statusEl.innerText = isChecked ? "ØªÙ… ØªÙØ¹ÙŠÙ„ Ø§Ù„Ù…Ø´Ø§Ø±ÙƒØ© Ø¨Ù†Ø¬Ø§Ø­." : "ØªÙ… Ø¥ÙŠÙ‚Ø§Ù Ø§Ù„Ù…Ø´Ø§Ø±ÙƒØ© Ø¨Ù†Ø¬Ø§Ø­.";
                 } else {
                     throw new Error("API failed");
                 }
             } catch (err) {
                 statusEl.className = "text-[10px] text-red-400 mt-2 font-mono";
-                statusEl.innerText = "تعذر تحديث الخيارات. سيتم المحاولة لاحقاً (Offline Mode).";
+                statusEl.innerText = "ØªØ¹Ø°Ø± ØªØ­Ø¯ÙŠØ« Ø§Ù„Ø®ÙŠØ§Ø±Ø§Øª. Ø³ÙŠØªÙ… Ø§Ù„Ù…Ø­Ø§ÙˆÙ„Ø© Ù„Ø§Ø­Ù‚Ø§Ù‹ (Offline Mode).";
             }
         }
     </script>
@@ -426,7 +426,7 @@ This document encapsulates the core frontend and operational code system of the 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SMC Licensing Sprint | MTC™ Assessment Engine</title>
+    <title>SMC Licensing Sprint | MTCâ„¢ Assessment Engine</title>
     
     <!-- STRICT TYPOGRAPHY: Plus Jakarta Sans, Cairo, IBM Plex Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -482,8 +482,8 @@ This document encapsulates the core frontend and operational code system of the 
             <div class="flex items-center gap-3">
                 <span class="w-3 h-3 rounded-full bg-danger animate-pulse" id="recording-indicator"></span>
                 <div>
-                    <h1 class="text-sm font-bold text-white tracking-widest font-sans uppercase">MTC™ Exam Engine</h1>
-                    <p class="text-[10px] text-gray-400 font-mono">SMC SPRINT • SESSION ID: <span id="session-id">PENDING</span></p>
+                    <h1 class="text-sm font-bold text-white tracking-widest font-sans uppercase">MTCâ„¢ Exam Engine</h1>
+                    <p class="text-[10px] text-gray-400 font-mono">SMC SPRINT â€¢ SESSION ID: <span id="session-id">PENDING</span></p>
                 </div>
             </div>
             <div class="text-left font-mono">
@@ -501,18 +501,18 @@ This document encapsulates the core frontend and operational code system of the 
                 <svg class="w-8 h-8 text-cyan" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
             </div>
             
-            <h2 class="text-2xl font-bold text-white">مصادقة الهوية السريرية</h2>
+            <h2 class="text-2xl font-bold text-white">Ù…ØµØ§Ø¯Ù‚Ø© Ø§Ù„Ù‡ÙˆÙŠØ© Ø§Ù„Ø³Ø±ÙŠØ±ÙŠØ©</h2>
             <p class="text-xs text-gray-400 font-sans leading-relaxed">
-                سيتم تحميل بنك الأسئلة المشفر (242 سؤال). أنت على وشك الدخول إلى بيئة اختبار خاضعة للرقابة الرقمية الصارمة. سيتم تسجيل أي خروج عن نافذة الاختبار (DSII Protocol).
+                Ø³ÙŠØªÙ… ØªØ­Ù…ÙŠÙ„ Ø¨Ù†Ùƒ Ø§Ù„Ø£Ø³Ø¦Ù„Ø© Ø§Ù„Ù…Ø´ÙØ± (242 Ø³Ø¤Ø§Ù„). Ø£Ù†Øª Ø¹Ù„Ù‰ ÙˆØ´Ùƒ Ø§Ù„Ø¯Ø®ÙˆÙ„ Ø¥Ù„Ù‰ Ø¨ÙŠØ¦Ø© Ø§Ø®ØªØ¨Ø§Ø± Ø®Ø§Ø¶Ø¹Ø© Ù„Ù„Ø±Ù‚Ø§Ø¨Ø© Ø§Ù„Ø±Ù‚Ù…ÙŠØ© Ø§Ù„ØµØ§Ø±Ù…Ø©. Ø³ÙŠØªÙ… ØªØ³Ø¬ÙŠÙ„ Ø£ÙŠ Ø®Ø±ÙˆØ¬ Ø¹Ù† Ù†Ø§ÙØ°Ø© Ø§Ù„Ø§Ø®ØªØ¨Ø§Ø± (DSII Protocol).
             </p>
 
             <form onsubmit="startExam(event)" class="space-y-4 pt-4">
                 <input type="text" id="gaId" required placeholder="GA-XXXX" class="input-obsidian" dir="ltr">
                 <button type="submit" id="btnStart" class="w-full py-4 rounded-xl bg-cyan text-obsidian font-bold font-sans text-sm hover:bg-white transition-all shadow-[0_0_20px_rgba(0,242,254,0.3)]">
-                    تأكيد الهوية وبدء الجلسة ➔
+                    ØªØ£ÙƒÙŠØ¯ Ø§Ù„Ù‡ÙˆÙŠØ© ÙˆØ¨Ø¯Ø¡ Ø§Ù„Ø¬Ù„Ø³Ø© âž”
                 </button>
             </form>
-            <p id="loading-bank-msg" class="text-xs font-mono text-cyan hidden">جارٍ الاتصال ببنك الأسئلة...</p>
+            <p id="loading-bank-msg" class="text-xs font-mono text-cyan hidden">Ø¬Ø§Ø±Ù Ø§Ù„Ø§ØªØµØ§Ù„ Ø¨Ø¨Ù†Ùƒ Ø§Ù„Ø£Ø³Ø¦Ù„Ø©...</p>
         </div>
 
         <!-- STEP 2: ACTIVE EXAM TERMINAL -->
@@ -530,7 +530,7 @@ This document encapsulates the core frontend and operational code system of the 
                 </div>
                 
                 <p class="text-lg sm:text-xl text-white leading-relaxed font-semibold py-4" id="question-text">
-                    جاري فك التشفير...
+                    Ø¬Ø§Ø±ÙŠ ÙÙƒ Ø§Ù„ØªØ´ÙÙŠØ±...
                 </p>
 
                 <div class="grid grid-cols-1 gap-3 pt-2" id="options-container">
@@ -544,9 +544,9 @@ This document encapsulates the core frontend and operational code system of the 
             <div class="w-16 h-16 mx-auto rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-400 mb-4">
                 <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
             </div>
-            <h2 class="text-2xl font-bold text-white">اكتمل التقييم السريري</h2>
+            <h2 class="text-2xl font-bold text-white">Ø§ÙƒØªÙ…Ù„ Ø§Ù„ØªÙ‚ÙŠÙŠÙ… Ø§Ù„Ø³Ø±ÙŠØ±ÙŠ</h2>
             <p class="text-xs text-gray-400 leading-relaxed font-sans">
-                تم تشفير بياناتك وإرسالها بأمان إلى سجل التدقيق المركزي (EXAM_AUDIT_LOG). تمت مزامنة رصيد GP والانتهاكات (DSII).
+                ØªÙ… ØªØ´ÙÙŠØ± Ø¨ÙŠØ§Ù†Ø§ØªÙƒ ÙˆØ¥Ø±Ø³Ø§Ù„Ù‡Ø§ Ø¨Ø£Ù…Ø§Ù† Ø¥Ù„Ù‰ Ø³Ø¬Ù„ Ø§Ù„ØªØ¯Ù‚ÙŠÙ‚ Ø§Ù„Ù…Ø±ÙƒØ²ÙŠ (EXAM_AUDIT_LOG). ØªÙ…Øª Ù…Ø²Ø§Ù…Ù†Ø© Ø±ØµÙŠØ¯ GP ÙˆØ§Ù„Ø§Ù†ØªÙ‡Ø§ÙƒØ§Øª (DSII).
             </p>
             <div class="bg-[#04080F] p-4 rounded-xl border border-white/5 space-y-2 mt-4 text-xs font-mono text-left" dir="ltr">
                 <div class="flex justify-between"><span class="text-gray-500">Candidate:</span><span class="text-cyan font-bold" id="res-ga">GA-XXXX</span></div>
@@ -557,7 +557,7 @@ This document encapsulates the core frontend and operational code system of the 
     </main>
 
     <footer class="py-6 text-center text-[10px] text-gray-600 font-mono tracking-widest border-t border-white/5">
-        © 2026 GEMIINI ACADEMY. ALL RIGHTS RESERVED. SUDAGENE CONSORTIUM NETWORK.
+        Â© 2026 GEMIINI ACADEMY. ALL RIGHTS RESERVED. SUDAGENE CONSORTIUM NETWORK.
     </footer>
 
     <!-- TRUE ENGINE LOGIC (NO MOCKUPS) -->
@@ -599,7 +599,7 @@ This document encapsulates the core frontend and operational code system of the 
                 btnStart.disabled = false;
             } catch (error) {
                 console.error("Bank load error:", error);
-                msg.innerText = "خطأ في تحميل بنك الأسئلة. تأكد من وجود ملف data/smc_mock_bank.json.";
+                msg.innerText = "Ø®Ø·Ø£ ÙÙŠ ØªØ­Ù…ÙŠÙ„ Ø¨Ù†Ùƒ Ø§Ù„Ø£Ø³Ø¦Ù„Ø©. ØªØ£ÙƒØ¯ Ù…Ù† ÙˆØ¬ÙˆØ¯ Ù…Ù„Ù data/smc_mock_bank.json.";
                 msg.classList.replace('text-cyan', 'text-danger');
             }
         }
@@ -611,13 +611,13 @@ This document encapsulates the core frontend and operational code system of the 
         function startExam(e) {
             e.preventDefault();
             if(examBank.length === 0) {
-                alert("بنك الأسئلة غير متاح أو جاري تحميله.");
+                alert("Ø¨Ù†Ùƒ Ø§Ù„Ø£Ø³Ø¦Ù„Ø© ØºÙŠØ± Ù…ØªØ§Ø­ Ø£Ùˆ Ø¬Ø§Ø±ÙŠ ØªØ­Ù…ÙŠÙ„Ù‡.");
                 return;
             }
 
             const input = document.getElementById('gaId').value.trim().toUpperCase();
             if(!input.startsWith('GA-')) {
-                alert("يجب أن يبدأ المعرف بـ GA- (مثال: GA-1001)");
+                alert("ÙŠØ¬Ø¨ Ø£Ù† ÙŠØ¨Ø¯Ø£ Ø§Ù„Ù…Ø¹Ø±Ù Ø¨Ù€ GA- (Ù…Ø«Ø§Ù„: GA-1001)");
                 return;
             }
             
@@ -680,7 +680,7 @@ This document encapsulates the core frontend and operational code system of the 
             document.getElementById('exam-screen').classList.add('hidden');
             document.getElementById('gate-screen').classList.remove('hidden');
             const btnStart = document.getElementById('btnStart');
-            btnStart.innerText = "جارٍ تشفير البيانات وإرسالها إلى سجل التدقيق المركزي المعتمد...";
+            btnStart.innerText = "Ø¬Ø§Ø±Ù ØªØ´ÙÙŠØ± Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª ÙˆØ¥Ø±Ø³Ø§Ù„Ù‡Ø§ Ø¥Ù„Ù‰ Ø³Ø¬Ù„ Ø§Ù„ØªØ¯Ù‚ÙŠÙ‚ Ø§Ù„Ù…Ø±ÙƒØ²ÙŠ Ø§Ù„Ù…Ø¹ØªÙ…Ø¯...";
             btnStart.disabled = true;
 
             // THE EXACT PAYLOAD CODE.GS V3.7 REQUIRES
@@ -717,7 +717,7 @@ This document encapsulates the core frontend and operational code system of the 
                 // ACTUALLY SAVE LOCALLY
                 const offlineBackupKey = `OFFLINE_EXAM_${candidateGaId}_${Date.now()}`;
                 localStorage.setItem(offlineBackupKey, JSON.stringify(payload));
-                alert("انقطع الاتصال بالخادم. تم حفظ إجاباتك ونتيجتك محلياً في ذاكرة جهازك. يُرجى التقاط صورة لهذه الشاشة والتواصل مع الدعم الفني: " + offlineBackupKey);
+                alert("Ø§Ù†Ù‚Ø·Ø¹ Ø§Ù„Ø§ØªØµØ§Ù„ Ø¨Ø§Ù„Ø®Ø§Ø¯Ù…. ØªÙ… Ø­ÙØ¸ Ø¥Ø¬Ø§Ø¨Ø§ØªÙƒ ÙˆÙ†ØªÙŠØ¬ØªÙƒ Ù…Ø­Ù„ÙŠØ§Ù‹ ÙÙŠ Ø°Ø§ÙƒØ±Ø© Ø¬Ù‡Ø§Ø²Ùƒ. ÙŠÙØ±Ø¬Ù‰ Ø§Ù„ØªÙ‚Ø§Ø· ØµÙˆØ±Ø© Ù„Ù‡Ø°Ù‡ Ø§Ù„Ø´Ø§Ø´Ø© ÙˆØ§Ù„ØªÙˆØ§ØµÙ„ Ù…Ø¹ Ø§Ù„Ø¯Ø¹Ù… Ø§Ù„ÙÙ†ÙŠ: " + offlineBackupKey);
             }
         }
 
@@ -911,7 +911,7 @@ function handleLookup(payload, ss) {
 }
 
 // ============================================================================
-// 2. REGISTER USER (PENDING_REVIEW — admin must approve)
+// 2. REGISTER USER (PENDING_REVIEW â€” admin must approve)
 // ============================================================================
 
 function handleRegisterUser(payload, ss) {
@@ -933,7 +933,7 @@ function handleRegisterUser(payload, ss) {
         success: true,
         alreadyRegistered: true,
         gaId: authData[i][0],
-        message: 'تم العثور على حسابك. رقم التعريف الخاص بك: ' + authData[i][0]
+        message: 'ØªÙ… Ø§Ù„Ø¹Ø«ÙˆØ± Ø¹Ù„Ù‰ Ø­Ø³Ø§Ø¨Ùƒ. Ø±Ù‚Ù… Ø§Ù„ØªØ¹Ø±ÙŠÙ Ø§Ù„Ø®Ø§Øµ Ø¨Ùƒ: ' + authData[i][0]
       };
     }
   }
@@ -963,7 +963,7 @@ function handleRegisterUser(payload, ss) {
     sudaPassHash: sudaPassHash,
     gpAwarded: 25,
     status: 'PENDING_REVIEW',
-    message: 'تم استلام طلبك بنجاح. رقم التعريف المبدئي: ' + gaId + '. سيتم مراجعة بياناتك خلال 24 ساعة وإشعارك عبر الواتساب.'
+    message: 'ØªÙ… Ø§Ø³ØªÙ„Ø§Ù… Ø·Ù„Ø¨Ùƒ Ø¨Ù†Ø¬Ø§Ø­. Ø±Ù‚Ù… Ø§Ù„ØªØ¹Ø±ÙŠÙ Ø§Ù„Ù…Ø¨Ø¯Ø¦ÙŠ: ' + gaId + '. Ø³ÙŠØªÙ… Ù…Ø±Ø§Ø¬Ø¹Ø© Ø¨ÙŠØ§Ù†Ø§ØªÙƒ Ø®Ù„Ø§Ù„ 24 Ø³Ø§Ø¹Ø© ÙˆØ¥Ø´Ø¹Ø§Ø±Ùƒ Ø¹Ø¨Ø± Ø§Ù„ÙˆØ§ØªØ³Ø§Ø¨.'
   };
 }
 
@@ -991,7 +991,7 @@ function handleBlsRegister(payload, ss) {
       const nowIso = new Date().toISOString();
       const hash = generateSudaPassHash(gaId, nowIso);
 
-      // FIX: 'university' variable was undefined — using literal string
+      // FIX: 'university' variable was undefined â€” using literal string
       authSheet.appendRow([
         gaId, fullName, email, phone, 'Candidate Institution',
         '', '', 'BLS Candidate', 'PENDING_REVIEW', hash, nowIso
@@ -1027,7 +1027,7 @@ function handleBlsRegister(payload, ss) {
   const timestamp = new Date().toISOString();
   const paymentSheet = getOrCreateSheet(ss, CONFIG.SHEET_PAYMENTS);
 
-  // Overflow → Waitlist
+  // Overflow â†’ Waitlist
   if (isOverflow) {
     paymentSheet.appendRow([
       timestamp, gaId, txRef || 'OVERFLOW_WAITLIST', paymentMethod,
@@ -1035,7 +1035,7 @@ function handleBlsRegister(payload, ss) {
     ]);
     return {
       success: true, gaId: gaId, waitlist: true, cohortDate: activeCohort.date,
-      message: 'الدفعة الحالية مكتملة. تم تسجيلك في قائمة الانتظار المعتمدة للدفعة التالية تلقائياً.'
+      message: 'Ø§Ù„Ø¯ÙØ¹Ø© Ø§Ù„Ø­Ø§Ù„ÙŠØ© Ù…ÙƒØªÙ…Ù„Ø©. ØªÙ… ØªØ³Ø¬ÙŠÙ„Ùƒ ÙÙŠ Ù‚Ø§Ø¦Ù…Ø© Ø§Ù„Ø§Ù†ØªØ¸Ø§Ø± Ø§Ù„Ù…Ø¹ØªÙ…Ø¯Ø© Ù„Ù„Ø¯ÙØ¹Ø© Ø§Ù„ØªØ§Ù„ÙŠØ© ØªÙ„Ù‚Ø§Ø¦ÙŠØ§Ù‹.'
     };
   }
 
@@ -1044,7 +1044,7 @@ function handleBlsRegister(payload, ss) {
     return { success: false, error: 'DUPLICATE_TRANSACTION_REFERENCE' };
   }
 
-  // 3,000 EGP flat fee (confirmed — no member/non-member split)
+  // 3,000 EGP flat fee (confirmed â€” no member/non-member split)
   const fee = activeCohort.fee;
   const paymentStatus = isPaid ? 'PENDING_VERIFICATION' : 'PROVISIONAL_HOLD';
   const rosterStatus = isPaid ? 'CONFIRMED_PENDING_PAYMENT_CLEAR' : 'PROVISIONAL_HELD_24H';
@@ -1067,8 +1067,8 @@ function handleBlsRegister(payload, ss) {
     courseFee: fee, currency: activeCohort.currency,
     earnedBonus: diagnosticBonus,
     message: isPaid
-      ? 'تم استلام بيانات التحويل. مقعدك محجوز قيد التدقيق الفوري.'
-      : 'تم تثبيت التسجيل السريريك المبدئي لمدة 24 ساعة. يرجى إتمام التحويل عبر فودافون كاش أو إنستاباي لتثبيت المقعد.'
+      ? 'ØªÙ… Ø§Ø³ØªÙ„Ø§Ù… Ø¨ÙŠØ§Ù†Ø§Øª Ø§Ù„ØªØ­ÙˆÙŠÙ„. Ù…Ù‚Ø¹Ø¯Ùƒ Ù…Ø­Ø¬ÙˆØ² Ù‚ÙŠØ¯ Ø§Ù„ØªØ¯Ù‚ÙŠÙ‚ Ø§Ù„ÙÙˆØ±ÙŠ.'
+      : 'ØªÙ… ØªØ«Ø¨ÙŠØª Ø§Ù„ØªØ³Ø¬ÙŠÙ„ Ø§Ù„Ø³Ø±ÙŠØ±ÙŠÙƒ Ø§Ù„Ù…Ø¨Ø¯Ø¦ÙŠ Ù„Ù…Ø¯Ø© 24 Ø³Ø§Ø¹Ø©. ÙŠØ±Ø¬Ù‰ Ø¥ØªÙ…Ø§Ù… Ø§Ù„ØªØ­ÙˆÙŠÙ„ Ø¹Ø¨Ø± ÙÙˆØ¯Ø§ÙÙˆÙ† ÙƒØ§Ø´ Ø£Ùˆ Ø¥Ù†Ø³ØªØ§Ø¨Ø§ÙŠ Ù„ØªØ«Ø¨ÙŠØª Ø§Ù„Ù…Ù‚Ø¹Ø¯.'
   };
 }
 

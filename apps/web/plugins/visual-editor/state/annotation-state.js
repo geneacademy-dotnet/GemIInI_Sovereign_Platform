@@ -1,4 +1,4 @@
-/**
+﻿/**
  * A comment always targets a group: `elements` and `selections` are parallel,
  * one entry per annotated element. A single annotation is just a group of one.
  * @typedef {{

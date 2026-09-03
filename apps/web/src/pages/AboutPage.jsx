@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Helmet } from 'react-helmet';
 import { ShieldCheck, Award, Stethoscope, Dna, Building2, CheckCircle2, Star, Users } from 'lucide-react';
 import Layout from '@/components/site/Layout';
@@ -13,8 +13,8 @@ const AboutPage = () => {
     return (
         <Layout>
             <Helmet>
-                <title>About SudaGene Consortium | القيادة المؤسسية والركائز السيادية</title>
-                <meta name="description" content="تعرف على القيادة الأكاديمية والسريرية لمنظومة سوداجين: د. محمد جبريل، د. علاء مرسي النور، ود. صفاء الحسن." />
+                <title>About SudaGene Consortium | Ø§Ù„Ù‚ÙŠØ§Ø¯Ø© Ø§Ù„Ù…Ø¤Ø³Ø³ÙŠØ© ÙˆØ§Ù„Ø±ÙƒØ§Ø¦Ø² Ø§Ù„Ø³ÙŠØ§Ø¯ÙŠØ©</title>
+                <meta name="description" content="ØªØ¹Ø±Ù Ø¹Ù„Ù‰ Ø§Ù„Ù‚ÙŠØ§Ø¯Ø© Ø§Ù„Ø£ÙƒØ§Ø¯ÙŠÙ…ÙŠØ© ÙˆØ§Ù„Ø³Ø±ÙŠØ±ÙŠØ© Ù„Ù…Ù†Ø¸ÙˆÙ…Ø© Ø³ÙˆØ¯Ø§Ø¬ÙŠÙ†: Ø¯. Ù…Ø­Ù…Ø¯ Ø¬Ø¨Ø±ÙŠÙ„ØŒ Ø¯. Ø¹Ù„Ø§Ø¡ Ù…Ø±Ø³ÙŠ Ø§Ù„Ù†ÙˆØ±ØŒ ÙˆØ¯. ØµÙØ§Ø¡ Ø§Ù„Ø­Ø³Ù†." />
             </Helmet>
 
             {/* HERO SECTION */}
@@ -25,11 +25,11 @@ const AboutPage = () => {
                         INSTITUTIONAL GOVERNANCE & SOVEREIGN MANDATE
                     </span>
                     <h1 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight">
-                        {lang === 'ar' ? 'القيادة الأكاديمية والسريرية للمنظومة' : 'Academic & Clinical Executive Directorate'}
+                        {lang === 'ar' ? 'Ø§Ù„Ù‚ÙŠØ§Ø¯Ø© Ø§Ù„Ø£ÙƒØ§Ø¯ÙŠÙ…ÙŠØ© ÙˆØ§Ù„Ø³Ø±ÙŠØ±ÙŠØ© Ù„Ù„Ù…Ù†Ø¸ÙˆÙ…Ø©' : 'Academic & Clinical Executive Directorate'}
                     </h1>
                     <p className="mt-4 text-sm md:text-base text-gray-400 max-w-3xl mx-auto leading-relaxed">
                         {lang === 'ar'
-                            ? 'منظومة سيادية قائمة على توثيق الكفاءة السريرية والبحثية، وضبط الجودة الأكاديمية بالمعايير العالمية للزمالات البريطانية والمجلس الطبي.'
+                            ? 'Ù…Ù†Ø¸ÙˆÙ…Ø© Ø³ÙŠØ§Ø¯ÙŠØ© Ù‚Ø§Ø¦Ù…Ø© Ø¹Ù„Ù‰ ØªÙˆØ«ÙŠÙ‚ Ø§Ù„ÙƒÙØ§Ø¡Ø© Ø§Ù„Ø³Ø±ÙŠØ±ÙŠØ© ÙˆØ§Ù„Ø¨Ø­Ø«ÙŠØ©ØŒ ÙˆØ¶Ø¨Ø· Ø§Ù„Ø¬ÙˆØ¯Ø© Ø§Ù„Ø£ÙƒØ§Ø¯ÙŠÙ…ÙŠØ© Ø¨Ø§Ù„Ù…Ø¹Ø§ÙŠÙŠØ± Ø§Ù„Ø¹Ø§Ù„Ù…ÙŠØ© Ù„Ù„Ø²Ù…Ø§Ù„Ø§Øª Ø§Ù„Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠØ© ÙˆØ§Ù„Ù…Ø¬Ù„Ø³ Ø§Ù„Ø·Ø¨ÙŠ.'
                             : 'A decentralized digital university and clinical ecosystem anchoring forensic medical competency across 54 Sudanese faculties.'}
                     </p>
                 </div>
@@ -40,7 +40,7 @@ const AboutPage = () => {
                 <div className="mx-auto max-w-6xl">
                     <div className="text-center mb-12">
                         <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900">
-                            {lang === 'ar' ? 'أعضاء القيادة الأكاديمية والسريرية' : 'Executive Directorate & Academic Officers'}
+                            {lang === 'ar' ? 'Ø£Ø¹Ø¶Ø§Ø¡ Ø§Ù„Ù‚ÙŠØ§Ø¯Ø© Ø§Ù„Ø£ÙƒØ§Ø¯ÙŠÙ…ÙŠØ© ÙˆØ§Ù„Ø³Ø±ÙŠØ±ÙŠØ©' : 'Executive Directorate & Academic Officers'}
                         </h2>
                         <p className="text-xs text-slate-500 font-mono mt-1">
                             {metrics.registryDisplay}
@@ -89,10 +89,10 @@ const AboutPage = () => {
                             {metrics.satisfactionRating} SATISFACTION SCORE ({metrics.surveySubmissions} VERIFIED SUBMISSIONS)
                         </div>
                         <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900">
-                            {lang === 'ar' ? 'آراء وملاحظات الأطباء والباحثين المسجلين' : 'Verified Candidate & Researcher Feedback'}
+                            {lang === 'ar' ? 'Ø¢Ø±Ø§Ø¡ ÙˆÙ…Ù„Ø§Ø­Ø¸Ø§Øª Ø§Ù„Ø£Ø·Ø¨Ø§Ø¡ ÙˆØ§Ù„Ø¨Ø§Ø­Ø«ÙŠÙ† Ø§Ù„Ù…Ø³Ø¬Ù„ÙŠÙ†' : 'Verified Candidate & Researcher Feedback'}
                         </h2>
                         <p className="text-xs text-slate-500 mt-1">
-                            {lang === 'ar' ? 'تقييمات حقيقية موثقة من أطباء وباحثي المنظومة:' : 'Authentic unedited feedback from registered doctors and research fellows:'}
+                            {lang === 'ar' ? 'ØªÙ‚ÙŠÙŠÙ…Ø§Øª Ø­Ù‚ÙŠÙ‚ÙŠØ© Ù…ÙˆØ«Ù‚Ø© Ù…Ù† Ø£Ø·Ø¨Ø§Ø¡ ÙˆØ¨Ø§Ø­Ø«ÙŠ Ø§Ù„Ù…Ù†Ø¸ÙˆÙ…Ø©:' : 'Authentic unedited feedback from registered doctors and research fellows:'}
                         </p>
                     </div>
 
@@ -114,7 +114,7 @@ const AboutPage = () => {
                                 </div>
                                 <div className="pt-3 border-t border-slate-100">
                                     <strong className="text-xs text-slate-900 block">{rev.author}</strong>
-                                    <span className="text-[10px] text-slate-400 font-mono">{rev.role} • {rev.date}</span>
+                                    <span className="text-[10px] text-slate-400 font-mono">{rev.role} â€¢ {rev.date}</span>
                                 </div>
                             </div>
                         ))}

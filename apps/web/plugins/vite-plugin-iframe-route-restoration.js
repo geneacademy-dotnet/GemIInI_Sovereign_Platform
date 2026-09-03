@@ -1,4 +1,4 @@
-export default function iframeRouteRestorationPlugin() {
+﻿export default function iframeRouteRestorationPlugin() {
 	return {
 		name: 'vite:iframe-route-restoration',
 		apply: 'serve',

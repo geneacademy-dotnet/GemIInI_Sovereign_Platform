@@ -1,4 +1,4 @@
-import { parseHexInput } from './color-conversions.js';
+﻿import { parseHexInput } from './color-conversions.js';
 
 let _element = null;
 let hexVirtualValue = '';

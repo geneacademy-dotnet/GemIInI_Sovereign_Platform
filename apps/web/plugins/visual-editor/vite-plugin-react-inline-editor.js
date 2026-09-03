@@ -1,4 +1,4 @@
-import nodePath from 'path';
+﻿import nodePath from 'path';
 import { parse } from '@babel/parser';
 import traverseBabel from '@babel/traverse';
 import * as t from '@babel/types';
@@ -108,7 +108,7 @@ export default function inlineEditPlugin() {
 							return;
 						}
 
-						// Condition 6: recursive subtree check — dynamic expressions,
+						// Condition 6: recursive subtree check â€” dynamic expressions,
 						// spread props, or conditionals anywhere below this element make
 						// a direct edit unsafe (it would overwrite the JSX with static text).
 						if (subtreeRequiresAssistance(elementNode)) {
@@ -136,7 +136,7 @@ export default function inlineEditPlugin() {
 		},
 
 		// Computes the source a batch of draft edits would produce and returns it.
-		// Nothing is written here — the preview posts the result up to the editor,
+		// Nothing is written here â€” the preview posts the result up to the editor,
 		// which persists it through the authenticated backend.
 		configureServer(server) {
 			server.middlewares.use('/api/draft-save', async (request, response, next) => {

@@ -1,8 +1,8 @@
-# GemIInI SudaGene Platform — Engineering & Governance Mandates
+﻿# GemIInI SudaGene Platform â€” Engineering & Governance Mandates
 
 ## 1. Terminology & Brand Integrity
 - **WellPlan = STRICTLY INTERNAL CRM ONLY**. Never appear in code, UI, public HTML, or marketing.
-- **GemIInI Jaib (جيميناي جيب)** = ALWAYS used for the public companion application ("تطبيقنا للمتابعة").
+- **GemIInI Jaib (Ø¬ÙŠÙ…ÙŠÙ†Ø§ÙŠ Ø¬ÙŠØ¨)** = ALWAYS used for the public companion application ("ØªØ·Ø¨ÙŠÙ‚Ù†Ø§ Ù„Ù„Ù…ØªØ§Ø¨Ø¹Ø©").
 
 ## 2. Locked GP Ledger (v2.0 Architecture)
 | Event | GP Awarded | Cumulative Baseline |
@@ -23,15 +23,15 @@
 - **Cairo BLS Workshop**: August 28, 2026 (Amanirena Hub / Dokki Center, 12 seats capacity, 3,000 EGP flat rate).
 - **Leadership (GemIInI 20 Core)**:
   - **Founder Members:**
-    - **GA-000:** Dr. Mohamed Gibbril (MBBS University of Khartoum, MSc IEND) — Founder & CEO.
-    - **GA-001:** Dr. Alaa Abdelhafiz Mursi Farah (FMRCS, Letterkenny) — Co-Founder, Surgical Program Lead, OET Lead, Architect of BSS.
+    - **GA-000:** Dr. Mohamed Gibbril (MBBS University of Khartoum, MSc IEND) â€” Founder & CEO.
+    - **GA-001:** Dr. Alaa Abdelhafiz Mursi Farah (FMRCS, Letterkenny) â€” Co-Founder, Surgical Program Lead, OET Lead, Architect of BSS.
   - **Operational Members:**
-    - **GA-004:** Dr. Safaa Abdelgadir Mohamed Elhassan (MBBS, MSc Molecular Medicine) — Academic Dean & Officer, Pharmacology & Molecular Medicine.
-    - **GA-011:** Eng. Amjad Gorashi — Head of Operations & Telemetry Infrastructure, Admissions Desk.
+    - **GA-004:** Dr. Safaa Abdelgadir Mohamed Elhassan (MBBS, MSc Molecular Medicine) â€” Academic Dean & Officer, Pharmacology & Molecular Medicine.
+    - **GA-011:** Eng. Amjad Gorashi â€” Head of Operations & Telemetry Infrastructure, Admissions Desk.
   - **Strategic & Senior Advisory Members:**
-    - **GA-002:** Prof. Abdelmoneim Sahl Elmardi (MBBS University of Khartoum 1970s) — Senior Academician & Professor of Clinical Anatomy.
-    - **GA-003:** Dr. Mohamed Mahdi Mabuie — Strategic Advisor.
-    - **GA-005:** Dr. Mohamed Yahia Fadul Tahir (MBBS University of Khartoum 2021, ECFMG Certified) — PGY-2 Neurosurgery Resident, Washington.
-    - **GA-006 / GA-5405:** Dr. Mohammed Sabri Mohamed Ahmed (SMSB Registrar in Medicine, Resident in Neuromedicine) — Clinical Simulation Director; Principal of STC Training Center (AHA Lic. 1549); GemIInIxSMC Ambassador.
-    - **GA-010:** Prof. Isam Mohamed Elkhidir (MBBS, PhD, FRCPath) — Professor of Virology & Microbiology, Department of Microbiology, Faculty of Medicine, University of Khartoum.
-    - **GA-015:** Dr. Gibbril Waleed (Double MSc, Double PhD) — Distinguished IEND Alumnus & Senior Research Fellow.
+    - **GA-002:** Prof. Abdelmoneim Sahl Elmardi (MBBS University of Khartoum 1970s) â€” Senior Academician & Professor of Clinical Anatomy.
+    - **GA-003:** Dr. Mohamed Mahdi Mabuie â€” Strategic Advisor.
+    - **GA-005:** Dr. Mohamed Yahia Fadul Tahir (MBBS University of Khartoum 2021, ECFMG Certified) â€” PGY-2 Neurosurgery Resident, Washington.
+    - **GA-006 / GA-5405:** Dr. Mohammed Sabri Mohamed Ahmed (SMSB Registrar in Medicine, Resident in Neuromedicine) â€” Clinical Simulation Director; Principal of STC Training Center (AHA Lic. 1549); GemIInIxSMC Ambassador.
+    - **GA-010:** Prof. Isam Mohamed Elkhidir (MBBS, PhD, FRCPath) â€” Professor of Virology & Microbiology, Department of Microbiology, Faculty of Medicine, University of Khartoum.
+    - **GA-015:** Dr. Gibbril Waleed (Double MSc, Double PhD) â€” Distinguished IEND Alumnus & Senior Research Fellow.

@@ -1,4 +1,4 @@
-/** DOM id for the font family action panel root element. */
+﻿/** DOM id for the font family action panel root element. */
 export const FONT_ACTION_ID = 'text-format-font-action';
 
 /** System font presets shown in the font family dropdown. */

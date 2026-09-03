@@ -1,4 +1,4 @@
-
+﻿
 /// <reference path="../pb_data/types.d.ts" />
 onMailerSend((e) => {
     if (e.app.settings().smtp.enabled) {

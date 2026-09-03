@@ -1,4 +1,4 @@
-import { ICON_SPARKLES } from '../../constants/icons.js';
+﻿import { ICON_SPARKLES } from '../../constants/icons.js';
 import { ANNOTATION_MARKER_STYLES } from './styles.js';
 import { Z_OFFSET_MARKER } from '../../constants/theme.js';
 import { getEditId } from '../../constants/selectors.js';
@@ -58,7 +58,7 @@ function currentRoute() {
 /**
  * Structural anchor: the element's child-index path from the app root plus the
  * tag and classes expected there. Its captured `selector` is unusable for
- * re-querying — Tailwind variants (`md:py-32`) make it invalid CSS.
+ * re-querying â€” Tailwind variants (`md:py-32`) make it invalid CSS.
  * @param {HTMLElement} element
  * @returns {{path: number[], tagName: string, className: string}|null}
  */

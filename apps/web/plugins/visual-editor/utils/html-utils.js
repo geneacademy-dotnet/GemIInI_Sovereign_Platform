@@ -1,4 +1,4 @@
-import { IMPORTANT_STYLES } from '../constants/selectors.js';
+﻿import { IMPORTANT_STYLES } from '../constants/selectors.js';
 
 const TEXT_CONTEXT_MAX_LENGTH = 500;
 const OUTER_HTML_MAX_LENGTH = 5000;
@@ -81,7 +81,7 @@ function nextNodeInFlow(node, root) {
 /**
  * Whether a text node sits at the end of a line: nothing follows it, or the next
  * node in flow is a <br>. Only such trailing spaces get collapsed by the browser
- * on re-parse and need preserving — spaces between inline siblings (e.g. coloured
+ * on re-parse and need preserving â€” spaces between inline siblings (e.g. coloured
  * <span> words) must stay normal breaking spaces or the line can't wrap.
  * @param {Node} node
  * @param {Node} root

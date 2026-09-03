@@ -1,7 +1,7 @@
-/**
- * @param {number} hue - Hue 0–360.
- * @param {number} saturation - Saturation 0–1.
- * @param {number} value - Value 0–1.
+﻿/**
+ * @param {number} hue - Hue 0â€“360.
+ * @param {number} saturation - Saturation 0â€“1.
+ * @param {number} value - Value 0â€“1.
  * @returns {string}
  */
 export function hsvToHex(hue, saturation, value) {
@@ -14,7 +14,7 @@ export function hsvToHex(hue, saturation, value) {
  * @param {number} hue
  * @param {number} saturation
  * @param {number} value
- * @param {number} [alpha] - Alpha 0–1.
+ * @param {number} [alpha] - Alpha 0â€“1.
  * @returns {string}
  */
 export function hsvToColor(hue, saturation, value, alpha = 1) {
@@ -95,7 +95,7 @@ export function parseColor(value) {
 
 /**
  * @param {string} value
- * @returns {number} Alpha 0–1.
+ * @returns {number} Alpha 0â€“1.
  */
 export function extractAlpha(value) {
     if (!value) return 1;

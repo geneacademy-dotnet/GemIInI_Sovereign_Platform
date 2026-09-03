@@ -1,4 +1,4 @@
-import { ICON_DELETE, ICON_CLOSE } from '../../constants/icons.js';
+﻿import { ICON_DELETE, ICON_CLOSE } from '../../constants/icons.js';
 
 export const ANNOTATION_PANEL_HTML = `
 <div id="selection-mode-annotation-panel">

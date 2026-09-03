@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Helmet } from 'react-helmet';
 
 // Social + canonical tags only. The page's own <Helmet> must keep a literal

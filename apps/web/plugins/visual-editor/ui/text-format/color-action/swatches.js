@@ -1,4 +1,4 @@
-import { SOLID_COLORS, GRADIENTS } from './template.js';
+﻿import { SOLID_COLORS, GRADIENTS } from './template.js';
 import { canonicalGradientKey } from './gradient.js';
 
 /** Maximum total swatches shown in a grid (presets + custom): 3 rows of 7. */
@@ -202,7 +202,7 @@ export function ensureCustomGradientSwatch(gradient) {
 }
 
 /**
- * Appends a new custom solid swatch even when the color already exists — used by
+ * Appends a new custom solid swatch even when the color already exists â€” used by
  * the "+" button to duplicate the active swatch. Returns null when the grid is full.
  * @param {string} hex
  * @returns {HTMLElement|null}
@@ -222,7 +222,7 @@ export function appendCustomSwatch(hex) {
 }
 
 /**
- * Appends a new custom gradient swatch even when it already exists — used by the
+ * Appends a new custom gradient swatch even when it already exists â€” used by the
  * "+" button to duplicate the active gradient. Returns null when the grid is full.
  * @param {string} gradient
  * @returns {HTMLElement|null}

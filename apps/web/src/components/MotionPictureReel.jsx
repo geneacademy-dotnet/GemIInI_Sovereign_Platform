@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { useLang } from '@/i18n/LanguageContext';
 import { Link } from 'react-router-dom';
 import mediaData from '@/data/media-vault-manifest.json';
@@ -43,7 +43,7 @@ export default function MotionPictureReel() {
         };
       case 'geneacademy':
         return {
-          label: 'GeneAcademy®',
+          label: 'GeneAcademyÂ®',
           bg: 'bg-purple-500/10 text-purple-400 border-purple-500/30',
           glow: 'from-purple-500/20'
         };
@@ -74,18 +74,18 @@ export default function MotionPictureReel() {
         <div className="text-center max-w-3xl mx-auto mb-14">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-teal-500/30 bg-teal-950/40 text-teal-400 text-xs font-semibold uppercase tracking-wider mb-4 shadow-[0_0_15px_rgba(20,184,166,0.2)]">
             <Film className="w-3.5 h-3.5 animate-pulse text-teal-300" />
-            <span>{isRTL ? 'الأرشيف المرئي والسينمائي للسيادة' : 'Sovereign Cinema & Motion Archive'}</span>
+            <span>{isRTL ? 'Ø§Ù„Ø£Ø±Ø´ÙŠÙ Ø§Ù„Ù…Ø±Ø¦ÙŠ ÙˆØ§Ù„Ø³ÙŠÙ†Ù…Ø§Ø¦ÙŠ Ù„Ù„Ø³ÙŠØ§Ø¯Ø©' : 'Sovereign Cinema & Motion Archive'}</span>
           </div>
 
           <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight mb-5 bg-gradient-to-r from-white via-slate-100 to-slate-400 bg-clip-text text-transparent">
             {isRTL 
-              ? 'التوثيق الحي والمشاهد السينمائية' 
+              ? 'Ø§Ù„ØªÙˆØ«ÙŠÙ‚ Ø§Ù„Ø­ÙŠ ÙˆØ§Ù„Ù…Ø´Ø§Ù‡Ø¯ Ø§Ù„Ø³ÙŠÙ†Ù…Ø§Ø¦ÙŠØ©' 
               : 'Motion Picture Cinema & Living Documentation'}
           </h2>
 
           <p className="text-slate-400 text-base md:text-lg leading-relaxed mb-8">
             {isRTL 
-              ? 'استكشف البث المرئي، تدريبات المحاكاة الجراحية بالقاهرة، كبسولات الأبحاث الانتقالية، وتجهيزات المنشآت الطبية عبر أرشيفنا المركزي المعتمد.'
+              ? 'Ø§Ø³ØªÙƒØ´Ù Ø§Ù„Ø¨Ø« Ø§Ù„Ù…Ø±Ø¦ÙŠØŒ ØªØ¯Ø±ÙŠØ¨Ø§Øª Ø§Ù„Ù…Ø­Ø§ÙƒØ§Ø© Ø§Ù„Ø¬Ø±Ø§Ø­ÙŠØ© Ø¨Ø§Ù„Ù‚Ø§Ù‡Ø±Ø©ØŒ ÙƒØ¨Ø³ÙˆÙ„Ø§Øª Ø§Ù„Ø£Ø¨Ø­Ø§Ø« Ø§Ù„Ø§Ù†ØªÙ‚Ø§Ù„ÙŠØ©ØŒ ÙˆØªØ¬Ù‡ÙŠØ²Ø§Øª Ø§Ù„Ù…Ù†Ø´Ø¢Øª Ø§Ù„Ø·Ø¨ÙŠØ© Ø¹Ø¨Ø± Ø£Ø±Ø´ÙŠÙÙ†Ø§ Ø§Ù„Ù…Ø±ÙƒØ²ÙŠ Ø§Ù„Ù…Ø¹ØªÙ…Ø¯.'
               : 'Explore living clinical broadcasts, hands-on surgical simulation in Cairo, oncology research pods, and turnkey healthcare facilities across our verified media vault.'}
           </p>
 
@@ -94,7 +94,7 @@ export default function MotionPictureReel() {
             <div className="p-3 text-center rounded-xl bg-slate-950/60 border border-slate-800/80">
               <div className="flex items-center justify-center gap-1.5 text-xs text-teal-400 font-medium mb-1">
                 <Video className="w-3.5 h-3.5" />
-                <span>{isRTL ? 'أفلام وفيديوهات' : 'Motion Videos'}</span>
+                <span>{isRTL ? 'Ø£ÙÙ„Ø§Ù… ÙˆÙÙŠØ¯ÙŠÙˆÙ‡Ø§Øª' : 'Motion Videos'}</span>
               </div>
               <div className="text-xl font-bold text-white tracking-tight">{stats.videos || 162}+</div>
             </div>
@@ -102,7 +102,7 @@ export default function MotionPictureReel() {
             <div className="p-3 text-center rounded-xl bg-slate-950/60 border border-slate-800/80">
               <div className="flex items-center justify-center gap-1.5 text-xs text-purple-400 font-medium mb-1">
                 <ImageIcon className="w-3.5 h-3.5" />
-                <span>{isRTL ? 'لوحات تشخيصية' : 'Visual Plates'}</span>
+                <span>{isRTL ? 'Ù„ÙˆØ­Ø§Øª ØªØ´Ø®ÙŠØµÙŠØ©' : 'Visual Plates'}</span>
               </div>
               <div className="text-xl font-bold text-white tracking-tight">{stats.images || 627}+</div>
             </div>
@@ -110,7 +110,7 @@ export default function MotionPictureReel() {
             <div className="p-3 text-center rounded-xl bg-slate-950/60 border border-slate-800/80">
               <div className="flex items-center justify-center gap-1.5 text-xs text-amber-400 font-medium mb-1">
                 <FileText className="w-3.5 h-3.5" />
-                <span>{isRTL ? 'أطروحات ووثائق' : 'Manuscripts'}</span>
+                <span>{isRTL ? 'Ø£Ø·Ø±ÙˆØ­Ø§Øª ÙˆÙˆØ«Ø§Ø¦Ù‚' : 'Manuscripts'}</span>
               </div>
               <div className="text-xl font-bold text-white tracking-tight">{stats.pdfs || 642}+</div>
             </div>
@@ -118,7 +118,7 @@ export default function MotionPictureReel() {
             <div className="p-3 text-center rounded-xl bg-gradient-to-br from-teal-950/40 to-slate-950/80 border border-teal-500/30">
               <div className="flex items-center justify-center gap-1.5 text-xs text-teal-300 font-medium mb-1">
                 <ShieldCheck className="w-3.5 h-3.5" />
-                <span>{isRTL ? 'إجمالي الأرشيف' : 'Central Vault'}</span>
+                <span>{isRTL ? 'Ø¥Ø¬Ù…Ø§Ù„ÙŠ Ø§Ù„Ø£Ø±Ø´ÙŠÙ' : 'Central Vault'}</span>
               </div>
               <div className="text-xl font-bold text-teal-300 tracking-tight">{totalItems.toLocaleString()}</div>
             </div>
@@ -128,9 +128,9 @@ export default function MotionPictureReel() {
         {/* Filter Navigation Tabs */}
         <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
           {[
-            { id: 'all', label: isRTL ? 'جميع الأفلام الوثائقية' : 'All Featured Reels', icon: Film },
+            { id: 'all', label: isRTL ? 'Ø¬Ù…ÙŠØ¹ Ø§Ù„Ø£ÙÙ„Ø§Ù… Ø§Ù„ÙˆØ«Ø§Ø¦Ù‚ÙŠØ©' : 'All Featured Reels', icon: Film },
             { id: 'gemiini', label: 'GemIInI Academy', icon: Sparkles },
-            { id: 'geneacademy', label: 'GeneAcademy®', icon: Layers },
+            { id: 'geneacademy', label: 'GeneAcademyÂ®', icon: Layers },
             { id: 'glomet', label: 'GLOMEt HQ', icon: Tv },
           ].map((tab) => {
             const Icon = tab.icon;
@@ -219,7 +219,7 @@ export default function MotionPictureReel() {
                     </div>
 
                     <span className="text-xs font-medium text-teal-400 group-hover:translate-x-1 transition-transform flex items-center gap-1">
-                      <span>{isRTL ? 'مشاهدة العرض' : 'Watch Reel'}</span>
+                      <span>{isRTL ? 'Ù…Ø´Ø§Ù‡Ø¯Ø© Ø§Ù„Ø¹Ø±Ø¶' : 'Watch Reel'}</span>
                       <ChevronRight className="w-3.5 h-3.5" />
                     </span>
                   </div>
@@ -236,7 +236,7 @@ export default function MotionPictureReel() {
             className="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-gradient-to-r from-teal-500 to-emerald-600 hover:from-teal-400 hover:to-emerald-500 text-slate-950 font-bold text-base shadow-[0_0_25px_rgba(20,184,166,0.35)] transition-all duration-300 hover:scale-105"
           >
             <Film className="w-5 h-5" />
-            <span>{isRTL ? 'تصفح الأرشيف الكامل (1,431 وسيط معتمد)' : 'Enter Sovereign Media Vault (1,431 Items)'}</span>
+            <span>{isRTL ? 'ØªØµÙØ­ Ø§Ù„Ø£Ø±Ø´ÙŠÙ Ø§Ù„ÙƒØ§Ù…Ù„ (1,431 ÙˆØ³ÙŠØ· Ù…Ø¹ØªÙ…Ø¯)' : 'Enter Sovereign Media Vault (1,431 Items)'}</span>
             <ExternalLink className="w-4 h-4" />
           </Link>
         </div>
@@ -258,7 +258,7 @@ export default function MotionPictureReel() {
                     {isRTL ? selectedVideo.title_ar : selectedVideo.title}
                   </h4>
                   <p className="text-xs text-slate-400">
-                    {selectedVideo.source_file} • {selectedVideo.duration} • {selectedVideo.quality}
+                    {selectedVideo.source_file} â€¢ {selectedVideo.duration} â€¢ {selectedVideo.quality}
                   </p>
                 </div>
               </div>
@@ -286,7 +286,7 @@ export default function MotionPictureReel() {
               {/* Status Banner */}
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900/90 border border-teal-500/30 text-teal-300 text-xs font-semibold">
                 <CheckCircle2 className="w-4 h-4 text-teal-400" />
-                <span>{isRTL ? 'الملف مؤرشف ومتاح في الخزينة المركزية' : 'Secured & Indexed in Sovereign Media Vault'}</span>
+                <span>{isRTL ? 'Ø§Ù„Ù…Ù„Ù Ù…Ø¤Ø±Ø´Ù ÙˆÙ…ØªØ§Ø­ ÙÙŠ Ø§Ù„Ø®Ø²ÙŠÙ†Ø© Ø§Ù„Ù…Ø±ÙƒØ²ÙŠØ©' : 'Secured & Indexed in Sovereign Media Vault'}</span>
               </div>
             </div>
 
@@ -304,13 +304,13 @@ export default function MotionPictureReel() {
                   onClick={() => setSelectedVideo(null)}
                   className="px-4 py-2 rounded-lg bg-teal-500 hover:bg-teal-400 text-slate-950 text-xs font-bold transition-all"
                 >
-                  {isRTL ? 'فتح في الخزينة' : 'Browse in Vault'}
+                  {isRTL ? 'ÙØªØ­ ÙÙŠ Ø§Ù„Ø®Ø²ÙŠÙ†Ø©' : 'Browse in Vault'}
                 </Link>
                 <button
                   onClick={() => setSelectedVideo(null)}
                   className="px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-medium transition-all"
                 >
-                  {isRTL ? 'إغلاق' : 'Close'}
+                  {isRTL ? 'Ø¥ØºÙ„Ø§Ù‚' : 'Close'}
                 </button>
               </div>
             </div>

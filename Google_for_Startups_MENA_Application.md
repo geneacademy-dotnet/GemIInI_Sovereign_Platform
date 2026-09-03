@@ -1,8 +1,8 @@
-# Google for Startups MENA — Official Application Dossier
-**Applicant Entity:** SudaGene Consortium (GeneAcademy® & GemIInI Academy)  
+﻿# Google for Startups MENA â€” Official Application Dossier
+**Applicant Entity:** SudaGene Consortium (GeneAcademyÂ® & GemIInI Academy)  
 **Program Track:** Google for Startups Accelerator: MENA (HealthTech & AI Infrastructure)  
 **Submission Date:** August 2026  
-**Operational Hubs:** Cairo, Egypt • Khartoum, Sudan • Riyadh, KSA • Kuwait City  
+**Operational Hubs:** Cairo, Egypt â€¢ Khartoum, Sudan â€¢ Riyadh, KSA â€¢ Kuwait City  
 
 ---
 
@@ -10,8 +10,8 @@
 
 ### Company Overview
 **SudaGene Consortium** is an academic and clinical HealthTech infrastructure platform operating across North Africa and the Middle East through two specialized, integrated pillars:
-1. **GemIInI Academy:** A decentralized clinical licensure and surgical simulation platform providing Mechanism-to-Clinic (MTC™) training, AHA-compliant resuscitation, and Royal College-aligned surgical skills.
-2. **GeneAcademy®:** A translational genomics and precision oncology research engine running 15:5:1 decentralized academic pods and molecular diagnostics pipelines.
+1. **GemIInI Academy:** A decentralized clinical licensure and surgical simulation platform providing Mechanism-to-Clinic (MTCâ„¢) training, AHA-compliant resuscitation, and Royal College-aligned surgical skills.
+2. **GeneAcademyÂ®:** A translational genomics and precision oncology research engine running 15:5:1 decentralized academic pods and molecular diagnostics pipelines.
 
 * **Website & Web Platform:** [https://members.geneacademy.net](https://members.geneacademy.net) | [https://geneacademy.net](https://geneacademy.net)
 * **Master Architecture:** React 18 SPA + Preflight-Free Telemetry Middleware + Google Cloud Backend + SudaPass Cryptographic Registry.
@@ -64,21 +64,21 @@ SudaGene is not an unvalidated prototype. Our platform is actively grading live 
 ```
                       LIVE Independent TRACTION & EMPIRICAL METRICS
   
-  ┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-  │ 1. ACTIVE PHYSICIAN NETWORK: 1,201 Verified Clinicians & Scholars Across 90+ Medical Faculties  │
-  │ • Sudan (Univ of Khartoum, Gezira, National Univ, Omdurman Islamic, Al-Neelain, Bahri)          │
-  │ • Egypt (Cairo Univ Kasr Al-Ainy, Ain Shams, Alexandria, Mansoura) & Gulf Diaspora               │
-  ├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-  │ 2. PHYSICAL SIMULATION REVENUE VALIDATION: $50 USD / Head B2C Unit Economics                     │
-  │ • 25-Surgeon Wet-Lab Cohort: Basic Surgical Skills (BSS-1 & BSS-2) Cairo Cohort                 │
-  │ • 2-Day Royal College-Compliant Hands-On Intensive: Suturing geometry, anastomoses, laparoscopy   │
-  ├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-  │ 3. PRODUCTION DIAGNOSTIC TELEMETRY (Real-World Baseline Standings)                               │
-  │ • 🥇 GA-3521 (Dr. Elshareef Osman, Univ of Khartoum '21): 750 GP • 92.5% Accuracy • Level 2 Pass │
-  │ • 🥈 GA-305  (Dr. Ehssan Isam, National University NUSU): 750 GP • 88.0% Accuracy • Level 2 Pass │
-  │ • 🥉 GA-3479 (Dr. Hala Sid Ahmed, Univ of Khartoum '22): 500 GP • 86.5% Accuracy • Level 2 Pass │
-  │ • 4️⃣ GA-2491 (Dr. Tanzeel Mohamed, National Univ '23): 500 GP • 84.0% Accuracy • Level 2 Pass   │
-  └──────────────────────────────────────────────────────────────────────────────────────────────────┘
+  â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+  â”‚ 1. ACTIVE PHYSICIAN NETWORK: 1,201 Verified Clinicians & Scholars Across 90+ Medical Faculties  â”‚
+  â”‚ â€¢ Sudan (Univ of Khartoum, Gezira, National Univ, Omdurman Islamic, Al-Neelain, Bahri)          â”‚
+  â”‚ â€¢ Egypt (Cairo Univ Kasr Al-Ainy, Ain Shams, Alexandria, Mansoura) & Gulf Diaspora               â”‚
+  â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
+  â”‚ 2. PHYSICAL SIMULATION REVENUE VALIDATION: $50 USD / Head B2C Unit Economics                     â”‚
+  â”‚ â€¢ 25-Surgeon Wet-Lab Cohort: Basic Surgical Skills (BSS-1 & BSS-2) Cairo Cohort                 â”‚
+  â”‚ â€¢ 2-Day Royal College-Compliant Hands-On Intensive: Suturing geometry, anastomoses, laparoscopy   â”‚
+  â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
+  â”‚ 3. PRODUCTION DIAGNOSTIC TELEMETRY (Real-World Baseline Standings)                               â”‚
+  â”‚ â€¢ ðŸ¥‡ GA-3521 (Dr. Elshareef Osman, Univ of Khartoum '21): 750 GP â€¢ 92.5% Accuracy â€¢ Level 2 Pass â”‚
+  â”‚ â€¢ ðŸ¥ˆ GA-305  (Dr. Ehssan Isam, National University NUSU): 750 GP â€¢ 88.0% Accuracy â€¢ Level 2 Pass â”‚
+  â”‚ â€¢ ðŸ¥‰ GA-3479 (Dr. Hala Sid Ahmed, Univ of Khartoum '22): 500 GP â€¢ 86.5% Accuracy â€¢ Level 2 Pass â”‚
+  â”‚ â€¢ 4ï¸âƒ£ GA-2491 (Dr. Tanzeel Mohamed, National Univ '23): 500 GP â€¢ 84.0% Accuracy â€¢ Level 2 Pass   â”‚
+  â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 ```
 
 ---
@@ -89,13 +89,13 @@ By joining Google for Startups MENA, SudaGene will transition its validated prot
 
 ```
   Current Architecture (POC/MVP)                Google Cloud Target Production Architecture
-  ┌───────────────────────────────┐              ┌──────────────────────────────────────────────┐
-  │ React 18 SPA                  │              │ React 18 SPA on Google Cloud Run             │
-  │ Google Apps Script (Code.gs)  │ ───────────> │ Go / Node.js Microservices on Cloud Run      │
-  │ Google Sheets SSOT            │              │ Google Cloud Firestore + Cloud SQL           │
-  │ Static MTC Case Scenarios     │              │ Gemini 1.5 Pro / Flash Multi-Modal Case AI   │
-  │ Client-Side Telemetry Math    │              │ BigQuery Telemetry Analytics & Looker Studio │
-  └───────────────────────────────┘              └──────────────────────────────────────────────┘
+  â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”              â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+  â”‚ React 18 SPA                  â”‚              â”‚ React 18 SPA on Google Cloud Run             â”‚
+  â”‚ Google Apps Script (Code.gs)  â”‚ â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€> â”‚ Go / Node.js Microservices on Cloud Run      â”‚
+  â”‚ Google Sheets SSOT            â”‚              â”‚ Google Cloud Firestore + Cloud SQL           â”‚
+  â”‚ Static MTC Case Scenarios     â”‚              â”‚ Gemini 1.5 Pro / Flash Multi-Modal Case AI   â”‚
+  â”‚ Client-Side Telemetry Math    â”‚              â”‚ BigQuery Telemetry Analytics & Looker Studio â”‚
+  â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜              â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 ```
 
 ### Key Technical Integrations with Google Technology:
@@ -113,14 +113,14 @@ By joining Google for Startups MENA, SudaGene will transition its validated prot
 
 ## 6. SudaGene Consortium Leadership Team
 
-* **Dr. Mohamed Ahmed Gabriel (GA-000):** Founder & General Supervisor • Professor of Molecular Medicine, Faculty of Medicine, University of Khartoum • ASM ID: 200334812.
-* **Dr. Alaa Mursi (GA-001):** Deputy Academic Supervisor & Clinical Training Director • Faculty of Medicine, University of Khartoum • Certified BLS Provider.
-* **Dr. Safaa Hassan (GA-004):** Consultant Radiologist & Academic Director (Kuwait Regional Desk) • University of Gezira • Head of Online Resuscitation Accreditation.
-* **Eng. Amjad Gorashi (GA-011):** Principal Systems Engineer & Operations Director • University of Khartoum • Lead Architect of Independent Telemetry Engine.
+* **Dr. Mohamed Ahmed Gabriel (GA-000):** Founder & General Supervisor â€¢ Professor of Molecular Medicine, Faculty of Medicine, University of Khartoum â€¢ ASM ID: 200334812.
+* **Dr. Alaa Mursi (GA-001):** Deputy Academic Supervisor & Clinical Training Director â€¢ Faculty of Medicine, University of Khartoum â€¢ Certified BLS Provider.
+* **Dr. Safaa Hassan (GA-004):** Consultant Radiologist & Academic Director (Kuwait Regional Desk) â€¢ University of Gezira â€¢ Head of Online Resuscitation Accreditation.
+* **Eng. Amjad Gorashi (GA-011):** Principal Systems Engineer & Operations Director â€¢ University of Khartoum â€¢ Lead Architect of Independent Telemetry Engine.
 
 ---
 
-### 📞 Contact & Institutional Desk
+### ðŸ“ž Contact & Institutional Desk
 * **Founder Desk:** `mohammed.a.gabriel@gmail.com`
 * **Operations & Systems Desk:** `amjadgorashi32@gmail.com`
 * **Commercial & B2B Inquiries:** `Bus.devlop.07@geneacademy.net`

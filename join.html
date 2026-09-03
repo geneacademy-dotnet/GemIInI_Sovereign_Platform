@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" dir="ltr" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Join Our Network | GeneAcademy</title>
-  <meta name="description" content="Discover your clinical and academic pathway at GeneAcademy — the Independent Medical Consortium for the region.">
+  <meta name="description" content="Discover your clinical and academic pathway at GeneAcademy â€” the Independent Medical Consortium for the region.">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-H1Q67PP2DJ"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-H1Q67PP2DJ');</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,16 +15,16 @@
     *{box-sizing:border-box;margin:0;padding:0;}
     body{background:var(--bg);color:var(--text);font-family:'Plus Jakarta Sans',sans-serif;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column;}
     .mono{font-family:'IBM Plex Mono',monospace;}
-    /* ── NAV ── */
+    /* â”€â”€ NAV â”€â”€ */
     .top-nav{padding:18px 24px;display:flex;justify-content:space-between;align-items:center;background:rgba(247,250,252,.97);position:sticky;top:0;z-index:30;backdrop-filter:blur(10px);border-bottom:1px solid #E2E8F0;}
     .brand{display:flex;align-items:center;gap:12px;font-weight:800;font-size:1.05rem;text-decoration:none;color:var(--navy);}
     .brand-badge{background:var(--navy);color:#fff;font-weight:700;font-size:.85rem;padding:5px 10px;border-radius:8px;font-family:'IBM Plex Mono',monospace;transition:background .2s;}
     .brand:hover .brand-badge{background:var(--teal);}
     .nav-actions a{font-size:.9rem;color:var(--muted);text-decoration:none;font-weight:500;margin-left:16px;transition:color .2s;}
     .nav-actions a:hover{color:var(--navy);}
-    /* ── LAYOUT ── */
+    /* â”€â”€ LAYOUT â”€â”€ */
     .container{width:100%;max-width:660px;margin:0 auto;padding:24px 20px 80px;flex-grow:1;display:flex;flex-direction:column;}
-    /* ── PROGRESS ── */
+    /* â”€â”€ PROGRESS â”€â”€ */
     .progress-container{display:flex;align-items:center;justify-content:space-between;margin-bottom:40px;position:relative;padding:0 10px;opacity:0;transition:opacity .5s;}
     .progress-container.show{opacity:1;}
     .progress-line{position:absolute;top:50%;left:10px;right:10px;height:2px;background:#E2E8F0;z-index:1;transform:translateY(-50%);}
@@ -32,29 +32,29 @@
     .progress-dot{width:10px;height:10px;background:#E2E8F0;border-radius:50%;z-index:3;position:relative;transition:all .4s;}
     .progress-dot.active{background:var(--teal);box-shadow:0 0 0 4px rgba(22,140,140,.15);}
     .progress-dot.completed{background:var(--teal);}
-    /* ── SCREENS ── */
+    /* â”€â”€ SCREENS â”€â”€ */
     .screen{display:none;opacity:0;transform:translateY(10px);transition:opacity .45s ease,transform .45s ease;}
     .screen.active{display:block;opacity:1;transform:none;}
     .screen-title{font-size:1.75rem;font-weight:800;color:var(--navy);margin-bottom:12px;line-height:1.2;}
     .screen-sub{font-size:1rem;color:var(--muted);margin-bottom:32px;line-height:1.6;}
-    /* ── SELECTION CARDS ── */
+    /* â”€â”€ SELECTION CARDS â”€â”€ */
     .selection-grid{display:flex;flex-direction:column;gap:12px;margin-bottom:32px;}
     .select-card{background:#FFF;border:1.5px solid #E2E8F0;border-radius:16px;padding:20px 24px;cursor:pointer;transition:all .2s;font-weight:600;color:var(--text);display:flex;align-items:center;justify-content:space-between;}
     .select-card:hover{border-color:#CBD5E1;background:#F8FAFC;}
     .select-card.selected{border-color:var(--teal);background:rgba(22,140,140,.04);color:var(--navy);}
     .check-icon{opacity:0;color:var(--teal);transition:opacity .2s;flex-shrink:0;}
     .select-card.selected .check-icon{opacity:1;}
-    /* ── CHIPS ── */
+    /* â”€â”€ CHIPS â”€â”€ */
     .chip-grid{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:32px;}
     .chip{background:#FFF;border:1.5px solid #E2E8F0;border-radius:99px;padding:12px 20px;cursor:pointer;transition:all .2s;font-weight:500;font-size:.95rem;user-select:none;}
     .chip:hover{border-color:#CBD5E1;background:#F8FAFC;}
     .chip.selected{border-color:var(--teal);background:var(--teal);color:#FFF;}
-    /* ── FORM FIELDS ── */
+    /* â”€â”€ FORM FIELDS â”€â”€ */
     .field{margin-bottom:20px;}
     .field label{display:block;font-size:.9rem;font-weight:600;color:var(--navy);margin-bottom:8px;}
     .field input,.field select{width:100%;background:#FFF;border:1.5px solid #E2E8F0;border-radius:12px;padding:14px 16px;font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;color:var(--text);outline:none;transition:all .2s;}
     .field input:focus,.field select:focus{border-color:var(--teal);box-shadow:0 0 0 4px rgba(22,140,140,.1);}
-    /* ── BUTTONS ── */
+    /* â”€â”€ BUTTONS â”€â”€ */
     .nav-buttons{display:flex;gap:16px;margin-top:40px;}
     .btn{padding:16px 24px;border-radius:12px;font-weight:600;font-size:1rem;border:none;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;font-family:'Plus Jakarta Sans',sans-serif;}
     .btn-primary{background:var(--navy);color:#fff;flex-grow:1;}
@@ -62,20 +62,20 @@
     .btn-primary:disabled{opacity:.6;cursor:not-allowed;}
     .btn-secondary{background:#E2E8F0;color:var(--text);flex-basis:120px;flex-shrink:0;}
     .btn-secondary:hover{background:#CBD5E1;}
-    /* ── SOFT RESPONSE ── */
+    /* â”€â”€ SOFT RESPONSE â”€â”€ */
     .soft-response{font-size:.95rem;color:var(--teal);font-weight:500;margin-top:-16px;margin-bottom:32px;opacity:0;transition:opacity .5s;}
     .soft-response.show{opacity:1;}
-    /* ── SUMMARY BOX ── */
+    /* â”€â”€ SUMMARY BOX â”€â”€ */
     .summary-box{background:#FFF;border:1.5px solid #E2E8F0;border-radius:16px;padding:24px;margin-bottom:28px;}
     .summary-item{margin-bottom:14px;}
     .summary-item:last-child{margin-bottom:0;}
     .summary-label{font-size:.8rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:600;margin-bottom:4px;}
     .summary-value{font-size:.95rem;font-weight:600;color:var(--navy);}
-    /* ── CONSENT ── */
+    /* â”€â”€ CONSENT â”€â”€ */
     .consent-wrap{display:flex;align-items:flex-start;gap:12px;margin-bottom:28px;padding:16px;background:rgba(22,140,140,.04);border-radius:12px;}
     .consent-wrap input[type=checkbox]{margin-top:4px;width:18px;height:18px;accent-color:var(--teal);flex-shrink:0;}
     .consent-text{font-size:.9rem;color:var(--muted);line-height:1.5;}
-    /* ── SUCCESS ── */
+    /* â”€â”€ SUCCESS â”€â”€ */
     .success-container{text-align:center;padding:40px 20px;}
     .success-icon{width:64px;height:64px;background:rgba(22,128,91,.1);color:#16805B;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 24px;}
     .ref-box{display:inline-block;background:#FFF;border:1px solid #E2E8F0;padding:16px 32px;border-radius:12px;margin:28px 0;}
@@ -97,7 +97,7 @@
       <span>GeneAcademy</span>
     </a>
     <div class="nav-actions">
-      <a href="join_ar.html">العربية</a>
+      <a href="join_ar.html">Ø§Ù„Ø¹Ø±Ø¨ÙŠØ©</a>
       <a href="#" onclick="saveAndExit();return false;">Save and exit</a>
     </div>
   </nav>
@@ -232,19 +232,19 @@
         <div class="summary-box">
           <div class="summary-item">
             <div class="summary-label">Your role</div>
-            <div class="summary-value" id="sum_role">—</div>
+            <div class="summary-value" id="sum_role">â€”</div>
           </div>
           <div class="summary-item">
             <div class="summary-label">Your interests</div>
-            <div class="summary-value" id="sum_interests">—</div>
+            <div class="summary-value" id="sum_interests">â€”</div>
           </div>
           <div class="summary-item">
             <div class="summary-label">Your preferred next step</div>
-            <div class="summary-value" id="sum_step">—</div>
+            <div class="summary-value" id="sum_step">â€”</div>
           </div>
           <div class="summary-item">
             <div class="summary-label">Contact</div>
-            <div class="summary-value" id="sum_contact">—</div>
+            <div class="summary-value" id="sum_contact">â€”</div>
           </div>
         </div>
         <div class="consent-wrap">
@@ -291,7 +291,7 @@
     let currentScreen = 1;
     const appState = { role: '', interests: new Set(), nextStep: '', contact: {} };
 
-    // ── Restore saved state ──────────────────────────────────────────────────
+    // â”€â”€ Restore saved state â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     document.addEventListener('DOMContentLoaded', () => {
       try {
         const saved = localStorage.getItem('ga_join_state');
@@ -328,7 +328,7 @@
       window.location.href = 'index.html';
     }
 
-    // ── Single-select card setup ─────────────────────────────────────────────
+    // â”€â”€ Single-select card setup â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     function setupSingleSelect(cid, stateKey, nextBtnId) {
       document.getElementById(cid).querySelectorAll('.select-card').forEach(card => {
         card.addEventListener('click', () => {
@@ -346,7 +346,7 @@
     setupSingleSelect('typeSelection', 'role', 'btnTypeNext');
     setupSingleSelect('nextStepSelection', 'nextStep', 'btnStepNext');
 
-    // ── Chip multi-select ────────────────────────────────────────────────────
+    // â”€â”€ Chip multi-select â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     document.querySelectorAll('#interestSelection .chip').forEach(chip => {
       chip.addEventListener('click', () => toggleChip(chip));
     });
@@ -362,7 +362,7 @@
       document.getElementById('interestResponse').classList.toggle('show', appState.interests.size > 0);
     }
 
-    // ── Progress bar ─────────────────────────────────────────────────────────
+    // â”€â”€ Progress bar â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     function updateProgress() {
       const idx = Math.min(currentScreen - 1, 4);
       document.querySelectorAll('.progress-dot').forEach((d, i) => {
@@ -373,7 +373,7 @@
       if (currentScreen > 1) document.getElementById('progressContainer').classList.add('show');
     }
 
-    // ── Screen navigation ────────────────────────────────────────────────────
+    // â”€â”€ Screen navigation â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     function showScreen(n) {
       document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
       if (n === 5) {
@@ -388,7 +388,7 @@
           : 'Not specified';
         document.getElementById('sum_step').innerText = appState.nextStep || 'Not specified';
         document.getElementById('sum_contact').innerText =
-          (document.getElementById('f_name').value || '') + ' · ' + document.getElementById('f_email').value;
+          (document.getElementById('f_name').value || '') + ' Â· ' + document.getElementById('f_email').value;
       }
       const target = document.querySelector('.screen[data-screen="' + n + '"]');
       if (target) target.classList.add('active');
@@ -411,7 +411,7 @@
       nextScreen();
     }
 
-    // ── Form submission ──────────────────────────────────────────────────────
+    // â”€â”€ Form submission â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     async function submitApplication() {
       if (!document.getElementById('f_consent').checked) {
         alert('Please agree to the contact consent to continue.');
@@ -437,7 +437,8 @@
           location:     country,
           university:   institution,
           careerStage:  appState.role,
-          peerReferral: ''
+          peerReferral: '',
+          archetype: appState.archetype
         });
 
         const gaId = (result && result.gaId) ? result.gaId : 'PENDING';
@@ -472,7 +473,7 @@
         document.getElementById('successScreen').classList.add('active');
 
       } catch(err) {
-        alert('We encountered a temporary network issue. Your application was not saved — please try again.');
+        alert('We encountered a temporary network issue. Your application was not saved â€” please try again.');
         btn.disabled = false;
         btn.innerText = 'Join Our Network';
       }

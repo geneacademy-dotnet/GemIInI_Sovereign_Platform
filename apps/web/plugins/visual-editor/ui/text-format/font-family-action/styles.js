@@ -1,4 +1,4 @@
-import { FONT_ACTION_ID } from './template.js';
+﻿import { FONT_ACTION_ID } from './template.js';
 import { PANEL_BG, BORDER_COLOR, HOVER_BG, ACTIVE_BG, BOX_SHADOW_DROPDOWN, COLOR_WHITE } from '../../../constants/theme.js';
 
 /** Injected CSS for the font family dropdown panel. */

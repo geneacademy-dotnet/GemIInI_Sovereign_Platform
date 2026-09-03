@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+﻿#!/usr/bin/env node
 
 import fs from 'fs';
 import path from 'path';
@@ -148,7 +148,7 @@ function processPageFile(filePath, routes) {
 		const content = fs.readFileSync(filePath, 'utf8');
 		return extractHelmetData(content, filePath, routes);
 	} catch (error) {
-		console.error(`❌ Error processing ${filePath}:`, error.message);
+		console.error(`âŒ Error processing ${filePath}:`, error.message);
 		return null;
 	}
 }
@@ -172,7 +172,7 @@ function main() {
 	}
 
 	if (pages.length === 0) {
-		console.error('❌ No pages with Helmet components found!');
+		console.error('âŒ No pages with Helmet components found!');
 		process.exit(1);
 	}
 

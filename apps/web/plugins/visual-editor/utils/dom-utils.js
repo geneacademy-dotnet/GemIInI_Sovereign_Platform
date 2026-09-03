@@ -1,4 +1,4 @@
-import { FIXED_CONTEXT_SELECTOR, ELEMENT_TYPE_MAP } from "../constants/selectors.js";
+﻿import { FIXED_CONTEXT_SELECTOR, ELEMENT_TYPE_MAP } from "../constants/selectors.js";
 
 /**
  * Logical type of an element for the hover tooltip: `text`, `button`, `image`,

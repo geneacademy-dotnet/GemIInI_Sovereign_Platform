@@ -1,4 +1,4 @@
-import { sanitizeText, patchRemoveChild } from "../utils/html-utils.js";
+﻿import { sanitizeText, patchRemoveChild } from "../utils/html-utils.js";
 import { getComments } from "./annotation-state.js";
 import { getEditId } from "../constants/selectors.js";
 
@@ -67,7 +67,7 @@ function plainTextFromStoredHtml(html) {
  * Resolves the DOM element for an action. Prefers the stored element reference
  * (survives HMR position shifts). When several nodes share one JSX edit id
  * (e.g. letter spans from `.map()`), disambiguates with selectionMode text /
- * beforeContent — same approach as annotation `resolveByEditId`. Never falls
+ * beforeContent â€” same approach as annotation `resolveByEditId`. Never falls
  * back to the first querySelector match when duplicates exist.
  * @param {object} action
  * @returns {HTMLElement|null}
@@ -118,7 +118,7 @@ function applyValueToElement(action, value) {
  * Applies element-level inline style props for undo/redo. Setting a prop to ''
  * removes the inline value so CSS-class styling takes over again.
  * @param {object} action - The history action entry.
- * @param {object|null} styleProperties - camelCase property → value (or '' to clear)
+ * @param {object|null} styleProperties - camelCase property â†’ value (or '' to clear)
  */
 function applyStyleToElement(action, styleProperties) {
 	if (!styleProperties) return;
@@ -313,7 +313,7 @@ export function getCurrentEdits() {
 }
 
 /**
- * Categorizes the current, uncommitted edit set — used to report which kinds of
+ * Categorizes the current, uncommitted edit set â€” used to report which kinds of
  * changes a save actually carries, as opposed to which edit surfaces were merely
  * opened during the session (a text/image edit entered and then reverted leaves
  * no trace here).

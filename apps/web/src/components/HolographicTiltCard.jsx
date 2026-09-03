@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+﻿import React, { useState, useRef } from 'react';
 import { ShieldCheck, QrCode, Award, Dna, Share2, Copy, Check } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useLang } from '@/i18n/LanguageContext';
@@ -14,11 +14,11 @@ export const HolographicTiltCard = ({ member, className }) => {
     const m = member || {
         id: 'GA0171',
         name: 'Dr. Mohamed Ahmed Abdel Fattah Gibbril',
-        name_ar: 'د. محمد أحمد عبد الفتاح جبريل',
+        name_ar: 'Ø¯. Ù…Ø­Ù…Ø¯ Ø£Ø­Ù…Ø¯ Ø¹Ø¨Ø¯ Ø§Ù„ÙØªØ§Ø­ Ø¬Ø¨Ø±ÙŠÙ„',
         role: 'Senior Clinical Vanguard',
-        role_ar: 'قائد سريري متقدم',
+        role_ar: 'Ù‚Ø§Ø¦Ø¯ Ø³Ø±ÙŠØ±ÙŠ Ù…ØªÙ‚Ø¯Ù…',
         university: 'University of Khartoum - Faculty of Medicine',
-        university_ar: 'جامعة الخرطوم - كلية الطب',
+        university_ar: 'Ø¬Ø§Ù…Ø¹Ø© Ø§Ù„Ø®Ø±Ø·ÙˆÙ… - ÙƒÙ„ÙŠØ© Ø§Ù„Ø·Ø¨',
         gp: 1250,
         ects: 58.5,
         smcScore: '96.4%',
@@ -95,41 +95,41 @@ export const HolographicTiltCard = ({ member, className }) => {
                                     SudaGene Sovereign OS
                                 </span>
                                 <span className="text-[10px] text-gray-400">
-                                    السجل السيادي المعتمد SudaPass
+                                    Ø§Ù„Ø³Ø¬Ù„ Ø§Ù„Ø³ÙŠØ§Ø¯ÙŠ Ø§Ù„Ù…Ø¹ØªÙ…Ø¯ SudaPass
                                 </span>
                             </div>
                         </div>
                         <span className="inline-flex items-center gap-1 rounded-full bg-emerald-500/20 border border-emerald-500/40 px-2.5 py-0.5 text-[10px] font-mono text-emerald-300 font-bold">
                             <ShieldCheck className="w-3 h-3 text-emerald-400" />
-                            VERIFIED ✓
+                            VERIFIED âœ“
                         </span>
                     </div>
 
                     {/* Member Core Info */}
                     <div className="my-4">
                         <span className="text-xs font-mono font-bold text-amber-400 tracking-wider block">
-                            {m.id} • {m.tier || 'Sovereign Vanguard'}
+                            {m.id} â€¢ {m.tier || 'Sovereign Vanguard'}
                         </span>
                         <h3 className="text-xl font-bold text-white mt-1 leading-tight">
                             {lang === 'ar' ? (m.name_ar || m.name) : m.name}
                         </h3>
                         <p className="text-xs text-gray-300 mt-1 flex items-center gap-1.5">
-                            <span>🏛️</span> {lang === 'ar' ? (m.university_ar || m.university) : m.university}
+                            <span>ðŸ›ï¸</span> {lang === 'ar' ? (m.university_ar || m.university) : m.university}
                         </p>
                     </div>
 
                     {/* Stats Matrix */}
                     <div className="grid grid-cols-3 gap-2 bg-white/5 rounded-xl p-3 border border-white/5 text-center my-1">
                         <div>
-                            <span className="text-[10px] uppercase text-gray-400 block font-mono">الرصيد</span>
+                            <span className="text-[10px] uppercase text-gray-400 block font-mono">Ø§Ù„Ø±ØµÙŠØ¯</span>
                             <span className="text-sm font-extrabold text-amber-400 font-mono">+{m.gp || 500} GP</span>
                         </div>
                         <div className="border-x border-white/10">
-                            <span className="text-[10px] uppercase text-gray-400 block font-mono">الساعات المعتمدة</span>
+                            <span className="text-[10px] uppercase text-gray-400 block font-mono">Ø§Ù„Ø³Ø§Ø¹Ø§Øª Ø§Ù„Ù…Ø¹ØªÙ…Ø¯Ø©</span>
                             <span className="text-sm font-extrabold text-teal-300 font-mono">{m.ects || 4.5} ECTS</span>
                         </div>
                         <div>
-                            <span className="text-[10px] uppercase text-gray-400 block font-mono">نسبة اجتياز SMC</span>
+                            <span className="text-[10px] uppercase text-gray-400 block font-mono">Ù†Ø³Ø¨Ø© Ø§Ø¬ØªÙŠØ§Ø² SMC</span>
                             <span className="text-sm font-extrabold text-emerald-400 font-mono">{m.smcScore || '96.4%'}</span>
                         </div>
                     </div>
@@ -152,12 +152,12 @@ export const HolographicTiltCard = ({ member, className }) => {
                     {copied ? (
                         <>
                             <Check className="w-3.5 h-3.5 text-emerald-400" />
-                            <span>تم نسخ رابط الاعتماد!</span>
+                            <span>ØªÙ… Ù†Ø³Ø® Ø±Ø§Ø¨Ø· Ø§Ù„Ø§Ø¹ØªÙ…Ø§Ø¯!</span>
                         </>
                     ) : (
                         <>
                             <Copy className="w-3.5 h-3.5 text-gray-300" />
-                            <span>نسخ رابط الاعتماد العام 🪪</span>
+                            <span>Ù†Ø³Ø® Ø±Ø§Ø¨Ø· Ø§Ù„Ø§Ø¹ØªÙ…Ø§Ø¯ Ø§Ù„Ø¹Ø§Ù… ðŸªª</span>
                         </>
                     )}
                 </button>

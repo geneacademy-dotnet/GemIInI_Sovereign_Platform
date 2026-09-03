@@ -1,4 +1,4 @@
-import { ANNOTATION_PANEL_HTML } from './template.js';
+﻿import { ANNOTATION_PANEL_HTML } from './template.js';
 import { ANNOTATION_PANEL_STYLES } from './styles.js';
 import { addAnnotationMarker, removeMarker, unhighlightAllMarkers } from './annotation-markers.js';
 import { lockHoverOutline, unlockHoverOutline } from '../overlays/hover-outline.js';

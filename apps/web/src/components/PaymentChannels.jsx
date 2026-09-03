@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { Banknote, QrCode, ShieldCheck, Smartphone, CheckCircle2, Copy, Check, Coffee } from 'lucide-react';
 import { useLang } from '@/i18n/LanguageContext';
 import { SOVEREIGN_ECOSYSTEM } from '@/data/sovereign-config';
@@ -17,7 +17,7 @@ const PaymentChannels = ({ selectedMethod, onSelectMethod, compact = false }) =>
     const paymentMethods = [
         {
             key: 'vodafone',
-            name: 'Vodafone Cash (فودافون كاش)',
+            name: 'Vodafone Cash (ÙÙˆØ¯Ø§ÙÙˆÙ† ÙƒØ§Ø´)',
             nameEn: 'Vodafone Cash (Egypt & Diaspora)',
             desc: `~100 EGP / ~$2.50 USD (${pricing.concept})`,
             account: channels.vodafoneCash,
@@ -27,20 +27,20 @@ const PaymentChannels = ({ selectedMethod, onSelectMethod, compact = false }) =>
         },
         {
             key: 'bankak',
-            name: 'بنكك (Bankak - بنك الخرطوم)',
+            name: 'Ø¨Ù†ÙƒÙƒ (Bankak - Ø¨Ù†Ùƒ Ø§Ù„Ø®Ø±Ø·ÙˆÙ…)',
             nameEn: 'Bankak (Bank of Khartoum - Sudan)',
-            desc: `3,000 – 5,000 SDG (${pricing.concept})`,
+            desc: `3,000 â€“ 5,000 SDG (${pricing.concept})`,
             account: channels.bankakName,
-            code: 'تطبيق بنكك مباشرة',
+            code: 'ØªØ·Ø¨ÙŠÙ‚ Ø¨Ù†ÙƒÙƒ Ù…Ø¨Ø§Ø´Ø±Ø©',
             icon: Banknote,
             color: 'border-emerald-500/40 bg-emerald-500/5 text-emerald-400'
         },
         {
             key: 'gulf',
-            name: 'تحويل الخليج (Saudi / Gulf Direct)',
+            name: 'ØªØ­ÙˆÙŠÙ„ Ø§Ù„Ø®Ù„ÙŠØ¬ (Saudi / Gulf Direct)',
             nameEn: 'Gulf Direct Transfer (SAR / AED)',
-            desc: '15 – 20 SAR / AED (Local Parity)',
-            account: 'عبر واتساب الإدارة / Concierge Desk',
+            desc: '15 â€“ 20 SAR / AED (Local Parity)',
+            account: 'Ø¹Ø¨Ø± ÙˆØ§ØªØ³Ø§Ø¨ Ø§Ù„Ø¥Ø¯Ø§Ø±Ø© / Concierge Desk',
             code: '+20 101 592 2628',
             icon: QrCode,
             color: 'border-amber-500/40 bg-amber-500/5 text-amber-400'
@@ -53,7 +53,7 @@ const PaymentChannels = ({ selectedMethod, onSelectMethod, compact = false }) =>
                 <Coffee className="w-4 h-4 flex-shrink-0 text-amber-400" />
                 <span>
                     {lang === 'ar'
-                        ? 'مؤشر التكافؤ المحلي: رسوم البوابة تعادل قيمة كوبين من القهوة محلياً لضمان الجدية وتفعيل السجل السيادي.'
+                        ? 'Ù…Ø¤Ø´Ø± Ø§Ù„ØªÙƒØ§ÙØ¤ Ø§Ù„Ù…Ø­Ù„ÙŠ: Ø±Ø³ÙˆÙ… Ø§Ù„Ø¨ÙˆØ§Ø¨Ø© ØªØ¹Ø§Ø¯Ù„ Ù‚ÙŠÙ…Ø© ÙƒÙˆØ¨ÙŠÙ† Ù…Ù† Ø§Ù„Ù‚Ù‡ÙˆØ© Ù…Ø­Ù„ÙŠØ§Ù‹ Ù„Ø¶Ù…Ø§Ù† Ø§Ù„Ø¬Ø¯ÙŠØ© ÙˆØªÙØ¹ÙŠÙ„ Ø§Ù„Ø³Ø¬Ù„ Ø§Ù„Ø³ÙŠØ§Ø¯ÙŠ.'
                         : 'Localized Coffee-Parity Index: Gateway micro-fee equals the local cost of two cups of coffee.'}
                 </span>
             </div>

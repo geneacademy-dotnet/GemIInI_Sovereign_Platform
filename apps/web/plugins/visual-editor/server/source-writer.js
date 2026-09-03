@@ -1,4 +1,4 @@
-import path from 'path';
+﻿import path from 'path';
 import traverseBabel from '@babel/traverse';
 import * as t from '@babel/types';
 import {
@@ -245,7 +245,7 @@ function setJsxAttribute(openingElement, attributeName, value) {
 		existingAttribute.value = newLiteral;
 		return { modified: true };
 	}
-	return { modified: false, error: `Cannot write '${attributeName}' — source value is not a static string literal` };
+	return { modified: false, error: `Cannot write '${attributeName}' â€” source value is not a static string literal` };
 }
 
 /**
@@ -343,7 +343,7 @@ export function applyElementEdit(babelAst, edit, parsedId) {
 				&& t.isObjectExpression(styleAttribute.value.expression)
 			)
 		) {
-			return { modified: false, error: 'Cannot write style — source value is not a static object literal' };
+			return { modified: false, error: 'Cannot write style â€” source value is not a static object literal' };
 		}
 	}
 
@@ -362,7 +362,7 @@ export function applyElementEdit(babelAst, edit, parsedId) {
 		if (!isWritable) {
 			return {
 				modified: false,
-				error: `Cannot write '${change.target}' — source value is not a static string literal`,
+				error: `Cannot write '${change.target}' â€” source value is not a static string literal`,
 			};
 		}
 	}
@@ -386,7 +386,7 @@ export function applyElementEdit(babelAst, edit, parsedId) {
 	if (styleChanges.length) {
 		const style = Object.fromEntries(styleChanges.map(change => [change.target, change.after ?? '']));
 		if (!setJsxStyleProperty(targetOpeningElement, style)) {
-			return { modified: false, error: 'Cannot write style — source value is not a static object literal' };
+			return { modified: false, error: 'Cannot write style â€” source value is not a static object literal' };
 		}
 	}
 

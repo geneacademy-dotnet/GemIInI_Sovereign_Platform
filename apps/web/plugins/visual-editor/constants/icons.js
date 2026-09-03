@@ -1,4 +1,4 @@
-/** Small chevron-down icon for compact dropdown triggers. */
+﻿/** Small chevron-down icon for compact dropdown triggers. */
 export const ICON_CHEVRON_DOWN_SMALL = `
 <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true">
   <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -44,7 +44,7 @@ export const ICON_ALIGN_LEFT = `
 </svg>
 `.trim();
 
-/** “More options” toolbar icon (line height / extras). */
+/** â€œMore optionsâ€ toolbar icon (line height / extras). */
 export const ICON_MORE = `
 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
   <path d="M12.5 12.5C12.9142 12.5 13.25 12.8358 13.25 13.25C13.25 13.6642 12.9142 14 12.5 14H3.5C3.08579 14 2.75 13.6642 2.75 13.25C2.75 12.8358 3.08579 12.5 3.5 12.5H12.5Z" fill="white"/>

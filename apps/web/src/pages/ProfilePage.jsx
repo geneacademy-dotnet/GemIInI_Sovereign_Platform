@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import Layout from '@/components/site/Layout';
 import { PageHeader, Section } from '@/components/site/Bits';
@@ -38,11 +38,11 @@ const ProfilePage = () => {
   return (
     <Layout>
       <Helmet>
-        <title>{isRtl ? 'الملف السيادي | منصة GemIInI' : 'My Sovereign Profile | GemIInI'}</title>
+        <title>{isRtl ? 'Ø§Ù„Ù…Ù„Ù Ø§Ù„Ø³ÙŠØ§Ø¯ÙŠ | Ù…Ù†ØµØ© GemIInI' : 'My Sovereign Profile | GemIInI'}</title>
         <meta name="description" content="Manage your Gene Academy & GemIInI member profile, clinical standing and verification details." />
       </Helmet>
       <PageHeader
-        title={isRtl ? 'الملف الشخصي والسجل السيادي' : t('nav.profile')}
+        title={isRtl ? 'Ø§Ù„Ù…Ù„Ù Ø§Ù„Ø´Ø®ØµÙŠ ÙˆØ§Ù„Ø³Ø¬Ù„ Ø§Ù„Ø³ÙŠØ§Ø¯ÙŠ' : t('nav.profile')}
         subtitle={user?.email || 'Sovereign Credential Ledger'}
       />
       <Section rail="max-w-[64rem]">
@@ -76,7 +76,7 @@ const ProfilePage = () => {
         {/* Member Profile Form */}
         <div className="rounded-2xl border border-slate-800 bg-[#04080F] p-6 sm:p-8 mt-6" dir={isRtl ? 'rtl' : 'ltr'}>
           <h3 className="text-lg font-bold text-white mb-4">
-            {isRtl ? 'تحديث بيانات الحساب والمؤسسة' : 'Account & Faculty Details'}
+            {isRtl ? 'ØªØ­Ø¯ÙŠØ« Ø¨ÙŠØ§Ù†Ø§Øª Ø§Ù„Ø­Ø³Ø§Ø¨ ÙˆØ§Ù„Ù…Ø¤Ø³Ø³Ø©' : 'Account & Faculty Details'}
           </h3>
           <form onSubmit={save} className="space-y-5">
             <label className="block text-sm font-medium text-slate-300">
@@ -98,7 +98,7 @@ const ProfilePage = () => {
               />
             </label>
             <label className="block text-sm font-medium text-slate-300">
-              {lang === 'ar' ? 'الهاتف (مقنّع)' : 'Phone (masked)'}
+              {lang === 'ar' ? 'Ø§Ù„Ù‡Ø§ØªÙ (Ù…Ù‚Ù†Ù‘Ø¹)' : 'Phone (masked)'}
               <input
                 value={form.phone_masked}
                 onChange={(e) => setForm({ ...form, phone_masked: e.target.value })}
@@ -107,13 +107,13 @@ const ProfilePage = () => {
               />
             </label>
             {status === 'error' && <p className="text-sm text-rose-400">{t('common.error')}</p>}
-            {status === 'done' && <p className="text-sm text-emerald-400">{lang === 'ar' ? 'تم الحفظ بنجاح.' : 'Saved successfully.'}</p>}
+            {status === 'done' && <p className="text-sm text-emerald-400">{lang === 'ar' ? 'ØªÙ… Ø§Ù„Ø­ÙØ¸ Ø¨Ù†Ø¬Ø§Ø­.' : 'Saved successfully.'}</p>}
             <button
               type="submit"
               disabled={status === 'loading'}
               className="min-h-[48px] rounded-xl bg-[#00F2FE] hover:bg-[#00D2DE] px-7 text-sm font-bold text-slate-950 transition-transform active:scale-[0.98] disabled:opacity-60"
             >
-              {status === 'loading' ? t('common.loading') : lang === 'ar' ? 'حفظ التعديلات' : 'Save changes'}
+              {status === 'loading' ? t('common.loading') : lang === 'ar' ? 'Ø­ÙØ¸ Ø§Ù„ØªØ¹Ø¯ÙŠÙ„Ø§Øª' : 'Save changes'}
             </button>
           </form>
         </div>

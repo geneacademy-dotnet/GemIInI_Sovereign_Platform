@@ -1,4 +1,4 @@
-import { getElementType, elementZIndex } from '../../utils/dom-utils.js';
+﻿import { getElementType, elementZIndex } from '../../utils/dom-utils.js';
 import { Z_OFFSET_TOOLTIP } from '../../constants/theme.js';
 import { TYPE_TOOLTIP_CURSOR_OFFSET, TOOLTIP_VIEWPORT_MARGIN } from '../../constants/layout.js';
 import { ELEMENT_TYPE_TRANSLATIONS } from '../../constants/selectors.js';
@@ -23,7 +23,7 @@ function createTypeTooltip() {
 /**
  * Positions the tooltip's top-left corner near `(clientX, clientY)`, clamped
  * per axis so it never crosses within `TOOLTIP_VIEWPORT_MARGIN` of the
- * viewport edge. The cursor is free to keep moving over the parked tooltip —
+ * viewport edge. The cursor is free to keep moving over the parked tooltip â€”
  * it is `pointer-events: none`, so hit-testing resolves straight through it.
  * @param {number} clientX
  * @param {number} clientY

@@ -1,4 +1,4 @@
-import { registerPanel, PanelId, setPanelVisible, isPanelVisible } from '../../../state/panel-state.js';
+﻿import { registerPanel, PanelId, setPanelVisible, isPanelVisible } from '../../../state/panel-state.js';
 import { getToolbarEl, getToolbarTarget } from '../toolbar/toolbar.js';
 import { createPanelElement, positionDropdownPanel, createOutsideDismiss, captureSelectionRange } from '../dropdown-panel.js';
 import { getActiveRange, wrapRange, syncUnderlineColorFromElement } from '../style-actions.js';
@@ -732,7 +732,7 @@ export function hideColorAction(force = false) {
     if (!colorActionElement) return;
     _eyedropperPickAbort?.abort();
     _eyedropperPickAbort = null;
-    // Swatches are added/edited explicitly via the grid now — nothing to persist on close.
+    // Swatches are added/edited explicitly via the grid now â€” nothing to persist on close.
     _colorEdited = false;
     _suppressHide = false;
     colorActionElement.classList.remove('tca-visible');

@@ -1,4 +1,4 @@
-/**
+﻿/**
  * src/components/LeaderboardWidget.jsx
  * Sovereign Leaderboard Widget with Composite Score (S_rank)
  * STRICT INTEGRITY: Zero fabricated fallback data. Displays only verified remote records.
@@ -34,7 +34,7 @@ export default function LeaderboardWidget({ currentMemberGaId }) {
       }
     } catch (err) {
       console.warn('[Leaderboard] Remote fetch offline:', err);
-      setError(isRtl ? 'تعذر جلب بيانات المتصدرين المباشرة. يرجى التحقق من الاتصال.' : 'Unable to sync live leaderboard standings. Please check connection or retry.');
+      setError(isRtl ? 'ØªØ¹Ø°Ø± Ø¬Ù„Ø¨ Ø¨ÙŠØ§Ù†Ø§Øª Ø§Ù„Ù…ØªØµØ¯Ø±ÙŠÙ† Ø§Ù„Ù…Ø¨Ø§Ø´Ø±Ø©. ÙŠØ±Ø¬Ù‰ Ø§Ù„ØªØ­Ù‚Ù‚ Ù…Ù† Ø§Ù„Ø§ØªØµØ§Ù„.' : 'Unable to sync live leaderboard standings. Please check connection or retry.');
       setLeaderboardData([]);
     } finally {
       setLoading(false);
@@ -54,10 +54,10 @@ export default function LeaderboardWidget({ currentMemberGaId }) {
         <div>
           <h2 className="flex items-center gap-2 font-display text-xl sm:text-2xl font-bold tracking-tight text-white">
             <Trophy className="h-5 w-5 text-[#B48028]" strokeWidth={2} />
-            <span>{isRtl ? 'لوحة الشرف والتميز السيادي' : 'Sovereign Merit Leaderboard'}</span>
+            <span>{isRtl ? 'Ù„ÙˆØ­Ø© Ø§Ù„Ø´Ø±Ù ÙˆØ§Ù„ØªÙ…ÙŠØ² Ø§Ù„Ø³ÙŠØ§Ø¯ÙŠ' : 'Sovereign Merit Leaderboard'}</span>
           </h2>
           <p className="text-xs text-slate-400 mt-1">
-            {isRtl ? 'الترتيب مبني بدقة على معادلة التيليميتري السريري المعتمدة (S_rank)' : 'Ranked strictly by verified clinical telemetry (S_rank)'}
+            {isRtl ? 'Ø§Ù„ØªØ±ØªÙŠØ¨ Ù…Ø¨Ù†ÙŠ Ø¨Ø¯Ù‚Ø© Ø¹Ù„Ù‰ Ù…Ø¹Ø§Ø¯Ù„Ø© Ø§Ù„ØªÙŠÙ„ÙŠÙ…ÙŠØªØ±ÙŠ Ø§Ù„Ø³Ø±ÙŠØ±ÙŠ Ø§Ù„Ù…Ø¹ØªÙ…Ø¯Ø© (S_rank)' : 'Ranked strictly by verified clinical telemetry (S_rank)'}
           </p>
         </div>
 
@@ -69,7 +69,7 @@ export default function LeaderboardWidget({ currentMemberGaId }) {
               scope === 'national' ? 'bg-[#00F2FE] text-slate-950 shadow-md font-bold' : 'text-slate-400 hover:text-white'
             }`}
           >
-            {isRtl ? 'قومي (السودان)' : 'National'}
+            {isRtl ? 'Ù‚ÙˆÙ…ÙŠ (Ø§Ù„Ø³ÙˆØ¯Ø§Ù†)' : 'National'}
           </button>
           <button
             type="button"
@@ -78,7 +78,7 @@ export default function LeaderboardWidget({ currentMemberGaId }) {
               scope === 'regional' ? 'bg-[#00F2FE] text-slate-950 shadow-md font-bold' : 'text-slate-400 hover:text-white'
             }`}
           >
-            {isRtl ? 'المراكز الإقليمية' : 'Regional Hubs'}
+            {isRtl ? 'Ø§Ù„Ù…Ø±Ø§ÙƒØ² Ø§Ù„Ø¥Ù‚Ù„ÙŠÙ…ÙŠØ©' : 'Regional Hubs'}
           </button>
           <button
             type="button"
@@ -87,7 +87,7 @@ export default function LeaderboardWidget({ currentMemberGaId }) {
               scope === 'university' ? 'bg-[#00F2FE] text-slate-950 shadow-md font-bold' : 'text-slate-400 hover:text-white'
             }`}
           >
-            {isRtl ? 'الجامعات والكليات' : 'Universities'}
+            {isRtl ? 'Ø§Ù„Ø¬Ø§Ù…Ø¹Ø§Øª ÙˆØ§Ù„ÙƒÙ„ÙŠØ§Øª' : 'Universities'}
           </button>
         </div>
       </div>
@@ -96,7 +96,7 @@ export default function LeaderboardWidget({ currentMemberGaId }) {
       {loading ? (
         <div className="flex flex-col items-center justify-center gap-2 py-16 text-slate-400">
           <Loader2 className="h-6 w-6 animate-spin text-[#00F2FE]" />
-          <span className="text-xs font-medium">{isRtl ? 'جاري الاستعلام من السجل السيادي الموثق...' : 'Querying verified clinical registry...'}</span>
+          <span className="text-xs font-medium">{isRtl ? 'Ø¬Ø§Ø±ÙŠ Ø§Ù„Ø§Ø³ØªØ¹Ù„Ø§Ù… Ù…Ù† Ø§Ù„Ø³Ø¬Ù„ Ø§Ù„Ø³ÙŠØ§Ø¯ÙŠ Ø§Ù„Ù…ÙˆØ«Ù‚...' : 'Querying verified clinical registry...'}</span>
         </div>
       ) : error ? (
         <div className="space-y-3 py-10 text-center">
@@ -110,16 +110,16 @@ export default function LeaderboardWidget({ currentMemberGaId }) {
             className="inline-flex items-center gap-1.5 rounded-xl border border-slate-700 bg-slate-900 px-4 py-2 text-xs font-semibold text-slate-200 transition-colors hover:bg-slate-800"
           >
             <RefreshCw className="h-3.5 w-3.5" />
-            <span>{isRtl ? 'إعادة المحاولة' : 'Retry Sync'}</span>
+            <span>{isRtl ? 'Ø¥Ø¹Ø§Ø¯Ø© Ø§Ù„Ù…Ø­Ø§ÙˆÙ„Ø©' : 'Retry Sync'}</span>
           </button>
         </div>
       ) : leaderboardData.length === 0 ? (
         <div className="space-y-2 rounded-2xl border border-dashed border-slate-800 p-8 py-14 text-center">
           <Trophy className="mx-auto mb-2 h-8 w-8 text-slate-600" />
-          <p className="text-sm font-bold text-slate-300">{isRtl ? 'لا يوجد مرشحون موثقون في هذا النطاق حالياً' : 'No Verified Candidates in this Scope Yet'}</p>
+          <p className="text-sm font-bold text-slate-300">{isRtl ? 'Ù„Ø§ ÙŠÙˆØ¬Ø¯ Ù…Ø±Ø´Ø­ÙˆÙ† Ù…ÙˆØ«Ù‚ÙˆÙ† ÙÙŠ Ù‡Ø°Ø§ Ø§Ù„Ù†Ø·Ø§Ù‚ Ø­Ø§Ù„ÙŠØ§Ù‹' : 'No Verified Candidates in this Scope Yet'}</p>
           <p className="mx-auto max-w-md text-xs text-slate-500">
             {isRtl
-              ? 'يتم تحديث الترتيب تلقائياً فور توثيق معرف GA-ID وإكمال محاكاة الحالات السريرية MTC™.'
+              ? 'ÙŠØªÙ… ØªØ­Ø¯ÙŠØ« Ø§Ù„ØªØ±ØªÙŠØ¨ ØªÙ„Ù‚Ø§Ø¦ÙŠØ§Ù‹ ÙÙˆØ± ØªÙˆØ«ÙŠÙ‚ Ù…Ø¹Ø±Ù GA-ID ÙˆØ¥ÙƒÙ…Ø§Ù„ Ù…Ø­Ø§ÙƒØ§Ø© Ø§Ù„Ø­Ø§Ù„Ø§Øª Ø§Ù„Ø³Ø±ÙŠØ±ÙŠØ© MTCâ„¢.'
               : 'Standings populate automatically as physicians authenticate their GA-ID and complete clinical simulation audits.'}
           </p>
         </div>
@@ -172,11 +172,11 @@ export default function LeaderboardWidget({ currentMemberGaId }) {
             <table className="w-full text-start text-xs">
               <thead>
                 <tr className="border-b border-slate-800 text-slate-400 font-semibold">
-                  <th className="px-3.5 py-3 text-start">{isRtl ? 'الترتيب' : 'Rank'}</th>
-                  <th className="px-3.5 py-3 text-start">{isRtl ? 'الطبيب / المرشح' : 'Candidate'}</th>
-                  <th className="px-3.5 py-3 text-start">{isRtl ? 'الجامعة والمؤسسة' : 'University'}</th>
-                  <th className="px-3.5 py-3 text-center">{isRtl ? 'الإكمال (CCR)' : 'CCR %'}</th>
-                  <th className="px-3.5 py-3 text-end">{isRtl ? 'النقاط (S_rank)' : 'Composite (S_rank)'}</th>
+                  <th className="px-3.5 py-3 text-start">{isRtl ? 'Ø§Ù„ØªØ±ØªÙŠØ¨' : 'Rank'}</th>
+                  <th className="px-3.5 py-3 text-start">{isRtl ? 'Ø§Ù„Ø·Ø¨ÙŠØ¨ / Ø§Ù„Ù…Ø±Ø´Ø­' : 'Candidate'}</th>
+                  <th className="px-3.5 py-3 text-start">{isRtl ? 'Ø§Ù„Ø¬Ø§Ù…Ø¹Ø© ÙˆØ§Ù„Ù…Ø¤Ø³Ø³Ø©' : 'University'}</th>
+                  <th className="px-3.5 py-3 text-center">{isRtl ? 'Ø§Ù„Ø¥ÙƒÙ…Ø§Ù„ (CCR)' : 'CCR %'}</th>
+                  <th className="px-3.5 py-3 text-end">{isRtl ? 'Ø§Ù„Ù†Ù‚Ø§Ø· (S_rank)' : 'Composite (S_rank)'}</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-800/60">

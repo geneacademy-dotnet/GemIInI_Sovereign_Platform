@@ -1,4 +1,4 @@
----
+﻿---
 name: sudagene-project-management
 description: Automates and guides the workflow for Sudagene / GeneAcademy master project updates, executive briefs, team sheet audits, and student telemetry.
 ---
@@ -21,7 +21,7 @@ Mohamed manages a high cognitive load, overseeing daily project syncs, weekly te
   * Check team sheets and logs for missing data or inactivity across core roles (GA-001, GA-004, GA-011).
   * Generate audit reminders.
 * **Student Telemetry & Rankings (Mon & Fri, 11:00 AM):**
-  * Parse student performance data across the 2,500 MTC™ clinical scenarios.
+  * Parse student performance data across the 2,500 MTCâ„¢ clinical scenarios.
   * Update ranking boards, GP ledgers, and flag candidates needing intervention.
 * **Executive Sync Briefs (Wed & Sat, 11:00 AM):**
   * Compile the week's telemetry, team sheet audits, and project syncs into a concise executive summary for leadership.
@@ -29,7 +29,7 @@ Mohamed manages a high cognitive load, overseeing daily project syncs, weekly te
 ### Monthly Routine
 * **End of Month Financial & Independent Credential Review:**
   * Reconcile Vodafone Cash and Bankak inflows against unit economic targets.
-  * Audit SHA-256 SudaPass / GemIInIPass™ credential issues and B2B GLOMEt institutional pipelines.
+  * Audit SHA-256 SudaPass / GemIInIPassâ„¢ credential issues and B2B GLOMEt institutional pipelines.
 
 ## Execution Rules
 1. **Anticipate the Schedule:** Check the current day of the week to anticipate which task Mohamed is working on based on the schedule above.

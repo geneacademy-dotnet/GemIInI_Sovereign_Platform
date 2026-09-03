@@ -1,4 +1,4 @@
-const SITE_PAGES_ENDPOINT = '/__horizons/site-pages';
+﻿const SITE_PAGES_ENDPOINT = '/__horizons/site-pages';
 
 const OUTGOING_SITE_PAGES_MESSAGE = 'sitePages';
 const INCOMING_REQUEST_SITE_PAGES_MESSAGE = 'request-site-pages';

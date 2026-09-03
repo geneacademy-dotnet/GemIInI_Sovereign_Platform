@@ -1,4 +1,4 @@
-/**
+﻿/**
  * src/components/MtcSimulationRunner.jsx
  * Interactive Clinical Simulation Engine (MTC-CARDIO-101 / SURG-201)
  * Generates Real Diagnostic Telemetry and Dispatches to Sovereign Backend
@@ -185,7 +185,7 @@ export default function MtcSimulationRunner({ candidateGaId = 'GA-3521', onCompl
             {formatTime(timeLeft)}
           </div>
           <div className="px-3 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-xs font-mono text-slate-300">
-            {isRtl ? `الخطوة ${currentStepIndex + 1} من ${SIMULATION_CASE.steps.length}` : `Step ${currentStepIndex + 1} of ${SIMULATION_CASE.steps.length}`}
+            {isRtl ? `Ø§Ù„Ø®Ø·ÙˆØ© ${currentStepIndex + 1} Ù…Ù† ${SIMULATION_CASE.steps.length}` : `Step ${currentStepIndex + 1} of ${SIMULATION_CASE.steps.length}`}
           </div>
         </div>
       </div>
@@ -208,11 +208,11 @@ export default function MtcSimulationRunner({ candidateGaId = 'GA-3521', onCompl
         <div className="flex items-center justify-between mb-2">
           <div className="flex items-center gap-2 text-rose-400 font-semibold text-xs">
             <Activity className="w-4 h-4" />
-            <span>{isRtl ? 'الحالة السريرية والمؤشرات الحيوية' : 'Clinical Presentation & Vitals'}</span>
+            <span>{isRtl ? 'Ø§Ù„Ø­Ø§Ù„Ø© Ø§Ù„Ø³Ø±ÙŠØ±ÙŠØ© ÙˆØ§Ù„Ù…Ø¤Ø´Ø±Ø§Øª Ø§Ù„Ø­ÙŠÙˆÙŠØ©' : 'Clinical Presentation & Vitals'}</span>
           </div>
           <div className="flex items-center gap-1 text-slate-500 text-[10px] uppercase">
             <AlertTriangle className="w-3 h-3" />
-            {isRtl ? 'مؤمن ضد النسخ' : 'Copy Protected'}
+            {isRtl ? 'Ù…Ø¤Ù…Ù† Ø¶Ø¯ Ø§Ù„Ù†Ø³Ø®' : 'Copy Protected'}
           </div>
         </div>
         <p>{isRtl ? SIMULATION_CASE.vignette.ar : SIMULATION_CASE.vignette.en}</p>
@@ -267,7 +267,7 @@ export default function MtcSimulationRunner({ candidateGaId = 'GA-3521', onCompl
         {/* Explanation on Submission */}
         {submitted && (
           <div className="p-4 bg-slate-900/90 border border-slate-800 rounded-xl text-xs text-slate-300 mt-4 animate-in fade-in">
-            <p className="font-bold text-teal-400 mb-1">{isRtl ? 'التعليل السريري المعتمد:' : 'Clinical Rationale:'}</p>
+            <p className="font-bold text-teal-400 mb-1">{isRtl ? 'Ø§Ù„ØªØ¹Ù„ÙŠÙ„ Ø§Ù„Ø³Ø±ÙŠØ±ÙŠ Ø§Ù„Ù…Ø¹ØªÙ…Ø¯:' : 'Clinical Rationale:'}</p>
             <p>{isRtl ? step.explanation.ar : step.explanation.en}</p>
           </div>
         )}
@@ -284,10 +284,10 @@ export default function MtcSimulationRunner({ candidateGaId = 'GA-3521', onCompl
             </div>
             <div>
               <p className="text-xs text-slate-400 uppercase tracking-wider font-semibold">
-                {isRtl ? 'نتيجة تقييم المحاكاة السريرية' : 'Simulation Audit Verdict'}
+                {isRtl ? 'Ù†ØªÙŠØ¬Ø© ØªÙ‚ÙŠÙŠÙ… Ø§Ù„Ù…Ø­Ø§ÙƒØ§Ø© Ø§Ù„Ø³Ø±ÙŠØ±ÙŠØ©' : 'Simulation Audit Verdict'}
               </p>
               <h4 className="text-lg font-bold text-white">
-                {telemetryResult.score}% {isRtl ? 'دقة التشخيص' : 'Diagnostic Accuracy'} • +{telemetryResult.awardedGp} GP
+                {telemetryResult.score}% {isRtl ? 'Ø¯Ù‚Ø© Ø§Ù„ØªØ´Ø®ÙŠØµ' : 'Diagnostic Accuracy'} â€¢ +{telemetryResult.awardedGp} GP
               </h4>
             </div>
           </div>
@@ -303,7 +303,7 @@ export default function MtcSimulationRunner({ candidateGaId = 'GA-3521', onCompl
           className="px-4 py-2 bg-slate-900 border border-slate-800 rounded-xl text-xs text-slate-300 hover:bg-slate-800 disabled:opacity-30 disabled:pointer-events-none transition-colors flex items-center gap-1.5"
         >
           {isRtl ? <ArrowRight className="w-3.5 h-3.5" /> : <ArrowLeft className="w-3.5 h-3.5" />}
-          <span>{isRtl ? 'السابق' : 'Previous'}</span>
+          <span>{isRtl ? 'Ø§Ù„Ø³Ø§Ø¨Ù‚' : 'Previous'}</span>
         </button>
 
         {!submitted ? (
@@ -315,7 +315,7 @@ export default function MtcSimulationRunner({ candidateGaId = 'GA-3521', onCompl
               className="px-6 py-2.5 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs rounded-xl shadow-[0_0_15px_rgba(16,185,129,0.3)] disabled:opacity-40 transition-all flex items-center gap-1.5"
             >
               <Award className="w-4 h-4" />
-              <span>{isRtl ? 'اعتماد التقييم وحفظ التيليميتري' : 'Submit Audit & Log Telemetry'}</span>
+              <span>{isRtl ? 'Ø§Ø¹ØªÙ…Ø§Ø¯ Ø§Ù„ØªÙ‚ÙŠÙŠÙ… ÙˆØ­ÙØ¸ Ø§Ù„ØªÙŠÙ„ÙŠÙ…ÙŠØªØ±ÙŠ' : 'Submit Audit & Log Telemetry'}</span>
             </button>
           ) : (
             <button
@@ -324,13 +324,13 @@ export default function MtcSimulationRunner({ candidateGaId = 'GA-3521', onCompl
               onClick={handleNext}
               className="px-5 py-2.5 bg-[#00F2FE] hover:bg-[#00D2DE] text-slate-950 font-bold text-xs rounded-xl shadow-[0_0_15px_rgba(0,242,254,0.3)] disabled:opacity-40 transition-all flex items-center gap-1.5"
             >
-              <span>{isRtl ? 'التالي' : 'Next Step'}</span>
+              <span>{isRtl ? 'Ø§Ù„ØªØ§Ù„ÙŠ' : 'Next Step'}</span>
               {isRtl ? <ArrowLeft className="w-3.5 h-3.5" /> : <ArrowRight className="w-3.5 h-3.5" />}
             </button>
           )
         ) : (
           <span className="text-emerald-400 font-mono text-sm font-bold flex items-center gap-2">
-            <Lock className="w-4 h-4" /> {isRtl ? 'تم توثيق السجل بأمان' : 'Ledger Secured'}
+            <Lock className="w-4 h-4" /> {isRtl ? 'ØªÙ… ØªÙˆØ«ÙŠÙ‚ Ø§Ù„Ø³Ø¬Ù„ Ø¨Ø£Ù…Ø§Ù†' : 'Ledger Secured'}
           </span>
         )}
       </div>

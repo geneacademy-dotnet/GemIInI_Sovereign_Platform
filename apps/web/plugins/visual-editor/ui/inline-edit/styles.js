@@ -1,4 +1,4 @@
-import { EDIT_BORDER_COLOR, EDIT_BACKGROUND_COLOR, PANEL_BG, BORDER_COLOR, COLOR_WHITE } from '../../constants/theme.js';
+﻿import { EDIT_BORDER_COLOR, EDIT_BACKGROUND_COLOR, PANEL_BG, BORDER_COLOR, COLOR_WHITE } from '../../constants/theme.js';
 import { ICON_TEXT_EDIT_CURSOR } from '../../constants/icons.js';
 import { HOVER_OUTLINE_STROKE_WIDTH } from '../../constants/layout.js';
 

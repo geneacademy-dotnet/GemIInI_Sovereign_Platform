@@ -1,4 +1,4 @@
-# The Landscape of Clinical Genetics, Population Genomics, and Personalized Medicine in Sudan
+﻿# The Landscape of Clinical Genetics, Population Genomics, and Personalized Medicine in Sudan
 ## Historical Milestones, Endemic Mendelian Landscapes, Consanguinity Dynamics, and the SudaGene Independent Paradigm
 
 **Author:** SudaGene Medical Consortium & GemIInI SudaGene Platform  
@@ -11,9 +11,9 @@
 
 ## Executive Summary
 
-Sudan represents one of the most genetically diverse, ethnogeographically pivotal, and under-characterized populations on the African continent. Situated at the historic crossroads of Sub-Saharan Africa, the Nile Valley, and the Arabian Peninsula, its 45+ million population encompasses over 500 distinct ethnic sub-groups across Afroasiatic, Nilo-Saharan, and Niger-Congo linguistic families. This intricate demographic mosaic—compounded by culturally normative endogamy and consanguinity rates averaging 40% to 65%—creates a unique Mendelian landscape characterized by high burdens of autosomal recessive hemoglobinopathies, enzymopathies, inborn errors of metabolism (IEM), and rare, private founder mutations.
+Sudan represents one of the most genetically diverse, ethnogeographically pivotal, and under-characterized populations on the African continent. Situated at the historic crossroads of Sub-Saharan Africa, the Nile Valley, and the Arabian Peninsula, its 45+ million population encompasses over 500 distinct ethnic sub-groups across Afroasiatic, Nilo-Saharan, and Niger-Congo linguistic families. This intricate demographic mosaicâ€”compounded by culturally normative endogamy and consanguinity rates averaging 40% to 65%â€”creates a unique Mendelian landscape characterized by high burdens of autosomal recessive hemoglobinopathies, enzymopathies, inborn errors of metabolism (IEM), and rare, private founder mutations.
 
-Despite landmark contributions from pioneering institutions such as the **Institute of Endemic Diseases (IEND)** at the University of Khartoum under the late **Prof. Ahmed Mohamed El Hassan** and **Prof. Muntaser Ibrahim**, clinical genetics services in Sudan have historically faced critical structural bottlenecks. These include severe diagnostic centralization, limited molecular infrastructure, reliance on prohibitive out-of-pocket testing, and the global "African Genomic Gap"—wherein African populations represent less than 3% of global genome-wide association study (GWAS) cohorts, leading to inflated rates of Variants of Uncertain Significance (VUS) and diagnostic delay.
+Despite landmark contributions from pioneering institutions such as the **Institute of Endemic Diseases (IEND)** at the University of Khartoum under the late **Prof. Ahmed Mohamed El Hassan** and **Prof. Muntaser Ibrahim**, clinical genetics services in Sudan have historically faced critical structural bottlenecks. These include severe diagnostic centralization, limited molecular infrastructure, reliance on prohibitive out-of-pocket testing, and the global "African Genomic Gap"â€”wherein African populations represent less than 3% of global genome-wide association study (GWAS) cohorts, leading to inflated rates of Variants of Uncertain Significance (VUS) and diagnostic delay.
 
 The **SudaGene Independent Paradigm** establishes an actionable, evidence-based blueprint to transition Sudanese medical practice from reactive, fragmented care into a decentralized, digital-first clinical genetics ecosystem. By coupling:
 1. Low-bandwidth, mobile-first **3-generation pedigree telemetry** (ACMG/NSGC-compliant),
@@ -33,22 +33,22 @@ The genomic architecture of the Sudanese population is defined by deep time-dept
 * **Western & Eastern Migratory Belts:** Western regions (Darfur and Kordofan) harbor rich Nilo-Saharan and Niger-Congo lineages (e.g., Fur, Zaghawa, Masalit, Baggara) marked by distinct classical African hemoglobinopathy haplotypes, whereas Eastern Sudan (Beja, Hadendoa, Beni-Amer) reflects ancient Afroasiatic pastoralist lineages with unique metabolic adaptations.
 
 ```
-                    ┌────────────────────────────────────────────────────────┐
-                    │      SUDANESE GENOMIC DIVERSITY & ADMIXTURE MATRIX     │
-                    └───────────────────────────┬────────────────────────────┘
-                                                │
-         ┌──────────────────────────────┬───────┴──────────────────────┬──────────────────────────────┐
-         ▼                              ▼                              ▼                              ▼
- ┌───────────────┐              ┌───────────────┐              ┌───────────────┐              ┌───────────────┐
- │  Nile Valley  │              │ Western Sahel │              │  Eastern Beja │              │ Southern/Nuba │
- │ (Nubian/Arab) │              │(Nilo-Saharan) │              │ (Afroasiatic) │              │  Lineages     │
- ├───────────────┤              ├───────────────┤              ├───────────────┤              ├───────────────┤
- │ • HbS Benin   │              │ • HbS CAR/    │              │ • Unique G6PD │              │ • Deep ancestral│
- │   & Arab-Ind  │              │   Cameroon    │              │   variants    │              │   variation   │
- │ • Beta-Thal   │              │ • High Sickle │              │ • High rate   │              │ • Consanguineous│
- │   IVS-I-110   │              │   prevalence  │              │   of isolated │              │   endogamy    │
- │ • High $F$    │              │ • Multigenic  │              │   kindreds    │              │ • Private IEMs│
- └───────────────┘              └───────────────┘              └───────────────┘              └───────────────┘
+                    â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+                    â”‚      SUDANESE GENOMIC DIVERSITY & ADMIXTURE MATRIX     â”‚
+                    â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+                                                â”‚
+         â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+         â–¼                              â–¼                              â–¼                              â–¼
+ â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”              â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”              â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”              â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+ â”‚  Nile Valley  â”‚              â”‚ Western Sahel â”‚              â”‚  Eastern Beja â”‚              â”‚ Southern/Nuba â”‚
+ â”‚ (Nubian/Arab) â”‚              â”‚(Nilo-Saharan) â”‚              â”‚ (Afroasiatic) â”‚              â”‚  Lineages     â”‚
+ â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤              â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤              â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤              â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
+ â”‚ â€¢ HbS Benin   â”‚              â”‚ â€¢ HbS CAR/    â”‚              â”‚ â€¢ Unique G6PD â”‚              â”‚ â€¢ Deep ancestralâ”‚
+ â”‚   & Arab-Ind  â”‚              â”‚   Cameroon    â”‚              â”‚   variants    â”‚              â”‚   variation   â”‚
+ â”‚ â€¢ Beta-Thal   â”‚              â”‚ â€¢ High Sickle â”‚              â”‚ â€¢ High rate   â”‚              â”‚ â€¢ Consanguineousâ”‚
+ â”‚   IVS-I-110   â”‚              â”‚   prevalence  â”‚              â”‚   of isolated â”‚              â”‚   endogamy    â”‚
+ â”‚ â€¢ High $F$    â”‚              â”‚ â€¢ Multigenic  â”‚              â”‚   kindreds    â”‚              â”‚ â€¢ Private IEMsâ”‚
+ â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜              â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜              â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜              â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 ```
 
 ### 1.2 Consanguinity Architecture and Inbreeding Coefficients ($F$)
@@ -64,40 +64,40 @@ Consanguineous marriage (predominantly first-cousin unions, *parallel and cross-
 ## 2. Endemic Monogenic & Complex Genetic Disorders
 
 ```
-┌──────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-│              TABLE 1: HIGH-BURDEN MONOGENIC CONDITIONS IN THE SUDANESE POPULATION                        │
-├───────────────────────┬──────────────┬─────────────┬──────────────────────────┬──────────────────────────┤
-│ Condition / Disease   │ Gene (Locus) │ Inheritance │ Estimated Regional Freq. │ Recommended Panel/Assay  │
-├───────────────────────┼──────────────┼─────────────┼──────────────────────────┼──────────────────────────┤
-│ Sickle Cell Disease   │ *HBB*        │ Autosomal   │ Carrier rate: 1.5% - 28% │ • HPLC / Capillary Hb    │
-│ (HbSS / HbS-Beta)     │ (11p15.4)    │ Recessive   │ (Highest in W. Sudan)    │ • Targeted PCR (rs334)   │
-│                       │              │             │                          │ • Haplotype RFLP         │
-├───────────────────────┼──────────────┼─────────────┼──────────────────────────┼──────────────────────────┤
-│ Beta-Thalassemia      │ *HBB*        │ Autosomal   │ Carrier rate: 2% - 5%    │ • Hb Electrophoresis     │
-│ Major / Intermedia    │ (11p15.4)    │ Recessive   │ (Nile Valley / Gezira)   │ • Reverse dot blot / NGS │
-│                       │              │             │                          │   (IVS-I-110, Codon 39)  │
-├───────────────────────┼──────────────┼─────────────┼──────────────────────────┼──────────────────────────┤
-│ G6PD Deficiency       │ *G6PD*       │ X-Linked    │ Male hemizygotes:        │ • Enzymatic Assay        │
-│                       │ (Xq28)       │ Recessive   │ 8% - 15% nationally      │ • Genotyping for G6PD A- │
-│                       │              │             │                          │   (202G>A, 376A>G)       │
-├───────────────────────┼──────────────┼─────────────┼──────────────────────────┼──────────────────────────┤
-│ Spinal Muscular       │ *SMN1*       │ Autosomal   │ High familial clustering │ • MLPA for *SMN1* exon   │
-│ Atrophy (SMA Types I-III)│ (5q13.2)  │ Recessive   │ in consanguineous pods   │   7/8 copy number        │
-├───────────────────────┼──────────────┼─────────────┼──────────────────────────┼──────────────────────────┤
-│ Sensorineural Hearing │ *GJB2*       │ Autosomal   │ Common cause of AR non-  │ • Sanger / Targeted NGS  │
-│ Loss (DFNB1)          │ (13q12.11)   │ Recessive   │ syndromic deafness       │   (35delG & novel SNPs)  │
-├───────────────────────┼──────────────┼─────────────┼──────────────────────────┼──────────────────────────┤
-│ Oculocutaneous        │ *TYR* (OCA1) │ Autosomal   │ High focal prevalence in │ • Targeted panel / WES   │
-│ Albinism (OCA1, OCA2) │ *OCA2* (OCA2)│ Recessive   │ regional cohorts         │ • 2.7-kb deletion screening│
-├───────────────────────┼──────────────┼─────────────┼──────────────────────────┼──────────────────────────┤
-│ Inborn Errors of      │ *PAH*, *GALT*│ Autosomal   │ High mortality in        │ • Dried Blood Spot (DBS) │
-│ Metabolism (MSUD/PKU) │ *BCKDHA*     │ Recessive   │ neonatal crisis cohorts  │   Tandem Mass Spec (MS/MS)│
-└───────────────────────┴──────────────┴─────────────┴──────────────────────────┴──────────────────────────┘
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚              TABLE 1: HIGH-BURDEN MONOGENIC CONDITIONS IN THE SUDANESE POPULATION                        â”‚
+â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
+â”‚ Condition / Disease   â”‚ Gene (Locus) â”‚ Inheritance â”‚ Estimated Regional Freq. â”‚ Recommended Panel/Assay  â”‚
+â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
+â”‚ Sickle Cell Disease   â”‚ *HBB*        â”‚ Autosomal   â”‚ Carrier rate: 1.5% - 28% â”‚ â€¢ HPLC / Capillary Hb    â”‚
+â”‚ (HbSS / HbS-Beta)     â”‚ (11p15.4)    â”‚ Recessive   â”‚ (Highest in W. Sudan)    â”‚ â€¢ Targeted PCR (rs334)   â”‚
+â”‚                       â”‚              â”‚             â”‚                          â”‚ â€¢ Haplotype RFLP         â”‚
+â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
+â”‚ Beta-Thalassemia      â”‚ *HBB*        â”‚ Autosomal   â”‚ Carrier rate: 2% - 5%    â”‚ â€¢ Hb Electrophoresis     â”‚
+â”‚ Major / Intermedia    â”‚ (11p15.4)    â”‚ Recessive   â”‚ (Nile Valley / Gezira)   â”‚ â€¢ Reverse dot blot / NGS â”‚
+â”‚                       â”‚              â”‚             â”‚                          â”‚   (IVS-I-110, Codon 39)  â”‚
+â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
+â”‚ G6PD Deficiency       â”‚ *G6PD*       â”‚ X-Linked    â”‚ Male hemizygotes:        â”‚ â€¢ Enzymatic Assay        â”‚
+â”‚                       â”‚ (Xq28)       â”‚ Recessive   â”‚ 8% - 15% nationally      â”‚ â€¢ Genotyping for G6PD A- â”‚
+â”‚                       â”‚              â”‚             â”‚                          â”‚   (202G>A, 376A>G)       â”‚
+â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
+â”‚ Spinal Muscular       â”‚ *SMN1*       â”‚ Autosomal   â”‚ High familial clustering â”‚ â€¢ MLPA for *SMN1* exon   â”‚
+â”‚ Atrophy (SMA Types I-III)â”‚ (5q13.2)  â”‚ Recessive   â”‚ in consanguineous pods   â”‚   7/8 copy number        â”‚
+â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
+â”‚ Sensorineural Hearing â”‚ *GJB2*       â”‚ Autosomal   â”‚ Common cause of AR non-  â”‚ â€¢ Sanger / Targeted NGS  â”‚
+â”‚ Loss (DFNB1)          â”‚ (13q12.11)   â”‚ Recessive   â”‚ syndromic deafness       â”‚   (35delG & novel SNPs)  â”‚
+â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
+â”‚ Oculocutaneous        â”‚ *TYR* (OCA1) â”‚ Autosomal   â”‚ High focal prevalence in â”‚ â€¢ Targeted panel / WES   â”‚
+â”‚ Albinism (OCA1, OCA2) â”‚ *OCA2* (OCA2)â”‚ Recessive   â”‚ regional cohorts         â”‚ â€¢ 2.7-kb deletion screeningâ”‚
+â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
+â”‚ Inborn Errors of      â”‚ *PAH*, *GALT*â”‚ Autosomal   â”‚ High mortality in        â”‚ â€¢ Dried Blood Spot (DBS) â”‚
+â”‚ Metabolism (MSUD/PKU) â”‚ *BCKDHA*     â”‚ Recessive   â”‚ neonatal crisis cohorts  â”‚   Tandem Mass Spec (MS/MS)â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 ```
 
 ### 2.1 Hemoglobinopathies: Sickle Cell Disease & Beta-Thalassemia
 Sickle Cell Anemia represents Sudan's foremost monogenic public health challenge.
-* **Geographic Gradient:** Carrier frequency reaches its zenith in Western Sudan (Kordofan, Darfur) among the Misseriya, Rizeigat, and Hawazma tribes (approaching 20%–30%), while averaging 2%–5% in Central and Northern regions.
+* **Geographic Gradient:** Carrier frequency reaches its zenith in Western Sudan (Kordofan, Darfur) among the Misseriya, Rizeigat, and Hawazma tribes (approaching 20%â€“30%), while averaging 2%â€“5% in Central and Northern regions.
 * **Molecular Heterogeneity & Haplotype Stratification:** Unlike West Africa where the *Benin* haplotype predominates, Sudanese HbS alleles demonstrate notable haplotype diversity:
   - **Benin Haplotype:** Dominant in Western and Central regions.
   - **Central African Republic (CAR / Bantu) & Cameroon Haplotypes:** Prevalent in Nilotic and Sahelian subgroups.
@@ -112,17 +112,17 @@ Sickle Cell Anemia represents Sudan's foremost monogenic public health challenge
 Despite harboring the highest level of genetic diversity and lowest linkage disequilibrium (LD) among all human populations, African genomes constitute less than 3% of global sequencing catalogues. 
 
 ```
-┌────────────────────────────────────────────────────────────────────────────────────────┐
-│                        THE GLOBAL AFRICAN GENOMIC IMBALANCE                            │
-├──────────────────────────────────────────────────────┬─────────────────────────────────┤
-│ Global GWAS & Reference Databases (gnomAD/ClinVar): │ ~97% European/East Asian        │
-├──────────────────────────────────────────────────────┼─────────────────────────────────┤
-│ African Representation in Global Variomes:           │ < 3% Representation             │
-├──────────────────────────────────────────────────────┼─────────────────────────────────┤
-│ Clinical Consequence in Sudanese Genetic Practice:   │ • 45%+ VUS Rate in Exome Panels │
-│                                                      │ • Risk of Pathogenic Misclass.  │
-│                                                      │ • Diagnostic Odysseys (>3 yrs)  │
-└──────────────────────────────────────────────────────┴─────────────────────────────────┘
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚                        THE GLOBAL AFRICAN GENOMIC IMBALANCE                            â”‚
+â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
+â”‚ Global GWAS & Reference Databases (gnomAD/ClinVar): â”‚ ~97% European/East Asian        â”‚
+â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
+â”‚ African Representation in Global Variomes:           â”‚ < 3% Representation             â”‚
+â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
+â”‚ Clinical Consequence in Sudanese Genetic Practice:   â”‚ â€¢ 45%+ VUS Rate in Exome Panels â”‚
+â”‚                                                      â”‚ â€¢ Risk of Pathogenic Misclass.  â”‚
+â”‚                                                      â”‚ â€¢ Diagnostic Odysseys (>3 yrs)  â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 ```
 
 When a Sudanese patient undergoes Whole Exome Sequencing (WES) using European-centric reference filters, **over 40% of identified non-synonymous variants are flagged as Variants of Uncertain Significance (VUS)**. This leads to diagnostic ambiguity, erroneous pathogenic classifications, and delayed intervention.
@@ -131,26 +131,26 @@ When a Sudanese patient undergoes Whole Exome Sequencing (WES) using European-ce
 Standard global drug dosing guidelines frequently fail in Sudanese patients due to distinct allele frequency spectra in critical drug-metabolizing Cytochrome P450 enzymes:
 
 ```
-┌──────────────────────────────────────────────────────────────────────────────────────────┐
-│              TABLE 2: KEY PHARMACOGENOMIC PATHWAYS IN SUDANESE CLINICAL CARE             │
-├─────────────┬───────────────────────────────┬───────────────────┬────────────────────────┤
-│ Gene        │ Clinical Drug Substrates      │ Allelic Spectrum  │ Clinical Management    │
-├─────────────┼───────────────────────────────┼───────────────────┼────────────────────────┤
-│ *CYP2D6*    │ • Tramadol, Codeine (Opioids) │ High frequency of │ Ultra-Rapid: Toxicity  │
-│             │ • Tamoxifen (Oncology)        │ *17, *29 (reduced)│ Poor: Analgesic failure│
-│             │ • Amitriptyline (Psychiatry)  │ and duplications  │                        │
-├─────────────┼───────────────────────────────┼───────────────────┼────────────────────────┤
-│ *CYP2C19*   │ • Clopidogrel (Cardiology)    │ *2, *3 (Loss of   │ Poor Metabolizers risk │
-│             │ • Omeprazole (Gastroenterology│ Function) and     │ stent thrombosis; need │
-│             │ • Voriconazole (Infectious)   │ *17 (Rapid)       │ Prasugrel/Ticagrelor   │
-├─────────────┼───────────────────────────────┼───────────────────┼────────────────────────┤
-│ *CYP3A5*    │ • Tacrolimus (Renal/Hepatic   │ *1 (Expresser,    │ Non-expressers (*3/*3) │
-│             │   Transplantation)            │ common in Africa) │ require lower doses;   │
-│             │                               │ *3 (Non-expresser)│ Expressers need 2x dose│
-├─────────────┼───────────────────────────────┼───────────────────┼────────────────────────┤
-│ *G6PD*      │ • Primaquine (Malaria radical)│ G6PD A-           │ Primaquine-induced     │
-│             │ • Rasburicase, Dapsone        │ (202A/376G)       │ acute hemolytic crisis │
-└─────────────┴───────────────────────────────┴───────────────────┴────────────────────────┘
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚              TABLE 2: KEY PHARMACOGENOMIC PATHWAYS IN SUDANESE CLINICAL CARE             â”‚
+â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
+â”‚ Gene        â”‚ Clinical Drug Substrates      â”‚ Allelic Spectrum  â”‚ Clinical Management    â”‚
+â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
+â”‚ *CYP2D6*    â”‚ â€¢ Tramadol, Codeine (Opioids) â”‚ High frequency of â”‚ Ultra-Rapid: Toxicity  â”‚
+â”‚             â”‚ â€¢ Tamoxifen (Oncology)        â”‚ *17, *29 (reduced)â”‚ Poor: Analgesic failureâ”‚
+â”‚             â”‚ â€¢ Amitriptyline (Psychiatry)  â”‚ and duplications  â”‚                        â”‚
+â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
+â”‚ *CYP2C19*   â”‚ â€¢ Clopidogrel (Cardiology)    â”‚ *2, *3 (Loss of   â”‚ Poor Metabolizers risk â”‚
+â”‚             â”‚ â€¢ Omeprazole (Gastroenterologyâ”‚ Function) and     â”‚ stent thrombosis; need â”‚
+â”‚             â”‚ â€¢ Voriconazole (Infectious)   â”‚ *17 (Rapid)       â”‚ Prasugrel/Ticagrelor   â”‚
+â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
+â”‚ *CYP3A5*    â”‚ â€¢ Tacrolimus (Renal/Hepatic   â”‚ *1 (Expresser,    â”‚ Non-expressers (*3/*3) â”‚
+â”‚             â”‚   Transplantation)            â”‚ common in Africa) â”‚ require lower doses;   â”‚
+â”‚             â”‚                               â”‚ *3 (Non-expresser)â”‚ Expressers need 2x doseâ”‚
+â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
+â”‚ *G6PD*      â”‚ â€¢ Primaquine (Malaria radical)â”‚ G6PD A-           â”‚ Primaquine-induced     â”‚
+â”‚             â”‚ â€¢ Rasburicase, Dapsone        â”‚ (202A/376G)       â”‚ acute hemolytic crisis â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 ```
 
 ---
@@ -158,30 +158,30 @@ Standard global drug dosing guidelines frequently fail in Sudanese patients due 
 ## 4. Pedagogical Frameworks & Genomic Literacy (Classroom to Clinic)
 
 ```
-┌───────────────────────────────────────────────────────────────────────────────────────┐
-│               THE 4-TIER SUDAGENE GENOMIC LITERACY ARCHITECTURE                       │
-└──────────────────────────────────────────┬────────────────────────────────────────────┘
-                                           │
-         ┌─────────────────────────────────┴─────────────────────────────────┐
-         ▼                                                                   ▼
- ┌───────────────────────────────┐                   ┌───────────────────────────────┐
- │ Tier 1: Undergraduate & House │                   │ Tier 2: Postgraduate & Master │
- │ Officers (63+ Faculties)      │                   │ Clinical Specialty Pods       │
- ├───────────────────────────────┤                   ├───────────────────────────────┤
- │ • ACMG 3-Gen Pedigree Mastery │                   │ • Mechanism-to-Clinic (MTC™)  │
- │ • Mendelian Risk Calculations │                   │   Variant Interpretation      │
- │ • Hemoglobinopathy Counseling │                   │ • PGx-Guided Pharmacotherapy  │
- └───────────────────────────────┘                   └───────────────────────────────┘
-         │                                                                   │
-         ▼                                                                   ▼
- ┌───────────────────────────────┐                   ┌───────────────────────────────┐
- │ Tier 3: Primary Healthcare &  │                   │ Tier 4: Community & Public    │
- │ Premarital Screening Hubs     │                   │ Genomic Awareness Engines     │
- ├───────────────────────────────┤                   ├───────────────────────────────┤
- │ • Decentralized HPLC Triage   │                   │ • Culturally Attuned Outreach │
- │ • Carrier Risk Communicators  │                   │ • Non-Stigmatizing Consanguin-│
- │ • Low-Bandwidth Tele-Genetics │                   │   ity Counseling              │
- └───────────────────────────────┘                   └───────────────────────────────┘
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚               THE 4-TIER SUDAGENE GENOMIC LITERACY ARCHITECTURE                       â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+                                           â”‚
+         â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+         â–¼                                                                   â–¼
+ â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”                   â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+ â”‚ Tier 1: Undergraduate & House â”‚                   â”‚ Tier 2: Postgraduate & Master â”‚
+ â”‚ Officers (63+ Faculties)      â”‚                   â”‚ Clinical Specialty Pods       â”‚
+ â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤                   â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
+ â”‚ â€¢ ACMG 3-Gen Pedigree Mastery â”‚                   â”‚ â€¢ Mechanism-to-Clinic (MTCâ„¢)  â”‚
+ â”‚ â€¢ Mendelian Risk Calculations â”‚                   â”‚   Variant Interpretation      â”‚
+ â”‚ â€¢ Hemoglobinopathy Counseling â”‚                   â”‚ â€¢ PGx-Guided Pharmacotherapy  â”‚
+ â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜                   â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+         â”‚                                                                   â”‚
+         â–¼                                                                   â–¼
+ â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”                   â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+ â”‚ Tier 3: Primary Healthcare &  â”‚                   â”‚ Tier 4: Community & Public    â”‚
+ â”‚ Premarital Screening Hubs     â”‚                   â”‚ Genomic Awareness Engines     â”‚
+ â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤                   â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
+ â”‚ â€¢ Decentralized HPLC Triage   â”‚                   â”‚ â€¢ Culturally Attuned Outreach â”‚
+ â”‚ â€¢ Carrier Risk Communicators  â”‚                   â”‚ â€¢ Non-Stigmatizing Consanguin-â”‚
+ â”‚ â€¢ Low-Bandwidth Tele-Genetics â”‚                   â”‚   ity Counseling              â”‚
+ â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜                   â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 ```
 
 ### 4.1 Digitizing the 3-Generation Pedigree (SudaGene Pedigree Studio)
@@ -217,10 +217,10 @@ The future of medicine in Sudan and the broader region lies in the fusion of dee
 
 ## References & Foundational Literature
 
-1. **El Hassan, A. M.** (2013). The problems of research and the plight of researchers in some developing countries: Sudan as an example. *International Journal of Sudan Research*, 3(2), 101–115.
-2. **Ibrahim, M. E., et al.** (2004). The genetic architecture of Sudanese populations: Insights into the African diaspora and human evolutionary history. *American Journal of Human Genetics*, 75(5), 882–891.
-3. **Sirugo, G., Williams, S. M., & Tishkoff, S. A.** (2019). The missing diversity in human genetic studies. *Cell*, 177(1), 26–31.
-4. **Richards, S., et al. (ACMG/AMP).** (2015). Standards and guidelines for the interpretation of sequence variants: a joint consensus recommendation. *Genetics in Medicine*, 17(5), 405–424.
-5. **Bennett, R. L., et al. (NSGC).** (2008). Standardized human pedigree nomenclature: Update and assessment of the recommendations of the National Society of Genetic Counselors. *Journal of Genetic Counseling*, 17(5), 424–433.
+1. **El Hassan, A. M.** (2013). The problems of research and the plight of researchers in some developing countries: Sudan as an example. *International Journal of Sudan Research*, 3(2), 101â€“115.
+2. **Ibrahim, M. E., et al.** (2004). The genetic architecture of Sudanese populations: Insights into the African diaspora and human evolutionary history. *American Journal of Human Genetics*, 75(5), 882â€“891.
+3. **Sirugo, G., Williams, S. M., & Tishkoff, S. A.** (2019). The missing diversity in human genetic studies. *Cell*, 177(1), 26â€“31.
+4. **Richards, S., et al. (ACMG/AMP).** (2015). Standards and guidelines for the interpretation of sequence variants: a joint consensus recommendation. *Genetics in Medicine*, 17(5), 405â€“424.
+5. **Bennett, R. L., et al. (NSGC).** (2008). Standardized human pedigree nomenclature: Update and assessment of the recommendations of the National Society of Genetic Counselors. *Journal of Genetic Counseling*, 17(5), 424â€“433.
 6. **Rotimi, C. N., et al. (H3Africa Consortium).** (2014). Research and capacity building in Africa: The Human Heredity and Health in Africa initiative. *Global Health, Epidemiology and Genomics*, 1, e3.
-7. **Gibbril, M. A., et al.** (2026). *Mechanism-to-Clinic (MTC™): Transforming Clinical Genetics Education and Variant Interpretation in Crisis Zones*. GeneAcademy Academic Press.
+7. **Gibbril, M. A., et al.** (2026). *Mechanism-to-Clinic (MTCâ„¢): Transforming Clinical Genetics Education and Variant Interpretation in Crisis Zones*. GeneAcademy Academic Press.

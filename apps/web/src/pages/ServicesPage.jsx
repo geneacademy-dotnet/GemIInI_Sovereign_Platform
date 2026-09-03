@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Banknote, Building2, GraduationCap, Microscope, Stethoscope, Truck } from 'lucide-react';
@@ -20,7 +20,7 @@ const ServicesPage = () => {
     return (
         <Layout>
             <Helmet>
-                <title>Services | Gene Academy — three sovereign pillars</title>
+                <title>Services | Gene Academy â€” three sovereign pillars</title>
                 <meta
                     name="description"
                     content="Gene Academy services across three pillars: GemIInI Academy licensure, GeneAcademy life-sciences mentorship, and GLOMEt HQ turnkey molecular labs and biotech grants."
@@ -29,8 +29,8 @@ const ServicesPage = () => {
             <PageHeader
                 title={t('services.title')}
                 subtitle={L({
-                    en: 'Three pillars, one consortium. Licensure, life-sciences mentorship and turnkey molecular infrastructure — plus the CSR engine that funds student grants.',
-                    ar: 'ثلاثة أعمدة، كونسورتيوم واحد. ترخيص وإرشاد في علوم الحياة وبنية تحتية جزيئية جاهزة — ومحرك المسؤولية الذي يموّل منح الطلاب.',
+                    en: 'Three pillars, one consortium. Licensure, life-sciences mentorship and turnkey molecular infrastructure â€” plus the CSR engine that funds student grants.',
+                    ar: 'Ø«Ù„Ø§Ø«Ø© Ø£Ø¹Ù…Ø¯Ø©ØŒ ÙƒÙˆÙ†Ø³ÙˆØ±ØªÙŠÙˆÙ… ÙˆØ§Ø­Ø¯. ØªØ±Ø®ÙŠØµ ÙˆØ¥Ø±Ø´Ø§Ø¯ ÙÙŠ Ø¹Ù„ÙˆÙ… Ø§Ù„Ø­ÙŠØ§Ø© ÙˆØ¨Ù†ÙŠØ© ØªØ­ØªÙŠØ© Ø¬Ø²ÙŠØ¦ÙŠØ© Ø¬Ø§Ù‡Ø²Ø© â€” ÙˆÙ…Ø­Ø±Ùƒ Ø§Ù„Ù…Ø³Ø¤ÙˆÙ„ÙŠØ© Ø§Ù„Ø°ÙŠ ÙŠÙ…ÙˆÙ‘Ù„ Ù…Ù†Ø­ Ø§Ù„Ø·Ù„Ø§Ø¨.',
                 })}
             />
 
@@ -94,14 +94,14 @@ const ServicesPage = () => {
                                     <div className="mt-4 space-y-1 font-tech text-sm">
                                         <p className="text-lg text-[hsl(var(--teal))]">{tier.sdg.toLocaleString('en-US')} SDG</p>
                                         <p className="text-muted-foreground">
-                                            {tier.sar} SAR · ${tier.usd} USD
+                                            {tier.sar} SAR Â· ${tier.usd} USD
                                         </p>
                                         <p className="text-xs text-muted-foreground/70">{L(tier.period)}</p>
                                     </div>
                                     <ul className="mt-5 flex-1 space-y-2 text-sm text-muted-foreground">
                                         {tier.perks[lang]?.map((perk) => (
                                             <li key={perk} className="flex gap-2">
-                                                <span className="mt-px text-[hsl(var(--teal))]">›</span>
+                                                <span className="mt-px text-[hsl(var(--teal))]">â€º</span>
                                                 <span>{perk}</span>
                                             </li>
                                         ))}
@@ -118,7 +118,7 @@ const ServicesPage = () => {
                                 className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-secondary/60 px-3 py-1.5 font-medium"
                             >
                                 <Banknote className="h-3.5 w-3.5 text-[hsl(var(--teal))]" strokeWidth={1.8} />
-                                {m.name} · <span className="font-tech text-xs text-muted-foreground">{m.number}</span>
+                                {m.name} Â· <span className="font-tech text-xs text-muted-foreground">{m.number}</span>
                             </span>
                         ))}
                     </div>
@@ -134,9 +134,9 @@ const ServicesPage = () => {
             <Section rail="max-w-[90rem]" className="!py-16">
                 <div className="grid gap-6 sm:grid-cols-3">
                     {[
-                        { icon: GraduationCap, en: 'Students & learners', ar: 'الطلاب والمتعلمون', body: { en: 'Structured curricula, exam simulators and peer pods.', ar: 'مناهج منظمة ومحاكيات وقنوات أقران.' } },
-                        { icon: Building2, en: 'Professionals', ar: 'المهنيون', body: { en: 'CPD-aligned modules, coaching and consultancy.', ar: 'وحدات تطوير مهني وإرشاد واستشارات.' } },
-                        { icon: Truck, en: 'Institutions', ar: 'المؤسسات', body: { en: 'Cohort licensing, turnkey labs and procurement.', ar: 'ترخيص جماعي ومختبرات جاهزة ومشتريات.' } },
+                        { icon: GraduationCap, en: 'Students & learners', ar: 'Ø§Ù„Ø·Ù„Ø§Ø¨ ÙˆØ§Ù„Ù…ØªØ¹Ù„Ù…ÙˆÙ†', body: { en: 'Structured curricula, exam simulators and peer pods.', ar: 'Ù…Ù†Ø§Ù‡Ø¬ Ù…Ù†Ø¸Ù…Ø© ÙˆÙ…Ø­Ø§ÙƒÙŠØ§Øª ÙˆÙ‚Ù†ÙˆØ§Øª Ø£Ù‚Ø±Ø§Ù†.' } },
+                        { icon: Building2, en: 'Professionals', ar: 'Ø§Ù„Ù…Ù‡Ù†ÙŠÙˆÙ†', body: { en: 'CPD-aligned modules, coaching and consultancy.', ar: 'ÙˆØ­Ø¯Ø§Øª ØªØ·ÙˆÙŠØ± Ù…Ù‡Ù†ÙŠ ÙˆØ¥Ø±Ø´Ø§Ø¯ ÙˆØ§Ø³ØªØ´Ø§Ø±Ø§Øª.' } },
+                        { icon: Truck, en: 'Institutions', ar: 'Ø§Ù„Ù…Ø¤Ø³Ø³Ø§Øª', body: { en: 'Cohort licensing, turnkey labs and procurement.', ar: 'ØªØ±Ø®ÙŠØµ Ø¬Ù…Ø§Ø¹ÙŠ ÙˆÙ…Ø®ØªØ¨Ø±Ø§Øª Ø¬Ø§Ù‡Ø²Ø© ÙˆÙ…Ø´ØªØ±ÙŠØ§Øª.' } },
                     ].map((a) => {
                         const Icon = a.icon;
                         return (

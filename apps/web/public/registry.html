@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
 
@@ -12,7 +12,7 @@ _iub.csConfiguration = {"siteId":4659147,"cookiePolicyId":32190221,"lang":"en","
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>السجل الأكاديمي والتحقق المعتمد — GemIInI Independent Registry</title>
+    <title>Ø§Ù„Ø³Ø¬Ù„ Ø§Ù„Ø£ÙƒØ§Ø¯ÙŠÙ…ÙŠ ÙˆØ§Ù„ØªØ­Ù‚Ù‚ Ø§Ù„Ù…Ø¹ØªÙ…Ø¯ â€” GemIInI Independent Registry</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -112,22 +112,22 @@ _iub.csConfiguration = {"siteId":4659147,"cookiePolicyId":32190221,"lang":"en","
 <body>
     <div class="container">
         <span class="tag mono">Independent Ledger VERIFIER</span>
-        <h1>التحقق الرسمي من الاعتماد والشهادات</h1>
-        <p class="desc">أدخل الرقم التعريفي الأكاديمي (GA-ID) للتحقق الفوري من سجل الطبيب ورصيد الساعات المعتمدة.</p>
+        <h1>Ø§Ù„ØªØ­Ù‚Ù‚ Ø§Ù„Ø±Ø³Ù…ÙŠ Ù…Ù† Ø§Ù„Ø§Ø¹ØªÙ…Ø§Ø¯ ÙˆØ§Ù„Ø´Ù‡Ø§Ø¯Ø§Øª</h1>
+        <p class="desc">Ø£Ø¯Ø®Ù„ Ø§Ù„Ø±Ù‚Ù… Ø§Ù„ØªØ¹Ø±ÙŠÙÙŠ Ø§Ù„Ø£ÙƒØ§Ø¯ÙŠÙ…ÙŠ (GA-ID) Ù„Ù„ØªØ­Ù‚Ù‚ Ø§Ù„ÙÙˆØ±ÙŠ Ù…Ù† Ø³Ø¬Ù„ Ø§Ù„Ø·Ø¨ÙŠØ¨ ÙˆØ±ØµÙŠØ¯ Ø§Ù„Ø³Ø§Ø¹Ø§Øª Ø§Ù„Ù…Ø¹ØªÙ…Ø¯Ø©.</p>
 
         <div class="input-group">
             <input type="text" id="gaInput" placeholder="GA-000" />
-            <button onclick="verifyGaId()">تحقق الآن</button>
+            <button onclick="verifyGaId()">ØªØ­Ù‚Ù‚ Ø§Ù„Ø¢Ù†</button>
         </div>
 
         <div id="resultBox" class="result-box"></div>
 
-        <a href="/" class="back-link">العودة إلى البوابة الرئيسية للأكاديمية ➔</a>
+        <a href="/" class="back-link">Ø§Ù„Ø¹ÙˆØ¯Ø© Ø¥Ù„Ù‰ Ø§Ù„Ø¨ÙˆØ§Ø¨Ø© Ø§Ù„Ø±Ø¦ÙŠØ³ÙŠØ© Ù„Ù„Ø£ÙƒØ§Ø¯ÙŠÙ…ÙŠØ© âž”</a>
     </div>
 
     <script>
         const MASTER_BEDROCK = {
-            'GA-000': { name: 'Dr. Mohamed Gibbril', role: 'Founder & CEO — SudaGene Consortium', univ: 'University of Khartoum / IEND', gp: '2,500 GP', status: 'VERIFIED / ACCREDITED' },
+            'GA-000': { name: 'Dr. Mohamed Gibbril', role: 'Founder & CEO â€” SudaGene Consortium', univ: 'University of Khartoum / IEND', gp: '2,500 GP', status: 'VERIFIED / ACCREDITED' },
             'GA-001': { name: 'Dr. Alaa Mursi Elnour', role: 'Co-Founder & COO', univ: 'University of Khartoum', gp: '2,500 GP', status: 'VERIFIED / ACCREDITED' },
             'GA-004': { name: 'Dr. Safaa Elhassan', role: 'Senior Academic Officer', univ: 'Faculty of Medicine', gp: '1,200 GP', status: 'VERIFIED / ACCREDITED' },
             'GA-011': { name: 'Eng. Amjad Gurashi', role: 'Systems & GIS Operations Expert', univ: 'Operations Directorate', gp: '1,500 GP', status: 'VERIFIED / ACCREDITED' },
@@ -146,20 +146,20 @@ _iub.csConfiguration = {"siteId":4659147,"cookiePolicyId":32190221,"lang":"en","
                 resBox.className = 'result-box verified';
                 resBox.style.display = 'block';
                 resBox.innerHTML = `
-                    <span class="badge badge-green">✓ معتمد ومسجل رسمياً بالسجل المركزي</span>
-                    <div class="row"><span class="label">المعرف الرقمي:</span><span class="val mono">${gaId}</span></div>
-                    <div class="row"><span class="label">الاسم الكامل:</span><span class="val">${record.name}</span></div>
-                    <div class="row"><span class="label">الصفة المهنية:</span><span class="val">${record.role}</span></div>
-                    <div class="row"><span class="label">الجامعة / الجهة:</span><span class="val">${record.univ}</span></div>
-                    <div class="row"><span class="label">الرصيد المعتمد:</span><span class="val mono" style="color:#FBBF24;">${record.gp}</span></div>
+                    <span class="badge badge-green">âœ“ Ù…Ø¹ØªÙ…Ø¯ ÙˆÙ…Ø³Ø¬Ù„ Ø±Ø³Ù…ÙŠØ§Ù‹ Ø¨Ø§Ù„Ø³Ø¬Ù„ Ø§Ù„Ù…Ø±ÙƒØ²ÙŠ</span>
+                    <div class="row"><span class="label">Ø§Ù„Ù…Ø¹Ø±Ù Ø§Ù„Ø±Ù‚Ù…ÙŠ:</span><span class="val mono">${gaId}</span></div>
+                    <div class="row"><span class="label">Ø§Ù„Ø§Ø³Ù… Ø§Ù„ÙƒØ§Ù…Ù„:</span><span class="val">${record.name}</span></div>
+                    <div class="row"><span class="label">Ø§Ù„ØµÙØ© Ø§Ù„Ù…Ù‡Ù†ÙŠØ©:</span><span class="val">${record.role}</span></div>
+                    <div class="row"><span class="label">Ø§Ù„Ø¬Ø§Ù…Ø¹Ø© / Ø§Ù„Ø¬Ù‡Ø©:</span><span class="val">${record.univ}</span></div>
+                    <div class="row"><span class="label">Ø§Ù„Ø±ØµÙŠØ¯ Ø§Ù„Ù…Ø¹ØªÙ…Ø¯:</span><span class="val mono" style="color:#FBBF24;">${record.gp}</span></div>
                 `;
             } else {
                 resBox.className = 'result-box unverified';
                 resBox.style.display = 'block';
                 resBox.innerHTML = `
-                    <span class="badge badge-red">✕ غير مسجل / UNVERIFIED</span>
+                    <span class="badge badge-red">âœ• ØºÙŠØ± Ù…Ø³Ø¬Ù„ / UNVERIFIED</span>
                     <p style="font-size:12px; color:#F87171; margin-top:8px;">
-                        المعرف <strong class="mono">${gaId}</strong> غير موجود في السجل المركزي المعتمد.
+                        Ø§Ù„Ù…Ø¹Ø±Ù <strong class="mono">${gaId}</strong> ØºÙŠØ± Ù…ÙˆØ¬ÙˆØ¯ ÙÙŠ Ø§Ù„Ø³Ø¬Ù„ Ø§Ù„Ù…Ø±ÙƒØ²ÙŠ Ø§Ù„Ù…Ø¹ØªÙ…Ø¯.
                     </p>
                 `;
             }

@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Whether a dev-server API request came from the preview page itself.
  *
  * This is a cross-origin/CSRF control, NOT authorization. `Sec-Fetch-Site` is

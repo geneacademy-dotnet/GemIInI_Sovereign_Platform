@@ -1,4 +1,4 @@
-import { LINK_ACTION_ID } from './template.js';
+﻿import { LINK_ACTION_ID } from './template.js';
 import { PANEL_BG, BORDER_COLOR, BORDER_COLOR_FOCUS, BOX_SHADOW_DROPDOWN, COLOR_WHITE, PLACEHOLDER_COLOR } from '../../../constants/theme.js';
 
 /** Injected CSS for the link insertion panel. */

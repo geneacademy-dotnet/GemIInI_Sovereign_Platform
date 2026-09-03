@@ -1,10 +1,10 @@
-/**
- * SUDAGENE S_OS — GLOMEt HQ CORE TELEMETRY AUDITING ENGINE
+﻿/**
+ * SUDAGENE S_OS â€” GLOMEt HQ CORE TELEMETRY AUDITING ENGINE
  * DATA INTERCHANGE FORMAT VALIDATOR & INGESTION NODE
- * v2.0 — Independent Telemetry UI Layer appended below the lab engine.
+ * v2.0 â€” Independent Telemetry UI Layer appended below the lab engine.
  */
 
-// ─── SECTION 1: GLOMEt Laboratory Equipment Telemetry Engine ─────────────────
+// â”€â”€â”€ SECTION 1: GLOMEt Laboratory Equipment Telemetry Engine â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 export const GLOMEtTelemetryEngine = {
     // Verified Registry Parameters
@@ -65,7 +65,7 @@ export const GLOMEtTelemetryEngine = {
             if (currentTemp < 2.0 || currentTemp > 8.0) {
                 structuredResult.coldChainWarning = "CRITICAL COLD CHAIN BREAK DETECTED: Out of enzyme stabilization bounds.";
             }
-            structuredResult.metrics.internalTemperature = `${currentTemp.toFixed(1)} °C`;
+            structuredResult.metrics.internalTemperature = `${currentTemp.toFixed(1)} Â°C`;
         }
 
         return {
@@ -81,24 +81,24 @@ if (typeof window !== "undefined") {
 }
 
 
-// ─── SECTION 2: Independent Telemetry UI Renderer (5-Pillar Dashboard) ─────────
+// â”€â”€â”€ SECTION 2: Independent Telemetry UI Renderer (5-Pillar Dashboard) â”€â”€â”€â”€â”€â”€â”€â”€â”€
 //
 // Called after geneApi.js / Code.gs returns a verified member record.
 // Maps SSOT columns directly to the 5 institutional identity pillars.
 //
 // Column mapping (mirrors Code.gs registry schema):
-//   gaId           → Col 1  GA_ID
-//   careerStage    → Col 6  CAREER_STAGE
-//   certification  → Col 16 CERT
-//   sudaPassHash   → Col 8  SUDAPASS_HASH
-//   status         → Col 4  STATUS
-//   modulesCompleted → MTC diagnostic log aggregation
-//   gpPoints       → Student Tracker GP column
-// ─────────────────────────────────────────────────────────────────────────────
+//   gaId           â†’ Col 1  GA_ID
+//   careerStage    â†’ Col 6  CAREER_STAGE
+//   certification  â†’ Col 16 CERT
+//   sudaPassHash   â†’ Col 8  SUDAPASS_HASH
+//   status         â†’ Col 4  STATUS
+//   modulesCompleted â†’ MTC diagnostic log aggregation
+//   gpPoints       â†’ Student Tracker GP column
+// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 /**
  * Renders the 5-pillar Independent Telemetry Dashboard.
- * Fails silently per pillar — a missing data field never crashes the page.
+ * Fails silently per pillar â€” a missing data field never crashes the page.
  *
  * @param {Object} userData - Normalised member payload from geneApi.js
  * @param {string}  userData.gaId
@@ -106,7 +106,7 @@ if (typeof window !== "undefined") {
  * @param {string}  [userData.certification]
  * @param {number}  [userData.modulesCompleted]
  * @param {string}  [userData.sudaPassHash]
- * @param {string}  [userData.status]          — "ACTIVE" | "PROVISIONAL" | "SUSPENDED"
+ * @param {string}  [userData.status]          â€” "ACTIVE" | "PROVISIONAL" | "SUSPENDED"
  * @param {number}  [userData.gpPoints]
  */
 function renderIndependentTelemetry(userData) {
@@ -115,7 +115,7 @@ function renderIndependentTelemetry(userData) {
         return;
     }
 
-    // ── Pillar 1: Identity (GA-ID + Career Stage) ──────────────────────────
+    // â”€â”€ Pillar 1: Identity (GA-ID + Career Stage) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     const identityEl = document.getElementById('data-identity');
     if (identityEl) {
         const stage = userData.careerStage ? ` \u2022 ${userData.careerStage}` : '';
@@ -125,7 +125,7 @@ function renderIndependentTelemetry(userData) {
         identityEl.style.color = userData.gaId ? '#0284C7' : '#94A3B8';
     }
 
-    // ── Pillar 2: Training (Certification record from Col 16) ───────────────
+    // â”€â”€ Pillar 2: Training (Certification record from Col 16) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     const trainingEl = document.getElementById('data-training');
     if (trainingEl) {
         trainingEl.textContent = userData.certification
@@ -134,7 +134,7 @@ function renderIndependentTelemetry(userData) {
         trainingEl.style.color = userData.certification ? '#0F172A' : '#94A3B8';
     }
 
-    // ── Pillar 3: Skills (MTC diagnostic log aggregation) ──────────────────
+    // â”€â”€ Pillar 3: Skills (MTC diagnostic log aggregation) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     const skillsEl = document.getElementById('data-skills');
     if (skillsEl) {
         if (userData.modulesCompleted !== undefined && userData.modulesCompleted !== null) {
@@ -146,7 +146,7 @@ function renderIndependentTelemetry(userData) {
         }
     }
 
-    // ── Pillar 4: Evidence (SudaPass SHA-256 gate) ─────────────────────────
+    // â”€â”€ Pillar 4: Evidence (SudaPass SHA-256 gate) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     const evidenceEl = document.getElementById('data-evidence');
     if (evidenceEl) {
         const isVerified = userData.sudaPassHash && userData.status === 'ACTIVE';
@@ -159,7 +159,7 @@ function renderIndependentTelemetry(userData) {
         }
     }
 
-    // ── Pillar 5: Progress (Gene Points from Student Tracker) ──────────────
+    // â”€â”€ Pillar 5: Progress (Gene Points from Student Tracker) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     const progressEl = document.getElementById('data-progress');
     if (progressEl) {
         if (userData.gpPoints !== undefined && userData.gpPoints !== null) {
@@ -172,7 +172,7 @@ function renderIndependentTelemetry(userData) {
         }
     }
 
-    // ── Highlight the active card border when data is present ──────────────
+    // â”€â”€ Highlight the active card border when data is present â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     ['identity', 'training', 'skills', 'evidence', 'progress'].forEach(pillar => {
         const card = document.getElementById(`card-${pillar}`);
         if (card) card.classList.add('telemetry-card--loaded');

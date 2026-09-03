@@ -1,6 +1,6 @@
-/**
+﻿/**
  * src/lib/geneApi.js & src/services/IndependentService.js
- * SudaGene Consortium & GemIInI Academy — Strict API Layer
+ * SudaGene Consortium & GemIInI Academy â€” Strict API Layer
  * Preflight-Free Atomic Dispatcher with Fail-Closed Client Queueing
  */
 

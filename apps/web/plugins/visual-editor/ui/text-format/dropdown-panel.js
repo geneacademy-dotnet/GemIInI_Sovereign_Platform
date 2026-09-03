@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Shared lifecycle helpers for the toolbar dropdown action panels
  * (size, font, link, color): DOM bootstrapping, positioning relative to the
  * toolbar, and outside-interaction dismissal.

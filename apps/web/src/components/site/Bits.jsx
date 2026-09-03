@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Link } from 'react-router-dom';
 import { AlertCircle, FlaskConical, Lock, Users } from 'lucide-react';
 import { useLang } from '@/i18n/LanguageContext';

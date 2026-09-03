@@ -1,4 +1,4 @@
-/// <reference path="../pb_data/types.d.ts" />
+﻿/// <reference path="../pb_data/types.d.ts" />
 
 migrate(
   (app) => {
@@ -77,7 +77,7 @@ migrate(
           member_role: "Instructor",
           university: "University of Khartoum",
           tier: "platinum",
-          tier_label_ar: "بلاتيني",
+          tier_label_ar: "Ø¨Ù„Ø§ØªÙŠÙ†ÙŠ",
           verified: true,
           sudapass: true,
           phone_masked: "+249 9** *** 118",
@@ -89,7 +89,7 @@ migrate(
           member_role: "Student",
           university: "Al-Neelain University",
           tier: "gold",
-          tier_label_ar: "ذهبي",
+          tier_label_ar: "Ø°Ù‡Ø¨ÙŠ",
           verified: true,
           sudapass: false,
           phone_masked: "+249 9** *** 204",
@@ -101,7 +101,7 @@ migrate(
           member_role: "Professional",
           university: "Ahfad University for Women",
           tier: "silver",
-          tier_label_ar: "فضي",
+          tier_label_ar: "ÙØ¶ÙŠ",
           verified: true,
           sudapass: true,
           phone_masked: "+971 5** *** 771",
@@ -113,7 +113,7 @@ migrate(
           member_role: "Student",
           university: "Gezira University",
           tier: "bronze",
-          tier_label_ar: "برونزي",
+          tier_label_ar: "Ø¨Ø±ÙˆÙ†Ø²ÙŠ",
           verified: false,
           sudapass: false,
           phone_masked: "+249 9** *** 993",

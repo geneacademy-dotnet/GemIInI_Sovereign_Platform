@@ -1,4 +1,4 @@
-/** Visual design tokens (colors, z-index, shadows) for the editor UI. */
+﻿/** Visual design tokens (colors, z-index, shadows) for the editor UI. */
 
 /** Background color for floating panels and toolbars. */
 export const PANEL_BG = '#1D1E20';

@@ -1,4 +1,4 @@
-/**
+﻿/**
  * src/pages/LoginPage.jsx
  * Sovereign SudaPass & Academy Member Access Portal
  * 2027 Spatial Glass Design
@@ -26,7 +26,7 @@ export default function LoginPage() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!identifier.trim()) {
-            setErrorMsg(isRtl ? 'يرجى إدخال الرقم السيادي GA-ID أو البريد الإلكتروني' : 'Please enter your GA-ID or Email');
+            setErrorMsg(isRtl ? 'ÙŠØ±Ø¬Ù‰ Ø¥Ø¯Ø®Ø§Ù„ Ø§Ù„Ø±Ù‚Ù… Ø§Ù„Ø³ÙŠØ§Ø¯ÙŠ GA-ID Ø£Ùˆ Ø§Ù„Ø¨Ø±ÙŠØ¯ Ø§Ù„Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠ' : 'Please enter your GA-ID or Email');
             return;
         }
 
@@ -41,14 +41,14 @@ export default function LoginPage() {
             }, 600);
         } catch (err) {
             setStatus('idle');
-            setErrorMsg(isRtl ? 'تعذر التحقق من الحساب. يرجى المحاولة مرة أخرى.' : 'Could not authenticate. Please try again.');
+            setErrorMsg(isRtl ? 'ØªØ¹Ø°Ø± Ø§Ù„ØªØ­Ù‚Ù‚ Ù…Ù† Ø§Ù„Ø­Ø³Ø§Ø¨. ÙŠØ±Ø¬Ù‰ Ø§Ù„Ù…Ø­Ø§ÙˆÙ„Ø© Ù…Ø±Ø© Ø£Ø®Ø±Ù‰.' : 'Could not authenticate. Please try again.');
         }
     };
 
     return (
         <Layout>
             <Helmet>
-                <title>{isRtl ? 'تسجيل الدخول إلى SudaPass | أكاديمية جيميني' : 'SudaPass Member Access | GemIInI Academy'}</title>
+                <title>{isRtl ? 'ØªØ³Ø¬ÙŠÙ„ Ø§Ù„Ø¯Ø®ÙˆÙ„ Ø¥Ù„Ù‰ SudaPass | Ø£ÙƒØ§Ø¯ÙŠÙ…ÙŠØ© Ø¬ÙŠÙ…ÙŠÙ†ÙŠ' : 'SudaPass Member Access | GemIInI Academy'}</title>
             </Helmet>
 
             <div className="min-h-[80vh] flex items-center justify-center px-4 py-16 bg-[#04080F] relative overflow-hidden" dir={isRtl ? 'rtl' : 'ltr'}>
@@ -63,17 +63,17 @@ export default function LoginPage() {
                             <Fingerprint className="h-7 w-7" />
                         </div>
                         <h1 className="font-display text-2xl sm:text-3xl font-bold text-white tracking-tight">
-                            {isRtl ? 'منصة الطبيب السيادية' : 'SudaPass Member Access'}
+                            {isRtl ? 'Ù…Ù†ØµØ© Ø§Ù„Ø·Ø¨ÙŠØ¨ Ø§Ù„Ø³ÙŠØ§Ø¯ÙŠØ©' : 'SudaPass Member Access'}
                         </h1>
                         <p className="text-xs sm:text-sm text-slate-400 mt-2">
-                            {isRtl ? 'أدخل معرفك السيادي (مثل GA-001) أو بريدك الإلكتروني للوصول إلى محفظتك وسجلك السريري:' : 'Enter your GA-ID (e.g. GA-001) or Email to access your clinical cockpit:'}
+                            {isRtl ? 'Ø£Ø¯Ø®Ù„ Ù…Ø¹Ø±ÙÙƒ Ø§Ù„Ø³ÙŠØ§Ø¯ÙŠ (Ù…Ø«Ù„ GA-001) Ø£Ùˆ Ø¨Ø±ÙŠØ¯Ùƒ Ø§Ù„Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠ Ù„Ù„ÙˆØµÙˆÙ„ Ø¥Ù„Ù‰ Ù…Ø­ÙØ¸ØªÙƒ ÙˆØ³Ø¬Ù„Ùƒ Ø§Ù„Ø³Ø±ÙŠØ±ÙŠ:' : 'Enter your GA-ID (e.g. GA-001) or Email to access your clinical cockpit:'}
                         </p>
                     </div>
 
                     <form onSubmit={handleSubmit} className="space-y-4">
                         <div className="text-start">
                             <label className="block text-xs font-semibold text-slate-300 mb-1.5">
-                                {isRtl ? 'المعرف السيادي (GA-ID) أو البريد الإلكتروني *' : 'Sovereign GA-ID or Email *'}
+                                {isRtl ? 'Ø§Ù„Ù…Ø¹Ø±Ù Ø§Ù„Ø³ÙŠØ§Ø¯ÙŠ (GA-ID) Ø£Ùˆ Ø§Ù„Ø¨Ø±ÙŠØ¯ Ø§Ù„Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠ *' : 'Sovereign GA-ID or Email *'}
                             </label>
                             <input
                                 type="text"
@@ -87,13 +87,13 @@ export default function LoginPage() {
 
                         <div className="text-start">
                             <label className="block text-xs font-semibold text-slate-300 mb-1.5">
-                                {isRtl ? 'كلمة المرور (اختياري للأعضاء المسجلين)' : 'Password (Optional for Registered Members)'}
+                                {isRtl ? 'ÙƒÙ„Ù…Ø© Ø§Ù„Ù…Ø±ÙˆØ± (Ø§Ø®ØªÙŠØ§Ø±ÙŠ Ù„Ù„Ø£Ø¹Ø¶Ø§Ø¡ Ø§Ù„Ù…Ø³Ø¬Ù„ÙŠÙ†)' : 'Password (Optional for Registered Members)'}
                             </label>
                             <input
                                 type="password"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
-                                placeholder="••••••••"
+                                placeholder="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢"
                                 className={inputClass}
                             />
                         </div>
@@ -111,7 +111,7 @@ export default function LoginPage() {
                                 <Zap className="h-5 w-5 animate-pulse" />
                             ) : (
                                 <>
-                                    <span>{isRtl ? 'الدخول إلى المنصة' : 'Enter SudaPass Cockpit'}</span>
+                                    <span>{isRtl ? 'Ø§Ù„Ø¯Ø®ÙˆÙ„ Ø¥Ù„Ù‰ Ø§Ù„Ù…Ù†ØµØ©' : 'Enter SudaPass Cockpit'}</span>
                                     {isRtl ? <ArrowRight className="h-4 w-4 rotate-180" /> : <ArrowRight className="h-4 w-4" />}
                                 </>
                             )}
@@ -119,9 +119,9 @@ export default function LoginPage() {
                     </form>
 
                     <div className="mt-8 pt-6 border-t border-white/10 text-center text-xs text-slate-400">
-                        <span>{isRtl ? 'ليس لديك معرف سيادي بعد؟ ' : 'Do not have a Sovereign ID yet? '}</span>
+                        <span>{isRtl ? 'Ù„ÙŠØ³ Ù„Ø¯ÙŠÙƒ Ù…Ø¹Ø±Ù Ø³ÙŠØ§Ø¯ÙŠ Ø¨Ø¹Ø¯ØŸ ' : 'Do not have a Sovereign ID yet? '}</span>
                         <Link to="/register" className="text-[#00F2FE] font-bold hover:underline">
-                            {isRtl ? 'سجل الآن (+25 GP)' : 'Mint Your GA-ID (+25 GP)'}
+                            {isRtl ? 'Ø³Ø¬Ù„ Ø§Ù„Ø¢Ù† (+25 GP)' : 'Mint Your GA-ID (+25 GP)'}
                         </Link>
                     </div>
 

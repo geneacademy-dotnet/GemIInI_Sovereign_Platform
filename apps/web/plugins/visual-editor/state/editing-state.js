@@ -1,4 +1,4 @@
-/** Active inline edit session; `null` when no element is being edited. */
+﻿/** Active inline edit session; `null` when no element is being edited. */
 let current = null;
 
 /**

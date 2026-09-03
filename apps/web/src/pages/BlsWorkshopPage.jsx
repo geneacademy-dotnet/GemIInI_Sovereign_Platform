@@ -1,6 +1,6 @@
-/**
+﻿/**
  * src/pages/BlsWorkshopPage.jsx
- * GemIInI Academy — Cairo Dokki In-Person BLS & Resuscitation Wet Lab
+ * GemIInI Academy â€” Cairo Dokki In-Person BLS & Resuscitation Wet Lab
  * 2027 Apple / VisionOS Spatial UI & Zero-Fail Lead Coordination
  */
 
@@ -20,12 +20,12 @@ export default function BlsWorkshopPage() {
   const { lang, isRtl } = useLang();
   
   const workshopInfo = {
-    venue: { en: 'Dokki Hands-On Simulation Center, Giza, Egypt', ar: 'مركز الدقي للمحاكاة والتدريب السريري، الجيزة، مصر' },
-    dateFormatted: { en: 'Friday, August 28, 2026', ar: 'الجمعة، ٢٨ أغسطس ٢٠٢٦' },
+    venue: { en: 'Dokki Hands-On Simulation Center, Giza, Egypt', ar: 'Ù…Ø±ÙƒØ² Ø§Ù„Ø¯Ù‚ÙŠ Ù„Ù„Ù…Ø­Ø§ÙƒØ§Ø© ÙˆØ§Ù„ØªØ¯Ø±ÙŠØ¨ Ø§Ù„Ø³Ø±ÙŠØ±ÙŠØŒ Ø§Ù„Ø¬ÙŠØ²Ø©ØŒ Ù…ØµØ±' },
+    dateFormatted: { en: 'Friday, August 28, 2026', ar: 'Ø§Ù„Ø¬Ù…Ø¹Ø©ØŒ Ù¢Ù¨ Ø£ØºØ³Ø·Ø³ Ù¢Ù Ù¢Ù¦' },
     seatsRemaining: 4,
     fee: { amount: '3,000', currency: 'EGP' },
     paymentAccount: '+20 101 592 2628',
-    paymentLabel: { en: 'Vodafone Cash', ar: 'فودافون كاش (Vodafone Cash)' },
+    paymentLabel: { en: 'Vodafone Cash', ar: 'ÙÙˆØ¯Ø§ÙÙˆÙ† ÙƒØ§Ø´ (Vodafone Cash)' },
   };
 
   const [form, setForm] = useState({
@@ -42,8 +42,8 @@ export default function BlsWorkshopPage() {
 
   const validate = () => {
     const errs = {};
-    if (!form.fullName.trim()) errs.fullName = isRtl ? 'يرجى كتابة الاسم الكامل' : 'Please enter your full name';
-    if (!form.phone.trim()) errs.phone = isRtl ? 'يرجى كتابة رقم الهاتف أو الواتساب' : 'Please enter your phone/WhatsApp number';
+    if (!form.fullName.trim()) errs.fullName = isRtl ? 'ÙŠØ±Ø¬Ù‰ ÙƒØªØ§Ø¨Ø© Ø§Ù„Ø§Ø³Ù… Ø§Ù„ÙƒØ§Ù…Ù„' : 'Please enter your full name';
+    if (!form.phone.trim()) errs.phone = isRtl ? 'ÙŠØ±Ø¬Ù‰ ÙƒØªØ§Ø¨Ø© Ø±Ù‚Ù… Ø§Ù„Ù‡Ø§ØªÙ Ø£Ùˆ Ø§Ù„ÙˆØ§ØªØ³Ø§Ø¨' : 'Please enter your phone/WhatsApp number';
     setErrors(errs);
     return Object.keys(errs).length === 0;
   };
@@ -84,7 +84,7 @@ export default function BlsWorkshopPage() {
     const tx = form.transactionId ? `Tx ID: ${form.transactionId}` : 'Payment confirmation attached';
     const coffeeText = form.expeditedCoffee ? ' [Expedited Priority + Coffee Patron]' : '';
     const text = encodeURIComponent(
-      `Hello GemIInI Team! 👋\n\nI have reserved my seat for the Cairo BLS Workshop (Aug 28):\n• Name: Dr. ${name}${coffeeText}\n• Phone: ${form.phone}\n• ${tx}\n\nPlease confirm my seat registration.`
+      `Hello GemIInI Team! ðŸ‘‹\n\nI have reserved my seat for the Cairo BLS Workshop (Aug 28):\nâ€¢ Name: Dr. ${name}${coffeeText}\nâ€¢ Phone: ${form.phone}\nâ€¢ ${tx}\n\nPlease confirm my seat registration.`
     );
     return `https://wa.me/2+20 101 592 2628?text=${text}`;
   };
@@ -92,7 +92,7 @@ export default function BlsWorkshopPage() {
   return (
     <Layout>
       <Helmet>
-        <title>{isRtl ? 'البرنامج التدريبي المتقدم للإنعاش القلبي الرئوي الأساسي (AHA BLS Provider) والرئوي المتقدمة (BLS) | القاهرة | أكاديمية جيميني' : 'Advanced BLS Clinical Resuscitation Workshop | Cairo Dokki'}</title>
+        <title>{isRtl ? 'Ø§Ù„Ø¨Ø±Ù†Ø§Ù…Ø¬ Ø§Ù„ØªØ¯Ø±ÙŠØ¨ÙŠ Ø§Ù„Ù…ØªÙ‚Ø¯Ù… Ù„Ù„Ø¥Ù†Ø¹Ø§Ø´ Ø§Ù„Ù‚Ù„Ø¨ÙŠ Ø§Ù„Ø±Ø¦ÙˆÙŠ Ø§Ù„Ø£Ø³Ø§Ø³ÙŠ (AHA BLS Provider) ÙˆØ§Ù„Ø±Ø¦ÙˆÙŠ Ø§Ù„Ù…ØªÙ‚Ø¯Ù…Ø© (BLS) | Ø§Ù„Ù‚Ø§Ù‡Ø±Ø© | Ø£ÙƒØ§Ø¯ÙŠÙ…ÙŠØ© Ø¬ÙŠÙ…ÙŠÙ†ÙŠ' : 'Advanced BLS Clinical Resuscitation Workshop | Cairo Dokki'}</title>
       </Helmet>
 
       <div className="bg-[#04080F] text-slate-100 min-h-screen py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden" dir={isRtl ? 'rtl' : 'ltr'}>
@@ -104,22 +104,22 @@ export default function BlsWorkshopPage() {
           <div className="text-center mb-10">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl mb-4 text-xs font-mono font-bold text-[#00F2FE] uppercase tracking-widest">
               <HeartPulse className="w-4 h-4 text-[#00F2FE] animate-pulse" />
-              <span>{isRtl ? 'التدريب السريري الحضوري — القاهرة' : 'Hands-On Clinical Training — Cairo Dokki Hub'}</span>
+              <span>{isRtl ? 'Ø§Ù„ØªØ¯Ø±ÙŠØ¨ Ø§Ù„Ø³Ø±ÙŠØ±ÙŠ Ø§Ù„Ø­Ø¶ÙˆØ±ÙŠ â€” Ø§Ù„Ù‚Ø§Ù‡Ø±Ø©' : 'Hands-On Clinical Training â€” Cairo Dokki Hub'}</span>
             </div>
             
             <h1 className="font-display text-3xl sm:text-5xl font-black text-white tracking-tight">
-              {isRtl ? 'ورشة دعم الحياة الأساسي المتقدمة (BLS)' : 'Advanced BLS & Clinical Resuscitation'}
+              {isRtl ? 'ÙˆØ±Ø´Ø© Ø¯Ø¹Ù… Ø§Ù„Ø­ÙŠØ§Ø© Ø§Ù„Ø£Ø³Ø§Ø³ÙŠ Ø§Ù„Ù…ØªÙ‚Ø¯Ù…Ø© (BLS)' : 'Advanced BLS & Clinical Resuscitation'}
             </h1>
             
             <p className="mt-3 text-slate-300 text-sm sm:text-base max-w-xl mx-auto font-light leading-relaxed">
               {isRtl 
-                ? 'تدريب عملي مكثف على أحدث بروتوكولات الإنعاش وتدبير مجرى الهواء والرجفان القلبي مع منح الساعات المعتمدة.'
+                ? 'ØªØ¯Ø±ÙŠØ¨ Ø¹Ù…Ù„ÙŠ Ù…ÙƒØ«Ù Ø¹Ù„Ù‰ Ø£Ø­Ø¯Ø« Ø¨Ø±ÙˆØªÙˆÙƒÙˆÙ„Ø§Øª Ø§Ù„Ø¥Ù†Ø¹Ø§Ø´ ÙˆØªØ¯Ø¨ÙŠØ± Ù…Ø¬Ø±Ù‰ Ø§Ù„Ù‡ÙˆØ§Ø¡ ÙˆØ§Ù„Ø±Ø¬ÙØ§Ù† Ø§Ù„Ù‚Ù„Ø¨ÙŠ Ù…Ø¹ Ù…Ù†Ø­ Ø§Ù„Ø³Ø§Ø¹Ø§Øª Ø§Ù„Ù…Ø¹ØªÙ…Ø¯Ø©.'
                 : 'Intensive hands-on airway management, high-quality CPR, and defibrillation wet-lab credentialing in Dokki, Cairo.'}
             </p>
 
             <div className="mt-6 inline-flex items-center gap-3 px-6 py-2.5 rounded-full border border-amber-500/30 bg-amber-500/10 text-amber-300 text-xs font-bold shadow-lg">
               <MapPin className="w-4 h-4 text-amber-400" />
-              <span>{isRtl ? 'الجمعة، ٢٨ أغسطس ٢٠٢٦ • مركز الدقي للمحاكاة' : 'Friday, August 28, 2026 • Dokki Hands-On Center (4 Seats Left)'}</span>
+              <span>{isRtl ? 'Ø§Ù„Ø¬Ù…Ø¹Ø©ØŒ Ù¢Ù¨ Ø£ØºØ³Ø·Ø³ Ù¢Ù Ù¢Ù¦ â€¢ Ù…Ø±ÙƒØ² Ø§Ù„Ø¯Ù‚ÙŠ Ù„Ù„Ù…Ø­Ø§ÙƒØ§Ø©' : 'Friday, August 28, 2026 â€¢ Dokki Hands-On Center (4 Seats Left)'}</span>
             </div>
           </div>
 
@@ -133,22 +133,22 @@ export default function BlsWorkshopPage() {
 
                 <div className="space-y-2">
                   <h3 className="font-display text-2xl sm:text-3xl font-bold text-white">
-                    {isRtl ? `تم تسجيل طلبك بنجاح د. ${form.fullName}` : `Seat Request Recorded, Dr. ${form.fullName}!`}
+                    {isRtl ? `ØªÙ… ØªØ³Ø¬ÙŠÙ„ Ø·Ù„Ø¨Ùƒ Ø¨Ù†Ø¬Ø§Ø­ Ø¯. ${form.fullName}` : `Seat Request Recorded, Dr. ${form.fullName}!`}
                   </h3>
                   <p className="text-sm text-slate-300 max-w-md mx-auto leading-relaxed">
                     {isRtl
-                      ? 'تم تثبيت التسجيل السريريك المبدئي في ورشة القاهرة (٢٨ أغسطس). لتأكيد المقعد فوراً، يرجى مشاركة إشعار التحويل عبر الواتساب مع فريق التنسيق:'
+                      ? 'ØªÙ… ØªØ«Ø¨ÙŠØª Ø§Ù„ØªØ³Ø¬ÙŠÙ„ Ø§Ù„Ø³Ø±ÙŠØ±ÙŠÙƒ Ø§Ù„Ù…Ø¨Ø¯Ø¦ÙŠ ÙÙŠ ÙˆØ±Ø´Ø© Ø§Ù„Ù‚Ø§Ù‡Ø±Ø© (Ù¢Ù¨ Ø£ØºØ³Ø·Ø³). Ù„ØªØ£ÙƒÙŠØ¯ Ø§Ù„Ù…Ù‚Ø¹Ø¯ ÙÙˆØ±Ø§Ù‹ØŒ ÙŠØ±Ø¬Ù‰ Ù…Ø´Ø§Ø±ÙƒØ© Ø¥Ø´Ø¹Ø§Ø± Ø§Ù„ØªØ­ÙˆÙŠÙ„ Ø¹Ø¨Ø± Ø§Ù„ÙˆØ§ØªØ³Ø§Ø¨ Ù…Ø¹ ÙØ±ÙŠÙ‚ Ø§Ù„ØªÙ†Ø³ÙŠÙ‚:'
                       : 'Your provisional seat in the Cairo Dokki Workshop (Aug 28) is securely logged. To confirm immediately, share your payment receipt with our coordination desk:'}
                   </p>
                 </div>
 
                 <div className="p-6 rounded-2xl border border-emerald-500/30 bg-emerald-500/10 max-w-md mx-auto space-y-4">
                   <div className="flex items-center justify-between text-xs font-mono text-emerald-300">
-                    <span>{isRtl ? 'رسوم التسجيل:' : 'Workshop Fee:'}</span>
+                    <span>{isRtl ? 'Ø±Ø³ÙˆÙ… Ø§Ù„ØªØ³Ø¬ÙŠÙ„:' : 'Workshop Fee:'}</span>
                     <span className="font-bold">3,000 EGP</span>
                   </div>
                   <div className="flex items-center justify-between text-xs font-mono text-emerald-300">
-                    <span>{isRtl ? 'حساب فودافون كاش:' : 'Vodafone Cash Account:'}</span>
+                    <span>{isRtl ? 'Ø­Ø³Ø§Ø¨ ÙÙˆØ¯Ø§ÙÙˆÙ† ÙƒØ§Ø´:' : 'Vodafone Cash Account:'}</span>
                     <span className="font-bold">+20 101 592 2628</span>
                   </div>
 
@@ -159,7 +159,7 @@ export default function BlsWorkshopPage() {
                     className="flex items-center justify-center gap-2.5 w-full py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-sm shadow-xl transition-all"
                   >
                     <Phone className="w-4 h-4" />
-                    <span>{isRtl ? 'تأكيد المقعد عبر الواتساب الآن' : 'Confirm on WhatsApp Instantly'}</span>
+                    <span>{isRtl ? 'ØªØ£ÙƒÙŠØ¯ Ø§Ù„Ù…Ù‚Ø¹Ø¯ Ø¹Ø¨Ø± Ø§Ù„ÙˆØ§ØªØ³Ø§Ø¨ Ø§Ù„Ø¢Ù†' : 'Confirm on WhatsApp Instantly'}</span>
                   </a>
                 </div>
 
@@ -169,7 +169,7 @@ export default function BlsWorkshopPage() {
                     onClick={() => { setStatus('idle'); setForm({ fullName: '', phone: '', email: '', currentStatus: 'general_practitioner', transactionId: '', expeditedCoffee: false }); }}
                     className="text-xs text-slate-400 hover:text-white underline font-mono"
                   >
-                    {isRtl ? 'تسجيل زميل أو مقعد إضافي' : 'Register another colleague or seat'}
+                    {isRtl ? 'ØªØ³Ø¬ÙŠÙ„ Ø²Ù…ÙŠÙ„ Ø£Ùˆ Ù…Ù‚Ø¹Ø¯ Ø¥Ø¶Ø§ÙÙŠ' : 'Register another colleague or seat'}
                   </button>
                 </div>
               </div>
@@ -180,11 +180,11 @@ export default function BlsWorkshopPage() {
                   <Sparkles className="w-5 h-5 text-[#00F2FE] flex-shrink-0 mt-0.5" />
                   <div className="text-xs sm:text-sm text-slate-300 space-y-1">
                     <p className="font-semibold text-white">
-                      {isRtl ? 'معلومات هامة قبل المتابعة:' : 'Before you continue, please note:'}
+                      {isRtl ? 'Ù…Ø¹Ù„ÙˆÙ…Ø§Øª Ù‡Ø§Ù…Ø© Ù‚Ø¨Ù„ Ø§Ù„Ù…ØªØ§Ø¨Ø¹Ø©:' : 'Before you continue, please note:'}
                     </p>
                     <p className="leading-relaxed text-slate-300/90">
                       {isRtl
-                        ? 'المقاعد محدودة لضمان التدريب العملي الفردي (٤ مقاعد متبقية لورشة القاهرة). التحويل يتم مباشرة عبر فودافون كاش على الرقم +20 101 592 2628.'
+                        ? 'Ø§Ù„Ù…Ù‚Ø§Ø¹Ø¯ Ù…Ø­Ø¯ÙˆØ¯Ø© Ù„Ø¶Ù…Ø§Ù† Ø§Ù„ØªØ¯Ø±ÙŠØ¨ Ø§Ù„Ø¹Ù…Ù„ÙŠ Ø§Ù„ÙØ±Ø¯ÙŠ (Ù¤ Ù…Ù‚Ø§Ø¹Ø¯ Ù…ØªØ¨Ù‚ÙŠØ© Ù„ÙˆØ±Ø´Ø© Ø§Ù„Ù‚Ø§Ù‡Ø±Ø©). Ø§Ù„ØªØ­ÙˆÙŠÙ„ ÙŠØªÙ… Ù…Ø¨Ø§Ø´Ø±Ø© Ø¹Ø¨Ø± ÙÙˆØ¯Ø§ÙÙˆÙ† ÙƒØ§Ø´ Ø¹Ù„Ù‰ Ø§Ù„Ø±Ù‚Ù… +20 101 592 2628.'
                         : 'Seats are capped to ensure dedicated 1-on-1 mannequin time (4 seats left for Cairo). Payment is processed via Vodafone Cash (+20 101 592 2628).'}
                     </p>
                   </div>
@@ -193,14 +193,14 @@ export default function BlsWorkshopPage() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-start">
                   <div>
                     <label className="block text-xs font-semibold text-slate-300 mb-1.5">
-                      {isRtl ? 'الاسم الكامل *' : 'Full Legal Name *'}
+                      {isRtl ? 'Ø§Ù„Ø§Ø³Ù… Ø§Ù„ÙƒØ§Ù…Ù„ *' : 'Full Legal Name *'}
                     </label>
                     <input
                       type="text"
                       required
                       value={form.fullName}
                       onChange={(e) => setForm({ ...form, fullName: e.target.value })}
-                      placeholder={isRtl ? 'د. أحمد محمد علي' : 'Dr. Ahmed Mohamed'}
+                      placeholder={isRtl ? 'Ø¯. Ø£Ø­Ù…Ø¯ Ù…Ø­Ù…Ø¯ Ø¹Ù„ÙŠ' : 'Dr. Ahmed Mohamed'}
                       className={inputClass}
                     />
                     {errors.fullName && <p className="text-xs text-rose-400 mt-1">{errors.fullName}</p>}
@@ -208,7 +208,7 @@ export default function BlsWorkshopPage() {
 
                   <div>
                     <label className="block text-xs font-semibold text-slate-300 mb-1.5">
-                      {isRtl ? 'رقم الواتساب أو الهاتف *' : 'WhatsApp / Phone Number *'}
+                      {isRtl ? 'Ø±Ù‚Ù… Ø§Ù„ÙˆØ§ØªØ³Ø§Ø¨ Ø£Ùˆ Ø§Ù„Ù‡Ø§ØªÙ *' : 'WhatsApp / Phone Number *'}
                     </label>
                     <input
                       type="text"
@@ -225,7 +225,7 @@ export default function BlsWorkshopPage() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-start">
                   <div>
                     <label className="block text-xs font-semibold text-slate-300 mb-1.5">
-                      {isRtl ? 'البريد الإلكتروني' : 'Email Address'}
+                      {isRtl ? 'Ø§Ù„Ø¨Ø±ÙŠØ¯ Ø§Ù„Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠ' : 'Email Address'}
                     </label>
                     <input
                       type="email"
@@ -238,17 +238,17 @@ export default function BlsWorkshopPage() {
 
                   <div>
                     <label className="block text-xs font-semibold text-slate-300 mb-1.5">
-                      {isRtl ? 'المستوى المهني' : 'Professional Standing'}
+                      {isRtl ? 'Ø§Ù„Ù…Ø³ØªÙˆÙ‰ Ø§Ù„Ù…Ù‡Ù†ÙŠ' : 'Professional Standing'}
                     </label>
                     <select
                       value={form.currentStatus}
                       onChange={(e) => setForm({ ...form, currentStatus: e.target.value })}
                       className={`${inputClass} appearance-none cursor-pointer`}
                     >
-                      <option value="general_practitioner">{isRtl ? 'طبيب عمومي / امتياز' : 'General Practitioner / Intern'}</option>
-                      <option value="resident">{isRtl ? 'طبيب مقيم (Resident)' : 'Clinical Resident'}</option>
-                      <option value="specialist">{isRtl ? 'أخصائي / استشاري' : 'Specialist / Consultant'}</option>
-                      <option value="medical_student">{isRtl ? 'طالب طب (السنوات السريرية)' : 'Senior Medical Student'}</option>
+                      <option value="general_practitioner">{isRtl ? 'Ø·Ø¨ÙŠØ¨ Ø¹Ù…ÙˆÙ…ÙŠ / Ø§Ù…ØªÙŠØ§Ø²' : 'General Practitioner / Intern'}</option>
+                      <option value="resident">{isRtl ? 'Ø·Ø¨ÙŠØ¨ Ù…Ù‚ÙŠÙ… (Resident)' : 'Clinical Resident'}</option>
+                      <option value="specialist">{isRtl ? 'Ø£Ø®ØµØ§Ø¦ÙŠ / Ø§Ø³ØªØ´Ø§Ø±ÙŠ' : 'Specialist / Consultant'}</option>
+                      <option value="medical_student">{isRtl ? 'Ø·Ø§Ù„Ø¨ Ø·Ø¨ (Ø§Ù„Ø³Ù†ÙˆØ§Øª Ø§Ù„Ø³Ø±ÙŠØ±ÙŠØ©)' : 'Senior Medical Student'}</option>
                     </select>
                   </div>
                 </div>
@@ -260,20 +260,20 @@ export default function BlsWorkshopPage() {
                       <p className="text-xs font-mono text-[#00F2FE] mt-0.5">+20 101 592 2628</p>
                     </div>
                     <div className="text-end">
-                      <p className="text-xs text-slate-400">{isRtl ? 'المبلغ المستحق' : 'Workshop Fee'}</p>
+                      <p className="text-xs text-slate-400">{isRtl ? 'Ø§Ù„Ù…Ø¨Ù„Øº Ø§Ù„Ù…Ø³ØªØ­Ù‚' : 'Workshop Fee'}</p>
                       <p className="font-mono text-xl font-bold text-white">3,000 <span className="text-xs text-slate-400">EGP</span></p>
                     </div>
                   </div>
 
                   <div className="pt-2 border-t border-white/10">
                     <label className="block text-xs font-semibold text-slate-300 mb-1.5">
-                      {isRtl ? 'رقم المعاملة / إشعار التحويل (اختياري)' : 'Transaction ID / Reference (Optional)'}
+                      {isRtl ? 'Ø±Ù‚Ù… Ø§Ù„Ù…Ø¹Ø§Ù…Ù„Ø© / Ø¥Ø´Ø¹Ø§Ø± Ø§Ù„ØªØ­ÙˆÙŠÙ„ (Ø§Ø®ØªÙŠØ§Ø±ÙŠ)' : 'Transaction ID / Reference (Optional)'}
                     </label>
                     <input
                       type="text"
                       value={form.transactionId}
                       onChange={(e) => setForm({ ...form, transactionId: e.target.value })}
-                      placeholder={isRtl ? 'أدخل رقم الحوالة أو اترك فارغاً للتنسيق عبر الواتساب' : 'Enter reference ID or leave blank for WhatsApp desk'}
+                      placeholder={isRtl ? 'Ø£Ø¯Ø®Ù„ Ø±Ù‚Ù… Ø§Ù„Ø­ÙˆØ§Ù„Ø© Ø£Ùˆ Ø§ØªØ±Ùƒ ÙØ§Ø±ØºØ§Ù‹ Ù„Ù„ØªÙ†Ø³ÙŠÙ‚ Ø¹Ø¨Ø± Ø§Ù„ÙˆØ§ØªØ³Ø§Ø¨' : 'Enter reference ID or leave blank for WhatsApp desk'}
                       className={inputClass}
                     />
                   </div>
@@ -290,11 +290,11 @@ export default function BlsWorkshopPage() {
                     <div>
                       <div className="flex items-center gap-1.5 text-xs font-bold text-amber-300">
                         <Coffee className="w-3.5 h-3.5 text-amber-400" />
-                        <span>{isRtl ? 'دعم أبحاث المعامل والتأكيد الفوري (+٢٥٠ جنيه)' : 'Support Wet-Lab Research & Expedited Confirmation (+EGP 250)'}</span>
+                        <span>{isRtl ? 'Ø¯Ø¹Ù… Ø£Ø¨Ø­Ø§Ø« Ø§Ù„Ù…Ø¹Ø§Ù…Ù„ ÙˆØ§Ù„ØªØ£ÙƒÙŠØ¯ Ø§Ù„ÙÙˆØ±ÙŠ (+Ù¢Ù¥Ù  Ø¬Ù†ÙŠÙ‡)' : 'Support Wet-Lab Research & Expedited Confirmation (+EGP 250)'}</span>
                       </div>
                       <p className="text-[11px] text-amber-200/70 mt-0.5 leading-relaxed">
                         {isRtl
-                          ? 'مساهمة اختيارية لتطوير معامل المحاكاة وتمنحك أولوية المراجعة والتأكيد الفوري.'
+                          ? 'Ù…Ø³Ø§Ù‡Ù…Ø© Ø§Ø®ØªÙŠØ§Ø±ÙŠØ© Ù„ØªØ·ÙˆÙŠØ± Ù…Ø¹Ø§Ù…Ù„ Ø§Ù„Ù…Ø­Ø§ÙƒØ§Ø© ÙˆØªÙ…Ù†Ø­Ùƒ Ø£ÙˆÙ„ÙˆÙŠØ© Ø§Ù„Ù…Ø±Ø§Ø¬Ø¹Ø© ÙˆØ§Ù„ØªØ£ÙƒÙŠØ¯ Ø§Ù„ÙÙˆØ±ÙŠ.'
                           : 'An optional patron contribution supporting continuous medical wet-labs, with instant manual desk priority.'}
                       </p>
                     </div>
@@ -309,11 +309,11 @@ export default function BlsWorkshopPage() {
                   {status === 'loading' ? (
                     <div className="flex items-center gap-2">
                       <Zap className="w-5 h-5 animate-pulse text-slate-950" />
-                      <span>{isRtl ? 'جارٍ تسجيل المقعد...' : 'Reserving Your Seat...'}</span>
+                      <span>{isRtl ? 'Ø¬Ø§Ø±Ù ØªØ³Ø¬ÙŠÙ„ Ø§Ù„Ù…Ù‚Ø¹Ø¯...' : 'Reserving Your Seat...'}</span>
                     </div>
                   ) : (
                     <>
-                      <span>{isRtl ? 'حجز المقعد في ورشة القاهرة (٣,٠٠٠ جنيه)' : 'Secure Seat in Cairo Dokki Hub (3,000 EGP)'}</span>
+                      <span>{isRtl ? 'Ø­Ø¬Ø² Ø§Ù„Ù…Ù‚Ø¹Ø¯ ÙÙŠ ÙˆØ±Ø´Ø© Ø§Ù„Ù‚Ø§Ù‡Ø±Ø© (Ù£,Ù Ù Ù  Ø¬Ù†ÙŠÙ‡)' : 'Secure Seat in Cairo Dokki Hub (3,000 EGP)'}</span>
                       {isRtl ? <ArrowLeft className="w-4 h-4" /> : <ArrowRight className="w-4 h-4" />}
                     </>
                   )}

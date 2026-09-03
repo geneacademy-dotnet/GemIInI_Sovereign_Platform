@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Link } from 'react-router-dom';
 import { Award, HeartPulse, Microscope, ScrollText, Stethoscope, ShieldCheck, ArrowRight } from 'lucide-react';
 import CountUp from '@/components/CountUp';
@@ -38,7 +38,7 @@ const AchievementCard = ({ achievement, delay = 0 }) => {
                     <CountUp value={achievement.count} suffix={achievement.suffix || ''} />
                     {achievement.passRate ? (
                         <span className="ms-2 font-tech text-sm text-muted-foreground">
-                            · {achievement.passRate}% {lang === 'ar' ? 'نجاح' : 'pass'}
+                            Â· {achievement.passRate}% {lang === 'ar' ? 'Ù†Ø¬Ø§Ø­' : 'pass'}
                         </span>
                     ) : null}
                 </p>
@@ -54,7 +54,7 @@ const AchievementCard = ({ achievement, delay = 0 }) => {
                         to={achievement.verify || '/certifications'}
                         className="inline-flex items-center gap-1.5 text-sm font-medium text-foreground underline-offset-4 hover:underline"
                     >
-                        {lang === 'ar' ? 'عرض المُعتمَدين' : 'View certified'}
+                        {lang === 'ar' ? 'Ø¹Ø±Ø¶ Ø§Ù„Ù…ÙØ¹ØªÙ…ÙŽØ¯ÙŠÙ†' : 'View certified'}
                         <ArrowRight className="h-4 w-4 rtl:rotate-180" strokeWidth={2} />
                     </Link>
                 </div>

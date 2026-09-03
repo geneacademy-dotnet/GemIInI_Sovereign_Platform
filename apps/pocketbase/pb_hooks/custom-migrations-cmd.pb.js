@@ -1,4 +1,4 @@
-/// <reference path="../pb_data/types.d.ts" />
+﻿/// <reference path="../pb_data/types.d.ts" />
 /* 
     - Usage: ./pocketbase horizons migrations:revert migration1.js migration2.js ... - reverts specific migrations by name (not by count like the built-in "down" command)
     - Usage: ./pocketbase horizons migrations:up - runs migrations up and exits with code 1 if any migration fails
@@ -144,7 +144,7 @@ horizonsCmd.addCommand(new Command({
                     txApp.db().delete("_migrations", $dbx.hashExp({ file: migrationName })).execute()
                     
                     reverted.push({ name: migrationName, path: filePath })
-                    console.log(`✓ Reverted: ${migrationName}`)
+                    console.log(`âœ“ Reverted: ${migrationName}`)
                 } catch (e) {
                     throw new Error(`failed to revert migration ${migrationName}: ${e}`)
                 }

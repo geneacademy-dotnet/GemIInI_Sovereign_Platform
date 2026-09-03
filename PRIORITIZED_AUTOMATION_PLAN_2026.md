@@ -1,26 +1,26 @@
-# 🏛️ GemIInI SudaGene Platform — Prioritized Automation Plan (2026–2027)
+﻿# ðŸ›ï¸ GemIInI SudaGene Platform â€” Prioritized Automation Plan (2026â€“2027)
 **Effective Date:** September 1, 2026  
-**Operational Mandate:** Automate Movement · Template Communication · Ground Human Approval
+**Operational Mandate:** Automate Movement Â· Template Communication Â· Ground Human Approval
 
 ---
 
-## 🧭 Executive Summary & Core Principle
+## ðŸ§­ Executive Summary & Core Principle
 
 The GemIInI SudaGene Platform and GeneAcademy operate as a medical and life-science education ecosystem comprising:
 1. Public institutional portal (`geneacademy.net`)
-2. The **GemIInI Jaib (جيميناي جيب)** members application (`members.geneacademy.net`)
+2. The **GemIInI Jaib (Ø¬ÙŠÙ…ÙŠÙ†Ø§ÙŠ Ø¬ÙŠØ¨)** members application (`members.geneacademy.net`)
 3. Clinical education, simulations, exams, and mentorship
 4. Physical clinical workshops (STC Dokki, AHA Lic. 1549)
-5. Admissions and credential verification (SudaPass™ SHA-256)
+5. Admissions and credential verification (SudaPassâ„¢ SHA-256)
 6. Multi-channel payments (Vodafone Cash, Bankak)
 7. Institutional partnerships and ministerial reporting
 
-### ⚖️ The Governing Architecture:
+### âš–ï¸ The Governing Architecture:
 > **"Automate repetitive movement. Template recurring communication. Keep human judgment at every academic, financial, credential, and governance decision point."**
 
 ---
 
-## 📋 1. Registration, Intake, and Cohort Routing
+## ðŸ“‹ 1. Registration, Intake, and Cohort Routing
 * **Automation Level:** Fully Automated Data Movement + Human Eligibility Gate.
 * **Automate:**
   * Website form submissions (`join.html`, `start.html`) into `MASTER_AUTH`.
@@ -33,7 +33,7 @@ The GemIInI SudaGene Platform and GeneAcademy operate as a medical and life-scie
 
 ---
 
-## 💳 2. Payment Reconciliation & Access Activation
+## ðŸ’³ 2. Payment Reconciliation & Access Activation
 * **Automation Level:** Automated Matching + One-Click Approval Gate.
 * **Automate:**
   * Import transaction references into `PAYMENT_AUDIT_LOG`.
@@ -46,7 +46,7 @@ The GemIInI SudaGene Platform and GeneAcademy operate as a medical and life-scie
 
 ---
 
-## 🔐 3. Credential Verification & Member-ID Issuance
+## ðŸ” 3. Credential Verification & Member-ID Issuance
 * **Automation Level:** Workflow Automation + Human Review Gate.
 * **Automate:**
   * Auto-assign verification case numbers.
@@ -54,31 +54,31 @@ The GemIInI SudaGene Platform and GeneAcademy operate as a medical and life-scie
   * Produce complete verification audit trails.
 * **Keep Human Approval For:**
   * Medical qualification review.
-  * SudaPass™ SHA-256 cryptographic seal issuance.
+  * SudaPassâ„¢ SHA-256 cryptographic seal issuance.
 
 ---
 
-## 📚 4. Weekly Academic Publishing Pipeline
+## ðŸ“š 4. Weekly Academic Publishing Pipeline
 * **Automation Level:** Template-Driven + Medical Review Gate.
 * **Create Reusable Templates For:**
   * Sunday Sessions, Monday Marathon, Saturday MedTalks, and OET Clinics.
-  * 4-Tier MTC™ Vignettes ($\text{Mechanism} \rightarrow \text{Pathway} \rightarrow \text{Clinic} \rightarrow \text{PubMed}$).
+  * 4-Tier MTCâ„¢ Vignettes ($\text{Mechanism} \rightarrow \text{Pathway} \rightarrow \text{Clinic} \rightarrow \text{PubMed}$).
   * Timed 40-Question Council-Validated Exam Blocks.
 * **Keep Human Approval For:**
   * Clinical accuracy, council exam validation, and learner-facing medical guidance.
 
 ---
 
-## 📢 5. Session Reminders & Cohort Communications
+## ðŸ“¢ 5. Session Reminders & Cohort Communications
 * **Automation Level:** Fully Automated Trigger Sequences.
 * **Automate:**
   * Triggered reminders: 7 days, 24 hours, and 1 hour before masterclasses.
   * Post-session replay availability and feedback collection alerts.
-  * Role-segmented messages based on candidate Level (Level 1–9) and Track.
+  * Role-segmented messages based on candidate Level (Level 1â€“9) and Track.
 
 ---
 
-## 🎮 6. GP Engine, Gated Access & Inactivity Sweeps
+## ðŸŽ® 6. GP Engine, Gated Access & Inactivity Sweeps
 * **Automation Level:** Ledger-Based Automated Auditing.
 * **Automate:**
   * GP credit transactions for verified activities (+25 baseline, +475 accredited, +500 workshop, +10 passed MTC case).
@@ -89,7 +89,7 @@ The GemIInI SudaGene Platform and GeneAcademy operate as a medical and life-scie
 
 ---
 
-## 🛡️ 7. Backups, Release Packaging & Deployment Checks
+## ðŸ›¡ï¸ 7. Backups, Release Packaging & Deployment Checks
 * **Automation Level:** Fully Automated Snapshots + Human-Approved Restore.
 * **Automate:**
   * Scheduled cold-storage database snapshots of Google Sheets.
@@ -100,7 +100,7 @@ The GemIInI SudaGene Platform and GeneAcademy operate as a medical and life-scie
 
 ---
 
-## 📊 8. Monthly Financial & Governance Reporting
+## ðŸ“Š 8. Monthly Financial & Governance Reporting
 * **Automation Level:** Automated Compilation + Human Sign-Off.
 * **Automate Preparation Of:**
   * Channel revenue, outstanding balances, workshop seat occupancy, active member telemetry.
@@ -109,7 +109,7 @@ The GemIInI SudaGene Platform and GeneAcademy operate as a medical and life-scie
 
 ---
 
-## 🚫 What to Eliminate (Permanent Cleanups):
+## ðŸš« What to Eliminate (Permanent Cleanups):
 1. **Eliminate Manual Static JSON Editing:** Maintain master university data in a controlled master table and auto-generate `data/universities.json`.
 2. **Eliminate Duplicated Master Data:** A single source of truth for member IDs, university names, and GP balances.
 3. **Eliminate Manual Copy-Paste Reporting:** Monthly briefs must be compiled from operational database rows, never screenshots.
@@ -117,7 +117,7 @@ The GemIInI SudaGene Platform and GeneAcademy operate as a medical and life-scie
 
 ---
 
-## 🗓️ Phased Implementation Schedule:
+## ðŸ—“ï¸ Phased Implementation Schedule:
 
 ```mermaid
 gantt

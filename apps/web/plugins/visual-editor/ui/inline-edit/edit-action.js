@@ -1,4 +1,4 @@
-import { getEditing, setEditing, clearEditing } from "../../state/editing-state.js";
+﻿import { getEditing, setEditing, clearEditing } from "../../state/editing-state.js";
 import { normalizeContentEditableHtml, patchRemoveChild, serializeContentEditableHtml } from "../../utils/html-utils.js";
 import { postToParent } from "../../utils/parent-frame.js";
 import { ParentMessage } from "../../constants/messages.js";
@@ -11,7 +11,7 @@ import { captureElementMetadata } from "../../utils/selection-mode-metadata.js";
 
 /**
  * Converts a CSS property name to its camelCase JS form
- * (e.g. `background-clip` → `backgroundClip`), matching the keys used by the
+ * (e.g. `background-clip` â†’ `backgroundClip`), matching the keys used by the
  * JSX style objects in the source write-back.
  */
 function cssPropertyToCamelCase(cssProperty) {
@@ -54,7 +54,7 @@ function applyEditingCaretColor(element) {
 /**
  * Snapshots every style property set inline on the element itself.
  * @param {HTMLElement} element
- * @returns {Record<string, string>} camelCase property → value
+ * @returns {Record<string, string>} camelCase property â†’ value
  */
 function captureInlineStyles(element) {
     const styles = {};
@@ -68,7 +68,7 @@ function captureInlineStyles(element) {
 /**
  * Diffs the element's current inline styles against a snapshot, covering any
  * panel action that styles the element itself ('' marks a removed property).
- * `textAlign` is excluded here — it is compared against computed style instead,
+ * `textAlign` is excluded here â€” it is compared against computed style instead,
  * so re-applying an alignment inherited from CSS is not logged as a change.
  * @param {HTMLElement} element
  * @param {Record<string, string>} original

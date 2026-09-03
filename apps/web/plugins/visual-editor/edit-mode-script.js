@@ -1,4 +1,4 @@
-import { startInlineEdit, commitCurrentEdit, placeCursorAtPoint } from "./ui/inline-edit/edit-action.js";
+﻿import { startInlineEdit, commitCurrentEdit, placeCursorAtPoint } from "./ui/inline-edit/edit-action.js";
 import { getEditing } from "./state/editing-state.js";
 import { getElementType, isInFixedContext } from "./utils/dom-utils.js";
 import { postToParent, ALLOWED_PARENT_ORIGINS } from "./utils/parent-frame.js";
@@ -66,7 +66,7 @@ function findEditableElementAtPoint(event) {
 }
 
 /* ------------------------------------------------------------------ *
- * Image edit (parent picker) — kept as the existing message contract
+ * Image edit (parent picker) â€” kept as the existing message contract
  * ------------------------------------------------------------------ */
 
 function startImageEdit(targetElement, editId) {
@@ -146,9 +146,9 @@ function isGroupMember(group, target) {
 }
 
 /**
- * A drag takes over the whole surface, so every other floating affordance —
+ * A drag takes over the whole surface, so every other floating affordance â€”
  * toolbar dropdowns, the text toolbar, an open annotation panel, the image
- * picker — gets out of the way before the band is drawn.
+ * picker â€” gets out of the way before the band is drawn.
  */
 function beginDragSelect(event) {
 	setIsDragging(true);
@@ -193,8 +193,8 @@ function handleSelectMouseDown(event) {
 	// Text selection inside the active inline edit stays native.
 	if (getEditing()?.targetElement?.contains(event.target)) return;
 
-	// The browser paints a text selection on mousedown — shift extends one from the
-	// last caret, and even a sub-threshold drag drags one — so suppress it here.
+	// The browser paints a text selection on mousedown â€” shift extends one from the
+	// last caret, and even a sub-threshold drag drags one â€” so suppress it here.
 	document.body.classList.add(NO_TEXT_SELECT_CLASS);
 	if (event.shiftKey) {
 		event.preventDefault();
@@ -205,7 +205,7 @@ function handleSelectMouseDown(event) {
 }
 
 /**
- * Recomputes the previewed group at most once per frame — `collectSelection`
+ * Recomputes the previewed group at most once per frame â€” `collectSelection`
  * walks the page and measures every candidate, which is far too heavy to run on
  * every mousemove of a drag.
  */
@@ -297,7 +297,7 @@ function handleClick(event) {
 	}
 
 	// Action: shift+click adds or removes one element from the group. The panel
-	// stays shut — it opens on the following plain click on a member.
+	// stays shut â€” it opens on the following plain click on a member.
 	if (event.shiftKey) {
 		const target = resolveGroupTarget(event);
 		if (!target) return;
@@ -313,7 +313,7 @@ function handleClick(event) {
 		}
 		hideAnnotationPanel({ restoreFocus: false, keepSelection: true });
 
-		// At the cap, removing still works but adding is ignored — silently
+		// At the cap, removing still works but adding is ignored â€” silently
 		// dropping some other member to make room would be worse.
 		const selected = getSelectedElements();
 		if (selected.includes(target) || selected.length < MAX_SELECTED_ELEMENTS) {
@@ -543,7 +543,7 @@ function handleTypeTooltipMouseDown() {
 }
 
 /* ------------------------------------------------------------------ *
- * Annotation ↔ DOM sync (client-side route changes, re-renders)
+ * Annotation â†” DOM sync (client-side route changes, re-renders)
  * ------------------------------------------------------------------ */
 
 let annotationDomObserver = null;

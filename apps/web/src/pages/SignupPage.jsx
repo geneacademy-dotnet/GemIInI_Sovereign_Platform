@@ -1,4 +1,4 @@
-/**
+﻿/**
  * src/pages/SignupPage.jsx
  * Sovereign ID Minting & Onboarding Suite
  * 2027 Spatial Glass Design
@@ -40,7 +40,7 @@ export default function SignupPage() {
     return (
         <Layout>
             <Helmet>
-                <title>{isRtl ? 'إنشاء حساب سيادي جديد (+25 GP) | أكاديمية جيميني' : 'Mint Sovereign SudaPass ID (+25 GP) | GemIInI Academy'}</title>
+                <title>{isRtl ? 'Ø¥Ù†Ø´Ø§Ø¡ Ø­Ø³Ø§Ø¨ Ø³ÙŠØ§Ø¯ÙŠ Ø¬Ø¯ÙŠØ¯ (+25 GP) | Ø£ÙƒØ§Ø¯ÙŠÙ…ÙŠØ© Ø¬ÙŠÙ…ÙŠÙ†ÙŠ' : 'Mint Sovereign SudaPass ID (+25 GP) | GemIInI Academy'}</title>
             </Helmet>
 
             <div className="min-h-[80vh] flex items-center justify-center px-4 py-16 bg-[#04080F] relative overflow-hidden" dir={isRtl ? 'rtl' : 'ltr'}>
@@ -55,31 +55,31 @@ export default function SignupPage() {
                             <span>+25 GP Welcome Grant</span>
                         </div>
                         <h1 className="font-display text-2xl sm:text-3xl font-bold text-white tracking-tight">
-                            {isRtl ? 'انضم إلى السجل الطبي السيادي' : 'Mint Your SudaPass GA-ID'}
+                            {isRtl ? 'Ø§Ù†Ø¶Ù… Ø¥Ù„Ù‰ Ø§Ù„Ø³Ø¬Ù„ Ø§Ù„Ø·Ø¨ÙŠ Ø§Ù„Ø³ÙŠØ§Ø¯ÙŠ' : 'Mint Your SudaPass GA-ID'}
                         </h1>
                         <p className="text-xs sm:text-sm text-slate-400 mt-2">
-                            {isRtl ? 'أنشئ هويتك الأكاديمية والسريرية المحمية في السجل الموحد:' : 'Create your decentralized clinical and academic profile in seconds:'}
+                            {isRtl ? 'Ø£Ù†Ø´Ø¦ Ù‡ÙˆÙŠØªÙƒ Ø§Ù„Ø£ÙƒØ§Ø¯ÙŠÙ…ÙŠØ© ÙˆØ§Ù„Ø³Ø±ÙŠØ±ÙŠØ© Ø§Ù„Ù…Ø­Ù…ÙŠØ© ÙÙŠ Ø§Ù„Ø³Ø¬Ù„ Ø§Ù„Ù…ÙˆØ­Ø¯:' : 'Create your decentralized clinical and academic profile in seconds:'}
                         </p>
                     </div>
 
                     <form onSubmit={handleSubmit} className="space-y-4">
                         <div className="text-start">
                             <label className="block text-xs font-semibold text-slate-300 mb-1.5">
-                                {isRtl ? 'الاسم الكامل (كما يظهر في الشهادات) *' : 'Full Legal Name *'}
+                                {isRtl ? 'Ø§Ù„Ø§Ø³Ù… Ø§Ù„ÙƒØ§Ù…Ù„ (ÙƒÙ…Ø§ ÙŠØ¸Ù‡Ø± ÙÙŠ Ø§Ù„Ø´Ù‡Ø§Ø¯Ø§Øª) *' : 'Full Legal Name *'}
                             </label>
                             <input
                                 type="text"
                                 required
                                 value={form.name}
                                 onChange={(e) => setForm({ ...form, name: e.target.value })}
-                                placeholder={isRtl ? 'د. سارة أحمد' : 'Dr. Sara Ahmed'}
+                                placeholder={isRtl ? 'Ø¯. Ø³Ø§Ø±Ø© Ø£Ø­Ù…Ø¯' : 'Dr. Sara Ahmed'}
                                 className={inputClass}
                             />
                         </div>
 
                         <div className="text-start">
                             <label className="block text-xs font-semibold text-slate-300 mb-1.5">
-                                {isRtl ? 'البريد الإلكتروني *' : 'Email Address *'}
+                                {isRtl ? 'Ø§Ù„Ø¨Ø±ÙŠØ¯ Ø§Ù„Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠ *' : 'Email Address *'}
                             </label>
                             <input
                                 type="email"
@@ -93,7 +93,7 @@ export default function SignupPage() {
 
                         <div className="text-start">
                             <label className="block text-xs font-semibold text-slate-300 mb-1.5">
-                                {isRtl ? 'الكلية أو المؤسسة الطبية *' : 'Medical Faculty / University *'}
+                                {isRtl ? 'Ø§Ù„ÙƒÙ„ÙŠØ© Ø£Ùˆ Ø§Ù„Ù…Ø¤Ø³Ø³Ø© Ø§Ù„Ø·Ø¨ÙŠØ© *' : 'Medical Faculty / University *'}
                             </label>
                             <input
                                 type="text"
@@ -114,7 +114,7 @@ export default function SignupPage() {
                                 <Zap className="h-5 w-5 animate-pulse" />
                             ) : (
                                 <>
-                                    <span>{isRtl ? 'تفعيل الحساب السيادي (+25 GP)' : 'Mint Profile & Enter (+25 GP)'}</span>
+                                    <span>{isRtl ? 'ØªÙØ¹ÙŠÙ„ Ø§Ù„Ø­Ø³Ø§Ø¨ Ø§Ù„Ø³ÙŠØ§Ø¯ÙŠ (+25 GP)' : 'Mint Profile & Enter (+25 GP)'}</span>
                                     {isRtl ? <ArrowRight className="h-4 w-4 rotate-180" /> : <ArrowRight className="h-4 w-4" />}
                                 </>
                             )}
@@ -122,9 +122,9 @@ export default function SignupPage() {
                     </form>
 
                     <div className="mt-8 pt-6 border-t border-white/10 text-center text-xs text-slate-400">
-                        <span>{isRtl ? 'لديك حساب بالفعل؟ ' : 'Already have a GA-ID? '}</span>
+                        <span>{isRtl ? 'Ù„Ø¯ÙŠÙƒ Ø­Ø³Ø§Ø¨ Ø¨Ø§Ù„ÙØ¹Ù„ØŸ ' : 'Already have a GA-ID? '}</span>
                         <Link to="/login" className="text-[#00F2FE] font-bold hover:underline">
-                            {isRtl ? 'تسجيل الدخول' : 'Sign in here'}
+                            {isRtl ? 'ØªØ³Ø¬ÙŠÙ„ Ø§Ù„Ø¯Ø®ÙˆÙ„' : 'Sign in here'}
                         </Link>
                     </div>
 

@@ -1,4 +1,4 @@
-import path from 'node:path';
+﻿import path from 'node:path';
 import react from '@vitejs/plugin-react';
 import { createLogger, defineConfig } from 'vite';
 import inlineEditPlugin from './plugins/visual-editor/vite-plugin-react-inline-editor.js';
@@ -176,12 +176,12 @@ console.warn = function(...args) {
 `;
 
 const configWindowFetchMonkeyPatch = `
-// Prevents authentication failures (PB returns 400) from crashing the app — use console.info, not console.error/PM2.
+// Prevents authentication failures (PB returns 400) from crashing the app â€” use console.info, not console.error/PM2.
 // [urlPattern, bodyPattern] tuples; align with sandboxErrorUtils ERROR_BLACKLIST.
 const BENIGN_FETCH_ERRORS = [
 	[/hcgi\\/platform\\/api\\/collections\\/.*auth-with-password.*/i, /Failed to authenticate/i],
 	[/hcgi\\/api\\//i, /Insufficient credits/i],
-	// A user-supplied integration secret (Stripe/PayPal/Twilio/...) is not set yet — an expected setup state, not a bug to fix.
+	// A user-supplied integration secret (Stripe/PayPal/Twilio/...) is not set yet â€” an expected setup state, not a bug to fix.
 	[/hcgi\\/api\\//i, /INTEGRATION_NOT_CONFIGURED/i],
 ];
 
@@ -258,7 +258,7 @@ window.fetch = function(...args) {
 		})
 		.catch(error => {
 			if (!url.match(/\.html?$/i)) {
-				// Cancelled in-flight fetch (e.g. preview reload) — not a server failure.
+				// Cancelled in-flight fetch (e.g. preview reload) â€” not a server failure.
 				if (error?.name === 'AbortError') {
 					console.info(error);
 				} else {

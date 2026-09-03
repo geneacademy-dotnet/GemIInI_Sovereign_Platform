@@ -1,4 +1,4 @@
-export const DATABASE_ROUTER_CONFIG = {
+﻿export const DATABASE_ROUTER_CONFIG = {
   "version": "2026.1",
   "system_name": "SudaGene Independent Database & Folder Routing Matrix",
   "vault_root": "G:\\My Drive\\01_Independent_REGISTRY_VAULTS",
@@ -17,7 +17,7 @@ export const DATABASE_ROUTER_CONFIG = {
     {
       "category": "clinical_licensure_mbbs",
       "program_code": "SMC-101-108",
-      "track": "GemIInI Academy — SMC Permanent Licensure Track",
+      "track": "GemIInI Academy â€” SMC Permanent Licensure Track",
       "target_sheet": "GA_MASTER_REGISTRY",
       "drive_workspace_folder": "GA-Workspaces/Clinical_Vanguard",
       "assigned_pod": "Pod-Clinical-SMC",
@@ -28,7 +28,7 @@ export const DATABASE_ROUTER_CONFIG = {
     {
       "category": "molecular_medicine_postgrad",
       "program_code": "MM-1.0-8.0",
-      "track": "GeneAcademy — Molecular Medicine & WES Analytics",
+      "track": "GeneAcademy â€” Molecular Medicine & WES Analytics",
       "target_sheet": "GA_MASTER_REGISTRY",
       "drive_workspace_folder": "GA-Workspaces/Molecular_Fellows",
       "assigned_pod": "Pod-1-Oncology",
@@ -39,7 +39,7 @@ export const DATABASE_ROUTER_CONFIG = {
     {
       "category": "hospital_b2b_infrastructure",
       "program_code": "GLOM-601-802",
-      "track": "GLOMEt HQ — Hospital Partner & Lab Outfitting",
+      "track": "GLOMEt HQ â€” Hospital Partner & Lab Outfitting",
       "target_sheet": "GLOMET_B2B_PARTNER_REGISTRY",
       "drive_workspace_folder": "GLOMEt-Workspaces/Partner_Facilities",
       "assigned_pod": "B2B-Telemetry-Node",

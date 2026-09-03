@@ -1,17 +1,17 @@
-# 🏛️ The Restoration Chronicle: How We Rebuilt the Molecular Medicine Program from the Ashes of War
+﻿# ðŸ›ï¸ The Restoration Chronicle: How We Rebuilt the Molecular Medicine Program from the Ashes of War
 ### The Epic Story of the IEND MSc Batch, 43 Scattered Minds, and the Independent Mandate
 **Document Code:** `GA-CHRONICLE-IEND-2026`  
 **Archival Status:** Canonical Historic Narrative & Institutional Proof  
 **Executive Lead:** Dr. Mohamed Ahmed Abdulfatah Gibbril (`GA-000`)  
-**Institutional Anchor:** Institute of Endemic Diseases (`IEND`), University of Khartoum · SudaGene Consortium · GLOMEt
+**Institutional Anchor:** Institute of Endemic Diseases (`IEND`), University of Khartoum Â· SudaGene Consortium Â· GLOMEt
 
 ---
 
-## ⚡ Prologue: When the Servers Went Dark
+## âš¡ Prologue: When the Servers Went Dark
 
-In April 2023, when conflict engulfed Khartoum, the institutional memory of Sudan’s medical education faced catastrophic extinction. 
+In April 2023, when conflict engulfed Khartoum, the institutional memory of Sudanâ€™s medical education faced catastrophic extinction. 
 
-Laboratories were looted, university servers were severed, and physical lecture halls fell silent. Among those caught in the crossfire was the **postgraduate Master of Science in Molecular Medicine at the Institute of Endemic Diseases (IEND, University of Khartoum)**—the prestigious academic lineage founded by the father of Sudanese pathology, **Prof. Ahmed Mohamed El Hassan (1930–2023)**.
+Laboratories were looted, university servers were severed, and physical lecture halls fell silent. Among those caught in the crossfire was the **postgraduate Master of Science in Molecular Medicine at the Institute of Endemic Diseases (IEND, University of Khartoum)**â€”the prestigious academic lineage founded by the father of Sudanese pathology, **Prof. Ahmed Mohamed El Hassan (1930â€“2023)**.
 
 Over **43 MSc candidates and their academic trainers** were suddenly scattered across the globe. From active frontline clinics in Sudan to displacement centers in Egypt, and exile in the Gulf, Germany, Ireland, the UK, and the United States, an entire generation of molecular scientists, geneticists, and physician-researchers was on the brink of losing years of academic toil.
 
@@ -21,9 +21,9 @@ There were no official rosters, no exam timetables, and no centralized way to tr
 
 ```
                        THE ANATOMY OF SYSTEMIC RESCUE
-                                      │
-  ┌───────────────────────────────────┼───────────────────────────────────┐
-  ▼                                   ▼                                   ▼
+                                      â”‚
+  â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+  â–¼                                   â–¼                                   â–¼
 [ 1. HARDWARE RESCUE ]     [ 2. DATA HARVESTING ]     [ 3. ACADEMIC MANDATES ]
  Physical Manikins & Kits   Tracing 43 Candidates      IEND Council Adoption
  (GLOMEt Golden Partner)    Across 10 Countries        14 Consecutive Modules
@@ -31,7 +31,7 @@ There were no official rosters, no exam timetables, and no centralized way to tr
 
 ---
 
-## 🛠️ Act I: Ground Zero — Hardware, Manikins, and the Golden Supplier
+## ðŸ› ï¸ Act I: Ground Zero â€” Hardware, Manikins, and the Golden Supplier
 
 The first obstacle was visceral: clinical trainers in displacement had lost their simulation infrastructure. They could not teach emergency resuscitation, procedural skills, or diagnostic physiology through zoom slides alone.
 
@@ -48,7 +48,7 @@ Clinical learning was once again grounded in physical practice.
 
 ---
 
-## 📡 Act II: The Harvest — Finding 43 Minds Across 10 Borders
+## ðŸ“¡ Act II: The Harvest â€” Finding 43 Minds Across 10 Borders
 
 While others waited for official institutional bureaucracy to restart, we launched an independent, intelligence-grade telemetry campaign. 
 
@@ -64,7 +64,7 @@ We cataloged their undergraduate baselines (MBBS, Pharmacy, Medical Laboratory S
 
 ---
 
-## 🏛️ Act III: The Mandate — Rescuing the IEND Academic Council
+## ðŸ›ï¸ Act III: The Mandate â€” Rescuing the IEND Academic Council
 
 Armed with this verified 43-candidate dataset, **Dr. Mohamed Gibbril (`GA-000`)** single-handedly drafted the comprehensive **Academic Restoration Dossier**.
 
@@ -77,7 +77,7 @@ We presented the **Academic Council of the Institute of Endemic Diseases (IEND, 
 
 ---
 
-## 🌟 Epilogue: The Independent Doctrine
+## ðŸŒŸ Epilogue: The Independent Doctrine
 
 What began as a crisis response became the founding doctrine of the **GemIInI SudaGene Platform**:
 
@@ -90,4 +90,4 @@ This is the living proof we bring to every hospital, university, and research di
 ---
 
 *Archived in the Independent Vault of GeneAcademy & SudaGene Medical Consortium.*  
-*Cairo · Khartoum · August 2026*
+*Cairo Â· Khartoum Â· August 2026*

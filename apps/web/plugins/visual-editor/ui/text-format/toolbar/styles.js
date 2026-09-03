@@ -1,4 +1,4 @@
-import { TOOLBAR_ID } from './template.js';
+﻿import { TOOLBAR_ID } from './template.js';
 import { PANEL_BG, BORDER_COLOR, BORDER_COLOR_TRANSLUCENT, HOVER_BG, ACTIVE_BG, BOX_SHADOW_TOOLBAR, COLOR_WHITE } from '../../../constants/theme.js';
 
 /** Injected CSS for the floating text-format toolbar. */
@@ -17,7 +17,7 @@ export const TOOLBAR_STYLES = `
   font-family: DM Sans, sans-serif;
   white-space: nowrap;
   cursor: grab;
-  /* Never exceed the viewport — the inner row scrolls horizontally instead. */
+  /* Never exceed the viewport â€” the inner row scrolls horizontally instead. */
   max-width: calc(100vw - 16px);
 }
 #${TOOLBAR_ID}.tft-visible { display: flex; }

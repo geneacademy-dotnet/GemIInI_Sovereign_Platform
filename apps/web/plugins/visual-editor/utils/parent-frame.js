@@ -1,4 +1,4 @@
-/** Origins allowed to receive messages from this iframe. */
+﻿/** Origins allowed to receive messages from this iframe. */
 export const ALLOWED_PARENT_ORIGINS = [
 	'https://horizons.hostinger.com',
 	'https://horizons.hostinger.dev',

@@ -1,4 +1,4 @@
-import { exportDraftSnapshot, importDraftSnapshot, getEditState } from "../state/history-state.js";
+﻿import { exportDraftSnapshot, importDraftSnapshot, getEditState } from "../state/history-state.js";
 import { exportAnnotationMarkers, importAnnotationMarkers } from "../ui/annotation-panel/annotation-markers.js";
 import { ParentMessage } from "../constants/messages.js";
 import { postToParent } from "../utils/parent-frame.js";

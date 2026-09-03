@@ -1,4 +1,4 @@
-/** DOM id for the link action panel root element. */
+﻿/** DOM id for the link action panel root element. */
 export const LINK_ACTION_ID = 'text-format-link-action';
 
 /** HTML scaffold for the link panel (URL input and new-tab checkbox). */

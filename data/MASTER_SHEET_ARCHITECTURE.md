@@ -1,10 +1,10 @@
-# GemIInI SudaGene Ecosystem — Master Google Sheet Architecture (2026)
+﻿# GemIInI SudaGene Ecosystem â€” Master Google Sheet Architecture (2026)
 
 This document specifies the exact **7-Tab Master Google Sheet Data Blueprint** that powers the entire GemIInI / SudaGene ecosystem, connects Google Forms and the web platform, and manages member identities, inquiry routing, and academic points ledger.
 
 ---
 
-## 📑 1. The 7 Master Sheet Tabs Overview
+## ðŸ“‘ 1. The 7 Master Sheet Tabs Overview
 
 | Tab Name | Purpose & Workflow | Key Identity Key |
 | :--- | :--- | :--- |
@@ -18,7 +18,7 @@ This document specifies the exact **7-Tab Master Google Sheet Data Blueprint** t
 
 ---
 
-## 🏛️ Tab 1: `GA_MASTER_REGISTRY` (Columns A - N)
+## ðŸ›ï¸ Tab 1: `GA_MASTER_REGISTRY` (Columns A - N)
 
 ```csv
 id,name,status_role,institution,grad_year,priority_track,advised_modules,gp_balance,skill_rank,high_value,tags,source_workbook,notes,verified
@@ -41,7 +41,7 @@ id,name,status_role,institution,grad_year,priority_track,advised_modules,gp_bala
 
 ---
 
-## 🩺 Tab 2: `INQUIRY_CLINICAL_SMC` (Form 1: Doctors & Candidates)
+## ðŸ©º Tab 2: `INQUIRY_CLINICAL_SMC` (Form 1: Doctors & Candidates)
 
 ```csv
 Timestamp,GA_ID,FullName,WhatsApp,Email,University,GradYear,CurrentRole,TargetLicensure,SelectedModules,PaymentStatus,AssignedMentor
@@ -51,7 +51,7 @@ Timestamp,GA_ID,FullName,WhatsApp,Email,University,GradYear,CurrentRole,TargetLi
 
 ---
 
-## 🧬 Tab 3: `INQUIRY_MOLECULAR_GENOMICS` (Form 2: Molecular Scholars)
+## ðŸ§¬ Tab 3: `INQUIRY_MOLECULAR_GENOMICS` (Form 2: Molecular Scholars)
 
 ```csv
 Timestamp,GA_ID,FullName,WhatsApp,Email,DegreeTarget,ResearchTopic,LabExperience,RequestedModules,ThesisRescueNeeded,AssignedPI
@@ -60,7 +60,7 @@ Timestamp,GA_ID,FullName,WhatsApp,Email,DegreeTarget,ResearchTopic,LabExperience
 
 ---
 
-## 🔬 Tab 4: `INQUIRY_GENETIC_COUNSELING` (Form 3: Pre-Marital & Patients)
+## ðŸ”¬ Tab 4: `INQUIRY_GENETIC_COUNSELING` (Form 3: Pre-Marital & Patients)
 
 ```csv
 Timestamp,Case_ID,ClientName,WhatsApp,CityState,ConsanguinityDegree,FamilyHistoryDiseases,TargetGenes_VCF,AssignedGeneticCounselor,Status
@@ -69,7 +69,7 @@ Timestamp,Case_ID,ClientName,WhatsApp,CityState,ConsanguinityDegree,FamilyHistor
 
 ---
 
-## 🏛️ Tab 5: `INQUIRY_GLOMET_TURNKEY` (Form 4: B2B Hospital Setup)
+## ðŸ›ï¸ Tab 5: `INQUIRY_GLOMET_TURNKEY` (Form 4: B2B Hospital Setup)
 
 ```csv
 Timestamp,GLOMEt_REQ_ID,FacilityName,OwnerDirector,LocationState,WhatsApp,SubmitterRole,AgentID,FinanceOfficer,WorkloadScale,TestLinesArray,PowerSource,CoolingStatus,RoomSize,BudgetTier,ContractModel,AssignedBioMedicalEngineer
@@ -78,7 +78,7 @@ Timestamp,GLOMEt_REQ_ID,FacilityName,OwnerDirector,LocationState,WhatsApp,Submit
 
 ---
 
-## 🎒 Tab 6: `INQUIRY_STUDENT_PREMED` (Form 5: Pre-Med STEM)
+## ðŸŽ’ Tab 6: `INQUIRY_STUDENT_PREMED` (Form 5: Pre-Med STEM)
 
 ```csv
 Timestamp,StudentID,StudentName,ParentWhatsApp,SchoolName,GradeLevel,TargetCamp,MedicalInterest,AssignedInstructor
@@ -87,7 +87,7 @@ Timestamp,StudentID,StudentName,ParentWhatsApp,SchoolName,GradeLevel,TargetCamp,
 
 ---
 
-## 💳 Tab 7: `GP_TRANSACTION_LEDGER` (Points Audit Log)
+## ðŸ’³ Tab 7: `GP_TRANSACTION_LEDGER` (Points Audit Log)
 
 ```csv
 Tx_ID,Timestamp,GA_ID,TransactionType,AmountGP,RemainingBalance,ModuleOrBountyRef,AuthorizedBy
@@ -96,6 +96,6 @@ Tx_ID,Timestamp,GA_ID,TransactionType,AmountGP,RemainingBalance,ModuleOrBountyRe
 
 ---
 
-## 🔗 Webhook & Apps Script Integration
+## ðŸ”— Webhook & Apps Script Integration
 * The Google Apps Script in [`google_apps_script/Code.gs`](file:///g:/My%20Drive/GemIInI_Independent_Platform/google_apps_script/Code.gs) listens for HTTP POST requests from [`join.html`](file:///g:/My%20Drive/GemIInI_Independent_Platform/join.html), [`glomet.html`](file:///g:/My%20Drive/GemIInI_Independent_Platform/glomet.html), and [`courses.html`](file:///g:/My%20Drive/GemIInI_Independent_Platform/courses.html).
 * Automatically routes rows to `GA_MASTER_REGISTRY` and the corresponding inquiry sub-sheet without manual data entry.

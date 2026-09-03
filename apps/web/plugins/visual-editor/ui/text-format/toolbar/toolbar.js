@@ -1,4 +1,4 @@
-import { elementZIndex } from '../../../utils/dom-utils.js';
+﻿import { elementZIndex } from '../../../utils/dom-utils.js';
 import { Z_OFFSET_TOOLBAR } from '../../../constants/theme.js';
 import { hideLinkAction, toggleLinkAction, positionLinkAction } from '../link-action/link-action.js';
 import { hideFontAction, toggleFontAction, positionFontAction } from '../font-family-action/font-family-action.js';
@@ -227,7 +227,7 @@ function initToolbar() {
         if (action !== 'link') restoreSelectionAndCloseLinkPanel();
         if (action !== 'edit-with-ai') {
             const annotationWasOpen = getAnnotationPanelEl()?.classList.contains('active');
-            // Skip the focus/caret restore when opening another dropdown panel —
+            // Skip the focus/caret restore when opening another dropdown panel â€”
             // it fires a selectionchange event that would immediately close the
             // panel this same click is about to open.
             hideAnnotationPanel({ restoreFocus: !opensDropdownPanel });

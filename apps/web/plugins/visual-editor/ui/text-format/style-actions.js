@@ -1,4 +1,4 @@
-/**
+﻿/**
  * DOM range helpers for applying bold, italic, underline, and alignment inside
  * the active contenteditable selection.
  */
@@ -340,7 +340,7 @@ export function syncUnderlineColorFromElement(element, editTarget) {
 
 function findCssUnderlineAncestor(node, editTarget) {
     // Find the closest ancestor that sources underline via a CSS class, not a <u> tag
-    // or inline style — those are handled by other steps.
+    // or inline style â€” those are handled by other steps.
     let element = node.nodeType === Node.TEXT_NODE ? node.parentElement : node;
     while (element && element !== editTarget) {
         if (element.tagName?.toLowerCase() === 'u') { element = element.parentElement; continue; }

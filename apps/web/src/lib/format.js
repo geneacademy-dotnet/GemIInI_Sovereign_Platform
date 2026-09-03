@@ -1,4 +1,4 @@
-export const formatCurrency = (amount, { currency = 'USD', locale, ...options } = {}) =>
+﻿export const formatCurrency = (amount, { currency = 'USD', locale, ...options } = {}) =>
 	Number(amount || 0).toLocaleString(locale, { style: 'currency', currency, ...options });
 
 export const formatNumber = (value, { locale, ...options } = {}) =>
@@ -17,7 +17,7 @@ export const formatDate = (date, { locale, ...options } = {}) => {
 export const truncate = (text, max = 120) => {
 	if (!text) return '';
 
-	return text.length <= max ? text : `${text.slice(0, max).trimEnd()}…`;
+	return text.length <= max ? text : `${text.slice(0, max).trimEnd()}â€¦`;
 };
 
 export const slugify = (text) =>

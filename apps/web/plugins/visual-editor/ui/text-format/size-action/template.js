@@ -1,4 +1,4 @@
-/** DOM id for the font size action panel root element. */
+﻿/** DOM id for the font size action panel root element. */
 export const SIZE_ACTION_ID = 'text-format-size-action';
 
 /** Preset font sizes (px) listed in the size dropdown. */

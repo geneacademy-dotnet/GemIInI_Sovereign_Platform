@@ -1,4 +1,4 @@
-export default function pocketbaseAuthPlugin() {
+﻿export default function pocketbaseAuthPlugin() {
 	return {
 		name: 'vite:pocketbase-auth',
 		apply: 'serve',

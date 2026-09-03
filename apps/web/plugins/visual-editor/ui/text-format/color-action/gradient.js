@@ -1,4 +1,4 @@
-import { parseColor } from './color-conversions.js';
+﻿import { parseColor } from './color-conversions.js';
 
 /**
  * @param {string} value - CSS linear-gradient value.

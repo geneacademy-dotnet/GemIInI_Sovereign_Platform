@@ -1,6 +1,6 @@
-/**
+﻿/**
  * ============================================================================
- * GemIInI SudaGene Platform — Unified Clinical & Educator Gateway
+ * GemIInI SudaGene Platform â€” Unified Clinical & Educator Gateway
  * Architecture: Code.gs v4.6 BULLETPROOF MASTER (Healthcare & Educator Engines)
  * Target Workbook: GemIInI Master Registry 2026 (1X74wS42KR5WpMusd8L_3-5LCDSIz9m7JHNdgY-rTbxs)
  * ============================================================================
@@ -36,7 +36,7 @@ const CONFIG = {
 };
 
 /**
- * 🔒 Strict Cryptographic Security Halt
+ * ðŸ”’ Strict Cryptographic Security Halt
  * Halts execution immediately if SECRET_SALT is unset in Script Properties.
  */
 function getSecretSaltSecure() {
@@ -98,7 +98,7 @@ function doGet(e) {
           success: true,
           gateway: 'GemIInI Independent API v4.6 BULLETPROOF MASTER',
           status: 'ACTIVE',
-          partnerLicense: 'STC Lic. 1549'
+          partnerLicense: 'GemIInI Sovereign Accreditation'
         });
     }
   } catch (err) {
@@ -190,7 +190,7 @@ function doPost(e) {
       case 'MOLECULAR_ENROLL':
         return jsonResponse(handleMolecularEnroll(payload, ss));
 
-      // 🌟 Educator & Sudanese Curriculum Empowerment Engine
+      // ðŸŒŸ Educator & Sudanese Curriculum Empowerment Engine
       case 'FORM_TEACHER_INTAKE':
       case 'TEACHER_REGISTER':
         return jsonResponse(handleTeacherIntake(payload, ss));
@@ -227,7 +227,7 @@ function doPost(e) {
 
 /**
  * ============================================================================
- * 3. EDUCATOR EMPOWERMENT & PARENT-STUDENT INTAKE (مبادرة رد الجميل)
+ * 3. EDUCATOR EMPOWERMENT & PARENT-STUDENT INTAKE (Ù…Ø¨Ø§Ø¯Ø±Ø© Ø±Ø¯ Ø§Ù„Ø¬Ù…ÙŠÙ„)
  * ============================================================================
  */
 function handleTeacherIntake(payload, ss) {
@@ -257,7 +257,7 @@ function handleTeacherIntake(payload, ss) {
         success: true,
         eduId: String(data[i][0]),
         alreadyRegistered: true,
-        message: 'مرحباً بك مجدداً! تم العثور على ملفك المعتمد برقم: ' + String(data[i][0])
+        message: 'Ù…Ø±Ø­Ø¨Ø§Ù‹ Ø¨Ùƒ Ù…Ø¬Ø¯Ø¯Ø§Ù‹! ØªÙ… Ø§Ù„Ø¹Ø«ÙˆØ± Ø¹Ù„Ù‰ Ù…Ù„ÙÙƒ Ø§Ù„Ù…Ø¹ØªÙ…Ø¯ Ø¨Ø±Ù‚Ù…: ' + String(data[i][0])
       };
     }
   }
@@ -274,7 +274,7 @@ function handleTeacherIntake(payload, ss) {
   // Send Email Notification if email is available
   if (email) {
     try {
-      GmailApp.sendEmail(email, `[CONFIRMED] اعتماد انضمامك لمبادرة رد الجميل لمعلمي بلادي (${eduId})`, `الأستاذ(ة) الفاضل(ة) ${fullName}،\n\nتحية إجلال وتقدير،\n\nتم استلام طلب انضمامك لمبادرة رد الجميل لتمكين معلمي المنهج السوداني برقم المعرف السيادي (${eduId}).\n\nسيتم التواصل معك عبر الواتساب لتسليمك حساب أدوات الذكاء الاصطناعي وتجهيز بطاقتك الرقمية.\n\nمنظومة GeneAcademy & GemIInI SudaGene Platform`, {
+      GmailApp.sendEmail(email, `[CONFIRMED] Ø§Ø¹ØªÙ…Ø§Ø¯ Ø§Ù†Ø¶Ù…Ø§Ù…Ùƒ Ù„Ù…Ø¨Ø§Ø¯Ø±Ø© Ø±Ø¯ Ø§Ù„Ø¬Ù…ÙŠÙ„ Ù„Ù…Ø¹Ù„Ù…ÙŠ Ø¨Ù„Ø§Ø¯ÙŠ (${eduId})`, `Ø§Ù„Ø£Ø³ØªØ§Ø°(Ø©) Ø§Ù„ÙØ§Ø¶Ù„(Ø©) ${fullName}ØŒ\n\nØªØ­ÙŠØ© Ø¥Ø¬Ù„Ø§Ù„ ÙˆØªÙ‚Ø¯ÙŠØ±ØŒ\n\nØªÙ… Ø§Ø³ØªÙ„Ø§Ù… Ø·Ù„Ø¨ Ø§Ù†Ø¶Ù…Ø§Ù…Ùƒ Ù„Ù…Ø¨Ø§Ø¯Ø±Ø© Ø±Ø¯ Ø§Ù„Ø¬Ù…ÙŠÙ„ Ù„ØªÙ…ÙƒÙŠÙ† Ù…Ø¹Ù„Ù…ÙŠ Ø§Ù„Ù…Ù†Ù‡Ø¬ Ø§Ù„Ø³ÙˆØ¯Ø§Ù†ÙŠ Ø¨Ø±Ù‚Ù… Ø§Ù„Ù…Ø¹Ø±Ù Ø§Ù„Ø³ÙŠØ§Ø¯ÙŠ (${eduId}).\n\nØ³ÙŠØªÙ… Ø§Ù„ØªÙˆØ§ØµÙ„ Ù…Ø¹Ùƒ Ø¹Ø¨Ø± Ø§Ù„ÙˆØ§ØªØ³Ø§Ø¨ Ù„ØªØ³Ù„ÙŠÙ…Ùƒ Ø­Ø³Ø§Ø¨ Ø£Ø¯ÙˆØ§Øª Ø§Ù„Ø°ÙƒØ§Ø¡ Ø§Ù„Ø§ØµØ·Ù†Ø§Ø¹ÙŠ ÙˆØªØ¬Ù‡ÙŠØ² Ø¨Ø·Ø§Ù‚ØªÙƒ Ø§Ù„Ø±Ù‚Ù…ÙŠØ©.\n\nÙ…Ù†Ø¸ÙˆÙ…Ø© GeneAcademy & GemIInI SudaGene Platform`, {
         name: 'Independent Educator Initiative',
         cc: 'mohamedgibbril@geneacademy.net'
       });
@@ -288,7 +288,7 @@ function handleTeacherIntake(payload, ss) {
     eduId: eduId,
     fullName: fullName,
     status: 'ONBOARDED_AI_PENDING',
-    message: `أهلاً بك أستاذ ${fullName}! تم قيدك في سجل المعلمين السيادي برقم (${eduId}). تم تفعيل منحة التمكين الرقمي الخاصة بك.`
+    message: `Ø£Ù‡Ù„Ø§Ù‹ Ø¨Ùƒ Ø£Ø³ØªØ§Ø° ${fullName}! ØªÙ… Ù‚ÙŠØ¯Ùƒ ÙÙŠ Ø³Ø¬Ù„ Ø§Ù„Ù…Ø¹Ù„Ù…ÙŠÙ† Ø§Ù„Ø³ÙŠØ§Ø¯ÙŠ Ø¨Ø±Ù‚Ù… (${eduId}). ØªÙ… ØªÙØ¹ÙŠÙ„ Ù…Ù†Ø­Ø© Ø§Ù„ØªÙ…ÙƒÙŠÙ† Ø§Ù„Ø±Ù‚Ù…ÙŠ Ø§Ù„Ø®Ø§ØµØ© Ø¨Ùƒ.`
   };
 }
 
@@ -297,10 +297,10 @@ function handleParentStudentIntake(payload, ss) {
   const studentName = String(payload.studentName || '').trim();
   const phone = String(payload.phone || payload.whatsapp || '').trim();
   const country = String(payload.country || payload.location || '').trim();
-  const gradeLevel = String(payload.gradeLevel || payload.grade || 'المرحلة المتوسطة').trim();
-  const targetSubject = String(payload.targetSubject || payload.subject || 'تاريخ وإرشاد نفسي').trim();
-  const targetTeacher = String(payload.targetTeacher || 'أ. نجلاء زمراوي').trim();
-  const desiredServices = Array.isArray(payload.desiredServices) ? payload.desiredServices.join('; ') : String(payload.desiredServices || 'حصص تركيز ومراجعات').trim();
+  const gradeLevel = String(payload.gradeLevel || payload.grade || 'Ø§Ù„Ù…Ø±Ø­Ù„Ø© Ø§Ù„Ù…ØªÙˆØ³Ø·Ø©').trim();
+  const targetSubject = String(payload.targetSubject || payload.subject || 'ØªØ§Ø±ÙŠØ® ÙˆØ¥Ø±Ø´Ø§Ø¯ Ù†ÙØ³ÙŠ').trim();
+  const targetTeacher = String(payload.targetTeacher || 'Ø£. Ù†Ø¬Ù„Ø§Ø¡ Ø²Ù…Ø±Ø§ÙˆÙŠ').trim();
+  const desiredServices = Array.isArray(payload.desiredServices) ? payload.desiredServices.join('; ') : String(payload.desiredServices || 'Ø­ØµØµ ØªØ±ÙƒÙŠØ² ÙˆÙ…Ø±Ø§Ø¬Ø¹Ø§Øª').trim();
   const notes = String(payload.notes || '').trim();
 
   if (!parentName || !phone) {
@@ -317,7 +317,7 @@ function handleParentStudentIntake(payload, ss) {
 
   return {
     success: true,
-    message: `شكراً لك ${parentName}! تم تسجيل اهتمام الطالب ${studentName || ''} بنجاح. سيتم توجيهك لدروس ومجموعات ${targetTeacher}.`
+    message: `Ø´ÙƒØ±Ø§Ù‹ Ù„Ùƒ ${parentName}! ØªÙ… ØªØ³Ø¬ÙŠÙ„ Ø§Ù‡ØªÙ…Ø§Ù… Ø§Ù„Ø·Ø§Ù„Ø¨ ${studentName || ''} Ø¨Ù†Ø¬Ø§Ø­. Ø³ÙŠØªÙ… ØªÙˆØ¬ÙŠÙ‡Ùƒ Ù„Ø¯Ø±ÙˆØ³ ÙˆÙ…Ø¬Ù…ÙˆØ¹Ø§Øª ${targetTeacher}.`
   };
 }
 
@@ -375,7 +375,7 @@ function handleSubmitExamSprint(payload, ss) {
   // Strict Server-Side GP Math (+10 per correct, +2 per incorrect)
   const serverCalculatedGp = (clampedScore * 10) + ((total - clampedScore) * 2);
   
-  // 🔒 Bound with Math.max(0, ...) to prevent negative-value injections
+  // ðŸ”’ Bound with Math.max(0, ...) to prevent negative-value injections
   const rawClaimed = Number(payload.totalGpEarned);
   const finalGpEarned = (!isNaN(rawClaimed) && rawClaimed > 0)
     ? Math.max(0, Math.min(rawClaimed, serverCalculatedGp))
@@ -440,7 +440,7 @@ function handleSubmitExamSprint(payload, ss) {
     ccrPercent: ccrPercent,
     gpEarned: finalGpEarned,
     proctorStatus: violations > 3 ? 'UNDER_AUDIT' : 'CLEARED',
-    message: 'تم استلام وتوثيق نتائج الامتحان بالسجل المركزي واعتماد النقاط بنجاح.'
+    message: 'ØªÙ… Ø§Ø³ØªÙ„Ø§Ù… ÙˆØªÙˆØ«ÙŠÙ‚ Ù†ØªØ§Ø¦Ø¬ Ø§Ù„Ø§Ù…ØªØ­Ø§Ù† Ø¨Ø§Ù„Ø³Ø¬Ù„ Ø§Ù„Ù…Ø±ÙƒØ²ÙŠ ÙˆØ§Ø¹ØªÙ…Ø§Ø¯ Ø§Ù„Ù†Ù‚Ø§Ø· Ø¨Ù†Ø¬Ø§Ø­.'
   };
 }
 
@@ -472,7 +472,7 @@ function handleRegisterUser(payload, ss) {
         success: true,
         gaId: String(data[i][0]),
         alreadyRegistered: true,
-        message: 'تم العثور على حسابك المسجل مسبقاً: ' + String(data[i][0])
+        message: 'ØªÙ… Ø§Ù„Ø¹Ø«ÙˆØ± Ø¹Ù„Ù‰ Ø­Ø³Ø§Ø¨Ùƒ Ø§Ù„Ù…Ø³Ø¬Ù„ Ù…Ø³Ø¨Ù‚Ø§Ù‹: ' + String(data[i][0])
       };
     }
   }
@@ -482,7 +482,7 @@ function handleRegisterUser(payload, ss) {
   const sudaPassHash = generateSudaPassHash(gaId, timestamp);
   const initialGp = peerReferral ? 75 : 25;
 
-  // 🔒 Initial registration is ALWAYS PENDING_REVIEW (Provisional Explorer)
+  // ðŸ”’ Initial registration is ALWAYS PENDING_REVIEW (Provisional Explorer)
   const sourceChannel = String(payload.sourceChannel || 'WEB_ORGANIC').trim();
   authSheet.appendRow([
     gaId, legalName, email, phone, university,
@@ -493,27 +493,27 @@ function handleRegisterUser(payload, ss) {
   telSheet.appendRow([gaId, initialGp, 0, 0, 0, timestamp]);
 
   try {
-    const welcomeSubject = `[CONFIRMED] استلام طلب التسجيل وإصدار هويتك السيادية (${gaId}) | GemIInI Academy`;
-    const welcomeBody = `الزميل(ة) العزيز(ة) د. ${legalName}،
+    const welcomeSubject = `[CONFIRMED] Ø§Ø³ØªÙ„Ø§Ù… Ø·Ù„Ø¨ Ø§Ù„ØªØ³Ø¬ÙŠÙ„ ÙˆØ¥ØµØ¯Ø§Ø± Ù‡ÙˆÙŠØªÙƒ Ø§Ù„Ø³ÙŠØ§Ø¯ÙŠØ© (${gaId}) | GemIInI Academy`;
+    const welcomeBody = `Ø§Ù„Ø²Ù…ÙŠÙ„(Ø©) Ø§Ù„Ø¹Ø²ÙŠØ²(Ø©) Ø¯. ${legalName}ØŒ
 
-تحية طيبة وبعد،
+ØªØ­ÙŠØ© Ø·ÙŠØ¨Ø© ÙˆØ¨Ø¹Ø¯ØŒ
 
-تم استلام طلب تسجيلك بنجاح في المنظومة السيادية للتعليم الطبي (GemIInI SudaGene Platform).
+ØªÙ… Ø§Ø³ØªÙ„Ø§Ù… Ø·Ù„Ø¨ ØªØ³Ø¬ÙŠÙ„Ùƒ Ø¨Ù†Ø¬Ø§Ø­ ÙÙŠ Ø§Ù„Ù…Ù†Ø¸ÙˆÙ…Ø© Ø§Ù„Ø³ÙŠØ§Ø¯ÙŠØ© Ù„Ù„ØªØ¹Ù„ÙŠÙ… Ø§Ù„Ø·Ø¨ÙŠ (GemIInI SudaGene Platform).
 
-بيانات الهوية والاعتماد الأولي:
+Ø¨ÙŠØ§Ù†Ø§Øª Ø§Ù„Ù‡ÙˆÙŠØ© ÙˆØ§Ù„Ø§Ø¹ØªÙ…Ø§Ø¯ Ø§Ù„Ø£ÙˆÙ„ÙŠ:
 ==================================================
-• رقم الهوية السيادية الدائم (GA-ID): ${gaId}
-• الكلية / الجامعة: ${university}
-• الرصيد المبدئي المعتمد: +${initialGp} GP (مستوى Explorer)
-• الختم التشفيري للأمان: ${sudaPassHash}
-• رابط فحص الهوية والسجل: https://geneacademy.net/verify.html?id=${gaId}
+â€¢ Ø±Ù‚Ù… Ø§Ù„Ù‡ÙˆÙŠØ© Ø§Ù„Ø³ÙŠØ§Ø¯ÙŠØ© Ø§Ù„Ø¯Ø§Ø¦Ù… (GA-ID): ${gaId}
+â€¢ Ø§Ù„ÙƒÙ„ÙŠØ© / Ø§Ù„Ø¬Ø§Ù…Ø¹Ø©: ${university}
+â€¢ Ø§Ù„Ø±ØµÙŠØ¯ Ø§Ù„Ù…Ø¨Ø¯Ø¦ÙŠ Ø§Ù„Ù…Ø¹ØªÙ…Ø¯: +${initialGp} GP (Ù…Ø³ØªÙˆÙ‰ Explorer)
+â€¢ Ø§Ù„Ø®ØªÙ… Ø§Ù„ØªØ´ÙÙŠØ±ÙŠ Ù„Ù„Ø£Ù…Ø§Ù†: ${sudaPassHash}
+â€¢ Ø±Ø§Ø¨Ø· ÙØ­Øµ Ø§Ù„Ù‡ÙˆÙŠØ© ÙˆØ§Ù„Ø³Ø¬Ù„: https://geneacademy.net/verify.html?id=${gaId}
 
-خطواتك السريرية التالية:
-1. محاكي امتحان المجلس الطبي (SMC): https://geneacademy.net/smc.html
-2. استعراض دليل الجامعات والفرص: https://geneacademy.net/universities.html
-3. للدعم والمساعدة المباشرة عبر الواتساب: https://wa.me/201015922628
+Ø®Ø·ÙˆØ§ØªÙƒ Ø§Ù„Ø³Ø±ÙŠØ±ÙŠØ© Ø§Ù„ØªØ§Ù„ÙŠØ©:
+1. Ù…Ø­Ø§ÙƒÙŠ Ø§Ù…ØªØ­Ø§Ù† Ø§Ù„Ù…Ø¬Ù„Ø³ Ø§Ù„Ø·Ø¨ÙŠ (SMC): https://geneacademy.net/smc.html
+2. Ø§Ø³ØªØ¹Ø±Ø§Ø¶ Ø¯Ù„ÙŠÙ„ Ø§Ù„Ø¬Ø§Ù…Ø¹Ø§Øª ÙˆØ§Ù„ÙØ±Øµ: https://geneacademy.net/universities.html
+3. Ù„Ù„Ø¯Ø¹Ù… ÙˆØ§Ù„Ù…Ø³Ø§Ø¹Ø¯Ø© Ø§Ù„Ù…Ø¨Ø§Ø´Ø±Ø© Ø¹Ø¨Ø± Ø§Ù„ÙˆØ§ØªØ³Ø§Ø¨: https://wa.me/201015922628
 
-أمانة القبول والعمليات السريرية
+Ø£Ù…Ø§Ù†Ø© Ø§Ù„Ù‚Ø¨ÙˆÙ„ ÙˆØ§Ù„Ø¹Ù…Ù„ÙŠØ§Øª Ø§Ù„Ø³Ø±ÙŠØ±ÙŠØ©
 GeneAcademy & SudaGene Consortium Network
 https://geneacademy.net`;
 
@@ -536,7 +536,7 @@ https://geneacademy.net`;
     status: 'PENDING_REVIEW',
     gpAwarded: initialGp,
     sudaPassHash: sudaPassHash,
-    message: 'تم استلام طلبك وتوثيق هويتك بنجاح (' + gaId + '). تم إرسال رسالة التأكيد لبريدك الإلكتروني.'
+    message: 'ØªÙ… Ø§Ø³ØªÙ„Ø§Ù… Ø·Ù„Ø¨Ùƒ ÙˆØªÙˆØ«ÙŠÙ‚ Ù‡ÙˆÙŠØªÙƒ Ø¨Ù†Ø¬Ø§Ø­ (' + gaId + '). ØªÙ… Ø¥Ø±Ø³Ø§Ù„ Ø±Ø³Ø§Ù„Ø© Ø§Ù„ØªØ£ÙƒÙŠØ¯ Ù„Ø¨Ø±ÙŠØ¯Ùƒ Ø§Ù„Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠ.'
   };
 }
 
@@ -582,7 +582,7 @@ function handleBlsRegister(payload, ss) {
   const phone = String(payload.phone || payload.phone_whatsapp || '').trim();
   const university = String(payload.university || 'Candidate Institution').trim();
   const candidateType = String(payload.candidateType || 'NEW_REGISTRATION').trim();
-  const instructorOrBatch = String(payload.instructorOrBatch || 'STC AHA Lic. 1549').trim();
+  const instructorOrBatch = String(payload.instructorOrBatch || 'GemIInI Faculty Resuscitation').trim();
   const txRef = String(payload.txRef || payload.transaction_ref || '').trim().toUpperCase();
   const paymentChoice = String(payload.paymentChoice || (txRef ? 'pay_now' : 'pay_later')).trim().toLowerCase();
   const paymentMethod = String(payload.paymentMethod || 'VODAFONE_CASH_EG').trim();
@@ -635,7 +635,7 @@ function handleBlsRegister(payload, ss) {
       gaId: gaId,
       waitlist: true,
       suggestedCohort: 'September 4, 2026',
-      message: 'الدفعة الحالية مكتملة. تم إدراجك في قائمة الانتظار للدفعة التالية تلقائياً.'
+      message: 'Ø§Ù„Ø¯ÙØ¹Ø© Ø§Ù„Ø­Ø§Ù„ÙŠØ© Ù…ÙƒØªÙ…Ù„Ø©. ØªÙ… Ø¥Ø¯Ø±Ø§Ø¬Ùƒ ÙÙŠ Ù‚Ø§Ø¦Ù…Ø© Ø§Ù„Ø§Ù†ØªØ¸Ø§Ø± Ù„Ù„Ø¯ÙØ¹Ø© Ø§Ù„ØªØ§Ù„ÙŠØ© ØªÙ„Ù‚Ø§Ø¦ÙŠØ§Ù‹.'
     };
   }
 
@@ -654,7 +654,7 @@ function handleBlsRegister(payload, ss) {
     cohortDate: activeCohort.date,
     courseFee: fee,
     currency: CONFIG.PRICING.BLS_CAIRO.CURRENCY,
-    message: isPaid ? 'تم استلام بيانات التحويل ومقعدك محجوز قيد التأكيد الفوري.' : 'تم حجز مقعدك المبدئي لمدة 24 ساعة.'
+    message: isPaid ? 'ØªÙ… Ø§Ø³ØªÙ„Ø§Ù… Ø¨ÙŠØ§Ù†Ø§Øª Ø§Ù„ØªØ­ÙˆÙŠÙ„ ÙˆÙ…Ù‚Ø¹Ø¯Ùƒ Ù…Ø­Ø¬ÙˆØ² Ù‚ÙŠØ¯ Ø§Ù„ØªØ£ÙƒÙŠØ¯ Ø§Ù„ÙÙˆØ±ÙŠ.' : 'ØªÙ… Ø­Ø¬Ø² Ù…Ù‚Ø¹Ø¯Ùƒ Ø§Ù„Ù…Ø¨Ø¯Ø¦ÙŠ Ù„Ù…Ø¯Ø© 24 Ø³Ø§Ø¹Ø©.'
   };
 }
 
@@ -706,23 +706,23 @@ function handleB2BPartnership(payload, ss) {
     service,
     scope,
     notes,
-    'NEW',                          // Status: NEW → REVIEWING → QUALIFIED → BRIEFING_SCHEDULED → PROPOSAL_SENT → WON / NURTURE / CLOSED
+    'NEW',                          // Status: NEW â†’ REVIEWING â†’ QUALIFIED â†’ BRIEFING_SCHEDULED â†’ PROPOSAL_SENT â†’ WON / NURTURE / CLOSED
     'GA-011 (Eng. Amjad)',          // Assigned Staff
     'Schedule Initial 20-min Briefing', // Next Action
     'Intake registered via web gateway' // Initial Note
   ]);
 
   try {
-    GmailApp.sendEmail('b2b@geneacademy.net', `🏛️ [INSTITUTIONAL BRIEFING] ${submissionId}: ${org}`, `A new institutional partnership briefing has been requested:
+    GmailApp.sendEmail('b2b@geneacademy.net', `ðŸ›ï¸ [INSTITUTIONAL BRIEFING] ${submissionId}: ${org}`, `A new institutional partnership briefing has been requested:
 
-• Submission ID: ${submissionId}
-• Organization: ${org} (${orgType})
-• Contact Person: ${contactName} (${professionalTitle})
-• Work Email: ${email}
-• Location: ${location}
-• Primary Area: ${service}
-• Audience Size: ${scope}
-• Challenge / Scope: ${notes}
+â€¢ Submission ID: ${submissionId}
+â€¢ Organization: ${org} (${orgType})
+â€¢ Contact Person: ${contactName} (${professionalTitle})
+â€¢ Work Email: ${email}
+â€¢ Location: ${location}
+â€¢ Primary Area: ${service}
+â€¢ Audience Size: ${scope}
+â€¢ Challenge / Scope: ${notes}
 
 Workflow Status: NEW
 Assigned Lead: GA-011 (Operations / Admissions Desk)
@@ -976,7 +976,7 @@ function handleDoctorLeaderboard(params, ss) {
     const id = String(authData[i][0]).trim().toUpperCase();
     const status = String(authData[i][8] || '').trim().toUpperCase();
     
-    // 🔒 Filter out provisional IDs AND strictly exclude PENDING_REVIEW unverified accounts
+    // ðŸ”’ Filter out provisional IDs AND strictly exclude PENDING_REVIEW unverified accounts
     if (!id || id.includes('PROV') || id.includes('TR')) continue;
     if (status === 'PENDING_REVIEW' || !['VERIFIED', 'ACCREDITED', 'ACTIVE'].includes(status)) continue;
 
@@ -1062,18 +1062,18 @@ function handleB2BPartnership(payload, ss) {
 
   // Send Email Notification to Institutional Desk
   try {
-    const alertSubject = `[B2B ENQUIRY] ${submissionId} — ${organization} (${contactPerson})`;
+    const alertSubject = `[B2B ENQUIRY] ${submissionId} â€” ${organization} (${contactPerson})`;
     const alertBody = `Institutional Partnership Briefing Request:
 ==================================================
-• Submission ID: ${submissionId}
-• Timestamp: ${timestamp}
-• Contact: ${contactPerson}
-• Organization: ${organization} (${orgType})
-• Email: ${email}
-• Location: ${location}
-• Primary Need: ${serviceRequired}
-• Scope / Cohort Size: ${scope}
-• Notes / Challenge: ${notes}
+â€¢ Submission ID: ${submissionId}
+â€¢ Timestamp: ${timestamp}
+â€¢ Contact: ${contactPerson}
+â€¢ Organization: ${organization} (${orgType})
+â€¢ Email: ${email}
+â€¢ Location: ${location}
+â€¢ Primary Need: ${serviceRequired}
+â€¢ Scope / Cohort Size: ${scope}
+â€¢ Notes / Challenge: ${notes}
 
 Status: NEW
 Assigned: GA-011 (Eng. Amjad Gorashi)
@@ -1155,7 +1155,7 @@ function handleUniversityStats(params, ss) {
   const rosterData = getOrCreateSheet(ss, CONFIG.SHEET_ROSTER).getDataRange().getValues();
   const examData = getOrCreateSheet(ss, CONFIG.SHEET_EXAM_LOG).getDataRange().getValues();
 
-  // 🔒 Compute genuine verified graduates only (Strict match, excludes CONFIRMED_PENDING)
+  // ðŸ”’ Compute genuine verified graduates only (Strict match, excludes CONFIRMED_PENDING)
   let blsCount = 0;
   for (let r = 1; r < rosterData.length; r++) {
     const st = String(rosterData[r][6] || '').trim().toUpperCase();
@@ -1225,7 +1225,7 @@ function handleUniversityStats(params, ss) {
 function handlePublicStats(ss) {
   const authData = getOrCreateSheet(ss, CONFIG.SHEET_AUTH).getDataRange().getValues();
   let total = Math.max(0, authData.length - 1);
-  return { success: true, platform: 'GemIInI Independent Clinical Platform', partnerLicense: 'STC Lic. 1549', totalRegistrations: total, accreditedDoctors: total, facultiesCount: 63, bssGraduates: 35, blsAlumni: 19 };
+  return { success: true, platform: 'GemIInI Independent Clinical Platform', partnerLicense: 'GemIInI Sovereign Accreditation', totalRegistrations: total, accreditedDoctors: total, facultiesCount: 63, bssGraduates: 35, blsAlumni: 19 };
 }
 
 function exportMinisterialTelemetry(params, ss) {
@@ -1289,7 +1289,7 @@ function getTelemetryForUser(ss, gaId) {
 }
 
 function handleSubmitLead(payload, ss) {
-  const name = String(payload.name || payload.fullName || 'الزميل العزيز').trim();
+  const name = String(payload.name || payload.fullName || 'Ø§Ù„Ø²Ù…ÙŠÙ„ Ø§Ù„Ø¹Ø²ÙŠØ²').trim();
   const email = String(payload.email || '').trim();
   const phone = String(payload.phone || payload.whatsapp || '').trim();
   const mailbox = String(payload.mailbox || 'admissions@geneacademy.net').trim();
@@ -1316,7 +1316,7 @@ function handleSubmitLead(payload, ss) {
   // 2. Automated Free Email Confirmation via GmailApp (Bypassing Hostinger Limits)
   if (email && email.indexOf('@') !== -1) {
     try {
-      const subject = `تأكيد حجز مقعدك في GeneAcademy — المعرّف: [${candidateId}]`;
+      const subject = `ØªØ£ÙƒÙŠØ¯ Ø­Ø¬Ø² Ù…Ù‚Ø¹Ø¯Ùƒ ÙÙŠ GeneAcademy â€” Ø§Ù„Ù…Ø¹Ø±Ù‘Ù: [${candidateId}]`;
       const isMasterclass = category.indexOf('masterclass') !== -1 || category.indexOf('sunday') !== -1;
       
       const htmlBody = `
@@ -1326,46 +1326,46 @@ function handleSubmitLead(payload, ss) {
             <span style="font-size: 12px; color: #64748b; font-family: monospace;">Independent MEDICAL & LIFE SCIENCES EDUCATION</span>
           </div>
 
-          <p style="font-size: 16px; font-weight: bold; margin-bottom: 12px;">مرحباً ${name}،</p>
+          <p style="font-size: 16px; font-weight: bold; margin-bottom: 12px;">Ù…Ø±Ø­Ø¨Ø§Ù‹ ${name}ØŒ</p>
           
           <p style="font-size: 14px; line-height: 1.7; color: #334155;">
-            تم استلام وتوثيق طلبك بنجاح في السجل الأكاديمي المركزي، وتم إصدار المعرف المهني الخاص بك:
+            ØªÙ… Ø§Ø³ØªÙ„Ø§Ù… ÙˆØªÙˆØ«ÙŠÙ‚ Ø·Ù„Ø¨Ùƒ Ø¨Ù†Ø¬Ø§Ø­ ÙÙŠ Ø§Ù„Ø³Ø¬Ù„ Ø§Ù„Ø£ÙƒØ§Ø¯ÙŠÙ…ÙŠ Ø§Ù„Ù…Ø±ÙƒØ²ÙŠØŒ ÙˆØªÙ… Ø¥ØµØ¯Ø§Ø± Ø§Ù„Ù…Ø¹Ø±Ù Ø§Ù„Ù…Ù‡Ù†ÙŠ Ø§Ù„Ø®Ø§Øµ Ø¨Ùƒ:
           </p>
 
           <div style="background-color: #0f172a; color: #ffffff; padding: 16px; border-radius: 12px; text-align: center; margin: 20px 0;">
             <span style="font-size: 11px; color: #38bdf8; display: block; font-family: monospace; letter-spacing: 1px;">Independent IDENTIFIER</span>
             <strong style="font-size: 20px; font-family: monospace; color: #38bdf8;">${candidateId}</strong>
-            <span style="display: block; font-size: 12px; color: #94a3b8; margin-top: 4px;">رصيد البداية: <strong>+25 GP</strong> &bull; حالة الحساب: <strong>نشط (Active Explorer)</strong></span>
+            <span style="display: block; font-size: 12px; color: #94a3b8; margin-top: 4px;">Ø±ØµÙŠØ¯ Ø§Ù„Ø¨Ø¯Ø§ÙŠØ©: <strong>+25 GP</strong> &bull; Ø­Ø§Ù„Ø© Ø§Ù„Ø­Ø³Ø§Ø¨: <strong>Ù†Ø´Ø· (Active Explorer)</strong></span>
           </div>
 
           ${isMasterclass ? `
           <div style="background-color: #f0fdf4; border: 1px solid #bbf7d0; padding: 14px; border-radius: 10px; margin-bottom: 20px;">
-            <strong style="color: #166534; font-size: 14px; display: block;">🎟️ تفاصيل حجز الماستركلاس:</strong>
+            <strong style="color: #166534; font-size: 14px; display: block;">ðŸŽŸï¸ ØªÙØ§ØµÙŠÙ„ Ø­Ø¬Ø² Ø§Ù„Ù…Ø§Ø³ØªØ±ÙƒÙ„Ø§Ø³:</strong>
             <p style="font-size: 13px; color: #15803d; margin: 6px 0 0 0; line-height: 1.6;">
               <strong>Sunday Sessions Vol. 1:</strong> Leishmaniasis: From Kinetoplast Genomics to Bedside Protocols<br>
-              <strong>الموعد:</strong> الأحد 6 سبتمبر 2026 &bull; 08:00 AM بتوقيت القاهرة (UTC+3) / 07:00 AM بتوقيت الخرطوم (UTC+2)<br>
-              <strong>البث المباشر:</strong> متاح عبر حسابك في مساحة الأعضاء.
+              <strong>Ø§Ù„Ù…ÙˆØ¹Ø¯:</strong> Ø§Ù„Ø£Ø­Ø¯ 6 Ø³Ø¨ØªÙ…Ø¨Ø± 2026 &bull; 08:00 AM Ø¨ØªÙˆÙ‚ÙŠØª Ø§Ù„Ù‚Ø§Ù‡Ø±Ø© (UTC+3) / 07:00 AM Ø¨ØªÙˆÙ‚ÙŠØª Ø§Ù„Ø®Ø±Ø·ÙˆÙ… (UTC+2)<br>
+              <strong>Ø§Ù„Ø¨Ø« Ø§Ù„Ù…Ø¨Ø§Ø´Ø±:</strong> Ù…ØªØ§Ø­ Ø¹Ø¨Ø± Ø­Ø³Ø§Ø¨Ùƒ ÙÙŠ Ù…Ø³Ø§Ø­Ø© Ø§Ù„Ø£Ø¹Ø¶Ø§Ø¡.
             </p>
           </div>
           ` : ''}
 
           <div style="text-align: center; margin: 24px 0;">
             <a href="https://members.geneacademy.net" style="background-color: #0284c7; color: #ffffff; padding: 12px 28px; border-radius: 10px; text-decoration: none; font-weight: bold; font-size: 14px; display: inline-block;">
-              دخول مساحة العمل السريرية (members.geneacademy.net) ➔
+              Ø¯Ø®ÙˆÙ„ Ù…Ø³Ø§Ø­Ø© Ø§Ù„Ø¹Ù…Ù„ Ø§Ù„Ø³Ø±ÙŠØ±ÙŠØ© (members.geneacademy.net) âž”
             </a>
           </div>
 
           <p style="font-size: 12px; color: #64748b; line-height: 1.6; border-top: 1px solid #e2e8f0; padding-top: 16px;">
-            لأي استفسارات عاجلة، يمكنك التواصل المباشر مع مكتب العمليات عبر الواتساب: <a href="https://wa.me/201015922628" style="color: #0284c7; font-weight: bold; text-decoration: none;">+20 101 592 2628</a> أو عبر البريد: <a href="mailto:${mailbox}" style="color: #0284c7;">${mailbox}</a>.
+            Ù„Ø£ÙŠ Ø§Ø³ØªÙØ³Ø§Ø±Ø§Øª Ø¹Ø§Ø¬Ù„Ø©ØŒ ÙŠÙ…ÙƒÙ†Ùƒ Ø§Ù„ØªÙˆØ§ØµÙ„ Ø§Ù„Ù…Ø¨Ø§Ø´Ø± Ù…Ø¹ Ù…ÙƒØªØ¨ Ø§Ù„Ø¹Ù…Ù„ÙŠØ§Øª Ø¹Ø¨Ø± Ø§Ù„ÙˆØ§ØªØ³Ø§Ø¨: <a href="https://wa.me/201015922628" style="color: #0284c7; font-weight: bold; text-decoration: none;">+20 101 592 2628</a> Ø£Ùˆ Ø¹Ø¨Ø± Ø§Ù„Ø¨Ø±ÙŠØ¯: <a href="mailto:${mailbox}" style="color: #0284c7;">${mailbox}</a>.
           </p>
           
           <div style="text-align: center; font-size: 10px; color: #94a3b8; margin-top: 16px; font-family: monospace;">
-            GENEACADEMY &bull; SUDAPASS™ SudaGene Platform &bull; ALL RIGHTS RESERVED
+            GENEACADEMY &bull; SUDAPASSâ„¢ SudaGene Platform &bull; ALL RIGHTS RESERVED
           </div>
         </div>
       `;
 
-      GmailApp.sendEmail(email, subject, `مرحباً ${name}، تم استلام طلبك وتوثيقه بنجاح برقم: ${candidateId}. يمكنك الدخول لمساحة الأعضاء عبر https://members.geneacademy.net`, {
+      GmailApp.sendEmail(email, subject, `Ù…Ø±Ø­Ø¨Ø§Ù‹ ${name}ØŒ ØªÙ… Ø§Ø³ØªÙ„Ø§Ù… Ø·Ù„Ø¨Ùƒ ÙˆØªÙˆØ«ÙŠÙ‚Ù‡ Ø¨Ù†Ø¬Ø§Ø­ Ø¨Ø±Ù‚Ù…: ${candidateId}. ÙŠÙ…ÙƒÙ†Ùƒ Ø§Ù„Ø¯Ø®ÙˆÙ„ Ù„Ù…Ø³Ø§Ø­Ø© Ø§Ù„Ø£Ø¹Ø¶Ø§Ø¡ Ø¹Ø¨Ø± https://members.geneacademy.net`, {
         name: 'GeneAcademy Admissions',
         htmlBody: htmlBody,
         replyTo: mailbox
@@ -1378,7 +1378,7 @@ function handleSubmitLead(payload, ss) {
   return {
     success: true,
     candidateId: candidateId,
-    message: "تم توثيق الطلب وإرسال إيميل التأكيد بنجاح"
+    message: "ØªÙ… ØªÙˆØ«ÙŠÙ‚ Ø§Ù„Ø·Ù„Ø¨ ÙˆØ¥Ø±Ø³Ø§Ù„ Ø¥ÙŠÙ…ÙŠÙ„ Ø§Ù„ØªØ£ÙƒÙŠØ¯ Ø¨Ù†Ø¬Ø§Ø­"
   };
 }
 

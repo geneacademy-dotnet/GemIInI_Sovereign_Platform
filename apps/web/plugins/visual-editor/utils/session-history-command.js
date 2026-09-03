@@ -1,4 +1,4 @@
-import { ParentMessage } from '../constants/messages.js';
+﻿import { ParentMessage } from '../constants/messages.js';
 import { undo, redo } from '../state/history-state.js';
 import { notifyDraftStateChanged } from '../api/draft-snapshot.js';
 

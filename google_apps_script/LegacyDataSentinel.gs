@@ -1,4 +1,4 @@
-/**
+﻿/**
  * ============================================================================
  * PRE-FLIGHT SENTINEL: LEGACY DATA AUDIT (Pre-August 31st Migration)
  * Executed by: GA-011 | Goal: Zero-Corruption Guarantee
@@ -75,11 +75,11 @@ function runLegacyDataSentinel() {
   }
 
   // Generate Executive Summary
-  const summary = `🛡️ PRE-FLIGHT SENTINEL COMPLETE 🛡️\n\n` +
+  const summary = `ðŸ›¡ï¸ PRE-FLIGHT SENTINEL COMPLETE ðŸ›¡ï¸\n\n` +
                   `Total Rows Scanned: ${data.length - 1}\n` +
-                  `✅ Clean Records (Ready for Aug 31): ${cleanCount}\n` +
-                  `⚠️ Corrupted/Missing Data: ${flaggedCount - duplicateCount}\n` +
-                  `🚨 Duplicates Detected: ${duplicateCount}\n\n` +
+                  `âœ… Clean Records (Ready for Aug 31): ${cleanCount}\n` +
+                  `âš ï¸ Corrupted/Missing Data: ${flaggedCount - duplicateCount}\n` +
+                  `ðŸš¨ Duplicates Detected: ${duplicateCount}\n\n` +
                   `Eng. Amjad: Please resolve all RED rows before running the OmniSource Harvester.`;
                   
   Logger.log(summary);
