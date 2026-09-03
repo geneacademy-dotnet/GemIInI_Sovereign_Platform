@@ -234,11 +234,11 @@
     </div>
   </header>
 
-  <!-- CSS FOR MEDMASTERY AESTHETIC & MARQUEE -->
+  <!-- CSS FOR STRICT ACADEMIC AESTHETIC -->
   <style>
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      background-color: #FAFAFA;
+      background-color: #FFFFFF;
       color: #111827;
       -webkit-font-smoothing: antialiased;
     }
@@ -258,260 +258,239 @@
       line-height: 1;
     }
 
-    /* Massive MedMastery Numbers */
-    .massive-number {
-      font-size: 8rem;
-      font-weight: 900;
-      line-height: 0.8;
-      color: #F1F5F9;
-      position: absolute;
-      top: -20px;
-      left: -20px;
-      z-index: 0;
-      user-select: none;
-      font-family: 'IBM Plex Mono', monospace;
+    /* Academic Layout Specifics */
+    .journal-header {
+      border-bottom: 4px solid #0B132B;
+      padding-bottom: 2rem;
+      margin-bottom: 3rem;
     }
-    .content-over-number {
-      position: relative;
-      z-index: 10;
-    }
-
-    /* Infinite Marquee for Proof Images */
-    .marquee-container {
-      overflow: hidden;
-      white-space: nowrap;
-      position: relative;
-      width: 100%;
-      background: #0B132B;
-      padding: 40px 0;
-      margin: 60px 0;
-    }
-    .marquee-content {
-      display: inline-block;
-      animation: marquee 35s linear infinite;
-    }
-    .marquee-item {
-      display: inline-block;
-      width: 300px;
-      height: 200px;
-      background-color: #1C2C4A;
-      margin-right: 24px;
-      border-radius: 8px;
-      overflow: hidden;
-      position: relative;
-    }
-    .marquee-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0.7;
-      transition: opacity 0.3s;
-    }
-    .marquee-item:hover img {
-      opacity: 1;
-    }
-    .marquee-caption {
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      background: linear-gradient(transparent, rgba(11,19,43,0.9));
-      color: white;
-      padding: 20px 16px 12px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      white-space: normal;
-      line-height: 1.4;
-    }
-
-    @keyframes marquee {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); } /* Assumes content is duplicated */
-    }
-
-    /* ReadMe Layout Adjustments */
-    .readme-section {
-      max-width: 800px;
-      margin: 0 auto 80px;
-      padding: 0 24px;
-    }
-    .readme-title {
-      font-size: 2.5rem;
+    .section-title {
+      font-size: 1.5rem;
       font-weight: 800;
       color: #0B132B;
-      margin-bottom: 24px;
-      line-height: 1.2;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-bottom: 2px solid #E5E7EB;
+      padding-bottom: 0.5rem;
+      margin-bottom: 2rem;
     }
-    .readme-p {
-      font-size: 1.125rem;
-      line-height: 1.8;
+    
+    /* Article Card */
+    .article-card {
+      padding: 2rem 0;
+      border-bottom: 1px solid #E5E7EB;
+    }
+    .article-card:last-child {
+      border-bottom: none;
+    }
+    .article-type {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #168C8C;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+    }
+    .article-title {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: #0B132B;
+      line-height: 1.3;
+      margin-bottom: 0.75rem;
+    }
+    .article-title:hover {
+      color: #168C8C;
+      cursor: pointer;
+    }
+    .article-authors {
+      font-size: 1rem;
       color: #374151;
-      margin-bottom: 24px;
+      margin-bottom: 1rem;
+    }
+    .article-abstract {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: #4B5563;
+      margin-bottom: 1.5rem;
+    }
+    .article-meta {
+      display: flex;
+      gap: 1.5rem;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.85rem;
+      color: #6B7280;
+    }
+    .btn-submit {
+      display: inline-block;
+      background: #0B132B;
+      color: #FFF;
+      font-weight: 700;
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
+    .btn-submit:hover {
+      background: #1C2C4A;
     }
   </style>
 
-  <main class="pt-16 pb-32">
+  <main class="pt-12 pb-32 max-w-6xl mx-auto px-4 sm:px-6">
     
-    <!-- HERO SECTION -->
-    <div class="readme-section text-center pt-10">
-      <div class="mb-10">
-        <div class="sgsj-logo text-6xl md:text-8xl shadow-lg">SGSJ</div>
+    <!-- JOURNAL HERO / HEADER -->
+    <header class="journal-header text-center mt-8">
+      <div class="mb-6">
+        <div class="sgsj-logo text-5xl md:text-7xl">SGSJ</div>
       </div>
-      <h1 class="text-4xl md:text-5xl font-black text-[#0B132B] leading-tight mb-8">
+      <h1 class="text-3xl md:text-4xl font-black text-[#0B132B] mb-4">
         SudaGene Scientific Journal
       </h1>
-      <p class="text-xl md:text-2xl text-[#4B5563] font-medium leading-relaxed mb-12">
-        The sovereign academic organ of the GeneAcademy Consortium. We do not just publish papers; we engineer clinical solutions from the ground up.
+      <p class="text-lg text-[#4B5563] font-medium max-w-2xl mx-auto font-mono">
+        The Official Sovereign Evidence Registry of the GeneAcademy Consortium.
       </p>
-      <div class="h-px w-32 bg-[#E5E7EB] mx-auto"></div>
-    </div>
+    </header>
 
-    <!-- DR ALAA MURSI -->
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 mb-32">
-      <div class="bg-white p-10 md:p-16 rounded-2xl shadow-sm border border-[#E5E7EB] flex flex-col md:flex-row gap-12 items-center">
-        <div class="flex-shrink-0 text-center">
-          <div class="w-40 h-40 rounded-full border-4 border-[#C9A227] mx-auto mb-4 flex items-center justify-center bg-[#0B132B] shadow-lg">
-            <span class="text-5xl font-black text-[#C9A227]">AM</span>
-          </div>
-          <h3 class="text-2xl font-bold text-[#0B132B] mb-1">Dr. Alaa Mursi</h3>
-          <p class="text-xs font-mono font-bold text-[#168C8C] uppercase tracking-wider mb-2">Co-Founder</p>
-          <div class="inline-block bg-[#F3F4F6] px-3 py-1 rounded text-xs font-mono font-bold text-[#374151]">GA-001 | MBBS UofK | FMRCS</div>
-        </div>
-        <div>
-          <h2 class="text-2xl font-bold text-[#0B132B] mb-4">Surgical & Clinical Verification Academic Director</h2>
-          <p class="text-lg text-[#4B5563] leading-relaxed mb-4">
-            As the International Face and Voice of GeneAcademy, currently practicing clinically in Ireland, my mandate is to ensure our academic standards remain globally unassailable. 
-          </p>
-          <p class="text-lg text-[#4B5563] leading-relaxed font-semibold">
-            We are the chemistry uniting the biology of the platform. Your evidence here builds the sovereign registry.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <!-- INSTRUCTIONAL GUIDELINES: READ-ME STYLE -->
-    <div class="readme-section">
-      <div class="text-[#168C8C] font-mono font-bold text-sm tracking-widest mb-4 uppercase">Ecosystem Guidelines</div>
-      <h2 class="readme-title">What is a Solution?</h2>
-      <p class="readme-p">
-        A submission in SGSJ is fluid. It scales dynamically based on depth. It can start as a single clinical vignette, evolve into a rigorous peer-reviewed article, and culminate in an entire published textbook. 
-      </p>
-      <p class="readme-p font-semibold text-[#0B132B] bg-[#F3F4F6] p-6 rounded-lg border-l-4 border-[#168C8C]">
-        A "Solution" is any submitted artifact that definitively bridges the Mechanism-to-Clinic (MTC) gap, solving a verified clinical or academic deficit.
-      </p>
-    </div>
-
-    <!-- MARQUEE: MOVING PROOF -->
-    <div class="marquee-container">
-      <div class="max-w-7xl mx-auto px-4 mb-6">
-        <h3 class="text-white text-2xl font-bold">Proof of Impact</h3>
-        <p class="text-slate-400 font-mono text-sm">Previous Projects & Workshops</p>
-      </div>
-      <!-- We double the content to create a seamless infinite scroll -->
-      <div class="marquee-content">
-        <!-- Item 1 -->
-        <div class="marquee-item">
-          <!-- Placeholder image -->
-          <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Clinical Workshop">
-          <div class="marquee-caption">15:15:1 Pathway Implementation</div>
-        </div>
-        <!-- Item 2 -->
-        <div class="marquee-item">
-          <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Scientific Reading Camp">
-          <div class="marquee-caption">Scientific Writing & Reading Camp Cohort</div>
-        </div>
-        <!-- Item 3 -->
-        <div class="marquee-item">
-          <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Junior Genes">
-          <div class="marquee-caption">Junior Genes: Molding Primary School Scientists</div>
-        </div>
-        <!-- Item 4 -->
-        <div class="marquee-item">
-          <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="SudaGene Consortium">
-          <div class="marquee-caption">GeneAcademy Clinical Audit</div>
-        </div>
-        
-        <!-- Duplicated for infinite scroll -->
-        <div class="marquee-item">
-          <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Clinical Workshop">
-          <div class="marquee-caption">15:15:1 Pathway Implementation</div>
-        </div>
-        <div class="marquee-item">
-          <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Scientific Reading Camp">
-          <div class="marquee-caption">Scientific Writing & Reading Camp Cohort</div>
-        </div>
-        <div class="marquee-item">
-          <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Junior Genes">
-          <div class="marquee-caption">Junior Genes: Molding Primary School Scientists</div>
-        </div>
-        <div class="marquee-item">
-          <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="SudaGene Consortium">
-          <div class="marquee-caption">GeneAcademy Clinical Audit</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- START YOUR JOURNEY: MEDMASTERY LARGE NUMBERS -->
-    <div class="readme-section mt-32">
-      <h2 class="text-4xl font-black text-[#0B132B] mb-16 text-center">Start Your Journey</h2>
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
       
-      <div class="space-y-24">
+      <!-- MAIN CONTENT: ARTICLES -->
+      <div class="lg:col-span-8">
+        <h2 class="section-title">Latest Publications</h2>
         
-        <!-- Step 1 -->
-        <div class="relative">
-          <div class="massive-number">1</div>
-          <div class="content-over-number pl-12 pt-8">
-            <h3 class="text-2xl font-bold text-[#0B132B] mb-4">The Personalized Academic Interview</h3>
-            <p class="text-lg text-[#4B5563] leading-relaxed">
-              We do not accept everyone automatically. Once you apply, we get back to you with a personalized academic interview to assess your trajectory within the GemIInI system.
+        <div class="articles-list">
+          
+          <!-- Article 1 -->
+          <article class="article-card">
+            <div class="article-type">Clinical Vignette</div>
+            <h3 class="article-title">
+              Surgical Intervention Protocols in Resource-Limited Settings: A Framework for BSS-2 Graduates
+            </h3>
+            <div class="article-authors">
+              <span class="font-semibold text-[#0B132B]">Alaa Mursi Farah, FMRCS</span>; Mohamed Gibbril, MBBS
+            </div>
+            <p class="article-abstract">
+              This vignette outlines the standardized operating procedures developed for the Cairo Surgical Cohort. By bridging the Mechanism-to-Clinic (MTC) gap, the framework provides actionable surgical decision trees optimized for acute trauma management in low-resource environments, directly applying the BSS-2 curriculum.
             </p>
-          </div>
-        </div>
+            <div class="article-meta">
+              <span>Published: August 28, 2026</span>
+              <span>DOI: SGSJ.2026.08.001</span>
+              <a href="#" class="text-[#168C8C] hover:underline font-bold">View PDF &rarr;</a>
+            </div>
+          </article>
 
-        <!-- Step 2 -->
-        <div class="relative">
-          <div class="massive-number">2</div>
-          <div class="content-over-number pl-12 pt-8">
-            <h3 class="text-2xl font-bold text-[#0B132B] mb-4">Membership & 100 GP Boost</h3>
-            <p class="text-lg text-[#4B5563] leading-relaxed">
-              Upon passing the interview, you are issued your official GemIInI Membership. We push-start your ledger immediately with <strong>100 GemIInI Points (GP)</strong> just for attending the weekly career sessions.
+          <!-- Article 2 -->
+          <article class="article-card">
+            <div class="article-type">Evidence Synthesis</div>
+            <h3 class="article-title">
+              Molecular Mapping of Hemoglobinopathies: Demographic Telemetry from the GemIInI Network
+            </h3>
+            <div class="article-authors">
+              <span class="font-semibold text-[#0B132B]">Safaa Abdelgadir, MSc</span>; Isam Mohamed Elkhidir, FRCPath
+            </div>
+            <p class="article-abstract">
+              An exhaustive synthesis of demographic data retrieved through the glomet-telemetry engine across 63 canonical Sudanese faculties. The paper highlights statistical clusters of hemoglobinopathies and proposes a tailored pharmacological curriculum for PGY-1 residents based on regional incidence rates.
             </p>
-          </div>
-        </div>
+            <div class="article-meta">
+              <span>Published: July 15, 2026</span>
+              <span>DOI: SGSJ.2026.07.014</span>
+              <a href="#" class="text-[#168C8C] hover:underline font-bold">View PDF &rarr;</a>
+            </div>
+          </article>
 
-        <!-- Step 3 -->
-        <div class="relative">
-          <div class="massive-number">3</div>
-          <div class="content-over-number pl-12 pt-8">
-            <h3 class="text-2xl font-bold text-[#0B132B] mb-4">Proof of Payment</h3>
-            <p class="text-lg text-[#4B5563] leading-relaxed mb-6">
-              Our pricing logic is simple and highly accessible: the price of <strong>3 Cups of Coffee</strong>. 
+          <!-- Article 3 -->
+          <article class="article-card">
+            <div class="article-type">MTC Blueprint</div>
+            <h3 class="article-title">
+              Neurological Simulation Parameters for AHA BLS Certification
+            </h3>
+            <div class="article-authors">
+              <span class="font-semibold text-[#0B132B]">Mohammed Sabri, SMSB</span>; Mohamed Yahia Fadul Tahir, MBBS
+            </div>
+            <p class="article-abstract">
+              Defining the strict simulation parameters for neurological emergencies within the GemIInI Clinical Simulation Suite. This blueprint dictates the exact physiological telemetry required to certify trainees in advanced life support methodologies.
             </p>
-            <div class="bg-white p-8 rounded-xl border border-[#E5E7EB] shadow-sm">
-              <p class="font-bold text-[#0B132B] mb-4">For Individuals & Institutions:</p>
-              <ol class="list-decimal list-inside space-y-3 text-[#4B5563]">
-                <li>Send your Proof of Payment directly to Eng. Amjad (via Email or WhatsApp).</li>
-                <li>Wait for verification.</li>
-                <li>Gain full entry into <code class="bg-[#F3F4F6] px-2 py-1 rounded text-sm text-[#168C8C] font-mono">members.geneacademy.net</code>.</li>
-              </ol>
-              <div class="mt-8">
-                <a href="mailto:amjadgorashi32@gmail.com" class="inline-block bg-[#0B132B] text-white font-bold py-4 px-8 rounded-lg hover:bg-[#1C2C4A] transition-colors">
-                  Submit Proof of Payment
-                </a>
-              </div>
+            <div class="article-meta">
+              <span>Published: June 02, 2026</span>
+              <span>DOI: SGSJ.2026.06.042</span>
+              <a href="#" class="text-[#168C8C] hover:underline font-bold">View PDF &rarr;</a>
+            </div>
+          </article>
+
+        </div>
+        
+        <div class="mt-8 text-center lg:text-left">
+          <a href="#" class="text-[#0B132B] font-bold hover:underline font-mono text-sm">View Entire Archive &rarr;</a>
+        </div>
+      </div>
+
+      <!-- SIDEBAR: EDITORIAL & SUBMISSION -->
+      <div class="lg:col-span-4 space-y-10">
+        
+        <!-- Dr Alaa Editorial Box -->
+        <div class="bg-[#F8FAFC] p-6 rounded-xl border border-[#E5E7EB]">
+          <h2 class="text-sm font-bold text-[#0B132B] uppercase tracking-wider mb-4 border-b border-[#E5E7EB] pb-2">From the Academic Director</h2>
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-14 h-14 rounded-full border-2 border-[#C9A227] flex items-center justify-center bg-[#0B132B] shrink-0">
+              <span class="text-lg font-black text-[#C9A227]">AM</span>
+            </div>
+            <div>
+              <p class="font-bold text-[#0B132B] leading-tight">Dr. Alaa Mursi</p>
+              <p class="text-[10px] font-mono text-[#168C8C] uppercase">GA-001 | FMRCS</p>
             </div>
           </div>
+          <p class="text-sm text-[#4B5563] leading-relaxed italic mb-4">
+            "We are not a passive repository of knowledge. We are the active catalyst—the chemistry—that unites the complex biology of the SudaGene platform. Your submissions here forge the sovereign medical registry."
+          </p>
+        </div>
+
+        <!-- Information for Authors -->
+        <div>
+          <h2 class="text-sm font-bold text-[#0B132B] uppercase tracking-wider mb-4 border-b border-[#0B132B] pb-2">Information for Authors</h2>
+          
+          <div class="space-y-4 text-sm text-[#374151]">
+            <p>
+              SGSJ publishes high-fidelity medical research, strictly focusing on the Mechanism-to-Clinic (MTC) translation. 
+            </p>
+            <div>
+              <strong class="block text-[#0B132B] mb-1">Accepted Formats:</strong>
+              <ul class="list-disc list-inside space-y-1 ml-1 text-[#4B5563]">
+                <li>Clinical Vignettes</li>
+                <li>Evidence Syntheses</li>
+                <li>MTC Blueprints</li>
+                <li>Textbook Modules</li>
+              </ul>
+            </div>
+            <div>
+              <strong class="block text-[#0B132B] mb-1">Peer Review Mandate:</strong>
+              <p class="text-xs text-[#6B7280]">
+                All manuscripts undergo rigorous double-blind peer review by the GemIInI Academic Consortium to ensure clinical validity and demographic accuracy.
+              </p>
+            </div>
+          </div>
+
+          <div class="mt-6">
+            <a href="#" class="btn-submit w-full text-center">Submit Manuscript</a>
+            <p class="text-[10px] text-center text-[#6B7280] mt-2 font-mono">View full submission guidelines</p>
+          </div>
+        </div>
+
+        <!-- Metric Callout -->
+        <div class="bg-[#0B132B] text-white p-6 rounded-xl">
+          <p class="text-xs font-mono text-slate-400 uppercase tracking-widest mb-1">Consortium Reach</p>
+          <p class="text-3xl font-black mb-1">63+</p>
+          <p class="text-sm text-slate-300">Canonical Faculties Integrated</p>
         </div>
 
       </div>
-    </div>
 
+    </div>
   </main>
 
   <!-- FOOTER -->
-  <footer class="bg-white border-t border-[#E5E7EB] py-16 text-center">
+  <footer class="bg-[#F8FAFC] border-t border-[#E5E7EB] py-12 text-center">
     <div class="max-w-7xl mx-auto px-4">
-      <div class="sgsj-logo text-2xl mb-6">SGSJ</div>
-      <p class="text-[#64748B] font-mono text-sm mb-2">GemIInI SudaGene Consortium &copy; 2026</p>
-      <p class="text-[#9CA3AF] text-xs">Secured by SudaPass&trade; Cryptographic Ledger</p>
+      <div class="sgsj-logo text-xl mb-4">SGSJ</div>
+      <p class="text-[#64748B] font-mono text-sm mb-1">GemIInI SudaGene Consortium &copy; 2026</p>
+      <p class="text-[#9CA3AF] text-xs">ISSN: Pending | Secured by SudaPass&trade;</p>
     </div>
   </footer>
 
