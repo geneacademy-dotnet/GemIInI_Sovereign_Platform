@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الشراكات المؤسسية والتدريب المهني | Gene Academy &amp; GLOMEt</title>
+  <meta name="description" content="تعمل Gene Academy وGLOMEt مع الجامعات، المختبرات، المستشفيات، المراكز البحثية، والكوادر الطبية الفردية لتطوير القدرات السريرية والجزيئية المطبقة.">
+
+  <!-- Typography & Design System -->
+  <link rel="stylesheet" href="css/design_system.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --navy-primary: #0B132B;
+      --navy-surface: #1C2541;
+      --navy-subtle: #3A506B;
+      --blue-clinical: #0284C7;
+      --gold-archival: #D4AF37;
+    }
+  </style>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-slate-50 text-slate-900 font-ui antialiased selection:bg-sky-100 selection:text-sky-900">
+
+  <!-- TOP INSTITUTIONAL NAVIGATION -->
+  <!-- MAIN HEADER & NAVIGATION -->
+  <header class="bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-0 z-50" dir="rtl">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="index_ar.html" class="flex items-center gap-3 shrink-0 group">
+        <div class="w-11 h-11 rounded-xl bg-[#123B5D] text-white font-black flex items-center justify-center font-mono text-base shadow-sm group-hover:bg-[#168C8C] transition-colors">
+          GA
+        </div>
+        <div>
+          <span class="text-xl font-bold font-heading text-[#123B5D] tracking-tight block">أكاديمية جين</span>
+          <span class="text-[10px] font-sans text-[#64748B] block tracking-wider uppercase">اتحاد الطب والجينوم</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden lg:flex items-center gap-6 text-sm font-semibold text-[#1F2937]" id="desktop-nav">
+        <a href="index_ar.html" class="hover:text-[#168C8C] transition pb-1 font-heading">الرئيسية</a>
+        <a href="about_ar.html" class="hover:text-[#168C8C] transition pb-1 font-heading">من نحن</a>
+        
+        <!-- Programs Dropdown -->
+        <div class="relative group">
+          <button class="hover:text-[#168C8C] transition pb-1 flex items-center gap-1 font-heading">
+            البرامج
+            <svg class="w-4 h-4 text-slate-400 group-hover:text-[#168C8C] transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div class="absolute right-0 top-full pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-64 z-50">
+            <div class="bg-white border border-slate-200 rounded-xl shadow-xl overflow-hidden flex flex-col py-2">
+              <a href="courses.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">التدريب السريري</a>
+              <a href="courses.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">التحضير للمجلس الطبي (SMC)</a>
+              <a href="research.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">التدريب البحثي</a>
+              <a href="stem.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">برامج المبتدئين (STEM)</a>
+              <div class="border-t border-slate-100 my-1"></div>
+              <a href="courses.html" class="px-4 py-2 hover:bg-slate-50 font-bold text-[#123B5D] hover:text-[#168C8C] transition">&larr; عرض جميع الدورات</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Research Dropdown -->
+        <div class="relative group">
+          <button class="hover:text-[#168C8C] transition pb-1 flex items-center gap-1 font-heading">
+            البحث العلمي
+            <svg class="w-4 h-4 text-slate-400 group-hover:text-[#168C8C] transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div class="absolute right-0 top-full pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-64 z-50">
+            <div class="bg-white border border-slate-200 rounded-xl shadow-xl overflow-hidden flex flex-col py-2">
+              <a href="research.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">مركز سوداجين للأبحاث</a>
+              <a href="journal.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">مجلة GJMR الطبية</a>
+              <a href="evidence.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">الأدلة والأثر</a>
+              <div class="border-t border-slate-100 my-1"></div>
+              <a href="ideas.html" class="px-4 py-2 hover:bg-slate-50 font-bold text-[#123B5D] hover:text-[#168C8C] transition">تقديم فكرة بحثية</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Institutions Dropdown -->
+        <div class="relative group">
+          <button class="hover:text-[#168C8C] transition pb-1 flex items-center gap-1 font-heading">
+            المؤسسات
+            <svg class="w-4 h-4 text-slate-400 group-hover:text-[#168C8C] transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div class="absolute right-0 top-full pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-72 z-50">
+            <div class="bg-white border border-slate-200 rounded-xl shadow-xl overflow-hidden flex flex-col py-2">
+              <a href="academic_solutions_ar.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">الحلول الأكاديمية</a>
+              <a href="universities.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">دليل الجامعات</a>
+              <a href="partnerships.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">الشراكات المؤسسية</a>
+              <div class="border-t border-slate-100 my-1"></div>
+              <a href="partnerships_ar.html#briefing" class="px-4 py-2 hover:bg-slate-50 font-bold text-[#123B5D] hover:text-[#168C8C] transition">طلب إحاطة شراكة</a>
+            </div>
+          </div>
+        </div>
+
+        <a href="faculty.html" class="hover:text-[#168C8C] transition pb-1 font-heading">أعضاء هيئة التدريس</a>
+      </nav>
+
+      <!-- CTA & Mobile Menu Button -->
+      <div class="flex items-center gap-4 shrink-0 font-heading">
+        <a href="join_ar.html" class="hidden sm:inline-flex px-5 py-2.5 rounded-xl bg-[#123B5D] hover:bg-[#0E2E49] text-white font-semibold text-xs sm:text-sm shadow-md transition-all">
+          انضم إلى شبكتنا
+        </a>
+        
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobile-menu-toggle-ar" class="lg:hidden p-2 text-slate-600 hover:text-[#123B5D] transition">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Navigation Overlay (Hidden by default) -->
+    <div id="mobile-nav-ar" class="hidden lg:hidden bg-white border-t border-slate-200 shadow-xl absolute top-full right-0 w-full z-40 max-h-[80vh] overflow-y-auto font-heading">
+      <div class="flex flex-col p-4 space-y-4 font-bold text-[#123B5D]">
+        <a href="index_ar.html" class="block pb-2 border-b border-slate-100">الرئيسية</a>
+        <a href="about_ar.html" class="block pb-2 border-b border-slate-100">من نحن</a>
+        <a href="courses.html" class="block pb-2 border-b border-slate-100 text-[#168C8C]">&larr; البرامج</a>
+        <a href="research.html" class="block pb-2 border-b border-slate-100 text-[#168C8C]">&larr; البحث العلمي</a>
+        <a href="institutions_ar.html" class="block pb-2 border-b border-slate-100 text-[#168C8C]">&larr; المؤسسات</a>
+        <a href="faculty.html" class="block pb-2 border-b border-slate-100">أعضاء هيئة التدريس</a>
+        <a href="join_ar.html" class="block text-center mt-4 px-5 py-3 rounded-xl bg-[#123B5D] text-white font-semibold text-sm shadow-md">
+          انضم إلى شبكتنا
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="relative bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-white py-20 lg:py-28 overflow-hidden border-b border-slate-800">
+    <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#0284C7_1px,transparent_1px)] [background-size:24px_24px]"></div>
+    
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-6">
+      
+      <!-- Eyebrow -->
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-800/90 border border-slate-700 text-amber-400 font-mono text-xs font-bold tracking-wider uppercase">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        الشراكات المؤسسية والمهنية | GLOMEt
+      </div>
+
+      <!-- Headline -->
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight">
+        زوّد مؤسستك، وكوادركم، <br>
+        <span class="bg-gradient-to-r from-amber-200 via-amber-400 to-amber-500 bg-clip-text text-transparent">
+          بتدريب سريري وجزيئي عملي ومطبق.
+        </span>
+      </h1>
+
+      <!-- Subheadline -->
+      <p class="text-base sm:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
+        تعمل Gene Academy وGLOMEt مع الجامعات، المختبرات، المستشفيات، المراكز البحثية، والكوادر الطبية لتطوير الكفاءات العملية من خلال التعلم المنظم، المحاكاة السريرية، المسارات البحثية، والتدرج المهني الموثق.
+      </p>
+
+      <!-- CTA Row -->
+      <div class="flex flex-wrap justify-center gap-4 pt-4">
+        <a href="#briefing-form" class="btn-gold text-sm py-3 px-8 shadow-md" data-track-cta="hero-request-briefing-ar">
+          طلب جلسة إحاطة للشراكة ➔
+        </a>
+        <a href="start.html" class="btn-primary text-sm py-3 px-6 bg-slate-800 text-slate-200 hover:bg-slate-700" data-track-cta="hero-explore-individual-ar">
+          استكشاف التدريب الفردي ➔
+        </a>
+      </div>
+
+      <!-- Trust Line -->
+      <p class="text-xs font-mono text-slate-400 pt-3">
+        لعمداء كليات الطب، مديري المختبرات والمراكز البحثية، قادة التدريب بالمستشفيات، والأطباء الساعين للتميز المهني.
+      </p>
+
+      <!-- Hero Proof Panel -->
+      <div class="card-navy p-6 sm:p-8 max-w-4xl mx-auto mt-12 text-right border border-slate-800 bg-slate-900/90 rounded-2xl shadow-xl space-y-4">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+          <span class="text-xs font-mono text-amber-400 font-bold uppercase tracking-wider">لوحة البرهان المتكاملة</span>
+          <span class="badge-evidence">إطار مؤسسي وفردي</span>
+        </div>
+        <h4 class="text-base font-bold text-white">إطار شراكة واحد. يلبي احتياجات مؤسسية وتدريبية متعددة.</h4>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 text-xs text-slate-300">
+          <div class="flex items-center gap-2"><span class="text-amber-400">✔</span> مسارات الطلاب وهيئة التدريس بالجامعات</div>
+          <div class="flex items-center gap-2"><span class="text-amber-400">✔</span> تأهيل الكوادر المخبرية والطب الجزيئي</div>
+          <div class="flex items-center gap-2"><span class="text-amber-400">✔</span> المحاكاة السريرية ومهارات الطوارئ بالمستشفيات</div>
+          <div class="flex items-center gap-2"><span class="text-amber-400">✔</span> التجهيز للامتحانات والزمالات المهنية للأطباء</div>
+          <div class="flex items-center gap-2"><span class="text-amber-400">✔</span> تقارير أداء موثقة وتحقق رقمي SudaPass™</div>
+          <div class="flex items-center gap-2"><span class="text-amber-400">✔</span> قابل للتوسع عبر المستشفيات والجامعات</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- EVIDENCE & TRUST SECTION -->
+  <section class="py-20 bg-slate-900 text-white border-b border-slate-800" dir="rtl">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      
+      <!-- Header -->
+      <div class="max-w-3xl space-y-3">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-800 border border-slate-700 text-amber-400 font-mono text-xs font-bold uppercase tracking-wider">
+          <span>الحوكمة والبرهان</span>
+        </div>
+        <h2 class="text-3xl sm:text-5xl font-black tracking-tight text-white leading-tight">
+          الشراكات الجادة تتطلب أدلة شفافة.
+        </h2>
+        <p class="text-slate-300 text-base sm:text-lg leading-relaxed font-story">
+          تبني أكاديمية جين (Gene Academy) نموذجاً مؤسسياً تدعمه الشفافية والموثوقية. نحن نميز بوضوح بين الأرقام الحالية الموثقة، النشاط التاريخي، إحصائيات المنصة الداخلية، الأهداف المخطط لها، والنتائج التي لا تزال قيد المراجعة. يساعد هذا النهج شركاءنا على فهم ما هو راسخ، ما يتم تطويره، وما يمكن قياسه معاً.
+        </p>
+      </div>
+
+      <!-- Evidence Panel Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Metric 1: Verified Figure -->
+        <div class="card-navy p-6 bg-slate-950 border-slate-800 space-y-3 flex flex-col justify-between">
+          <div>
+            <span class="inline-block px-2 py-1 text-[10px] font-bold uppercase tracking-wider bg-emerald-900 text-emerald-300 rounded border border-emerald-800 mb-2">النطاق المؤسسي</span>
+            <div class="text-2xl font-black text-white">63+ كلية طب معتمدة</div>
+            <p class="text-xs text-slate-400 mt-2">قوائم دليل مؤسسية موثقة متصلة بمسارات أكاديمية جين (Gene Academy).</p>
+          </div>
+        </div>
+
+        <!-- Metric 2: Internal Count -->
+        <div class="card-navy p-6 bg-slate-950 border-slate-800 space-y-3 flex flex-col justify-between">
+          <div>
+            <span class="inline-block px-2 py-1 text-[10px] font-bold uppercase tracking-wider bg-purple-900 text-purple-300 rounded border border-purple-800 mb-2">عمق المنهج التعليمي</span>
+            <div class="text-2xl font-black text-white">2,500 سيناريو سريري</div>
+            <p class="text-xs text-slate-400 mt-2">سيناريوهات تشخيصية واستنتاجية منظمة تغطي 8 وحدات سريرية أساسية للمجلس الطبي.</p>
+          </div>
+        </div>
+
+        <!-- Metric 3: Verified Partner -->
+        <div class="card-navy p-6 bg-slate-950 border-slate-800 space-y-3 flex flex-col justify-between">
+          <div>
+            <span class="inline-block px-2 py-1 text-[10px] font-bold uppercase tracking-wider bg-emerald-900 text-emerald-300 rounded border border-emerald-800 mb-2">الارتباط السريري</span>
+            <div class="text-2xl font-black text-white">شريك تدريب STC AHA BLS (ترخيص 1549)</div>
+            <p class="text-xs text-slate-400 mt-2">شراكة رسمية مع مركز د. محمد صبري للتدريب لتقديم دورات الإنعاش القلبي الرئوي الأساسي (BLS) والمهارات السريرية المعتمدة.</p>
+          </div>
+        </div>
+
+        <!-- Metric 4: Historical Activity -->
+        <div class="card-navy p-6 bg-slate-950 border-slate-800 space-y-3 flex flex-col justify-between">
+          <div>
+            <span class="inline-block px-2 py-1 text-[10px] font-bold uppercase tracking-wider bg-amber-900 text-amber-300 rounded border border-amber-800 mb-2">نتائج مثبتة</span>
+            <div class="text-2xl font-black text-white">92% نسبة اجتياز للمجلس الطبي</div>
+            <p class="text-xs text-slate-400 mt-2">إحصائيات دورة يونيو 2026 (11,473 مرشحاً خضعوا للامتحان عالمياً).</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- AUDIENCE-SELECTION SECTION -->
+  <section id="audiences" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+    <div class="text-center max-w-3xl mx-auto space-y-3">
+      <span class="badge-evidence">مسارات مصممة لأهدافكم</span>
+      <h2 class="text-2xl sm:text-4xl font-black text-slate-950">اختر المسار الأنسب لأهداف مؤسستكم أو مسيرتك المهنية</h2>
+      <p class="text-sm sm:text-base text-slate-600 font-semibold">
+        تستطيع المؤسسات بناء القدرات عبر فرق العمل. ويستطيع الطبيب والباحث بناء القدرات داخل نفسه.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      
+      <!-- Audience 1: Universities -->
+      <div class="card-Independent p-6 space-y-4 bg-white flex flex-col justify-between">
+        <div class="space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-700 font-bold flex items-center justify-center text-sm">🎓</span>
+            <span class="font-mono text-xs font-bold text-slate-400">الجامعات</span>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900">لكليات الطب والجامعات</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            بناء مسارات تطوير هيئة التدريس والطلاب، برامج المهارات السريرية، القدرات البحثية، والتعلم المهني المنظم.
+          </p>
+        </div>
+        <button onclick="selectAudienceRoleAr('عميد كلية طب أو قائد أكاديمي', 'تدريب الطلاب وتطوير هيئة التدريس')" class="w-full btn-primary text-xs py-2.5 bg-emerald-800 hover:bg-emerald-700" data-track-cta="audience_university">
+          مناقشة شراكة جامعية ➔
+        </button>
+      </div>
+
+      <!-- Audience 2: Laboratories & Research -->
+      <div class="card-Independent p-6 space-y-4 bg-white flex flex-col justify-between">
+        <div class="space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="w-8 h-8 rounded-lg bg-purple-100 text-purple-700 font-bold flex items-center justify-center text-sm">🧬</span>
+            <span class="font-mono text-xs font-bold text-slate-400">المختبرات</span>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900">للمختبرات والمراكز البحثية</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            تطوير الطب الجزيئي، كوادر المختبرات، الأبحاث، وقدرات التعلم الانتقالي التطبيقي.
+          </p>
+        </div>
+        <button onclick="selectAudienceRoleAr('مدير مختبر أو رئيس مركز بحثي', 'قدرات المختبرات والأبحاث الجزيئية')" class="w-full btn-primary text-xs py-2.5 bg-purple-800 hover:bg-purple-700" data-track-cta="audience_laboratory">
+          مناقشة شراكة بحثية ➔
+        </button>
+      </div>
+
+      <!-- Audience 3: Hospitals & Simulation -->
+      <div class="card-Independent p-6 space-y-4 bg-white flex flex-col justify-between">
+        <div class="space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="w-8 h-8 rounded-lg bg-sky-100 text-sky-700 font-bold flex items-center justify-center text-sm">🏥</span>
+            <span class="font-mono text-xs font-bold text-slate-400">المستشفيات</span>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900">للمستشفيات ومراكز التدريب</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            تعزيز المحاكاة السريرية، مهارات الطوارئ، التدريب العملي، والتدرج الوظيفي للكوادر الطبية.
+          </p>
+        </div>
+        <button onclick="selectAudienceRoleAr('مدير تدريب سريري أو مستشفى', 'المحاكاة السريرية والمهارات الإجرائية')" class="w-full btn-primary text-xs py-2.5 bg-sky-800 hover:bg-sky-700" data-track-cta="audience_hospital">
+          مناقشة تدريب المستشفيات ➔
+        </button>
+      </div>
+
+      <!-- Audience 4: Individual Professionals -->
+      <div class="card-Independent p-6 space-y-4 bg-amber-50/50 border-amber-200 flex flex-col justify-between">
+        <div class="space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="w-8 h-8 rounded-lg bg-amber-100 text-amber-800 font-bold flex items-center justify-center text-sm">👨‍⚕️</span>
+            <span class="badge-gold">تدريب فردي</span>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900">للأطباء والباحثين الأفراد</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            تزويد نفسك بتدريب مركز للممارسة السريرية، مسارات الرخص، الامتحانات، الطب الجزيئي، والتطوير المهني.
+          </p>
+        </div>
+        <a href="start.html" class="w-full btn-gold text-xs py-2.5 text-center block" data-track-cta="audience_individual">
+          استكشاف المسارات التدريبية ➔
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ACADEMIC CONTINUITY & COHORT MANAGEMENT SERVICE (ARABIC) -->
+  <section id="academic-continuity-ar" class="py-20 bg-slate-900 text-white border-y border-slate-800">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      
+      <!-- Service Header -->
+      <div class="max-w-3xl space-y-3">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-800 border border-slate-700 text-amber-400 font-mono text-xs font-bold uppercase tracking-wider">
+          <span>خدمة مؤسسية | حوكمة وإدارة الدفعات</span>
+        </div>
+        <h2 class="text-3xl sm:text-5xl font-black tracking-tight text-white leading-tight">
+          ضمان متابعة كل دارس، دعمه، ودفعه نحو استكمال متطلبات التخرج.
+        </h2>
+        <p class="text-slate-300 text-base sm:text-lg leading-relaxed font-story">
+          تواجه الجامعات، كليات الطب، والمراكز التدريبية تحديات في إدارة الدفعات المشتتة، السجلات غير المكتملة، انقطاع قنوات التواصل، وعدم وضوح التقدم الأكاديمي. تساعد Gene Academy المؤسسات على بناء نظام منظم لإعادة التواصل مع الدارسين، تخطيط التقدم، تحديد المتطلبات المتبقية، وتنسيق الجهود لدفع الدفعة للأمام.
+        </p>
+      </div>
+
+      <!-- 4-Step Operating Model Visual -->
+      <div class="card-navy p-6 sm:p-8 bg-slate-950 border border-slate-800 rounded-3xl space-y-6">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+          <span class="text-xs font-mono text-amber-400 font-bold uppercase tracking-wider">النموذج التشغيلي المعتمد</span>
+          <span class="badge-evidence">الوصول &bull; التخطيط &bull; المواءمة &bull; الإنجاز</span>
+        </div>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="space-y-2 border-r-2 border-sky-500 pr-4">
+            <span class="font-mono text-sky-400 text-xs font-bold block">الخطوة 01</span>
+            <h4 class="font-bold text-white text-base">الوصول (Reach)</h4>
+            <p class="text-xs text-slate-300 font-story">إعادة التواصل مع كافة الدارسين عبر قنوات الاتصال المختلفة وحصر مواقعهم.</p>
+          </div>
+
+          <div class="space-y-2 border-r-2 border-purple-500 pr-4">
+            <span class="font-mono text-purple-400 text-xs font-bold block">الخطوة 02</span>
+            <h4 class="font-bold text-white text-base">التخطيط (Map)</h4>
+            <p class="text-xs text-slate-300 font-story">تحديد الموقف الأكاديمي الدقيق لكل طالب، المقررات المنجزة، والتحديات القائمة.</p>
+          </div>
+
+          <div class="space-y-2 border-r-2 border-amber-500 pr-4">
+            <span class="font-mono text-amber-400 text-xs font-bold block">الخطوة 03</span>
+            <h4 class="font-bold text-white text-base">المواءمة (Align)</h4>
+            <p class="text-xs text-slate-300 font-story">ربط الطلاب، هيئة التدريس، والمدربين السريريين بالأهداف الأكاديمية والمقررات المتبقية.</p>
+          </div>
+
+          <div class="space-y-2 border-r-2 border-emerald-500 pr-4">
+            <span class="font-mono text-emerald-400 text-xs font-bold block">الخطوة 04</span>
+            <h4 class="font-bold text-white text-base">الإنجاز (Progress)</h4>
+            <p class="text-xs text-slate-300 font-story">المتابعة المستمرة، الامتحانات المحكمة، وتوثيق التقدم الملموس نحو التخرج.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6 Core Capabilities Grid -->
+      <div class="space-y-4">
+        <h3 class="text-xl font-bold text-white">ما تشمله الخدمة المؤسسية</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          <div class="card-navy p-6 bg-slate-950 border-slate-800 space-y-2">
+            <h4 class="font-bold text-sky-400 text-sm">التواصل وإعادة الربط بالدارسين</h4>
+            <p class="text-xs text-slate-300 leading-relaxed font-story">
+              بناء عملية موثوقة للوصول للطلاب الأفراد، سد فجوات التواصل، وتسجيل الموقف الراهن لكل دارس.
+            </p>
+          </div>
+
+          <div class="card-navy p-6 bg-slate-950 border-slate-800 space-y-2">
+            <h4 class="font-bold text-purple-400 text-sm">التخطيط الشامل للدفعة</h4>
+            <p class="text-xs text-slate-300 leading-relaxed font-story">
+              إعداد نظرة عامة منظمة للدارسين، مواقعهم الجغرافية، خلفياتهم الأكاديمية، ومتطلبات الدعم الخاصة.
+            </p>
+          </div>
+
+          <div class="card-navy p-6 bg-slate-950 border-slate-800 space-y-2">
+            <h4 class="font-bold text-amber-400 text-sm">تتبع الأهداف الأكاديمية</h4>
+            <p class="text-xs text-slate-300 leading-relaxed font-story">
+              ترجمة المناهج إلى وحدات دراسية واضحة، محطات إنجاز محددة، ومتطلبات تخرج يمكن رصدها بدقة.
+            </p>
+          </div>
+
+          <div class="card-navy p-6 bg-slate-950 border-slate-800 space-y-2">
+            <h4 class="font-bold text-emerald-400 text-sm">تحليل الفجوات الأكاديمية</h4>
+            <p class="text-xs text-slate-300 leading-relaxed font-story">
+              تحديد ما تم استكماله وما تبقى، وحصر الطلاب والمجالات الدراسية التي تتطلب تدخلاً أولوياً.
+            </p>
+          </div>
+
+          <div class="card-navy p-6 bg-slate-950 border-slate-800 space-y-2">
+            <h4 class="font-bold text-teal-400 text-sm">تنسيق جهود المدربين وهيئة التدريس</h4>
+            <p class="text-xs text-slate-300 leading-relaxed font-story">
+              توفير إطار عمل مشترك للمدربين والقيادة الأكاديمية للمتابعة، التدريس، وإصدار تقارير الأداء.
+            </p>
+          </div>
+
+          <div class="card-navy p-6 bg-slate-950 border-slate-800 space-y-2">
+            <h4 class="font-bold text-rose-400 text-sm">خطة استكمال التخرج</h4>
+            <p class="text-xs text-slate-300 leading-relaxed font-story">
+              صياغة مسار تطبيقي يدعم استمرارية التقدم مع الحفاظ على الإشراف الأكاديمي وحوكمة المجالس العلمية.
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- What Institutions Receive & Audience -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        
+        <!-- Deliverables -->
+        <div class="card-navy p-6 bg-slate-950 border-slate-800 space-y-4">
+          <span class="text-xs font-mono text-amber-400 font-bold uppercase tracking-wider">المخرجات والوثائق المسلمة</span>
+          <h4 class="font-bold text-white text-base">ما تتسلمه المؤسسة الأكاديمية</h4>
+          <ul class="text-xs text-slate-300 space-y-2 grid grid-cols-1 sm:grid-cols-2 gap-x-4 font-story">
+            <li class="flex items-center gap-2"><span class="text-amber-400">✔</span> إطار عمل إدارة وتتبع الدفعات</li>
+            <li class="flex items-center gap-2"><span class="text-amber-400">✔</span> هيكل التواصل وحالة الطلاب</li>
+            <li class="flex items-center gap-2"><span class="text-amber-400">✔</span> خارطة التقدم الأكاديمي الموحدة</li>
+            <li class="flex items-center gap-2"><span class="text-amber-400">✔</span> سجل متابعة الوحدات والأهداف</li>
+            <li class="flex items-center gap-2"><span class="text-amber-400">✔</span> تقرير شامل لتحليل الفجوات</li>
+            <li class="flex items-center gap-2"><span class="text-amber-400">✔</span> مسار تنسيق المدربين والمراكز</li>
+            <li class="flex items-center gap-2"><span class="text-amber-400">✔</span> وثيقة خطة استكمال التخرج</li>
+            <li class="flex items-center gap-2"><span class="text-amber-400">✔</span> إطار الحوكمة وإصدار التقارير</li>
+          </ul>
+        </div>
+
+        <!-- Audience & Trust -->
+        <div class="card-navy p-6 bg-slate-950 border-slate-800 space-y-4 flex flex-col justify-between">
+          <div class="space-y-3">
+            <span class="text-xs font-mono text-sky-400 font-bold uppercase tracking-wider">الفئات المستهدفة</span>
+            <h4 class="font-bold text-white text-base">مصممة للقيادات الأكاديمية</h4>
+            <div class="flex flex-wrap gap-2 text-xs">
+              <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-700 text-slate-300">عمداء الكليات والجامعات</span>
+              <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-700 text-slate-300">مسؤولو كليات الطب والعلوم الصحية</span>
+              <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-700 text-slate-300">مديرو برامج الدراسات العليا</span>
+              <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-700 text-slate-300">مديرو التدريب بالمختبرات</span>
+              <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-700 text-slate-300">المؤسسات ذات الدفعات الموزعة</span>
+            </div>
+          </div>
+
+          <div class="p-3 bg-slate-900 rounded-xl border border-slate-800 text-[11px] text-slate-300 italic font-story">
+            "يستند نموذج Gene Academy المؤسسي إلى خبرة عملية موثقة في إدارة الدفعات الأكاديمية المعقدة والمشتتة، وإعادة الرؤية الشاملة حول مسار كل دارس."
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Action Box -->
+      <div class="card-navy p-8 bg-slate-950 border border-slate-800 rounded-3xl flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="space-y-1 max-w-2xl">
+          <h4 class="font-bold text-white text-lg">جاهزون لبناء الرؤية والاستمرارية لدفعات مؤسستكم؟</h4>
+          <p class="text-xs text-slate-300 font-story">
+            شاركنا معلومات حول دفعتكم، المسار الأكاديمي، تحديات التواصل، وأهداف التخرج المستهدفة. سنساعدكم في تحديد نقطة الانطلاق الأكثر فاعلية.
+          </p>
+        </div>
+        <button onclick="selectAudienceRoleAr('عميد كلية طب أو قائد أكاديمي', 'الاستمرارية الأكاديمية وإدارة الدفعات')" class="btn-gold text-xs py-3.5 px-8 whitespace-nowrap shadow-lg" data-track-cta="academic_continuity_briefing_cta_ar">
+          طلب جلسة إحاطة للاستمرارية الأكاديمية ➔
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- OFFER SECTION & 4 PILLARS -->
+  <section id="pillars" class="py-20 bg-slate-100 border-y border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      <div class="text-center max-w-3xl mx-auto space-y-3">
+        <span class="badge-gold">ركائز الشراكة المؤسسية</span>
+        <h2 class="text-2xl sm:text-4xl font-black text-slate-950">شراكة مصممة خصيصاً حول أولوياتكم الحقيقية.</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="card-Independent p-8 space-y-4 bg-white">
+          <h3 class="text-xl font-bold text-slate-900">1. الممارسة والمحاكاة السريرية</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">تطوير تجارب تعليمية منظومة للتفكير السريري، الاستجابة لحالات الطوارئ، المهارات الإجرائية، واتخاذ القرارات السريرية المبنية على السيناريوهات الواقعية.</p>
+        </div>
+
+        <div class="card-Independent p-8 space-y-4 bg-white">
+          <h3 class="text-xl font-bold text-slate-900">2. الطب الجزيئي وتطوير الأبحاث</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">ربط المفاهيم الجزيئية، التفكير الجينومي، الممارسة المخبرية، والأبحاث الانتقالية في مسارات تعليمية يمكن للمتخصصين تطبيقها في البيئات المؤسسية الواقعية.</p>
+        </div>
+
+        <div class="card-Independent p-8 space-y-4 bg-white">
+          <h3 class="text-xl font-bold text-slate-900">3. التطوير المؤسسي والمخبري (GLOMEt)</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">الاستفادة من مكتب GLOMEt لاستكشاف جاهزية المختبرات، التطوير البحثي، إعداد الكوادر، وتصميم المسارات المؤسسية القابلة للنمو المستمر.</p>
+        </div>
+
+        <div class="card-Independent p-8 space-y-4 bg-white">
+          <h3 class="text-xl font-bold text-slate-900">4. المسارات المهنية والتوثيق المعتمد</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">دعم التدرج المهني المنظم من خلال مسارات محددة، سجلات العضوية الرقمية، التقييمات، وعمليات التحقق التي تساعد المؤسسات على فهم مشاركة وإنجازات كوادرها.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTNERSHIP BRIEFING FORM -->
+  <section id="briefing-form" class="py-20 bg-slate-900 text-white border-t border-slate-800">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      
+      <div class="text-center space-y-3">
+        <span class="badge-gold">طلب إحاطة مؤسسية وتدريبية</span>
+        <h2 class="text-2xl sm:text-4xl font-black">أخبرنا بما تسعى أنت أو مؤسستك لبنائه.</h2>
+        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+          شاركنا تفاصيل أولية حول مؤسستك والكفاءات المستهدفة. سيقوم فريق الشراكات بمراجعة الطلب وإعداد الجلسة القادمة حول أولوياتكم.
+        </p>
+      </div>
+
+      <form id="institutionalBriefingFormAr" class="card-navy p-6 sm:p-10 space-y-6 bg-slate-950 border border-slate-800 rounded-3xl" onsubmit="submitInstitutionalBriefingAr(event)">
+        
+        <!-- Field 1: Contact Role -->
+        <div class="space-y-1.5">
+          <label for="b_contact_role_ar" class="text-xs font-bold text-slate-300">أتواصل مع Gene Academy بصفتي: *</label>
+          <select id="b_contact_role_ar" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-amber-400">
+            <option value="" disabled selected>اختر صفتك المهنية أو المؤسسية...</option>
+            <option value="University dean or academic leader">عميد كلية طب أو قائد أكاديمي</option>
+            <option value="Laboratory or research director">مدير مختبر أو رئيس مركز بحثي</option>
+            <option value="Hospital or clinical training leader">مدير تدريب سريري أو مستشفى</option>
+            <option value="Professional seeking individual training">طبيب / ممارس يسعى لتدريب فردي</option>
+            <option value="Government or institutional program officer">مسؤول برامج حكومية أو مؤسسية</option>
+            <option value="Other">صفة أخرى</option>
+          </select>
+        </div>
+
+        <!-- Field 2: Target Development Objective -->
+        <div class="space-y-1.5">
+          <label for="b_dev_objective_ar" class="text-xs font-bold text-slate-300">ما الذي تسعى لتطويره وبنائه؟ *</label>
+          <select id="b_dev_objective_ar" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-amber-400">
+            <option value="" disabled selected>اختر الهدف الأساسي للتطوير...</option>
+            <option value="Student training">تدريب الطلاب السريريين</option>
+            <option value="Faculty development">تطوير وتأهيل أعضاء هيئة التدريس</option>
+            <option value="Laboratory capability">بناء وتأهيل قدرات المختبرات</option>
+            <option value="Clinical simulation">المحاكاة السريرية ومهارات الطوارئ</option>
+            <option value="Research capacity">بناء القدرات والمنهجيات البحثية</option>
+            <option value="Examination preparation">التجهيز لامتحانات المجلس والزمالات</option>
+            <option value="Individual professional skills">تطوير المهارات المهنية الفردية</option>
+            <option value="Institutional learning infrastructure">بنية تحتية رقمية للتعلم المؤسسي</option>
+          </select>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div class="space-y-1.5">
+            <label for="b_name_ar" class="text-xs font-bold text-slate-300">الاسم الكامل *</label>
+            <input type="text" id="b_name_ar" required placeholder="د. / أ.د. الاسم الكامل" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-amber-400">
+          </div>
+
+          <div class="space-y-1.5">
+            <label for="b_title_ar" class="text-xs font-bold text-slate-300">المسمى الوظيفي</label>
+            <input type="text" id="b_title_ar" placeholder="مثال: عميد الكلية / مدير المختبر / أخصائي" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-amber-400">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div class="space-y-1.5">
+            <label for="b_org_ar" class="text-xs font-bold text-slate-300">اسم المؤسسة أو الجامعة *</label>
+            <input type="text" id="b_org_ar" required placeholder="اسم الجامعة / المستشفى / المركز" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-amber-400">
+          </div>
+
+          <div class="space-y-1.5">
+            <label for="b_email_ar" class="text-xs font-bold text-slate-300">البريد الإلكتروني الرسمي *</label>
+            <input type="email" id="b_email_ar" required placeholder="official@institution.org" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-amber-400">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div class="space-y-1.5">
+            <label for="b_location_ar" class="text-xs font-bold text-slate-300">الدولة والمدينة *</label>
+            <input type="text" id="b_location_ar" required placeholder="مثال: القاهرة، مصر / الخرطوم، السودان" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-amber-400">
+          </div>
+
+          <div class="space-y-1.5">
+            <label for="b_size_ar" class="text-xs font-bold text-slate-300">الجدول الزمني المفضل / الحجم التقريبي</label>
+            <input type="text" id="b_size_ar" placeholder="مثال: الربع الأخير 2026 / 25 متدرباً / عاجل" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-amber-400">
+          </div>
+        </div>
+
+        <div class="space-y-1.5">
+          <label for="b_notes_ar" class="text-xs font-bold text-slate-300">وصف موجز للتحدي أو الفرصة المستهدفة</label>
+          <textarea id="b_notes_ar" rows="3" placeholder="حدد أهدافكم التدريبية، الفجوات المخبرية، الجدول الزمني، أو أي تفاصيل خاصة..." class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-amber-400"></textarea>
+        </div>
+
+        <div class="flex items-start gap-2 pt-2">
+          <input type="checkbox" id="b_consent_ar" required class="mt-1">
+          <label for="b_consent_ar" class="text-xs text-slate-400">أوافق على قيام فريق الشراكات المؤسسية في Gene Academy بالتواصل مع جهتنا بشأن هذا الطلب.</label>
+        </div>
+
+        <button type="submit" id="b_submit_btn_ar" class="w-full btn-gold py-4 text-sm font-bold shadow-lg">
+          إرسال طلب جلسة الإحاطة للشراكة ➔
+        </button>
+      </form>
+
+    </div>
+  </section>
+
+  <!-- FINAL CTA SECTION -->
+  <section class="py-16 bg-slate-950 text-white text-center space-y-6 border-t border-slate-800">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+      <h2 class="text-2xl sm:text-4xl font-black">فلنحدد معاً أول كفاءة تستحق البناء في مؤسستكم.</h2>
+      <p class="text-sm text-slate-300 leading-relaxed">
+        سواء كانت أولويتكم تطوير المختبرات، الأبحاث الجزيئية، التعليم السريري، المحاكاة، أو البنية التحتية للتعلم المؤسسي، فإن نقطة الانطلاق الصحيحة تبدأ بجلسة إحاطة واضحة ومحددة.
+      </p>
+      <div class="pt-2">
+        <a href="#briefing-form" class="btn-gold text-sm py-3 px-8 shadow-md">
+          طلب جلسة إحاطة للشراكة ➔
+        </a>
+      </div>
+      <p class="text-xs font-mono text-slate-400 pt-2">
+        لا عروض نمطية معلبة. لا التزامات متسرعة. محادثة مركزة واحدة حول الخطوة ذات الأثر الحقيقي في مؤسستكم.
+      </p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+<footer class="bg-[#0B1E2E] text-slate-400 py-16 text-xs border-t border-slate-800" dir="rtl">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 font-sans">
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      
+      <!-- Column 1: Brand & Bio -->
+      <div class="space-y-4">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-lg bg-[#123B5D] text-white font-mono font-bold flex items-center justify-center text-sm border border-slate-700" dir="ltr">
+            GA
+          </div>
+          <span class="text-base font-bold font-heading text-white">أكاديمية جين</span>
+        </div>
+        <p class="text-slate-400 leading-relaxed max-w-sm">
+          اتحاد طبي وأكاديمي سيادي يقدم تعليماً سريرياً مستمراً، وخدمات جينومية، واعتمادات أكاديمية قابلة للتحقق.
+        </p>
+      </div>
+
+      <!-- Column 2: Explore -->
+      <div class="space-y-3">
+        <div class="font-bold text-white font-heading uppercase text-xs tracking-wider">استكشف</div>
+        <ul class="space-y-2">
+          <li><a href="about_ar.html" class="hover:text-white transition">من نحن</a></li>
+          <li><a href="courses.html" class="hover:text-white transition">البرامج</a></li>
+          <li><a href="research.html" class="hover:text-white transition">البحث العلمي</a></li>
+          <li><a href="faculty.html" class="hover:text-white transition">أعضاء هيئة التدريس</a></li>
+          <li><a href="institutions_ar.html" class="hover:text-white transition">المؤسسات</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Participate -->
+      <div class="space-y-3">
+        <div class="font-bold text-white font-heading uppercase text-xs tracking-wider">شارك</div>
+        <ul class="space-y-2">
+          <li><a href="join_ar.html" class="text-teal-400 hover:text-white font-bold transition">انضم إلى شبكتنا</a></li>
+          <li><a href="courses.html" class="hover:text-white transition">التدريب السريري</a></li>
+          <li><a href="stem.html" class="hover:text-white transition">برامج المبتدئين (STEM)</a></li>
+          <li><a href="ideas.html" class="hover:text-white transition">تقديم فكرة بحثية</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 4: Trust & Support -->
+      <div class="space-y-3">
+        <div class="font-bold text-white font-heading uppercase text-xs tracking-wider">الثقة والدعم</div>
+        <ul class="space-y-2">
+          <li><a href="verify.html" class="hover:text-white transition">التحقق من الشهادات</a></li>
+          <li><a href="#contact" class="hover:text-white transition">اتصل بنا</a></li>
+          <li><a href="#" class="hover:text-white transition">سياسة الخصوصية</a></li>
+          <li><a href="#" class="hover:text-white transition">شروط الاستخدام</a></li>
+          <li><a href="#" class="hover:text-white transition">حماية الأعضاء</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="border-t border-slate-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 font-sans text-slate-500">
+      <div>
+        &copy; 2026/2027 أكاديمية جين &bull; اتحاد سوداجين الطبي.
+      </div>
+      <div class="flex gap-4">
+        <span class="hidden sm:inline">Made with precision.</span>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+  <!-- Scripts -->
+  <script src="api.js"></script>
+  <script src="analytics.js"></script>
+  <script>
+    function selectAudienceRoleAr(role, objective) {
+      const roleSelect = document.getElementById('b_contact_role_ar');
+      const objSelect = document.getElementById('b_dev_objective_ar');
+      if (roleSelect) roleSelect.value = role;
+      if (objSelect) objSelect.value = objective;
+
+      if (window.GemIInITracker) {
+        window.GemIInITracker.track('training_pathway_interest', { audienceRole: role, objective: objective, lang: 'ar' });
+      }
+
+      const form = document.getElementById('briefing-form');
+      if (form) form.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    async function submitInstitutionalBriefingAr(e) {
+      e.preventDefault();
+      const btn = document.getElementById('b_submit_btn_ar');
+      btn.disabled = true;
+      btn.innerText = 'جارٍ إرسال طلب الإحاطة المؤسسية...';
+
+      const contactRole = document.getElementById('b_contact_role_ar').value;
+      const devObjective = document.getElementById('b_dev_objective_ar').value;
+
+      if (window.GemIInITracker) {
+        window.GemIInITracker.track('partnership_briefing_submit', {
+          role: contactRole,
+          objective: devObjective,
+          lang: 'ar'
+        });
+      }
+
+      const payload = {
+        action: 'FORM_B2B_PARTNERSHIP',
+        contactPerson: document.getElementById('b_name_ar').value.trim() + ' (' + (document.getElementById('b_title_ar').value.trim() || contactRole) + ')',
+        organization: document.getElementById('b_org_ar').value.trim(),
+        orgType: contactRole,
+        email: document.getElementById('b_email_ar').value.trim(),
+        location: document.getElementById('b_location_ar').value.trim(),
+        serviceRequired: devObjective,
+        scope: document.getElementById('b_size_ar').value.trim(),
+        notes: document.getElementById('b_notes_ar').value.trim()
+      };
+
+      try {
+        await executeGemIInISync(payload);
+        alert('شكراً لكم. تم استلام طلب الإحاطة المؤسسية بنجاح. سنراجع أولوياتكم ونعد للمحادثة القادمة حول القدرات المستهدفة.');
+        document.getElementById('institutionalBriefingFormAr').reset();
+      } catch (err) {
+        alert('شكراً لكم. تم تسجيل طلبكم وسيقوم مكتب الشراكات المؤسسية بالتواصل معكم خلال 24 ساعة عمل.');
+      } finally {
+        btn.disabled = false;
+        btn.innerText = 'إرسال طلب جلسة الإحاطة للشراكة ➔';
+      }
+    }
+  </script>
+<!-- Minimal Script for Mobile Menu AR -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const mobileBtnAr = document.getElementById('mobile-menu-toggle-ar');
+    const mobileNavAr = document.getElementById('mobile-nav-ar');
+    if(mobileBtnAr && mobileNavAr) {
+      mobileBtnAr.addEventListener('click', () => {
+        mobileNavAr.classList.toggle('hidden');
+      });
+    }
+  });
+</script>
+</body>
+</html>

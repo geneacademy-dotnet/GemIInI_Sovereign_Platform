@@ -1,5 +1,5 @@
 /**
- * GemIInI Sovereign Platform — GLOMEt National Distribution & Engineering Partner Network
+ * GemIInI SudaGene Platform — GLOMEt National Distribution & Engineering Partner Network
  * Grounded 100% in real verified B2B intake submissions across all Sudan states.
  * Total Verified Corporate & Engineering Partners: 40
  */

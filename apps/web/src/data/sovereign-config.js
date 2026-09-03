@@ -1,8 +1,8 @@
-// sovereign-config.js
-// Authoritative Sovereign Governance Charter (GA20 Protocol).
+// Independent-config.js
+// Authoritative Independent Governance Charter (GA20 Protocol).
 // All leadership, founded date (19 April 2025), Operational Year 2, and Coffee-Parity pricing locked.
 
-export const SOVEREIGN_ECOSYSTEM = {
+export const Independent_ECOSYSTEM = {
   GP_MODEL: {
     REGISTRATION_EXPLORER: 25,
     ACCREDITATION_PATHFINDER_BUMP: 475,
@@ -30,7 +30,7 @@ export const SOVEREIGN_ECOSYSTEM = {
             clinical: 'https://gemiini.geneacademy.net',
             member: 'https://member.geneacademy.net',
         },
-        gasBackend: 'https://script.google.com/macros/s/AKfycbxAVR42yEQlQMkOBhlcka622FNbSD_3_pIJrNL1bktLyN8TqIYGC2P5cGpUqeZcoql8/exec',
+        gasBackend: 'https://script.google.com/macros/s/AKfycbyyFkVDH7JD6TYgFmlZ3kUqZwJrQaDZhvKeIGDkVg2wW2OJfH1iYlgrwd4lW0A3eKVE/exec',
     },
 
     // ---- Executive Leadership (GA20 Governance Protocol) ---------------------
@@ -39,7 +39,7 @@ export const SOVEREIGN_ECOSYSTEM = {
             id: 'GA-000',
             name: { en: 'Dr. Mohamed Gibbril', ar: 'د. محمد أحمد جبريل' },
             role: { en: 'Founder & Chief Executive Officer', ar: 'المؤسس والرئيس التنفيذي' },
-            focus: 'Overall Sovereign Architecture, Biology Foundations, Molecular Medicine, System Overseer',
+            focus: 'Overall Decentralized Verification Framework, Biology Foundations, Molecular Medicine, System Overseer',
             degrees: 'MBBS (KU 0089958, 2021), MSc Molecular Medicine',
             pillar: 'GemIInI & Gene Core',
             status: 'Stable / Permanent Founding Position'
@@ -82,7 +82,7 @@ export const SOVEREIGN_ECOSYSTEM = {
             role_ar: 'المؤسس والرئيس التنفيذي | المعمارية المعرفية والأنظمة',
             degrees: 'MBBS (KU 0089958, 2021), MSc Molecular Medicine',
             pillar: 'GemIInI & Gene Core',
-            focus: 'Overall Sovereign Architecture, Biology Foundations, Molecular Medicine',
+            focus: 'Overall Decentralized Verification Framework, Biology Foundations, Molecular Medicine',
             avatar: '/assets/team/dr-gibbril.jpg'
         },
         {
@@ -184,10 +184,15 @@ export const SOVEREIGN_ECOSYSTEM = {
     channels: {
         vodafoneCash: '+20 101 592 2628',
         bankakName: 'Gene Academy / GemIInI Medical',
-        whatsapp: 'https://wa.me/201015922628',
+        // Primary Inquiry Lines (Handled by Safaa/Amjad)
+        whatsapp: 'https://wa.me/201270192777', // Default frontend contact
+        whatsapp_kwt: 'https://wa.me/9650872572',
+        whatsapp_ksa: 'https://wa.me/966550476176',
+        // High-Security Identity Verification Line (Only used for sending codes)
+        whatsapp_verification: 'https://wa.me/201015922628',
         dispatchPhone: '+20 101 592 2628',
         officialEmail: 'info@geneacademy.net'
     }
 };
 
-Object.freeze(SOVEREIGN_ECOSYSTEM);
+Object.freeze(Independent_ECOSYSTEM);

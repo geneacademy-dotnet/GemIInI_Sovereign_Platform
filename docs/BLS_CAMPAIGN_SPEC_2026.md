@@ -3,12 +3,12 @@
 ## 🎮 1. The Conversion Mechanics
 The website registration funnel bridges traditional banking methods into our proprietary gamified ledger to optimize conversions and community retention:
 
-* **Dual-Option Settlement Routing:** The user interface presents two distinct financial tracks. Clinicians can choose the automated **Vodafone Cash Fast Wallet (01015922628)** for a rapid 3,000 EGP transaction or opt for **"Bank Transfer / InstaPay."**
+* **Dual-Option Settlement Routing:** The user interface presents two distinct financial tracks. Clinicians can choose the automated **Vodafone Cash Fast Wallet (+20 101 592 2628)** for a rapid 3,000 EGP transaction or opt for **"Bank Transfer / InstaPay."**
 * **The WhatsApp Manual Activation Gate:** Because institutional banking networks operate outside immediate API control, the system uses a high-converting manual confirmation step:
   > *"If settling via Bank Transfer/InstaPay, your account activation token must be manually verified. Complete your transfer and click the WhatsApp helper button to send your receipt directly to our Academic Operations Desk for instant account enablement."*
 * **The Micro-Transaction Growth Loop:** To cultivate early ecosystem habits, the checkout viewport displays a high-incentive micro-transaction callout:
   > *"Buy us two cups of coffee ☕ ($5 / 250 EGP) to expedite your manual review, and instantly credit your ledger with +50 GemIInI Points!"*
-* **The Onboarding Endowment:** Every verified workshop attendee is immediately provisioned with a permanent **Sovereign GemIInI Profile Dashboard** pre-loaded with an elite introductory balance of **200 GemIInI Points (GP)**.
+* **The Onboarding Endowment:** Every verified workshop attendee is immediately provisioned with a permanent **Independent GemIInI Profile Dashboard** pre-loaded with an elite introductory balance of **200 GemIInI Points (GP)**.
 
 ---
 
@@ -32,7 +32,7 @@ Within the ecosystem, **1 GP maps to exactly 1 hour of high-fidelity medical edu
 | Core Program Asset | Operational Cost / Investment | Immediate Return on Onboarding | Long-Term Ecosystem Equity |
 | :--- | :---: | :---: | :--- |
 | **Official Certified BLS Workshop** | **3,000 EGP** | Hands-on CPR simulation & AED operation models. | Required prerequisite for advanced international residency placements. |
-| **Sovereign GemIInI Profile & Portfolio** | **Included** *(Free $150 Value)* | Automated Professional CV Builder & Tracking engine. | Permanent digital presence registry for global hiring networks. |
+| **Independent GemIInI Profile & Portfolio** | **Included** *(Free $150 Value)* | Automated Professional CV Builder & Tracking engine. | Permanent digital presence registry for global hiring networks. |
 | **Onboarding Points Endowment** | **Included** | **200 GP** Credited Instantly. | Immediately offsets 200 hours of premium content or mock exam access. |
 | **The Coffee Booster Option** | **$5 / 250 EGP** | **+50 GP** Fast-Track Bonus. | Immediate 25% accelerator boost to your active academic ledger. |
 
@@ -53,13 +53,13 @@ The baseline phase of standard medical education is shifting. The GemIInI Ecosys
 📜 CERTIFICATION: Fully accredited by the American Heart Association (AHA) & Sudan Medical Council (SMC).
 
 💰 TOTAL INVESTMENT: 3,000 EGP 
-🚀 EXCLUSIVE BONUS PACKAGE: Includes your permanent Sovereign GemIInI Profile (Free $150 Value) and an instant +200 GemIInI Points (GP) baseline ledger credit.
+🚀 EXCLUSIVE BONUS PACKAGE: Includes your permanent Independent GemIInI Profile (Free $150 Value) and an instant +200 GemIInI Points (GP) baseline ledger credit.
 
 💡 WHAT IS A GEMIINI POINT (GP)?
 Within our world, 1 GP equals 1 hour of certified educational power. It is your dynamic asset to unlock real continuous professional development (CPD) modules, clinical exam simulators, and future-medicine registries. Accumulating GP elevates your institutional status, allowing you to unlock premium healthcare gifts, claim speaker slots at our global MedTalks Peer-Review Summits, or be recruited directly into our paid academic faculty as an elite Lecturer or Regional Ambassador.
 
 💳 SETTLE IN TWO CLICKS VIA OUR INTERACTIVE PORTAL:
-1. Vodafone Cash Fast Wallet: Transfer 3,000 EGP directly to 01015922628.
+1. Vodafone Cash Fast Wallet: Transfer 3,000 EGP directly to +20 101 592 2628.
 2. Bank Transfer / InstaPay: Select your bank channel on our site, execute, and hit the "Contact Us on WhatsApp" button to send your receipt to our desk for instant account enablement.
 
 ☕ THE COFFEE BOOSTER: Want to jump the queue? Buy our Academic Desk two cups of coffee ($5 / 250 EGP) through the portal to fast-track your review and instantly score an extra +50 GP!

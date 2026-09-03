@@ -1,10 +1,10 @@
 /**
  * GemIInI Platform Technical Specification & System Architecture
- * Core API & Sovereign SSO Engine
+ * Core API & Independent SSO Engine
  * Canonical Backend: Google Apps Script Web App (GAS_URL)
  */
 
-const APPS_SCRIPT_API_URL = "https://script.google.com/macros/s/AKfycbxAVR42yEQlQMkOBhlcka622FNbSD_3_pIJrNL1bktLyN8TqIYGC2P5cGpUqeZcoql8/exec";
+const APPS_SCRIPT_API_URL = "https://script.google.com/macros/s/AKfycbwe3rUYJgtSjcnPaKxJOiPsmA19yglrXyWJtAVq0fy4rPi1zLUIacZaWpC4Yhg0x5Ux/exec";
 const GAS_URL = APPS_SCRIPT_API_URL;
 const MEMBER_LMS_URL = "https://member.geneacademy.net";
 
@@ -71,7 +71,7 @@ async function apiStats() {
 }
 
 /**
- * 2. Sovereign SSO State Manager
+ * 2. Independent SSO State Manager
  */
 async function applyGemIInISession(gaId) {
   if (!gaId) return;

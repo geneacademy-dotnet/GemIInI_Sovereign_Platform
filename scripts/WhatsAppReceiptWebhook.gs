@@ -79,7 +79,7 @@ function handleWhatsAppWebhook(e) {
  * Sends Instant Confirmation Back to Candidate's WhatsApp
  */
 function sendWhatsAppConfirmation(toPhone, gaId, gpBalance, doctorName) {
-  const replyText = "🏛️ *GemIInI Academy — Sovereign Credential Issued*\n\n" +
+  const replyText = "🏛️ *GemIInI Academy — Independent Credential Issued*\n\n" +
     "Dear " + doctorName + ",\n\n" +
     "Your registration has been confirmed for the *BLS Cairo Workshop (Friday, 28 Aug 2026)*.\n\n" +
     "🆔 *GemIInI ID:* `" + gaId + "`\n" +

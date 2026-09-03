@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
+
+<script type="text/javascript">
+var _iub = _iub || [];
+_iub.csConfiguration = {"siteId":4659147,"cookiePolicyId":32190221,"lang":"en","storage":{"useSiteId":true}};
+</script>
+<script type="text/javascript" src="https://cs.iubenda.com/autoblocking/4659147.js"></script>
+<script type="text/javascript" src="//cdn.iubenda.com/cs/gpp/stub.js"></script>
+<script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Role-Based Sovereign Dashboard | GemIInI OS</title>
-  <meta name="description" content="لوحة التحكم السريرية ولوحة المشتريات المؤسسية المبنية على الدور المهني (Role-Based OS Dashboard).">
+  <title>Role-Based Independent Dashboard | GemIInI OS</title>
+  <meta name="description" content="لوحة التحكم السريرية المبنية على الدور المهني (Role-Based OS Dashboard).">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -183,7 +192,6 @@
         <li><a href="index.html">الرئيسية</a></li>
         <li><a href="programs.html">المصفوفة الخدمية</a></li>
         <li><a href="smc.html">محاكي MTC™</a></li>
-        <li><a href="glomet.html">شركاء GLOMEt</a></li>
         <li><a href="research.html">الأبحاث 15:5:1</a></li>
         <li><a href="dashboard.html" class="active">لوحة التحكم 🪪</a></li>
       </ul>
@@ -297,70 +305,12 @@
 
     </div>
 
-    <!-- ROLE 2: B2B GLOMET PROCUREMENT DASHBOARD (FOR HEALTHCARE FACILITY DIRECTORS) -->
-    <div class="role-section" id="glometRoleView">
-      
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-        <div>
-          <h3 style="font-size: 22px; font-weight: 900; color: var(--purple-dark);">
-            🏛️ لوحة التجهيزات والمشتريات المؤسسية (GLOMEt B2B)
-          </h3>
-          <p style="font-size: 14px; color: var(--text-muted);">إدارة الكواشف التشخيصية، الأجهزة الموردة، وجداول الصيانة الدورية.</p>
-        </div>
-        <a href="glomet.html" class="btn-primary" style="padding: 8px 18px; font-size: 13px;">دليل الـ 40 شريك معتمد ←</a>
-      </div>
-
-      <table class="procure-table">
-        <thead>
-          <tr>
-            <th>كود المرفق</th>
-            <th>اسم المركز / المستشفى</th>
-            <th>الولاية والمنطقة</th>
-            <th>النظام المشغل</th>
-            <th>حالة الكواشف</th>
-            <th>السعة الشهرية</th>
-            <th>إجراء</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style="font-family: var(--font-mono); font-weight:800; color:var(--purple-brand);">GL-011</td>
-            <td><strong>مركز البحر الأحمر للتشخيص الطبي</strong></td>
-            <td>بورتسودان • البحر الأحمر</td>
-            <td>5-Part Automated CBC + RT-PCR</td>
-            <td><span class="badge-pill badge-teal">مخزون استراتيجي آمن (3 أشهر)</span></td>
-            <td>4,500 فحص / شهر</td>
-            <td><button class="btn-secondary" style="padding: 4px 12px; font-size: 12px;">طلب كواشف</button></td>
-          </tr>
-          <tr>
-            <td style="font-family: var(--font-mono); font-weight:800; color:var(--purple-brand);">GL-024</td>
-            <td><strong>مستشفى رويال كير التخصصي</strong></td>
-            <td>الخرطوم • الخرطوم</td>
-            <td>Fully Automated Clinical Chemistry</td>
-            <td><span class="badge-pill badge-gold">إعادة تعبئة مجدولة</span></td>
-            <td>7,200 فحص / شهر</td>
-            <td><button class="btn-secondary" style="padding: 4px 12px; font-size: 12px;">طلب كواشف</button></td>
-          </tr>
-          <tr>
-            <td style="font-family: var(--font-mono); font-weight:800; color:var(--purple-brand);">GL-038</td>
-            <td><strong>مستشفى ود مدني التعليمي</strong></td>
-            <td>ود مدني • الجزيرة</td>
-            <td>POCT Electrolytes & Blood Gas</td>
-            <td><span class="badge-pill badge-teal">تشغيل نشط مستقر</span></td>
-            <td>3,000 فحص / شهر</td>
-            <td><button class="btn-secondary" style="padding: 4px 12px; font-size: 12px;">طلب كواشف</button></td>
-          </tr>
-        </tbody>
-      </table>
-
-    </div>
-
   </div>
 
   <footer class="signature-footer">
     <div class="container">
       <div class="signature-seal-strip">
-        <div class="signature-brand-mark">GemIInI Sovereign OS · Role-Based Core</div>
+        <div class="signature-brand-mark">GemIInI SudaGene OS · Role-Based Core</div>
         <div>All Rights Reserved © 2026/2027 • Google Workspace Provisioned Workspaces</div>
       </div>
     </div>
@@ -391,13 +341,7 @@
           const role = (m.role || "").toUpperCase();
           const id = (m.id || "").toUpperCase();
 
-          if (role.includes("GLOMET") || id.startsWith("GL-") || id.startsWith("GL0")) {
-            document.getElementById("clinicalRoleView").classList.remove("role-active");
-            document.getElementById("glometRoleView").classList.add("role-active");
-          } else {
-            document.getElementById("clinicalRoleView").classList.add("role-active");
-            document.getElementById("glometRoleView").classList.remove("role-active");
-          }
+          document.getElementById("clinicalRoleView").classList.add("role-active");
         }
       }
     });

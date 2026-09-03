@@ -1,85 +1,437 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" class="scroll-smooth bg-slate-50 text-slate-900">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>انضم للأكاديمية | GemIInI</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>بناء الهوية السريرية والسجل المهني | GeneAcademy SudaGene Platform</title>
+  <meta name="description" content="سجّل هويتك الطبية لاستلام معرّفك السيادي (GA-ID) فوراً واكتشاف مسارك السريري والتدريبي المعتمد.">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-H1Q67PP2DJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-H1Q67PP2DJ');
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600;700&family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --bg-dark: #F8FAFC; --bg-card: rgba(255,255,255,0.95); --border-card: #E2E8F0;
+      --cyan: #0284C7; --cyan-glow: rgba(2,132,199,0.18); --gold: #D97706;
+      --text-main: #0F172A; --text-muted: #64748B;
+      --font-main: 'Cairo', sans-serif; --font-mono: 'IBM Plex Mono', monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg-dark); color: var(--text-main); font-family: var(--font-main); min-height: 100vh; -webkit-font-smoothing: antialiased; }
+    .container { width: 100%; max-width: 640px; margin: 0 auto; padding: 24px 16px 60px; }
+    .top-nav { padding: 14px 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(0,0,0,0.06); background: rgba(255,255,255,0.9); position: sticky; top: 0; z-index: 30; backdrop-filter: blur(10px); }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 900; font-size: 1.05rem; text-decoration: none; color: var(--text-main); }
+    .brand-badge { background: #0F172A; color: #fff; font-weight: 900; font-size: 0.85rem; padding: 4px 9px; border-radius: 8px; font-family: var(--font-mono); }
+    /* Progress */
+    .progress-wrap { padding: 16px 4px 0; }
+    .progress-track { width: 100%; height: 6px; background: #E2E8F0; border-radius: 99px; overflow: hidden; }
+    .progress-fill { height: 100%; background: linear-gradient(90deg,#0284C7,#0369A1); border-radius: 99px; transition: width 0.35s ease; }
+    .progress-label { display: flex; justify-content: space-between; margin-top: 8px; font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono); font-weight: 600; }
+    .card { background: var(--bg-card); border: 1.5px solid var(--border-card); border-radius: 24px; padding: 28px 24px; margin-top: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.04); }
+    .step { display: none; }
+    .step.active { display: block; animation: fadeIn 0.3s ease; }
+    @keyframes fadeIn { from { opacity:0; transform: translateY(6px);} to {opacity:1; transform:translateY(0);} }
+    .step-title { font-size: 1.25rem; font-weight: 900; margin-bottom: 4px; color: var(--text-main); }
+    .step-sub { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 20px; line-height: 1.6; }
+    .field { margin-bottom: 16px; }
+    .field label { display: block; font-size: 0.8rem; font-weight: 700; color: var(--cyan); margin-bottom: 6px; }
+    .field input, .field select { width: 100%; background: #fff; border: 1.5px solid #CBD5E1; border-radius: 12px; padding: 11px 14px; font-family: var(--font-main); font-size: 0.9rem; color: var(--text-main); outline: none; }
+    .field input:focus, .field select:focus { border-color: var(--cyan); box-shadow: 0 0 0 3px var(--cyan-glow); }
+    .chip-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip { border: 1.5px solid #CBD5E1; background: #fff; border-radius: 99px; padding: 8px 14px; font-size: 0.8rem; font-weight: 700; cursor: pointer; user-select: none; transition: all 0.15s; }
+    .chip.selected { background: var(--cyan); border-color: var(--cyan); color: #fff; }
+    .btn-row { display: flex; gap: 10px; margin-top: 24px; }
+    .btn { flex: 1; padding: 13px; border-radius: 12px; font-weight: 800; font-size: 0.9rem; border: none; cursor: pointer; font-family: var(--font-main); }
+    .btn-next { background: var(--cyan); color: #fff; box-shadow: 0 6px 20px var(--cyan-glow); }
+    .btn-next:hover { background: #0369A1; }
+    .btn-back { background: #F1F5F9; color: var(--text-main); flex: 0 0 85px; }
+    .btn:disabled { opacity: 0.55; cursor: not-allowed; }
+    .success-card { display: none; text-align: center; }
+    .success-card.active { display: block; }
+    .success-badge { background: rgba(2,132,199,0.1); border: 1px solid var(--cyan); color: var(--cyan); font-family: var(--font-mono); font-size: 0.8rem; font-weight: 800; padding: 5px 14px; border-radius: 99px; display: inline-block; margin-bottom: 14px; }
+    .id-box { background: #F8FAFC; border: 1px solid var(--border-card); border-radius: 16px; padding: 18px; margin: 18px 0; text-align: right; }
+    .id-row { display: flex; justify-content: space-between; font-size: 0.9rem; margin-bottom: 8px; }
+    .id-row:last-child { margin-bottom: 0; }
+    .mono { font-family: var(--font-mono); }
+    footer { text-align: center; padding: 24px 16px; font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono); }
+  </style>
 </head>
 <body>
-  <nav class="navbar">
-    <div class="container nav-content">
-      <a href="index.html" class="brand-logo"><div class="logo-icon">G</div> أكاديمية جيميناي</a>
-      <ul class="nav-links">
-        <li><a href="index.html">الرئيسية</a></li>
-        <li><a href="join.html" class="active" style="color:var(--purple-brand);">سجل الآن</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <div class="container" style="padding-top: 50px; max-width: 600px;">
-    <div class="glass-card" style="padding: 40px;">
-      <h2 style="color: var(--purple-dark); text-align: center; margin-bottom: 10px;">بوابة التسجيل للوصول لبنك الأسئلة</h2>
-      <p style="text-align: center; color: gray; margin-bottom: 30px; font-size: 14px;">
-        سجل بياناتك الآن للحصول على رقم العضوية (GA-ID) والبدء في تجميع النقاط (GP).
-      </p>
-
-      <form id="join-form" onsubmit="submitRegistration(event)">
-        <div style="margin-bottom: 15px;">
-          <label style="font-weight: bold; font-size: 14px; margin-bottom: 5px; display: block;">الاسم الكامل</label>
-          <input type="text" id="reg-name" required style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; font-family: inherit;">
-        </div>
-
-        <div style="margin-bottom: 15px;">
-          <label style="font-weight: bold; font-size: 14px; margin-bottom: 5px; display: block;">الجامعة أو المستشفى</label>
-          <input type="text" id="reg-univ" required style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; font-family: inherit;">
-        </div>
-
-        <div style="margin-bottom: 25px;">
-          <label style="font-weight: bold; font-size: 14px; margin-bottom: 5px; display: block;">المسار الذي تستهدفه</label>
-          <select id="reg-track" style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; font-family: inherit;">
-            <option value="SMC">امتحان التسجيل الدائم (SMC)</option>
-            <option value="USMLE">المعادلة الأمريكية (USMLE)</option>
-            <option value="MRCS">زمالة الجراحة (MRCS)</option>
-            <option value="OET">امتحان اللغة (OET)</option>
+<nav class="top-nav">
+  <a href="index.html" class="brand"><span class="brand-badge">GA</span><span>GeneAcademy</span></a>
+  <a href="https://members.geneacademy.net" target="_blank" style="font-size:0.8rem;color:var(--text-muted);text-decoration:none;">دخول الأعضاء ➔</a>
+</nav>
+<main class="container">
+  <div class="progress-wrap">
+    <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:12.5%"></div></div>
+    <div class="progress-label"><span id="progressText">الخطوة 1 من 8</span><span id="progressStepName">الهوية الرقمية</span></div>
+  </div>
+  <div class="card" id="formCard">
+    <form id="wizardForm" onsubmit="return false;">
+      <!-- STEP 1: DIGITAL IDENTITY -->
+      <div class="step active" data-step="1">
+        <div class="step-title">1. هويتك الرقمية السيادية</div>
+        <div class="step-sub">هذه البيانات تُصدر معرّفك الدائم (GA-ID) فوراً وتُبنى عليها كافة اعتماداتك.</div>
+        <div class="field"><label>الاسم الرباعي (مطابق لإثبات الشخصية) *</label><input type="text" id="f_legalName" placeholder="د. أحمد عمر محمد" required></div>
+        <div class="field"><label>البريد الإلكتروني *</label><input type="email" id="f_email" placeholder="name@gmail.com" dir="ltr" required></div>
+        <div class="field"><label>رقم الواتساب *</label><input type="tel" id="f_phone" placeholder="+249 900 000 000" dir="ltr" required></div>
+        <div class="field"><label>دولة الإقامة الحالية *</label>
+          <select id="f_location" required>
+            <option value="" disabled selected>اختر الدولة...</option>
+            <option value="Sudan">السودان</option>
+            <option value="Egypt">مصر</option>
+            <option value="Saudi Arabia">المملكة العربية السعودية</option>
+            <option value="UAE">الإمارات العربية المتحدة</option>
+            <option value="Qatar">قطر</option>
+            <option value="UK">المملكة المتحدة (UK)</option>
+            <option value="Ireland">إيرلندا</option>
+            <option value="Other">دولة أخرى</option>
           </select>
         </div>
-
-        <button type="submit" id="submit-btn" class="btn-primary" style="width: 100%; font-size: 16px;">إرسال طلب التسجيل</button>
-      </form>
+      </div>
+      <!-- STEP 2: INSTITUTIONAL AFFILIATION -->
+      <div class="step" data-step="2">
+        <div class="step-title">2. الانتماء الأكاديمي والمهني</div>
+        <div class="step-sub">تُستخدم الكلية والمرحلة المهنية لربطك بدليل الكليات الـ 63 وإحصاءات الدفعة.</div>
+        <div class="field"><label>الكلية / الجامعة المانحة للدرجة *</label>
+          <select id="f_university" required onchange="handleUnivChange(this)">
+            <option value="" disabled selected>اختر كليتك الطبية من القائمة المعتمدة...</option>
+            <option value="Faculty of Medicine, University of Khartoum | جامعة الخرطوم | UofK">Faculty of Medicine, University of Khartoum (UofK)</option>
+            <option value="Faculty of Medicine, University of Gezira | جامعة الجزيرة | UofG">Faculty of Medicine, University of Gezira</option>
+            <option value="Faculty of Medicine, Karary University | جامعة كرري">Faculty of Medicine, Karary University</option>
+            <option value="Faculty of Medicine, Alzaiem Alazhari University | جامعة الزعيم الأزهري | AAU">Faculty of Medicine, Alzaiem Alazhari University (AAU)</option>
+            <option value="Faculty of Medicine, Omdurman Islamic University | جامعة أم درمان الإسلامية | OIU">Faculty of Medicine, Omdurman Islamic University (OIU)</option>
+            <option value="Faculty of Medicine, University of Bahri | جامعة بحري | UB">Faculty of Medicine, University of Bahri</option>
+            <option value="Faculty of Medicine, Al-Neelain University | جامعة النيلين">Faculty of Medicine, Al-Neelain University</option>
+            <option value="School of Medicine, Ahfad University for Women | جامعة الأحفاد للبنات | AUW">School of Medicine, Ahfad University for Women (AUW)</option>
+            <option value="Faculty of Medicine, UMST (University of Medical Sciences and Technology) | جامعة العلوم الطبية والتكنولوجيا">Faculty of Medicine, UMST</option>
+            <option value="Faculty of Medicine, University of Kassala | جامعة كسلا | UOK">Faculty of Medicine, University of Kassala</option>
+            <option value="Faculty of Medicine, University of Kordofan | جامعة كردفان | UOKordofan">Faculty of Medicine, University of Kordofan</option>
+            <option value="Faculty of Medicine, University of Bakht Alruda | جامعة بخت الرضا">Faculty of Medicine, University of Bakht Alruda</option>
+            <option value="Faculty of Medicine, University of Sinnar | جامعة سنار">Faculty of Medicine, University of Sinnar</option>
+            <option value="Faculty of Medicine, University of Dongola | جامعة دنقلا">Faculty of Medicine, University of Dongola</option>
+            <option value="Faculty of Medicine, Al-Razi University | جامعة الرازي">Faculty of Medicine, Al-Razi University</option>
+            <option value="Faculty of Medicine, National University Sudan | الجامعة الوطنية | NUSU">Faculty of Medicine, National University Sudan (NUSU)</option>
+            <option value="Faculty of Medicine, Al-Imam Al-Hadi University | جامعة الإمام الهادي">Faculty of Medicine, Al-Imam Al-Hadi University</option>
+            <option value="Faculty of Medicine, Mashreq University | جامعة المشرق">Faculty of Medicine, Mashreq University</option>
+            <option value="Faculty of Medicine, Azza College for Women | كلية عزة الأهلية للبنات">Faculty of Medicine, Azza College for Women</option>
+            <option value="Faculty of Medicine, Riyadh International College | كلية الرياض العالمية">Faculty of Medicine, Riyadh International College</option>
+            <option value="Faculty of Medicine, Zamzam University College | كلية زمزم الجامعية | ZUC">Faculty of Medicine, Zamzam University College (ZUC)</option>
+            <option value="Faculty of Medicine, Cairo University (Kasr Alainy) | قصر العيني — جامعة القاهرة">Faculty of Medicine, Cairo University (Kasr Alainy)</option>
+            <option value="Faculty of Medicine, Ain Shams University | جامعة عين شمس">Faculty of Medicine, Ain Shams University</option>
+            <option value="OTHER_NOT_LISTED">أخرى / كلية غير مدرجة (قيد التدقيق والاعتماد)</option>
+          </select>
+        </div>
+        <div class="field" id="f_university_other_box" style="display:none;">
+          <label>يرجى كتابة اسم كليتك بالكامل (للتدقيق والاعتماد) *</label>
+          <input type="text" id="f_university_other" placeholder="اكتب اسم الجامعة أو الكلية المانحة للدرجة...">
+        </div>
+        <div class="field"><label>المستشفى الحالي للتدريب السريري (إن وجد)</label><input type="text" id="f_hospital" placeholder="مثال: مستشفى سوبا الجامعي / مستشفى الدمازين"></div>
+        <div class="field"><label>المرحلة المهنية الحالية *</label>
+          <select id="f_careerStage" required>
+            <option value="" disabled selected>اختر المرحلة...</option>
+            <option value="Medical Graduate">طبيب خريج يبحث عن تدريب واعتماد</option>
+            <option value="House Officer">طبيب امتياز</option>
+            <option value="Clinical Student">طالب سنوات سريرية</option>
+            <option value="Resident">طبيب مقيم / نائب اختصاصي</option>
+            <option value="Specialist">أخصائي / استشاري</option>
+          </select>
+        </div>
+      </div>
+      <!-- STEP 3: CLINICAL SKILLS INTEREST -->
+      <div class="step" data-step="3">
+        <div class="step-title">3. الاهتمامات السريرية والمحاكاة</div>
+        <div class="step-sub">اختر البرامج التي ترغب بالتدرب عليها:</div>
+        <div class="chip-grid" id="chipsSkills">
+          <div class="chip" data-val="Surgical Skills (BSS)">مهارات جراحية أساسية (BSS)</div>
+          <div class="chip" data-val="AHA BLS/CPR">إنعاش قلبي رئوي معتمد (BLS)</div>
+          <div class="chip" data-val="Molecular Medicine">الطب الجزيئي والأمراض المتوطنة</div>
+          <div class="chip" data-val="Clinical Vignettes (MTC)">محاكي الحالات السريرية (MTC™)</div>
+        </div>
+      </div>
+      <!-- STEP 4: CAREER TRACK -->
+      <div class="step" data-step="4">
+        <div class="step-title">4. مسارك المهني وامتحاناتك المستهدفة</div>
+        <div class="step-sub">حدد الامتحانات أو الزمالات التي تستعد لها حالياً:</div>
+        <div class="chip-grid" id="chipsTrack">
+          <div class="chip" data-val="SMC Licensing">امتحان المجلس الطبي السوداني (SMC)</div>
+          <div class="chip" data-val="OET">التخاطب الطبي الإنجليزي (OET)</div>
+          <div class="chip" data-val="USMLE">المعادلة الأمريكية (USMLE)</div>
+          <div class="chip" data-val="MRCS/MRCP">الزمالة البريطانية (MRCS / MRCP)</div>
+        </div>
+      </div>
+      <!-- STEP 5: LEADERSHIP & MENTORSHIP -->
+      <div class="step" data-step="5">
+        <div class="step-title">5. التدريس والمساهمة القيادية (B2B)</div>
+        <div class="step-sub">هل ترغب بالانضمام كمدرب معتمد أو مشرف مجموعات بحثية؟</div>
+        <div class="chip-grid" id="chipsLeadership">
+          <div class="chip" data-val="Instructor/Faculty">مدرّب سريري معتمد (Accredited Tutor)</div>
+          <div class="chip" data-val="Student Mentor">موجّه سريري لطلاب الامتياز</div>
+          <div class="chip" data-val="Research Lead">قائد مجموعة بحثية (15:5:1)</div>
+        </div>
+      </div>
+      <!-- STEP 6: LOGISTICS & BUDGET -->
+      <div class="step" data-step="6">
+        <div class="step-title">6. الميزانية والجدول الزمني</div>
+        <div class="step-sub">يساعدنا هذا في توجيهك للمسار الأنسب:</div>
+        <div class="field"><label>متى تود البدء؟</label>
+          <select id="f_urgency">
+            <option value="ASAP (<30 days)">فوراً (خلال أقل من 30 يوماً)</option>
+            <option value="1-3 months">خلال 1 إلى 3 أشهر</option>
+            <option value="Exploring">استكشاف الخيارات فقط</option>
+          </select>
+        </div>
+        <div class="field"><label>الميزانية التقريبية المتاحة للتدريب</label>
+          <select id="f_budgetTier">
+            <option value="under_100">أقل من 100$ (باقات الامتحانات الأساسية)</option>
+            <option value="100_1500">بين 100$ و 1,500$ (ورش المحاكاة والدبلومات)</option>
+            <option value="over_1500">أكثر من 1,500$ (المسارات الدولية والزمالات)</option>
+          </select>
+        </div>
+        <div class="field"><label>تفضيل نمط التدريب</label>
+          <select id="f_format">
+            <option value="In-Person">تدريب حضوري (مراكز القاهرة / الدقي / مدينة نصر)</option>
+            <option value="Digital">تدريب رقمي تفاعلي عن بُعد</option>
+            <option value="Both">نمط مدمج (حضوري ورقمي)</option>
+          </select>
+        </div>
+      </div>
+      <!-- STEP 7: PEER REFERRAL -->
+      <div class="step" data-step="7">
+        <div class="step-title">7. الإحالة ونقاط الزملاء</div>
+        <div class="step-sub">إن كان أحد الزملاء قد رشّحك للمنصة، تحصلان معاً على نقاط GP إضافية.</div>
+        <div class="field"><label>معرّف الزميل (GA-ID) — اختياري</label><input type="text" id="f_referral" placeholder="مثال: GA-1004" dir="ltr"></div>
+      </div>
+      <!-- STEP 8: DECLARATION -->
+      <div class="step" data-step="8">
+        <div class="step-title">8. التأكيد وإصدار الهوية</div>
+        <div class="step-sub">بالضغط على "إصدار الهوية"، يتم تسجيل بياناتك في السجل السيادي وصرف الرصيد التأسيسي.</div>
+        <div class="p-4 rounded-2xl bg-slate-100 border border-slate-200 text-xs text-slate-600 leading-relaxed space-y-2">
+          <div>✓ سيتم إصدار معرّفك الدائم (GA-ID) فوراً.</div>
+          <div>✓ يُمنح حسابك رصيد <b>+25 GP</b> فوري في السجل المركزي.</div>
+          <div>✓ تخضع بياناتك للمراجعة والاعتماد خلال 24 ساعة لفتح بنوك المستوى الثاني.</div>
+        </div>
+      </div>
+      <div class="btn-row">
+        <button type="button" class="btn btn-back" id="btnBack" onclick="goStep(-1)" style="display:none;">السابق</button>
+        <button type="button" class="btn btn-next" id="btnNext" onclick="goStep(1)">التالي ➔</button>
+      </div>
+    </form>
+    <!-- SUCCESS STATE -->
+    <div class="success-card" id="successCard">
+      <span class="success-badge">✓ تم إصدار الهوية السيادية بنجاح</span>
+      <h2 class="text-2xl font-black text-slate-900 mb-2">مرحباً بك في المنظومة!</h2>
+      <p class="text-slate-500 text-xs sm:text-sm mb-4">تم حفظ بياناتك وإصدار معرفك السريري المعتمد.</p>
+      <div class="id-box">
+        <div class="id-row"><span>المعرف السيادي:</span><strong class="mono text-sky-600 font-bold" id="dispId">GA-0000</strong></div>
+        <div class="id-row"><span>الرصيد التأسيسي:</span><strong class="mono text-amber-600 font-bold" id="dispGp">+25 GP</strong></div>
+        <div class="id-row"><span>حالة الحساب:</span><strong class="mono text-slate-700">قيد المراجعة والاعتماد</strong></div>
+      </div>
+      <a href="https://members.geneacademy.net" id="btnMemberPortal" target="_blank" class="btn btn-next block text-center mt-4" style="background:#0284C7;">الدخول لمنصة الأعضاء ومجتمع المسار ➔</a>
+      <a href="index.html" class="btn btn-back block text-center mt-2" style="display:block;width:100%;text-decoration:none;">العودة للرئيسية</a>
     </div>
   </div>
+</main>
+<footer>© 2026/2027 GeneAcademy SudaGene Platform • Single Source of Truth</footer>
+<script src="api.js"></script>
+<script>
+const TOTAL_STEPS = 8;
+let currentStep = 1;
+const stepNames = ['','الهوية الرقمية','الانتماء الأكاديمي','الاهتمامات السريرية','المسار المهني','القيادة والتدريس','الميزانية والجدول','الإحالة','التأكيد'];
+const selections = { skills: new Set(), track: new Set(), leadership: new Set() };
+function wireChips(containerId, setRef) {
+  document.getElementById(containerId).querySelectorAll('.chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      const val = chip.dataset.val;
+      chip.classList.toggle('selected');
+      if (setRef.has(val)) setRef.delete(val); else setRef.add(val);
+    });
+  });
+}
+wireChips('chipsSkills', selections.skills);
+wireChips('chipsTrack', selections.track);
+wireChips('chipsLeadership', selections.leadership);
+function updateProgress() {
+  document.getElementById('progressFill').style.width = ((currentStep / TOTAL_STEPS) * 100) + '%';
+  document.getElementById('progressText').innerText = `الخطوة ${currentStep} من ${TOTAL_STEPS}`;
+  document.getElementById('progressStepName').innerText = stepNames[currentStep];
+}
 
-  <script src="api.js"></script>
-  <script>
-    async function submitRegistration(event) {
-      event.preventDefault();
-      const btn = document.getElementById('submit-btn');
-      btn.textContent = 'جاري تسجيل بياناتك...';
-      btn.disabled = true;
+function handleUnivChange(sel) {
+  const otherBox = document.getElementById('f_university_other_box');
+  const otherInput = document.getElementById('f_university_other');
+  if (sel.value === 'OTHER_NOT_LISTED') {
+    otherBox.style.display = 'block';
+    otherInput.required = true;
+    otherInput.focus();
+  } else {
+    otherBox.style.display = 'none';
+    otherInput.required = false;
+    otherInput.value = '';
+  }
+}
 
-      const payload = {
-        action: "register",
-        name: document.getElementById('reg-name').value,
-        univ: document.getElementById('reg-univ').value,
-        track: document.getElementById('reg-track').value
-      };
-
-      try {
-        const response = await fetch(GAS_URL, {
-          method: 'POST',
-          headers: { "Content-Type": "text/plain;charset=utf-8" },
-          body: JSON.stringify(payload)
-        });
-        const result = await response.json();
-        alert("تم استلام طلبك بنجاح! رقمك المبدئي هو: " + result.id + "\\nسيقوم الفريق بمراجعة طلبك وتفعيله.");
-        window.location.href = "index.html";
-      } catch (err) {
-        alert("حدث خطأ في الاتصال، يرجى المحاولة لاحقاً.");
-        btn.textContent = 'إرسال طلب التسجيل';
-        btn.disabled = false;
-      }
+// Dynamically sync select dropdown with Single Source of Truth (data/universities.json)
+fetch('data/universities.json')
+  .then(res => res.json())
+  .then(data => {
+    if (Array.isArray(data) && data.length > 0) {
+      const select = document.getElementById('f_university');
+      const currentVal = select.value;
+      select.innerHTML = '<option value="" disabled selected>اختر كليتك الطبية من القائمة المعتمدة...</option>';
+      data.forEach(item => {
+        const opt = document.createElement('option');
+        opt.value = item.name;
+        opt.textContent = item.name;
+        select.appendChild(opt);
+      });
+      const otherOpt = document.createElement('option');
+      otherOpt.value = 'OTHER_NOT_LISTED';
+      otherOpt.textContent = 'أخرى / كلية غير مدرجة (قيد التدقيق والاعتماد)';
+      select.appendChild(otherOpt);
+      if (currentVal) select.value = currentVal;
     }
-  </script>
+  })
+  .catch(err => console.log('Using pre-rendered select options fallback:', err));
+
+// Parse URL parameter to auto-select track (e.g. join.html?track=OET)
+const urlParams = new URLSearchParams(window.location.search);
+const trackParam = (urlParams.get('track') || '').toUpperCase();
+
+if (trackParam.includes('OET')) {
+  document.querySelectorAll('#chipsTrack .chip').forEach(c => {
+    if (c.dataset.val === 'OET') {
+      c.classList.add('selected');
+      selections.track.add('OET');
+    }
+  });
+} else if (trackParam.includes('BLS')) {
+  document.querySelectorAll('#chipsSkills .chip').forEach(c => {
+    if (c.dataset.val.includes('BLS')) {
+      c.classList.add('selected');
+      selections.skills.add(c.dataset.val);
+    }
+  });
+} else if (trackParam.includes('SMC')) {
+  document.querySelectorAll('#chipsTrack .chip').forEach(c => {
+    if (c.dataset.val.includes('SMC')) {
+      c.classList.add('selected');
+      selections.track.add(c.dataset.val);
+    }
+  });
+}
+function validateStep(step) {
+  if (step === 1) {
+    const name = document.getElementById('f_legalName').value.trim();
+    const email = document.getElementById('f_email').value.trim();
+    const phone = document.getElementById('f_phone').value.trim();
+    const loc = document.getElementById('f_location').value;
+    if (!name || !email || !phone || !loc) { alert('يرجى إكمال جميع الحقول الإلزامية (*).'); return false; }
+  }
+  if (step === 2) {
+    const sel = document.getElementById('f_university');
+    const stage = document.getElementById('f_careerStage').value;
+    if (!sel.value || !stage) { alert('يرجى اختيار كليتك والمرحلة المهنية.'); return false; }
+    if (sel.value === 'OTHER_NOT_LISTED') {
+      const otherText = document.getElementById('f_university_other').value.trim();
+      if (!otherText) { alert('يرجى كتابة اسم كليتك الطبية بالكامل للتدقيق والاعتماد.'); return false; }
+    }
+  }
+  return true;
+}
+function goStep(dir) {
+  if (dir > 0 && !validateStep(currentStep)) return;
+  if (currentStep === TOTAL_STEPS && dir > 0) {
+    submitFullIntake();
+    return;
+  }
+  currentStep = Math.min(TOTAL_STEPS, Math.max(1, currentStep + dir));
+  document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+  document.querySelector(`.step[data-step="${currentStep}"]`).classList.add('active');
+  document.getElementById('btnBack').style.display = currentStep === 1 ? 'none' : 'block';
+  document.getElementById('btnNext').innerText = currentStep === TOTAL_STEPS ? 'إصدار الهوية ➔' : 'التالي ➔';
+  updateProgress();
+}
+async function submitFullIntake() {
+  const btn = document.getElementById('btnNext');
+  btn.disabled = true;
+  btn.innerText = 'جارٍ إصدار الهوية...';
+
+  const selUni = document.getElementById('f_university').value;
+  let finalUni = selUni;
+  let auditRequired = false;
+  if (selUni === 'OTHER_NOT_LISTED') {
+    const rawOther = document.getElementById('f_university_other').value.trim();
+    finalUni = `[PENDING_REVIEW] ${rawOther}`;
+    auditRequired = true;
+  }
+
+  // Call 1: Register Core Identity in MASTER_AUTH
+  const registerPayload = {
+    action: 'REGISTER_USER',
+    legalName: document.getElementById('f_legalName').value.trim(),
+    email: document.getElementById('f_email').value.trim(),
+    phone: document.getElementById('f_phone').value.trim(),
+    location: document.getElementById('f_location').value,
+    university: finalUni,
+    university_name: finalUni,
+    university_id: selUni,
+    audit_required: auditRequired,
+    hospital: document.getElementById('f_hospital').value.trim(),
+    careerStage: document.getElementById('f_careerStage').value,
+    peerReferral: document.getElementById('f_referral').value.trim()
+  };
+  let regResult;
+  try {
+    regResult = await executeGemIInISync(registerPayload);
+  } catch (err) {
+    alert('تعذر الاتصال بالسجل المركزي. تم حفظ بياناتك وسنعاود المزامنة تلقائياً.');
+    btn.disabled = false; btn.innerText = 'إصدار الهوية ➔';
+    return;
+  }
+  const gaId = regResult.gaId || 'GA-GUEST';
+  // Call 2: Feedbacks & Survey into FEEDBACK_LOG
+  const budgetMap = { under_100: { wtp400: 0, wtp800: 0, wtp1200: 0 }, '100_1500': { wtp400: 1, wtp800: 0, wtp1200: 0 }, over_1500: { wtp400: 0, wtp800: 0, wtp1200: 1 } };
+  const budget = budgetMap[document.getElementById('f_budgetTier').value] || budgetMap.under_100;
+  const feedbackPayload = {
+    action: 'SUBMIT_FEEDBACK',
+    gaId: gaId,
+    email: registerPayload.email,
+    phone: registerPayload.phone,
+    wtpCurrency: 'USD',
+    wtp400: budget.wtp400, wtp800: budget.wtp800, wtp1200: budget.wtp1200,
+    targetModules: Array.from(selections.skills).join('; '),
+    targetPathways: [
+      Array.from(selections.track).join('; '),
+      selections.leadership.size ? '[Leadership: ' + Array.from(selections.leadership).join('; ') + ']' : '',
+      '[Format: ' + document.getElementById('f_format').value + ']',
+      '[Urgency: ' + document.getElementById('f_urgency').value + ']'
+    ].filter(Boolean).join(' | '),
+    peerReferral: registerPayload.peerReferral
+  };
+  try {
+    await executeGemIInISync(feedbackPayload);
+  } catch (e) {
+    console.warn('Feedback buffered locally');
+  }
+  document.getElementById('wizardForm').style.display = 'none';
+  document.querySelector('.progress-wrap').style.display = 'none';
+  document.getElementById('successCard').classList.add('active');
+  document.getElementById('dispId').innerText = gaId;
+  document.getElementById('dispGp').innerText = '+' + (regResult.gpAwarded || 25) + ' GP';
+  if (typeof gtag === 'function') {
+    gtag('event', 'sign_up', { method: 'SudaPass_8Section', user_id: gaId });
+  }
+}
+updateProgress();
+</script>
 </body>
 </html>

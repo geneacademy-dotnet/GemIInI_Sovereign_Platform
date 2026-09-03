@@ -1,0 +1,3148 @@
+[
+  {
+    "id": "Q1",
+    "category": "Clinical Nephrology • Quantitative Deficit",
+    "text": "رجل يبلغ من العمر 58 عاماً (70 كجم) يعاني من Severe Symptomatic Hyponatremia (Na = 110 mEq/L). نريد رفع الصوديوم بمقدار 5 mEq/L باستخدام 3% Hypertonic Saline (513 mEq/L). ما الحجم المطلوب؟",
+    "options": [
+      "510 mL تقريباً عبر التسريب الوريدي المتحكم",
+      "210 mL تقريباً (المحسوبة عبر صيغة: Total Body Water × ΔNa / Infusate Na)",
+      "1,000 mL دفعة واحدة خلال ساعتين",
+      "150 mL من 0.9% Normal Saline فقط"
+    ],
+    "correct": 1,
+    "mtc": "معادلة Adrogué-Madias: التغير في الصوديوم = (صوديوم المحلول - صوديوم المريض) / (ماء الجسم الكلي + 1). TBW = 70 × 0.6 = 42 L. رفع 5 mEq/L يتطلب 210 mL من 3% NaCl. الحد الأقصى الآمن للرفع هو 6-8 mEq/L خلال 24 ساعة لتجنب Osmotic Demyelination."
+  },
+  {
+    "id": "Q2",
+    "category": "Emergency & Surgical Resuscitation",
+    "text": "مريض تعرض لحادث سير، يعاني من انخفاض حاد في ضغط الدم (75/40 mmHg)، غياب أصوات التنفس في الصدر الأيمن، مع انحراف الرغامي (Tracheal Deviation) لليسار. ما هو الإجراء الفوري المنقذ للحياة؟",
+    "options": [
+      "إجراء أشعة مقطعية للصدر (CT Thorax)",
+      "إدخال إبرة لتفريغ الهواء (Needle Thoracostomy) في المسافة الوربية الثانية أو الخامسة فوراً",
+      "إعطاء 2 لتر من السوائل الدافئة والانتظار",
+      "التنبيب الرغامي الفوري قبل فك الضغط"
+    ],
+    "correct": 1,
+    "mtc": "التشخيص هو استرواح الصدر الضاغط (Tension Pneumothorax). هذا تشخيص سريري بحت يتطلب Needle Decompression فوري دون إضاعة الوقت في التصوير الإشعاعي، يليه أنبوب الصدر (Chest Tube)."
+  },
+  {
+    "id": "Q3",
+    "category": "Endocrinology & DKA Protocol",
+    "text": "شابة مصابة بالنوع الأول من السكري وصلت بحماض كيتوني سكري (DKA). نسبة السكر 450 mg/dL، وK⁺ = 3.1 mEq/L. ما هي الخطوة الصحيحة للتعامل مع الإنسولين والبوتاسيوم؟",
+    "options": [
+      "البدء الفوري بالإنسولين الوريدي بجرعة 0.1 U/kg/h دون إعطاء بوتاسيوم",
+      "تأجيل الإنسولين، والبدء بتعويض البوتاسيوم وريدياً حتى يصل أعلى من 3.3 mEq/L لتجنب السكتة القلبية",
+      "إعطاء بيكربونات الصوديوم وريدياً فوراً",
+      "إعطاء جرعة إنسولين تحت الجلد وتخريج المريضة"
+    ],
+    "correct": 1,
+    "mtc": "الإنسولين يدخل البوتاسيوم إلى داخل الخلايا. إعطاء الإنسولين لمريض بوتاسيومه أقل من 3.3 mEq/L قد يسبب نقص بوتاسيوم قاتل واضطراب نظم قلبي. لذلك يُصحح البوتاسيوم أولاً."
+  },
+  {
+    "id": "Q4",
+    "category": "Molecular Medicine • MM 1.0",
+    "text": "أي من الإنزيمات التالية مسؤول عن فك التفاف الـ DNA وإزالة الإجهاد الالتوائي (Supercoiling) أثناء عملية التضاعف؟",
+    "options": [
+      "DNA Helicase",
+      "DNA Topoisomerase (Gyrase)",
+      "DNA Polymerase III",
+      "DNA Ligase"
+    ],
+    "correct": 1,
+    "mtc": "بينما يقوم الـ Helicase بكسر الروابط الهيدروجينية لفتح الشريطين، يقوم الـ Topoisomerase بقطع مؤقت في الهيكل العظمي للشريط لتخفيف الـ Supercoiling الناتج عن الفتح."
+  },
+  {
+    "id": "Q5",
+    "category": "Cardiology • Acute Coronary Syndromes",
+    "text": "مريض يشكو من ألم حاد بالصدر، وتخطيط القلب (ECG) أظهر ارتفاع ST-elevation في الاتجاهات V1-V4. ما هو الشريان التاجي المسؤول عن هذا الاحتشاء؟",
+    "options": [
+      "Left Anterior Descending (LAD) Artery",
+      "Right Coronary Artery (RCA)",
+      "Left Circumflex (LCx) Artery",
+      "Left Main Artery"
+    ],
+    "correct": 0,
+    "mtc": "ارتفاع ST في V1-V4 يعكس احتشاء الجدار الأمامي والحاجزي (Anteroseptal MI)، والشريان المغذي له هو الشريان التاجي الأيسر النازل الأمامي (LAD)."
+  },
+  {
+    "id": "Q6",
+    "category": "Infectious Diseases • Antibiotic Stewardship",
+    "text": "مريض يعاني من التهاب سحايا جرثومي مكتسب من المجتمع (Community-Acquired Bacterial Meningitis). ما هو العلاج التجريبي الأولي الموصى به للمريض البالغ؟",
+    "options": [
+      "Ceftriaxone + Vancomycin (+ Dexamethasone)",
+      "Amoxicillin فقط",
+      "Gentamicin + Metronidazole",
+      "Ciprofloxacin فموي"
+    ],
+    "correct": 0,
+    "mtc": "التغطية التجريبية لالتهاب السحايا الحاد تتطلب Ceftriaxone لتغطية S. pneumoniae و N. meningitidis مع Vancomycin لتغطية السلالات المقاومة من المكورات الرئوية، والديكساميثازون لتقليل المضاعفات العصبية."
+  },
+  {
+    "id": "Q7",
+    "category": "Pediatrics • Pediatric Emergency",
+    "text": "طفل عمره 3 سنوات يبتلع بطارية قرصية (Button Battery) استقرت في منتصف المريء حسب الأشعة السينية. ما هو التدخل الصحيح؟",
+    "options": [
+      "مراقبة الطفل لمدة 48 ساعة ومتابعة البراز",
+      "إجراء منظار عاجل وإزالة البطارية فوراً لتجنب النخر وانثقاب المريء (Liquefaction Necrosis)",
+      "إعطاء ملينات ومثبطات مضخة البروتون فقط",
+      "محاولة إحداث التقيؤ في المنزل"
+    ],
+    "correct": 1,
+    "mtc": "البطاريات القرصية العالقة في المريء تولد تياراً كهربائياً موضعياً وتفرز هيدروكسيد قلوي يسبب Liquefactive Necrosis وانثقاب المريء خلال أقل من ساعتين. إزالتها بالمنظار حالة طارئة قصوى."
+  },
+  {
+    "id": "Q8",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 8 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q9",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 9 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q10",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 10 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q11",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 11 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q12",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 12 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q13",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 13 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q14",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 14 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q15",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 15 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q16",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 16 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q17",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 17 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q18",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 18 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q19",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 19 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q20",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 20 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q21",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 21 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q22",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 22 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q23",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 23 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q24",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 24 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q25",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 25 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q26",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 26 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q27",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 27 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q28",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 28 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q29",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 29 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q30",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 30 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q31",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 31 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q32",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 32 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q33",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 33 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q34",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 34 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q35",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 35 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q36",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 36 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q37",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 37 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q38",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 38 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q39",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 39 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q40",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 40 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q41",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 41 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q42",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 42 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q43",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 43 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q44",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 44 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q45",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 45 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q46",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 46 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q47",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 47 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q48",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 48 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q49",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 49 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q50",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 50 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q51",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 51 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q52",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 52 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q53",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 53 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q54",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 54 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q55",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 55 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q56",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 56 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q57",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 57 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q58",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 58 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q59",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 59 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q60",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 60 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q61",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 61 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q62",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 62 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q63",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 63 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q64",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 64 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q65",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 65 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q66",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 66 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q67",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 67 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q68",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 68 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q69",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 69 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q70",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 70 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q71",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 71 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q72",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 72 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q73",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 73 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q74",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 74 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q75",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 75 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q76",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 76 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q77",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 77 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q78",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 78 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q79",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 79 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q80",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 80 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q81",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 81 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q82",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 82 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q83",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 83 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q84",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 84 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q85",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 85 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q86",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 86 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q87",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 87 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q88",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 88 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q89",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 89 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q90",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 90 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q91",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 91 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q92",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 92 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q93",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 93 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q94",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 94 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q95",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 95 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q96",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 96 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q97",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 97 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q98",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 98 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q99",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 99 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q100",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 100 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q101",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 101 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q102",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 102 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q103",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 103 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q104",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 104 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q105",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 105 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q106",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 106 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q107",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 107 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q108",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 108 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q109",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 109 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q110",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 110 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q111",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 111 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q112",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 112 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q113",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 113 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q114",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 114 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q115",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 115 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q116",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 116 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q117",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 117 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q118",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 118 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q119",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 119 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q120",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 120 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q121",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 121 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q122",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 122 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q123",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 123 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q124",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 124 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q125",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 125 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q126",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 126 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q127",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 127 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q128",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 128 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q129",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 129 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q130",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 130 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q131",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 131 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q132",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 132 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q133",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 133 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q134",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 134 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q135",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 135 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q136",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 136 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q137",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 137 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q138",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 138 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q139",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 139 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q140",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 140 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q141",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 141 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q142",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 142 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q143",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 143 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q144",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 144 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q145",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 145 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q146",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 146 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q147",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 147 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q148",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 148 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q149",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 149 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q150",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 150 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q151",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 151 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q152",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 152 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q153",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 153 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q154",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 154 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q155",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 155 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q156",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 156 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q157",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 157 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q158",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 158 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q159",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 159 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q160",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 160 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q161",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 161 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q162",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 162 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q163",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 163 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q164",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 164 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q165",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 165 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q166",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 166 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q167",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 167 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q168",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 168 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q169",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 169 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q170",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 170 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q171",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 171 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q172",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 172 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q173",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 173 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q174",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 174 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q175",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 175 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q176",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 176 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q177",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 177 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q178",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 178 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q179",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 179 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q180",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 180 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q181",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 181 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q182",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 182 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q183",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 183 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q184",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 184 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q185",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 185 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q186",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 186 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q187",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 187 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q188",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 188 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q189",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 189 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q190",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 190 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q191",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 191 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q192",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 192 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q193",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 193 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q194",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 194 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q195",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 195 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q196",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 196 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q197",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 197 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q198",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 198 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q199",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 199 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q200",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 200 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q201",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 201 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q202",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 202 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q203",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 203 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q204",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 204 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q205",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 205 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q206",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 206 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q207",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 207 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q208",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 208 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q209",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 209 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q210",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 210 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q211",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 211 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q212",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 212 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q213",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 213 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q214",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 214 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q215",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 215 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q216",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 216 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q217",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 217 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q218",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 218 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q219",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 219 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q220",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 220 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q221",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 221 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q222",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 222 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q223",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 223 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q224",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 224 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q225",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 225 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q226",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 226 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q227",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 227 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q228",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 228 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q229",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 229 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q230",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 230 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q231",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 231 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q232",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 232 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q233",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 233 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q234",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 234 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q235",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 235 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q236",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 236 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q237",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 237 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q238",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 238 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q239",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 239 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q240",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 240 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q241",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 241 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  },
+  {
+    "id": "Q242",
+    "category": "Pending Clinical Vignette • MTC Stage 1",
+    "text": "[STRUCTURAL PLACEHOLDER: Question 242 of the 242-Candidate SMC Mock Exam Sprint. The Academic Office is actively curating this vignette.]",
+    "options": [
+      "Placeholder Option A",
+      "Placeholder Option B",
+      "Placeholder Option C",
+      "Placeholder Option D"
+    ],
+    "correct": 0,
+    "mtc": "Placeholder Rationale: This item is reserved for upcoming curriculum updates."
+  }
+]

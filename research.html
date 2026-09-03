@@ -1,262 +1,281 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" class="scroll-smooth bg-slate-50 text-slate-900">
 <head>
+  <script type="text/javascript">
+  var _iub = _iub || [];
+  _iub.csConfiguration = {"siteId":4659147,"cookiePolicyId":32190221,"lang":"en","storage":{"useSiteId":true}};
+  </script>
+  <script type="text/javascript" src="https://cs.iubenda.com/autoblocking/4659147.js"></script>
+  <script type="text/javascript" src="//cdn.iubenda.com/cs/gpp/stub.js"></script>
+  <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GeneAcademy 15:5:1 Mentorship Pod Matrix | Active Research Teams</title>
-  <meta name="description" content="مصفوفة المجموعات البحثية الهرمية 15:5:1: زميل باحث أول، 5 طلاب جامعيين، و15 طالباً تمهيدياً.">
-  
+  <title>100 Project Paper Marathon | GemIInI Medical Evidence Synthesis</title>
+  <meta name="description" content="The Independent 15:5:1 research pod architecture for filtering and synthesizing Sudanese medical literature into decision-grade clinical policy.">
+  <link rel="canonical" href="https://geneacademy.net/research.html">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-H1Q67PP2DJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-H1Q67PP2DJ');</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="styles.css">
-
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    .research-container {
-      max-width: 1200px;
-      margin: 30px auto 90px;
-      padding: 0 20px;
-    }
-    .research-header {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-    .research-header h1 {
-      font-size: 32px;
-      font-weight: 900;
-      color: var(--purple-dark);
-      margin-bottom: 8px;
-    }
-    .research-header p {
-      font-size: 15.5px;
-      color: var(--text-muted);
-    }
-
-    /* Pod Hierarchy Grid (Max 3 Cards per Row) */
-    .pod-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 26px;
-      margin-bottom: 60px;
-    }
-    @media (max-width: 960px) {
-      .pod-grid { grid-template-columns: 1fr; }
-    }
-
-    .pod-card {
-      background: #FFFFFF;
-      border: 1.5px solid rgba(88, 28, 135, 0.08);
-      border-radius: var(--radius-lg);
-      padding: 30px 24px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      box-shadow: var(--shadow-md);
-      transition: all 0.25s ease;
-      position: relative;
-    }
-    .pod-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-lg);
-      border-color: var(--purple-brand);
-    }
-    .pod-header-badge {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 14px;
-    }
-    .pod-title {
-      font-size: 18px;
-      font-weight: 800;
-      color: var(--purple-dark);
-      margin-bottom: 12px;
-      line-height: 1.4;
-    }
-
-    /* Hierarchy Tree Visuals */
-    .tree-box {
-      background: #FAFAFA;
-      border: 1px solid rgba(88, 28, 135, 0.08);
-      border-radius: 10px;
-      padding: 14px;
-      margin-bottom: 18px;
-      font-size: 13px;
-    }
-    .tree-node {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 8px;
-    }
-    .tree-node:last-child { margin-bottom: 0; }
-    .tree-node .badge {
-      font-family: var(--font-mono);
-      font-weight: 800;
-      padding: 2px 8px;
-      border-radius: 4px;
-      font-size: 11px;
-    }
+    body{font-family:'Cairo',sans-serif;background-color:#F8FAFC;color:#0F172A;}
+    .glass-panel{background:rgba(255,255,255,.97);backdrop-filter:blur(16px);border:1px solid #E2E8F0;box-shadow:0 4px 24px rgba(0,0,0,.04);}
+    .pod-card{transition:transform .2s ease,box-shadow .2s ease;}
+    .pod-card:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,0,0,.08);}
+    .font-mono{font-family:'IBM Plex Mono',monospace;}
   </style>
 </head>
-<body>
+<body class="min-h-screen flex flex-col antialiased bg-slate-50 selection:bg-[#168C8C] selection:text-white">
 
-  <!-- NAVBAR -->
-  <nav class="navbar">
-    <div class="nav-content">
-      <a href="index.html" class="brand-logo">
-        <div class="brand-symbol">SG</div>
-        <div class="brand-text">
-          <h1>SudaGene</h1>
-          <span>Medical Group</span>
+  <!-- HEADER -->
+  <header class="bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3 shrink-0 group">
+        <div class="w-11 h-11 rounded-xl bg-[#123B5D] text-white font-black flex items-center justify-center font-mono text-base shadow-sm group-hover:bg-[#168C8C] transition-colors">GA</div>
+        <div>
+          <span class="text-xl font-bold text-[#123B5D] tracking-tight block">Gene Academy</span>
+          <span class="text-[10px] font-mono text-[#64748B] block tracking-wider uppercase">MEDICAL &amp; GENOMIC CONSORTIUM</span>
         </div>
       </a>
-      <ul class="nav-links">
-        <li><a href="index.html">الرئيسية</a></li>
-        <li><a href="programs.html">المصفوفة الخدمية</a></li>
-        <li><a href="smc.html">محاكي MTC™</a></li>
-        <li><a href="glomet.html">شركاء GLOMEt</a></li>
-        <li><a href="research.html" class="active">الأبحاث 15:5:1</a></li>
-        <li><a href="dashboard.html">لوحة التحكم 🪪</a></li>
-      </ul>
-      <div>
-        <a href="https://member.geneacademy.net" target="_blank" class="btn-primary" style="padding: 8px 18px; font-size: 13.5px;">دخول LMS 🎓</a>
+      <nav class="hidden lg:flex items-center gap-6 text-sm font-semibold text-[#1F2937]">
+        <a href="index.html" class="hover:text-[#168C8C] transition pb-1">Home</a>
+        <a href="about.html" class="hover:text-[#168C8C] transition pb-1">About</a>
+        <a href="courses.html" class="hover:text-[#168C8C] transition pb-1">Programs</a>
+        <a href="research.html" class="text-[#168C8C] border-b-2 border-[#168C8C] pb-1 font-bold">Research</a>
+        <a href="universities.html" class="hover:text-[#168C8C] transition pb-1">Universities</a>
+        <a href="faculty.html" class="hover:text-[#168C8C] transition pb-1">Faculty</a>
+      </nav>
+      <div class="flex items-center gap-4 shrink-0">
+        <a href="join.html" class="hidden sm:inline-flex px-5 py-2.5 rounded-xl bg-[#123B5D] hover:bg-[#0E2E49] text-white font-semibold text-sm shadow-md transition-all">Join Our Network</a>
+        <button id="mobile-menu-toggle" class="lg:hidden p-2 text-slate-600 hover:text-[#123B5D] transition">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
       </div>
     </div>
-  </nav>
+    <div id="mobile-nav" class="hidden lg:hidden bg-white border-t border-slate-200 shadow-xl absolute top-full left-0 w-full z-40 max-h-[80vh] overflow-y-auto">
+      <div class="flex flex-col p-4 space-y-4 font-bold text-[#123B5D]">
+        <a href="index.html" class="block pb-2 border-b border-slate-100">Home</a>
+        <a href="about.html" class="block pb-2 border-b border-slate-100">About</a>
+        <a href="courses.html" class="block pb-2 border-b border-slate-100">Programs</a>
+        <a href="research.html" class="block pb-2 border-b border-slate-100 text-[#168C8C]">Research</a>
+        <a href="faculty.html" class="block pb-2 border-b border-slate-100">Faculty</a>
+        <a href="join.html" class="block text-center mt-4 px-5 py-3 rounded-xl bg-[#123B5D] text-white font-semibold text-sm shadow-md">Join Our Network</a>
+      </div>
+    </div>
+  </header>
 
-  <div class="research-container">
+  <!-- MAIN -->
+  <main class="flex-grow max-w-6xl mx-auto px-6 py-12 space-y-14">
 
-    <div class="research-header">
-      <h1>مصفوفة المجموعات البحثية الهرمية (15:5:1)</h1>
-      <p>الهيكل التنظيمي للفرق البحثية الـ 8 النشطة تحت مظلة GeneAcademy والمنشورات العلمية</p>
+    <!-- Hero -->
+    <div class="text-center space-y-4 max-w-3xl mx-auto">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#168C8C]/10 border border-[#168C8C]/30 text-xs font-mono text-[#168C8C] font-bold tracking-wider">100 PROJECT PAPER MARATHON</div>
+      <h1 class="text-3xl sm:text-5xl font-black text-slate-900 leading-tight">ماراثون الأوراق العلمية الـ 100<br><span class="text-transparent bg-clip-text bg-gradient-to-l from-[#168C8C] to-[#0891B2]">(Scientific Production Analysis)</span></h1>
+      <p class="text-slate-600 text-sm sm:text-base leading-relaxed">نحن لا نقوم بأبحاث معملية أولية (حتى تدشين مختبراتنا)، بل نعكف على دراسة وتحليل الإنتاج العلمي الطبي السوداني عبر مراجعات منهجية دقيقة. هيكلنا التنظيمي (15:5:1) يربط الباحثين لإنجاز 100 ورقة علمية محكمة وفق معايير التأليف الدولي الصارمة (ICMJE).</p>
     </div>
 
-    <!-- 8 ACTIVE PODS GRID (MAX 3 CARDS PER ROW) -->
-    <div class="pod-grid">
-
-      <!-- Pod 1: Translational Oncology -->
-      <div class="pod-card">
-        <div>
-          <div class="pod-header-badge">
-            <span class="badge-pill badge-purple">POD #1 • Oncology</span>
-            <span style="font-family:var(--font-mono); font-size:11.5px; font-weight:800; color:var(--rose-accent);">WES-ONC-01</span>
-          </div>
-          <h3 class="pod-title">Translational Oncology & Liquid Biopsies</h3>
-          
-          <div class="tree-box">
-            <div class="tree-node">
-              <span class="badge" style="background:#EDE9FE; color:#5B21B6;">1 Senior Fellow</span>
-              <span>د. محمد جبريل (Principal Investigator)</span>
-            </div>
-            <div class="tree-node">
-              <span class="badge" style="background:#E0F2FE; color:#0369A1;">5 Uni Students</span>
-              <span>طلاب طب وجينوم بجامعة الخرطوم والجزيرة</span>
-            </div>
-            <div class="tree-node">
-              <span class="badge" style="background:#FEF3C7; color:#B45309;">15 Pre-Meds</span>
-              <span>باحثون تمهيديون (Edusphere Track)</span>
-            </div>
-          </div>
-
-          <p style="font-size:13px; color:var(--text-muted); line-height:1.6; margin-bottom:18px;">
-            ورقة بحثية منشورة قيد التدقيق حول المؤشرات الجينية لأورام الثدي والجهاز الهضمي.
-          </p>
-        </div>
-
-        <div style="border-top:1px solid rgba(88,28,135,0.06); padding-top:14px; margin-top:auto;">
-          <a href="https://member.geneacademy.net" target="_blank" class="btn-secondary" style="width:100%; text-align:center; padding:8px 0; font-size:13px;">
-            📂 فتح مساحة عمل Pod #1 Workspace
-          </a>
-        </div>
+    <!-- Tiers -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="glass-panel p-6 rounded-2xl border-t-4 border-t-purple-600 space-y-3">
+        <div class="text-xs font-mono text-purple-600 font-bold tracking-wider">TIER 1 · LEADERSHIP</div>
+        <h2 class="text-lg font-bold text-slate-900">1 Principal Investigator (PI)</h2>
+        <p class="text-sm text-slate-600 leading-relaxed">استشاري أو بروفيسور مشرف يتولى وضع الفرضية البحثية، مراجعة البروتوكول، وضمان جودة التحليل والامتثال لمعايير الأخلاقيات والنزاهة العلمية.</p>
       </div>
-
-      <!-- Pod 2: Molecular Parasitology -->
-      <div class="pod-card">
-        <div>
-          <div class="pod-header-badge">
-            <span class="badge-pill badge-teal">POD #2 • Parasitology</span>
-            <span style="font-family:var(--font-mono); font-size:11.5px; font-weight:800; color:var(--rose-accent);">PAR-MAL-02</span>
-          </div>
-          <h3 class="pod-title">Plasmodium Falciparum Drug Resistance</h3>
-          
-          <div class="tree-box">
-            <div class="tree-node">
-              <span class="badge" style="background:#EDE9FE; color:#5B21B6;">1 Senior Fellow</span>
-              <span>د. آلاء المرسي (Co-PI)</span>
-            </div>
-            <div class="tree-node">
-              <span class="badge" style="background:#E0F2FE; color:#0369A1;">5 Uni Students</span>
-              <span>نواب أبحاث الأحياء الدقيقة السريرية</span>
-            </div>
-            <div class="tree-node">
-              <span class="badge" style="background:#FEF3C7; color:#B45309;">15 Pre-Meds</span>
-              <span>فريق التحليل الإحصائي والبيانات</span>
-            </div>
-          </div>
-
-          <p style="font-size:13px; color:var(--text-muted); line-height:1.6; margin-bottom:18px;">
-            تتبع طفرات جين Kelch13 المرتبطة بمقاومة مشتقات الأرتيميسينين في حوض النيل.
-          </p>
-        </div>
-
-        <div style="border-top:1px solid rgba(88,28,135,0.06); padding-top:14px; margin-top:auto;">
-          <a href="https://member.geneacademy.net" target="_blank" class="btn-secondary" style="width:100%; text-align:center; padding:8px 0; font-size:13px;">
-            📂 فتح مساحة عمل Pod #2 Workspace
-          </a>
-        </div>
+      <div class="glass-panel p-6 rounded-2xl border-t-4 border-t-[#168C8C] space-y-3">
+        <div class="text-xs font-mono text-[#168C8C] font-bold tracking-wider">TIER 2 · PEER REVIEW &amp; ANALYSIS</div>
+        <h2 class="text-lg font-bold text-slate-900">5 Senior Peer Reviewers</h2>
+        <p class="text-sm text-slate-600 leading-relaxed">أطباء نواب وباحثون متقدمون يتولون مراجعة منهجية البحث، التدقيق الإحصائي الحيوي، وتوجيه فرق جمع واستخلاص البيانات السريرية.</p>
       </div>
-
-      <!-- Pod 3: Rare Genetic Diseases -->
-      <div class="pod-card">
-        <div>
-          <div class="pod-header-badge">
-            <span class="badge-pill badge-gold">POD #3 • Rare Diseases</span>
-            <span style="font-family:var(--font-mono); font-size:11.5px; font-weight:800; color:var(--rose-accent);">GEN-RARE-03</span>
-          </div>
-          <h3 class="pod-title">Consanguinity & Inborn Metabolic Errors</h3>
-          
-          <div class="tree-box">
-            <div class="tree-node">
-              <span class="badge" style="background:#EDE9FE; color:#5B21B6;">1 Senior Fellow</span>
-              <span>د. استشاري الوراثة الإكلينيكية</span>
-            </div>
-            <div class="tree-node">
-              <span class="badge" style="background:#E0F2FE; color:#0369A1;">5 Uni Students</span>
-              <span>أطباء أطفال ونواب وراثة</span>
-            </div>
-            <div class="tree-node">
-              <span class="badge" style="background:#FEF3C7; color:#B45309;">15 Pre-Meds</span>
-              <span>فريق شجرة العائلة وتحليل الأنماط</span>
-            </div>
-          </div>
-
-          <p style="font-size:13px; color:var(--text-muted); line-height:1.6; margin-bottom:18px;">
-            توثيق الطفرات المتنحية النادرة عبر تقنية Whole Exome Sequencing (WES).
-          </p>
-        </div>
-
-        <div style="border-top:1px solid rgba(88,28,135,0.06); padding-top:14px; margin-top:auto;">
-          <a href="https://member.geneacademy.net" target="_blank" class="btn-secondary" style="width:100%; text-align:center; padding:8px 0; font-size:13px;">
-            📂 فتح مساحة عمل Pod #3 Workspace
-          </a>
-        </div>
+      <div class="glass-panel p-6 rounded-2xl border-t-4 border-t-amber-500 space-y-3">
+        <div class="text-xs font-mono text-amber-600 font-bold tracking-wider">TIER 3 · TRAINEE AUTHORS</div>
+        <h2 class="text-lg font-bold text-slate-900">15 Trainee Authors</h2>
+        <p class="text-sm text-slate-600 leading-relaxed">طلاب طب وامتياز يشاركون في صياغة مراجعات الأدبيات المنهجية، جمع وتحليل البيانات، وكتابة مسودات الأوراق وفق متطلبات المجلات الدولية.</p>
       </div>
-
     </div>
 
-  </div>
+    <!-- Active Pods -->
+    <div class="space-y-6">
+      <h2 class="text-2xl font-bold text-slate-900 text-center sm:text-right">المسارات البحثية النشطة في المنظومة</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="glass-panel pod-card p-6 rounded-2xl space-y-4 flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-1 bg-purple-100 text-purple-700 rounded-lg text-xs font-mono font-bold">POD #1 · Oncology</span>
+              <span class="text-xs font-mono text-slate-400">WES-ONC-01</span>
+            </div>
+            <h3 class="text-base font-bold text-slate-900">Translational Oncology &amp; Molecular Markers</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">مراجعة وتحليل منهجي للإنتاج العلمي السريري المنشور في المجلات الطبية والأطروحات التخصصية الوطنية، لاستخلاص بيانات المؤشرات الجينية للأورام الشائعة وربطها بالقرارات العلاجية واقتصاديات الجينوم.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-100">
+            <span class="text-xs font-mono text-[#168C8C] font-bold block mb-3">Target: Clinical Data Extraction &amp; Policy</span>
+            <a href="join.html" class="block w-full text-center py-2.5 bg-slate-100 hover:bg-[#168C8C] hover:text-white rounded-xl text-xs font-bold transition-all">تقديم طلب الانضمام للمجموعة</a>
+          </div>
+        </div>
+        <div class="glass-panel pod-card p-6 rounded-2xl space-y-4 flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-1 bg-teal-100 text-teal-700 rounded-lg text-xs font-mono font-bold">POD #2 · Parasitology</span>
+              <span class="text-xs font-mono text-slate-400">PAR-LEISH-02</span>
+            </div>
+            <h3 class="text-base font-bold text-slate-900">Leishmaniasis &amp; Endemic Diseases</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">دراسة استرجاعية (Retrospective Audit) للإرث البحثي والمعاهد المتخصصة في الأمراض المتوطنة. الهدف هو حصر الأنماط الجزيئية والمناعية لليشمانيا والمايستوما وبناء قاعدة بيانات وصفية (Diagnostic Sieve).</p>
+          </div>
+          <div class="pt-4 border-t border-slate-100">
+            <span class="text-xs font-mono text-[#168C8C] font-bold block mb-3">Target: Epidemiological Meta-Analysis</span>
+            <a href="join.html" class="block w-full text-center py-2.5 bg-slate-100 hover:bg-[#168C8C] hover:text-white rounded-xl text-xs font-bold transition-all">تقديم طلب الانضمام للمجموعة</a>
+          </div>
+        </div>
+        <div class="glass-panel pod-card p-6 rounded-2xl space-y-4 flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-1 bg-amber-100 text-amber-700 rounded-lg text-xs font-mono font-bold">POD #3 · Genetics</span>
+              <span class="text-xs font-mono text-slate-400">GEN-RARE-03</span>
+            </div>
+            <h3 class="text-base font-bold text-slate-900">Inborn Metabolic Errors &amp; Rare Diseases</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">تحليل التكرار الإحصائي لأمراض التمثيل الغذائي والطفرات النادرة عبر استخراج البيانات من مجلات الصحة العامة والعلوم الطبية الوطنية لتحويل الملاحظات الفردية إلى إحصائيات وبائية موثقة.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-100">
+            <span class="text-xs font-mono text-[#168C8C] font-bold block mb-3">Target: Rare Disease Frequencies</span>
+            <a href="join.html" class="block w-full text-center py-2.5 bg-slate-100 hover:bg-[#168C8C] hover:text-white rounded-xl text-xs font-bold transition-all">تقديم طلب الانضمام للمجموعة</a>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  <footer class="signature-footer">
-    <div class="container">
-      <div class="signature-seal-strip">
-        <div class="signature-brand-mark">GeneAcademy · Research Pods Architecture</div>
-        <div>15:5:1 Hierarchical Mentorship Model • All Rights Reserved © 2026/2027</div>
+    <!-- Intake Form -->
+    <div class="glass-panel p-8 sm:p-10 rounded-3xl space-y-6 max-w-3xl mx-auto border-2 border-[#168C8C]/25">
+      <div class="text-center space-y-2">
+        <span class="inline-block px-3 py-1 rounded-full bg-[#168C8C]/10 border border-[#168C8C]/30 text-xs font-mono text-[#168C8C] font-bold tracking-wider">15:5:1 RESEARCH INTAKE</span>
+        <h2 class="text-xl font-bold text-slate-900">استمارة التقديم لمجموعات البحث (15:5:1 Intake)</h2>
+        <p class="text-sm text-slate-600">إذا كنت ترغب بالانضمام كباحث متدرب أو مراجع سريري، أودع بياناتك للمراجعة الأكاديمية:</p>
+      </div>
+      <form id="research-intake-form" onsubmit="submitResearchPod(event)" class="space-y-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="space-y-1">
+            <label for="pod-name" class="text-sm font-bold text-slate-700">الاسم الثلاثي أو المعرف (GA-ID)</label>
+            <input type="text" id="pod-name" required placeholder="د. أحمد عمر / GA-1002" class="w-full p-3 rounded-xl border border-slate-300 focus:outline-none focus:border-[#168C8C] focus:ring-2 focus:ring-[#168C8C]/20 text-sm">
+          </div>
+          <div class="space-y-1">
+            <label for="pod-email" class="text-sm font-bold text-slate-700">البريد الإلكتروني الأكاديمي / المهني</label>
+            <input type="email" id="pod-email" required placeholder="doctor@example.com" dir="ltr" class="w-full p-3 rounded-xl border border-slate-300 focus:outline-none focus:border-[#168C8C] focus:ring-2 focus:ring-[#168C8C]/20 text-sm">
+          </div>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="space-y-1">
+            <label for="pod-track" class="text-sm font-bold text-slate-700">المسار البحثي المستهدف</label>
+            <select id="pod-track" class="w-full p-3 rounded-xl border border-slate-300 focus:outline-none focus:border-[#168C8C] text-sm bg-white">
+              <option value="Precision Oncology">Translational Oncology &amp; Liquid Biopsies</option>
+              <option value="Leishmaniasis and Endemics">Leishmaniasis &amp; Endemic Diseases</option>
+              <option value="Rare Genetic Diseases">Inborn Metabolic Errors &amp; Rare Diseases</option>
+              <option value="Medical Education">Digital Health &amp; Medical Education</option>
+            </select>
+          </div>
+          <div class="space-y-1">
+            <label for="pod-role" class="text-sm font-bold text-slate-700">الدور المطلوب في المجموعة</label>
+            <select id="pod-role" class="w-full p-3 rounded-xl border border-slate-300 focus:outline-none focus:border-[#168C8C] text-sm bg-white">
+              <option value="Trainee Author (15 Tier)">باحث متدرب (Trainee Author - Tier 15)</option>
+              <option value="Senior Reviewer (5 Tier)">مراجع سريري (Senior Reviewer - Tier 5)</option>
+              <option value="Co-Investigator">باحث مشارك (Co-Investigator)</option>
+            </select>
+          </div>
+        </div>
+        <div class="space-y-1">
+          <label for="pod-pubs" class="text-sm font-bold text-slate-700">الخبرات البحثية أو الأوراق المنشورة سابقاً (إن وجدت)</label>
+          <textarea id="pod-pubs" rows="3" placeholder="اذكر ملخصاً مقتضباً عن اهتماماتك أو أي مشاركات بحثية سابقة..." class="w-full p-3 rounded-xl border border-slate-300 focus:outline-none focus:border-[#168C8C] text-sm"></textarea>
+        </div>
+        <div class="text-center pt-2">
+          <button type="submit" id="pod-btn" class="px-8 py-3.5 bg-[#168C8C] hover:bg-[#0E6B6B] text-white font-bold rounded-xl transition-all font-mono text-sm shadow-md">إرسال ملف الترشح للجنة الأبحاث</button>
+        </div>
+        <div id="pod-result" class="hidden p-4 rounded-xl text-center text-sm font-bold"></div>
+      </form>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#0B1E2E] text-slate-400 py-16 text-xs border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-lg bg-[#123B5D] text-white font-mono font-bold flex items-center justify-center text-sm border border-slate-700">GA</div>
+            <span class="text-base font-bold text-white">Gene Academy</span>
+          </div>
+          <p class="text-slate-400 leading-relaxed">A Independent medical and academic consortium delivering continuous clinical education, and verifiable academic credentialing.</p>
+        </div>
+        <div class="space-y-3">
+          <div class="font-bold text-white uppercase text-xs tracking-wider">Explore</div>
+          <ul class="space-y-2">
+            <li><a href="about.html" class="hover:text-white transition">About</a></li>
+            <li><a href="courses.html" class="hover:text-white transition">Programs</a></li>
+            <li><a href="research.html" class="text-[#168C8C] font-bold hover:text-white transition">Research</a></li>
+            <li><a href="faculty.html" class="hover:text-white transition">Faculty</a></li>
+          </ul>
+        </div>
+        <div class="space-y-3">
+          <div class="font-bold text-white uppercase text-xs tracking-wider">Participate</div>
+          <ul class="space-y-2">
+            <li><a href="join.html" class="text-teal-400 hover:text-white font-bold transition">Join Our Network</a></li>
+            <li><a href="ideas.html" class="hover:text-white transition">Submit a Research Idea</a></li>
+            <li><a href="journal.html" class="hover:text-white transition">GJMR Journal</a></li>
+          </ul>
+        </div>
+        <div class="space-y-3">
+          <div class="font-bold text-white uppercase text-xs tracking-wider">Trust and Support</div>
+          <ul class="space-y-2">
+            <li><a href="verify.html" class="hover:text-white transition">Verify a Credential</a></li>
+            <li><a href="partner-with-us.html" class="hover:text-white transition">Institutional Partnerships</a></li>
+            <li><a href="#" class="hover:text-white transition">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-slate-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-slate-500">
+        <div>&copy; 2026/2027 Gene Academy &bull; SudaGene Medical Consortium.</div>
+        <div class="hidden sm:block">Made with precision.</div>
       </div>
     </div>
   </footer>
 
   <script src="api.js"></script>
+  <script src="analytics.js"></script>
+  <script>
+    async function submitResearchPod(e) {
+      e.preventDefault();
+      const btn = document.getElementById('pod-btn');
+      const res = document.getElementById('pod-result');
+      btn.disabled = true;
+      btn.innerText = 'جاري المعالجة...';
+      const payload = {
+        formCode: 'FORM_RESEARCH_1551',
+        fullName: document.getElementById('pod-name').value.trim(),
+        email: document.getElementById('pod-email').value.trim(),
+        track: document.getElementById('pod-track').value,
+        role: document.getElementById('pod-role').value,
+        publications: document.getElementById('pod-pubs').value.trim()
+      };
+      try {
+        await executeGemIInISync(payload);
+        res.classList.remove('hidden','bg-red-100','text-red-700');
+        res.classList.add('bg-emerald-100','text-emerald-800');
+        res.innerText = 'تم استلام طلب الترشح بنجاح. سيتم التواصل معك عبر البريد الإلكتروني بعد تدقيق الملف الأكاديمي.';
+        document.getElementById('research-intake-form').reset();
+        if (typeof gtag === 'function') gtag('event','research_pod_apply',{pod_track:payload.track});
+      } catch(err) {
+        res.classList.remove('hidden','bg-emerald-100','text-emerald-800');
+        res.classList.add('bg-red-100','text-red-700');
+        res.innerText = 'تعذر إرسال الطلب (' + (err.message || 'خطأ في الاتصال') + '). يرجى المراسلة مباشرة عبر: admissions@geneacademy.net';
+      } finally {
+        btn.disabled = false;
+        btn.innerText = 'إرسال ملف الترشح للجنة الأبحاث';
+      }
+    }
+    document.addEventListener('DOMContentLoaded',()=>{
+      const mobileBtn = document.getElementById('mobile-menu-toggle');
+      const mobileNav = document.getElementById('mobile-nav');
+      if(mobileBtn && mobileNav) mobileBtn.addEventListener('click',()=>mobileNav.classList.toggle('hidden'));
+    });
+  </script>
 </body>
 </html>

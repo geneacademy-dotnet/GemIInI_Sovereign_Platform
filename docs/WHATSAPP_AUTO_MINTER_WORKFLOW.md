@@ -34,13 +34,16 @@ This secondary automation workflow eliminates manual administrative friction by 
 
 ### Stage 1: Receipt Capture & Parsing
 When a candidate completes payment (Vodafone Cash, InstaPay, or Bankak) and messages the Academic Desk (`+20 101 592 2628`), the inbound webhook extracts:
-* **Candidate Phone Number:** Extracted from WhatsApp metadata (e.g., `+201015922628`).
+* **Candidate Phone Number:** Extracted from WhatsApp metadata (e.g., `+2+20 101 592 2628`).
 * **Candidate Full Name:** From WhatsApp profile or message text.
 * **Transaction Reference ID:** Extracted via regex pattern matching (`TRX-[A-Z0-9]+` or 6–12 digit banking ref).
 * **Payment Amount & Booster Flag:**
-  * `3,000 EGP` $ightarrow$ Standard BLS Workshop (`200 GP`).
-  * `3,250 EGP` $ightarrow$ BLS Workshop + Coffee Booster (`250 GP`).
-  * `250 EGP` / `$5` $ightarrow$ Standalone Coffee Patron (`50 GP`).
+  * `3,000 EGP` $
+ightarrow$ Standard BLS Workshop (`200 GP`).
+  * `3,250 EGP` $
+ightarrow$ BLS Workshop + Coffee Booster (`250 GP`).
+  * `250 EGP` / `$5` $
+ightarrow$ Standalone Coffee Patron (`50 GP`).
 * **Affiliate Referral Node:** Extracted from pre-filled message parameter (e.g., `ref: GA-000`).
 
 ---
@@ -53,7 +56,7 @@ The webhook dispatches an HTTPS POST payload to the master Apps Script Web App e
   "action": "bls_registration",
   "fullName": "د. أحمد عبد الرحمن",
   "email": "ahmed.abdelrahman@gmail.com",
-  "phone": "+201015922628",
+  "phone": "+2+20 101 592 2628",
   "university": "جامعة الخرطوم | University of Khartoum",
   "role": "طبيب امتياز (House Officer)",
   "workshopTrack": "BLS_DOKKI_CAIRO_AUG28_2026",
@@ -93,7 +96,7 @@ The webhook router receives the JSON response:
 It immediately triggers an automated WhatsApp message to the candidate:
 
 ```text
-🏛️ GemIInI Academy — Sovereign Digital Credential Issued
+🏛️ GemIInI Academy — Independent Digital Credential Issued
 
 Dear Dr. أحمد عبد الرحمن,
 
@@ -112,7 +115,7 @@ https://geneacademy.net/dashboard
 
 Venue: Dr. Sabri Training Center (Lic. 1549 · Reg. 96628) — Dokki, Cairo, Egypt.
 
-Welcome to the Sovereign Medical Ecosystem.
+Welcome to the Independent Medical Ecosystem.
 
 — GemIInI Academy Academic Operations Desk
 ```

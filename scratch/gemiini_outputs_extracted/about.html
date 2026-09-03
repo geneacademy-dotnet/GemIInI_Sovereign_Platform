@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth bg-slate-50 text-slate-900">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>عن المنصة | GemIInI Academy &amp; SudaGene Consortium</title>
+<meta name="description" content="من نحن، وكيف تنضم إلينا: التسجيل، الدورات، ورش العمل، ونظام نقاط GP.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    cyan: { DEFAULT: '#0891B2', light: '#06B6D4' },
+                    gold: { DEFAULT: '#B48028' }
+                },
+                fontFamily: {
+                    cairo: ['"Cairo"', 'sans-serif'],
+                    sans: ['"Plus Jakarta Sans"', '"Cairo"', 'sans-serif'],
+                    mono: ['"IBM Plex Mono"', 'monospace']
+                }
+            }
+        }
+    }
+</script>
+<style>
+    body { font-family: 'Cairo', sans-serif; background-color: #F8FAFC; color: #0F172A; }
+    .card { background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 1.25rem; }
+    .card:hover { border-color: #0891B2; }
+    .step-num { width: 2.25rem; height: 2.25rem; border-radius: 9999px; background: #0891B2; color: #fff; font-family: 'IBM Plex Mono', monospace; font-weight: 800; display: flex; align-items: center; justify-content: center; font-size: 0.95rem; flex-shrink: 0; }
+</style>
+</head>
+<body class="min-h-screen flex flex-col antialiased">
+
+<!-- NAV -->
+<header class="sticky top-0 z-50 bg-white/90 backdrop-blur-xl border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+        <a href="index.html" class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-lg bg-cyan/10 border border-cyan/30 flex items-center justify-center font-bold text-cyan font-mono text-xs">GA</div>
+            <div class="leading-tight">
+                <span class="text-base font-black text-slate-900 block">GemIInI<span class="text-cyan-600">.Academy</span></span>
+                <span class="text-[10px] text-slate-500 font-mono block">SudaGene Consortium</span>
+            </div>
+        </a>
+        <nav class="hidden md:flex items-center gap-7 text-sm font-semibold text-slate-600">
+            <a href="index.html" class="hover:text-cyan-600">الرئيسية</a>
+            <a href="courses.html" class="hover:text-cyan-600">الدورات والورش</a>
+            <a href="about.html" class="text-cyan-700 font-bold">من نحن</a>
+            <a href="journal.html" class="hover:text-cyan-600">المجلة</a>
+            <a href="verify.html" class="hover:text-cyan-600 font-mono">SudaPass™</a>
+        </nav>
+        <a href="join.html" class="px-4 py-2 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-xs sm:text-sm shadow-sm">سجّل الآن ➔</a>
+    </div>
+</header>
+
+<main class="flex-grow">
+
+    <!-- HERO — PURPOSE ONLY -->
+    <section class="bg-white border-b border-slate-200 py-14">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center space-y-4">
+            <h1 class="text-3xl sm:text-5xl font-black text-slate-900 leading-tight">
+                منصة واحدة لتدريبك، اعتمادك، ومسارك المهني
+            </h1>
+            <p class="text-slate-600 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
+                GemIInI Academy هي منظومة تدريب واعتماد سريري للأطباء والباحثين السودانيين — تجمع بين دورات معتمدة، ورش عمل عملية، وسجل مهني رقمي موثّق (SudaPass™) يتابعك من أول تسجيل إلى آخر اعتماد.
+            </p>
+        </div>
+    </section>
+
+    <!-- WHY: BUSINESS + ACADEMIC, SIDE BY SIDE -->
+    <section class="max-w-5xl mx-auto px-4 sm:px-6 py-14 grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="card p-7 space-y-3">
+            <span class="text-[11px] font-mono font-bold text-cyan-700 bg-cyan-50 border border-cyan-200 px-3 py-1 rounded-full">الجانب الأكاديمي</span>
+            <h2 class="text-lg font-bold text-slate-900">اعتماد سريري حقيقي</h2>
+            <p class="text-sm text-slate-600 leading-relaxed">محتوى مبني على حالات سريرية حقيقية (2,500+ حالة)، مراجَع أكاديمياً، ومرتبط بسجل رقمي دائم يوثّق ساعاتك التدريبية ونتائجك.</p>
+        </div>
+        <div class="card p-7 space-y-3">
+            <span class="text-[11px] font-mono font-bold text-gold bg-gold/10 border border-gold/30 px-3 py-1 rounded-full">الجانب العملي</span>
+            <h2 class="text-lg font-bold text-slate-900">دورات وورش تُحجز مباشرة</h2>
+            <p class="text-sm text-slate-600 leading-relaxed">مقاعد محدودة، أسعار واضحة، وتسجيل فوري. كل دورة أو ورشة لها صفحة حجز مستقلة وسهلة.</p>
+        </div>
+    </section>
+
+    <!-- COURSES & EVENTS FOR SALE -->
+    <section class="bg-white border-y border-slate-200 py-14">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 space-y-8">
+            <h2 class="text-2xl sm:text-3xl font-black text-slate-900 text-center">الدورات والفعاليات المتاحة الآن</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="card p-6 space-y-3">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-mono font-bold text-cyan-700 bg-cyan-50 px-2 py-1 rounded">SMC-01</span>
+                        <span class="text-xs font-mono text-slate-400">+150 GP</span>
+                    </div>
+                    <h3 class="font-bold text-slate-900">منظومة اجتياز امتحان المجلس الطبي (SMC)</h3>
+                    <p class="text-xs text-slate-500 leading-relaxed">2,500 حالة سريرية عبر 8 تخصصات، بنموذج محاكاة تفاعلي.</p>
+                    <a href="join.html" class="block text-center py-2.5 rounded-xl bg-slate-900 hover:bg-cyan-600 text-white font-bold text-xs">بناء الهوية والتسجيل ➔</a>
+                </div>
+
+                <div class="card p-6 space-y-3">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-mono font-bold text-cyan-700 bg-cyan-50 px-2 py-1 rounded">AHA-BLS-01</span>
+                        <span class="text-xs font-mono text-slate-900 font-bold">3,000 EGP</span>
+                    </div>
+                    <h3 class="font-bold text-slate-900">ورشة الإنعاش القلبي (AHA BLS) — القاهرة</h3>
+                    <p class="text-xs text-slate-500 leading-relaxed">تدريب عملي 1:1 على دمى ذكية. 12 مقعداً فقط لكل دفعة.</p>
+                    <a href="bls.html" class="block text-center py-2.5 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-xs">حجز مقعد الآن ➔</a>
+                </div>
+
+                <div class="card p-6 space-y-3">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-mono font-bold text-cyan-700 bg-cyan-50 px-2 py-1 rounded">BSS-02</span>
+                        <span class="text-xs font-mono text-slate-400">+500 GP</span>
+                    </div>
+                    <h3 class="font-bold text-slate-900">المهارات الجراحية الأساسية</h3>
+                    <p class="text-xs text-slate-500 leading-relaxed">تدريب مكثف على الخياطة والتعقيم الجراحي. مقاعد محدودة.</p>
+                    <a href="join.html" class="block text-center py-2.5 rounded-xl bg-slate-900 hover:bg-cyan-600 text-white font-bold text-xs">الانضمام لقائمة الانتظار ➔</a>
+                </div>
+
+                <div class="card p-6 space-y-3">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-mono font-bold text-cyan-700 bg-cyan-50 px-2 py-1 rounded">MOL-01</span>
+                        <span class="text-xs font-mono text-slate-400">+300 GP</span>
+                    </div>
+                    <h3 class="font-bold text-slate-900">دبلوم الطب الجزيئي والجينات</h3>
+                    <p class="text-xs text-slate-500 leading-relaxed">مسار توجيه بحثي ضمن مصفوفة 15:5:1.</p>
+                    <a href="join.html" class="block text-center py-2.5 rounded-xl bg-slate-900 hover:bg-cyan-600 text-white font-bold text-xs">الانضمام لمصفوفة التوجيه ➔</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GP POINTS — CLEAR TABLE -->
+    <section class="max-w-4xl mx-auto px-4 sm:px-6 py-14 space-y-6">
+        <div class="text-center space-y-2">
+            <h2 class="text-2xl sm:text-3xl font-black text-slate-900">نظام نقاط GP — ماذا تعني وماذا تفتح لك</h2>
+            <p class="text-sm text-slate-500">كل نشاط على المنصة يُسجَّل كنقاط في ملفك الرقمي الدائم.</p>
+        </div>
+
+        <div class="card overflow-hidden">
+            <table class="w-full text-sm">
+                <thead class="bg-slate-50 border-b border-slate-200">
+                    <tr class="text-right">
+                        <th class="px-5 py-3 font-bold text-slate-700">الإجراء</th>
+                        <th class="px-5 py-3 font-bold text-slate-700 font-mono text-center">النقاط</th>
+                        <th class="px-5 py-3 font-bold text-slate-700">ماذا يفتح لك</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100">
+                    <tr>
+                        <td class="px-5 py-4">التسجيل وإنشاء الهوية (GA-ID)</td>
+                        <td class="px-5 py-4 text-center font-mono font-bold text-cyan-700">25+</td>
+                        <td class="px-5 py-4 text-slate-600">هوية سيادية موثّقة + دخول مبدئي للمنصة</td>
+                    </tr>
+                    <tr>
+                        <td class="px-5 py-4">اعتماد البيانات الأكاديمية (مراجعة يدوية)</td>
+                        <td class="px-5 py-4 text-center font-mono font-bold text-cyan-700">475+</td>
+                        <td class="px-5 py-4 text-slate-600">فتح جميع بنوك الأسئلة الثمانية (2,500 حالة)</td>
+                    </tr>
+                    <tr>
+                        <td class="px-5 py-4">إتمام ورشة عملية (BLS / BSS-2)</td>
+                        <td class="px-5 py-4 text-center font-mono font-bold text-cyan-700">500</td>
+                        <td class="px-5 py-4 text-slate-600">شهادة موثقة على السجل السيادي (verify.html)</td>
+                    </tr>
+                    <tr>
+                        <td class="px-5 py-4">اجتياز حالة سريرية</td>
+                        <td class="px-5 py-4 text-center font-mono font-bold text-cyan-700">10</td>
+                        <td class="px-5 py-4 text-slate-600">تقدم مباشر في سجلك السريري</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p class="text-xs text-slate-400 text-center">التأليف العلمي والمشاركة في الأبحاث تخضع لمعايير الإسهام العلمي الفعلي (ICMJE)، ولا تُمنح بالنقاط.</p>
+    </section>
+
+    <!-- 4-STEP JOURNEY -->
+    <section class="bg-white border-y border-slate-200 py-14">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 space-y-8">
+            <h2 class="text-2xl sm:text-3xl font-black text-slate-900 text-center">رحلتك خطوة بخطوة</h2>
+            <div class="space-y-5">
+                <div class="flex items-start gap-4">
+                    <div class="step-num">1</div>
+                    <div>
+                        <h3 class="font-bold text-slate-900">سجّل واحصل على هويتك</h3>
+                        <p class="text-sm text-slate-500">عبر <a href="join.html" class="text-cyan-700 font-semibold underline">join.html</a> — دقيقتان، ويصدر معرّفك (GA-ID) فوراً.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <div class="step-num">2</div>
+                    <div>
+                        <h3 class="font-bold text-slate-900">اختر دورتك أو مقعدك</h3>
+                        <p class="text-sm text-slate-500">من <a href="courses.html" class="text-cyan-700 font-semibold underline">قائمة الدورات</a> أعلاه — سريري، جراحي، أو بحثي.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <div class="step-num">3</div>
+                    <div>
+                        <h3 class="font-bold text-slate-900">تدرّب واجمع نقاط GP</h3>
+                        <p class="text-sm text-slate-500">كل حالة سريرية وكل ورشة تُضاف مباشرة لسجلك.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <div class="step-num">4</div>
+                    <div>
+                        <h3 class="font-bold text-slate-900">وثّق اعتمادك</h3>
+                        <p class="text-sm text-slate-500">عبر <a href="verify.html" class="text-cyan-700 font-semibold underline">SudaPass™</a> — سجل عام يمكن لأي جهة التحقق منه.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW TO JOIN BEYOND STUDYING -->
+    <section class="max-w-5xl mx-auto px-4 sm:px-6 py-14 space-y-8">
+        <h2 class="text-2xl sm:text-3xl font-black text-slate-900 text-center">طرق أخرى للانضمام إلينا</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <div class="card p-6 space-y-2 text-center">
+                <h3 class="font-bold text-slate-900 text-sm">مدرّب سريري</h3>
+                <p class="text-xs text-slate-500 leading-relaxed">قدّم ورشة أو محاضرة ضمن مساراتنا.</p>
+                <a href="join.html" class="inline-block text-xs font-bold text-cyan-700 underline mt-1">تواصل معنا ➔</a>
+            </div>
+            <div class="card p-6 space-y-2 text-center">
+                <h3 class="font-bold text-slate-900 text-sm">قائد مجموعة بحثية (15:5:1)</h3>
+                <p class="text-xs text-slate-500 leading-relaxed">أشرف على مجموعة توجيه بحثي طلابية.</p>
+                <a href="journal.html" class="inline-block text-xs font-bold text-cyan-700 underline mt-1">اعرف المزيد ➔</a>
+            </div>
+            <div class="card p-6 space-y-2 text-center">
+                <h3 class="font-bold text-slate-900 text-sm">سفير جامعتك</h3>
+                <p class="text-xs text-slate-500 leading-relaxed">مثّل GemIInI في كليتك ونظّم فعاليات محلية.</p>
+                <a href="join.html" class="inline-block text-xs font-bold text-cyan-700 underline mt-1">سجّل اهتمامك ➔</a>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer class="bg-white border-t border-slate-200 py-8 text-center text-xs text-slate-500 font-mono">
+    &copy; 2026 GemIInI Academy · SudaGene Consortium Network. All Rights Reserved.
+</footer>
+
+</body>
+</html>

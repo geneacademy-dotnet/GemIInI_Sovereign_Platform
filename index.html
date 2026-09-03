@@ -1,1279 +1,717 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SudaGene & GemIInI Academy | المنظومة السيادية للتعليم الطبي والتدريب السريري</title>
-    <meta name="description" content="المنظومة الرقمية والسريرية المعتمدة للأطباء والباحثين: ورشة دعم الحياة الأساسي المعتمدة (AHA BLS) بالقاهرة، بنك أسئلة المجلس الطبي السوداني (SMC)، تدريب الجراحة العملية (BSS-2)، ودبلومات الطب الجزيئي.">
-    
-    <!-- OpenGraph Metadata for Perfect Link Sharing on WhatsApp / Facebook / Telegram -->
-    <meta property="og:title" content="منظومة GemIInI للتعليم الطبي | احجز ورشة BLS وجرّب المحاكي السريري مجاناً">
-    <meta property="og:description" content="تدريب سريري معتمد (AHA & SMC): ورشة الإنعاش القلبي بالدقي (28 أغسطس)، بنك أسئلة التسجيل الدائم، وتدريب الجراحة BSS-2.">
-    <meta property="og:type" content="website">
-    <meta property="og:locale" content="ar_AR">
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --bg-obsidian: #04080F;
-            --bg-surface: #090F1D;
-            --bg-card: #0D1629;
-            --accent-cyan: #00F2FE;
-            --accent-red: #EF4444;
-            --accent-green: #10B981;
-            --gold-sovereign: #F59E0B;
-            --teal-medical: #2DE0C2;
-            --violet-gene: #A78BFA;
-            --text-muted: #94A3B8;
-            --text-light: #F8FAFC;
-            --border-glass: rgba(0, 242, 254, 0.15);
-            --border-subtle: rgba(255, 255, 255, 0.08);
-            --radius-sm: 8px;
-            --radius-md: 14px;
-            --radius-lg: 20px;
-        }
-
-        * { box-sizing: border-box; }
-
-        body {
-            background-color: var(--bg-obsidian);
-            color: var(--text-light);
-            font-family: 'Cairo', sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        .mono {
-            font-family: 'IBM Plex Mono', monospace;
-        }
-
-        /* 1. TOP URGENT ANNOUNCEMENT RIBBON */
-        .top-bls-bar {
-            background: linear-gradient(90deg, #991B1B 0%, #DC2626 50%, #991B1B 100%);
-            color: #FFFFFF;
-            padding: 0.65rem 1rem;
-            text-align: center;
-            font-size: 0.88rem;
-            font-weight: 700;
-            position: sticky;
-            top: 0;
-            z-index: 1002;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.25);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 0.6rem;
-            flex-wrap: wrap;
-        }
-
-        .top-bls-bar .badge-live {
-            background: #FFFFFF;
-            color: #991B1B;
-            padding: 0.15rem 0.6rem;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            font-weight: 900;
-            letter-spacing: 0.5px;
-            animation: pulse-red 2s infinite;
-        }
-
-        @keyframes pulse-red {
-            0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); }
-            70% { box-shadow: 0 0 0 8px rgba(255, 255, 255, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
-        }
-
-        .top-bls-bar a {
-            color: #FEF08A;
-            text-decoration: underline;
-            font-weight: 800;
-            margin-right: 0.4rem;
-        }
-
-        /* 2. NAVIGATION BAR */
-        header {
-            background: rgba(9, 15, 29, 0.92);
-            border-bottom: 1px solid var(--border-glass);
-            backdrop-filter: blur(14px);
-            position: sticky;
-            top: 38px;
-            z-index: 1000;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.85rem 1.5rem;
-        }
-
-        .brand-logo {
-            font-size: 1.4rem;
-            font-weight: 900;
-            color: var(--text-light);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .brand-logo span {
-            color: var(--accent-cyan);
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 1.2rem;
-        }
-
-        .nav-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 600;
-            transition: color 0.25s;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent-cyan);
-        }
-
-        .nav-links a.active-link {
-            color: var(--accent-cyan);
-            font-weight: 800;
-        }
-
-        .nav-action-btn {
-            background: linear-gradient(135deg, #DC2626, #EF4444);
-            color: #FFFFFF !important;
-            padding: 0.5rem 1.2rem;
-            border-radius: var(--radius-sm);
-            font-weight: 800 !important;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            box-shadow: 0 0 15px rgba(239, 68, 68, 0.35);
-            transition: all 0.25s ease;
-        }
-
-        .nav-action-btn:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 0 25px rgba(239, 68, 68, 0.55);
-        }
-
-        /* 3. HERO SECTION */
-        .hero-section {
-            padding: 3.5rem 1.5rem 2.5rem 1.5rem;
-            max-width: 1050px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .trust-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.6rem;
-            background: rgba(0, 242, 254, 0.08);
-            border: 1px solid rgba(0, 242, 254, 0.3);
-            padding: 0.35rem 1.2rem;
-            border-radius: 999px;
-            color: var(--accent-cyan);
-            font-size: 0.85rem;
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-        }
-
-        .hero-section h1 {
-            font-size: clamp(2rem, 4.5vw, 3.2rem);
-            line-height: 1.3;
-            margin-bottom: 1.2rem;
-            font-weight: 900;
-        }
-
-        .hero-section h1 span.highlight {
-            background: linear-gradient(90deg, #00F2FE, #38BDF8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero-subtitle {
-            font-size: 1.15rem;
-            color: var(--text-muted);
-            margin-bottom: 2rem;
-            max-width: 820px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.8;
-        }
-
-        .cta-row {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin-bottom: 2rem;
-        }
-
-        .btn-primary-hero {
-            background: linear-gradient(135deg, #DC2626, #EF4444);
-            color: #FFFFFF;
-            padding: 0.95rem 2.2rem;
-            font-size: 1.05rem;
-            font-weight: 800;
-            border-radius: var(--radius-md);
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            box-shadow: 0 0 30px rgba(239, 68, 68, 0.4);
-            transition: all 0.3s;
-        }
-
-        .btn-primary-hero:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 0 40px rgba(239, 68, 68, 0.6);
-        }
-
-        .btn-simulator-hero {
-            background: rgba(0, 242, 254, 0.1);
-            border: 1px solid var(--accent-cyan);
-            color: var(--accent-cyan);
-            padding: 0.95rem 2rem;
-            font-size: 1.05rem;
-            font-weight: 800;
-            border-radius: var(--radius-md);
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: all 0.3s;
-        }
-
-        .btn-simulator-hero:hover {
-            background: var(--accent-cyan);
-            color: #04080F;
-            box-shadow: 0 0 30px rgba(0, 242, 254, 0.4);
-        }
-
-        /* 4. VERIFIED TRUST METRICS (STRICT GROUND TRUTH) */
-        .metrics-strip {
-            max-width: 1150px;
-            margin: 1.5rem auto 3.5rem auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.2rem;
-            padding: 0 1.5rem;
-        }
-
-        .metric-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-subtle);
-            border-radius: var(--radius-md);
-            padding: 1.4rem;
-            text-align: center;
-            transition: all 0.25s;
-        }
-
-        .metric-card:hover {
-            border-color: var(--accent-cyan);
-            transform: translateY(-3px);
-        }
-
-        .metric-val {
-            font-size: 2.2rem;
-            font-weight: 900;
-            color: var(--accent-cyan);
-            display: block;
-            line-height: 1.1;
-            margin-bottom: 0.3rem;
-        }
-
-        .metric-lbl {
-            font-size: 0.88rem;
-            font-weight: 700;
-            color: var(--text-light);
-            display: block;
-        }
-
-        .metric-proof {
-            font-size: 0.75rem;
-            color: #64748B;
-            margin-top: 0.3rem;
-            display: block;
-        }
-
-        /* 5. INTERACTIVE CLINICAL SIMULATOR (EASY TO TRY) */
-        .simulator-section {
-            max-width: 1100px;
-            margin: 0 auto 4.5rem auto;
-            padding: 0 1.5rem;
-        }
-
-        .simulator-box {
-            background: linear-gradient(180deg, rgba(13, 22, 41, 0.95), rgba(9, 15, 29, 0.98));
-            border: 1px solid var(--border-glass);
-            border-radius: var(--radius-lg);
-            padding: 2.2rem;
-            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.6);
-        }
-
-        .sim-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid var(--border-subtle);
-            padding-bottom: 1.2rem;
-            margin-bottom: 1.5rem;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .sim-title {
-            font-size: 1.4rem;
-            font-weight: 900;
-            color: #FFFFFF;
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            margin: 0;
-        }
-
-        .sim-tabs {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-        }
-
-        .sim-tab-btn {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--border-subtle);
-            color: var(--text-muted);
-            padding: 0.45rem 1rem;
-            border-radius: var(--radius-sm);
-            font-family: 'Cairo', sans-serif;
-            font-size: 0.85rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .sim-tab-btn.active {
-            background: var(--accent-cyan);
-            border-color: var(--accent-cyan);
-            color: #04080F;
-        }
-
-        .case-card {
-            background: rgba(4, 8, 15, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            border-radius: var(--radius-md);
-            padding: 1.8rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .case-meta {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.82rem;
-            color: var(--gold-sovereign);
-            font-weight: 700;
-            margin-bottom: 0.8rem;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .case-prompt {
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: #F8FAFC;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-        }
-
-        .options-list {
-            display: grid;
-            gap: 0.75rem;
-        }
-
-        .opt-btn {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: var(--radius-sm);
-            padding: 1rem 1.2rem;
-            color: #E2E8F0;
-            text-align: right;
-            font-family: 'Cairo', sans-serif;
-            font-size: 0.95rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .opt-btn:hover {
-            border-color: var(--accent-cyan);
-            background: rgba(0, 242, 254, 0.05);
-            color: #FFFFFF;
-        }
-
-        .opt-btn.correct {
-            background: rgba(16, 185, 129, 0.15) !important;
-            border-color: #10B981 !important;
-            color: #A7F3D0 !important;
-        }
-
-        .opt-btn.wrong {
-            background: rgba(239, 68, 68, 0.15) !important;
-            border-color: #EF4444 !important;
-            color: #FCA5A5 !important;
-        }
-
-        .explanation-box {
-            display: none;
-            background: rgba(16, 185, 129, 0.08);
-            border: 1px solid rgba(16, 185, 129, 0.3);
-            border-radius: var(--radius-md);
-            padding: 1.5rem;
-            margin-top: 1.2rem;
-            animation: fadeIn 0.3s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(5px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* 6. FEATURED BLS WORKSHOP SECTION */
-        .bls-feature-wrap {
-            max-width: 1100px;
-            margin: 0 auto 4.5rem auto;
-            padding: 0 1.5rem;
-        }
-
-        .bls-card {
-            background: linear-gradient(145deg, rgba(220, 38, 38, 0.1), rgba(9, 15, 29, 0.98));
-            border: 1px solid rgba(239, 68, 68, 0.4);
-            border-radius: var(--radius-lg);
-            padding: 2.5rem;
-            display: grid;
-            grid-template-columns: 1.3fr 0.9fr;
-            gap: 2.5rem;
-            align-items: center;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
-        }
-
-        @media (max-width: 900px) {
-            .bls-card { grid-template-columns: 1fr; }
-        }
-
-        .bls-card h2 {
-            font-size: 1.85rem;
-            font-weight: 900;
-            color: #FFFFFF;
-            margin-top: 0;
-            margin-bottom: 1rem;
-            line-height: 1.35;
-        }
-
-        .bls-card p {
-            color: #CBD5E1;
-            font-size: 0.96rem;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-        }
-
-        .specs-grid {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 1.5rem 0;
-            display: grid;
-            gap: 0.6rem;
-        }
-
-        .specs-grid li {
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            font-size: 0.92rem;
-            color: #F1F5F9;
-        }
-
-        .specs-grid li span.tick {
-            color: #EF4444;
-            font-weight: 900;
-            font-size: 1.1rem;
-        }
-
-        .checkout-box {
-            background: rgba(4, 8, 15, 0.8);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: var(--radius-md);
-            padding: 2rem;
-            text-align: center;
-        }
-
-        .price-badge {
-            margin-bottom: 1.2rem;
-        }
-
-        .price-amount {
-            font-size: 2.4rem;
-            font-weight: 900;
-            color: #FEF08A;
-            line-height: 1;
-        }
-
-        .price-note {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-top: 0.4rem;
-        }
-
-        .btn-checkout {
-            background: linear-gradient(135deg, #DC2626, #EF4444);
-            color: #FFFFFF;
-            width: 100%;
-            padding: 1rem;
-            border-radius: var(--radius-sm);
-            font-size: 1.05rem;
-            font-weight: 900;
-            text-decoration: none;
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            gap: 0.5rem;
-            transition: all 0.3s;
-            box-shadow: 0 0 25px rgba(239, 68, 68, 0.4);
-            margin-bottom: 1rem;
-        }
-
-        .btn-checkout:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 0 35px rgba(239, 68, 68, 0.7);
-        }
-
-        .whatsapp-instant-link {
-            color: #A7F3D0;
-            font-size: 0.85rem;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.4rem;
-            font-weight: 700;
-        }
-
-        .whatsapp-instant-link:hover {
-            text-decoration: underline;
-        }
-
-        /* 7. ALL COURSES & PACKAGES GRID */
-        .courses-section {
-            max-width: 1200px;
-            margin: 0 auto 5rem auto;
-            padding: 0 1.5rem;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-header h2 {
-            font-size: 2rem;
-            font-weight: 900;
-            color: #FFFFFF;
-            margin-bottom: 0.6rem;
-        }
-
-        .section-header p {
-            color: var(--text-muted);
-            font-size: 1rem;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .courses-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .course-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-subtle);
-            border-radius: var(--radius-md);
-            padding: 2rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: all 0.3s ease;
-        }
-
-        .course-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-cyan);
-        }
-
-        .course-badge {
-            display: inline-block;
-            padding: 0.3rem 0.8rem;
-            border-radius: 6px;
-            font-size: 0.75rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            width: fit-content;
-        }
-
-        .badge-red { background: rgba(239, 68, 68, 0.15); color: #FCA5A5; border: 1px solid rgba(239, 68, 68, 0.3); }
-        .badge-cyan { background: rgba(0, 242, 254, 0.12); color: var(--accent-cyan); border: 1px solid rgba(0, 242, 254, 0.3); }
-        .badge-gold { background: rgba(245, 158, 11, 0.15); color: var(--gold-sovereign); border: 1px solid rgba(245, 158, 11, 0.3); }
-        .badge-purple { background: rgba(167, 139, 250, 0.15); color: var(--violet-gene); border: 1px solid rgba(167, 139, 250, 0.3); }
-
-        .course-card h3 {
-            font-size: 1.25rem;
-            font-weight: 800;
-            color: #FFFFFF;
-            margin-top: 0;
-            margin-bottom: 0.8rem;
-        }
-
-        .course-card p {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-        }
-
-        .course-features {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 1.5rem 0;
-        }
-
-        .course-features li {
-            font-size: 0.85rem;
-            color: #CBD5E1;
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: flex-start;
-            gap: 0.4rem;
-        }
-
-        .course-features li::before {
-            content: "•";
-            color: var(--accent-cyan);
-            font-weight: bold;
-        }
-
-        .btn-course {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--border-subtle);
-            color: #FFFFFF;
-            padding: 0.75rem;
-            border-radius: var(--radius-sm);
-            text-align: center;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.9rem;
-            transition: all 0.2s;
-        }
-
-        .btn-course:hover {
-            background: var(--accent-cyan);
-            color: #04080F;
-            border-color: var(--accent-cyan);
-        }
-
-        /* 8. FAST ID VERIFICATION LOOKUP */
-        .lookup-box {
-            max-width: 800px;
-            margin: 0 auto 5rem auto;
-            padding: 0 1.5rem;
-            text-align: center;
-        }
-
-        .lookup-inner {
-            background: var(--bg-surface);
-            border: 1px solid var(--border-subtle);
-            border-radius: var(--radius-md);
-            padding: 2.5rem;
-        }
-
-        .lookup-inner h3 {
-            font-size: 1.5rem;
-            font-weight: 800;
-            margin-top: 0;
-            margin-bottom: 0.5rem;
-        }
-
-        .lookup-inner p {
-            color: var(--text-muted);
-            font-size: 0.92rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .lookup-input-group {
-            display: flex;
-            gap: 0.6rem;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .lookup-input-group input {
-            flex: 1;
-            background: rgba(0, 0, 0, 0.5);
-            border: 1px solid var(--border-subtle);
-            border-radius: var(--radius-sm);
-            padding: 0.85rem 1rem;
-            color: #FFFFFF;
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 1rem;
-            text-align: center;
-        }
-
-        .lookup-input-group input:focus {
-            outline: none;
-            border-color: var(--accent-cyan);
-        }
-
-        .lookup-input-group button {
-            background: var(--accent-cyan);
-            color: #04080F;
-            border: none;
-            border-radius: var(--radius-sm);
-            padding: 0.85rem 1.5rem;
-            font-family: 'Cairo', sans-serif;
-            font-weight: 800;
-            font-size: 0.95rem;
-            cursor: pointer;
-            transition: opacity 0.2s;
-        }
-
-        .lookup-input-group button:hover {
-            opacity: 0.9;
-        }
-
-        /* 9. FLOATING WHATSAPP BUTTON */
-        .floating-whatsapp {
-            position: fixed;
-            bottom: 25px;
-            left: 25px;
-            background: #25D366;
-            color: #FFFFFF;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 32px;
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
-            z-index: 9999;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-
-        .floating-whatsapp:hover {
-            transform: scale(1.1);
-            box-shadow: 0 10px 35px rgba(37, 211, 102, 0.6);
-        }
-
-        /* 10. FOOTER */
-        footer {
-            border-top: 1px solid var(--border-subtle);
-            padding: 3.5rem 1.5rem 2.5rem 1.5rem;
-            background: var(--bg-surface);
-            color: var(--text-muted);
-            font-size: 0.88rem;
-        }
-
-        .footer-grid {
-            max-width: 1200px;
-            margin: 0 auto 2.5rem auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 2rem;
-        }
-
-        .footer-grid h4 {
-            color: #FFFFFF;
-            font-size: 1rem;
-            margin-top: 0;
-            margin-bottom: 1rem;
-        }
-
-        .footer-grid ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .footer-grid ul li {
-            margin-bottom: 0.5rem;
-        }
-
-        .footer-grid ul li a {
-            color: var(--text-muted);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .footer-grid ul li a:hover {
-            color: var(--accent-cyan);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            padding-top: 2rem;
-            font-size: 0.82rem;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SudaGene Consortium | Pre-Collegiate Fellowship &amp; Medical Evidence Synthesis</title>
+  <meta name="description" content="The SudaGene Consortium operates the National Pre-Medical Academy in Exile. We provide the free Open Pre-Collegiate Fellowship (Sudanese Biology Curriculum) and bridge genomic biology with clinical realities through the MTC framework.">
+  <link rel="canonical" href="https://geneacademy.net/">
+
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-H1Q67PP2DJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-H1Q67PP2DJ', { 'anonymize_ip': true });
+  </script>
+
+  <!-- Canonical Schema.org Data (MedicalBusiness & EducationalOrganization) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "EducationalOrganization",
+        "@id": "https://geneacademy.net/#organization",
+        "name": "SudaGene Medical Platform",
+        "alternateName": "GemIInI Academy",
+        "url": "https://geneacademy.net",
+        "logo": "https://geneacademy.net/assets/logo.png",
+        "founder": {
+          "@type": "Person",
+          "@id": "https://geneacademy.net/#founder",
+          "name": "Dr. Mohamed Gibbril",
+          "jobTitle": "Founder & Executive Director",
+          "alumniOf": "University of Khartoum Faculty of Medicine"
+        },
+        "department": [
+          {
+            "@type": "EducationalOrganization",
+            "name": "GemIInI Academy",
+            "description": "The Software & Digital Engine governing the GA-ID credential ledger and MTC framework."
+          },
+          {
+            "@type": "MedicalBusiness",
+            "name": "GLOMEt",
+            "description": "Global Medical Tech providing turnkey laboratory infrastructure and genomic literacy."
+          },
+          {
+            "@type": "Periodical",
+            "name": "GemIInI Journal of Medical Research",
+            "alternateName": "GJMR"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <!-- Canonical Design Tokens & Fonts -->
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              navy: '#123B5D',
+              teal: '#168C8C',
+              gold: '#C9A227',
+              bg: '#F7FAFC',
+              card: '#FFFFFF',
+              dark: '#1F2937',
+              muted: '#64748B',
+              emerald: '#16805B'
+            }
+          },
+          fontFamily: {
+            heading: ['Montserrat', 'Tajawal', 'sans-serif'],
+            body: ['Inter', 'Cairo', 'sans-serif'],
+            mono: ['"IBM Plex Mono"', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
 </head>
-<body>
 
-    <!-- 1. TOP URGENT ANNOUNCEMENT RIBBON -->
-    <div class="top-bls-bar">
-        <span class="badge-live">تسجيل مفتوح</span>
-        <span>البرنامج السريري المعتمد لدعم الحياة الأساسي (AHA & SMC BLS) — القاهرة، الجمعة 28 أغسطس 2026 (السعة: 12 مقعداً فقط)</span>
-        <a href="bls.html">احجز مقعدك الآن ➔</a>
+<body class="bg-[#F7FAFC] text-[#1F2937] font-body antialiased selection:bg-teal-100 selection:text-teal-900">
+
+  <!-- TOP UTILITY BAR -->
+  <div class="bg-[#123B5D] text-slate-200 text-xs py-2 px-4 border-b border-slate-700 font-mono">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-2 hidden md:flex">
+        <span class="w-2 h-2 rounded-full bg-[#16805B]"></span>
+        <span>GENE ACADEMY &bull; INDEPENDENT MEDICAL ECOSYSTEM</span>
+      </div>
+      <div class="flex items-center gap-4 ml-auto">
+        <div class="flex items-center gap-1 font-bold">
+          <span class="text-white">English</span>
+          <span class="text-slate-500">/</span>
+          <a href="index_ar.html" class="text-slate-300 hover:text-white transition font-sans">العربية</a>
+        </div>
+        <span class="text-slate-500 hidden sm:inline">|</span>
+        <a href="auth.html" class="text-slate-300 hover:text-white font-bold transition flex items-center gap-1">
+          Member Sign In <span aria-hidden="true">&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN HEADER & NAVIGATION -->
+  <header class="bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="index.html" class="flex items-center gap-3 shrink-0 group">
+        <div class="w-11 h-11 rounded-xl bg-[#123B5D] text-white font-black flex items-center justify-center font-mono text-base shadow-sm group-hover:bg-[#168C8C] transition-colors">
+          GA
+        </div>
+        <div>
+          <span class="text-xl font-bold font-heading text-[#123B5D] tracking-tight block">Gene Academy</span>
+          <span class="text-[10px] font-mono text-[#64748B] block tracking-wider uppercase">MEDICAL &amp; GENOMIC CONSORTIUM</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden lg:flex items-center gap-6 text-sm font-semibold text-[#1F2937]" id="desktop-nav">
+        
+        <!-- Programs Dropdown -->
+        <div class="relative group">
+          <button class="hover:text-[#168C8C] transition pb-1 flex items-center gap-1">
+            Programs
+            <svg class="w-4 h-4 text-slate-400 group-hover:text-[#168C8C] transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div class="absolute left-0 top-full pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-64 z-50">
+            <div class="bg-white border border-slate-200 rounded-xl shadow-xl overflow-hidden flex flex-col py-2">
+              <a href="courses.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Clinical Training</a>
+              <a href="smc.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">SMC Preparation</a>
+              <a href="molecular.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Molecular Medicine</a>
+              <a href="research.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Research Training</a>
+              <a href="stem.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Junior STEM</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Professional Identity Dropdown -->
+        <div class="relative group">
+          <button class="hover:text-[#168C8C] transition pb-1 flex items-center gap-1">
+            Professional Identity
+            <svg class="w-4 h-4 text-slate-400 group-hover:text-[#168C8C] transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div class="absolute left-0 top-full pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-64 z-50">
+            <div class="bg-white border border-slate-200 rounded-xl shadow-xl overflow-hidden flex flex-col py-2">
+              <a href="identity.html#how-it-works" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">How It Works</a>
+              <a href="identity.html#training-records" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Training Records</a>
+              <a href="verify.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Verification</a>
+              <a href="identity.html#progress" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Member Progress</a>
+              <a href="identity.html#employer" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Employer & Institutional Use</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Research Dropdown -->
+        <div class="relative group">
+          <button class="hover:text-[#168C8C] transition pb-1 flex items-center gap-1">
+            Research
+            <svg class="w-4 h-4 text-slate-400 group-hover:text-[#168C8C] transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div class="absolute left-0 top-full pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-64 z-50">
+            <div class="bg-white border border-slate-200 rounded-xl shadow-xl overflow-hidden flex flex-col py-2">
+              <a href="journal.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">GJMR (Medical Journal)</a>
+              <a href="index.html#services" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">GLOMEt</a>
+              <a href="research.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">SudaGene Research Centre</a>
+              <div class="border-t border-slate-100 my-1"></div>
+              <a href="ideas.html" class="px-4 py-2 hover:bg-slate-50 font-bold text-[#123B5D] hover:text-[#168C8C] transition">Submit a Research Idea</a>
+            </div>
+          </div>
+        </div>
+
+        <a href="universities.html" class="hover:text-[#168C8C] transition pb-1">Universities</a>
+
+        <!-- Institutions Dropdown -->
+        <div class="relative group">
+          <button class="hover:text-[#168C8C] transition pb-1 flex items-center gap-1">
+            Institutions
+            <svg class="w-4 h-4 text-slate-400 group-hover:text-[#168C8C] transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div class="absolute left-0 top-full pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-72 z-50">
+            <div class="bg-white border border-slate-200 rounded-xl shadow-xl overflow-hidden flex flex-col py-2">
+              <a href="academic-solutions.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Academic Solutions</a>
+              <a href="partnerships.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Training Partnerships</a>
+              <a href="academic-solutions.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Curriculum Support</a>
+              <div class="border-t border-slate-100 my-1"></div>
+              <a href="institutions.html" class="px-4 py-2 hover:bg-slate-50 font-bold text-[#123B5D] hover:text-[#168C8C] transition">Request a Partnership Briefing</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <!-- CTA & Mobile Menu Button -->
+      <div class="flex items-center gap-4 shrink-0">
+        <a href="join.html" class="hidden sm:inline-flex px-5 py-2.5 rounded-xl bg-[#123B5D] hover:bg-[#0E2E49] text-white font-heading font-semibold text-xs sm:text-sm shadow-md transition-all">
+          Join Our Network
+        </a>
+        
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobile-menu-toggle" class="lg:hidden p-2 text-slate-600 hover:text-[#123B5D] transition">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+      </div>
+
     </div>
 
-    <!-- 2. NAVIGATION BAR -->
-    <header>
-        <div class="nav-container">
-            <a href="index.html" class="brand-logo">
-                SUDAGENE<span>.</span>
+    <!-- Mobile Navigation Overlay (Hidden by default) -->
+    <div id="mobile-nav" class="hidden lg:hidden bg-white border-t border-slate-200 shadow-xl absolute top-full left-0 w-full z-40 max-h-[80vh] overflow-y-auto">
+      <div class="flex flex-col p-4 space-y-4 font-bold text-[#123B5D]">
+        <a href="courses.html" class="block pb-2 border-b border-slate-100 text-[#168C8C]">Programs &rarr;</a>
+        <a href="verify.html" class="block pb-2 border-b border-slate-100 text-[#168C8C]">Professional Identity &rarr;</a>
+        <a href="research.html" class="block pb-2 border-b border-slate-100 text-[#168C8C]">Research &rarr;</a>
+        <a href="universities.html" class="block pb-2 border-b border-slate-100">Universities</a>
+        <a href="institutions.html" class="block pb-2 border-b border-slate-100 text-[#168C8C]">Institutions &rarr;</a>
+        <a href="join.html" class="block text-center mt-4 px-5 py-3 rounded-xl bg-[#123B5D] text-white font-heading font-semibold text-sm shadow-md">
+          Join Our Network
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 1. HERO SECTION -->
+  <section class="relative bg-gradient-to-b from-[#123B5D] to-[#0D2A42] text-white py-20 lg:py-28 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        
+        <div class="space-y-6 text-center lg:text-left">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 text-teal-300 font-mono text-xs font-bold uppercase tracking-wider">
+            <span class="w-2 h-2 rounded-full bg-[#168C8C]"></span>
+            TRUSTED MEDICAL EDUCATION
+          </div>
+
+          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-bold font-heading tracking-tight leading-tight">
+            Turn Today’s Training into Your <span class="text-teal-300">Professional Pathway</span>
+          </h1>
+
+          <p class="text-base sm:text-lg text-slate-200 leading-relaxed max-w-xl">
+            Build a verified professional profile that connects your learning, skills, credentials, research interests, and future development.
+          </p>
+
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+            <a href="join.html" class="px-7 py-3.5 rounded-xl bg-[#168C8C] hover:bg-[#127272] text-white font-heading font-semibold text-sm shadow-md transition-all">
+              Join Our Network
             </a>
-            <nav class="nav-links">
-                <a href="index.html" class="active-link">الرئيسية</a>
-                <a href="#simulator">المحاكي السريري 🎯</a>
-                <a href="#courses">الدورات والاعتمادات</a>
-                <a href="reviews.html">سجل التدقيق ⭐</a>
-                <a href="universities.html">الجامعات (54)</a>
-                <a href="bls.html" class="nav-action-btn">⚡ حجز ورشة BLS</a>
-            </nav>
+            <a href="identity.html#how-it-works" class="px-7 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white font-heading font-semibold text-sm shadow-md transition-all">
+              See How Professional Identity Works
+            </a>
+          </div>
         </div>
-    </header>
 
-    <main>
-        <!-- 3. HERO SECTION -->
-        <section class="hero-section">
-            <div class="trust-pill">
-                🔒 المنظومة الطبية والسريرية المعتمدة • بيانات ومدخلات موثقة بالأدلة
-            </div>
-            <h1>
-                المنظومة السيادية للتعليم الطبي<br>
-                <span class="highlight">والتدريب السريري المعتمد للأطباء</span>
-            </h1>
-            <p class="hero-subtitle">
-                بوابتك الأولى للتدريب الميداني المعتمد (BLS & BSS-2)، التحضير لامتحانات المجلس الطبي السوداني (SMC)، ودبلومات الطب الجزيئي، مع توثيق الأصول والشهادات السريرية بالأدلة والبراهين الواقعية.
-            </p>
-            <div class="cta-row">
-                <a href="bls.html" class="btn-primary-hero">
-                    <span>احجز مقعدك في ورشة BLS (القاهرة 28 أغسطس)</span>
-                    <span class="mono">➔</span>
-                </a>
-                <a href="#simulator" class="btn-simulator-hero">
-                    <span>جرّب المحاكي السريري التفاعلي مجاناً</span>
-                    <span>🎯</span>
-                </a>
-            </div>
-        </section>
-
-        <!-- 4. VERIFIED TRUST METRICS STRIP -->
-        <section class="metrics-strip">
-            <div class="metric-card">
-                <span class="metric-val mono">35</span>
-                <span class="metric-lbl">جراحاً وطبيباً معتمداً</span>
-                <span class="metric-proof">خريجو دفعة الجراحة العملية (BSS-2) بالقاهرة</span>
-            </div>
-            <div class="metric-card">
-                <span class="metric-val mono">12</span>
-                <span class="metric-lbl">مقعداً حداً أقصى لورشة BLS</span>
-                <span class="metric-proof">لضمان دقة المحاكاة وتوزيع الدمى 1:1</span>
-            </div>
-            <div class="metric-card">
-                <span class="metric-val mono">92%</span>
-                <span class="metric-lbl">نسبة اجتياز المجلس الطبي (SMC)</span>
-                <span class="metric-proof">امتحان التسجيل الدائم — دورة يونيو 2026</span>
-            </div>
-            <div class="metric-card">
-                <span class="metric-val mono">54</span>
-                <span class="metric-lbl">كلية طبية وجامعة معتمدة</span>
-                <span class="metric-proof">السجل الأكاديمي الموحد للجامعات السودانية</span>
-            </div>
-        </section>
-
-        <!-- 5. INTERACTIVE CLINICAL SIMULATOR (EASY TO TRY) -->
-        <section id="simulator" class="simulator-section">
-            <div class="simulator-box">
-                <div class="sim-header">
-                    <div>
-                        <h2 class="sim-title">🎯 محاكي القرارات السريرية التفاعلي (MTC™ Engine)</h2>
-                        <span style="font-size: 0.85rem; color: var(--text-muted);">اختبر منهجية تفكيك الحالات السريرية المعتمدة في امتحانات المجلس الطبي (SMC) والزمالات الدولية</span>
-                    </div>
-                    <div class="sim-tabs">
-                        <button class="sim-tab-btn active" onclick="loadCase('cardio', this)">🫀 طوارئ القلب</button>
-                        <button class="sim-tab-btn" onclick="loadCase('surgery', this)">🔪 إصابات وحوادث</button>
-                        <button class="sim-tab-btn" onclick="loadCase('peds', this)">👶 طوارئ أطفال</button>
-                        <button class="sim-tab-btn" onclick="loadCase('obs', this)">🤰 نساء وتوليد</button>
-                    </div>
-                </div>
-
-                <div class="case-card">
-                    <div class="case-meta">
-                        <span id="case-spec">الطب الباطني • طوارئ القلب والأوعية</span>
-                        <span id="case-index" class="mono">SMC INDEX: #RAW-01-MED-442 • تكرار الامتحان: 92%</span>
-                    </div>
-                    <div id="case-prompt" class="case-prompt">
-                        مريض يبلغ من العمر 58 عاماً، حضر إلى قسم الحوادث يشكو من ألم حاد خلف القص يمتد إلى الذراع الأيسر منذ 3 ساعات. أظهر تخطيط القلب (ECG) ارتفاعاً في القطعة ST في الاتجاهات II, III, aVF (احتشاء سفلي Inferior MI). بعد إعطائه قرص نتروجليسرين تحت اللسان، هبط ضغط دمه فجأة إلى 75/45 mmHg مع وذمة وريدية وداجية (Elevated JVP) ورئتين صافيتين تماماً عند التسمع.<br><br>
-                        <strong>ما هي الخطوة العلاجية الفورية الأكثر أهمية والأولى في هذا السيناريو السريري؟</strong>
-                    </div>
-
-                    <div id="case-options" class="options-list">
-                        <!-- Rendered by JS -->
-                    </div>
-
-                    <div id="case-explanation" class="explanation-box">
-                        <div style="font-weight: 800; color: #10B981; margin-bottom: 0.4rem;" id="expl-title">✓ إجابة سريرية صحيحة (+10 GP)</div>
-                        <p style="margin: 0 0 0.8rem 0; color: #CBD5E1; font-size: 0.92rem; line-height: 1.7;" id="expl-text"></p>
-                        <div style="font-size: 0.85rem; color: var(--gold-sovereign); font-weight: 700;" id="expl-rule"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 6. FEATURED BLS WORKSHOP SECTION -->
-        <section id="bls-workshop" class="bls-feature-wrap">
-            <div class="bls-card">
-                <div>
-                    <div style="display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap;">
-                        <span class="course-badge badge-red">تدريب عملي 1:1</span>
-                        <span class="course-badge badge-cyan">اعتماد جمعية القلب الأمريكية AHA & SMC</span>
-                    </div>
-                    <h2>البرنامج السريري المعتمد لدعم الحياة الأساسي (AHA BLS) — القاهرة</h2>
-                    <p>
-                        تدريب عملي تطبيقي مكثف على أحدث دمى الإنعاش الذكية بإشراف استشاري معتمد، بالتعاون الأكاديمي مع <strong>مركز د. صبري أبو قرون للتدريب (ترخيص 1549 · سجل 96628)</strong>، لتمكين الأطباء من إتقان الإنعاش القلبي الرئوي واستخدام مزيل الرجفان الآلي (AED) وفق أحدث المعايير الدولية.
-                    </p>
-                    <ul class="specs-grid">
-                        <li><span class="tick">✓</span> <strong>الموعد:</strong> الجمعة 28 أغسطس 2026 — الساعة 9:00 صباحاً.</li>
-                        <li><span class="tick">✓</span> <strong>الموقع:</strong> مركز د. صبري للتدريب — الدقي، القاهرة، مصر.</li>
-                        <li><span class="tick">✓</span> <strong>السعة المعتمدة:</strong> 12 مقعداً فقط لضمان نسبة مدرب ومتدرب 1:1.</li>
-                        <li><span class="tick">✓</span> <strong>الشهادة والاعتماد:</strong> شهادة دولية معتمدة من AHA + اعتماد المجلس الطبي.</li>
-                        <li><span class="tick">✓</span> <strong>الرصيد الأكاديمي:</strong> منحة فورية +200 نقطة GP في السجل المهني الرقمي.</li>
-                    </ul>
-                </div>
-                <div class="checkout-box">
-                    <div class="price-badge">
-                        <div class="price-amount mono">3,000 EGP</div>
-                        <div class="price-note">رسوم البرنامج التدريبي الكامل + الشهادة المعتمدة</div>
-                    </div>
-                    <a href="bls.html" class="btn-checkout">
-                        <span>حجز المقعد وتأكيد التسجيل</span>
-                        <span>➔</span>
-                    </a>
-                    <a href="https://wa.me/201015922628?text=مرحباً،%20أود%20تأكيد%20حجز%20مقعدي%20في%20ورشة%20BLS%20القاهرة%2028%20أغسطس" target="_blank" class="whatsapp-instant-link">
-                        <span>💬 استفسار وتأكيد فوري عبر واتساب:</span>
-                        <strong class="mono">+20 101 592 2628</strong>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- 7. ALL CORE COURSES & PACKAGES -->
-        <section id="courses" class="courses-section">
-            <div class="section-header">
-                <h2>المسارات والبرامج التدريبية المعتمدة</h2>
-                <p>برامج سريرية وأكاديمية متكاملة مصممة خصيصاً للأطباء والباحثين في السودان والمنطقة</p>
-            </div>
-
-            <div class="courses-grid">
-                <!-- COURSE 1: BLS -->
-                <div class="course-card" style="border-top: 4px solid #EF4444;">
-                    <div>
-                        <span class="course-badge badge-red">ورشة عملية • القاهرة</span>
-                        <h3>برنامج دعم الحياة الأساسي (AHA BLS)</h3>
-                        <p>التدريب السريري المعتمد على الإنعاش القلبي الرئوي واستخدام أجهزة الصدمات الآلية (AED) بمركز د. صبري بالدقي.</p>
-                        <ul class="course-features">
-                            <li>اعتماد دولي من جمعية القلب الأمريكية AHA</li>
-                            <li>تدريب عملي 1:1 على دمى الإنعاش الذكية</li>
-                            <li>منحة +200 GP في السجل المهني</li>
-                        </ul>
-                    </div>
-                    <a href="bls.html" class="btn-course">تفاصيل وحجز الورشة ➔</a>
-                </div>
-
-                <!-- COURSE 2: SMC QUESTION BANK -->
-                <div class="course-card" style="border-top: 4px solid var(--accent-cyan);">
-                    <div>
-                        <span class="course-badge badge-cyan">بنك أسئلة رقمي تفاعلي</span>
-                        <h3>بنك أسئلة المجلس الطبي (SMC)</h3>
-                        <p>2,500 سيناريو سريري مفكك في 8 تخصصات طبية رئيسية وفق منهجية الآلية السريرية المزدوجة MTC™.</p>
-                        <ul class="course-features">
-                            <li>تغطية شاملة للباطنة، الجراحة، الأطفال، والنساء</li>
-                            <li>نسبة اجتياز معتمدة بلغت 92% لدورة 2026</li>
-                            <li>تفسير فسيولوجي وسريري لكل خيار خاطئ</li>
-                        </ul>
-                    </div>
-                    <a href="smc.html" class="btn-course">دخول بنك الأسئلة ➔</a>
-                </div>
-
-                <!-- COURSE 3: BSS-2 SURGERY -->
-                <div class="course-card" style="border-top: 4px solid var(--gold-sovereign);">
-                    <div>
-                        <span class="course-badge badge-gold">تدريب جراحي تطبيقي</span>
-                        <h3>المهارات الجراحية الأساسية (BSS-2)</h3>
-                        <p>برنامج الجراحة الميداني بالقاهرة بإشراف أ.د. أحمد عز (رئيس قسم الجراحة) لتدريب الأطباء على الخياطة والتدخلات الجراحية.</p>
-                        <ul class="course-features">
-                            <li>35 جراحاً وطبيباً خريجاً معتمداً</li>
-                            <li>تدريب على جروح الطوارئ، الخراجات، والعقد الجراحية</li>
-                            <li>شهادات معتمدة وموثقة بالسجل السيادي</li>
-                        </ul>
-                    </div>
-                    <a href="reviews.html" class="btn-course">استعراض تقرير الدفعة ➔</a>
-                </div>
-
-                <!-- COURSE 4: MOLECULAR MEDICINE -->
-                <div class="course-card" style="border-top: 4px solid var(--violet-gene);">
-                    <div>
-                        <span class="course-badge badge-purple">علوم الجينوم والبحوث</span>
-                        <h3>الطب الجزيئي والجينات (MM 1.0 - 8.0)</h3>
-                        <p>دبلومات متقدمة لتفسير تقارير التسلسل الجيني WES وتحليل البيانات البحثية بالتعاون مع باحثي معهد الأمراض المستوطنة.</p>
-                        <ul class="course-features">
-                            <li>تفسير الطفرات الوراثية وتطبيقات qPCR</li>
-                            <li>مجموعات الإشراف البحثي (Mentorship Pods)</li>
-                            <li>إنقاذ أطروحات الماجستير والدكتوراه</li>
-                        </ul>
-                    </div>
-                    <a href="courses.html" class="btn-course">استكشاف المنهج والبحوث ➔</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- 8. INSTANT ID VERIFICATION LOOKUP -->
-        <section class="lookup-box">
-            <div class="lookup-inner">
-                <h3>🔍 التحقق الفوري من الهوية والشهادات السريرية</h3>
-                <p>أدخل رقم الهوية المهنية الرقمية (GA#) للاستعلام عن حالة الاعتماد والرصيد الأكاديمي الموثق.</p>
-                <div class="lookup-input-group">
-                    <input type="text" id="quick-verify-id" placeholder="مثال: GA000 أو GA001" onkeydown="if(event.key==='Enter') executeQuickLookup()">
-                    <button type="button" onclick="executeQuickLookup()">تحقق ➔</button>
-                </div>
-                <div id="lookup-result" style="margin-top: 1rem; font-size: 0.9rem; display: none;"></div>
-            </div>
-        </section>
-    </main>
-
-    <!-- 9. FLOATING WHATSAPP HELPER BUTTON -->
-    <a href="https://wa.me/201015922628?text=مرحباً،%20أود%20الاستفسار%20عن%20ورشة%20BLS%20والبرامج%20التدريبية%20في%20منظومة%20GemIInI" target="_blank" class="floating-whatsapp" title="تواصل مباشر عبر واتساب">
-        💬
-    </a>
-
-    <!-- 10. FOOTER -->
-    <footer>
-        <div class="footer-grid">
-            <div>
-                <h4 style="color: var(--accent-cyan);">SUDAGENE CONSORTIUM</h4>
-                <p style="line-height: 1.7;">المنظومة الرقمية والسريرية الموحدة للعلوم الطبية والتدريب المهني للأطباء والعلماء السودانيين في الداخل والمهجر.</p>
-            </div>
-            <div>
-                <h4>البرامج السريرية</h4>
-                <ul>
-                    <li><a href="bls.html">ورشة الإنعاش القلبي (BLS)</a></li>
-                    <li><a href="smc.html">امتحانات المجلس الطبي (SMC)</a></li>
-                    <li><a href="reviews.html">تقارير دفعة الجراحة (BSS-2)</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4>الاعتمادات والسجلات</h4>
-                <ul>
-                    <li><a href="universities.html">سجل الجامعات السودانية (54)</a></li>
-                    <li><a href="reviews.html">سجل التدقيق السريري</a></li>
-                    <li><a href="verify.html">التحقق من الشهادات الرقمية</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4>التواصل المباشر والتحصيل</h4>
-                <ul>
-                    <li>المكتب الأكاديمي: <strong class="mono" style="color: #FEF08A;">+20 101 592 2628</strong></li>
-                    <li>فودافون كاش: <span class="mono">01015922628</span></li>
-                    <li>الموقع: مركز د. صبري للتدريب — الدقي، القاهرة</li>
-                </ul>
-            </div>
+        <div class="relative hidden lg:block">
+          <div class="absolute inset-0 bg-gradient-to-tr from-[#168C8C]/20 to-transparent rounded-3xl blur-2xl"></div>
+          <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=800" alt="Medical researchers in a modern laboratory" class="relative rounded-3xl shadow-2xl border border-white/10 object-cover aspect-[4/3]">
         </div>
-        <div class="footer-bottom">
-            <p class="mono">&copy; 2026 SudaGene Consortium · GemIInI Academy · Dr. Sabri Training Center (Lic. 1549 · Reg. 96628)</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. IMMEDIATE BRIDGE -->
+  <section class="py-16 bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-10 space-y-2">
+        <h2 class="text-2xl sm:text-3xl font-bold font-heading text-[#123B5D]">What happens after your training?</h2>
+        <p class="text-[#64748B] text-sm">Your training does not end when the session ends.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4 relative">
+        <div class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-slate-100 -translate-y-1/2 z-0"></div>
+        
+        <!-- Step 1 -->
+        <div class="relative z-10 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm text-center space-y-3">
+          <div class="w-12 h-12 mx-auto bg-slate-50 text-[#123B5D] rounded-full flex items-center justify-center font-bold text-xl border border-slate-200">1</div>
+          <h3 class="font-bold text-[#1F2937] text-lg font-heading">Train</h3>
+          <p class="text-xs text-[#64748B] leading-relaxed">
+            Complete practical education, clinical training, research activities, or professional development.
+          </p>
         </div>
-    </footer>
 
-    <!-- INTERACTIVE SCRIPTS -->
-    <script>
-        const CASES_DB = {
-            cardio: {
-                spec: "الطب الباطني • طوارئ القلب والأوعية",
-                index: "SMC INDEX: #RAW-01-MED-442 • تكرار الامتحان: 92%",
-                prompt: "مريض يبلغ من العمر 58 عاماً، حضر إلى قسم الحوادث يشكو من ألم حاد خلف القص يمتد إلى الذراع الأيسر منذ 3 ساعات. أظهر تخطيط القلب (ECG) ارتفاعاً في القطعة ST في الاتجاهات II, III, aVF (احتشاء سفلي Inferior MI). بعد إعطائه قرص نتروجليسرين تحت اللسان، هبط ضغط دمه فجأة إلى 75/45 mmHg مع وذمة وريدية وداجية (Elevated JVP) ورئتين صافيتين تماماً عند التسمع.<br><br><strong>ما هي الخطوة العلاجية الفورية الأكثر أهمية والأولى في هذا السيناريو السريري؟</strong>",
-                options: [
-                    { text: "أ) إعطاء جرعة فورية من محاليل الملح الوريدية العادية (0.9% Normal Saline Bolus)", correct: true },
-                    { text: "ب) إعطاء جرعة إضافية من النتروجليسرين بالوريد لخفض الألم", correct: false },
-                    { text: "ج) إعطاء جرعة عالية من مدر البول فوروسيميد (Lasix) بالوريد", correct: false },
-                    { text: "د) إعطاء حاصرات بيتا (Beta-blockers) للسيطرة على معدل النبض", correct: false }
-                ],
-                explanation: "في حالات احتشاء الجدار السفلي، يترافق ما يقارب 30-50% من الحالات مع احتشاء البطين الأيمن (Right Ventricular Infarction). يعتمد النتاج القلبي للبطين الأيمن بشكل حرج على حجم الامتلاء الوريدي (Preload-dependent). إعطاء النترات يسبب توسعاً وريدياً سريعاً وهبوطاً حاداً في الضغط. العلاج الفوري هو تعويض السوائل الوريدية لرفع الـ Preload، وتجنب النترات ومدرات البول تماماً.",
-                rule: "القاعدة الفسيولوجية (MTC): CO = HR × SV (حجم النبضة يعتمد كلياً على الـ Preload في اعتلال البطين الأيمن)."
-            },
-            surgery: {
-                spec: "الجراحة العامة • إصابات البطن والحوادث الحادة",
-                index: "SMC INDEX: #RAW-02-SURG-118 • تكرار الامتحان: 88%",
-                prompt: "شاب يبلغ من العمر 24 عاماً تعرض لحادث دراجة نارية ونقل للطوارئ. العلامات الحيوية: الضغط 85/50، النبض 125/دقيقة، البطن متيبس مع إيلام عند الجس. أظهر فحص السونار الطارئ (FAST) وجود كمية معتبرة من السوائل الحرة في الحوض والمسافة الكبدية الكلوية (Morison's Pouch).<br><br><strong>ما هو التدبير الجراحي الأنسب والأسرع لإنقاذ حياة المريض؟</strong>",
-                options: [
-                    { text: "أ) فتح بطن استكشافي فوري في غرفة العمليات (Exploratory Laparotomy)", correct: true },
-                    { text: "ب) إجراء أشعة مقطعية بالصبغة للبطن والحوض (CT Scan)", correct: false },
-                    { text: "ج) الملاحظة السريرية في العناية المكثفة مع نقل وحدتي دم", correct: false },
-                    { text: "د) سحب السائل بالإبرة تحت توجيه السونار", correct: false }
-                ],
-                explanation: "مريض الصدمة غير المستقر ديناميكياً (Hemodynamically Unstable) مع FAST إيجابي يُعتبر نزيفاً داخلياً بطنياً نشطاً يستدعي فتح البطن الاستكشافي الفوري لإيقاف النزيف وفق مبادئ Damage Control Surgery، ويُمنع نقله لإجراء الأشعة المقطعية لخطورة التدهور خارج غرفة العمليات.",
-                rule: "القاعدة الجراحية (MTC): FAST (+) + Hemodynamic Instability = Immediate Laparotomy."
-            },
-            peds: {
-                spec: "طب الأطفال • طوارئ الجهاز التنفسي",
-                index: "SMC INDEX: #RAW-03-PEDS-204 • تكرار الامتحان: 95%",
-                prompt: "طفل يبلغ من العمر سنتين يعاني من سعال نباحي (Barking cough) وبحة في الصوت وصرير تنفسي (Stridor) أثناء الراحة مع انسحاب الأضلاع دون زرقة.<br><br><strong>ما هو العلاج الدوائي الفوري عالي الفاعلية المعتمد بالأدلة السريرية؟</strong>",
-                options: [
-                    { text: "أ) إعطاء جرعة فموية أو حقن من الديكساميثازون (Dexamethasone) واستنشاق الأدرينالين", correct: true },
-                    { text: "ب) إعطاء مضاد حيوي واسع الطيف فوراً", correct: false },
-                    { text: "ج) استنشاق بخار الماء الساخن فقط", correct: false },
-                    { text: "د) إعطاء موسع شعب هوائية سالبوتامول فقط", correct: false }
-                ],
-                explanation: "الحالة تمثل خناقاً حنجرياً متوسطاً إلى شديد (Moderate to Severe Croup). الديكساميثازون (0.6 mg/kg) يقلل وذمة الغشاء المخاطي تحت الحبال الصوتية، ويُضاف الأدرينالين المستنشق لتقليص الأوعية سريعاً وتخفيف الضائقة التنفسية الفورية.",
-                rule: "البروتوكول السريري (MTC): Stridor at Rest = Oral Dexamethasone + Nebulized Epinephrine."
-            },
-            obs: {
-                spec: "النساء والتوليد • طوارئ ما بعد الولادة",
-                index: "SMC INDEX: #RAW-05-OBS-312 • تكرار الامتحان: 90%",
-                prompt: "سيدة تبلغ من العمر 30 عاماً وضعت طفلها الرابع قبل 20 دقيقة. بدأت تنزف دماً غزيراً من المهبل، وعند فحص البطن وُجد الرحم رخواً وغير منقبض (BOGGY UTERUS) فوق مستوى السرة.<br><br><strong>ما هو السبب الأكثر شيوعاً والخطوة التدبيرية الأولى؟</strong>",
-                options: [
-                    { text: "أ) خمول الرحم (Uterine Atony) • مساج يدوي للرحم وإعطاء الأوكسيتوسين (Oxytocin)", correct: true },
-                    { text: "ب) تمزق عنق الرحم • خياطة جراحية فورية", correct: false },
-                    { text: "ج) احتباس المشيمة • استئصال الرحم فوراً", correct: false },
-                    { text: "د) تجلط الدم المنتشر (DIC) • نقل بلازما مجمدة", correct: false }
-                ],
-                explanation: "خمول الرحم (Uterine Atony) هو السبب في أكثر من 70-80% من نزيف ما بعد الولادة الأولي (PPH). الخط الأول الفوري هو تدليك قاع الرحم يدوياً لتحفيز الانقباض مع إعطاء محفزات تقلص الرحم (Uterotonics مثل Oxytocin/Misoprostol) ومراقبة العلامات الحيوية.",
-                rule: "القاعدة السريرية (MTC): Boggy Uterus + PPH = Bimanual Compression + Uterotonic Infusion."
-            }
-        };
+        <!-- Step 2 -->
+        <div class="relative z-10 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm text-center space-y-3">
+          <div class="w-12 h-12 mx-auto bg-teal-50 text-[#168C8C] rounded-full flex items-center justify-center font-bold text-xl border border-teal-100">2</div>
+          <h3 class="font-bold text-[#1F2937] text-lg font-heading">Record</h3>
+          <p class="text-xs text-[#64748B] leading-relaxed">
+            Add confirmed learning and achievement records to your professional profile.
+          </p>
+        </div>
 
-        let currentActiveKey = 'cardio';
+        <!-- Step 3 -->
+        <div class="relative z-10 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm text-center space-y-3">
+          <div class="w-12 h-12 mx-auto bg-amber-50 text-[#C9A227] rounded-full flex items-center justify-center font-bold text-xl border border-amber-100">3</div>
+          <h3 class="font-bold text-[#1F2937] text-lg font-heading">Progress</h3>
+          <p class="text-xs text-[#64748B] leading-relaxed">
+            See what you have completed, what comes next, and which pathway fits your goals.
+          </p>
+        </div>
 
-        function loadCase(caseKey, tabBtn) {
-            currentActiveKey = caseKey;
-            const data = CASES_DB[caseKey];
-            if (!data) return;
+        <!-- Step 4 -->
+        <div class="relative z-10 bg-white p-6 rounded-2xl border border-emerald-100 shadow-sm text-center space-y-3 ring-1 ring-emerald-50">
+          <div class="w-12 h-12 mx-auto bg-emerald-50 text-[#16805B] rounded-full flex items-center justify-center font-bold text-xl border border-emerald-200">4</div>
+          <h3 class="font-bold text-[#1F2937] text-lg font-heading">Connect</h3>
+          <p class="text-xs text-[#64748B] leading-relaxed">
+            Share relevant evidence with authorized institutions, mentors, and employers.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            if (tabBtn) {
-                document.querySelectorAll('.sim-tab-btn').forEach(b => b.classList.remove('active'));
-                tabBtn.classList.add('active');
-            }
+  <!-- 3. HOW IDENTITY WORKS -->
+  <section id="how-it-works" class="py-20 bg-slate-50 border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      
+      <div class="text-center max-w-3xl mx-auto space-y-4">
+        <span class="text-xs font-mono font-bold text-[#168C8C] uppercase tracking-wider">Beyond a Certificate</span>
+        <h2 class="text-2xl sm:text-4xl font-bold font-heading text-[#123B5D]">Your Professional Identity</h2>
+        <p class="text-sm sm:text-base text-[#64748B] leading-relaxed">
+          A professional digital identity is a structured record of your learning, practical training, credentials, research interests, and verified achievements. It helps you carry evidence of your development from one opportunity to the next.
+        </p>
+      </div>
 
-            document.getElementById('case-spec').textContent = data.spec;
-            document.getElementById('case-index').textContent = data.index;
-            document.getElementById('case-prompt').innerHTML = data.prompt;
-            document.getElementById('case-explanation').style.display = 'none';
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+        <div class="p-5 bg-white rounded-xl border border-slate-200 text-center space-y-2 shadow-sm">
+          <div class="text-2xl">👤</div>
+          <div class="font-bold text-[#1F2937] text-sm">Identity</div>
+        </div>
+        <div class="p-5 bg-white rounded-xl border border-slate-200 text-center space-y-2 shadow-sm">
+          <div class="text-2xl">📋</div>
+          <div class="font-bold text-[#1F2937] text-sm">Training</div>
+        </div>
+        <div class="p-5 bg-white rounded-xl border border-slate-200 text-center space-y-2 shadow-sm">
+          <div class="text-2xl">🧠</div>
+          <div class="font-bold text-[#1F2937] text-sm">Skills</div>
+        </div>
+        <div class="p-5 bg-white rounded-xl border border-slate-200 text-center space-y-2 shadow-sm">
+          <div class="text-2xl">🛡️</div>
+          <div class="font-bold text-[#1F2937] text-sm">Evidence</div>
+        </div>
+        <div class="p-5 bg-white rounded-xl border border-slate-200 text-center space-y-2 shadow-sm">
+          <div class="text-2xl">📈</div>
+          <div class="font-bold text-[#1F2937] text-sm">Progress</div>
+        </div>
+      </div>
 
-            const optContainer = document.getElementById('case-options');
-            optContainer.innerHTML = '';
+      <!-- Simple Visual Diagram -->
+      <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm flex flex-col md:flex-row items-center justify-between gap-4 font-mono text-xs font-bold text-center">
+        <div class="flex-1 p-4 bg-slate-50 rounded-xl text-[#123B5D]">Person</div>
+        <div class="text-slate-300">➔</div>
+        <div class="flex-1 p-4 bg-teal-50 rounded-xl text-[#168C8C]">Verified Training</div>
+        <div class="text-slate-300">➔</div>
+        <div class="flex-1 p-4 bg-blue-50 rounded-xl text-[#123B5D]">Professional Profile</div>
+        <div class="text-slate-300">➔</div>
+        <div class="flex-1 p-4 bg-amber-50 rounded-xl text-[#C9A227]">Progress Pathway</div>
+        <div class="text-slate-300">➔</div>
+        <div class="flex-1 p-4 bg-emerald-50 rounded-xl text-[#16805B]">Opportunity</div>
+      </div>
 
-            data.options.forEach((opt, idx) => {
-                const btn = document.createElement('button');
-                btn.className = 'opt-btn';
-                btn.innerHTML = `<span>${opt.text}</span><span>➔</span>`;
-                btn.onclick = () => selectOption(caseKey, idx, btn);
-                optContainer.appendChild(btn);
-            });
-        }
+      <div class="text-center max-w-2xl mx-auto bg-blue-50 p-6 rounded-xl border border-blue-100">
+        <p class="text-xs text-[#123B5D] leading-relaxed">
+          <strong>Note for Employers:</strong> Your professional profile helps you present verified learning and experience more clearly to institutions, partners, and employers who choose to review it. Verification improves clarity and trust; it does not guarantee a job. Hiring decisions always remain with the employer.
+        </p>
+      </div>
 
-        function selectOption(caseKey, optionIdx, btnElement) {
-            const data = CASES_DB[caseKey];
-            const isCorrect = data.options[optionIdx].correct;
+    </div>
+  </section>
 
-            document.querySelectorAll('.opt-btn').forEach(b => {
-                b.disabled = true;
-                b.style.cursor = 'default';
-            });
+  <!-- 4. CHOOSE YOUR PATHWAY -->
+  <section class="py-20 bg-white border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      
+      <div class="text-center max-w-3xl mx-auto space-y-3">
+        <h2 class="text-2xl sm:text-4xl font-bold font-heading text-[#123B5D]">Choose Your Pathway</h2>
+      </div>
 
-            const explBox = document.getElementById('case-explanation');
-            const explTitle = document.getElementById('expl-title');
-            const explText = document.getElementById('expl-text');
-            const explRule = document.getElementById('expl-rule');
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Card 1 -->
+        <div class="academic-card p-6 bg-slate-50 flex flex-col justify-between space-y-4">
+          <div class="space-y-2">
+            <h3 class="text-lg font-bold font-heading text-[#123B5D]">Healthcare Professionals</h3>
+            <p class="text-xs text-[#64748B]">Physicians, nurses, and allied health staff seeking CME and licensure preparation.</p>
+          </div>
+          <a href="join.html" class="text-xs font-bold text-[#168C8C] hover:underline inline-flex items-center gap-1">Explore Your Pathway →</a>
+        </div>
 
-            if (isCorrect) {
-                btnElement.classList.add('correct');
-                explTitle.innerHTML = '✓ إجابة سريرية ممتازة (+10 GP)';
-                explTitle.style.color = '#10B981';
-                explBox.style.borderColor = 'rgba(16, 185, 129, 0.4)';
-            } else {
-                btnElement.classList.add('wrong');
-                explTitle.innerHTML = '⚠️ إجابة غير دقيقة — التفكيك الفسيولوجي المعتمد:';
-                explTitle.style.color = '#EF4444';
-                explBox.style.borderColor = 'rgba(239, 68, 68, 0.4)';
-                // Highlight correct
-                document.querySelectorAll('.opt-btn').forEach((b, i) => {
-                    if (data.options[i].correct) b.classList.add('correct');
-                });
-            }
+        <!-- Card 2 -->
+        <div class="academic-card p-6 bg-slate-50 flex flex-col justify-between space-y-4">
+          <div class="space-y-2">
+            <h3 class="text-lg font-bold font-heading text-[#123B5D]">Students and Graduates</h3>
+            <p class="text-xs text-[#64748B]">Medical students and fresh graduates building their first professional verified records.</p>
+          </div>
+          <a href="join.html" class="text-xs font-bold text-[#168C8C] hover:underline inline-flex items-center gap-1">Explore Your Pathway →</a>
+        </div>
 
-            explText.textContent = data.explanation;
-            explRule.textContent = data.rule;
-            explBox.style.display = 'block';
-        }
+        <!-- Card 3 -->
+        <div class="academic-card p-6 bg-slate-50 flex flex-col justify-between space-y-4">
+          <div class="space-y-2">
+            <h3 class="text-lg font-bold font-heading text-[#123B5D]">Researchers</h3>
+            <p class="text-xs text-[#64748B]">Scientists and clinical researchers engaging with genomics, publishing, and fellowships.</p>
+          </div>
+          <a href="join.html" class="text-xs font-bold text-[#168C8C] hover:underline inline-flex items-center gap-1">Explore Your Pathway →</a>
+        </div>
 
-        function executeQuickLookup() {
-            const input = document.getElementById('quick-verify-id').value.trim().toUpperCase();
-            const resultBox = document.getElementById('lookup-result');
-            if (!input) {
-                resultBox.style.display = 'block';
-                resultBox.style.color = '#EF4444';
-                resultBox.textContent = 'يرجى إدخال رقم الهوية (مثال: GA000 أو GA001)';
-                return;
-            }
+        <!-- Card 4 -->
+        <div class="academic-card p-6 bg-slate-50 flex flex-col justify-between space-y-4">
+          <div class="space-y-2">
+            <h3 class="text-lg font-bold font-heading text-[#123B5D]">Educators and Mentors</h3>
+            <p class="text-xs text-[#64748B]">Senior faculty and clinical instructors directing training pods and reviewing progress.</p>
+          </div>
+          <a href="join.html" class="text-xs font-bold text-[#168C8C] hover:underline inline-flex items-center gap-1">Explore Your Pathway →</a>
+        </div>
 
-            resultBox.style.display = 'block';
-            resultBox.style.color = 'var(--accent-cyan)';
-            resultBox.textContent = `جاري التحقق من السجل السيادي للرقم ${input}...`;
+        <!-- Card 5 -->
+        <div class="academic-card p-6 bg-slate-50 flex flex-col justify-between space-y-4 border-l-4 border-l-[#C9A227]">
+          <div class="space-y-2">
+            <h3 class="text-lg font-bold font-heading text-[#123B5D]">Universities</h3>
+            <p class="text-xs text-[#64748B]">Medical faculties looking to digitize their credentialing and curriculum delivery.</p>
+          </div>
+          <a href="institutions.html" class="text-xs font-bold text-[#C9A227] hover:underline inline-flex items-center gap-1">Explore Your Pathway →</a>
+        </div>
 
-            setTimeout(() => {
-                if (input === 'GA000' || input === 'GA-000') {
-                    resultBox.style.color = '#10B981';
-                    resultBox.innerHTML = `✓ تم التحقق: <strong>د. محمد جبريل</strong> (Founder & Lead Architect) • معتمد بالسجل العام`;
-                } else if (input === 'GA001' || input === 'GA-001') {
-                    resultBox.style.color = '#10B981';
-                    resultBox.innerHTML = `✓ تم التحقق: <strong>د. آلاء مرسي</strong> (Clinical Lead) • معتمد بالسجل العام`;
-                } else {
-                    resultBox.style.color = '#F59E0B';
-                    resultBox.innerHTML = `قيد الاستعلام في السجل المركزي... يمكنك الانتقال لـ <a href="verify.html?id=${encodeURIComponent(input)}" style="color:#00F2FE;text-decoration:underline;">صفحة التحقق المباشر</a>.`;
-                }
-            }, 500);
-        }
+        <!-- Card 6 -->
+        <div class="academic-card p-6 bg-slate-50 flex flex-col justify-between space-y-4 border-l-4 border-l-[#C9A227]">
+          <div class="space-y-2">
+            <h3 class="text-lg font-bold font-heading text-[#123B5D]">Hospitals and Institutions</h3>
+            <p class="text-xs text-[#64748B]">Teaching hospitals requiring robust simulation labs, genomic testing, and cohort management.</p>
+          </div>
+          <a href="institutions.html" class="text-xs font-bold text-[#C9A227] hover:underline inline-flex items-center gap-1">Explore Your Pathway →</a>
+        </div>
 
-        // Initialize with first case
-        document.addEventListener('DOMContentLoaded', () => {
-            loadCase('cardio');
-        });
-    </script>
+      </div>
+    </div>
+  </section>
 
+  <!-- 5. EVIDENCE AND PROGRESS -->
+  <section class="py-20 bg-slate-50 border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="space-y-6">
+          <span class="text-xs font-mono font-bold text-[#168C8C] uppercase tracking-wider">Your Digital Evidence</span>
+          <h2 class="text-2xl sm:text-4xl font-bold font-heading text-[#123B5D]">Your achievements, beautifully organized.</h2>
+          <p class="text-sm sm:text-base text-[#64748B] leading-relaxed">
+            As you complete workshops, pass clinical vignettes, and participate in research, your profile automatically updates. We provide you with verifiable training records that institution partners can easily review.
+          </p>
+          
+          <ul class="space-y-4 pt-4 text-sm text-[#1F2937]">
+            <li class="flex items-start gap-3">
+              <span class="text-[#16805B] font-bold">✓</span>
+              <span><strong>Completed training:</strong> Official certificates from BLS and surgical workshops.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-[#16805B] font-bold">✓</span>
+              <span><strong>Learning milestones:</strong> Progress bars for SMC and MRCS preparation.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-[#16805B] font-bold">✓</span>
+              <span><strong>Research activity:</strong> Logged submissions and published abstracts.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-[#16805B] font-bold">✓</span>
+              <span><strong>Verified records:</strong> Immutable cryptographic hashes for absolute trust.</span>
+            </li>
+          </ul>
+        </div>
+        <div class="bg-white p-6 rounded-2xl shadow-lg border border-slate-200">
+          <div class="text-xs font-mono text-slate-500 mb-4 pb-2 border-b border-slate-100 flex justify-between">
+            <span>Profile Preview</span>
+            <span class="text-emerald-600 font-bold">Verified ✅</span>
+          </div>
+          <div class="space-y-4">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-full bg-slate-200"></div>
+              <div>
+                <div class="h-4 w-32 bg-slate-200 rounded mb-2"></div>
+                <div class="h-3 w-24 bg-slate-100 rounded"></div>
+              </div>
+            </div>
+            <div class="space-y-2 pt-4">
+              <div class="flex items-center justify-between text-xs">
+                <span class="font-bold text-[#123B5D]">SMC Clinical Simulation</span>
+                <span class="text-[#16805B] font-bold">Passed</span>
+              </div>
+              <div class="w-full h-2 bg-slate-100 rounded-full overflow-hidden">
+                <div class="w-full h-full bg-[#16805B]"></div>
+              </div>
+            </div>
+            <div class="space-y-2 pt-2">
+              <div class="flex items-center justify-between text-xs">
+                <span class="font-bold text-[#123B5D]">Basic Surgical Skills (Wet Lab)</span>
+                <span class="text-amber-600 font-bold">In Progress</span>
+              </div>
+              <div class="w-full h-2 bg-slate-100 rounded-full overflow-hidden">
+                <div class="w-2/3 h-full bg-[#C9A227]"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. THE GEMIINI SudaGene Ecosystem -->
+  <section class="py-20 bg-white border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      <div class="text-center max-w-3xl mx-auto space-y-3">
+        <h2 class="text-2xl sm:text-4xl font-bold font-heading text-[#123B5D]">The Decentralized Verification Framework</h2>
+        <p class="text-sm sm:text-base text-[#64748B]">
+          Our digital transformation and institutional infrastructure are built across three foundational pillars.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+        <div class="p-6 space-y-4 border border-slate-100 rounded-2xl shadow-sm hover:shadow-md transition">
+          <div class="w-16 h-16 mx-auto bg-[#123B5D] text-white rounded-2xl flex items-center justify-center font-bold text-2xl shadow-md">GA</div>
+          <h3 class="text-lg font-bold font-heading text-[#123B5D]">GemIInI Academy</h3>
+          <p class="text-xs text-[#64748B]">The Software &amp; Digital Engine. Governing the GA-ID: a cryptographically hashed, immutable ledger record tracking verified hours across clinical simulations, surgical wet-labs, and pre-collegiate research cohorts. It manages lifelong credentialing (from High School Biology to Postgrad) and the Mechanism-to-Clinic (MTC) framework.</p>
+        </div>
+        
+        <div class="p-6 space-y-4 border border-slate-100 rounded-2xl shadow-sm hover:shadow-md transition">
+          <div class="w-16 h-16 mx-auto bg-[#168C8C] text-white rounded-2xl flex items-center justify-center font-bold text-2xl shadow-md">GL</div>
+          <h3 class="text-lg font-bold font-heading text-[#123B5D]">GLOMEt</h3>
+          <p class="text-xs text-[#64748B]">The Hardware &amp; Molecular Engine. GLOMEt delivers turnkey laboratory infrastructure, calibrated diagnostic instrumentation, and continuous technical capacity-building. Its mandate is regional Genomic Literacy and Molecular Access—extending rapid sequencing and bioinformatics capabilities from university tertiary centers to community health sentinels and agricultural biosecurity.</p>
+        </div>
+
+        <div class="p-6 space-y-4 border border-slate-100 rounded-2xl shadow-sm hover:shadow-md transition">
+          <div class="w-16 h-16 mx-auto bg-slate-800 text-white rounded-2xl flex items-center justify-center font-bold text-2xl shadow-md text-amber-500">GJMR</div>
+          <h3 class="text-lg font-bold font-heading text-[#123B5D]">GJMR</h3>
+          <p class="text-xs text-[#64748B]">GemIInI Journal of Medical Research. Our scholarly citadel dedicated to evidence synthesis, the 100 Project Paper Marathon, and formal policy white papers. GJMR operates under the core practices established by the Committee on Publication Ethics (COPE) and the International Committee of Medical Journal Editors (ICMJE). It provides a blind peer-reviewed harbor for quantitative evidence syntheses, PRISMA-compliant meta-analyses, and clinical trials conducted in resource-constrained environments.</p>
+          <a href="journal.html" class="text-xs font-bold text-[#123B5D] hover:underline">Read the Journal →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. THE PRE-COLLEGIATE FELLOWSHIP -->
+  <section class="py-20 bg-slate-900 border-b border-slate-800 text-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      <div class="text-center max-w-3xl mx-auto space-y-4">
+        <span class="text-xs font-mono font-bold text-[#F59E0B] uppercase tracking-wider">The Junior Investigator Initiative</span>
+        <h2 class="text-2xl sm:text-4xl font-bold font-heading text-white">Rebuilding the National Scientific Pipeline</h2>
+        <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+          The SudaGene Consortium believes that scientific literacy is a fundamental human right, not a luxury of circumstance. In response to the national disruption of secondary education, the GemIInI Academy—under the clinical leadership of our physician faculty—delivers complete, open-access instruction in the National Sudanese Secondary Certificate Biology Curriculum (منهج الأحياء - الشهادة السودانية).
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="p-6 bg-slate-800/50 rounded-xl border border-slate-700 hover:border-slate-600 transition">
+          <div class="w-12 h-12 mb-4 bg-emerald-900/50 text-emerald-400 rounded-lg flex items-center justify-center font-bold text-xl border border-emerald-800/50">1</div>
+          <h3 class="font-bold text-white text-lg font-heading mb-2">Physician-Led Instruction</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Secondary biology taught not through rote memorization, but through the living lens of clinical medicine, physiology, and molecular science. Completely free and accessible to every Sudanese student globally.
+          </p>
+        </div>
+
+        <div class="p-6 bg-slate-800/50 rounded-xl border border-slate-700 hover:border-slate-600 transition">
+          <div class="w-12 h-12 mb-4 bg-blue-900/50 text-blue-400 rounded-lg flex items-center justify-center font-bold text-xl border border-blue-800/50">2</div>
+          <h3 class="font-bold text-white text-lg font-heading mb-2">Socratic &amp; Interactive Pedagogy</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Interactive digital seminars that dismantle complex biological mechanisms into deductive, first-principles understanding (Reverse MTC).
+          </p>
+        </div>
+
+        <div class="p-6 bg-slate-800/50 rounded-xl border border-slate-700 hover:border-slate-600 transition border-t-2 border-t-[#F59E0B]">
+          <div class="w-12 h-12 mb-4 bg-amber-900/50 text-[#F59E0B] rounded-lg flex items-center justify-center font-bold text-xl border border-amber-800/50">3</div>
+          <h3 class="font-bold text-white text-lg font-heading mb-2">The Junior Research Induction</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Top-performing secondary students do not simply memorize biology—they practice it. Qualified fellows are directly integrated into our quantitative evidence synthesis and meta-analysis working groups, earning verifiable research credits attached to their lifelong GA-ID.
+          </p>
+        </div>
+      </div>
+
+      <div class="text-center pt-8">
+        <p class="text-xs font-mono text-slate-500 uppercase tracking-widest mb-6">From the high school desk to the research bench—our scholars begin here.</p>
+        <a href="stem.html" class="inline-flex items-center justify-center px-8 py-3 rounded-full bg-[#168C8C] hover:bg-[#126B6B] text-white font-bold font-heading text-sm transition shadow-lg shadow-[#168C8C]/20">
+          Enter the Pre-Collegiate Fellowship →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. UNIVERSITIES AND INSTITUTIONS -->
+  <section class="py-20 bg-slate-50 border-b border-slate-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <div class="bg-white p-8 rounded-2xl shadow-lg border-t-4 border-t-[#123B5D] text-center space-y-4">
+          <div class="text-xs font-mono font-bold text-[#123B5D] uppercase tracking-wider">For Learners</div>
+          <h3 class="text-2xl font-bold font-heading text-[#1F2937]">Discover Faculties</h3>
+          <p class="text-sm text-[#64748B] pb-4">
+            Browse our independently maintained directory of medical faculties, review program information, and explore the academic landscape.
+          </p>
+          <a href="universities.html" class="inline-block px-6 py-3 rounded-xl bg-[#123B5D] hover:bg-[#0E2E49] text-white font-heading font-bold text-sm shadow transition">
+            Explore Universities &amp; Medical Faculties
+          </a>
+        </div>
+
+        <div class="bg-white p-8 rounded-2xl shadow-lg border-t-4 border-t-[#C9A227] text-center space-y-4">
+          <div class="text-xs font-mono font-bold text-[#C9A227] uppercase tracking-wider">For Institutions</div>
+          <h3 class="text-2xl font-bold font-heading text-[#1F2937]">B2B Partnerships</h3>
+          <p class="text-sm text-[#64748B] pb-4">
+            Equip your institution with clinical simulation programs, credential verification, curriculum support, and genomics services.
+          </p>
+          <a href="institutions.html" class="inline-block px-6 py-3 rounded-xl bg-[#C9A227] hover:bg-[#B5901F] text-white font-heading font-bold text-sm shadow transition">
+            Request a Partnership Briefing
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. FINAL CTA -->
+  <section class="py-20 bg-gradient-to-b from-[#123B5D] to-[#0A2236] text-white text-center">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      <div class="space-y-4">
+        <h2 class="text-3xl sm:text-4xl font-bold font-heading">
+          Your next professional opportunity begins with a clearer record of what you have learned and achieved.
+        </h2>
+      </div>
+      <div class="pt-4">
+        <a href="join.html" class="px-8 py-4 rounded-xl bg-[#168C8C] hover:bg-[#127272] text-white font-heading font-bold text-sm shadow-lg transition">
+          Join Our Network
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+<footer class="bg-[#0B1E2E] text-slate-400 py-16 text-xs border-t border-slate-800">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      
+      <!-- Column 1: Brand & Bio -->
+      <div class="space-y-4">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-lg bg-[#123B5D] text-white font-mono font-bold flex items-center justify-center text-sm border border-slate-700">
+            GA
+          </div>
+          <span class="text-base font-bold font-heading text-white">Gene Academy</span>
+        </div>
+        <p class="text-slate-400 leading-relaxed max-w-sm">
+          An independent medical and academic consortium delivering continuous clinical education, and verifiable academic credentialing.
+        </p>
+      </div>
+
+      <!-- Column 2: Explore -->
+      <div class="space-y-3">
+        <div class="font-bold text-white font-heading uppercase text-xs tracking-wider">Explore</div>
+        <ul class="space-y-2">
+          <li><a href="about.html" class="hover:text-white transition">About</a></li>
+          <li><a href="courses.html" class="hover:text-white transition">Programs</a></li>
+          <li><a href="research.html" class="hover:text-white transition">Research</a></li>
+          <li><a href="faculty.html" class="hover:text-white transition">Faculty</a></li>
+          <li><a href="institutions.html" class="hover:text-white transition">Institutions</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Participate -->
+      <div class="space-y-3">
+        <div class="font-bold text-white font-heading uppercase text-xs tracking-wider">Participate</div>
+        <ul class="space-y-2">
+          <li><a href="join.html" class="text-teal-400 hover:text-white font-bold transition">Join Our Network</a></li>
+          <li><a href="courses.html" class="hover:text-white transition">Clinical Training</a></li>
+          <li><a href="stem.html" class="hover:text-white transition">Junior STEM</a></li>
+          <li><a href="ideas.html" class="hover:text-white transition">Submit a Research Idea</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 4: Trust & Support -->
+      <div class="space-y-3">
+        <div class="font-bold text-white font-heading uppercase text-xs tracking-wider">Trust and support</div>
+        <ul class="space-y-2">
+          <li><a href="verify.html" class="hover:text-white transition">Verify a Credential</a></li>
+          <li><a href="#contact" class="hover:text-white transition">Contact</a></li>
+          <li><a href="#" class="hover:text-white transition">Privacy Policy</a></li>
+          <li><a href="#" class="hover:text-white transition">Terms of Use</a></li>
+          <li><a href="#" class="hover:text-white transition">Safeguarding</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="border-t border-slate-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-slate-500">
+      <div>
+        &copy; 2026/2027 Gene Academy &bull; SudaGene Medical Consortium.
+      </div>
+      <div class="flex gap-4">
+        <span class="hidden sm:inline">Made with precision.</span>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+<!-- Minimal Script for Mobile Menu -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const mobileBtn = document.getElementById('mobile-menu-toggle');
+    const mobileNav = document.getElementById('mobile-nav');
+    if(mobileBtn && mobileNav) {
+      mobileBtn.addEventListener('click', () => {
+        mobileNav.classList.toggle('hidden');
+      });
+    }
+  });
+</script>
 </body>
 </html>

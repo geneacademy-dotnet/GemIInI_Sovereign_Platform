@@ -1,374 +1,338 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" class="scroll-smooth">
 <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>رابطة الخريجين ولوحة الشرف والشهادات | أكاديمية الجينات</title>
- <meta name="description" content="رابطة خريجي أكاديمية الجينات ولوحة الشرف السيادية. استعراض الشهادات الرقمية المعتمدة بالختم الذهبي وتوثيق العضويات الرسمية.">
- <link rel="stylesheet" href="css/styles.css">
+  <!-- iubenda Cookie & Consent Banner -->
+  <script type="text/javascript">
+  var _iub = _iub || [];
+  _iub.csConfiguration = {"siteId":4659147,"cookiePolicyId":32190221,"lang":"en","storage":{"useSiteId":true}};
+  </script>
+  <script type="text/javascript" src="https://cs.iubenda.com/autoblocking/4659147.js"></script>
+  <script type="text/javascript" src="//cdn.iubenda.com/cs/gpp/stub.js"></script>
+  <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>لوحة إحصائيات الخريجين والدفعات السريرية | GemIInI Academy</title>
+  <meta name="description" content="السجل الإحصائي المؤسسي المباشر لخريجي ودفعات أكاديمية جيميني المعتمدين عبر كليات الطب السودانية الـ 63+ وورش المحاكاة السريرية والجراحية.">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-H1Q67PP2DJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-H1Q67PP2DJ');
+  </script>
+
+  <!-- Premium Web Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=IBM+Plex+Mono:wght@500;600;700&family=Outfit:wght@500;700;900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            clinical: {
+              50: '#F8FAFC',
+              100: '#F1F5F9',
+              500: '#0EA5E9',
+              600: '#0284C7',
+              700: '#0369A1',
+              800: '#075985',
+              900: '#0C4A6E'
+            },
+            Independent: {
+              navy: '#0A1128',
+              gold: '#D97706',
+              emerald: '#059669'
+            }
+          },
+          fontFamily: {
+            cairo: ['"Cairo"', 'sans-serif'],
+            mono: ['"IBM Plex Mono"', 'monospace'],
+            outfit: ['"Outfit"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body { font-family: 'Cairo', sans-serif; background-color: #F8FAFC; color: #0F172A; }
+    .glass-box {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(226, 232, 240, 0.9);
+    }
+    .skeleton {
+      background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+      background-size: 200% 100%;
+      animation: skeleton-loading 1.5s infinite;
+    }
+    @keyframes skeleton-loading {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+  </style>
 </head>
-<body style="background: var(--bg-primary);">
 
- <!-- Domains Ribbon -->
- <div class="domains-ribbon">
- <div class="container">
- <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
- <span style="color: var(--gold); font-weight: 700;"> رابطة الخريجين ولوحة الشرف السيادية:</span>
- <span class="cert-tag" style="background: rgba(255,255,255,0.08); color: #FFFFFF; border-color: rgba(255,255,255,0.15); font-size: 14.5px;">توثيق الشهادات الرقمية المعتمدة</span>
- </div>
- <div style="display: flex; align-items: center; gap: 14px;">
- <span style="font-size: 14.5px; color: #EDE8F5;">أمانة الشؤون المالية والتحصيل: <strong style="color: var(--gold); font-family: var(--font-mono);">+20 101 592 2628</strong></span>
- </div>
- </div>
- </div>
+<body class="min-h-screen flex flex-col antialiased selection:bg-clinical-500 selection:text-white">
 
- <!-- Navigation Bar -->
- <header class="navbar">
- <div class="container nav-content">
- <a href="index.html" class="brand-logo">
- <div class="logo-icon">GS</div>
- <div class="brand-text">
- <h1>GEMIINI SOVEREIGN</h1>
- <span>رابطة الخريجين ولوحة الشرف</span>
- </div>
- </a>
+  <!-- Navigation -->
+  <nav class="bg-white border-b border-slate-200 sticky top-0 z-40">
+    <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2.5">
+        <div class="w-9 h-9 rounded-xl bg-clinical-700 text-white font-bold font-outfit flex items-center justify-center text-sm shadow-sm">GA</div>
+        <span class="font-outfit font-black text-lg text-slate-900">GemIInI<span class="text-clinical-600">.Academy</span></span>
+      </a>
+      <div class="flex items-center gap-4 text-xs font-bold">
+        <a href="index.html" class="text-slate-600 hover:text-clinical-600 transition-colors">الرئيسية</a>
+        <a href="universities.html" class="text-slate-600 hover:text-clinical-600 transition-colors">دليل الجامعات</a>
+        <a href="verify.html" class="text-emerald-700 hover:underline flex items-center gap-1 font-mono">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span>فحص قيد SudaPass™ ➔</span>
+        </a>
+      </div>
+    </div>
+  </nav>
 
- <ul class="nav-links">
- <li><a href="index.html">الرئيسية</a></li>
- <li><a href="smc.html" style="color: var(--gold); font-weight: 800;"> التسجيل الدائم SMC</a></li>
- <li><a href="courses.html">دليل الدورات</a></li>
- <li><a href="research.html">المجموعات البحثية</a></li>
- <li><a href="alumni.html" class="active">لوحة الشرف والشهادات</a></li>
- <li><a href="registry.html">سجل الأعضاء المعتمدين</a></li>
- <li><a href="reviews.html" style="color: var(--gold); font-weight: 900;"> التقييمات الموثقة</a></li>
- </ul>
+  <!-- Header -->
+  <header class="bg-gradient-to-b from-clinical-50 to-slate-50 border-b border-slate-200 py-12 px-4 text-center">
+    <div class="max-w-3xl mx-auto space-y-3">
+      <div class="inline-flex items-center gap-2 rounded-full bg-clinical-100/80 border border-clinical-200 px-3.5 py-1 text-xs text-clinical-800 font-mono">
+        <span id="liveBadge" class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span id="syncStatusText">لوحة المؤشرات الحية المتزامنة مع السجل المركزي</span>
+      </div>
+      <h1 class="text-2xl sm:text-4xl font-black text-slate-900 leading-tight">
+        سجل الدفعات السريرية والكليات المعتمدة
+      </h1>
+      <p class="text-slate-600 text-xs sm:text-sm max-w-2xl mx-auto leading-relaxed">
+        بيانات إحصائية حية تُحسب مباشرة من قاعدة البيانات الموثقة، توضح مخرجات التدريب السريري، ونسب توزيع الأطباء المعتمدين عبر كليات الطب السودانية.
+      </p>
+    </div>
+  </header>
 
- <div class="nav-cta">
- <a href="#diploma-search-section" class="btn btn-secondary" style="padding: 9px 18px; font-size: 13px; border-color: var(--gold); color: var(--gold);">
- التحقق من شهادة 
- </a>
- </div>
- </div>
- </header>
+  <!-- Main Content Dashboard -->
+  <main class="flex-grow max-w-6xl mx-auto w-full px-4 py-10 space-y-10">
 
- <!-- =========================================================================
- SOVEREIGN REGISTRY CREDENTIAL VERIFIER (members.geneacademy.net GATEWAY)
- ========================================================================= -->
- <section class="container" style="margin-top: 18px;">
- <div id="sovereign-sso-bar" class="sso-sync-container">
- <!-- AUTHENTICATED STATE -->
- <div id="sso-authenticated-view" style="display: none; width: 100%; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
- <div class="sso-status-active">
- <div class="sso-avatar-badge" id="sso-avatar">GA</div>
- <div class="sso-info">
- <h4>
- <span id="sso-doctor-name">د. العضو المسجل</span>
- <span style="color: #85e0a3; font-size: 14.5px;">— Verified Credential</span>
- </h4>
- <p>
- ID: <strong id="sso-doctor-id" style="color: #00E5FF;">GA000</strong> • 
- الرصيد الأكاديمي: <strong id="sso-doctor-gp" style="color: #F59E0B;">-- GP</strong> • 
- <span id="sso-doctor-univ">University</span>
- </p>
- </div>
- </div>
- <div class="sso-actions">
- <button type="button" onclick="logoutGemIInISession()" style="background:none; border:none; color: #94A3B8; font-size: 14.5px; cursor:pointer; text-decoration:underline;">إعادة الاستعلام (Reset)</button>
- <a href="https://members.geneacademy.net" id="sso-teleport-link" target="_blank" class="btn-teleport">
- دخول بوابة الأعضاء (members.geneacademy.net) →
- </a>
- </div>
- </div>
+    <!-- Top Key Metrics Cards -->
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+      <div class="glass-box p-5 sm:p-6 rounded-2xl text-center space-y-1">
+        <div class="text-xs text-slate-500 font-bold">الجامعات والكليات المعتمدة</div>
+        <div id="statFaculties" class="text-3xl sm:text-4xl font-black text-clinical-700 font-mono">63+</div>
+        <div class="text-[11px] text-slate-400">كلية طبية سودانية وإقليمية</div>
+      </div>
+      <div class="glass-box p-5 sm:p-6 rounded-2xl text-center space-y-1">
+        <div class="text-xs text-slate-500 font-bold">خريجو الجراحة الأساسية BSS-2</div>
+        <div id="statBss" class="text-3xl sm:text-4xl font-black text-slate-900 font-mono">35</div>
+        <div class="text-[11px] text-emerald-600 font-bold">دفعة القاهرة المعتمدة</div>
+      </div>
+      <div class="glass-box p-5 sm:p-6 rounded-2xl text-center space-y-1">
+        <div class="text-xs text-slate-500 font-bold">خريجو الإنعاش القلبي AHA BLS</div>
+        <div id="statBls" class="text-3xl sm:text-4xl font-black text-emerald-700 font-mono">19</div>
+        <div class="text-[11px] text-slate-400">مركز د. صبري للتدريب (1549)</div>
+      </div>
+      <div class="glass-box p-5 sm:p-6 rounded-2xl text-center space-y-1">
+        <div class="text-xs text-slate-500 font-bold">الأطباء المعتمدون في السجل</div>
+        <div id="statVerified" class="text-3xl sm:text-4xl font-black text-Independent-gold font-mono">
+          <span class="inline-block w-12 h-8 rounded skeleton"></span>
+        </div>
+        <div class="text-[11px] text-slate-400 font-mono" id="statSubText">جاري الاتصال بالسجل...</div>
+      </div>
+    </div>
 
- <!-- UNAUTHENTICATED STATE -->
- <div id="sso-unauth-view" style="display: flex; width: 100%; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
- <div>
- <span style="font-family: var(--font-mono, monospace); font-size: 14.5px; color: #F59E0B; text-transform: uppercase; font-weight: 700;">الاستعلام والتحقق من حالة القيد والاعتماد (Sovereign Credential Status):</span>
- <p style="font-size: 13px; color: #E2E8F0; margin: 2px 0 0;">أدخل رقم رقم الهوية المهنية الرقمية (GA#) (GA#) للتحقق من اعتماد الحساب والرصيد الأكاديمي الموثق.</p>
- </div>
- <div class="sso-input-unauth">
- <input type="text" id="sso-quick-id" placeholder="مثال: GA171" onkeydown="if(event.key==='Enter') executeGemIInISync()">
- <button type="button" class="btn-sso-sync" onclick="executeGemIInISync()">استعلام →</button>
- </div>
- </div>
- </div>
- </section>
+    <!-- Institutional University Clusters -->
+    <div class="glass-box p-6 sm:p-8 rounded-3xl space-y-6">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-200 pb-4">
+        <div>
+          <h2 class="text-lg font-bold text-slate-900">توزيع الكتل الأكاديمية (University Clusters)</h2>
+          <p class="text-xs text-slate-500">حساب حي لتمثيل دفعات الأطباء والطلاب المسجلين عبر الكليات الوطنية</p>
+        </div>
+        <span class="text-xs font-mono px-3 py-1 rounded-full bg-slate-100 text-slate-700 font-bold self-start sm:self-auto">Live Computed</span>
+      </div>
 
+      <div id="clustersContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-xs">
+        <!-- Skeleton Slices while loading -->
+        <div class="p-4 rounded-xl border border-slate-200 bg-slate-50/50 space-y-2">
+          <div class="h-4 w-28 rounded skeleton"></div>
+          <div class="h-3 w-40 rounded skeleton"></div>
+        </div>
+        <div class="p-4 rounded-xl border border-slate-200 bg-slate-50/50 space-y-2">
+          <div class="h-4 w-28 rounded skeleton"></div>
+          <div class="h-3 w-40 rounded skeleton"></div>
+        </div>
+        <div class="p-4 rounded-xl border border-slate-200 bg-slate-50/50 space-y-2">
+          <div class="h-4 w-28 rounded skeleton"></div>
+          <div class="h-3 w-40 rounded skeleton"></div>
+        </div>
+      </div>
+    </div>
 
- <!-- Hero Section -->
- <section class="container" style="max-width: 980px; margin: 40px auto; text-align: center;">
- <div class="hero-badge" style="border-color: var(--gold); color: #92400E; background: var(--gold-light);">
- <span> لوحة الشرف وسجل الخريجين المعتمد بالختم الذهبي</span>
- </div>
- 
- <h1 class="hero-title">
- رابطة خريجي أكاديمية الجينات ولوحة الشرف
- </h1>
- 
- <p class="hero-description" style="max-width: 820px; margin: 0 auto 30px;">
- نحتفي بإنجازات أطبائنا وباحثينا المتميزين في مختلف التخصصات السريرية، امتحانات المجلس الطبي، وأبحاث الجينات. تحقق من الشهادات الرقمية الرسمية المعتمدة أو سجل بياناتك في الرابطة السيادية.
- </p>
- </section>
+    <!-- Anonymized Verified Credential Ticker & Verification Callout -->
+    <div class="glass-box p-6 sm:p-8 rounded-3xl border-2 border-emerald-500/20 space-y-6">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <h2 class="text-lg font-bold text-slate-900">التحقق الفردي من الاعتمادات (SudaPass™)</h2>
+          <p class="text-xs text-slate-500">حماية الخصوصية: لا تُنشر الأسماء الكاملة أو الهواتف في القوائم العامة — التحقق يتم برقم العضوية فقط</p>
+        </div>
+        <a href="verify.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-sm transition-all shrink-0">
+          <span>فحص رقم عضوية معين</span>
+          <span class="font-mono">➔</span>
+        </a>
+      </div>
 
- <!-- Interactive Diploma Verification Tool -->
- <section id="diploma-search-section" class="container" style="max-width: 920px; margin-bottom: 70px;">
- <div class="id-lookup-bar" style="border: 2px solid var(--gold);">
- <div style="margin-bottom: 14px;">
- <span style="color: var(--gold); font-size: 14.5px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">
- محرك التحقق الفوري من الشهادات والاعتمادات
- </span>
- <h3 style="font-size: 22px; font-weight: 900; color: var(--purple-dark); margin-top: 4px;">
- ابحث باسم الخريج أو رقم الهوية المهنية الرقمية (GA#) (GA#) لاستعراض الشهادة الرسمية
- </h3>
- </div>
+      <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-3 text-xs">
+        <div class="font-bold text-slate-700">آخر السجلات المعتمدة المحدثة في السجل المركزي (مجهلة الهوية لحماية الخصوصية):</div>
+        <div id="recentMilestonesContainer" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 font-mono text-[11px]">
+          <div class="p-2.5 rounded-lg bg-white border border-slate-200 flex justify-between items-center skeleton h-10"></div>
+          <div class="p-2.5 rounded-lg bg-white border border-slate-200 flex justify-between items-center skeleton h-10"></div>
+          <div class="p-2.5 rounded-lg bg-white border border-slate-200 flex justify-between items-center skeleton h-10"></div>
+        </div>
+      </div>
+    </div>
 
- <div style="display: grid; grid-template-columns: 1fr auto; gap: 14px; align-items: center;">
- <div class="search-input-wrap">
- <span class="search-icon"></span>
- <input type="text" id="diploma-input" placeholder="أدخل اسم الخريج (مثال: دعاء هاشم، د. آلاء مرسي) أو رقم الهوية المهنية الرقمية (GA#) (مثال: GA171، GA001)...">
- </div>
- <button id="diploma-search-btn" onclick="generateOrFindDiploma()" class="btn btn-gold" style="padding: 13px 26px; white-space: nowrap;">
- استعراض الشهادة الرقمية 
- </button>
- </div>
+  </main>
 
- <!-- Live Generated Diploma Preview -->
- <div id="diploma-live-preview" style="margin-top: 30px; display: none;">
- <div style="background: linear-gradient(135deg, #1E0B38 0%, #351059 50%, #B48028 100%); border: 3px double #FDE68A; border-radius: 16px; padding: 40px; color: #FFFFFF; text-align: center; position: relative; box-shadow: 0 20px 60px rgba(36, 17, 66, 0.35);">
- 
- <div style="font-family: var(--font-serif); font-size: 24px; letter-spacing: 2px; color: #FDE68A; font-weight: 700; text-transform: uppercase; margin-bottom: 4px;">
- GENE ACADEMY SOVEREIGN BOARD
- </div>
- <div style="font-size: 14.5px; letter-spacing: 2px; color: #DDD6FE; text-transform: uppercase; margin-bottom: 20px;">
- INSTITUTE OF MEDICAL CURRICULUM ARCHITECTURE & MULTI-OMICS
- </div>
+  <!-- Footer -->
+  <footer class="bg-white border-t border-slate-200 py-8 text-center text-xs text-slate-500">
+    <div class="max-w-6xl mx-auto px-4 space-y-2">
+      <p class="font-mono">GemIInI SudaGene Platform • SudaGene Consortium • Master Registry Live Telemetry</p>
+      <p>© 2026 GemIInI Academy. All rights reserved.</p>
+    </div>
+  </footer>
 
- <div style="font-size: 14.5px; color: #FDE68A; margin-bottom: 6px;">تشهد إدارة أكاديمية الجينات والمنظومة الطبية بأن:</div>
+  <!-- Live Client-Side Telemetry Wiring -->
+  <script>
+    const GAS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwe3rUYJgtSjcnPaKxJOiPsmA19yglrXyWJtAVq0fy4rPi1zLUIacZaWpC4Yhg0x5Ux/exec';
 
- <div id="diploma-preview-name" style="font-size: 28px; font-weight: 900; color: #FFFFFF; border-bottom: 1.5px solid rgba(253, 230, 138, 0.4); display: inline-block; padding: 6px 36px; margin: 12px 0 16px;">
- د. دعاء هاشم علي عمر
- </div>
+    const clusterNames = {
+      'UofK': 'جامعة الخرطوم (UofK)',
+      'OIU': 'جامعة أم درمان الإسلامية (OIU)',
+      'Bahri': 'جامعة بحري (UB)',
+      'Al-Neelain': 'جامعة النيلين (Al-Neelain)',
+      'Gezira': 'جامعة الجزيرة (UOG)',
+      'Private': 'الكليات الطبية الخاصة (الرازي، الأحفاد، النهضة..)',
+      'Regional': 'الجامعات الولائية (شندي، كردفان، سنار..)',
+      'Other': 'كليات طبية أخرى'
+    };
 
- <div style="font-size: 14px; color: #E9D5FF; max-width: 540px; margin: 0 auto 24px; line-height: 1.7;">
- قد أتمت بنجاح كامل المتطلبات الأكاديمية والسريرية والتدريبية المعتمدة في:
- <div id="diploma-preview-course" style="color: #FDE68A; font-size: 17px; font-weight: 800; margin-top: 6px;">
- المهارات الجراحية الأساسية المتقدمة والمحاكاة السريرية
- </div>
- </div>
+    const clusterDescriptions = {
+      'UofK': 'قيادات البحث العلمي ومنهجية MTC™ السريرية',
+      'OIU': 'التنسيق الأكاديمي والتدريب السريري التخصصي',
+      'Bahri': 'دفعات أطباء الامتياز وماراثونات اختبارات SMC',
+      'Al-Neelain': 'التدريب التنافسي ومسارات الجراحة التأسيسية',
+      'Gezira': 'برامج التدريب السريري ومحاكاة الامتحانات الوطنية',
+      'Private': 'كليات الرازي، الأحفاد، النهضة، والجامعة الوطنية',
+      'Regional': 'الجامعات الولائية عبر كافة الأقاليم',
+      'Other': 'كليات إقليمية ومشاركات دولية'
+    };
 
- <div style="display: flex; justify-content: space-between; align-items: flex-end; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 20px; text-align: right; flex-wrap: wrap; gap: 16px;">
- <div>
- <div style="font-size: 14.5px; color: #C4B5FD;">مدير المنظومة الأكاديمية والسريرية</div>
- <div style="font-size: 15px; font-weight: 900; color: #FFFFFF; font-family: var(--font-arabic);">د. محمد أحمد عبد الفتاح جبريل</div>
- <div style="font-size: 14.5px; color: #DDD6FE;">كلية الطب - جامعة الخرطوم • معهد الأمراض المتوطنة (ASM ID: 200334812)</div>
- </div>
+    async function loadLiveTelemetry() {
+      try {
+        const response = await fetch(`${GAS_ENDPOINT}?action=UNIV_STATS`);
+        if (!response.ok) throw new Error('Network error fetching telemetry');
+        const data = await response.json();
 
- <!-- Authentic High-Resolution Gold Sovereign Seal Vector -->
- <div style="text-align: center;">
- <svg width="90" height="90" viewBox="0 0 100 100" style="filter: drop-shadow(0 6px 16px rgba(217, 119, 6, 0.5));">
- <defs>
- <linearGradient id="goldSealGrad" x1="0%" y1="0%" x2="100%" y2="100%">
- <stop offset="0%" stop-color="#FEF3C7" />
- <stop offset="25%" stop-color="#F59E0B" />
- <stop offset="50%" stop-color="#D97706" />
- <stop offset="75%" stop-color="#B45309" />
- <stop offset="100%" stop-color="#78350F" />
- </linearGradient>
- </defs>
- <circle cx="50" cy="50" r="46" fill="url(#goldSealGrad)" stroke="#FFFFFF" stroke-width="2" />
- <circle cx="50" cy="50" r="40" fill="none" stroke="#78350F" stroke-width="1.5" stroke-dasharray="3,2" />
- <path id="curveTop" fill="none" d="M 20 50 A 30 30 0 0 1 80 50" />
- <path id="curveBottom" fill="none" d="M 80 50 A 30 30 0 0 1 20 50" />
- <text font-size="6.5" font-family="Arial, sans-serif" font-weight="bold" fill="#3B1261">
- <textPath href="#curveTop" startOffset="50%" text-anchor="middle">
- GENEACADEMY • SOVEREIGN
- </textPath>
- </text>
- <text font-size="6" font-family="Arial, sans-serif" font-weight="bold" fill="#3B1261">
- <textPath href="#curveBottom" startOffset="50%" text-anchor="middle">
- ASM ID: 200334812
- </textPath>
- </text>
- <circle cx="50" cy="50" r="18" fill="#3B1261" />
- <text x="50" y="47" font-size="10" font-family="Arial, sans-serif" font-weight="bold" fill="#FDE68A" text-anchor="middle">GA</text>
- <text x="50" y="58" font-size="5" font-family="Arial, sans-serif" font-weight="bold" fill="#FFFFFF" text-anchor="middle">VERIFIED</text>
- </svg>
- <span style="display: block; font-size: 14.5px; font-family: var(--font-mono); color: #FDE68A; font-weight: 700; margin-top: 4px;">OFFICIAL GOLD SEAL</span>
- </div>
+        if (!data || !data.success) throw new Error('Invalid telemetry payload');
 
- <div style="text-align: left;">
- <div style="font-size: 14.5px; color: #C4B5FD;">رقم الوثيقة الرسمية والتشفير</div>
- <div id="diploma-preview-cert-id" style="font-family: var(--font-mono); font-size: 13.5px; font-weight: 800; color: #FDE68A;">
- CERT-GA0171-SURG
- </div>
- <div style="font-size: 14.5px; color: #86EFAC; font-weight: 700;">الحالة: عضوية سيادية موثقة •</div>
- </div>
- </div>
+        // 1. Update Header Counters with Live Data
+        document.getElementById('statFaculties').innerText = `${data.facultiesCount || 63}+`;
+        document.getElementById('statBss').innerText = data.bssGraduates !== undefined ? data.bssGraduates : 35;
+        document.getElementById('statBls').innerText = data.blsGraduates !== undefined ? data.blsGraduates : 19;
+        
+        const verifiedCount = data.totalVerified !== undefined ? data.totalVerified : '—';
+        const totalCount = data.totalRegistered !== undefined ? data.totalRegistered : '—';
+        document.getElementById('statVerified').innerText = verifiedCount;
+        document.getElementById('statSubText').innerText = totalCount !== '—' ? `من إجمالي ${totalCount} مسجلاً في السجل` : 'قيد المزامنة';
 
- </div>
- </div>
+        // 2. Render Live Computed Clusters
+        const clusters = data.clusters || {};
+        const totalInClusters = Object.values(clusters).reduce((a, b) => a + b, 0);
+        const clustersContainer = document.getElementById('clustersContainer');
+        clustersContainer.innerHTML = '';
 
- </div>
- </section>
+        if (totalInClusters === 0) {
+          clustersContainer.innerHTML = `
+            <div class="sm:col-span-3 text-center text-slate-500 py-6 bg-slate-50 rounded-2xl border border-slate-200">
+              <span class="font-bold block text-sm">جاري تجميع وتدقيق إحصائيات الكتل الجامعية من السجل المركزي...</span>
+              <span class="text-xs text-slate-400">تظهر النسب المئوية تلقائياً فور اكتمال مراجعة الدفعات.</span>
+            </div>
+          `;
+        } else {
+          Object.keys(clusterNames).forEach(key => {
+            const count = clusters[key] || 0;
+            const pct = ((count / totalInClusters) * 100).toFixed(1);
+            
+            const card = document.createElement('div');
+            card.className = 'p-4 rounded-xl border border-slate-200 bg-slate-50/50 space-y-2';
+            card.innerHTML = `
+              <div class="flex justify-between items-center">
+                <strong class="text-slate-900">${clusterNames[key]}</strong>
+                <span class="font-mono text-clinical-700 font-bold">${pct}%</span>
+              </div>
+              <p class="text-slate-500 text-[11px]">${clusterDescriptions[key]}</p>
+            `;
+            clustersContainer.appendChild(card);
+          });
+        }
 
- <!-- Featured Alumni Cards -->
- <section class="container" style="max-width: 1160px; margin-bottom: 80px;">
- <div style="text-align: center; margin-bottom: 36px;">
- <span class="cert-tag" style="background: var(--gold-light); color: #92400E; border-color: #FCD34D;">أعضاء لوحة الشرف</span>
- <h2 style="font-size: 30px; font-weight: 900; color: var(--purple-dark); margin-top: 6px;">
- الخريجون المتميزون والقادة المعتمدون
- </h2>
- </div>
+        // 3. Render Live Anonymized Milestones
+        const milestones = data.recentMilestones || [];
+        const milestonesContainer = document.getElementById('recentMilestonesContainer');
+        milestonesContainer.innerHTML = '';
 
- <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 22px;">
- 
- <!-- Alumni 1 -->
- <div class="glass-card" style="padding: 24px; border-top: 4px solid var(--gold);">
- <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
- <div style="width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, #F59E0B, #B45309); color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 800;">DH</div>
- <div>
- <h4 style="font-size: 16px; font-weight: 800; color: var(--purple-dark);">د. دعاء هاشم</h4>
- <span style="font-family: var(--font-mono); font-size: 14.5px; color: var(--gold); font-weight: 700;">GA-0171 • عضوية قيادية</span>
- </div>
- </div>
- <div class="cert-tag" style="margin-bottom: 10px; font-size: 14.5px;">المهارات الجراحية الأساسية المتقدمة</div>
- <p style="font-size: 13px; color: var(--text-muted); line-height: 1.6; margin-bottom: 14px;">
- إتمام برنامج المهارات الجراحية والمحاكاة السريرية بامتياز بإشراف هيئة التدريس واللجنة السريرية المراجعة.
- </p>
- <button class="btn btn-secondary" onclick="viewSpecificDiploma('د. دعاء هاشم', 'GA-0171', 'المهارات الجراحية الأساسية المتقدمة والمحاكاة السريرية', 'CERT-GA0171-SURG')" style="width: 100%; font-size: 14.5px; padding: 7px;">
- استعراض الشهادة بالختم الذهبي ←
- </button>
- </div>
+        if (milestones.length === 0) {
+          milestonesContainer.innerHTML = `
+            <div class="sm:col-span-3 text-center text-slate-400 py-3">
+              لا توجد اعتمادات جديدة منشورة في هذه الدفعة — السجل نشط ومحدث.
+            </div>
+          `;
+        } else {
+          milestones.forEach(m => {
+            const item = document.createElement('div');
+            item.className = 'p-2.5 rounded-lg bg-white border border-slate-200 flex justify-between items-center';
+            item.innerHTML = `
+              <span class="text-clinical-700 font-bold">${m.gaId}</span>
+              <span class="text-slate-500">${m.university || 'Medical Faculty'}</span>
+              <span class="text-emerald-600 font-bold">Verified ✓</span>
+            `;
+            milestonesContainer.appendChild(item);
+          });
+        }
 
- <!-- Alumni 2 -->
- <div class="glass-card" style="padding: 24px; border-top: 4px solid var(--purple-brand);">
- <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
- <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--purple-dark); color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 800;">AM</div>
- <div>
- <h4 style="font-size: 16px; font-weight: 800; color: var(--purple-dark);">د. آلاء مرسي</h4>
- <span style="font-family: var(--font-mono); font-size: 14.5px; color: var(--purple-brand); font-weight: 700;">GA-0001 • عضوية تنفيذية</span>
- </div>
- </div>
- <div class="cert-tag" style="margin-bottom: 10px; font-size: 14.5px;">امتحان المجلس الطبي والتدقيق السريري</div>
- <p style="font-size: 13px; color: var(--text-muted); line-height: 1.6; margin-bottom: 14px;">
- عضوية مؤسسة في منظومة التحضير لامتحان المجلس الطبي والربط السريري MTC (رصيد 15,000 GP).
- </p>
- <button class="btn btn-secondary" onclick="viewSpecificDiploma('د. آلاء مرسي', 'GA-0001', 'دورة التحضير لامتحان التسجيل الدائم للمجلس الطبي', 'CERT-GA0001-SMC')" style="width: 100%; font-size: 14.5px; padding: 7px;">
- استعراض الشهادة بالختم الذهبي ←
- </button>
- </div>
+        document.getElementById('syncStatusText').innerText = `تم تحديث البيانات مباشرة (${new Date().toLocaleTimeString('ar-EG')})`;
 
- <!-- Alumni 3 -->
- <div class="glass-card" style="padding: 24px; border-top: 4px solid var(--teal);">
- <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
- <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--teal); color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 800;">ME</div>
- <div>
- <h4 style="font-size: 16px; font-weight: 800; color: var(--purple-dark);">محمد عجيمي</h4>
- <span style="font-family: var(--font-mono); font-size: 14.5px; color: var(--teal); font-weight: 700;">GA-0010 • عضوية سريرية</span>
- </div>
- </div>
- <div class="cert-tag" style="margin-bottom: 10px; font-size: 14.5px;">الربط السريري المتقدم MTC™</div>
- <p style="font-size: 13px; color: var(--text-muted); line-height: 1.6; margin-bottom: 14px;">
- تفوق استثنائي في خوارزميات التفكير السريري، سوائل الطوارئ، وتدبير الحالات الحرجة.
- </p>
- <button class="btn btn-secondary" onclick="viewSpecificDiploma('محمد عجيمي', 'GA-0010', 'المنهج السريري المتقدم Mechanism-to-Clinic MTC', 'CERT-GA0010-MTC')" style="width: 100%; font-size: 14.5px; padding: 7px;">
- استعراض الشهادة بالختم الذهبي ←
- </button>
- </div>
+      } catch (err) {
+        console.warn('Telemetry offline:', err);
+        document.getElementById('liveBadge').className = 'w-2 h-2 rounded-full bg-amber-500';
+        document.getElementById('syncStatusText').innerText = 'تعذر الاتصال بقاعدة البيانات الحية';
+        document.getElementById('statVerified').innerText = '—';
+        document.getElementById('statSubText').innerText = 'البيانات غير متاحة حالياً';
+        
+        const clustersContainer = document.getElementById('clustersContainer');
+        clustersContainer.innerHTML = `
+          <div class="sm:col-span-3 text-center text-amber-700 py-6 bg-amber-50/50 rounded-2xl border border-amber-200">
+            <span class="font-bold block text-sm">⚠️ تعذر جلب إحصائيات الجامعات الحية</span>
+            <span class="text-xs text-amber-600">يرجى التحقق من الاتصال بالإنترنت أو إعادة تحميل الصفحة.</span>
+          </div>
+        `;
 
- <!-- Alumni 4 -->
- <div class="glass-card" style="padding: 24px; border-top: 4px solid var(--purple-dark);">
- <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
- <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--purple-brand); color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 800;">SB</div>
- <div>
- <h4 style="font-size: 16px; font-weight: 800; color: var(--purple-dark);">د. سارة بابكر</h4>
- <span style="font-family: var(--font-mono); font-size: 14.5px; color: var(--purple-brand); font-weight: 700;">GA-0044 • عضوية بحثية</span>
- </div>
- </div>
- <div class="cert-tag" style="margin-bottom: 10px; font-size: 14.5px;">دبلوم الطب الجزيئي MM Suite</div>
- <p style="font-size: 13px; color: var(--text-muted); line-height: 1.6; margin-bottom: 14px;">
- إتمام دبلوم الطب الجزيئي بامتياز وتصميم بادئات PCR وفحوصات الـ qPCR الدقيقة.
- </p>
- <button class="btn btn-secondary" onclick="viewSpecificDiploma('د. سارة بابكر', 'GA-0044', 'دبلوم الطب الجزيئي والجينات MM Suite', 'CERT-GA0044-MM')" style="width: 100%; font-size: 14.5px; padding: 7px;">
- استعراض الشهادة بالختم الذهبي ←
- </button>
- </div>
+        const milestonesContainer = document.getElementById('recentMilestonesContainer');
+        milestonesContainer.innerHTML = `
+          <div class="sm:col-span-3 text-center text-slate-400 py-2">
+            غير متصل بالسجل الحي.
+          </div>
+        `;
+      }
+    }
 
- </div>
- </section>
+    window.addEventListener('DOMContentLoaded', loadLiveTelemetry);
+  </script>
 
- <!-- Footer -->
- <footer class="footer">
- <div class="container footer-grid">
- <div class="footer-brand">
- <h3>منظومة GEMIINI السيادية وأكاديمية الجينات</h3>
- <p>بإشراف المجلس الأكاديمي واللجنة السريرية المراجعة. توثيق شهادات الخريجين والكوادر الطبية والبحثية المعتمدة.</p>
- </div>
-
- <div class="footer-col">
- <h4>المسارات</h4>
- <ul>
- <li><a href="smc.html">امتحان التسجيل الدائم SMC</a></li>
- <li><a href="courses.html">دليل الدورات</a></li>
- <li><a href="research.html">المجموعات البحثية</a></li>
- <li><a href="alumni.html">رابطة الخريجين</a></li>
- </ul>
- </div>
-
- <div class="footer-col">
- <h4>التوثيق</h4>
- <ul>
- <li><a href="#diploma-search-section">التحقق من الشهادات</a></li>
- <li><a href="registry.html">سجل الأعضاء 455</a></li>
- <li><a href="#">عضوية ASM: 200334812</a></li>
- </ul>
- </div>
-
- <div class="footer-col">
- <h4>فودافون كاش</h4>
- <p style="font-size: 13px; color: #C4B5FD; margin-bottom: 8px;">رقم المحفظة الرسمي:</p>
- <div style="font-family: var(--font-mono); font-size: 18px; color: var(--gold); font-weight: 800; margin-bottom: 12px;">
- +20 101 592 2628
- </div>
- <button class="btn btn-vodafone btn-copy-vodafone" style="padding: 8px 16px; font-size: 14.5px;">نسخ رقم المحفظة</button>
- </div>
- </div>
-
- <div class="footer-bottom container">
- &copy; 2026 منظومة GemIInI السيادية وأكاديمية الجينات (geneacademy.net). جميع الحقوق محفوظة.
- </div>
- </footer>
-
- <script src="js/reviews_data.js"></script>
- <script src="js/ga_data.js"></script>
- <script src="js/app.js"></script>
- <script>
- function generateOrFindDiploma() {
- const q = document.getElementById('diploma-input').value.trim();
- if (!q) {
- alert('يرجى إدخال اسم الخريج أو رقم رقم الهوية المهنية الرقمية (GA#).');
- return;
- }
- 
- const records = window.GA_REGISTRY_DATA || [];
- const match = records.find(r => r.id.toLowerCase() === q.toLowerCase() || r.desc.toLowerCase().includes(q.toLowerCase()));
- 
- const name = match ? (match.desc.split(',')[0] || q) : q;
- const id = match ? match.id : 'GA-5410';
- const course = 'امتحان التسجيل الدائم للمجلس الطبي والطب الجزيئي MTC';
- const certId = `CERT-${id}-VERIFIED`;
-
- viewSpecificDiploma(name, id, course, certId);
- }
-
- function viewSpecificDiploma(name, gaId, course, certId) {
- document.getElementById('diploma-preview-name').innerText = name;
- document.getElementById('diploma-preview-course').innerText = course;
- document.getElementById('diploma-preview-cert-id').innerText = certId;
- const preview = document.getElementById('diploma-live-preview');
- preview.style.display = 'block';
- preview.scrollIntoView({ behavior: 'smooth' });
- }
- </script>
 </body>
 </html>

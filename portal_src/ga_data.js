@@ -1,5 +1,5 @@
 /**
- * GemIInI Sovereign Platform — Verified Member Registry
+ * GemIInI SudaGene Platform — Verified Member Registry
  * Contains only authenticated members.
  */
 

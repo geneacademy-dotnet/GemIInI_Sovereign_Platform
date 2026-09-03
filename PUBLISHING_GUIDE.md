@@ -1,12 +1,12 @@
-# GemIInI Sovereign Platform — Publishing & Deployment Guide
+# GemIInI SudaGene Platform — Publishing & Deployment Guide
 
-This document outlines the rapid deployment steps to publish the **GemIInI Sovereign Web Platform** to live production across your official domains: `geneacademy.net`, `members.geneacademy.net`, and `members.geneacademy.net`.
+This document outlines the rapid deployment steps to publish the **GemIInI Independent Web Platform** to live production across your official domains: `geneacademy.net`, `members.geneacademy.net`, and `members.geneacademy.net`.
 
 ---
 
 ## 1. Instant Local Testing (0 Configuration)
 You can launch and test the entire platform locally on your computer in 2 seconds:
-* Double-click **[`deploy_local.bat`](file:///G:/My%20Drive/GemIInI_Sovereign_Platform/deploy_local.bat)** in this folder.
+* Double-click **[`deploy_local.bat`](file:///G:/My%20Drive/GemIInI_Independent_Platform/deploy_local.bat)** in this folder.
 * It will spin up a local server and open `http://localhost:8080` in your web browser.
 
 ---
@@ -18,7 +18,7 @@ You can launch and test the entire platform locally on your computer in 2 second
    ```bash
    npm install -g vercel
    ```
-2. In this directory (`G:\My Drive\GemIInI_Sovereign_Platform`), run:
+2. In this directory (`G:\My Drive\GemIInI_Independent_Platform`), run:
    ```bash
    vercel --prod
    ```
@@ -38,7 +38,7 @@ You can launch and test the entire platform locally on your computer in 2 second
    ```
 
 ### Option C: GitHub Pages (Direct Hosting)
-1. Push this folder to a GitHub repository (e.g. `geneacademy/sovereign-platform`).
+1. Push this folder to a GitHub repository (e.g. `geneacademy/Independent-platform`).
 2. Go to **Settings > Pages** -> Select **Branch: main** / **Root (/)**.
 3. Point your DNS records (`CNAME` / `A` records) to your custom domain.
 
@@ -46,7 +46,7 @@ You can launch and test the entire platform locally on your computer in 2 second
 
 ## 3. Official Vodafone Cash Gateway Reference
 * **Authorized Payment Number:** `+20 101 592 2628`
-* **Quick-Dial Code (Egypt):** `*9*7*01015922628*Amount#`
+* **Quick-Dial Code (Egypt):** `*9*7*+20 101 592 2628*Amount#`
 * **Account Type:** Egyptian Mobile Cash Wallet
 * **Verification Protocol:** Automated GA# reference assignment with manual 15-minute ops verification.
 
@@ -65,8 +65,8 @@ Use these pre-configured query parameters in social media, email campaigns, and 
 ---
 
 ## 5. Architectural Directory Inventory
-* [`index.html`](file:///G:/My%20Drive/GemIInI_Sovereign_Platform/index.html) — Master Single-Page Sovereign Web Application
-* [`css/styles.css`](file:///G:/My%20Drive/GemIInI_Sovereign_Platform/css/styles.css) — Bespoke Obsidian & Cyan Glassmorphism Design System
-* [`js/app.js`](file:///G:/My%20Drive/GemIInI_Sovereign_Platform/js/app.js) — Core Interactive Engines, AI CRM, MTC Simulator, Diploma Generator
-* [`js/ga_data.js`](file:///G:/My%20Drive/GemIInI_Sovereign_Platform/js/ga_data.js) — 455 Verified GA Identifiers Database
-* [`deploy_local.bat`](file:///G:/My%20Drive/GemIInI_Sovereign_Platform/deploy_local.bat) — 1-Click Windows Local Server
+* [`index.html`](file:///G:/My%20Drive/GemIInI_Independent_Platform/index.html) — Master Single-Page Independent Web Application
+* [`css/styles.css`](file:///G:/My%20Drive/GemIInI_Independent_Platform/css/styles.css) — Bespoke Obsidian & Cyan Glassmorphism Design System
+* [`js/app.js`](file:///G:/My%20Drive/GemIInI_Independent_Platform/js/app.js) — Core Interactive Engines, AI CRM, MTC Simulator, Diploma Generator
+* [`js/ga_data.js`](file:///G:/My%20Drive/GemIInI_Independent_Platform/js/ga_data.js) — 455 Verified GA Identifiers Database
+* [`deploy_local.bat`](file:///G:/My%20Drive/GemIInI_Independent_Platform/deploy_local.bat) — 1-Click Windows Local Server

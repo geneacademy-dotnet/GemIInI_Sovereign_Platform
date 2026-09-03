@@ -1,350 +1,348 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
+
+<script type="text/javascript">
+var _iub = _iub || [];
+_iub.csConfiguration = {"siteId":4659147,"cookiePolicyId":32190221,"lang":"en","storage":{"useSiteId":true}};
+</script>
+<script type="text/javascript" src="https://cs.iubenda.com/autoblocking/4659147.js"></script>
+<script type="text/javascript" src="//cdn.iubenda.com/cs/gpp/stub.js"></script>
+<script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>مساحة العمل الموحدة | GemIInI Workspace</title>
-  <meta name="description" content="مساحة العمل الخاصة بأعضاء أكاديمية جيميناي، جين أكاديمي، ومقر جلوميت لتجهيز المعامل.">
+  <title>Role-Based Independent Dashboard | GemIInI OS</title>
+  <meta name="description" content="لوحة التحكم السريرية المبنية على الدور المهني (Role-Based OS Dashboard).">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="styles.css">
 
   <style>
-    :root {
-      --bg-dark: #04080F;
-      --bg-card: rgba(11, 19, 38, 0.85);
-      --border-card: rgba(0, 242, 254, 0.2);
-      --cyan: #00F2FE;
-      --cyan-glow: rgba(0, 242, 254, 0.35);
-      --gold: #B48028;
-      --gold-light: #FDE68A;
-      --gold-glow: rgba(180, 128, 40, 0.35);
-      --emerald: #10B981;
-      --text-main: #FFFFFF;
-      --text-muted: #94A3B8;
-      --font-main: 'Outfit', sans-serif;
-      --font-mono: 'IBM Plex Mono', monospace;
+    .dash-container {
+      max-width: 1200px;
+      margin: 30px auto 90px;
+      padding: 0 20px;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      background: var(--bg-dark);
-      background-image: 
-        radial-gradient(circle at 10% 0%, rgba(0, 242, 254, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 90% 100%, rgba(180, 128, 40, 0.08) 0%, transparent 50%);
-      color: var(--text-main);
-      font-family: var(--font-main);
-      min-height: 100vh;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    a { color: inherit; text-decoration: none; }
-    .mono { font-family: var(--font-mono); }
-
-    /* Top Nav */
-    .top-nav {
-      background: rgba(4, 8, 15, 0.9);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      padding: 16px 36px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      backdrop-filter: blur(16px);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    .brand-box { display: flex; align-items: center; gap: 12px; font-weight: 900; font-size: 1.15rem; color: #FFFFFF; }
-    .brand-logo-icon {
-      width: 38px; height: 38px; border-radius: 8px; background: linear-gradient(135deg, #00F2FE, #4FACFE);
-      color: #04080F; display: flex; align-items: center; justify-content: center;
-      font-family: var(--font-mono); font-weight: 900;
-    }
-
-    .top-user-controls { display: flex; align-items: center; gap: 16px; }
-    .gp-pill {
-      background: rgba(180, 128, 40, 0.15); border: 1px solid var(--gold);
-      color: var(--gold-light); padding: 6px 16px; border-radius: 9999px;
-      font-family: var(--font-mono); font-weight: 800; font-size: 0.88rem;
-    }
-    .btn-logout {
-      background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);
-      color: var(--text-muted); padding: 7px 16px; border-radius: 8px; font-size: 0.85rem;
-      font-weight: 700; cursor: pointer; transition: all .2s;
-    }
-    .btn-logout:hover { background: rgba(239, 68, 68, 0.15); color: #F87171; border-color: #F87171; }
-
-    .main-container { width: 100%; max-width: 1000px; margin: 36px auto 60px; padding: 0 20px; }
-
-    /* Welcome & Drive Workspace Banner */
-    .workspace-banner {
-      background: var(--bg-card);
-      border: 1px solid var(--border-card);
-      border-radius: 20px;
-      padding: 30px 32px;
-      margin-bottom: 32px;
+    /* Identity Card Header */
+    .id-header-card {
+      background: #FFFFFF;
+      border: 1.5px solid rgba(88, 28, 135, 0.08);
+      border-radius: var(--radius-lg);
+      padding: 34px 38px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      gap: 20px;
-      backdrop-filter: blur(20px);
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
-    }
-    .user-greeting h1 {
-      font-size: 1.8rem; font-weight: 900; margin-bottom: 6px;
-      background: linear-gradient(135deg, #FFFFFF 0%, var(--cyan) 100%);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    }
-    .user-greeting p { font-size: 0.95rem; color: var(--text-muted); }
-
-    .drive-workspace-btn {
-      background: linear-gradient(135deg, #10B981 0%, #059669 100%);
-      color: #FFFFFF;
-      font-family: var(--font-mono);
-      font-weight: 900;
-      font-size: 0.95rem;
-      padding: 14px 26px;
-      border-radius: 12px;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
-      transition: all 0.25s ease;
-    }
-    .drive-workspace-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 15px 35px rgba(16, 185, 129, 0.5);
-    }
-
-    /* 3-Door Cards Section */
-    .doors-heading {
-      font-size: 1.25rem; font-weight: 900; margin-bottom: 18px; color: #FFFFFF;
-      display: flex; align-items: center; gap: 8px;
-    }
-
-    .door-panel {
-      background: var(--bg-card);
-      border: 1.5px solid rgba(255, 255, 255, 0.08);
-      border-radius: 18px;
-      padding: 28px 30px;
-      margin-bottom: 22px;
-      transition: all 0.3s ease;
+      gap: 24px;
+      box-shadow: var(--shadow-md);
+      margin-bottom: 35px;
       position: relative;
+    }
+    .id-header-card::before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0; left: 0; height: 4px;
+      background: linear-gradient(90deg, var(--rose-accent), var(--purple-brand));
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    }
+
+    .doc-meta {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .doc-avatar {
+      width: 70px;
+      height: 70px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, var(--purple-dark), var(--rose-accent));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFFFFF;
+      font-size: 26px;
+      font-weight: 900;
+      font-family: var(--font-sans);
+    }
+    .doc-info h2 {
+      font-size: 24px;
+      font-weight: 900;
+      color: var(--purple-dark);
+      margin-bottom: 4px;
+    }
+    .doc-info p {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .doc-stats-strip {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+    .stat-pill {
+      text-align: center;
+      background: var(--purple-light);
+      padding: 12px 20px;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(107, 33, 168, 0.12);
+    }
+    .stat-pill .val {
+      font-family: var(--font-mono);
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--purple-brand);
+    }
+    .stat-pill .lbl {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+
+    /* Role Containers */
+    .role-section { display: none; }
+    .role-active { display: block; animation: fadeIn 0.3s ease; }
+
+    /* MTC Progression Benchmark Scorecards */
+    .benchmark-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+    @media (max-width: 900px) {
+      .benchmark-grid { grid-template-columns: 1fr; }
+    }
+
+    .benchmark-card {
+      background: #FFFFFF;
+      border: 1px solid rgba(88, 28, 135, 0.08);
+      border-radius: var(--radius-md);
+      padding: 26px;
+      box-shadow: var(--shadow-sm);
+    }
+    .progression-steps {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 16px 0;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 800;
+    }
+    .step-node {
+      padding: 4px 8px;
+      border-radius: 6px;
+      background: #F3F4F6;
+      color: var(--text-muted);
+    }
+    .step-node.completed {
+      background: #ECFDF5;
+      color: #059669;
+    }
+    .step-node.mastered {
+      background: var(--purple-brand);
+      color: #FFFFFF;
+    }
+
+    /* Procurement Table */
+    .procure-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #FFFFFF;
+      border-radius: var(--radius-md);
       overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      margin-top: 20px;
     }
-
-    /* Unlocked / Glowing Door States */
-    .door-panel.unlocked.cyan-door {
-      border-color: var(--cyan);
-      box-shadow: 0 0 35px rgba(0, 242, 254, 0.15);
+    .procure-table th, .procure-table td {
+      padding: 16px 20px;
+      text-align: right;
+      border-bottom: 1px solid rgba(88, 28, 135, 0.06);
+      font-size: 14px;
     }
-    .door-panel.unlocked.gold-door {
-      border-color: var(--gold);
-      box-shadow: 0 0 35px rgba(180, 128, 40, 0.15);
+    .procure-table th {
+      background: var(--purple-light);
+      color: var(--purple-dark);
+      font-weight: 800;
     }
-    .door-panel.unlocked.emerald-door {
-      border-color: var(--emerald);
-      box-shadow: 0 0 35px rgba(16, 185, 129, 0.15);
-    }
-
-    /* Locked Door State */
-    .door-panel.locked {
-      opacity: 0.55;
-      background: rgba(8, 12, 20, 0.6);
-      filter: grayscale(30%);
-    }
-    .lock-badge {
-      display: inline-flex; align-items: center; gap: 6px;
-      background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.15);
-      color: #94A3B8; font-size: 0.76rem; font-weight: 800; padding: 4px 12px; border-radius: 9999px;
-      margin-bottom: 10px; font-family: var(--font-mono);
-    }
-
-    .door-header-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
-    .door-title { font-size: 1.4rem; font-weight: 900; color: #FFFFFF; }
-    .door-desc { font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 20px; max-width: 680px; }
-
-    .btn-action {
-      background: linear-gradient(135deg, #00F2FE 0%, #4FACFE 100%);
-      color: #04080F; font-family: var(--font-mono); font-weight: 900;
-      font-size: 0.92rem; padding: 12px 24px; border-radius: 8px; display: inline-block;
-      transition: all .2s; border: none; cursor: pointer;
-    }
-    .btn-action:hover { transform: translateY(-2px); box-shadow: 0 10px 25px var(--cyan-glow); }
-    .btn-action.gold { background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%); }
-    .btn-action.emerald { background: linear-gradient(135deg, var(--emerald) 0%, #059669 100%); color: #FFFFFF; }
-
-    .subfolders-checklist {
-      background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 12px;
-      padding: 16px 20px; margin-top: 18px; display: flex; gap: 20px; flex-wrap: wrap; font-size: 0.84rem;
-    }
-    .sf-item { display: flex; align-items: center; gap: 8px; color: #CBD5E1; font-family: var(--font-mono); }
   </style>
 </head>
 <body>
 
-  <!-- Top Bar -->
-  <nav class="top-nav">
-    <div class="brand-box">
-      <div class="brand-logo-icon">GA</div>
-      <span>مساحة العمل السيادية</span>
-    </div>
-    <div class="top-user-controls">
-      <div class="gp-pill" id="dashGpBadge">500 GP</div>
-      <button class="btn-logout" onclick="logoutSovereignUser()">تسجيل الخروج ➔</button>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-content">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-symbol">SG</div>
+        <div class="brand-text">
+          <h1>SudaGene</h1>
+          <span>Medical Group</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">الرئيسية</a></li>
+        <li><a href="programs.html">المصفوفة الخدمية</a></li>
+        <li><a href="smc.html">محاكي MTC™</a></li>
+        <li><a href="research.html">الأبحاث 15:5:1</a></li>
+        <li><a href="dashboard.html" class="active">لوحة التحكم 🪪</a></li>
+      </ul>
+      <div style="display: flex; gap: 10px;">
+        <button class="btn-white" onclick="logoutGemIInISession()" style="padding: 7px 16px; font-size: 13px;">خروج</button>
+      </div>
     </div>
   </nav>
 
-  <main class="main-container">
-    
-    <!-- Welcome & Drive Workspace Banner -->
-    <div class="workspace-banner">
-      <div class="user-greeting">
-        <h1 id="dashName">مرحباً د. الطبيب</h1>
-        <p>المعرف المهني المعتمد: <strong class="mono" id="dashId" style="color: var(--cyan);">GA-0000</strong> • الحالة: <strong style="color: #10B981;">نشط وموثق ✓</strong></p>
-      </div>
-      <a href="#" target="_blank" id="dashDriveBtn" class="drive-workspace-btn">
-        📂 فتح مساحة عملي في Google Drive ↗
-      </a>
-    </div>
+  <div class="dash-container">
 
-    <div class="doors-heading">
-      <span>الأبواب السيادية ومساحات العمل المتاحة:</span>
-    </div>
-
-    <!-- =======================================================================
-         DOOR 1: GemIInI Academy (Clinical Licensing & SMC Exams)
-         ======================================================================= -->
-    <div class="door-panel unlocked cyan-door" id="door-gemiini">
-      <div class="door-header-row">
-        <div>
-          <span style="color: var(--cyan); font-size: 0.8rem; font-weight: 800; font-family: var(--font-mono); text-transform: uppercase;">
-            🩺 البوابة 1: التدريب السريري وبنك SMC
-          </span>
-          <h2 class="door-title" style="margin-top: 4px;">أكاديمية جيميناي السريرية (GemIInI Clinical)</h2>
+    <!-- IDENTITY & SSO HEADER CARD -->
+    <div class="id-header-card">
+      <div class="doc-meta">
+        <div class="doc-avatar" id="avatarLetter">GA</div>
+        <div class="doc-info">
+          <h2 id="sso-doctor-name">د. أحمد عبد الرحمن</h2>
+          <p>
+            <span style="font-family: var(--font-mono); font-weight:800; color:var(--rose-accent);" id="sso-doctor-id">GA0171</span>
+            <span>•</span>
+            <span id="sso-doctor-univ">جامعة الخرطوم - كلية الطب</span>
+            <span>•</span>
+            <span class="badge-pill badge-purple" id="sso-doctor-tier">Senior Fellow</span>
+          </p>
         </div>
-        <span style="color: #10B981; font-weight: 800; font-size: 0.85rem;" id="badge-gemiini">● مفتوحة ونشطة</span>
-      </div>
-      <p class="door-desc">
-        المنظومة المخصصة لامتحانات المجلس الطبي السوداني (SMC)، بنك الأسئلة المكون من 10 وحدات تخصصية، ومحاكاة 20-Question Challenge مع قياس نقاط الضعف السريرية.
-      </p>
-      <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-        <a href="smc.html" class="btn-action">بدء محاكي الامتحان السريري (SMC) ➔</a>
-        <a href="reviews.html" class="btn-action" style="background: rgba(255, 255, 255, 0.06); color: #FFFFFF; border: 1px solid rgba(255, 255, 255, 0.15);">سجل التدقيق والتقييم 📋</a>
       </div>
 
-      <div class="subfolders-checklist">
-        <div class="sf-item">📁 01_National_ID_And_Payment</div>
-        <div class="sf-item">📁 02_SMC_Exam_Scorecards</div>
-        <div class="sf-item">📁 03_Clinical_Case_Notes</div>
-      </div>
-    </div>
-
-    <!-- =======================================================================
-         DOOR 2: GeneAcademy (15:5:1 Mentorship Cascade & Molecular Research)
-         ======================================================================= -->
-    <div class="door-panel gold-door" id="door-geneacademy">
-      <div class="door-header-row">
-        <div>
-          <div class="lock-badge" id="lock-geneacademy">🔒 يتطلب مسار التوجيه الأكاديمي</div>
-          <span style="color: var(--gold-light); font-size: 0.8rem; font-weight: 800; font-family: var(--font-mono); text-transform: uppercase;">
-            🧬 البوابة 2: نظام 15:5:1 وبناء السيرة الذاتية
-          </span>
-          <h2 class="door-title" style="margin-top: 4px;">جين أكاديمي (GeneAcademy Mentorship Cascade)</h2>
+      <div class="doc-stats-strip">
+        <div class="stat-pill">
+          <div class="val" id="sso-doctor-gp">1,250 GP</div>
+          <div class="lbl">الرصيد السريري المعتمد</div>
         </div>
-        <span style="color: var(--gold-light); font-weight: 800; font-size: 0.85rem;" id="badge-geneacademy">● مسار التوجيه الأكاديمي</span>
-      </div>
-      <p class="door-desc">
-        منظومة التوجيه الهرمي (15 طالب ثانوي : 5 طلاب طب جامعيين : 1 استشاري مشرف). صياغة المسودات البحثية، دبلومات الطب الجزيئي، وبناء السيرة الذاتية الأكاديمية.
-      </p>
-      <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-        <a href="courses.html" class="btn-action gold" id="btn-geneacademy">استعراض خلايا التوجيه ودبلوم الطب الجزيئي ➔</a>
-        <a href="research.html" class="btn-action" style="background: rgba(255, 255, 255, 0.06); color: #FFFFFF; border: 1px solid rgba(255, 255, 255, 0.15);">مركز الأبحاث والنشر 🔬</a>
-      </div>
-
-      <div class="subfolders-checklist">
-        <div class="sf-item">📁 01_Mentorship_15_5_1_Assignments</div>
-        <div class="sf-item">📁 02_Academic_CV_And_Certificates</div>
-        <div class="sf-item">📁 03_Molecular_Research_Drafts</div>
-      </div>
-    </div>
-
-    <!-- =======================================================================
-         DOOR 3: GLOMEt HQ (B2B Turnkey Labs & Hospital Supply)
-         ======================================================================= -->
-    <div class="door-panel emerald-door" id="door-glomet">
-      <div class="door-header-row">
-        <div>
-          <div class="lock-badge" id="lock-glomet">🔒 مسار مخصص لمدراء المعامل والمستشفيات</div>
-          <span style="color: #34D399; font-size: 0.8rem; font-weight: 800; font-family: var(--font-mono); text-transform: uppercase;">
-            🏢 البوابة 3: تجهيز المعامل وتوريدات B2B
-          </span>
-          <h2 class="door-title" style="margin-top: 4px;">مقر جلوميت (GLOMEt HQ Turnkey Labs)</h2>
+        <div class="stat-pill" style="background: var(--gold-light); border-color: rgba(217, 119, 6, 0.15);">
+          <div class="val" style="color: var(--gold-main);" id="ectsTotal">4.5 ECTS</div>
+          <div class="lbl">الساعات الأوروبية المكتسبة</div>
         </div>
-        <span style="color: #34D399; font-weight: 800; font-size: 0.85rem;" id="badge-glomet">● مسار المؤسسات B2B</span>
-      </div>
-      <p class="door-desc">
-        تصميم وإنشاء المعامل التشخيصية والافتراضية من الصفر (Turnkey)، توريد كواشف CBC وأجهزة التحليل الآلي، وعقود تدريب نواب الاختصاص في 10 ولايات.
-      </p>
-      <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-        <a href="glomet.html" class="btn-action emerald" id="btn-glomet">كتالوج التجهيزات وعروض الأسعار ➔</a>
-      </div>
-
-      <div class="subfolders-checklist">
-        <div class="sf-item">📁 01_ISO_Compliance_Docs</div>
-        <div class="sf-item">📁 02_Supply_Contracts_And_PO</div>
-        <div class="sf-item">📁 03_Turnkey_Lab_Drawings</div>
+        <div>
+          <a id="profile-drive-link" href="#" target="_blank" class="btn-primary" style="padding: 12px 22px; font-size: 13.5px; display:inline-flex; align-items:center; gap:8px;">
+            <span>📂</span> فتح مساحة عمل Drive
+          </a>
+        </div>
       </div>
     </div>
 
-  </main>
+    <!-- ROLE 1: CLINICAL GEMIINI DASHBOARD (FOR CLINICIANS / FELLOWS) -->
+    <div class="role-section role-active" id="clinicalRoleView">
+      
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+        <h3 style="font-size: 22px; font-weight: 900; color: var(--purple-dark);">
+          📊 مقاييس التدرج السريري (MTC™ Progression Benchmarks)
+        </h3>
+        <a href="smc.html" class="btn-secondary" style="padding: 8px 18px; font-size: 13px;">فتح المحاكي السريري 🩺</a>
+      </div>
 
+      <!-- 3 MTC Benchmark Scorecards -->
+      <div class="benchmark-grid">
+
+        <!-- Scorecard 1: Fluid & Electrolytes -->
+        <div class="benchmark-card">
+          <div style="font-size: 12px; font-weight: 800; color: var(--rose-accent); margin-bottom: 4px;">BENCHMARK #1</div>
+          <h4 style="font-size: 16.5px; font-weight: 800; color: var(--purple-dark); margin-bottom: 10px;">
+            Severe Hyponatremia Deficit (Adrogué-Madias)
+          </h4>
+          <p style="font-size: 13px; color: var(--text-muted); line-height: 1.6;">
+            حساب العجز الكمي ومعدل التسريب الوريدي الآمن لتجنب ODS.
+          </p>
+          <div class="progression-steps">
+            <span class="step-node completed">20%</span> →
+            <span class="step-node completed">60%</span> →
+            <span class="step-node completed">80%</span> →
+            <span class="step-node completed">95%</span> →
+            <span class="step-node mastered">100% ✓</span>
+          </div>
+          <div style="font-size: 12px; color: #059669; font-weight: 700;">5 محاولات • درجة الإتقان: 100% (+150 GP)</div>
+        </div>
+
+        <!-- Scorecard 2: Tension Pneumothorax -->
+        <div class="benchmark-card">
+          <div style="font-size: 12px; font-weight: 800; color: var(--rose-accent); margin-bottom: 4px;">BENCHMARK #2</div>
+          <h4 style="font-size: 16.5px; font-weight: 800; color: var(--purple-dark); margin-bottom: 10px;">
+            Needle Decompression & Trauma Resuscitation
+          </h4>
+          <p style="font-size: 13px; color: var(--text-muted); line-height: 1.6;">
+            التشخيص السريري الفوري وتفريغ الهواء بالمسافة الوربية.
+          </p>
+          <div class="progression-steps">
+            <span class="step-node completed">40%</span> →
+            <span class="step-node completed">80%</span> →
+            <span class="step-node mastered">100% ✓</span>
+          </div>
+          <div style="font-size: 12px; color: #059669; font-weight: 700;">3 محاولات • درجة الإتقان: 100% (+100 GP)</div>
+        </div>
+
+        <!-- Scorecard 3: Molecular Oncogenesis -->
+        <div class="benchmark-card">
+          <div style="font-size: 12px; font-weight: 800; color: var(--rose-accent); margin-bottom: 4px;">BENCHMARK #3</div>
+          <h4 style="font-size: 16.5px; font-weight: 800; color: var(--purple-dark); margin-bottom: 10px;">
+            Viral Oncogenesis & p53/Rb Pathway
+          </h4>
+          <p style="font-size: 13px; color: var(--text-muted); line-height: 1.6;">
+            آليات التسرطن الخلوي لمستضدات E6/E7 والتثبيط الجيني.
+          </p>
+          <div class="progression-steps">
+            <span class="step-node completed">50%</span> →
+            <span class="step-node mastered">100% ✓</span>
+          </div>
+          <div style="font-size: 12px; color: #059669; font-weight: 700;">محاولتان • درجة الإتقان: 100% (+100 GP)</div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <footer class="signature-footer">
+    <div class="container">
+      <div class="signature-seal-strip">
+        <div class="signature-brand-mark">GemIInI SudaGene OS · Role-Based Core</div>
+        <div>All Rights Reserved © 2026/2027 • Google Workspace Provisioned Workspaces</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/ga_data.js"></script>
   <script src="api.js"></script>
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const user = getSovereignSession();
-      if (!user) {
-        window.location.href = "auth.html";
-        return;
-      }
-
-      // Populate User Data
-      document.getElementById("dashName").textContent = `مرحباً د. ${user.name || 'العضو المعتمد'}`;
-      document.getElementById("dashId").textContent = user.id || 'GA-0000';
-      document.getElementById("dashGpBadge").textContent = (user.gp || 500).toLocaleString() + " GP";
-
-      const driveBtn = document.getElementById("dashDriveBtn");
-      if (user.drive && user.drive.includes("http")) {
-        driveBtn.href = user.drive;
-      } else {
-        driveBtn.href = `https://drive.google.com/drive/search?q=${user.id}`;
-      }
-
-      // Apply RBAC Dynamic Glow & Padlock states
-      const userRole = (user.role || "").toLowerCase();
+    document.addEventListener("DOMContentLoaded", async () => {
+      const savedId = localStorage.getItem("gemiini_presence_id") || "GA0171";
       
-      const dGemiini = document.getElementById("door-gemiini");
-      const dGene = document.getElementById("door-geneacademy");
-      const dGlomet = document.getElementById("door-glomet");
+      // Lookup profile
+      if (typeof apiLookup === "function") {
+        const res = await apiLookup(savedId);
+        if (res.found && res.member) {
+          const m = res.member;
+          document.getElementById("sso-doctor-name").textContent = m.name || savedId;
+          document.getElementById("sso-doctor-id").textContent = m.id;
+          document.getElementById("sso-doctor-univ").textContent = m.univ || "جامعة معتمدة";
+          document.getElementById("sso-doctor-gp").textContent = `${(m.gp || 1250).toLocaleString()} GP`;
+          document.getElementById("avatarLetter").textContent = (m.id || "GA").substring(0, 2);
+          
+          if (m.driveUrl) {
+            document.getElementById("profile-drive-link").href = m.driveUrl;
+          }
 
-      if (userRole.includes("gene") || userRole.includes("mentor") || userRole.includes("research")) {
-        dGene.classList.add("unlocked");
-        document.getElementById("lock-geneacademy").style.display = "none";
-        dGemiini.classList.remove("unlocked");
-        dGlomet.classList.add("locked");
-      } else if (userRole.includes("glomet") || userRole.includes("b2b") || userRole.includes("lab")) {
-        dGlomet.classList.add("unlocked");
-        document.getElementById("lock-glomet").style.display = "none";
-        dGemiini.classList.add("locked");
-        dGene.classList.add("locked");
-      } else {
-        // Default: GemIInI Clinical is unlocked
-        dGemiini.classList.add("unlocked");
-        document.getElementById("lock-geneacademy").style.display = "inline-flex";
-        document.getElementById("lock-glomet").style.display = "inline-flex";
+          // Role-Based UI Branching
+          const role = (m.role || "").toUpperCase();
+          const id = (m.id || "").toUpperCase();
+
+          document.getElementById("clinicalRoleView").classList.add("role-active");
+        }
       }
     });
   </script>

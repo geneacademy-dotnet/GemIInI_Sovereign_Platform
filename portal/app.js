@@ -1,5 +1,5 @@
 /**
- * GemIInI Sovereign Platform — UI & Animations Engine (Portal Layout)
+ * GemIInI SudaGene Platform — UI & Animations Engine (Portal Layout)
  * Handles Universal Search, UI Modals, Animations, and Simulator Rendering.
  */
 
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
 // Logout Helper
 function logoutGemIInISession() {
   localStorage.removeItem("gemiini_presence_id");
-  localStorage.removeItem("gemiini_sovereign_session");
+  localStorage.removeItem("gemiini_Independent_session");
   const authView = document.getElementById("sso-authenticated-view");
   const unauthView = document.getElementById("sso-unauth-view");
   if(authView) authView.style.display = "none";

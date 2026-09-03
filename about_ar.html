@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>عن Gene Academy ومركز SudaGene للأبحاث | المنظومة الطبية السيادية</title>
+  <meta name="description" content="تعرف على Gene Academy ومركز SudaGene للأبحاث الطبية — قصتنا، رسالتنا ورؤيتنا، مجالات العمل الخمسة، القيادة، الإحصائيات الموثقة، والتحقق SudaPass™.">
+
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-H1Q67PP2DJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-H1Q67PP2DJ', { 'anonymize_ip': true });
+  </script>
+
+  <!-- Canonical Design Tokens & Fonts -->
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              navy: '#123B5D',
+              teal: '#168C8C',
+              gold: '#C9A227',
+              bg: '#F7FAFC',
+              card: '#FFFFFF',
+              dark: '#1F2937',
+              muted: '#64748B',
+              emerald: '#16805B'
+            }
+          },
+          fontFamily: {
+            heading: ['Tajawal', 'sans-serif'],
+            body: ['Cairo', 'sans-serif'],
+            mono: ['"IBM Plex Mono"', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-[#F7FAFC] text-[#1F2937] font-body antialiased selection:bg-teal-100 selection:text-teal-900">
+
+  <!-- TOP UTILITY BAR -->
+  <div class="bg-[#123B5D] text-slate-200 text-xs py-2 px-4 border-b border-slate-700 font-mono">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-2 hidden md:flex">
+        <span class="w-2 h-2 rounded-full bg-[#16805B]"></span>
+        <span>GENE ACADEMY &bull; Independent MEDICAL ECOSYSTEM</span>
+      </div>
+      <div class="flex items-center gap-4 ml-auto">
+        <div class="flex items-center gap-1 font-bold">
+          <span class="text-white">English</span>
+          <span class="text-slate-500">/</span>
+          <a href="index.html" class="text-slate-300 hover:text-white transition font-sans">English</a>
+        </div>
+        <span class="text-slate-500 hidden sm:inline">|</span>
+        <a href="auth.html" class="text-slate-300 hover:text-white font-bold transition flex items-center gap-1">
+          تسجيل الدخول <span aria-hidden="true">&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN HEADER & NAVIGATION -->
+  <header class="bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="index.html" class="flex items-center gap-3 shrink-0 group">
+        <div class="w-11 h-11 rounded-xl bg-[#123B5D] text-white font-black flex items-center justify-center font-mono text-base shadow-sm group-hover:bg-[#168C8C] transition-colors">
+          GA
+        </div>
+        <div>
+          <span class="text-xl font-bold font-heading text-[#123B5D] tracking-tight block">Gene Academy</span>
+          <span class="text-[10px] font-mono text-[#64748B] block tracking-wider uppercase">MEDICAL &amp; GENOMIC CONSORTIUM</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden lg:flex items-center gap-6 text-sm font-semibold text-[#1F2937]" id="desktop-nav">
+        
+        <!-- البرامج Dropdown -->
+        <div class="relative group">
+          <button class="hover:text-[#168C8C] transition pb-1 flex items-center gap-1">
+            البرامج
+            <svg class="w-4 h-4 text-slate-400 group-hover:text-[#168C8C] transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div class="absolute left-0 top-full pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-64 z-50">
+            <div class="bg-white border border-slate-200 rounded-xl shadow-xl overflow-hidden flex flex-col py-2">
+              <a href="courses.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Clinical Training</a>
+              <a href="smc.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">SMC Preparation</a>
+              <a href="molecular.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Molecular Medicine</a>
+              <a href="research.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">الأبحاث Training</a>
+              <a href="stem.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Junior STEM</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- الهوية المهنية Dropdown -->
+        <div class="relative group">
+          <button class="hover:text-[#168C8C] transition pb-1 flex items-center gap-1">
+            الهوية المهنية
+            <svg class="w-4 h-4 text-slate-400 group-hover:text-[#168C8C] transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div class="absolute left-0 top-full pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-64 z-50">
+            <div class="bg-white border border-slate-200 rounded-xl shadow-xl overflow-hidden flex flex-col py-2">
+              <a href="identity.html#how-it-works" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">How It Works</a>
+              <a href="identity.html#training-records" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Training Records</a>
+              <a href="verify.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Verification</a>
+              <a href="identity.html#progress" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Member Progress</a>
+              <a href="identity.html#employer" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Employer & Institutional Use</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- الأبحاث Dropdown -->
+        <div class="relative group">
+          <button class="hover:text-[#168C8C] transition pb-1 flex items-center gap-1">
+            الأبحاث
+            <svg class="w-4 h-4 text-slate-400 group-hover:text-[#168C8C] transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div class="absolute left-0 top-full pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-64 z-50">
+            <div class="bg-white border border-slate-200 rounded-xl shadow-xl overflow-hidden flex flex-col py-2">
+              <a href="journal.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Reach Journal</a>
+              <a href="index.html#services" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">GLOMEt</a>
+              <a href="research.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">SudaGene الأبحاث Centre</a>
+              <div class="border-t border-slate-100 my-1"></div>
+              <a href="ideas.html" class="px-4 py-2 hover:bg-slate-50 font-bold text-[#123B5D] hover:text-[#168C8C] transition">Submit a الأبحاث Idea</a>
+            </div>
+          </div>
+        </div>
+
+        <a href="universities.html" class="hover:text-[#168C8C] transition pb-1">الجامعات</a>
+
+        <!-- المؤسسات Dropdown -->
+        <div class="relative group">
+          <button class="hover:text-[#168C8C] transition pb-1 flex items-center gap-1">
+            المؤسسات
+            <svg class="w-4 h-4 text-slate-400 group-hover:text-[#168C8C] transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div class="absolute left-0 top-full pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-72 z-50">
+            <div class="bg-white border border-slate-200 rounded-xl shadow-xl overflow-hidden flex flex-col py-2">
+              <a href="academic-solutions.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Academic Solutions</a>
+              <a href="partnerships.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Training Partnerships</a>
+              <a href="academic-solutions.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Curriculum Support</a>
+              <div class="border-t border-slate-100 my-1"></div>
+              <a href="institutions.html" class="px-4 py-2 hover:bg-slate-50 font-bold text-[#123B5D] hover:text-[#168C8C] transition">Request a Partnership Briefing</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <!-- CTA & Mobile Menu Button -->
+      <div class="flex items-center gap-4 shrink-0">
+        <a href="join.html" class="hidden sm:inline-flex px-5 py-2.5 rounded-xl bg-[#123B5D] hover:bg-[#0E2E49] text-white font-heading font-semibold text-xs sm:text-sm shadow-md transition-all">
+          انضم إلى شبكتنا
+        </a>
+        
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobile-menu-toggle" class="lg:hidden p-2 text-slate-600 hover:text-[#123B5D] transition">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Navigation Overlay (Hidden by default) -->
+    <div id="mobile-nav" class="hidden lg:hidden bg-white border-t border-slate-200 shadow-xl absolute top-full left-0 w-full z-40 max-h-[80vh] overflow-y-auto">
+      <div class="flex flex-col p-4 space-y-4 font-bold text-[#123B5D]">
+        <a href="courses.html" class="block pb-2 border-b border-slate-100 text-[#168C8C]">البرامج &rarr;</a>
+        <a href="verify.html" class="block pb-2 border-b border-slate-100 text-[#168C8C]">الهوية المهنية &rarr;</a>
+        <a href="research.html" class="block pb-2 border-b border-slate-100 text-[#168C8C]">الأبحاث &rarr;</a>
+        <a href="universities.html" class="block pb-2 border-b border-slate-100">الجامعات</a>
+        <a href="institutions.html" class="block pb-2 border-b border-slate-100 text-[#168C8C]">المؤسسات &rarr;</a>
+        <a href="join.html" class="block text-center mt-4 px-5 py-3 rounded-xl bg-[#123B5D] text-white font-heading font-semibold text-sm shadow-md">
+          انضم إلى شبكتنا
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="space-y-20 py-12" dir="rtl">
+
+    <!-- 1. INTRO & OUR STORY -->
+    <section class="max-w-5xl mx-auto px-4 sm:px-6 space-y-6 text-right">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-[#123B5D] font-mono text-xs font-bold uppercase">
+        <span class="w-2 h-2 rounded-full bg-[#168C8C]"></span>
+        القسم الأول &bull; من نحن
+      </div>
+
+      <h1 class="text-3xl sm:text-5xl font-bold font-heading text-[#123B5D] tracking-tight leading-tight">
+        نبني مستقبلاً أقوى للتعليم الطبي والممارسة السريرية والبحث الجزيئي
+      </h1>
+
+      <div class="academic-card p-8 bg-white border-r-4 border-r-[#123B5D] space-y-4">
+        <p class="text-base sm:text-lg text-[#1F2937] leading-relaxed">
+          تأسست <strong>GeneAcademy™</strong> ومركز <strong>SudaGene للأبحاث (SGRC)</strong> كمنظومة طبية وأكاديمية متكاملة تجمع بين التعليم السريري، والمحاكاة العملية، والتحضير للامتحانات المهنية، والبحث الجينومي، وتوثيق الكفاءات الرقمية، وتقديم الحلول الأكاديمية للمؤسسات.
+        </p>
+        <p class="text-sm sm:text-base text-[#64748B] leading-relaxed">
+          نهدف إلى مساعدة المتعلمين والمهنيين الصحيين على الانتقال من المعرفة النظرية إلى الممارسة الواثقة، مع توفير حلول أكاديمية وسريرية منظمة للجامعات والمستشفيات وفرق البحث.
+        </p>
+        <p class="text-sm sm:text-base text-[#64748B] leading-relaxed">
+          نؤمن بأن التعليم الصحي الحديث يجب أن يكون عملياً، قائماً على الدليل، قابلاً للقياس، ومرتبطاً بالفرص المهنية الحقيقية. وتوجّه هذه القناعة كل برنامج ومبادرة بحثية وشهادة وشراكة نطوّرها.
+        </p>
+      </div>
+
+      <div class="pt-8">
+        <h2 class="text-2xl font-bold font-heading text-[#123B5D] mb-4">قصتنا</h2>
+        <div class="space-y-4 text-[#64748B] leading-relaxed">
+          <p>
+            أُنشئت GeneAcademy™ استجابةً لحاجة واضحة: فالمتعلمون والمهنيون في المجال الطبي يحتاجون إلى أكثر من التعليم النظري. إنهم يحتاجون إلى فرص لممارسة المهارات السريرية، والاستعداد المنهجي للامتحانات المهنية، وتوثيق إنجازاتهم، والاستمرار في التطور طوال مسيرتهم المهنية.
+          </p>
+          <p>
+            ويمتد هذا الهدف عبر SGRC إلى مجالات الطب الجزيئي، وعلم الوراثة، والأورام، والمعلوماتية الحيوية، والتدريب على البحث العلمي. وتعمل المنظومتان معاً لبناء مسار مترابط يبدأ بالتعلم والمحاكاة، ويمتد إلى البحث والهوية المهنية والأثر المؤسسي.
+          </p>
+          <p>
+            ومن خلال ورش المهارات السريرية، والتحضير للترخيص والزمالات، وتحليل البيانات الجينومية، ودعم البرامج الأكاديمية، نعمل على جعل التطوير المهني أكثر تنظيماً وقابليةً للتحقق وارتباطاً بواقع الرعاية الصحية الحديثة.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. MISSION, VISION & PRINCIPLES -->
+    <section class="max-w-5xl mx-auto px-4 sm:px-6 space-y-8 text-right">
+      <div class="text-center max-w-3xl mx-auto space-y-2">
+        <span class="text-xs font-mono font-bold text-[#168C8C] uppercase tracking-wider">الغاية والحوكمة</span>
+        <h2 class="text-2xl sm:text-4xl font-bold font-heading text-[#123B5D]">الرسالة والرؤية</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="academic-card p-8 bg-white space-y-4">
+          <div class="w-12 h-12 rounded-xl bg-blue-50 text-[#123B5D] flex items-center justify-center font-bold text-xl">🎯</div>
+          <h3 class="text-xl font-bold font-heading text-[#123B5D]">رسالتنا</h3>
+          <p class="text-sm text-[#64748B] leading-relaxed">
+            تعزيز التعليم الطبي والقدرات الصحية من خلال التدريب السريري العملي، والتحضير الأكاديمي المنهجي، والبحث الجينومي، والتوثيق المهني الموثوق، والشراكات المؤسسية المستدامة.
+          </p>
+        </div>
+
+        <div class="academic-card p-8 bg-white space-y-4">
+          <div class="w-12 h-12 rounded-xl bg-teal-50 text-[#168C8C] flex items-center justify-center font-bold text-xl">🔭</div>
+          <h3 class="text-xl font-bold font-heading text-[#123B5D]">رؤيتنا</h3>
+          <p class="text-sm text-[#64748B] leading-relaxed">
+            أن نصبح منظومة طبية وأكاديمية موثوقة تربط المهنيين الصحيين والباحثين والجامعات والمستشفيات والمتعلمين في السودان وعلى المستوى الدولي.
+          </p>
+        </div>
+      </div>
+
+      <div class="pt-12">
+        <div class="text-center max-w-3xl mx-auto space-y-2 mb-8">
+          <h2 class="text-2xl sm:text-3xl font-bold font-heading text-[#123B5D]">ما نؤمن به</h2>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="academic-card p-6 bg-white space-y-2">
+            <h4 class="font-bold font-heading text-[#123B5D]">الكفاءة السريرية</h4>
+            <p class="text-sm text-[#64748B] leading-relaxed">نركّز على التعلم العملي الذي يساعد المهنيين على تطوير الثقة، وحسن التقدير، والأداء السريري الآمن.</p>
+          </div>
+          <div class="academic-card p-6 bg-white space-y-2">
+            <h4 class="font-bold font-heading text-[#123B5D]">النزاهة الأكاديمية</h4>
+            <p class="text-sm text-[#64748B] leading-relaxed">نبني برامجنا وأنشطتنا البحثية على التعلم المنظم، والبحث المسؤول، والمعايير الواضحة، والتحسين المستمر.</p>
+          </div>
+          <div class="academic-card p-6 bg-white space-y-2">
+            <h4 class="font-bold font-heading text-[#123B5D]">الإنجاز القابل للتحقق</h4>
+            <p class="text-sm text-[#64748B] leading-relaxed">ينبغي توثيق التطور المهني بطريقة واضحة ومستدامة وسهلة التحقق. ويهدف نهجنا في التوثيق الرقمي إلى دعم هذا المبدأ.</p>
+          </div>
+          <div class="academic-card p-6 bg-white space-y-2">
+            <h4 class="font-bold font-heading text-[#123B5D]">البحث والابتكار</h4>
+            <p class="text-sm text-[#64748B] leading-relaxed">ندعم تطوير مهارات البحث، والمعرفة الجينومية، والابتكار القائم على الدليل بما يمكن أن يسهم في تحسين القرارات الصحية.</p>
+          </div>
+          <div class="academic-card p-6 bg-white space-y-2">
+            <h4 class="font-bold font-heading text-[#123B5D]">الشراكة المؤسسية</h4>
+            <p class="text-sm text-[#64748B] leading-relaxed">نعمل مع الجامعات والمستشفيات والمختبرات والمؤسسات الصحية على تطوير البرامج، وتحسين أنظمة التدريب، وبناء القدرات على المدى الطويل.</p>
+          </div>
+          <div class="academic-card p-6 bg-white space-y-2">
+            <h4 class="font-bold font-heading text-[#123B5D]">الوصول والنمو المهني</h4>
+            <p class="text-sm text-[#64748B] leading-relaxed">نسعى إلى جعل التعليم الطبي عالي الجودة، والتطور المهني، وفرص البحث أكثر إتاحةً للمتعلمين والمهنيين الطموحين.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. FIVE AREAS OF WORK -->
+    <section class="py-20 bg-slate-100 border-y border-slate-200">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 text-right">
+        <div class="text-center max-w-3xl mx-auto space-y-3">
+          <span class="text-xs font-mono font-bold text-[#123B5D] uppercase tracking-wider">مجالات العمل الأساسية</span>
+          <h2 class="text-2xl sm:text-4xl font-bold font-heading text-[#123B5D]">مجالات عملنا الخمسة</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="academic-card p-6 bg-white space-y-3">
+            <span class="font-mono text-xs font-bold text-[#123B5D] bg-blue-50 px-2.5 py-1 rounded">المجال 01</span>
+            <h3 class="text-lg font-bold font-heading text-[#123B5D]">التدريب السريري والمحاكاة</h3>
+            <p class="text-sm text-[#64748B] leading-relaxed">
+              نقدّم ورشاً سريرية عملية تساعد المشاركين على تطوير المهارات الأساسية في بيئة تعليمية منظمة وتحت الإشراف. وتشمل محاور التدريب التعليم في مجال الإنعاش، والمهارات الجراحية الأساسية، والمحاكاة السريرية، والاستعداد العملي لبيئات الرعاية الصحية.
+            </p>
+            <p class="text-xs text-[#64748B] leading-relaxed pt-2 border-t border-slate-100">
+              وعند الاقتضاء، تُنفّذ البرامج بالتعاون مع مدربين مؤهلين وشركاء متخصصين. ويتم توضيح الاعتماد والترخيص وترتيبات التنفيذ الخاصة بكل برنامج في صفحته المخصصة.
+            </p>
+          </div>
+
+          <div class="academic-card p-6 bg-white space-y-3">
+            <span class="font-mono text-xs font-bold text-[#168C8C] bg-teal-50 px-2.5 py-1 rounded">المجال 02</span>
+            <h3 class="text-lg font-bold font-heading text-[#123B5D]">التحضير للترخيص والزمالات المهنية</h3>
+            <p class="text-sm text-[#64748B] leading-relaxed">
+              تدعم منصة التدريب والحالات الطبية MTC™ التحضير المنظم للامتحانات المهنية والمسارات الدولية. وتعتمد على الحالات السريرية ومنهجية الربط بين الآلية المرضية والتطبيق السريري لمساعدة المتعلم على الجمع بين التفكير العلمي واتخاذ القرار العملي.
+            </p>
+            <p class="text-xs text-[#64748B] leading-relaxed pt-2 border-t border-slate-100">
+              وقد تشمل مجالات التحضير مسار المجلس الطبي السوداني، والتحضير المرتبط بـ MRCS، والدعم الدراسي المرتبط بـ USMLE، والتحضير لـ OET، وغيرها من الامتحانات المهنية. ويتم توضيح أهلية البرنامج ونطاق المنهج وعلاقته بالامتحان في الصفحة الخاصة بكل برنامج.
+            </p>
+          </div>
+
+          <div class="academic-card p-6 bg-white space-y-3">
+            <span class="font-mono text-xs font-bold text-[#C9A227] bg-amber-50 px-2.5 py-1 rounded">المجال 03</span>
+            <h3 class="text-lg font-bold font-heading text-[#123B5D]">الهوية المهنية الرقمية والتحقق</h3>
+            <p class="text-sm text-[#64748B] leading-relaxed">
+              يمثل SudaPass™ مفهومنا للسجل الرقمي للهوية المهنية والتوثيق. وقد صُمم لدعم توثيق التدريب والإنجازات المهنية والتطوير المستمر والمؤهلات ذات الصلة ضمن سجل رقمي منظم.
+            </p>
+            <p class="text-xs text-[#64748B] leading-relaxed pt-2 border-t border-slate-100">
+              ويهدف النظام إلى جعل التحقق أكثر وضوحاً للمهنيين والمؤسسات والأطراف المخولة. ويجب تقييم كل شهادة وإجراء تحقق وفق الأدلة المحددة والجهة المصدرة المرتبطة بها.
+            </p>
+          </div>
+
+          <div class="academic-card p-6 bg-white space-y-3 md:col-span-2 lg:col-span-2">
+            <span class="font-mono text-xs font-bold text-[#16805B] bg-emerald-50 px-2.5 py-1 rounded">المجال 04</span>
+            <h3 class="text-lg font-bold font-heading text-[#123B5D]">حلول الجامعات والمستشفيات</h3>
+            <p class="text-sm text-[#64748B] leading-relaxed">
+              ندعم الجامعات والمستشفيات والمختبرات والمؤسسات الصحية بمجموعة من الحلول الأكاديمية والتشغيلية، وقد تشمل استعادة المناهج المتعثرة، وتنظيم الامتحانات، وتنسيق التدريب، والأنظمة الرقمية، ودعم التجهيزات التشخيصية، وبرامج التطوير المهني.
+            </p>
+            <p class="text-xs text-[#64748B] leading-relaxed pt-2 border-t border-slate-100">
+              ويبدأ عملنا المؤسسي بفهم احتياجات الجهة، ثم تصميم استجابة عملية وقابلة للقياس تتناسب مع بيئتها الأكاديمية والسريرية والتشغيلية.
+            </p>
+          </div>
+
+          <div class="academic-card p-6 bg-white space-y-3">
+            <span class="font-mono text-xs font-bold text-purple-700 bg-purple-50 px-2.5 py-1 rounded">المجال 05</span>
+            <h3 class="text-lg font-bold font-heading text-[#123B5D]">الطب الجزيئي والبحث الجينومي</h3>
+            <p class="text-sm text-[#64748B] leading-relaxed">
+              من خلال SGRC، ندعم التعليم والبحث في مجالات الطب الجزيئي، وعلم الوراثة، والأورام، وعلم الجينوم، والمعلوماتية الحيوية، والتخصصات ذات الصلة.
+            </p>
+            <p class="text-xs text-[#64748B] leading-relaxed pt-2 border-t border-slate-100">
+              وقد تشمل أنشطتنا التعليم في الطب الجزيئي، وتطوير مجموعات البحث، والكتابة العلمية، وتحليل البيانات الجينومية، والإشراف البحثي، والإعداد للنشر في المجلات المحكمة. وتخضع جميع مخرجات البحث والانتسابات وادعاءات النشر للمراجعة الأكاديمية والأخلاقية المناسبة.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. LEADERSHIP ROSTER -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 text-right">
+      <div class="text-center max-w-3xl mx-auto space-y-2">
+        <span class="text-xs font-mono font-bold text-[#123B5D] uppercase tracking-wider">حوكمة المنظومة</span>
+        <h2 class="text-2xl sm:text-4xl font-bold font-heading text-[#123B5D]">القيادة</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <div class="academic-card p-6 bg-white space-y-3 border-t-2 border-t-[#123B5D]">
+          <h3 class="text-lg font-bold font-heading text-[#123B5D]">د. محمد أحمد عبد الفتاح جبريل</h3>
+          <p class="text-xs font-bold text-[#64748B] uppercase tracking-wider">المؤسس والرئيس التنفيذي</p>
+          <p class="text-sm text-[#1F2937] leading-relaxed pt-2 border-t border-slate-100">
+            د. محمد جبريل طبيب وباحث في الطب الجزيئي والمعلوماتية الحيوية. يقود تطوير نموذج التدريب السريري التفاعلي في GeneAcademy، ومفهوم التوثيق SudaPass™، ودبلوم الطب الجزيئي، وإطار تطوير المجموعات البحثية.
+          </p>
+        </div>
+
+        <div class="academic-card p-6 bg-white space-y-3 border-t-2 border-t-[#C9A227]">
+          <h3 class="text-lg font-bold font-heading text-[#123B5D]">د. آلاء عبد الحفيظ مرسي فرح</h3>
+          <p class="text-xs font-bold text-[#64748B] uppercase tracking-wider">المؤسس المشارك والمدير الطبي</p>
+          <p class="text-sm text-[#1F2937] leading-relaxed pt-2 border-t border-slate-100">
+            تسهم د. آلاء فرح، وهي جرّاحة ومعلّمة طبية، في تطوير مسارات الزمالات الدولية، والتدريب على المهارات الجراحية، والإعداد المهني للأطباء الساعين إلى فرص في المملكة المتحدة وأيرلندا وغيرها من المسارات الدولية.
+          </p>
+        </div>
+
+        <div class="academic-card p-6 bg-white space-y-3 border-t-2 border-t-[#168C8C]">
+          <h3 class="text-lg font-bold font-heading text-[#123B5D]">د. صفاء عبد القادر الحسن</h3>
+          <p class="text-xs font-bold text-[#64748B] uppercase tracking-wider">العميد الأكاديمي</p>
+          <p class="text-sm text-[#1F2937] leading-relaxed pt-2 border-t border-slate-100">
+            تشرف د. صفاء الحسن على التطوير الأكاديمي، وموارد التعلم، ومراجعة بعض مواد التحضير للامتحانات، بما في ذلك علم الأدوية والوحدات المرتبطة بالمجلس الطبي السوداني.
+          </p>
+        </div>
+
+        <div class="academic-card p-6 bg-white space-y-3 border-t-2 border-t-[#16805B]">
+          <h3 class="text-lg font-bold font-heading text-[#123B5D]">د. محمد صبري محمد أحمد</h3>
+          <p class="text-xs font-bold text-[#64748B] uppercase tracking-wider">مدير التدريب والمحاكاة</p>
+          <p class="text-sm text-[#1F2937] leading-relaxed pt-2 border-t border-slate-100">
+            يقود د. محمد صبري أنشطة المحاكاة السريرية والتدريب العملي، بما في ذلك التعليم في مجال الإنعاش وتطوير المهارات تحت الإشراف.
+          </p>
+        </div>
+
+        <div class="academic-card p-6 bg-white space-y-3 border-t-2 border-t-slate-700 md:col-span-2 lg:col-span-2">
+          <h3 class="text-lg font-bold font-heading text-[#123B5D]">م. أمجد قرشي أحمد محمد</h3>
+          <p class="text-xs font-bold text-[#64748B] uppercase tracking-wider">رئيس العمليات والأنظمة</p>
+          <p class="text-sm text-[#1F2937] leading-relaxed pt-2 border-t border-slate-100">
+            يدعم م. أمجد قرشي الأنظمة التشغيلية، والبنية الرقمية للسجلات، وعمليات البيانات، ومكتب القبول المركزي.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 5. EVIDENCE & VERIFIED MILESTONES -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      <div class="text-center max-w-3xl mx-auto space-y-2">
+        <span class="text-xs font-mono font-bold text-[#16805B] uppercase tracking-wider">السجل المؤسسي</span>
+        <h2 class="text-2xl sm:text-4xl font-bold font-heading text-[#123B5D]">إنجازات موثقة</h2>
+        <p class="text-sm text-[#64748B]">يتضمن السجل المؤسسي المقدم الأرقام التالية:</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-center font-mono">
+        <div class="academic-card p-6 bg-white space-y-2 border-t-2 border-t-[#123B5D] flex flex-col justify-center h-full">
+          <div class="text-3xl font-black text-[#123B5D]">55</div>
+          <div class="text-sm font-sans font-bold text-[#1F2937]">كلية طبية مدرجة ومسجلة</div>
+        </div>
+
+        <div class="academic-card p-6 bg-white space-y-2 border-t-2 border-t-[#C9A227] flex flex-col justify-center h-full">
+          <div class="text-3xl font-black text-[#C9A227]">35</div>
+          <div class="text-sm font-sans font-bold text-[#1F2937]">خريجاً في تدريب المهارات الجراحية الأساسية</div>
+          <div class="text-xs text-[#64748B] font-sans">دفعة أبريل 2025</div>
+        </div>
+
+        <div class="academic-card p-6 bg-white space-y-2 border-t-2 border-t-[#16805B] flex flex-col justify-center h-full">
+          <div class="text-3xl font-black text-[#16805B]">7</div>
+          <div class="text-sm font-sans font-bold text-[#1F2937]">خريجين في تدريب دعم الحياة الأساسي</div>
+          <div class="text-xs text-[#64748B] font-sans">دفعة أبريل 2025</div>
+        </div>
+
+        <div class="academic-card p-6 bg-white space-y-2 border-t-2 border-t-[#168C8C] flex flex-col justify-center h-full">
+          <div class="text-3xl font-black text-[#168C8C]">3</div>
+          <div class="text-sm font-sans font-bold text-[#1F2937]">فنيين في مختبرات البيولوجيا الجزيئية والمناعة</div>
+          <div class="text-xs text-[#64748B] font-sans">دفعة أبريل 2025</div>
+        </div>
+      </div>
+
+      <div class="max-w-3xl mx-auto mt-6 text-center">
+        <p class="text-xs text-[#64748B] italic">
+          يجب مراجعة هذه الأرقام واعتمادها من مالك البرنامج أو الجهة المؤسسية المختصة قبل نشرها. كما ينبغي تحديثها مع اكتمال الدفعات والشراكات الجديدة.
+        </p>
+      </div>
+    </section>
+
+    <!-- 6. OUR COMMITMENT & CALL TO ACTION -->
+    <section id="contact" class="py-16 bg-[#123B5D] text-white text-center">
+      <div class="max-w-4xl mx-auto px-4 space-y-8">
+        <div class="space-y-4">
+          <span class="badge-verified bg-white/10 text-white border-none">التزامنا</span>
+          <p class="text-base sm:text-lg text-slate-200 leading-relaxed max-w-3xl mx-auto">
+            تلتزم GeneAcademy™ وSGRC ببناء بيئة مهنية يتحول فيها التعلم إلى ممارسة، والتدريب إلى كفاءة، والإنجاز إلى سجل موثق بمسؤولية.
+          </p>
+          <p class="text-sm text-slate-300 leading-relaxed max-w-2xl mx-auto">
+            وسنواصل تطوير التعليم العملي، وفرص البحث، والتحقق المهني، والشراكات المؤسسية التي تساعد المهنيين الصحيين والمؤسسات على الاستعداد لمستقبل الطب.
+          </p>
+        </div>
+
+        <div class="pt-8 border-t border-[#1a5180] space-y-6">
+          <h2 class="text-2xl sm:text-3xl font-bold font-heading">ابدأ مسارك</h2>
+          <p class="text-sm text-slate-300 max-w-xl mx-auto">
+            سواء كنت تستعد لامتحان مهني، أو تطوّر مهاراتك السريرية، أو تستكشف البحث الجينومي، أو تبحث عن دعم مؤسسي، أو ترغب في بناء سجل مهني قابل للتحقق، يمكن لـ GeneAcademy™ مساعدتك في تحديد خطوتك التالية.
+          </p>
+          <div class="flex flex-wrap justify-center gap-4 pt-2">
+            <a href="courses.html" class="px-7 py-3.5 rounded-xl bg-[#168C8C] hover:bg-[#127272] text-white font-heading font-bold text-sm shadow transition">
+              استكشف برامجنا
+            </a>
+            <a href="institutions_ar.html" class="px-7 py-3.5 rounded-xl bg-white hover:bg-slate-100 text-[#123B5D] font-heading font-bold text-sm shadow transition">
+              تواصل مع فريقنا
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+<footer class="bg-[#0B1E2E] text-slate-400 py-16 text-xs border-t border-slate-800" dir="rtl">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 font-sans">
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      
+      <!-- Column 1: Brand & Bio -->
+      <div class="space-y-4">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-lg bg-[#123B5D] text-white font-mono font-bold flex items-center justify-center text-sm border border-slate-700" dir="ltr">
+            GA
+          </div>
+          <span class="text-base font-bold font-heading text-white">أكاديمية جين</span>
+        </div>
+        <p class="text-slate-400 leading-relaxed max-w-sm">
+          اتحاد طبي وأكاديمي سيادي يقدم تعليماً سريرياً مستمراً، وخدمات جينومية، واعتمادات أكاديمية قابلة للتحقق.
+        </p>
+      </div>
+
+      <!-- Column 2: Explore -->
+      <div class="space-y-3">
+        <div class="font-bold text-white font-heading uppercase text-xs tracking-wider">استكشف</div>
+        <ul class="space-y-2">
+          <li><a href="about_ar.html" class="hover:text-white transition">من نحن</a></li>
+          <li><a href="courses.html" class="hover:text-white transition">البرامج</a></li>
+          <li><a href="research.html" class="hover:text-white transition">البحث العلمي</a></li>
+          <li><a href="faculty.html" class="hover:text-white transition">أعضاء هيئة التدريس</a></li>
+          <li><a href="institutions_ar.html" class="hover:text-white transition">المؤسسات</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Participate -->
+      <div class="space-y-3">
+        <div class="font-bold text-white font-heading uppercase text-xs tracking-wider">شارك</div>
+        <ul class="space-y-2">
+          <li><a href="join_ar.html" class="text-teal-400 hover:text-white font-bold transition">انضم إلى شبكتنا</a></li>
+          <li><a href="courses.html" class="hover:text-white transition">التدريب السريري</a></li>
+          <li><a href="stem.html" class="hover:text-white transition">برامج المبتدئين (STEM)</a></li>
+          <li><a href="ideas.html" class="hover:text-white transition">تقديم فكرة بحثية</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 4: Trust & Support -->
+      <div class="space-y-3">
+        <div class="font-bold text-white font-heading uppercase text-xs tracking-wider">الثقة والدعم</div>
+        <ul class="space-y-2">
+          <li><a href="verify.html" class="hover:text-white transition">التحقق من الشهادات</a></li>
+          <li><a href="#contact" class="hover:text-white transition">اتصل بنا</a></li>
+          <li><a href="#" class="hover:text-white transition">سياسة الخصوصية</a></li>
+          <li><a href="#" class="hover:text-white transition">شروط الاستخدام</a></li>
+          <li><a href="#" class="hover:text-white transition">حماية الأعضاء</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="border-t border-slate-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 font-sans text-slate-500">
+      <div>
+        &copy; 2026/2027 أكاديمية جين &bull; اتحاد سوداجين الطبي.
+      </div>
+      <div class="flex gap-4">
+        <span class="hidden sm:inline">Made with precision.</span>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+<!-- Minimal Script for Mobile Menu AR -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const mobileBtnAr = document.getElementById('mobile-menu-toggle-ar');
+    const mobileNavAr = document.getElementById('mobile-nav-ar');
+    if(mobileBtnAr && mobileNavAr) {
+      mobileBtnAr.addEventListener('click', () => {
+        mobileNavAr.classList.toggle('hidden');
+      });
+    }
+  });
+</script>
+</body>
+</html>

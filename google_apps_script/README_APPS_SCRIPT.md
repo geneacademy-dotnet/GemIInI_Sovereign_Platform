@@ -1,5 +1,5 @@
-# 🌐 Google Sheets & Google Drive Sovereign Integration Guide (2026)
-## Connecting the 3-Door Sovereign Ecosystem & Automated Google Drive Dossier Engine
+# 🌐 Google Sheets & Google Drive Independent Integration Guide (2026)
+## Connecting the 3-Door SudaGene Ecosystem & Automated Google Drive Dossier Engine
 
 This guide explains how your **5-Tab Google Sheets Relational Ledger** and **Automated Google Drive Dossier Engine** operate seamlessly with the web application (`geneacademy.net` & `members.geneacademy.net`).
 
@@ -7,7 +7,7 @@ This guide explains how your **5-Tab Google Sheets Relational Ledger** and **Aut
 
 ### 📂 The 5-Tab Google Sheets Relational Architecture
 
-When you deploy [`google_apps_script/Code.gs`](file:///g:/My%20Drive/GemIInI_Sovereign_Platform/google_apps_script/Code.gs), it automatically creates and maintains these **5 synchronized tabs**:
+When you deploy [`google_apps_script/Code.gs`](file:///g:/My%20Drive/GemIInI_Independent_Platform/google_apps_script/Code.gs), it automatically creates and maintains these **5 synchronized tabs**:
 
 | Tab Name | Purpose | Key Columns |
 | :--- | :--- | :--- |
@@ -23,8 +23,8 @@ When you deploy [`google_apps_script/Code.gs`](file:///g:/My%20Drive/GemIInI_Sov
 
 When any doctor or candidate fills a form or registers:
 1. **Google Apps Script `DriveApp`** triggers instantly.
-2. Creates the root folder: `📁 GemIInI_Sovereign_Vault_2026/`
-3. Organizes by Sovereign Entity Door:
+2. Creates the root folder: `📁 GemIInI_Independent_Vault_2026/`
+3. Organizes by Independent Entity Door:
    * `📁 1_GemIInI_Academy_Clinical/`
    * `📁 2_GeneAcademy_Molecular_Research/`
    * `📁 3_GLOMEt_HQ_B2B_Labs/`
@@ -38,13 +38,13 @@ When any doctor or candidate fills a form or registers:
 
 1. Open your master Google Sheet at [sheets.new](https://sheets.new).
 2. Click **Extensions (الإضافات) ➔ Apps Script**.
-3. Replace the script editor code with the updated contents of [`google_apps_script/Code.gs`](file:///g:/My%20Drive/GemIInI_Sovereign_Platform/google_apps_script/Code.gs).
+3. Replace the script editor code with the updated contents of [`google_apps_script/Code.gs`](file:///g:/My%20Drive/GemIInI_Independent_Platform/google_apps_script/Code.gs).
 4. Click **Deploy (نشر) ➔ New deployment (توزيع جديد)**:
    * Type: **Web app (تطبيق ويب)**
    * Execute as: **Me (حسابي)**
    * Who has access: **Anyone (أي شخص)**
 5. Click **Deploy** and authorize permissions (including Google Drive & Docs permissions).
-6. Copy the **Web App URL** and ensure it matches `GAS_URL` in [`api.js`](file:///g:/My%20Drive/GemIInI_Sovereign_Platform/api.js).
+6. Copy the **Web App URL** and ensure it matches `GAS_URL` in [`api.js`](file:///g:/My%20Drive/GemIInI_Independent_Platform/api.js).
 
 ---
 
@@ -53,5 +53,5 @@ When any doctor or candidate fills a form or registers:
 | User Enters | Detected Door | Routed Workspace |
 | :--- | :--- | :--- |
 | **Doctor / Medical Student** | 🚪 **Door 1: GemIInI Academy** | SMC Licensure Q-Banks, 20-Q Diagnostic Simulator, Clinical Reality Barometer |
-| **Molecular Scholar / Researcher** | 🚪 **Door 2: GeneAcademy** | Molecular Medicine Masterclasses (MM 1.0 - 8.0), Scientific Manuscript Hub, Sovereign Alumni Museum |
+| **Molecular Scholar / Researcher** | 🚪 **Door 2: GeneAcademy** | Molecular Medicine Masterclasses (MM 1.0 - 8.0), Scientific Manuscript Hub, Independent Alumni Museum |
 | **Hospital Director / Lab Partner** | 🚪 **Door 3: GLOMEt HQ** | Turnkey Lab Specifications, CBC Reagent Procurement, Institutional Batch Contracts |

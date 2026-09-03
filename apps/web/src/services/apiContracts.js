@@ -1,5 +1,5 @@
 /**
- * GemIInI Sovereign Platform - API Database Contracts
+ * GemIInI SudaGene Platform - API Database Contracts
  * Strictly aligns frontend payloads with Google Apps Script (Code.gs) & PocketBase schemas.
  */
 

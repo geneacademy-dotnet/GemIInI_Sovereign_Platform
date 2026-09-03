@@ -1,5 +1,5 @@
 /**
- * GemIInI Sovereign Platform — UI & Animations Engine
+ * GemIInI SudaGene Platform — UI & Animations Engine
  * Handles Universal Search, UI Modals, Animations, and Simulator Rendering.
  */
 

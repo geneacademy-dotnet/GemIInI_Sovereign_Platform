@@ -1,4 +1,4 @@
-# GemIInI Sovereign Ecosystem — Master Google Sheet Architecture (2026)
+# GemIInI SudaGene Ecosystem — Master Google Sheet Architecture (2026)
 
 This document specifies the exact **7-Tab Master Google Sheet Data Blueprint** that powers the entire GemIInI / SudaGene ecosystem, connects Google Forms and the web platform, and manages member identities, inquiry routing, and academic points ledger.
 
@@ -24,7 +24,7 @@ This document specifies the exact **7-Tab Master Google Sheet Data Blueprint** t
 id,name,status_role,institution,grad_year,priority_track,advised_modules,gp_balance,skill_rank,high_value,tags,source_workbook,notes,verified
 ```
 
-* **A: `id`**: Unique GA Sovereign Identifier (`GA001` - `GA9999`).
+* **A: `id`**: Unique GA Independent Identifier (`GA001` - `GA9999`).
 * **B: `name`**: Full legal/professional name as registered.
 * **C: `status_role`**: Clinical/academic rank (`House Officer`, `Specialist`, `Graduate / Postgraduate`, `Pre-clinical`).
 * **D: `institution`**: University or clinical entity (`University of Khartoum`, `Ahfad`, `University of Bahri`, etc.).
@@ -97,5 +97,5 @@ Tx_ID,Timestamp,GA_ID,TransactionType,AmountGP,RemainingBalance,ModuleOrBountyRe
 ---
 
 ## 🔗 Webhook & Apps Script Integration
-* The Google Apps Script in [`google_apps_script/Code.gs`](file:///g:/My%20Drive/GemIInI_Sovereign_Platform/google_apps_script/Code.gs) listens for HTTP POST requests from [`join.html`](file:///g:/My%20Drive/GemIInI_Sovereign_Platform/join.html), [`glomet.html`](file:///g:/My%20Drive/GemIInI_Sovereign_Platform/glomet.html), and [`courses.html`](file:///g:/My%20Drive/GemIInI_Sovereign_Platform/courses.html).
+* The Google Apps Script in [`google_apps_script/Code.gs`](file:///g:/My%20Drive/GemIInI_Independent_Platform/google_apps_script/Code.gs) listens for HTTP POST requests from [`join.html`](file:///g:/My%20Drive/GemIInI_Independent_Platform/join.html), [`glomet.html`](file:///g:/My%20Drive/GemIInI_Independent_Platform/glomet.html), and [`courses.html`](file:///g:/My%20Drive/GemIInI_Independent_Platform/courses.html).
 * Automatically routes rows to `GA_MASTER_REGISTRY` and the corresponding inquiry sub-sheet without manual data entry.

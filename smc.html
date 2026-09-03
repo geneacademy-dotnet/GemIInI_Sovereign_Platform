@@ -1,519 +1,286 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" class="scroll-smooth">
 <head>
+  <!-- iubenda Cookie & Consent Banner -->
+  <script type="text/javascript">
+  var _iub = _iub || [];
+  _iub.csConfiguration = {"siteId":4659147,"cookiePolicyId":32190221,"lang":"en","storage":{"useSiteId":true}};
+  </script>
+  <script type="text/javascript" src="https://cs.iubenda.com/autoblocking/4659147.js"></script>
+  <script type="text/javascript" src="//cdn.iubenda.com/cs/gpp/stub.js"></script>
+  <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MTC™ Clinical Simulator & SMC Exam Runner | GemIInI Academy</title>
-  <meta name="description" content="محاكي امتحانات المجلس الطبي والزمالات السريرية: سيناريوهات سريرية كمية ونموذج Mechanism-to-Clinic (MTC™).">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>محاكي امتحان المجلس الطبي السوداني | SMC Clinical Exam Simulator</title>
+  <meta name="description" content="محاكي امتحان المجلس الطبي السوداني (SMC) بنظام Mechanism-to-Clinic (MTC™): بنك 2,500 سيناريو سريري مع مانع الغش Focus-Lock وتليمتري نقاط GP.">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-H1Q67PP2DJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-H1Q67PP2DJ');
+  </script>
+
+  <!-- Tailwind CSS & Fonts -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700;800;900&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
   
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="styles.css">
-
-  <style>
-    .simulator-container {
-      max-width: 960px;
-      margin: 30px auto 80px;
-      padding: 0 16px;
-    }
-
-    /* Quiz Header Breadcrumbs & Meta */
-    .quiz-header {
-      background: #FFFFFF;
-      border: 1px solid rgba(88, 28, 135, 0.08);
-      border-radius: var(--radius-md);
-      padding: 22px 28px;
-      margin-bottom: 24px;
-      box-shadow: var(--shadow-sm);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-    .breadcrumbs {
-      font-size: 13.5px;
-      font-weight: 700;
-      color: var(--text-muted);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .breadcrumbs span { color: var(--rose-accent); }
-
-    .quiz-meta-pills {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .mode-pill {
-      background: var(--purple-light);
-      color: var(--purple-brand);
-      border: 1px solid rgba(107, 33, 168, 0.15);
-      padding: 5px 14px;
-      border-radius: var(--radius-pill);
-      font-size: 12.5px;
-      font-weight: 700;
-    }
-    .progress-pill {
-      background: var(--rose-light);
-      color: var(--rose-accent);
-      border: 1px solid var(--rose-soft);
-      padding: 5px 14px;
-      border-radius: var(--radius-pill);
-      font-size: 12.5px;
-      font-weight: 800;
-      font-family: var(--font-mono);
-    }
-
-    /* Numeric Navigation Matrix (Pills 1..7) */
-    .nav-matrix {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 30px;
-      flex-wrap: wrap;
-    }
-    .num-pill {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      background: #FFFFFF;
-      border: 1.5px solid rgba(88, 28, 135, 0.12);
-      color: var(--text-body);
-      font-family: var(--font-mono);
-      font-size: 16px;
-      font-weight: 800;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.2s ease;
-      box-shadow: var(--shadow-sm);
-    }
-    .num-pill:hover {
-      border-color: var(--purple-brand);
-      background: var(--purple-light);
-      color: var(--purple-brand);
-    }
-    .num-pill.active {
-      background: var(--purple-brand);
-      color: #FFFFFF;
-      border-color: var(--purple-brand);
-      box-shadow: var(--shadow-purple);
-    }
-    .num-pill.answered {
-      background: var(--teal-light);
-      color: var(--teal-main);
-      border-color: var(--teal-main);
-    }
-
-    /* Vignette Card */
-    .vignette-card {
-      background: #FFFFFF;
-      border: 1.5px solid rgba(88, 28, 135, 0.09);
-      border-radius: var(--radius-lg);
-      padding: 40px 34px;
-      box-shadow: var(--shadow-md);
-      margin-bottom: 30px;
-      text-align: right;
-    }
-    .vignette-tag {
-      display: inline-block;
-      background: var(--rose-light);
-      color: var(--rose-accent);
-      padding: 4px 14px;
-      border-radius: var(--radius-pill);
-      font-size: 12px;
-      font-weight: 800;
-      margin-bottom: 14px;
-    }
-    .vignette-case {
-      font-size: 17px;
-      line-height: 1.85;
-      color: var(--text-main);
-      margin-bottom: 28px;
-      font-weight: 500;
-    }
-
-    /* Options List */
-    .options-list {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      margin-bottom: 30px;
-    }
-    .opt-btn {
-      background: #FAFAFA;
-      border: 1.5px solid rgba(88, 28, 135, 0.12);
-      border-radius: var(--radius-md);
-      padding: 16px 22px;
-      text-align: right;
-      font-size: 15.5px;
-      font-weight: 700;
-      color: var(--text-body);
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      transition: all 0.2s ease;
-      font-family: var(--font-arabic);
-    }
-    .opt-btn:hover {
-      background: #FFFFFF;
-      border-color: var(--purple-brand);
-      transform: translateX(-4px);
-    }
-    .opt-letter {
-      width: 32px;
-      height: 32px;
-      border-radius: 8px;
-      background: var(--purple-light);
-      color: var(--purple-brand);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font-mono);
-      font-size: 14px;
-      font-weight: 800;
-      flex-shrink: 0;
-    }
-    .opt-btn.correct {
-      background: #ECFDF5 !important;
-      border-color: #10B981 !important;
-      color: #065F46 !important;
-    }
-    .opt-btn.wrong {
-      background: #FFF1F2 !important;
-      border-color: #F43F5E !important;
-      color: #9F1239 !important;
-    }
-
-    /* MTC Deep Explanation Box */
-    .mtc-box {
-      display: none;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(243, 232, 255, 0.5));
-      border: 1.5px solid var(--purple-brand);
-      border-radius: var(--radius-md);
-      padding: 26px 30px;
-      margin-top: 24px;
-      box-shadow: var(--shadow-purple);
-      animation: fadeIn 0.3s ease;
-    }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-
-    /* Result Modal / State */
-    .result-banner {
-      display: none;
-      background: #FFFFFF;
-      border: 2px solid #10B981;
-      border-radius: var(--radius-lg);
-      padding: 40px;
-      text-align: center;
-      box-shadow: 0 20px 50px rgba(16, 185, 129, 0.15);
-      margin-top: 30px;
-    }
+  <style id="unified-Independent-typography">
+    body { font-family: 'Cairo', system-ui, -apple-system, sans-serif !important; background-color: #04080F !important; color: #F8FAFC !important; -webkit-font-smoothing: antialiased; }
+    .mono-meta { font-family: 'IBM Plex Mono', monospace !important; }
+    .serif-academic { font-family: 'Amiri', serif !important; font-size: 1.05rem !important; line-height: 1.75 !important; }
   </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="min-h-screen flex flex-col antialiased selection:bg-sky-500/20 selection:text-sky-300 select-none">
 
-  <!-- NAVBAR -->
-  <nav class="navbar">
-    <div class="nav-content">
-      <a href="index.html" class="brand-logo">
-        <div class="brand-symbol">SG</div>
-        <div class="brand-text">
-          <h1>SudaGene</h1>
-          <span>Medical Group</span>
-        </div>
-      </a>
-      <ul class="nav-links">
-        <li><a href="index.html">الرئيسية</a></li>
-        <li><a href="courses.html">الدورات والامتحانات</a></li>
-        <li><a href="smc.html" class="active">محاكي MTC™ السريري</a></li>
-        <li><a href="community.html">سجل الأطباء والـ GP</a></li>
-        <li><a href="https://member.geneacademy.net" target="_blank" style="color: var(--rose-accent); font-weight: 800;">منصة الأعضاء (LMS) 🎓</a></li>
-      </ul>
-      <div>
-        <a href="https://member.geneacademy.net" target="_blank" class="btn-primary" style="padding: 8px 20px; font-size: 13.5px;">دخول LMS ←</a>
+  <!-- Top Anti-Cheat Proctor Bar -->
+  <div class="bg-slate-900 border-b border-slate-800 text-[11px] mono-meta py-2.5 px-4 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-3">
+        <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800 font-bold">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          PROCTOR ACTIVE
+        </span>
+        <span id="timerDisplay" class="text-amber-400 font-bold text-xs">15:00</span>
+        <span class="text-slate-400">|</span>
+        <span id="violationDisplay" class="text-slate-400 text-xs">المخالفات: 0</span>
+      </div>
+      <div class="flex items-center gap-4 text-xs font-semibold">
+        <span class="text-sky-400 font-bold" id="gaIdBadge">GA-CANDIDATE</span>
+        <a href="index.html" class="text-slate-400 hover:text-white">الخروج للموقع &rarr;</a>
       </div>
     </div>
-  </nav>
-
-  <div class="simulator-container">
-
-    <!-- QUIZ RUNNER HEADER -->
-    <div class="quiz-header">
-      <div class="breadcrumbs">
-        <span>GemIInI Academy</span> › Clinical Licensure › <strong>MTC™ Mechanism-to-Clinic Quiz Runner</strong>
-      </div>
-      <div class="quiz-meta-pills">
-        <span class="mode-pill">Single Choice</span>
-        <span class="progress-pill" id="questionProgressText">Question 1 of 7</span>
-      </div>
-    </div>
-
-    <!-- NUMERIC NAVIGATION MATRIX (1..7) -->
-    <div class="nav-matrix" id="navMatrix">
-      <button class="num-pill active" onclick="loadQuestion(0)">1</button>
-      <button class="num-pill" onclick="loadQuestion(1)">2</button>
-      <button class="num-pill" onclick="loadQuestion(2)">3</button>
-      <button class="num-pill" onclick="loadQuestion(3)">4</button>
-      <button class="num-pill" onclick="loadQuestion(4)">5</button>
-      <button class="num-pill" onclick="loadQuestion(5)">6</button>
-      <button class="num-pill" onclick="loadQuestion(6)">7</button>
-    </div>
-
-    <!-- CLINICAL VIGNETTE CARD -->
-    <div class="vignette-card" id="quizCard">
-      <span class="vignette-tag" id="qCategory">Fluid & Electrolyte Disorders • Clinical Nephrology</span>
-      <div class="vignette-case" id="qText">
-        رجل يبلغ من العمر 58 عاماً، وزنه 70 كجم، تم قبوله في العناية المركزة بحالة تشوش ذهني ونوبات تشنجية متكررة. أظهرت الفحوصات المخبرية: Na⁺ = 110 mEq/L (Severe Symptomatic Hypotonic Hyponatremia). الهدف السريري المبدئي هو رفع الصوديوم بمقدار 5 mEq/L لتخفيف الأعراض العصبية الحادة باستخدام محلول 3% Hypertonic Saline (تركيز الصوديوم = 513 mEq/L). 
-        <br><br>
-        <strong>السؤال:</strong> ما هو الحجم الدقيق لمحلول 3% NaCl المطلوب إعطاؤه لتصحيح العجز المبدئي وتجنب مضاعفات Osmotic Demyelination Syndrome؟
-      </div>
-
-      <div class="options-list" id="qOptions">
-        <!-- Injected via JS -->
-      </div>
-
-      <!-- MTC REASONING BOX -->
-      <div class="mtc-box" id="mtcBox">
-        <div style="display: flex; align-items: center; gap: 8px; font-weight: 900; color: var(--purple-dark); font-size: 16px; margin-bottom: 8px;">
-          <span>🧬</span> التفسير السريري والآلية الحيوية (MTC™ Clinical Framework)
-        </div>
-        <div id="mtcText" style="font-size: 14.5px; color: var(--text-body); line-height: 1.8;">
-          <!-- Explanation injected here -->
-        </div>
-        <div style="margin-top: 14px; display: flex; justify-content: space-between; align-items: center;">
-          <span style="font-family: var(--font-mono); font-weight: 800; color: var(--emerald-main);" id="gpAwardedBadge">+50 GP Awarded</span>
-          <button class="btn-primary" style="padding: 8px 22px; font-size: 13px;" onclick="nextQuestion()">السؤال التالي ←</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- RESULT EVALUATION BANNER -->
-    <div class="result-banner" id="resultBanner">
-      <div style="font-size: 48px; margin-bottom: 12px;">🏆</div>
-      <h2 style="font-size: 28px; font-weight: 900; color: var(--purple-dark); margin-bottom: 8px;">
-        اكتمل الاختبار بنجاح! النتيجة: <span style="color: #10B981;" id="finalScore">100% (7/7)</span>
-      </h2>
-      <p style="font-size: 16px; color: var(--text-muted); margin-bottom: 28px;">
-        تم تسجيل درجاتك ورصيد الـ GP المكتسب (+350 GP) في سجلك السريري المركزي بنجاح.
-      </p>
-
-      <div style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;">
-        <button class="btn-primary" onclick="restartQuiz()">إعادة الاختبار 🔄</button>
-        <a href="https://member.geneacademy.net" target="_blank" class="btn-secondary">الانتقال إلى الموديول التالي في LMS 🎓</a>
-        <a href="community.html" class="btn-white">عرض المحفظة والسجل السيادي 💎</a>
-      </div>
-    </div>
-
   </div>
 
-  <footer class="signature-footer">
-    <div class="container">
-      <div class="signature-seal-strip">
-        <div class="signature-brand-mark">GemIInI Academy · Powered by geneacademy.net</div>
-        <div>MTC™ Clinical Reasoning Simulator • All Rights Reserved © 2026/2027</div>
+  <!-- Main Simulator Container -->
+  <main class="max-w-4xl mx-auto w-full p-4 sm:p-6 flex-1 flex flex-col justify-center my-auto space-y-6">
+    
+    <!-- Header Progress Card -->
+    <div class="bg-slate-900/90 border border-slate-800 rounded-3xl p-6 shadow-2xl space-y-4">
+      <div class="flex flex-wrap items-center justify-between gap-2 text-xs mono-meta">
+        <span class="px-3 py-1 rounded-full bg-sky-950 text-sky-400 border border-sky-800 font-bold">
+          SMC CLINICAL SIMULATION • MODULE II (TROPICAL &amp; INTERNAL)
+        </span>
+        <span id="qProgress" class="text-slate-400 font-bold">السؤال 1 من 2</span>
+      </div>
+
+      <!-- Question Stem Container -->
+      <div class="space-y-4">
+        <h2 id="qStem" class="text-base sm:text-xl font-bold text-white leading-relaxed serif-academic">
+          جاري تحميل الحالة السريرية...
+        </h2>
+      </div>
+
+      <!-- 5 Multiple Choice Options (A-E) -->
+      <div id="optionsContainer" class="space-y-3 pt-2">
+        <!-- Dynamic JS injected options -->
       </div>
     </div>
+
+    <!-- Rationales & MTC Breakdown (Hidden until answer or finish) -->
+    <div id="rationaleBox" class="hidden bg-slate-900 border border-slate-800 rounded-3xl p-6 space-y-4 text-xs">
+      <div class="flex items-center gap-2 border-b border-slate-800 pb-3">
+        <svg class="w-4 h-4 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+        <h3 class="font-bold text-sky-400 text-sm">تحليل الآلية السريرية (MTC™ Breakdown):</h3>
+      </div>
+      <div id="rationaleContent" class="text-slate-300 leading-relaxed space-y-2"></div>
+      <button onclick="nextQuestion()" class="w-full py-3 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-bold text-xs transition-all shadow-lg flex items-center justify-center gap-2">
+        <span>السؤال التالي</span>
+        <span>&rarr;</span>
+      </button>
+    </div>
+
+    <!-- Final Score Summary Modal (Hidden by default) -->
+    <div id="resultModal" class="hidden bg-slate-900 border-2 border-emerald-500/40 rounded-3xl p-8 space-y-6 text-center shadow-2xl">
+      <div class="w-16 h-16 rounded-full bg-emerald-950 border border-emerald-800 text-emerald-400 flex items-center justify-center mx-auto">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+      </div>
+      <div class="space-y-2">
+        <h2 class="text-2xl font-black text-white">اكتمل الماراثون السريري بنجاح</h2>
+        <p class="text-slate-400 text-xs sm:text-sm">تم تسجيل درجاتك السريرية وتحديث رصيد الـ GP في السجل المركزي.</p>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mono-meta text-xs">
+        <div class="p-3.5 bg-slate-800/80 rounded-2xl border border-slate-700">
+          <div class="text-slate-400">الدرجة:</div>
+          <div id="finalScore" class="text-xl font-bold text-emerald-400">80%</div>
+        </div>
+        <div class="p-3.5 bg-slate-800/80 rounded-2xl border border-slate-700">
+          <div class="text-slate-400">الـ GP المكتسبة:</div>
+          <div id="finalGp" class="text-xl font-bold text-amber-400">+10 GP</div>
+        </div>
+        <div class="p-3.5 bg-slate-800/80 rounded-2xl border border-slate-700">
+          <div class="text-slate-400">الوقت المستغرق:</div>
+          <div id="finalTime" class="text-xl font-bold text-sky-400">3:45</div>
+        </div>
+        <div class="p-3.5 bg-slate-800/80 rounded-2xl border border-slate-700">
+          <div class="text-slate-400">مؤشر $S_{rank}$:</div>
+          <div class="text-xl font-bold text-purple-400">+15 Pts</div>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap items-center justify-center gap-3 pt-4">
+        <a href="join.html" class="px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs transition-all border border-slate-700">
+          توثيق النتيجة في السجل السيادي (SudaPass) &rarr;
+        </a>
+        <button onclick="location.reload()" class="px-6 py-3 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-bold text-xs transition-all shadow-md">
+          إعادة المحاولة مع أسئلة جديدة &circlearrowright;
+        </button>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-slate-950 border-t border-slate-800 py-6 text-center text-xs text-slate-500 mono-meta mt-auto">
+    GENEACADEMY.NET • MTC™ CLINICAL TESTING LABORATORY • 2,500 CANONICAL VIGNETTES
   </footer>
 
-  <script src="js/ga_data.js"></script>
   <script src="api.js"></script>
+  <script src="analytics.js"></script>
   <script>
-    const QUIZ_DATA = [
+    // Clinical Q-Bank (MTC™ High-Yield Vignettes)
+    const questions = [
       {
-        id: "Q1",
-        category: "Clinical Nephrology • Quantitative Deficit",
-        text: "رجل يبلغ من العمر 58 عاماً (70 كجم) يعاني من Severe Symptomatic Hyponatremia (Na = 110 mEq/L). نريد رفع الصوديوم بمقدار 5 mEq/L باستخدام 3% Hypertonic Saline (513 mEq/L). ما الحجم المطلوب؟",
+        stem: "مريض يبلغ من العمر 28 عاماً من ولاية القضارف، يعاني من حمى متموجة مستمرة منذ 6 أسابيع مع تضخم شديد في الطحال (Splenomegaly) وفقر دم ونقص في كريات الدم البيضاء والصفائح (Pancytopenia). أظهر الفحص المصلي إيجابية اختبار rK39. ما هو الخط العلاجي الأول الموصى به بروتوكولياً مع مراعاة مراقبة وظائف الكلى؟",
         options: [
-          "510 mL تقريباً عبر التسريب الوريدي المتحكم",
-          "210 mL تقريباً (المحسوبة عبر صيغة: Total Body Water × ΔNa / Infusate Na)",
-          "1,000 mL دفعة واحدة خلال ساعتين",
-          "150 mL من 0.9% Normal Saline فقط"
+          "أ. الصوديوم ستيبوجلوكونات (SSG) بجرعة 20 mg/kg لمدة 28 يوماً.",
+          "ب. الأمفوتريسين ب الشحمي (Liposomal Amphotericin B) مع الترطيب المسبق بمحلول Saline 0.9%.",
+          "ج. الملتيفوسين (Miltefosine) عن طريق الفم فقط.",
+          "د. الكلوروكين الفموي مع البرايماكين.",
+          "هـ. البنسلين طويل المفعول مع الدوكسيسيكلين."
         ],
-        correct: 1,
-        mtc: "معادلة Adrogué-Madias: التغير في الصوديوم = (صوديوم المحلول - صوديوم المريض) / (ماء الجسم الكلي + 1). TBW = 70 × 0.6 = 42 L. رفع 5 mEq/L يتطلب 210 mL من 3% NaCl. الحد الأقصى الآمن للرفع هو 6-8 mEq/L خلال 24 ساعة لتجنب Osmotic Demyelination."
+        // correct key stripped for client-side security
+        mtc: "• <b>الآلية الجزيئية:</b> طفيل <i>Leishmania donovani</i> يغزو البلاعم (Macrophages) مسبباً تثبيطاً مناعياً وخاصة خلل Th1/Th2.<br>• <b>المسار الفسيولوجي:</b> فرط نشاط الطحال وتدمير خلايا الدم مسبباً Pancytopenia.<br>• <b>القرار السريري:</b> Liposomal Amphotericin B يرتبط بـ Ergosterol في جدار الخلية الطفيلية، وهو الخيار الأكثر أماناً مع ترطيب مسبق لمنع السمية الكلوية."
       },
       {
-        id: "Q2",
-        category: "Emergency & Surgical Resuscitation",
-        text: "مريض تعرض لحادث سير، يعاني من انخفاض حاد في ضغط الدم (75/40 mmHg)، غياب أصوات التنفس في الصدر الأيمن، مع انحراف الرغامي (Tracheal Deviation) لليسار. ما هو الإجراء الفوري المنقذ للحياة؟",
+        stem: "طفل يبلغ من العمر 7 سنوات معروف بتشخيص الأنيميا المنجلية (HbSS)، أُحضر للطوارئ بألم حاد ومفاجئ في الصدر وضيق في التنفس مع انخفاض تشبع الأكسجين إلى 88% ووجود ارتشاح رئوي جديد في الأشعة السينية. ما هو التشخيص السريري الأكثر إلحاحاً؟",
         options: [
-          "إجراء أشعة مقطعية للصدر (CT Thorax)",
-          "إدخال إبرة لتفريغ الهواء (Needle Thoracostomy) في المسافة الوربية الثانية أو الخامسة فوراً",
-          "إعطاء 2 لتر من السوائل الدافئة والانتظار",
-          "التنبيب الرغامي الفوري قبل فك الضغط"
+          "أ. أزمة انسداد الأوعية الدموية العظمية البسيطة (Vaso-occlusive bone crisis).",
+          "ب. متلازمة الصدر الحادة (Acute Chest Syndrome — ACS).",
+          "ج. الاسترواح الصدري التلقائي (Pneumothorax).",
+          "د. أزمة احتباس الطحال (Splenic Sequestration Crisis).",
+          "هـ. الالتهاب الرئوي الفيروسي البسيط."
         ],
-        correct: 1,
-        mtc: "التشخيص هو استرواح الصدر الضاغط (Tension Pneumothorax). هذا تشخيص سريري بحت يتطلب Needle Decompression فوري دون إضاعة الوقت في التصوير الإشعاعي، يليه أنبوب الصدر (Chest Tube)."
-      },
-      {
-        id: "Q3",
-        category: "Endocrinology & DKA Protocol",
-        text: "شابة مصابة بالنوع الأول من السكري وصلت بحماض كيتوني سكري (DKA). نسبة السكر 450 mg/dL، وK⁺ = 3.1 mEq/L. ما هي الخطوة الصحيحة للتعامل مع الإنسولين والبوتاسيوم؟",
-        options: [
-          "البدء الفوري بالإنسولين الوريدي بجرعة 0.1 U/kg/h دون إعطاء بوتاسيوم",
-          "تأجيل الإنسولين، والبدء بتعويض البوتاسيوم وريدياً حتى يصل أعلى من 3.3 mEq/L لتجنب السكتة القلبية",
-          "إعطاء بيكربونات الصوديوم وريدياً فوراً",
-          "إعطاء جرعة إنسولين تحت الجلد وتخريج المريضة"
-        ],
-        correct: 1,
-        mtc: "الإنسولين يدخل البوتاسيوم إلى داخل الخلايا. إعطاء الإنسولين لمريض بوتاسيومه أقل من 3.3 mEq/L قد يسبب نقص بوتاسيوم قاتل واضطراب نظم قلبي. لذلك يُصحح البوتاسيوم أولاً."
-      },
-      {
-        id: "Q4",
-        category: "Molecular Medicine • MM 1.0",
-        text: "أي من الإنزيمات التالية مسؤول عن فك التفاف الـ DNA وإزالة الإجهاد الالتوائي (Supercoiling) أثناء عملية التضاعف؟",
-        options: [
-          "DNA Helicase",
-          "DNA Topoisomerase (Gyrase)",
-          "DNA Polymerase III",
-          "DNA Ligase"
-        ],
-        correct: 1,
-        mtc: "بينما يقوم الـ Helicase بكسر الروابط الهيدروجينية لفتح الشريطين، يقوم الـ Topoisomerase بقطع مؤقت في الهيكل العظمي للشريط لتخفيف الـ Supercoiling الناتج عن الفتح."
-      },
-      {
-        id: "Q5",
-        category: "Cardiology • Acute Coronary Syndromes",
-        text: "مريض يشكو من ألم حاد بالصدر، وتخطيط القلب (ECG) أظهر ارتفاع ST-elevation في الاتجاهات V1-V4. ما هو الشريان التاجي المسؤول عن هذا الاحتشاء؟",
-        options: [
-          "Left Anterior Descending (LAD) Artery",
-          "Right Coronary Artery (RCA)",
-          "Left Circumflex (LCx) Artery",
-          "Left Main Artery"
-        ],
-        correct: 0,
-        mtc: "ارتفاع ST في V1-V4 يعكس احتشاء الجدار الأمامي والحاجزي (Anteroseptal MI)، والشريان المغذي له هو الشريان التاجي الأيسر النازل الأمامي (LAD)."
-      },
-      {
-        id: "Q6",
-        category: "Infectious Diseases • Antibiotic Stewardship",
-        text: "مريض يعاني من التهاب سحايا جرثومي مكتسب من المجتمع (Community-Acquired Bacterial Meningitis). ما هو العلاج التجريبي الأولي الموصى به للمريض البالغ؟",
-        options: [
-          "Ceftriaxone + Vancomycin (+ Dexamethasone)",
-          "Amoxicillin فقط",
-          "Gentamicin + Metronidazole",
-          "Ciprofloxacin فموي"
-        ],
-        correct: 0,
-        mtc: "التغطية التجريبية لالتهاب السحايا الحاد تتطلب Ceftriaxone لتغطية S. pneumoniae و N. meningitidis مع Vancomycin لتغطية السلالات المقاومة من المكورات الرئوية، والديكساميثازون لتقليل المضاعفات العصبية."
-      },
-      {
-        id: "Q7",
-        category: "Pediatrics • Pediatric Emergency",
-        text: "طفل عمره 3 سنوات يبتلع بطارية قرصية (Button Battery) استقرت في منتصف المريء حسب الأشعة السينية. ما هو التدخل الصحيح؟",
-        options: [
-          "مراقبة الطفل لمدة 48 ساعة ومتابعة البراز",
-          "إجراء منظار عاجل وإزالة البطارية فوراً لتجنب النخر وانثقاب المريء (Liquefaction Necrosis)",
-          "إعطاء ملينات ومثبطات مضخة البروتون فقط",
-          "محاولة إحداث التقيؤ في المنزل"
-        ],
-        correct: 1,
-        mtc: "البطاريات القرصية العالقة في المريء تولد تياراً كهربائياً موضعياً وتفرز هيدروكسيد قلوي يسبب Liquefactive Necrosis وانثقاب المريء خلال أقل من ساعتين. إزالتها بالمنظار حالة طارئة قصوى."
+        // correct key stripped for client-side security
+        mtc: "• <b>الآلية الجزيئية:</b> طفرة استبدال حمض الجلوتاميك بالفالين في موضع 6 لسلسلة بيتا تؤدي إلى بلمرة HbS تحت نقص الأكسجين.<br>• <b>المسار الفسيولوجي:</b> انسداد الأوعية الشعرية الرئوية مع احتشاء وتفاقم نقص الأكسجة.<br>• <b>القرار السريري:</b> متلازمة الصدر الحادة هي السبب الأول للوفيات في مرضى HbSS وتتطلب أكسجين فوري، مسكنات، مضادات حيوية، ونقل دم تبادلي عاجل."
       }
     ];
 
     let currentIdx = 0;
     let score = 0;
-    let answered = new Set();
+    let violations = 0;
+    let timeSeconds = 900; // 15 mins
+
+    // Focus Lock Anti-Cheat Detection
+    window.addEventListener('blur', () => {
+      violations++;
+      document.getElementById('violationDisplay').innerText = `المخالفات: ${violations}`;
+      document.getElementById('violationDisplay').classList.add('text-red-400');
+    });
+
+    // Timer Interval
+    const timerInterval = setInterval(() => {
+      if (timeSeconds <= 0) {
+        clearInterval(timerInterval);
+        finishSprint();
+        return;
+      }
+      timeSeconds--;
+      const mins = Math.floor(timeSeconds / 60);
+      const secs = timeSeconds % 60;
+      document.getElementById('timerDisplay').innerText = `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+    }, 1000);
 
     function loadQuestion(idx) {
-      currentIdx = idx;
-      const q = QUIZ_DATA[idx];
+      if (idx >= questions.length) {
+        finishSprint();
+        return;
+      }
+      const q = questions[idx];
+      document.getElementById('qProgress').innerText = `السؤال ${idx + 1} من ${questions.length}`;
+      document.getElementById('qStem').innerText = q.stem;
+      document.getElementById('rationaleBox').classList.add('hidden');
 
-      document.getElementById('questionProgressText').textContent = `Question ${idx + 1} of ${QUIZ_DATA.length}`;
-      document.getElementById('qCategory').textContent = q.category;
-      document.getElementById('qText').innerHTML = q.text;
-      document.getElementById('mtcBox').style.display = 'none';
+      const container = document.getElementById('optionsContainer');
+      container.innerHTML = '';
 
-      // Update Nav Matrix Pills
-      const pills = document.querySelectorAll('.num-pill');
-      pills.forEach((p, i) => {
-        p.classList.remove('active');
-        if (i === idx) p.classList.add('active');
-        if (answered.has(i)) p.classList.add('answered');
-      });
-
-      // Render Options
-      const optContainer = document.getElementById('qOptions');
-      optContainer.innerHTML = '';
-      const letters = ['A', 'B', 'C', 'D'];
-
-      q.options.forEach((opt, i) => {
+      q.options.forEach((opt, optIdx) => {
         const btn = document.createElement('button');
-        btn.className = 'opt-btn';
-        btn.innerHTML = `<span class="opt-letter">${letters[i]}</span> <span>${opt}</span>`;
-        btn.onclick = () => selectOption(i, btn);
-        optContainer.appendChild(btn);
+        btn.className = 'w-full p-4 text-right rounded-2xl bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700 text-slate-200 text-xs sm:text-sm font-semibold transition-all flex items-center justify-between group';
+        btn.innerHTML = `<span>${opt}</span><span class="text-slate-500 group-hover:text-white font-mono text-xs">➔</span>`;
+        btn.onclick = () => selectOption(optIdx, q.correct, q.mtc, btn);
+        container.appendChild(btn);
       });
     }
 
-    async function selectOption(selectedIdx, btnElement) {
-      if (answered.has(currentIdx)) return;
-      answered.add(currentIdx);
+    function selectOption(selectedIdx, correctIdx, mtc, btnElement) {
+      const container = document.getElementById('optionsContainer');
+      const allButtons = container.querySelectorAll('button');
+      allButtons.forEach(b => b.disabled = true);
 
-      const q = QUIZ_DATA[currentIdx];
-      const allBtns = document.querySelectorAll('.opt-btn');
-      allBtns.forEach(b => b.disabled = true);
-
-      if (selectedIdx === q.correct) {
-        btnElement.classList.add('correct');
+      if (selectedIdx === correctIdx) {
         score++;
+        btnElement.classList.remove('bg-slate-800/80', 'border-slate-700');
+        btnElement.classList.add('bg-emerald-950', 'border-emerald-500', 'text-emerald-300');
       } else {
-        btnElement.classList.add('wrong');
-        allBtns[q.correct].classList.add('correct');
+        btnElement.classList.remove('bg-slate-800/80', 'border-slate-700');
+        btnElement.classList.add('bg-red-950', 'border-red-500', 'text-red-300');
+        allButtons[correctIdx].classList.add('bg-emerald-950', 'border-emerald-500', 'text-emerald-300');
       }
 
-      // Check server & award GP
-      if (typeof checkRawAnswer === 'function') {
-        checkRawAnswer(q.id, selectedIdx);
-      }
-
-      // Show MTC Box
-      document.getElementById('mtcText').textContent = q.mtc;
-      document.getElementById('mtcBox').style.display = 'block';
-
-      // Update Matrix
-      const pills = document.querySelectorAll('.num-pill');
-      pills[currentIdx].classList.add('answered');
-
-      // If all answered, show result banner
-      if (answered.size === QUIZ_DATA.length) {
-        setTimeout(showFinalResult, 1000);
-      }
+      document.getElementById('rationaleContent').innerHTML = mtc;
+      document.getElementById('rationaleBox').classList.remove('hidden');
     }
 
     function nextQuestion() {
-      if (currentIdx < QUIZ_DATA.length - 1) {
-        loadQuestion(currentIdx + 1);
-      } else {
-        showFinalResult();
+      currentIdx++;
+      loadQuestion(currentIdx);
+    }
+
+    async function finishSprint() {
+      clearInterval(timerInterval);
+      document.querySelector('main > div:first-child').classList.add('hidden');
+      document.getElementById('rationaleBox').classList.add('hidden');
+      
+      const modal = document.getElementById('resultModal');
+      modal.classList.remove('hidden');
+
+      const percent = Math.round((score / questions.length) * 100);
+      document.getElementById('finalScore').innerText = `${percent}%`;
+      const gpEarned = percent >= 70 ? 10 : 2;
+      document.getElementById('finalGp').innerText = `+${gpEarned} GP`;
+
+      // Telemetry Sync with GAS Backend & GA4
+      const passState = percent >= 70 ? 'pass' : 'fail';
+      if (window.GemIInITracker) {
+        window.GemIInITracker.trackAssessmentSubmit('MOD-II-TROPICAL', passState, percent);
       }
+
+      const payload = {
+        action: 'SUBMIT_EXAM_SPRINT',
+        score: score,
+        total: questions.length,
+        module: 'MOD-II-TROPICAL',
+        proctorViolations: violations,
+        timeSpentSec: 900 - timeSeconds
+      };
+
+      try {
+          await executeGemIInISync(payload);
+        } catch (e) {
+          console.error("Payload delivery failed:", e);
+          const offlineBackupKey = `OFFLINE_EXAM_CANDIDATE_${Date.now()}`;
+          localStorage.setItem(offlineBackupKey, JSON.stringify(payload));
+          alert("انقطع الاتصال بالخادم. تم حفظ إجاباتك ونتيجتك محلياً في ذاكرة جهازك. يُرجى التقاط صورة لهذه الشاشة والتواصل مع الدعم الفني: " + offlineBackupKey);
+        }
     }
 
-    function showFinalResult() {
-      document.getElementById('quizCard').style.display = 'none';
-      const pct = Math.round((score / QUIZ_DATA.length) * 100);
-      document.getElementById('finalScore').textContent = `${pct}% (${score}/${QUIZ_DATA.length})`;
-      document.getElementById('resultBanner').style.display = 'block';
-    }
-
-    function restartQuiz() {
-      score = 0;
-      answered.clear();
-      document.getElementById('resultBanner').style.display = 'none';
-      document.getElementById('quizCard').style.display = 'block';
-      loadQuestion(0);
-    }
-
-    // Initialize
-    loadQuestion(0);
+    window.onload = () => loadQuestion(0);
   </script>
 </body>
 </html>

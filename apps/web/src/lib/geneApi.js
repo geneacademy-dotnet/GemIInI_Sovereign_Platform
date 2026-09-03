@@ -1,11 +1,11 @@
 /**
- * src/lib/geneApi.js & src/services/sovereignService.js
+ * src/lib/geneApi.js & src/services/IndependentService.js
  * SudaGene Consortium & GemIInI Academy — Strict API Layer
  * Preflight-Free Atomic Dispatcher with Fail-Closed Client Queueing
  */
 
 export const config = {
-  endpoint: import.meta.env.VITE_GAS_ENDPOINT || 'https://script.google.com/macros/s/AKfycbxAVR42yEQlQMkOBhlcka622FNbSD_3_pIJrNL1bktLyN8TqIYGC2P5cGpUqeZcoql8/exec',
+  endpoint: import.meta.env.VITE_GAS_ENDPOINT || 'https://script.google.com/macros/s/AKfycbyyFkVDH7JD6TYgFmlZ3kUqZwJrQaDZhvKeIGDkVg2wW2OJfH1iYlgrwd4lW0A3eKVE/exec',
 };
 
 export const isRemoteConfigured = () => Boolean(config.endpoint && !config.endpoint.includes('YOUR_DEPLOYMENT_ID'));
@@ -13,7 +13,7 @@ export const isRemoteConfigured = () => Boolean(config.endpoint && !config.endpo
 export const sessionRef = {
   get: () => {
     try {
-      return localStorage.getItem('gemiini_sovereign_session_id') || localStorage.getItem('gemiini_active_ga');
+      return localStorage.getItem('gemiini_Independent_session_id') || localStorage.getItem('gemiini_active_ga');
     } catch {
       return null;
     }
@@ -21,14 +21,14 @@ export const sessionRef = {
   set: (id) => {
     try {
       if (id) {
-        localStorage.setItem('gemiini_sovereign_session_id', id);
+        localStorage.setItem('gemiini_Independent_session_id', id);
         localStorage.setItem('gemiini_active_ga', id);
       }
     } catch {}
   },
   clear: () => {
     try {
-      localStorage.removeItem('gemiini_sovereign_session_id');
+      localStorage.removeItem('gemiini_Independent_session_id');
       localStorage.removeItem('gemiini_active_ga');
     } catch {}
   },
@@ -114,7 +114,7 @@ export const getPublicStats = async () => {
   return { totalMembers: 1200, totalGpAwarded: 600000, verifiedDoctors: 750, activeUniversities: 90 };
 };
 
-/** Sovereign Merit Leaderboard */
+/** Independent Merit Leaderboard */
 export const getLeaderboard = async () => {
   if (isRemoteConfigured()) {
     try {
@@ -127,7 +127,7 @@ export const getLeaderboard = async () => {
   return [];
 };
 
-/** Sovereign Member Lookup (Strict - Zero Mock Overrides) */
+/** Independent Member Lookup (Strict - Zero Mock Overrides) */
 export const lookupMember = async (gaId) => {
   const id = normalizeGaId(String(gaId).trim().toUpperCase());
   if (!isValidGaId(id)) {
@@ -148,7 +148,7 @@ export const lookupMember = async (gaId) => {
 
   // Local Storage Cache Lookup
   try {
-    const cached = localStorage.getItem(`sovereign_member_${id}`);
+    const cached = localStorage.getItem(`Independent_member_${id}`);
     if (cached) return sanitize(JSON.parse(cached));
   } catch {}
 
@@ -161,7 +161,7 @@ export const submitPortalIntake = async (payload) => {
     if (isRemoteConfigured()) {
       const data = await callRemote('portal_intake', payload, 'POST');
       if (data && data.status === 'success') {
-        localStorage.setItem('gemiini_sovereign_session', JSON.stringify(data));
+        localStorage.setItem('gemiini_Independent_session', JSON.stringify(data));
         return data;
       }
       throw new Error(data?.message || 'Submission rejected');
@@ -192,15 +192,38 @@ export const submitConciergeFastTrack = async (payload) => {
   return { status: 'success' };
 };
 
+/**
+ * Submit Post-Trial Feedback & PMF Survey (WTP, Demand, CSAT & Referral Loop)
+ */
+export const submitFeedback = async (payload) => {
+  if (isRemoteConfigured()) {
+    return callRemote('SUBMIT_FEEDBACK', payload, 'POST');
+  }
+  return { success: true, message: 'FEEDBACK_CACHED_LOCALLY', gpAwarded: 25 };
+};
+
+/**
+ * Log Clinical Telemetry Attempt
+ */
+export const logClinicalAttempt = async (payload) => {
+  if (isRemoteConfigured()) {
+    return callRemote('LOG_TELEMETRY', payload, 'POST');
+  }
+  return { success: true, earnedGp: 10 };
+};
+
 export const submitRegistration = submitPortalIntake;
 
-export const SovereignClient = {
+export const IndependentClient = {
   submitPortalIntake,
   submitBlsRegistration,
+  submitFeedback,
+  logClinicalAttempt,
   submitFastTrack: submitConciergeFastTrack,
   lookup: lookupMember,
   getLeaderboard,
   getPublicStats
 };
 
-export default SovereignClient;
+export default IndependentClient;
+

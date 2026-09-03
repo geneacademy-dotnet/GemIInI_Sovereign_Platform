@@ -1,0 +1,355 @@
+<!-- =========================================================================
+     GemIInI Independent Kinetic Navigation Overlay Component (GSAP + CustomEase)
+     ========================================================================= -->
+
+<!-- CDNs required for Motion Engine -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/CustomEase.min.js"></script>
+
+<style>
+  :root {
+    --gemiini-primary: #0284C7;
+    --gemiini-gold: #D97706;
+    --gemiini-dark: #04080F;
+    --gemiini-surface: #0F172A;
+    --gemiini-text: #F8FAFC;
+    --cubic-smooth: cubic-bezier(0.65, 0.05, 0, 1);
+  }
+
+  /* Fixed Navigation Trigger Floating Button */
+  .gemiini-floating-trigger {
+    position: fixed;
+    top: 1.25rem;
+    left: 1.25rem;
+    z-index: 99;
+  }
+
+  /* Menu Toggle Button */
+  .gemiini-menu-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: rgba(15, 23, 42, 0.92);
+    backdrop-filter: blur(14px);
+    border: 1.5px solid rgba(255, 255, 255, 0.2);
+    padding: 0.6rem 1.25rem;
+    border-radius: 9999px;
+    color: #FFFFFF;
+    cursor: pointer;
+    transition: all 0.3s var(--cubic-smooth);
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.3);
+  }
+
+  .gemiini-menu-btn:hover {
+    border-color: var(--gemiini-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(2, 132, 199, 0.35);
+  }
+
+  .gemiini-btn-text {
+    height: 1.2em;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    font-weight: 700;
+    font-size: 0.85rem;
+    font-family: 'Cairo', sans-serif;
+  }
+
+  .gemiini-btn-text p {
+    margin: 0;
+    line-height: 1.2em;
+  }
+
+  .gemiini-btn-icon {
+    width: 14px;
+    height: 14px;
+    transition: transform 0.4s var(--cubic-smooth);
+  }
+
+  /* Fullscreen Overlay System */
+  .gemiini-nav-container {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: none;
+    width: 100%;
+    height: 100vh;
+  }
+
+  .gemiini-nav-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(4, 8, 15, 0.75);
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+  }
+
+  .gemiini-nav-panel {
+    position: relative;
+    margin-right: auto;
+    width: 100%;
+    max-width: 36rem;
+    height: 100%;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 3.5rem 2.5rem 2.5rem;
+    z-index: 2;
+  }
+
+  /* Multi-Layered Sliding Background Panels */
+  .gemiini-bg-layer {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .bg-panel-1 { background-color: var(--gemiini-primary); }
+  .bg-panel-2 { background-color: var(--gemiini-gold); }
+  .bg-panel-3 { background-color: var(--gemiini-dark); border-left: 1px solid rgba(255,255,255,0.15); }
+
+  /* Kinetic Menu Links */
+  .gemiini-menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    z-index: 1;
+  }
+
+  .gemiini-menu-item {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .gemiini-menu-link {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    text-decoration: none;
+    padding: 0.5rem 0;
+    position: relative;
+    transition: transform 0.4s var(--cubic-smooth);
+  }
+
+  .gemiini-link-title {
+    font-family: 'Cairo', sans-serif;
+    font-size: 2.1rem;
+    font-weight: 900;
+    color: #FFFFFF;
+    line-height: 1.1;
+    transition: color 0.3s ease, transform 0.4s var(--cubic-smooth);
+    margin: 0;
+  }
+
+  .gemiini-link-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--gemiini-primary);
+  }
+
+  .gemiini-menu-link:hover .gemiini-link-title {
+    color: #00F2FE;
+    transform: translateX(-10px);
+  }
+
+  /* Footer & Quick Meta */
+  .gemiini-menu-footer {
+    z-index: 1;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-size: 0.8rem;
+    color: #94A3B8;
+  }
+
+  .gemiini-social-links {
+    display: flex;
+    gap: 1.25rem;
+  }
+
+  .gemiini-social-links a {
+    color: #E2E8F0;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.2s;
+  }
+
+  .gemiini-social-links a:hover {
+    color: #00F2FE;
+  }
+</style>
+
+<!-- Floating Nav Trigger -->
+<div class="gemiini-floating-trigger">
+  <button class="gemiini-menu-btn" data-gemiini-toggle>
+    <div class="gemiini-btn-text">
+      <p>القائمة السيادية ☰</p>
+      <p>إغلاق القائمة ✕</p>
+    </div>
+    <svg class="gemiini-btn-icon" viewBox="0 0 16 16" fill="none">
+      <path d="M8 0V16M0 8H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  </button>
+</div>
+
+<!-- Animated Fullscreen Drawer Component -->
+<div class="gemiini-nav-container" data-nav-state="closed">
+  <!-- Backdrop -->
+  <div class="gemiini-nav-backdrop" data-gemiini-toggle></div>
+
+  <!-- Layered Drawer -->
+  <nav class="gemiini-nav-panel">
+    
+    <!-- Multi-Color Wipe Backgrounds -->
+    <div class="gemiini-bg-layer bg-panel-1"></div>
+    <div class="gemiini-bg-layer bg-panel-2"></div>
+    <div class="gemiini-bg-layer bg-panel-3"></div>
+
+    <!-- Navigation List -->
+    <ul class="gemiini-menu-list">
+      <li class="gemiini-menu-item">
+        <a href="index.html" class="gemiini-menu-link">
+          <span class="gemiini-link-title">البوابة الرئيسية</span>
+          <span class="gemiini-link-num">01</span>
+        </a>
+      </li>
+      <li class="gemiini-menu-item">
+        <a href="about.html" class="gemiini-menu-link">
+          <span class="gemiini-link-title">عن الأكاديمية والرسالة</span>
+          <span class="gemiini-link-num">02</span>
+        </a>
+      </li>
+      <li class="gemiini-menu-item">
+        <a href="courses.html" class="gemiini-menu-link">
+          <span class="gemiini-link-title">الخدمات والمصفوفة السريرية</span>
+          <span class="gemiini-link-num">03</span>
+        </a>
+      </li>
+      <li class="gemiini-menu-item">
+        <a href="bls.html" class="gemiini-menu-link">
+          <span class="gemiini-link-title">ورشة الإنعاش القلبي (AHA BLS)</span>
+          <span class="gemiini-link-num">04</span>
+        </a>
+      </li>
+      <li class="gemiini-menu-item">
+        <a href="journal.html" class="gemiini-menu-link">
+          <span class="gemiini-link-title">المجلة والأبحاث (15:5:1)</span>
+          <span class="gemiini-link-num">05</span>
+        </a>
+      </li>
+      <li class="gemiini-menu-item">
+        <a href="universities.html" class="gemiini-menu-link">
+          <span class="gemiini-link-title">دليل كليات الطب الـ 63+</span>
+          <span class="gemiini-link-num">06</span>
+        </a>
+      </li>
+      <li class="gemiini-menu-item">
+        <a href="verify.html" class="gemiini-menu-link">
+          <span class="gemiini-link-title">التحقق السيادي SudaPass™</span>
+          <span class="gemiini-link-num">07</span>
+        </a>
+      </li>
+      <li class="gemiini-menu-item">
+        <a href="teachers.html" class="gemiini-menu-link">
+          <span class="gemiini-link-title text-amber-400">مبادرة رد الجميل للمعلمين 🎓</span>
+          <span class="gemiini-link-num text-amber-400">08</span>
+        </a>
+      </li>
+      <li class="gemiini-menu-item">
+        <a href="join.html" class="gemiini-menu-link">
+          <span class="gemiini-link-title text-sky-400">التسجيل السريري الموحد ➔</span>
+          <span class="gemiini-link-num text-sky-400">09</span>
+        </a>
+      </li>
+    </ul>
+
+    <!-- Menu Footer Details -->
+    <div class="gemiini-menu-footer" data-nav-fade>
+      <div class="flex items-center justify-between">
+        <div>الخط الساخن: <strong class="text-white font-mono">+20 101 592 2628</strong></div>
+        <div>الشريك: <span class="text-amber-400 font-bold">STC Lic. 1549</span></div>
+      </div>
+      <div class="gemiini-social-links">
+        <a href="https://members.geneacademy.net" target="_blank">قمرة الأعضاء (LMS) ➔</a>
+        <a href="mailto:info@geneacademy.net">info@geneacademy.net</a>
+        <a href="mailto:b2b@geneacademy.net">b2b@geneacademy.net</a>
+      </div>
+    </div>
+
+  </nav>
+</div>
+
+<!-- =========================================================================
+     GSAP Motion Controller Engine
+     ========================================================================= -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // 1. Register CustomEase
+    if (typeof gsap !== 'undefined' && typeof CustomEase !== 'undefined') {
+      gsap.registerPlugin(CustomEase);
+      CustomEase.create("gemiiniEase", "0.65, 0.01, 0.05, 0.99");
+      gsap.defaults({ ease: "gemiiniEase", duration: 0.65 });
+    }
+
+    const navWrap = document.querySelector('.gemiini-nav-container');
+    const backdrop = document.querySelector('.gemiini-nav-backdrop');
+    const panel = document.querySelector('.gemiini-nav-panel');
+    const bgPanels = document.querySelectorAll('.gemiini-bg-layer');
+    const menuLinks = document.querySelectorAll('.gemiini-menu-item');
+    const fadeTargets = document.querySelectorAll('[data-nav-fade]');
+    const toggles = document.querySelectorAll('[data-gemiini-toggle]');
+    const btnTexts = document.querySelectorAll('.gemiini-btn-text p');
+    const btnIcon = document.querySelector('.gemiini-btn-icon');
+
+    if (!navWrap || !backdrop || !panel) return;
+
+    let tl = gsap.timeline();
+
+    const openNav = () => {
+      navWrap.setAttribute('data-nav-state', 'open');
+      
+      tl.clear()
+        .set(navWrap, { display: 'block' })
+        .set(panel, { xPercent: 0 })
+        .fromTo(btnTexts, { yPercent: 0 }, { yPercent: -100, stagger: 0.15 })
+        .fromTo(btnIcon, { rotate: 0 }, { rotate: 45 }, "<")
+        .fromTo(backdrop, { autoAlpha: 0 }, { autoAlpha: 1 }, "<")
+        .fromTo(bgPanels, { xPercent: -101 }, { xPercent: 0, stagger: 0.09, duration: 0.55 }, "<")
+        .fromTo(menuLinks, { xPercent: -50, autoAlpha: 0 }, { xPercent: 0, autoAlpha: 1, stagger: 0.04 }, "<+=0.25")
+        .fromTo(fadeTargets, { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.4 }, "<+=0.2");
+    };
+
+    const closeNav = () => {
+      navWrap.setAttribute('data-nav-state', 'closed');
+      
+      tl.clear()
+        .to(backdrop, { autoAlpha: 0, duration: 0.3 })
+        .to(bgPanels, { xPercent: -101, stagger: 0.05, duration: 0.4 }, "<")
+        .to(btnTexts, { yPercent: 0 }, "<")
+        .to(btnIcon, { rotate: 0 }, "<")
+        .set(navWrap, { display: 'none' });
+    };
+
+    toggles.forEach(toggle => {
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const state = navWrap.getAttribute('data-nav-state');
+        state === 'open' ? closeNav() : openNav();
+      });
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navWrap.getAttribute('data-nav-state') === 'open') {
+        closeNav();
+      }
+    });
+  });
+</script>

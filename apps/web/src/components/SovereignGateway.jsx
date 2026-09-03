@@ -318,7 +318,7 @@ export const SovereignGateway = ({ onRegistered }) => {
                         </div>
                         <div className="pt-2.5 border-t border-white/10 flex items-center justify-between">
                             <span className="text-xs text-gray-300 font-bold">إجمالي الاستثمار السريري:</span>
-                            <span className="text-lg font-mono font-black text-amber-400">3,000 ج.م</span>
+                            <span className="text-lg font-mono font-black text-amber-400">3,000 EGP</span>
                         </div>
                     </div>
 
@@ -340,14 +340,14 @@ export const SovereignGateway = ({ onRegistered }) => {
                             <div className="p-3.5 rounded-2xl bg-red-500/5 border border-red-500/20 text-xs flex items-center justify-between">
                                 <div>
                                     <span className="text-gray-300 block">رقم المحفظة الرسمي:</span>
-                                    <strong className="text-white font-mono text-sm">01015922628</strong>
+                                    <strong className="text-white font-mono text-sm">+20 101 592 2628</strong>
                                 </div>
-                                <span className="font-mono text-cyan-300 bg-black/60 px-3 py-1.5 rounded-lg">*9*7*01015922628*3000#</span>
+                                <span className="font-mono text-cyan-300 bg-black/60 px-3 py-1.5 rounded-lg">*9*7*+20 101 592 2628*3000#</span>
                             </div>
                         ) : (
                             <div className="p-3.5 rounded-2xl bg-emerald-500/5 border border-emerald-500/20 text-xs space-y-2">
                                 <span className="text-gray-300 block">أرسل إشعار التحويل البنكي إلى مكتب العمليات:</span>
-                                <a href="https://wa.me/201015922628" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-500 text-slate-950 font-bold text-xs">
+                                <a href="https://wa.me/2+20 101 592 2628" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-500 text-slate-950 font-bold text-xs">
                                     <span>مراسلة المكتب الأكاديمي (+20 101 592 2628) ➔</span>
                                 </a>
                             </div>

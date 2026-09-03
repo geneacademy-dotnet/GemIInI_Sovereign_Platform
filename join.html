@@ -1,245 +1,480 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>إنشاء حساب سيادي | إصدار المعرف ومساحة العمل</title>
-  <meta name="description" content="سجل هويتك الطبية أو الأكاديمية لاستلام معرّفك السيادي فوراً وإنشاء مساحة عملك على Google Drive مع رصيد ترحيبي 500 GP.">
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Join Our Network | GeneAcademy</title>
+  <meta name="description" content="Discover your clinical and academic pathway at GeneAcademy — the Independent Medical Consortium for the region.">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-H1Q67PP2DJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-H1Q67PP2DJ');</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --bg-dark: #04080F;
-      --bg-card: rgba(11, 19, 38, 0.85);
-      --border-card: rgba(0, 242, 254, 0.2);
-      --cyan: #00F2FE;
-      --cyan-glow: rgba(0, 242, 254, 0.35);
-      --gold: #B48028;
-      --gold-light: #FDE68A;
-      --gold-glow: rgba(180, 128, 40, 0.35);
-      --emerald: #10B981;
-      --text-main: #FFFFFF;
-      --text-muted: #94A3B8;
-      --font-main: 'Outfit', sans-serif;
-      --font-mono: 'IBM Plex Mono', monospace;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      background: var(--bg-dark);
-      background-image: 
-        radial-gradient(circle at 10% 10%, rgba(0, 242, 254, 0.12) 0%, transparent 50%),
-        radial-gradient(circle at 90% 90%, rgba(180, 128, 40, 0.1) 0%, transparent 50%);
-      color: var(--text-main);
-      font-family: var(--font-main);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    a { color: inherit; text-decoration: none; }
-    .mono { font-family: var(--font-mono); }
-    .container { width: 100%; max-width: 580px; margin: 40px auto 60px; padding: 0 20px; }
-
-    .top-nav {
-      padding: 16px 32px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      background: rgba(4, 8, 15, 0.85);
-      backdrop-filter: blur(16px);
-    }
-    .brand-link { display: flex; align-items: center; gap: 12px; font-weight: 900; font-size: 1.15rem; }
-    .brand-badge {
-      background: linear-gradient(135deg, #00F2FE 0%, #4FACFE 100%);
-      color: #04080F; font-weight: 900; font-size: 0.9rem;
-      padding: 4px 10px; border-radius: 6px; font-family: var(--font-mono);
-    }
-
-    .form-card {
-      background: var(--bg-card);
-      border: 1.5px solid var(--border-card);
-      border-radius: 20px;
-      padding: 40px 36px;
-      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 35px rgba(0, 242, 254, 0.1);
-      backdrop-filter: blur(20px);
-    }
-
-    .form-header { text-align: center; margin-bottom: 28px; }
-    .form-header h1 {
-      font-size: 2rem; font-weight: 900; margin-bottom: 8px;
-      background: linear-gradient(135deg, #FFFFFF 0%, var(--cyan) 100%);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    }
-    .form-header p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; }
-
-    .form-group { margin-bottom: 20px; }
-    .form-group label {
-      display: block; font-size: 0.85rem; font-weight: 700; color: var(--cyan); margin-bottom: 8px;
-      font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.04em;
-    }
-    .form-input, .form-select {
-      width: 100%; background: rgba(4, 8, 15, 0.85); border: 1.5px solid rgba(0, 242, 254, 0.25);
-      border-radius: 10px; padding: 14px 16px; font-family: var(--font-main);
-      font-size: 0.98rem; color: #FFFFFF; outline: none; transition: all .2s;
-    }
-    .form-input:focus, .form-select:focus {
-      border-color: var(--cyan); box-shadow: 0 0 16px var(--cyan-glow);
-    }
-
-    .btn-submit {
-      width: 100%; background: linear-gradient(135deg, #00F2FE 0%, #4FACFE 100%);
-      color: #04080F; border: none; border-radius: 10px; padding: 16px; font-family: var(--font-mono);
-      font-size: 0.98rem; font-weight: 900; letter-spacing: 0.05em; text-transform: uppercase;
-      cursor: pointer; transition: all 0.25s; margin-top: 10px; box-shadow: 0 10px 30px var(--cyan-glow);
-    }
-    .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 15px 40px rgba(0, 242, 254, 0.5); }
-
-    .transition-hud {
-      display: none; background: rgba(11, 19, 38, 0.95); border: 2px solid var(--cyan);
-      border-radius: 18px; padding: 32px 28px; text-align: center; animation: fadeIn 0.3s ease;
-    }
-    .transition-hud.active { display: block; }
-
-    footer { text-align: center; padding: 24px; font-size: 0.82rem; color: var(--text-muted); }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(6px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+    :root{--bg:#F7FAFC;--navy:#123B5D;--teal:#168C8C;--text:#1F2937;--muted:#64748B;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{background:var(--bg);color:var(--text);font-family:'Plus Jakarta Sans',sans-serif;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column;}
+    .mono{font-family:'IBM Plex Mono',monospace;}
+    /* ── NAV ── */
+    .top-nav{padding:18px 24px;display:flex;justify-content:space-between;align-items:center;background:rgba(247,250,252,.97);position:sticky;top:0;z-index:30;backdrop-filter:blur(10px);border-bottom:1px solid #E2E8F0;}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800;font-size:1.05rem;text-decoration:none;color:var(--navy);}
+    .brand-badge{background:var(--navy);color:#fff;font-weight:700;font-size:.85rem;padding:5px 10px;border-radius:8px;font-family:'IBM Plex Mono',monospace;transition:background .2s;}
+    .brand:hover .brand-badge{background:var(--teal);}
+    .nav-actions a{font-size:.9rem;color:var(--muted);text-decoration:none;font-weight:500;margin-left:16px;transition:color .2s;}
+    .nav-actions a:hover{color:var(--navy);}
+    /* ── LAYOUT ── */
+    .container{width:100%;max-width:660px;margin:0 auto;padding:24px 20px 80px;flex-grow:1;display:flex;flex-direction:column;}
+    /* ── PROGRESS ── */
+    .progress-container{display:flex;align-items:center;justify-content:space-between;margin-bottom:40px;position:relative;padding:0 10px;opacity:0;transition:opacity .5s;}
+    .progress-container.show{opacity:1;}
+    .progress-line{position:absolute;top:50%;left:10px;right:10px;height:2px;background:#E2E8F0;z-index:1;transform:translateY(-50%);}
+    .progress-line-fill{position:absolute;top:50%;left:10px;height:2px;background:var(--teal);z-index:2;transform:translateY(-50%);transition:width .6s cubic-bezier(.22,1,.36,1);width:0%;}
+    .progress-dot{width:10px;height:10px;background:#E2E8F0;border-radius:50%;z-index:3;position:relative;transition:all .4s;}
+    .progress-dot.active{background:var(--teal);box-shadow:0 0 0 4px rgba(22,140,140,.15);}
+    .progress-dot.completed{background:var(--teal);}
+    /* ── SCREENS ── */
+    .screen{display:none;opacity:0;transform:translateY(10px);transition:opacity .45s ease,transform .45s ease;}
+    .screen.active{display:block;opacity:1;transform:none;}
+    .screen-title{font-size:1.75rem;font-weight:800;color:var(--navy);margin-bottom:12px;line-height:1.2;}
+    .screen-sub{font-size:1rem;color:var(--muted);margin-bottom:32px;line-height:1.6;}
+    /* ── SELECTION CARDS ── */
+    .selection-grid{display:flex;flex-direction:column;gap:12px;margin-bottom:32px;}
+    .select-card{background:#FFF;border:1.5px solid #E2E8F0;border-radius:16px;padding:20px 24px;cursor:pointer;transition:all .2s;font-weight:600;color:var(--text);display:flex;align-items:center;justify-content:space-between;}
+    .select-card:hover{border-color:#CBD5E1;background:#F8FAFC;}
+    .select-card.selected{border-color:var(--teal);background:rgba(22,140,140,.04);color:var(--navy);}
+    .check-icon{opacity:0;color:var(--teal);transition:opacity .2s;flex-shrink:0;}
+    .select-card.selected .check-icon{opacity:1;}
+    /* ── CHIPS ── */
+    .chip-grid{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:32px;}
+    .chip{background:#FFF;border:1.5px solid #E2E8F0;border-radius:99px;padding:12px 20px;cursor:pointer;transition:all .2s;font-weight:500;font-size:.95rem;user-select:none;}
+    .chip:hover{border-color:#CBD5E1;background:#F8FAFC;}
+    .chip.selected{border-color:var(--teal);background:var(--teal);color:#FFF;}
+    /* ── FORM FIELDS ── */
+    .field{margin-bottom:20px;}
+    .field label{display:block;font-size:.9rem;font-weight:600;color:var(--navy);margin-bottom:8px;}
+    .field input,.field select{width:100%;background:#FFF;border:1.5px solid #E2E8F0;border-radius:12px;padding:14px 16px;font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;color:var(--text);outline:none;transition:all .2s;}
+    .field input:focus,.field select:focus{border-color:var(--teal);box-shadow:0 0 0 4px rgba(22,140,140,.1);}
+    /* ── BUTTONS ── */
+    .nav-buttons{display:flex;gap:16px;margin-top:40px;}
+    .btn{padding:16px 24px;border-radius:12px;font-weight:600;font-size:1rem;border:none;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;font-family:'Plus Jakarta Sans',sans-serif;}
+    .btn-primary{background:var(--navy);color:#fff;flex-grow:1;}
+    .btn-primary:hover{background:#0d2b45;}
+    .btn-primary:disabled{opacity:.6;cursor:not-allowed;}
+    .btn-secondary{background:#E2E8F0;color:var(--text);flex-basis:120px;flex-shrink:0;}
+    .btn-secondary:hover{background:#CBD5E1;}
+    /* ── SOFT RESPONSE ── */
+    .soft-response{font-size:.95rem;color:var(--teal);font-weight:500;margin-top:-16px;margin-bottom:32px;opacity:0;transition:opacity .5s;}
+    .soft-response.show{opacity:1;}
+    /* ── SUMMARY BOX ── */
+    .summary-box{background:#FFF;border:1.5px solid #E2E8F0;border-radius:16px;padding:24px;margin-bottom:28px;}
+    .summary-item{margin-bottom:14px;}
+    .summary-item:last-child{margin-bottom:0;}
+    .summary-label{font-size:.8rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:600;margin-bottom:4px;}
+    .summary-value{font-size:.95rem;font-weight:600;color:var(--navy);}
+    /* ── CONSENT ── */
+    .consent-wrap{display:flex;align-items:flex-start;gap:12px;margin-bottom:28px;padding:16px;background:rgba(22,140,140,.04);border-radius:12px;}
+    .consent-wrap input[type=checkbox]{margin-top:4px;width:18px;height:18px;accent-color:var(--teal);flex-shrink:0;}
+    .consent-text{font-size:.9rem;color:var(--muted);line-height:1.5;}
+    /* ── SUCCESS ── */
+    .success-container{text-align:center;padding:40px 20px;}
+    .success-icon{width:64px;height:64px;background:rgba(22,128,91,.1);color:#16805B;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 24px;}
+    .ref-box{display:inline-block;background:#FFF;border:1px solid #E2E8F0;padding:16px 32px;border-radius:12px;margin:28px 0;}
+    .ref-label{font-size:.8rem;color:var(--muted);margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em;}
+    .ref-value{font-size:1.4rem;color:var(--navy);font-weight:700;font-family:'IBM Plex Mono',monospace;}
+    .success-actions{display:flex;flex-direction:column;gap:12px;align-items:center;margin-top:20px;}
+    .btn-link{text-decoration:none;padding:14px 40px;border-radius:12px;font-weight:600;font-size:1rem;font-family:'Plus Jakarta Sans',sans-serif;transition:all .2s;}
+    .btn-link-primary{background:var(--navy);color:#fff;}
+    .btn-link-primary:hover{background:#0d2b45;}
+    .btn-link-ghost{color:var(--navy);border:1px solid #E2E8F0;}
+    .btn-link-ghost:hover{background:#F1F5F9;}
   </style>
 </head>
 <body>
 
   <nav class="top-nav">
-    <a href="index.html" class="brand-link">
-      <div class="brand-badge">GA</div>
-      <span>GemIInI Sovereign Platform</span>
+    <a href="index.html" class="brand">
+      <span class="brand-badge mono">GA</span>
+      <span>GeneAcademy</span>
     </a>
-    <div style="display: flex; gap: 16px; align-items: center;">
-      <a href="auth.html" style="color: var(--text-muted); font-size: 0.88rem;">لديك حساب؟ <strong style="color: var(--cyan);">تسجيل الدخول</strong></a>
-      <a href="index.html" style="color: var(--text-muted); font-size: 0.88rem;">الرئيسية ➔</a>
+    <div class="nav-actions">
+      <a href="join_ar.html">العربية</a>
+      <a href="#" onclick="saveAndExit();return false;">Save and exit</a>
     </div>
   </nav>
 
   <main class="container">
-    <div class="form-card" id="regCard">
-      <div class="form-header">
-        <h1>إنشاء مساحة عمل سيادية</h1>
-        <p>اختر مسارك المهني. سيتم إنشاء مجلد Google Drive منظم ومخصص لملفك فور التسجيل مع رصيد ترحيبي 500 GP.</p>
-      </div>
-
-      <form id="regForm" onsubmit="handleRegistration(event)">
-        <div class="form-group">
-          <label>الاسم الكامل</label>
-          <input type="text" id="rName" class="form-input" placeholder="مثال: د. أحمد عمر محمد" required>
-        </div>
-
-        <div class="form-group">
-          <label>البريد الإلكتروني (يفضل Gmail للوصول التلقائي للملفات)</label>
-          <input type="email" id="rEmail" class="form-input" placeholder="name@gmail.com" dir="ltr" required>
-        </div>
-
-        <div class="form-group">
-          <label>كلمة المرور (تُشفر تلقائياً بـ SHA-256)</label>
-          <input type="password" id="rPass" class="form-input" placeholder="••••••••" minlength="6" required>
-        </div>
-
-        <div class="form-group">
-          <label>المسار الأكاديمي / المهني</label>
-          <select id="rRole" class="form-select" onchange="handleRoleChange()">
-            <option value="GemIInI">🩺 أكاديمية جيميناي (أطباء الامتياز ونواب الاختصاص - امتحانات SMC)</option>
-            <option value="GeneAcademy">🧬 جين أكاديمي (نظام التوجيه 15:5:1 وبناء السيرة الذاتية الأكاديمية)</option>
-            <option value="GLOMEt">🏢 جلوميت B2B (تجهيز المعامل والمستشفيات وتوريد الأجهزة)</option>
-          </select>
-        </div>
-
-        <!-- Dynamic field for GeneAcademy 15:5:1 Mentorship -->
-        <div class="form-group" id="geneFields" style="display: none;">
-          <label>مستواك في التوجيه الأكاديمي (15:5:1 Mentorship Cascade)</label>
-          <select id="rMentorLevel" class="form-select">
-            <option value="High School (15)">طالب ثانوي (فئة 15)</option>
-            <option value="University Student (5)">طالب طب جامعي موجه (فئة 5)</option>
-            <option value="Postgrad Scholar">باحث دراسات عليا / طب جزيئي</option>
-          </select>
-        </div>
-
-        <button type="submit" class="btn-submit" id="btnSubmit">
-          إنشاء الحساب ومساحة العمل السحابية (+500 GP) ➔
-        </button>
-      </form>
-
-      <!-- Transition Success HUD -->
-      <div class="transition-hud" id="successHud">
-        <span style="background: rgba(0, 242, 254, 0.15); border: 1px solid var(--cyan); color: var(--cyan); font-family: var(--font-mono); font-size: 0.85rem; font-weight: 800; padding: 4px 14px; border-radius: 9999px; display: inline-block; margin-bottom: 12px;">
-          ✓ تم تفعيل الحساب ومساحة العمل
-        </span>
-        <h2 style="font-size: 1.8rem; font-weight: 900; color: #FFFFFF; margin-bottom: 8px;">مرحباً بك في المنظومة الموحدة!</h2>
-        <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 18px;">
-          تم إنشاء مساحة عملك على Google Drive وإيداع رصيد 500 GP.
-        </p>
-
-        <div style="background: rgba(0, 0, 0, 0.4); border: 1px solid var(--border-card); border-radius: 12px; padding: 18px; margin-bottom: 20px; text-align: right;">
-          <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.9rem;">
-            <span>المعرف المهني الصادر:</span>
-            <strong class="mono" style="color: var(--cyan);" id="dispId">GA-0000</strong>
-          </div>
-          <div style="display: flex; justify-content: space-between; font-size: 0.9rem;">
-            <span>رصيد الاعتماد الأكاديمي:</span>
-            <strong class="mono" style="color: var(--gold-light);">+500 GP</strong>
-          </div>
-        </div>
-
-        <a href="dashboard.html" class="btn-submit" style="display: block; text-decoration: none; text-align: center;">
-          الدخول إلى مساحة العمل (Dashboard) ➔
-        </a>
-      </div>
-
+    <div class="progress-container" id="progressContainer">
+      <div class="progress-line"></div>
+      <div class="progress-line-fill" id="progressFill"></div>
+      <div class="progress-dot active" data-index="0"></div>
+      <div class="progress-dot" data-index="1"></div>
+      <div class="progress-dot" data-index="2"></div>
+      <div class="progress-dot" data-index="3"></div>
+      <div class="progress-dot" data-index="4"></div>
     </div>
+
+    <form id="pathwayForm" onsubmit="return false;">
+
+      <!-- SCREEN 1: Welcome -->
+      <div class="screen active" data-screen="1">
+        <h1 class="screen-title">Let's find your place in the network</h1>
+        <p class="screen-sub">You do not need to have everything figured out. Tell us a little about yourself, and we will help you discover the most relevant GeneAcademy pathway.</p>
+        <p style="font-size:.9rem;color:var(--muted);margin-bottom:2.5rem;">This takes a few simple steps. You can go back at any time.</p>
+        <div class="nav-buttons">
+          <button type="button" class="btn btn-primary" onclick="nextScreen()">Begin</button>
+        </div>
+      </div>
+
+      <!-- SCREEN 2: Role -->
+      <div class="screen" data-screen="2">
+        <h2 class="screen-title">Where are you in your journey?</h2>
+        <p class="screen-sub">Choose the description that feels closest to you right now.</p>
+        <div class="selection-grid" id="typeSelection">
+          <div class="select-card" data-val="Medical student"><span>Medical student</span><svg class="check-icon" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg></div>
+          <div class="select-card" data-val="Medical graduate"><span>Medical graduate</span><svg class="check-icon" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg></div>
+          <div class="select-card" data-val="Doctor or healthcare professional"><span>Doctor or healthcare professional</span><svg class="check-icon" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg></div>
+          <div class="select-card" data-val="Researcher"><span>Researcher</span><svg class="check-icon" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg></div>
+          <div class="select-card" data-val="Laboratory professional"><span>Laboratory professional</span><svg class="check-icon" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg></div>
+          <div class="select-card" data-val="Educator or mentor"><span>Educator or mentor</span><svg class="check-icon" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg></div>
+          <div class="select-card" data-val="University, hospital, or institution"><span>University, hospital, or institution</span><svg class="check-icon" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg></div>
+          <div class="select-card" data-val="I am exploring my options"><span>I am exploring my options</span><svg class="check-icon" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg></div>
+        </div>
+        <div class="nav-buttons">
+          <button type="button" class="btn btn-secondary" onclick="prevScreen()">Back</button>
+          <button type="button" class="btn btn-primary" id="btnTypeNext" onclick="nextScreen()" disabled>Continue</button>
+        </div>
+      </div>
+
+      <!-- SCREEN 3: Interests -->
+      <div class="screen" data-screen="3">
+        <h2 class="screen-title">What would you like to explore?</h2>
+        <p class="screen-sub">Choose as many as you like. We use this to personalise your pathway.</p>
+        <div class="chip-grid" id="interestSelection">
+          <div class="chip" data-val="Clinical skills">Clinical skills</div>
+          <div class="chip" data-val="Examination preparation">Examination preparation</div>
+          <div class="chip" data-val="Molecular medicine">Molecular medicine</div>
+          <div class="chip" data-val="Genomic research">Genomic research</div>
+          <div class="chip" data-val="Research collaboration">Research collaboration</div>
+          <div class="chip" data-val="Teaching and mentorship">Teaching and mentorship</div>
+          <div class="chip" data-val="Institutional partnerships">Institutional partnerships</div>
+          <div class="chip" data-val="Junior STEM">Junior STEM</div>
+        </div>
+        <div class="soft-response" id="interestResponse">We are beginning to understand your direction.</div>
+        <div class="nav-buttons">
+          <button type="button" class="btn btn-secondary" onclick="prevScreen()">Back</button>
+          <button type="button" class="btn btn-primary" onclick="nextScreen()">Continue</button>
+        </div>
+      </div>
+
+      <!-- SCREEN 4: Next Step -->
+      <div class="screen" data-screen="4">
+        <h2 class="screen-title">What would be most useful for you now?</h2>
+        <p class="screen-sub">This tells us how to guide your first step inside the network.</p>
+        <div class="selection-grid" id="nextStepSelection">
+          <div class="select-card" data-val="Discover suitable programs"><span>Discover suitable programs</span><svg class="check-icon" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg></div>
+          <div class="select-card" data-val="Join the professional network"><span>Join the professional network</span><svg class="check-icon" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg></div>
+          <div class="select-card" data-val="Speak with a mentor"><span>Speak with a mentor</span><svg class="check-icon" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg></div>
+          <div class="select-card" data-val="Explore research opportunities"><span>Explore research opportunities</span><svg class="check-icon" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg></div>
+          <div class="select-card" data-val="Discuss an institutional partnership"><span>Discuss an institutional partnership</span><svg class="check-icon" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg></div>
+          <div class="select-card" data-val="Receive future program updates"><span>Receive future program updates</span><svg class="check-icon" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg></div>
+        </div>
+        <div class="nav-buttons">
+          <button type="button" class="btn btn-secondary" onclick="prevScreen()">Back</button>
+          <button type="button" class="btn btn-primary" id="btnStepNext" onclick="nextScreen()" disabled>Continue</button>
+        </div>
+      </div>
+
+      <!-- SCREEN 5: Contact Details -->
+      <div class="screen" data-screen="5">
+        <h2 class="screen-title">Where should we send your next step?</h2>
+        <p class="screen-sub">Your information is held securely and never shared with third parties.</p>
+        <div class="field">
+          <label for="f_name">Preferred name</label>
+          <input type="text" id="f_name" placeholder="How should we address you?" autocomplete="given-name" required>
+        </div>
+        <div class="field">
+          <label for="f_email">Email address</label>
+          <input type="email" id="f_email" placeholder="name@example.com" autocomplete="email" required>
+        </div>
+        <div class="field">
+          <label for="f_phone">WhatsApp or phone number</label>
+          <input type="tel" id="f_phone" placeholder="+249 912 000 000" autocomplete="tel">
+        </div>
+        <div class="field">
+          <label for="f_country">Country of residence</label>
+          <select id="f_country" required>
+            <option value="" disabled selected>Select your location...</option>
+            <option value="Sudan">Sudan</option>
+            <option value="Egypt">Egypt</option>
+            <option value="Saudi Arabia">Saudi Arabia</option>
+            <option value="UAE">United Arab Emirates</option>
+            <option value="Qatar">Qatar</option>
+            <option value="UK">United Kingdom</option>
+            <option value="Ireland">Ireland</option>
+            <option value="USA">United States</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="field" id="institution_wrapper" style="display:none;">
+          <label for="f_institution">Institution or University</label>
+          <input type="text" id="f_institution" placeholder="Where do you study or work?" autocomplete="organization">
+        </div>
+        <div class="nav-buttons">
+          <button type="button" class="btn btn-secondary" onclick="prevScreen()">Back</button>
+          <button type="button" class="btn btn-primary" onclick="validateAndNext()">Review Details</button>
+        </div>
+      </div>
+
+      <!-- SCREEN 6: Review & Consent -->
+      <div class="screen" data-screen="6">
+        <h2 class="screen-title">Does this look right?</h2>
+        <p class="screen-sub">Review your details before we connect you to the network.</p>
+        <div class="summary-box">
+          <div class="summary-item">
+            <div class="summary-label">Your role</div>
+            <div class="summary-value" id="sum_role">—</div>
+          </div>
+          <div class="summary-item">
+            <div class="summary-label">Your interests</div>
+            <div class="summary-value" id="sum_interests">—</div>
+          </div>
+          <div class="summary-item">
+            <div class="summary-label">Your preferred next step</div>
+            <div class="summary-value" id="sum_step">—</div>
+          </div>
+          <div class="summary-item">
+            <div class="summary-label">Contact</div>
+            <div class="summary-value" id="sum_contact">—</div>
+          </div>
+        </div>
+        <div class="consent-wrap">
+          <input type="checkbox" id="f_consent">
+          <label for="f_consent" class="consent-text">I agree to be contacted about relevant GeneAcademy programs, research opportunities, and network activities. My data will be held securely and not shared with third parties.</label>
+        </div>
+        <div class="nav-buttons">
+          <button type="button" class="btn btn-secondary" onclick="prevScreen()">Back</button>
+          <button type="button" class="btn btn-primary" id="btnSubmit" onclick="submitApplication()">Join Our Network</button>
+        </div>
+      </div>
+
+    </form>
+
+    <!-- SUCCESS STATE -->
+    <div class="screen" id="successScreen">
+      <div class="success-container">
+        <div class="success-icon">
+          <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+          </svg>
+        </div>
+        <h2 class="screen-title" style="text-align:center;">You are now connected with GeneAcademy</h2>
+        <p class="screen-sub" style="text-align:center;max-width:420px;margin:0 auto 8px;">
+          Thank you. We have received your information and will guide you toward the most relevant next step by email.
+        </p>
+        <div class="ref-box" id="refBox" style="display:none;">
+          <div class="ref-label">Your Application Reference</div>
+          <div class="ref-value" id="dispRef">GA-PENDING</div>
+        </div>
+        <div class="success-actions">
+          <a href="courses.html" class="btn-link btn-link-primary">Explore our programs</a>
+          <a href="index.html" class="btn-link btn-link-ghost">Return to homepage</a>
+        </div>
+      </div>
+    </div>
+
   </main>
 
-  <footer>
-    © 2026 GemIInI Sovereign Platform • members.geneacademy.net • All Rights Reserved.
-  </footer>
-
   <script src="api.js"></script>
+  <script src="analytics.js"></script>
   <script>
-    function handleRoleChange() {
-      const role = document.getElementById('rRole').value;
-      document.getElementById('geneFields').style.display = (role === 'GeneAcademy') ? 'block' : 'none';
+    const TOTAL_SCREENS = 6;
+    let currentScreen = 1;
+    const appState = { role: '', interests: new Set(), nextStep: '', contact: {} };
+
+    // ── Restore saved state ──────────────────────────────────────────────────
+    document.addEventListener('DOMContentLoaded', () => {
+      try {
+        const saved = localStorage.getItem('ga_join_state');
+        if (saved) {
+          const p = JSON.parse(saved);
+          if (p.role) selectCard('typeSelection', p.role);
+          if (p.nextStep) selectCard('nextStepSelection', p.nextStep);
+          if (p.interests) p.interests.forEach(v => {
+            const chip = document.querySelector('#interestSelection .chip[data-val="' + v + '"]');
+            if (chip) toggleChip(chip);
+          });
+          if (p.contact) {
+            ['f_name','f_email','f_phone','f_country','f_institution'].forEach(id => {
+              const el = document.getElementById(id);
+              if (el && p.contact[id]) el.value = p.contact[id];
+            });
+          }
+        }
+      } catch(e) {}
+    });
+
+    function saveAndExit() {
+      const contact = {};
+      ['f_name','f_email','f_phone','f_country','f_institution'].forEach(id => {
+        contact[id] = document.getElementById(id).value;
+      });
+      localStorage.setItem('ga_join_state', JSON.stringify({
+        role: appState.role,
+        interests: Array.from(appState.interests),
+        nextStep: appState.nextStep,
+        contact
+      }));
+      alert('Your progress has been saved. You can return at any time.');
+      window.location.href = 'index.html';
     }
 
-    async function handleRegistration(e) {
-      e.preventDefault();
-      const btn = document.getElementById('btnSubmit');
-      btn.textContent = 'جارٍ بناء مساحة العمل السحابية...';
-      btn.disabled = true;
+    // ── Single-select card setup ─────────────────────────────────────────────
+    function setupSingleSelect(cid, stateKey, nextBtnId) {
+      document.getElementById(cid).querySelectorAll('.select-card').forEach(card => {
+        card.addEventListener('click', () => {
+          document.getElementById(cid).querySelectorAll('.select-card').forEach(c => c.classList.remove('selected'));
+          card.classList.add('selected');
+          appState[stateKey] = card.dataset.val;
+          if (nextBtnId) document.getElementById(nextBtnId).disabled = false;
+        });
+      });
+    }
+    function selectCard(cid, val) {
+      const c = document.querySelector('#' + cid + ' .select-card[data-val="' + val + '"]');
+      if (c) c.click();
+    }
+    setupSingleSelect('typeSelection', 'role', 'btnTypeNext');
+    setupSingleSelect('nextStepSelection', 'nextStep', 'btnStepNext');
 
-      const role = document.getElementById('rRole').value;
-      const payload = {
-        name: document.getElementById('rName').value.trim(),
-        email: document.getElementById('rEmail').value.trim(),
-        password: document.getElementById('rPass').value.trim(),
-        role: role,
-        mentorship_level: role === 'GeneAcademy' ? document.getElementById('rMentorLevel').value : ""
-      };
+    // ── Chip multi-select ────────────────────────────────────────────────────
+    document.querySelectorAll('#interestSelection .chip').forEach(chip => {
+      chip.addEventListener('click', () => toggleChip(chip));
+    });
+    function toggleChip(chip) {
+      const v = chip.dataset.val;
+      if (appState.interests.has(v)) {
+        appState.interests.delete(v);
+        chip.classList.remove('selected');
+      } else {
+        appState.interests.add(v);
+        chip.classList.add('selected');
+      }
+      document.getElementById('interestResponse').classList.toggle('show', appState.interests.size > 0);
+    }
+
+    // ── Progress bar ─────────────────────────────────────────────────────────
+    function updateProgress() {
+      const idx = Math.min(currentScreen - 1, 4);
+      document.querySelectorAll('.progress-dot').forEach((d, i) => {
+        d.classList.toggle('completed', i < idx);
+        d.classList.toggle('active', i === idx);
+      });
+      document.getElementById('progressFill').style.width = (idx / 4 * 100) + '%';
+      if (currentScreen > 1) document.getElementById('progressContainer').classList.add('show');
+    }
+
+    // ── Screen navigation ────────────────────────────────────────────────────
+    function showScreen(n) {
+      document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+      if (n === 5) {
+        const showInstitution = ['Medical student','Medical graduate','University, hospital, or institution','Educator or mentor'].includes(appState.role);
+        document.getElementById('institution_wrapper').style.display = showInstitution ? 'block' : 'none';
+        if (!showInstitution) document.getElementById('f_institution').value = '';
+      }
+      if (n === 6) {
+        document.getElementById('sum_role').innerText = appState.role || 'Not specified';
+        document.getElementById('sum_interests').innerText = appState.interests.size
+          ? Array.from(appState.interests).join(', ')
+          : 'Not specified';
+        document.getElementById('sum_step').innerText = appState.nextStep || 'Not specified';
+        document.getElementById('sum_contact').innerText =
+          (document.getElementById('f_name').value || '') + ' · ' + document.getElementById('f_email').value;
+      }
+      const target = document.querySelector('.screen[data-screen="' + n + '"]');
+      if (target) target.classList.add('active');
+      currentScreen = n;
+      updateProgress();
+      window.scrollTo(0, 0);
+    }
+
+    function nextScreen() { if (currentScreen < TOTAL_SCREENS) showScreen(currentScreen + 1); }
+    function prevScreen() { if (currentScreen > 1) showScreen(currentScreen - 1); }
+
+    function validateAndNext() {
+      const name    = document.getElementById('f_name').value.trim();
+      const email   = document.getElementById('f_email').value.trim();
+      const country = document.getElementById('f_country').value;
+      if (!name || !email || !country) {
+        alert('Please fill in your name, email, and country to continue.');
+        return;
+      }
+      nextScreen();
+    }
+
+    // ── Form submission ──────────────────────────────────────────────────────
+    async function submitApplication() {
+      if (!document.getElementById('f_consent').checked) {
+        alert('Please agree to the contact consent to continue.');
+        return;
+      }
+      const btn = document.getElementById('btnSubmit');
+      btn.disabled = true;
+      btn.innerText = 'Connecting...';
+
+      const name        = document.getElementById('f_name').value.trim();
+      const email       = document.getElementById('f_email').value.trim();
+      const phone       = document.getElementById('f_phone').value.trim() || '';
+      const country     = document.getElementById('f_country').value;
+      const institution = document.getElementById('f_institution').value.trim() || 'Not specified';
 
       try {
-        const result = await registerSovereignUser(payload);
-        document.getElementById('dispId').textContent = result.id || 'GA-3467';
-        document.getElementById('regForm').style.display = 'none';
-        document.getElementById('successHud').classList.add('active');
-      } catch (err) {
-        alert(err.message || 'حدث خطأ أثناء التسجيل.');
-        btn.textContent = 'إنشاء الحساب ومساحة العمل السحابية (+500 GP) ➔';
+        // Primary registration
+        const result = await executeGemIInISync({
+          action:       'REGISTER_USER',
+          legalName:    name,
+          email:        email,
+          phone:        phone,
+          location:     country,
+          university:   institution,
+          careerStage:  appState.role,
+          peerReferral: ''
+        });
+
+        const gaId = (result && result.gaId) ? result.gaId : 'PENDING';
+
+        // Secondary: log interests + next step
+        try {
+          await executeGemIInISync({
+            action:          'SUBMIT_FEEDBACK',
+            gaId:            gaId,
+            email:           email,
+            phone:           phone,
+            targetModules:   Array.from(appState.interests).join('; '),
+            targetPathways:  '[Next Step: ' + appState.nextStep + ']'
+          });
+        } catch(e) { /* non-critical */ }
+
+        // GA4 conversion
+        if (typeof gtag === 'function') {
+          gtag('event', 'sign_up', { method: 'Pathway_Discovery', career_stage: appState.role });
+        }
+
+        // Clear saved state
+        localStorage.removeItem('ga_join_state');
+
+        // Show success
+        document.getElementById('pathwayForm').style.display = 'none';
+        document.getElementById('progressContainer').style.display = 'none';
+        if (gaId && gaId.startsWith('GA-')) {
+          document.getElementById('refBox').style.display = 'inline-block';
+          document.getElementById('dispRef').innerText = gaId;
+        }
+        document.getElementById('successScreen').classList.add('active');
+
+      } catch(err) {
+        alert('We encountered a temporary network issue. Your application was not saved — please try again.');
         btn.disabled = false;
+        btn.innerText = 'Join Our Network';
       }
     }
   </script>

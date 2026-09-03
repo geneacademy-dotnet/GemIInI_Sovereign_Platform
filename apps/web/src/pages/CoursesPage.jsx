@@ -67,7 +67,7 @@ const CoursesPage = () => {
             </Helmet>
 
             <PageHeader
-                title={lang === 'ar' ? 'المصفوفة الأكاديمية والمناهج المعتمدة' : 'Academic Matrix & Curriculum Inventory'}
+                title={lang === 'ar' ? 'المسارات التخصصية والوحدات السريرية (MTC™) والمناهج المعتمدة' : 'Academic Matrix & Curriculum Inventory'}
                 subtitle={lang === 'ar' 
                     ? 'السجل المعياري الشامل للبرامج السريرية، مسارات الزمالات الدولية، والطب الجزيئي، وأدوات الحوكمة MTC™' 
                     : 'The authoritative matrix for clinical licensure, international board mastery, molecular genomics, and MTC™ pedagogical quality assurance.'}

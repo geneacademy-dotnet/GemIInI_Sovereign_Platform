@@ -1,274 +1,669 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SudaPass Registry Verification | منظومة التحقق السيادي</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=Noto+Sans+Arabic:wght@400;600;700;800&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-obsidian: #04080F;
-            --accent-cyan: #00F2FE;
-            --gold-sovereign: #B48028;
-            --text-muted: #8E9AAF;
-            --text-light: #F4F7F6;
-            --glass-bg: rgba(4, 8, 15, 0.85);
-            --glass-border: rgba(0, 242, 254, 0.15);
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>بوابة التحقق المهني المعتمد والشهادات المعتمدة | SudaPass Verification — Gene Academy</title>
+  <meta name="description" content="البوابة الرسمية للتحقق من السجلات السريرية للأطباء، شهادات الكفاءة المهنية المعتمدة دولياً، وهويات الأعضاء عبر تشفير SHA-256.">
 
-        * { box-sizing: border-box; }
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-H1Q67PP2DJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-H1Q67PP2DJ', { 'send_page_view': true, 'anonymize_ip': true });
+  </script>
 
-        body {
-            background-color: var(--bg-obsidian);
-            color: var(--text-light);
-            font-family: 'Noto Sans Arabic', 'Outfit', sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-        }
+  <!-- Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700;800;900&family=IBM+Plex+Mono:wght@500;600;700&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
 
-        .mono { font-family: 'IBM Plex Mono', monospace; }
+  <style>
+    /* ── Design Tokens ───────────────────────────────────────────────────── */
+    :root {
+      --bg-warm:        #F8FAFC;
+      --navy-deep:      #0B1426;
+      --navy-surface:   #0F172A;
+      --blue-clinical:  #0284C7;
+      --blue-glow:      #38BDF8;
+      --gold-archival:  #B48028;
+      --emerald-pass:   #059669;
+      --amber-pending:  #D97706;
+      --slate-muted:    #94A3B8;
+      --border-subtle:  #E2E8F0;
+    }
 
-        header {
-            background: var(--glass-bg);
-            border-bottom: 1px solid var(--glass-border);
-            backdrop-filter: blur(12px);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
+    body {
+      font-family: 'Cairo', system-ui, sans-serif;
+      background-color: var(--bg-warm);
+      color: var(--navy-deep);
+      -webkit-font-smoothing: antialiased;
+    }
+    .font-editorial { font-family: 'Amiri', serif; }
+    .font-mono-meta { font-family: 'IBM Plex Mono', monospace; }
 
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-        }
+    /* ── Academic Card ───────────────────────────────────────────────────── */
+    .academic-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-subtle);
+      border-radius: 1.25rem;
+      box-shadow: 0 4px 6px -1px rgba(11, 20, 38, 0.03), 0 2px 4px -1px rgba(11, 20, 38, 0.02);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .academic-card:hover {
+      border-color: var(--blue-clinical);
+      box-shadow: 0 16px 32px -8px rgba(2, 132, 199, 0.10);
+    }
 
-        .brand-logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--text-light);
-            text-decoration: none;
-        }
+    /* ── Badges ──────────────────────────────────────────────────────────── */
+    .badge {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 0.2rem 0.6rem;
+      border-radius: 9999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .badge-verified  { background: #ECFDF5; color: var(--emerald-pass); border: 1px solid #A7F3D0; }
+    .badge-pending   { background: #FFFBEB; color: #B45309;              border: 1px solid #FDE68A; }
+    .badge-internal  { background: #F0F9FF; color: #0369A1;              border: 1px solid #BAE6FD; }
 
-        .brand-logo span { color: var(--accent-cyan); }
+    /* ── Independent Telemetry Grid (5 Pillars) ────────────────────────────── */
+    .telemetry-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 16px;
+      width: 100%;
+    }
+    .telemetry-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 24px 16px;
+      text-align: center;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    }
+    .telemetry-card:hover {
+      border-color: var(--blue-clinical);
+      box-shadow: 0 8px 24px -4px rgba(2, 132, 199, 0.12);
+      transform: translateY(-2px);
+    }
+    .telemetry-card--loaded {
+      border-color: #CBD5E1;
+    }
+    .icon-wrapper {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+      background: #F1F5F9;
+      color: var(--navy-deep);
+      margin-bottom: 16px;
+      transition: all 0.3s ease;
+    }
+    .telemetry-card:hover .icon-wrapper {
+      background: var(--blue-clinical);
+      color: #FFFFFF;
+    }
+    .Independent-icon {
+      width: 24px;
+      height: 24px;
+      stroke: currentColor;
+    }
+    .telemetry-title {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      color: #64748B;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      margin: 0 0 8px;
+    }
+    .telemetry-data {
+      display: block;
+      font-family: 'Outfit', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--navy-surface);
+      line-height: 1.4;
+      word-break: break-word;
+    }
+    .telemetry-verified { color: var(--emerald-pass); }
+    .telemetry-pending  { color: var(--amber-pending); }
 
-        .nav-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            margin-right: 1.5rem;
-            font-size: 0.9rem;
-            font-weight: 600;
-            transition: color 0.3s;
-        }
+    /* ── Hash Terminal ───────────────────────────────────────────────────── */
+    .hash-terminal {
+      background: #0F172A;
+      border-radius: 10px;
+      padding: 16px 20px;
+    }
+    .hash-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      color: #64748B;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      display: block;
+      margin-bottom: 6px;
+    }
+    .hash-value {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      color: #34D399;
+      word-break: break-all;
+      user-select: all;
+    }
 
-        .nav-links a:hover { color: var(--accent-cyan); }
-
-        .container {
-            max-width: 800px;
-            margin: 8rem auto 4rem auto;
-            padding: 0 2rem;
-            text-align: center;
-        }
-
-        .verify-box {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            padding: 2.5rem;
-            backdrop-filter: blur(10px);
-            margin-top: 2rem;
-            text-align: right;
-        }
-
-        .search-input-group {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .search-input {
-            flex: 1;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 10px;
-            padding: 0.85rem 1.2rem;
-            color: #fff;
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 1rem;
-            direction: ltr;
-        }
-
-        .search-input:focus {
-            outline: none;
-            border-color: var(--accent-cyan);
-        }
-
-        .btn-verify {
-            background: var(--accent-cyan);
-            color: var(--bg-obsidian);
-            border: none;
-            border-radius: 10px;
-            padding: 0.85rem 2rem;
-            font-weight: 800;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .btn-verify:hover {
-            box-shadow: 0 0 25px rgba(0, 242, 254, 0.4);
-        }
-
-        .result-card {
-            display: none;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(0, 242, 254, 0.2);
-            border-radius: 14px;
-            padding: 1.8rem;
-            margin-top: 1.5rem;
-        }
-
-        .result-row {
-            display: flex;
-            justify-content: space-between;
-            padding: 0.75rem 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-            font-size: 0.9rem;
-        }
-
-        .result-row:last-child { border-bottom: none; }
-        .result-row .label { color: var(--text-muted); }
-        .result-row .val { font-weight: 700; color: #fff; }
-
-        footer {
-            border-top: 1px solid rgba(244, 247, 246, 0.1);
-            padding: 2.5rem 2rem;
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.85rem;
-        }
-    </style>
+    /* ── Error Panel ─────────────────────────────────────────────────────── */
+    .error-panel {
+      border: 2px solid #FDA4AF;
+      background: #FFF1F2;
+      border-radius: 1.25rem;
+      padding: 2rem;
+      text-align: center;
+    }
+    .error-icon-wrap {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: #FFE4E6;
+      color: #BE123C;
+      margin-bottom: 12px;
+    }
+  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="bg-[#F7FAFC] text-[#1F2937] antialiased">
 
-    <header>
-        <div class="nav-container">
-            <a href="index.html" class="brand-logo">SUDAGENE<span>.</span></a>
-            <nav class="nav-links">
-                <a href="index.html">الرئيسية</a>
-                <a href="universities.html">الجامعات (54)</a>
-                <a href="verify.html" style="color: var(--gold-sovereign);">التحقق من الهوية</a>
-                <a href="dashboard.html">بوابة الأعضاء</a>
-            </nav>
+  <!-- Top Announcement Ribbon -->
+  <div class="bg-[#0B1426] text-slate-300 text-[11px] py-2.5 px-4 border-b border-slate-800 font-mono-meta">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-2">
+        <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800 font-bold text-[10px]">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          SUDAPASS SHA-256 CRYPTOGRAPHIC REGISTRY
+        </span>
+        <span class="text-slate-300 font-semibold text-xs">سجل التحقق الأكاديمي والسريري المعتمد &bull; W3C Verifiable Credentials</span>
+      </div>
+      <div class="flex items-center gap-4 text-xs font-semibold">
+        <a href="https://members.geneacademy.net" target="_blank" class="text-sky-400 hover:text-sky-300">بوابة الأعضاء (LMS) &rarr;</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Top Utility Bar -->
+  <div class="bg-[#123B5D] text-slate-200 text-xs py-2 px-4 border-b border-slate-700 font-mono">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+      <div class="items-center gap-2 hidden md:flex">
+        <span class="w-2 h-2 rounded-full bg-[#16805B]"></span>
+        <span>GENE ACADEMY &bull; Independent MEDICAL ECOSYSTEM</span>
+      </div>
+      <div class="flex items-center gap-4 ml-auto">
+        <div class="flex items-center gap-1 font-bold">
+          <span class="text-white">English</span>
+          <span class="text-slate-500">/</span>
+          <a href="index_ar.html" class="text-slate-300 hover:text-white transition font-sans">العربية</a>
         </div>
-    </header>
+        <span class="text-slate-500 hidden sm:inline">|</span>
+        <a href="auth.html" class="text-slate-300 hover:text-white font-bold transition flex items-center gap-1">
+          Member Sign In &rarr;
+        </a>
+      </div>
+    </div>
+  </div>
 
-    <main class="container">
-        <h1 style="font-size: 2.2rem; font-weight: 800; margin-bottom: 0.5rem;">
-            بوابة التحقق السيادي <span style="color: var(--accent-cyan);">SudaPass</span>
-        </h1>
-        <p style="color: var(--text-muted); font-size: 1rem; margin-bottom: 2rem;">
-            التحقق اللحظي من بيانات الهوية المهنية والأكاديمية لأعضاء السجل السيادي (2,441+ طبيب وباحث)
-        </p>
+  <!-- Main Header & Navigation -->
+  <header class="bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
 
-        <div class="verify-box">
-            <div class="search-input-group">
-                <input type="text" id="gaIdInput" class="search-input mono" placeholder="GA0171, GA5406, or Name..." value="GA0171">
-                <button class="btn-verify" onclick="verifyGA()">تحقق الآن</button>
-            </div>
-
-            <div id="resultCard" class="result-card">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-                    <span class="mono" style="background: rgba(0, 242, 254, 0.1); border: 1px solid var(--accent-cyan); padding: 0.2rem 0.8rem; border-radius: 6px; color: var(--accent-cyan); font-weight: 700; font-size: 0.85rem;" id="resId">
-                        GA0171
-                    </span>
-                    <span style="color: #10b981; font-weight: 700; font-size: 0.85rem;">
-                        ✓ مسجل وموثق بالسجل السيادي
-                    </span>
-                </div>
-
-                <div class="result-row">
-                    <span class="label">الاسم الكامل:</span>
-                    <span class="val" id="resName">د. أحمد عبد الرحمن</span>
-                </div>
-                <div class="result-row">
-                    <span class="label">الجامعة المعتمدة:</span>
-                    <span class="val" id="resUniv">جامعة الخرطوم - كلية الطب</span>
-                </div>
-                <div class="result-row">
-                    <span class="label">المسار التدريبي:</span>
-                    <span class="val" id="resRole">Clinical Licensure Vanguard (SMC & MRCS)</span>
-                </div>
-                <div class="result-row">
-                    <span class="label">رصيد النقاط (GP):</span>
-                    <span class="val mono" style="color: var(--accent-cyan);" id="resGp">+1,250 GP</span>
-                </div>
-                <div class="result-row">
-                    <span class="label">الساعات الأوروبية (ECTS):</span>
-                    <span class="val mono" id="resEcts">58.5 ECTS</span>
-                </div>
-                <div class="result-row">
-                    <span class="label">درجة المجلس الطبي (SMC):</span>
-                    <span class="val mono" style="color: #10b981;" id="resSmc">Passed (96.4%) ✓</span>
-                </div>
-            </div>
+      <!-- Brand Logo -->
+      <a href="index.html" class="flex items-center gap-3 shrink-0 group">
+        <div class="w-11 h-11 rounded-xl bg-[#123B5D] text-white font-black flex items-center justify-center font-mono text-base shadow-sm group-hover:bg-[#168C8C] transition-colors">
+          GA
         </div>
-    </main>
+        <div>
+          <span class="text-xl font-bold font-heading text-[#123B5D] tracking-tight block">Gene Academy</span>
+          <span class="text-[10px] font-mono text-[#64748B] block tracking-wider uppercase">MEDICAL &amp; GENOMIC CONSORTIUM</span>
+        </div>
+      </a>
 
-    <footer>
-        <p class="mono">&copy; 2026 SudaGene Consortium. Powered by SudaPass Cryptographic Ledger.</p>
-    </footer>
+      <!-- Desktop Navigation -->
+      <nav class="hidden lg:flex items-center gap-6 text-sm font-semibold text-[#1F2937]" id="desktop-nav">
 
-    <script src="js/ga_data.js"></script>
-    <script>
-        function verifyGA() {
-            const val = document.getElementById('gaIdInput').value.trim();
-            const card = document.getElementById('resultCard');
-            if (!val) return;
+        <div class="relative group">
+          <button class="hover:text-[#168C8C] transition pb-1 flex items-center gap-1">
+            Programs
+            <svg class="w-4 h-4 text-slate-400 group-hover:text-[#168C8C] transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div class="absolute left-0 top-full pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-64 z-50">
+            <div class="bg-white border border-slate-200 rounded-xl shadow-xl overflow-hidden flex flex-col py-2">
+              <a href="courses.html"   class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Clinical Training</a>
+              <a href="smc.html"       class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">SMC Preparation</a>
+              <a href="molecular.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Molecular Medicine</a>
+              <a href="research.html"  class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Research Training</a>
+              <a href="stem.html"      class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Junior STEM</a>
+            </div>
+          </div>
+        </div>
 
-            let record = null;
-            if (typeof gaRegistry !== "undefined" && Array.isArray(gaRegistry)) {
-                record = gaRegistry.find(r => r.id.toLowerCase() === val.toLowerCase() || (r.name && r.name.toLowerCase().includes(val.toLowerCase())));
-            }
+        <div class="relative group">
+          <button class="hover:text-[#168C8C] transition pb-1 flex items-center gap-1">
+            Professional Identity
+            <svg class="w-4 h-4 text-slate-400 group-hover:text-[#168C8C] transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div class="absolute left-0 top-full pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-64 z-50">
+            <div class="bg-white border border-slate-200 rounded-xl shadow-xl overflow-hidden flex flex-col py-2">
+              <a href="identity.html#how-it-works"    class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">How It Works</a>
+              <a href="identity.html#training-records" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Training Records</a>
+              <a href="verify.html"                    class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Verification</a>
+              <a href="identity.html#progress"         class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Member Progress</a>
+              <a href="identity.html#employer"         class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Employer &amp; Institutional Use</a>
+            </div>
+          </div>
+        </div>
 
-            if (!record) {
-                record = {
-                    id: val.toUpperCase().startsWith('GA') ? val.toUpperCase() : 'GA' + val,
-                    name: 'د. أحمد عبد الرحمن',
-                    university: 'جامعة الخرطوم - كلية الطب',
-                    role: 'Clinical Licensure Vanguard (SMC & MRCS)',
-                    gp: 1250,
-                    ects: 58.5,
-                    smc: '96.4%'
-                };
-            }
+        <div class="relative group">
+          <button class="hover:text-[#168C8C] transition pb-1 flex items-center gap-1">
+            Research
+            <svg class="w-4 h-4 text-slate-400 group-hover:text-[#168C8C] transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div class="absolute left-0 top-full pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-64 z-50">
+            <div class="bg-white border border-slate-200 rounded-xl shadow-xl overflow-hidden flex flex-col py-2">
+              <a href="journal.html"              class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Reach Journal</a>
+              <a href="index.html#services"       class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">GLOMEt</a>
+              <a href="research.html"             class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">SudaGene Research Centre</a>
+              <div class="border-t border-slate-100 my-1"></div>
+              <a href="ideas.html" class="px-4 py-2 hover:bg-slate-50 font-bold text-[#123B5D] hover:text-[#168C8C] transition">Submit a Research Idea</a>
+            </div>
+          </div>
+        </div>
 
-            document.getElementById('resId').innerText = record.id;
-            document.getElementById('resName').innerText = record.name;
-            document.getElementById('resUniv').innerText = record.university || 'جامعة الخرطوم - كلية الطب';
-            document.getElementById('resRole').innerText = record.role || 'Clinical Licensure Vanguard';
-            document.getElementById('resGp').innerText = '+' + (record.gp || 1250).toLocaleString() + ' GP';
-            document.getElementById('resEcts').innerText = (record.ects || 58.5) + ' ECTS';
-            document.getElementById('resSmc').innerText = 'Passed (' + (record.smc || '96.4%') + ') ✓';
+        <a href="universities.html" class="hover:text-[#168C8C] transition pb-1">Universities</a>
 
-            card.style.display = 'block';
+        <div class="relative group">
+          <button class="hover:text-[#168C8C] transition pb-1 flex items-center gap-1">
+            Institutions
+            <svg class="w-4 h-4 text-slate-400 group-hover:text-[#168C8C] transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div class="absolute left-0 top-full pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-72 z-50">
+            <div class="bg-white border border-slate-200 rounded-xl shadow-xl overflow-hidden flex flex-col py-2">
+              <a href="academic-solutions.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Academic Solutions</a>
+              <a href="partnerships.html"       class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Training Partnerships</a>
+              <a href="academic-solutions.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Curriculum Support</a>
+              <div class="border-t border-slate-100 my-1"></div>
+              <a href="institutions.html" class="px-4 py-2 hover:bg-slate-50 font-bold text-[#123B5D] hover:text-[#168C8C] transition">Request a Partnership Briefing</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <!-- CTA & Mobile Toggle -->
+      <div class="flex items-center gap-4 shrink-0">
+        <a href="join.html" class="hidden sm:inline-flex px-5 py-2.5 rounded-xl bg-[#123B5D] hover:bg-[#0E2E49] text-white font-heading font-semibold text-xs sm:text-sm shadow-md transition-all">
+          Join Our Network
+        </a>
+        <button id="mobile-menu-toggle" class="lg:hidden p-2 text-slate-600 hover:text-[#123B5D] transition">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div id="mobile-nav" class="hidden lg:hidden bg-white border-t border-slate-200 shadow-xl absolute top-full left-0 w-full z-40 max-h-[80vh] overflow-y-auto">
+      <div class="flex flex-col p-4 space-y-4 font-bold text-[#123B5D]">
+        <a href="courses.html"      class="block pb-2 border-b border-slate-100 text-[#168C8C]">Programs &rarr;</a>
+        <a href="verify.html"       class="block pb-2 border-b border-slate-100 text-[#168C8C]">Professional Identity &rarr;</a>
+        <a href="research.html"     class="block pb-2 border-b border-slate-100 text-[#168C8C]">Research &rarr;</a>
+        <a href="universities.html" class="block pb-2 border-b border-slate-100">Universities</a>
+        <a href="institutions.html" class="block pb-2 border-b border-slate-100 text-[#168C8C]">Institutions &rarr;</a>
+        <a href="join.html" class="block text-center mt-4 px-5 py-3 rounded-xl bg-[#123B5D] text-white font-heading font-semibold text-sm shadow-md">
+          Join Our Network
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 py-12 w-full space-y-10">
+
+    <!-- Hero Header -->
+    <div class="text-center space-y-3">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-sky-50 border border-sky-200 text-xs font-mono-meta text-sky-800 font-bold">
+        <span>IMMUTABLE CERTIFICATION &amp; CREDENTIAL VAULT</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-black text-slate-950 tracking-tight">
+        بوابة التحقق والشهادات المهنية الدائمة
+      </h1>
+      <p class="text-slate-600 text-xs sm:text-sm max-w-xl mx-auto font-editorial leading-relaxed">
+        تحقق لحظي وموثوق للمستشفيات، الجامعات، والجهات المانحة من صحة الهويات الأكاديمية (GA-ID)،
+        شهادات ورش التدريب السريري، وسجلات الكفاءة الموقعة رقمياً عبر بروتوكول SHA-256.
+      </p>
+    </div>
+
+    <!-- Search Box -->
+    <div class="academic-card p-6 sm:p-8 space-y-4">
+      <form onsubmit="handleManualSearch(event)" class="flex flex-col sm:flex-row gap-3">
+        <input
+          type="text"
+          id="verifyInput"
+          placeholder="أدخل المعرّف (مثل GA-3466 أو GA-000) أو البريد الإلكتروني المهني..."
+          class="flex-grow px-4 py-3.5 rounded-xl bg-slate-50 border border-slate-200 text-sm focus:border-sky-500 focus:bg-white transition outline-none font-mono-meta"
+          required
+        >
+        <button
+          type="submit"
+          id="verifyBtn"
+          class="px-8 py-3.5 rounded-xl bg-[#0B1426] hover:bg-slate-800 text-white font-bold text-sm shadow-md transition shrink-0"
+        >
+          فحص السجل المشفر &rarr;
+        </button>
+      </form>
+
+      <div class="flex flex-wrap items-center justify-between gap-2 pt-2 text-[11px] font-mono-meta text-slate-500 border-t border-slate-100">
+        <span>أمثلة للفحص:
+          <button onclick="quickFill('GA-000')" class="text-sky-600 hover:underline">GA-000</button> &bull;
+          <button onclick="quickFill('GA-001')" class="text-sky-600 hover:underline">GA-001</button> &bull;
+          <button onclick="quickFill('GA-004')" class="text-sky-600 hover:underline">GA-004</button>
+        </span>
+        <span class="text-emerald-700 font-bold">
+          <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse mr-1"></span>
+          متصل بالخادم السحابي الحي
+        </span>
+      </div>
+    </div>
+
+    <!-- ── Verification Result Panel (Hidden by default) ────────────────── -->
+    <div id="verifyResult" class="hidden academic-card p-8 space-y-8 border-2 border-emerald-500">
+
+      <!-- Result Header: Name + Status Badge -->
+      <div class="flex flex-wrap items-center justify-between gap-4 border-b border-slate-200 pb-6">
+        <div class="flex items-center gap-4">
+          <!-- Verified Icon (SVG — no emoji) -->
+          <div class="w-14 h-14 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+            </svg>
+          </div>
+          <div>
+            <h3 id="resName" class="text-xl font-black text-slate-900">د. ...</h3>
+            <span id="resGaId" class="text-xs font-mono-meta font-bold text-sky-700">GA-XXXX</span>
+          </div>
+        </div>
+        <span id="resStatus" class="badge badge-verified">VERIFIED &bull; ACCREDITED</span>
+      </div>
+
+      <!-- ── THE Independent TELEMETRY DASHBOARD (5 Pillars) ──────────────── -->
+      <div>
+        <p class="font-mono-meta text-[10px] text-slate-400 uppercase tracking-widest mb-4">Independent Identity Pillars</p>
+        <div class="telemetry-grid">
+
+          <!-- Pillar 1: Identity -->
+          <div class="telemetry-card" id="card-identity">
+            <div class="icon-wrapper">
+              <svg class="Independent-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                      d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2"/>
+              </svg>
+            </div>
+            <h3 class="telemetry-title">Identity</h3>
+            <span class="telemetry-data" id="data-identity">GA-XXXX</span>
+          </div>
+
+          <!-- Pillar 2: Training -->
+          <div class="telemetry-card" id="card-training">
+            <div class="icon-wrapper">
+              <svg class="Independent-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                      d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+              </svg>
+            </div>
+            <h3 class="telemetry-title">Training</h3>
+            <span class="telemetry-data" id="data-training">Awaiting Sync</span>
+          </div>
+
+          <!-- Pillar 3: Skills -->
+          <div class="telemetry-card" id="card-skills">
+            <div class="icon-wrapper">
+              <svg class="Independent-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                      d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+              </svg>
+            </div>
+            <h3 class="telemetry-title">Skills</h3>
+            <span class="telemetry-data" id="data-skills">0 Verified</span>
+          </div>
+
+          <!-- Pillar 4: Evidence -->
+          <div class="telemetry-card" id="card-evidence">
+            <div class="icon-wrapper">
+              <svg class="Independent-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                      d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+              </svg>
+            </div>
+            <h3 class="telemetry-title">Evidence</h3>
+            <span class="telemetry-data" id="data-evidence">SudaPass Pending</span>
+          </div>
+
+          <!-- Pillar 5: Progress -->
+          <div class="telemetry-card" id="card-progress">
+            <div class="icon-wrapper">
+              <svg class="Independent-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                      d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+              </svg>
+            </div>
+            <h3 class="telemetry-title">Progress</h3>
+            <span class="telemetry-data" id="data-progress">0 GP</span>
+          </div>
+
+        </div><!-- /telemetry-grid -->
+      </div>
+
+      <!-- Contextual Detail Cells -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs font-mono-meta">
+        <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+          <span class="text-slate-400 block text-[10px] uppercase tracking-wider mb-1">المؤسسة / الكلية</span>
+          <strong id="resFaculty" class="text-slate-900 block font-sans">جامعة الخرطوم</strong>
+        </div>
+        <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+          <span class="text-slate-400 block text-[10px] uppercase tracking-wider mb-1">المستوى المهني</span>
+          <strong id="resRole" class="text-slate-900 block font-sans">Fellow / Practitioner</strong>
+        </div>
+        <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+          <span class="text-slate-400 block text-[10px] uppercase tracking-wider mb-1">رصيد النقاط (GP)</span>
+          <strong id="resGp" class="text-amber-600 block font-black">500 GP</strong>
+        </div>
+      </div>
+
+      <!-- SHA-256 Hash Terminal -->
+      <div class="hash-terminal">
+        <span class="hash-label">SHA-256 SudaPass Digital Hash — Immutable Record</span>
+        <div id="resHash" class="hash-value">e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855</div>
+      </div>
+
+    </div><!-- /verifyResult -->
+
+    <!-- Error Panel -->
+    <div id="verifyError" class="hidden error-panel">
+      <div class="error-icon-wrap mx-auto">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+        </svg>
+      </div>
+      <h3 class="text-sm font-bold text-rose-900 mb-1">لم يتم العثور على سجل مطابق</h3>
+      <p id="verifyErrorMessage" class="text-xs text-rose-700 font-editorial">يرجى التأكد من كتابة معرّف GA-ID بشكل صحيح أو التواصل مع مكتب القبول والاعتماد.</p>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-[#0B1E2E] text-slate-400 py-16 text-xs border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+        <div class="space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-lg bg-[#123B5D] text-white font-mono font-bold flex items-center justify-center text-sm border border-slate-700">GA</div>
+            <span class="text-base font-bold font-heading text-white">Gene Academy</span>
+          </div>
+          <p class="text-slate-400 leading-relaxed max-w-sm">A Independent medical and academic consortium delivering continuous clinical education and verifiable academic credentialing.</p>
+        </div>
+
+        <div class="space-y-3">
+          <div class="font-bold text-white font-heading uppercase text-xs tracking-wider">Explore</div>
+          <ul class="space-y-2">
+            <li><a href="about.html"        class="hover:text-white transition">About</a></li>
+            <li><a href="courses.html"      class="hover:text-white transition">Programs</a></li>
+            <li><a href="research.html"     class="hover:text-white transition">Research</a></li>
+            <li><a href="faculty.html"      class="hover:text-white transition">Faculty</a></li>
+            <li><a href="institutions.html" class="hover:text-white transition">Institutions</a></li>
+          </ul>
+        </div>
+
+        <div class="space-y-3">
+          <div class="font-bold text-white font-heading uppercase text-xs tracking-wider">Participate</div>
+          <ul class="space-y-2">
+            <li><a href="join.html"    class="text-teal-400 hover:text-white font-bold transition">Join Our Network</a></li>
+            <li><a href="courses.html" class="hover:text-white transition">Clinical Training</a></li>
+            <li><a href="stem.html"    class="hover:text-white transition">Junior STEM</a></li>
+            <li><a href="ideas.html"   class="hover:text-white transition">Submit a Research Idea</a></li>
+          </ul>
+        </div>
+
+        <div class="space-y-3">
+          <div class="font-bold text-white font-heading uppercase text-xs tracking-wider">Trust and Support</div>
+          <ul class="space-y-2">
+            <li><a href="verify.html" class="hover:text-white transition">Verify a Credential</a></li>
+            <li><a href="#contact"    class="hover:text-white transition">Contact</a></li>
+            <li><a href="#"           class="hover:text-white transition">Privacy Policy</a></li>
+            <li><a href="#"           class="hover:text-white transition">Terms of Use</a></li>
+            <li><a href="#"           class="hover:text-white transition">Safeguarding</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="border-t border-slate-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-slate-500">
+        <div>&copy; 2026/2027 Gene Academy &bull; SudaGene Medical Consortium.</div>
+        <div class="flex gap-4"><span class="hidden sm:inline">Made with precision.</span></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ── Scripts ─────────────────────────────────────────────────────────── -->
+  <script src="api.js"></script>
+  <script src="js/glomet-telemetry.js" type="module"></script>
+
+  <script>
+    /* Mobile menu toggle */
+    document.addEventListener('DOMContentLoaded', () => {
+      const mobileBtn = document.getElementById('mobile-menu-toggle');
+      const mobileNav = document.getElementById('mobile-nav');
+      if (mobileBtn && mobileNav) {
+        mobileBtn.addEventListener('click', () => mobileNav.classList.toggle('hidden'));
+      }
+    });
+
+    /* Quick-fill demo buttons */
+    function quickFill(id) {
+      document.getElementById('verifyInput').value = id;
+      document.getElementById('verifyBtn').click();
+    }
+
+    /* Normalise the raw Code.gs LOOKUP response into the renderIndependentTelemetry shape */
+    function normaliseMemberPayload(record) {
+      return {
+        gaId:             record.gaId             || null,
+        careerStage:      record.careerStage       || null,
+        certification:    record.cert              || record.certification || null,
+        modulesCompleted: record.mtcCasesSolved    || record.modulesCompleted || null,
+        sudaPassHash:     record.sudaPassHash      || null,
+        status:           record.status            || null,
+        gpPoints:         record.gp !== undefined  ? record.gp : (record.gpPoints || null)
+      };
+    }
+
+    /* Primary search handler */
+    async function handleManualSearch(e) {
+      e.preventDefault();
+      const query    = document.getElementById('verifyInput').value.trim();
+      const btn      = document.getElementById('verifyBtn');
+      const resultBox = document.getElementById('verifyResult');
+      const errorBox  = document.getElementById('verifyError');
+
+      if (!query) return;
+
+      btn.disabled    = true;
+      btn.textContent = 'جاري الفحص...';
+      resultBox.classList.add('hidden');
+      errorBox.classList.add('hidden');
+
+      const payload = { action: 'LOOKUP', query };
+
+      try {
+        const res = await executeGemIInISync(payload);
+
+        if (res && res.found && res.record) {
+          const r = res.record;
+
+          /* Legacy detail cells */
+          document.getElementById('resName').textContent    = r.fullName    || 'طبيب مسجل';
+          document.getElementById('resGaId').textContent    = r.gaId        || query;
+          document.getElementById('resFaculty').textContent = r.university  || 'Medical Faculty';
+          document.getElementById('resRole').textContent    = r.careerStage || 'Medical Professional';
+          document.getElementById('resGp').textContent      = (r.gp || 500) + ' GP';
+          document.getElementById('resHash').textContent    = r.sudaPassHash || 'SHA-256: HASH_UNAVAILABLE';
+
+          /* Fire the 5-pillar telemetry renderer */
+          if (typeof window.renderIndependentTelemetry === 'function') {
+            window.renderIndependentTelemetry(normaliseMemberPayload(r));
+          }
+
+          resultBox.classList.remove('hidden');
+
+          /* GA4 event */
+          if (typeof gtag === 'function') {
+            gtag('event', 'credential_verified', {
+              event_category: 'SudaPass',
+              event_label: r.gaId || query,
+              value: r.gp || 0
+            });
+          }
+
+        } else {
+          const msg = res && res.message
+            ? res.message
+            : 'المعرف المدخل غير مدرج في السجل المعتمد.';
+          document.getElementById('verifyErrorMessage').textContent = msg;
+          errorBox.classList.remove('hidden');
         }
 
-        // Auto lookup on load
-        window.addEventListener('DOMContentLoaded', () => {
-            const params = new URLSearchParams(window.location.search);
-            const qId = params.get('id');
-            if (qId) {
-                document.getElementById('gaIdInput').value = qId;
-            }
-            verifyGA();
-        });
-    </script>
+      } catch (err) {
+        document.getElementById('verifyErrorMessage').textContent =
+          'تعذر الاتصال بالخادم المركزي: ' + err.message;
+        errorBox.classList.remove('hidden');
+
+      } finally {
+        btn.disabled    = false;
+        btn.textContent = 'فحص السجل المشفر →';
+      }
+    }
+  </script>
+
 </body>
 </html>

@@ -21,7 +21,7 @@ const PaymentChannels = ({ selectedMethod, onSelectMethod, compact = false }) =>
             nameEn: 'Vodafone Cash (Egypt & Diaspora)',
             desc: `~100 EGP / ~$2.50 USD (${pricing.concept})`,
             account: channels.vodafoneCash,
-            code: '*9*7*01015922628#',
+            code: '*9*7*+20 101 592 2628#',
             icon: Smartphone,
             color: 'border-red-500/40 bg-red-500/5 text-red-400'
         },

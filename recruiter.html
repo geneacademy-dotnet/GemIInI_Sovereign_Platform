@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth bg-[#04080F] text-white">
+<head>
+
+<script type="text/javascript">
+var _iub = _iub || [];
+_iub.csConfiguration = {"siteId":4659147,"cookiePolicyId":32190221,"lang":"en","storage":{"useSiteId":true}};
+</script>
+<script type="text/javascript" src="https://cs.iubenda.com/autoblocking/4659147.js"></script>
+<script type="text/javascript" src="//cdn.iubenda.com/cs/gpp/stub.js"></script>
+<script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SudaGene Talent Gateway | B2B Clinical Oracle</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        obsidian: '#04080F', surface: '#090F1D', card: '#0D1629',
+                        cyan: { DEFAULT: '#00F2FE', glow: 'rgba(0, 242, 254, 0.15)' }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        mono: ['"IBM Plex Mono"', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #04080F; color: #F1F5F9; }
+        .glass-panel { background: rgba(13, 22, 41, 0.75); backdrop-filter: blur(16px); border: 1px solid rgba(0, 242, 254, 0.12); border-radius: 20px; }
+        .data-row:hover { background: rgba(0, 242, 254, 0.05); }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col antialiased">
+    <nav class="sticky top-0 z-50 glass-panel rounded-none border-b border-white/5 border-t-0 border-x-0">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-cyan/10 border border-cyan/30 flex items-center justify-center font-bold text-cyan font-mono text-xs">SG</div>
+                <span class="font-bold text-white tracking-wide text-lg">SudaGene<span class="text-gray-500 font-mono text-sm ml-1">/ B2B Gateway</span></span>
+            </div>
+            <div class="flex items-center gap-4 text-sm font-medium">
+                <span class="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs font-mono">LIVE TELEMETRY</span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow py-12 px-6 max-w-7xl mx-auto space-y-8 w-full">
+        <header class="space-y-4">
+            <h1 class="text-3xl sm:text-4xl font-black text-white tracking-tight">Independent Clinical Workforce Ledger</h1>
+            <p class="text-gray-400 max-w-2xl text-sm leading-relaxed">
+                Audited telemetry ledger ranking pre-vetted healthcare professionals by their proprietary S<sub>rank</sub> score. 
+                Candidates appearing here have explicitly granted GDPR B2B consent for active recruitment.
+            </p>
+        </header>
+
+        <div class="glass-panel overflow-hidden border border-white/10">
+            <div class="overflow-x-auto">
+                <table class="w-full text-left text-sm whitespace-nowrap">
+                    <thead class="bg-surface/50 border-b border-white/10 text-xs uppercase tracking-wider text-gray-500 font-mono">
+                        <tr>
+                            <th class="px-6 py-4 font-semibold">Rank</th>
+                            <th class="px-6 py-4 font-semibold">Candidate (GA-ID)</th>
+                            <th class="px-6 py-4 font-semibold">S-Rank Score</th>
+                            <th class="px-6 py-4 font-semibold">Career Stage</th>
+                            <th class="px-6 py-4 font-semibold">University</th>
+                            <th class="px-6 py-4 font-semibold text-right">Recruit Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="leaderboardBody" class="divide-y divide-white/5">
+                        <tr><td colspan="6" class="px-6 py-12 text-center text-gray-500 font-mono text-xs">Authenticating and decrypting ledger data...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/geneApi.js"></script>
+    <script>
+        async function loadLeaderboard() {
+            const tbody = document.getElementById('leaderboardBody');
+            try {
+                const data = await GeneAPI.get('LEADERBOARD');
+                if (data && data.success) {
+                    tbody.innerHTML = '';
+                    data.items.forEach((u, idx) => {
+                        const rankHtml = idx === 0 ? '👑 1st' : (idx === 1 ? '🥈 2nd' : (idx === 2 ? '🥉 3rd' : `#${idx + 1}`));
+                        
+                        tbody.innerHTML += `
+                            <tr class="data-row transition-colors">
+                                <td class="px-6 py-4 font-mono font-bold text-gray-300">${rankHtml}</td>
+                                <td class="px-6 py-4">
+                                    <div class="font-bold text-white">${u.name}</div>
+                                    <div class="text-xs font-mono text-cyan">${u.id}</div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-cyan/10 text-cyan font-mono border border-cyan/20">
+                                        ★ ${u.sRank.toLocaleString()}
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-gray-300">${u.careerStage}</td>
+                                <td class="px-6 py-4 text-gray-400 text-xs max-w-[200px] truncate">${u.university}</td>
+                                <td class="px-6 py-4 text-right">
+                                    <button class="px-4 py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 transition-colors text-xs font-bold text-white uppercase tracking-wide">
+                                        Request Profile
+                                    </button>
+                                </td>
+                            </tr>
+                        `;
+                    });
+                } else {
+                    throw new Error("Failed to load");
+                }
+            } catch(e) {
+                tbody.innerHTML = `<tr><td colspan="6" class="px-6 py-8 text-center text-red-400 text-xs font-mono">Error connecting to Independent Ledger.</td></tr>`;
+            }
+        }
+        
+        loadLeaderboard();
+    </script>
+</body>
+</html>

@@ -6,9 +6,9 @@
 
 ---
 
-## 🛑 MANDATE 1: ZERO HALLUCINATION & FACTUAL SOVEREIGN TRUTH
+## 🛑 MANDATE 1: ZERO HALLUCINATION & FACTUAL Methodological Integrity
 
-1. **Mandatory Registry Grounding:** Whenever generating, presenting, or designing member interfaces, you MUST query the authentic **2,441-Member Sovereign Ledger** (`GA_MASTER_REGISTRY` / `ga_data.js`). Never invent fictional candidate records or non-existent GP balances.
+1. **Mandatory Registry Grounding:** Whenever generating, presenting, or designing member interfaces, you MUST query the authentic **2,441-Member Independent Ledger** (`GA_MASTER_REGISTRY` / `ga_data.js`). Never invent fictional candidate records or non-existent GP balances.
 2. **Canonical 54 Universities:** All academic affiliations must be selected strictly from the **54 Canonical Sudanese Universities & Medical Faculties** indexed in `data/universities.json`.
 3. **40 Accredited B2B Hospital Network:** All procurement, telemetry, and hardware references must adhere strictly to the **40 Verified Hospital Partners** in `data/glomet_partners.json`.
 
@@ -18,7 +18,7 @@
 
 Designers and engineers must never blend public marketing with private clinical execution. The ecosystem operates in **Three Strict Situational Modes**:
 
-### Mode 1: The Sovereign Public Gateway ("The Clinical Sanctuary")
+### Mode 1: The Independent Public Gateway ("The Clinical Sanctuary")
 * **Audience:** Prospective candidates, international recruiters, hospital directors.
 * **Palette:** Clinical Alabaster (`#FAF7F2`), Deep Obsidian Navy text (`#0F172A`). Accents: Teal (`#0D9488`), Violet (`#581C87`), Gold (`#D97706`).
 * **Constraints:** Maximum 3 cards per row, 1 primary CTA per section, Schema.org Knowledge Graph validation. No aggressive sales copy.
@@ -30,7 +30,7 @@ Designers and engineers must never blend public marketing with private clinical 
 
 ### Mode 3: The GLOMEt Enterprise Nexus ("The Laboratory Infrastructure Hub")
 * **Audience:** Hospital medical directors, laboratory supervisors, biomedical procurement officers.
-* **Palette:** Sovereign Gold (`#D97706` / `#B45309`), Technical Slate (`#1E293B`).
+* **Palette:** Independent Gold (`#D97706` / `#B45309`), Technical Slate (`#1E293B`).
 * **Features:** 5-Part Hematology reagent telemetry, 90-day cold-chain buffer logs, <48h preventive maintenance SLAs, CSR Biotech Grant Flywheel statistics.
 
 ---

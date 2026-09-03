@@ -324,7 +324,7 @@ export default function RegisterPage() {
                     >
                       <option value="smc_licensing">{lang === 'ar' ? 'امتحان الكفاءة المهنية (SMC Licensing)' : 'SMC Licensing Exam Preparation'}</option>
                       <option value="bss_surgery">{lang === 'ar' ? 'المهارات الجراحية الأساسية (BSS)' : 'Basic Surgical Skills (BSS)'}</option>
-                      <option value="bls_cairo">{lang === 'ar' ? 'ورشة BLS العملية (القاهرة - 28 أغسطس)' : 'Hands-on BLS Workshop (Cairo)'}</option>
+                      <option value="bls_cairo">{lang === 'ar' ? 'البرنامج التدريبي المتقدم (AHA BLS Provider) العملية (القاهرة - 28 أغسطس)' : 'Hands-on BLS Workshop (Cairo)'}</option>
                       <option value="mtc_simulation">{lang === 'ar' ? 'محاكاة الحالات السريرية (MTC)' : 'MTC™ Clinical Reasoning Simulation'}</option>
                     </select>
                   </div>
@@ -519,7 +519,7 @@ export default function RegisterPage() {
 
               <div className="pt-2 flex flex-col sm:flex-row gap-3">
                 <a
-                  href={`https://wa.me/201015922628?text=${encodeURIComponent(`السلام عليكم، قمت بتقديم طلب تسجيل برقم مؤقت: ${apiResult.gaId} - الاسم: ${formData.fullName} - كلية: ${formData.university}`)}`}
+                  href={`https://wa.me/2+20 101 592 2628?text=${encodeURIComponent(`السلام عليكم، قمت بتقديم طلب تسجيل برقم مؤقت: ${apiResult.gaId} - الاسم: ${formData.fullName} - كلية: ${formData.university}`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex-1 py-3 px-5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 font-bold font-display text-sm hover:opacity-95 transition flex items-center justify-center gap-2"
@@ -571,7 +571,7 @@ export default function RegisterPage() {
 
               <div className="pt-2 flex flex-col sm:flex-row gap-3">
                 <a
-                  href={`https://wa.me/201015922628?text=${encodeURIComponent(`السلام عليكم، أحتاج مطابقة رقم الهاتف: ${formData.phone} للاسم: ${formData.fullName}`)}`}
+                  href={`https://wa.me/2+20 101 592 2628?text=${encodeURIComponent(`السلام عليكم، أحتاج مطابقة رقم الهاتف: ${formData.phone} للاسم: ${formData.fullName}`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex-1 py-3 px-5 rounded-xl bg-gradient-to-r from-cyan-500 to-teal-500 text-slate-950 font-bold font-display text-sm hover:opacity-95 transition flex items-center justify-center gap-2"
@@ -618,7 +618,7 @@ export default function RegisterPage() {
                   {lang === 'ar' ? 'إعادة المحاولة وتصحيح البيانات' : 'Retry Registration'}
                 </button>
                 <a
-                  href="https://wa.me/201015922628"
+                  href="https://wa.me/2+20 101 592 2628"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="py-3 px-5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-medium text-sm transition flex items-center justify-center gap-2"

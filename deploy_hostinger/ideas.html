@@ -1,283 +1,344 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" class="scroll-smooth bg-slate-50 text-slate-900">
 <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>مجلس الأفكار والابتكار الأكاديمي | منظومة GemIInI السيادية</title>
- <meta name="description" content="البوابة الرسمية لإيداع ومناقشة مقترحات الأطباء والباحثين والكوادر التدريسية، وتطوير المناهج مع مكافأة فورية بالنقاط المعرفية GP.">
- 
- <link rel="preconnect" href="https://fonts.googleapis.com">
- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
- <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700;800;900&family=Cairo:wght@400;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
- 
- <link rel="stylesheet" href="css/styles.css">
- <style>
- .ideas-hero {
- background: linear-gradient(135deg, #1E0A38 0%, #4C1D95 100%);
- color: #FFFFFF;
- padding: 50px 20px;
- border-radius: var(--radius-lg);
- margin-bottom: 40px;
- text-align: center;
- box-shadow: 0 15px 35px rgba(76, 29, 149, 0.2);
- }
- .idea-card {
- background: #FFFFFF;
- border: 1.5px solid var(--line);
- border-radius: var(--radius-md);
- padding: 24px;
- box-shadow: var(--shadow-card);
- transition: all 0.25s ease;
- }
- .idea-card:hover {
- transform: translateY(-2px);
- box-shadow: 0 10px 25px rgba(0,0,0,0.08);
- border-color: var(--purple-brand);
- }
- </style>
+  <!-- iubenda Cookie & Consent Banner -->
+  <script type="text/javascript">
+  var _iub = _iub || [];
+  _iub.csConfiguration = {"siteId":4659147,"cookiePolicyId":32190221,"lang":"en","storage":{"useSiteId":true}};
+  </script>
+  <script type="text/javascript" src="https://cs.iubenda.com/autoblocking/4659147.js"></script>
+  <script type="text/javascript" src="//cdn.iubenda.com/cs/gpp/stub.js"></script>
+  <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مجلس الأفكار والابتكار الأكاديمي | GemIInI Ideation Trust</title>
+  <meta name="description" content="البوابة الرسمية لإيداع ومناقشة مقترحات الأطباء والباحثين لتطوير المناهج والتدريب السريري.">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-H1Q67PP2DJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-H1Q67PP2DJ');
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+      tailwind.config = {
+          theme: {
+              extend: {
+                  colors: {
+                      cyan: { DEFAULT: '#0891B2', light: '#06B6D4' },
+                      gold: { DEFAULT: '#B48028' }
+                  },
+                  fontFamily: {
+                      cairo: ['"Cairo"', 'sans-serif'],
+                      sans: ['"Plus Jakarta Sans"', '"Cairo"', 'sans-serif'],
+                      mono: ['"IBM Plex Mono"', 'monospace']
+                  }
+              }
+          }
+      }
+  </script>
+  <style>
+      body { font-family: 'Cairo', sans-serif; background-color: #F8FAFC; color: #0F172A; }
+      .glass-panel { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(16px); border: 1px solid rgba(226, 232, 240, 1); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); }
+  </style>
 </head>
-<body style="background: var(--bg-primary);">
 
- <!-- Domains Ribbon -->
- <div class="domains-ribbon">
- <div class="container">
- <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
- <span style="color: var(--gold); font-weight: 700;"> Academic Brain Trust & Ideation Incubator:</span>
- <a href="https://members.geneacademy.net" target="_blank" class="domain-chip">members.geneacademy.net</a>
- <span class="cert-tag" style="background: rgba(255,255,255,0.08); color: #FFFFFF; border-color: rgba(255,255,255,0.15); font-size: 14.5px;">REWARD: +250 GP PER APPROVED IDEA</span>
- </div>
- <div style="display: flex; align-items: center; gap: 14px;">
- <span style="font-size: 14.5px; color: #EDE8F5;">أمانة مجلس الابتكار: <strong style="color: var(--gold); font-family: var(--font-mono);">+20 101 592 2628</strong></span>
- </div>
- </div>
- </div>
+<body class="min-h-screen flex flex-col antialiased bg-slate-50 selection:bg-cyan selection:text-white">
 
- <!-- Navigation Bar -->
- <header class="navbar">
- <div class="container nav-content">
- <a href="index.html" class="brand-logo">
- <div class="logo-icon" style="background: linear-gradient(135deg, #8B5CF6, #1E0A38);">BT</div>
- <div class="brand-text">
- <h1>BRAIN TRUST</h1>
- <span style="color: var(--purple-brand);">مجلس الأفكار والابتكار الأكاديمي</span>
- </div>
- </a>
+    <!-- MAIN HEADER & NAVIGATION -->
+  <header class="bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="index.html" class="flex items-center gap-3 shrink-0 group">
+        <div class="w-11 h-11 rounded-xl bg-[#123B5D] text-white font-black flex items-center justify-center font-mono text-base shadow-sm group-hover:bg-[#168C8C] transition-colors">
+          GA
+        </div>
+        <div>
+          <span class="text-xl font-bold font-heading text-[#123B5D] tracking-tight block">Gene Academy</span>
+          <span class="text-[10px] font-mono text-[#64748B] block tracking-wider uppercase">MEDICAL &amp; GENOMIC CONSORTIUM</span>
+        </div>
+      </a>
 
- <ul class="nav-links">
- <li><a href="index.html">الرئيسية</a></li>
- <li><a href="ideas.html" class="active" style="color: var(--purple-brand); font-weight: 800;">مجلس الأفكار</a></li>
- <li><a href="smc.html">امتحان المجلس SMC</a></li>
- <li><a href="stem.html">معسكرات الناشئة</a></li>
- <li><a href="glomet.html">تجهيز المشافي GLOMEt</a></li>
- <li><a href="registry.html">السجل المركزي</a></li>
- </ul>
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden lg:flex items-center gap-6 text-sm font-semibold text-[#1F2937]" id="desktop-nav">
+        <a href="index.html" class="hover:text-[#168C8C] transition pb-1">Home</a>
+        <a href="about.html" class="hover:text-[#168C8C] transition pb-1">About</a>
+        
+        <!-- Programs Dropdown -->
+        <div class="relative group">
+          <button class="hover:text-[#168C8C] transition pb-1 flex items-center gap-1">
+            Programs
+            <svg class="w-4 h-4 text-slate-400 group-hover:text-[#168C8C] transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div class="absolute left-0 top-full pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-64 z-50">
+            <div class="bg-white border border-slate-200 rounded-xl shadow-xl overflow-hidden flex flex-col py-2">
+              <a href="courses.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Clinical Training</a>
+              <a href="courses.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">SMC Preparation</a>
+              <a href="research.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Research Training</a>
+              <a href="stem.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Junior STEM</a>
+              <div class="border-t border-slate-100 my-1"></div>
+              <a href="courses.html" class="px-4 py-2 hover:bg-slate-50 font-bold text-[#123B5D] hover:text-[#168C8C] transition">All Courses &rarr;</a>
+            </div>
+          </div>
+        </div>
 
- <div class="nav-cta">
- <a href="join.html" class="btn btn-primary" style="font-size: 14px; padding: 10px 22px;">
- انضم الآن 
- </a>
- </div>
- </div>
- </header>
+        <!-- Research Dropdown -->
+        <div class="relative group">
+          <button class="hover:text-[#168C8C] transition pb-1 flex items-center gap-1">
+            Research
+            <svg class="w-4 h-4 text-slate-400 group-hover:text-[#168C8C] transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div class="absolute left-0 top-full pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-64 z-50">
+            <div class="bg-white border border-slate-200 rounded-xl shadow-xl overflow-hidden flex flex-col py-2">
+              <a href="research.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">SudaGene Research Centre</a>
+              <a href="journal.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">GJMR Journal</a>
+              <a href="evidence.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Evidence and Impact</a>
+              <div class="border-t border-slate-100 my-1"></div>
+              <a href="ideas.html" class="px-4 py-2 hover:bg-slate-50 font-bold text-[#123B5D] hover:text-[#168C8C] transition">Submit a Research Idea</a>
+            </div>
+          </div>
+        </div>
 
- <!-- Main Content -->
- <main class="container" style="margin-top: 30px; margin-bottom: 70px;">
- 
- <!-- Hero Banner -->
- <div class="ideas-hero">
- <span class="cert-tag" style="background: rgba(255,255,255,0.15); color: var(--gold); border-color: var(--gold); margin-bottom: 14px; font-size: 14.5px;">
- حاضنة الابتكار والمبادرات المشتركة
- </span>
- <h1 style="font-size: 38px; font-weight: 900; margin: 10px 0; line-height: 1.3;">
- مجلس الأفكار والابتكار والتطوير الأكاديمي
- </h1>
- <p style="font-size: 16px; max-width: 800px; margin: 0 auto 24px; line-height: 1.8; color: #DDD6FE;">
- صوتك وشغفك العلمي هو المحرك الأساسي لتطور منظومة GemIInI. أودع فكرتك، مقترحك التدريبي، أو مشروعك البحثي، واحصل على مكافأة <strong>+250 GP</strong> فورية في محفظتك المعرفية!
- </p>
- </div>
+        <!-- Institutions Dropdown -->
+        <div class="relative group">
+          <button class="hover:text-[#168C8C] transition pb-1 flex items-center gap-1">
+            Institutions
+            <svg class="w-4 h-4 text-slate-400 group-hover:text-[#168C8C] transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div class="absolute left-0 top-full pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-72 z-50">
+            <div class="bg-white border border-slate-200 rounded-xl shadow-xl overflow-hidden flex flex-col py-2">
+              <a href="academic-solutions.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Academic Solutions</a>
+              <a href="universities.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Universities Directory</a>
+              <a href="partnerships.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Institutional Partnerships</a>
+              <div class="border-t border-slate-100 my-1"></div>
+              <a href="partnerships.html#briefing" class="px-4 py-2 hover:bg-slate-50 font-bold text-[#123B5D] hover:text-[#168C8C] transition">Request a Partnership Briefing</a>
+            </div>
+          </div>
+        </div>
 
- <!-- Idea Submission Form Box -->
- <div class="glass-card" style="padding: 36px; border: 2px solid var(--purple-brand); background: #FFFFFF; margin-bottom: 40px;">
- <h3 style="font-size: 20px; font-weight: 800; color: var(--purple-dark); margin-bottom: 16px;">
- استمارة تقديم فكرة أو مبادرة جديدة:
- </h3>
+        <a href="faculty.html" class="hover:text-[#168C8C] transition pb-1">Faculty</a>
+      </nav>
 
- <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
- <div class="input-field" style="margin: 0;">
- <label>الاسم الكريم أو رقم الهوية المهنية الرقمية (GA#) (GA#)</label>
- <input type="text" id="prop-author" placeholder="مثال: د. أحمد عمر / GA5408 أو مستقل" style="width: 100%; padding: 12px 16px; border: 1.5px solid var(--line); border-radius: var(--radius-sm); font-family: var(--font-arabic); font-size: 14px;">
- </div>
- <div class="input-field" style="margin: 0;">
- <label>تصنيف المبادرة أو الفكرة</label>
- <select id="prop-category" style="width: 100%; padding: 12px 16px; border: 1.5px solid var(--line); border-radius: var(--radius-sm); font-family: var(--font-arabic); font-size: 14px; font-weight: 700;">
- <option value="stem"> معسكرات الناشئة وزيارات 57357 والمتاحف</option>
- <option value="smc"> بنوك أسئلة امتحان المجلس الطبي (SMC)</option>
- <option value="research"> مقترح بحث جينومي / أورام متعدد المراكز</option>
- <option value="glomet"> شراكة توزيع وتجهيز مخبري GLOMEt بالولايات</option>
- <option value="curriculum"> مسار تدريبي أو ورشة سريرية جديدة</option>
- </select>
- </div>
- </div>
+      <!-- CTA & Mobile Menu Button -->
+      <div class="flex items-center gap-4 shrink-0">
+        <a href="join.html" class="hidden sm:inline-flex px-5 py-2.5 rounded-xl bg-[#123B5D] hover:bg-[#0E2E49] text-white font-heading font-semibold text-xs sm:text-sm shadow-md transition-all">
+          Join Our Network
+        </a>
+        
+        <!-- Mobile Menu Toggle Button (Requires JS to toggle 'mobile-nav' hidden state) -->
+        <button id="mobile-menu-toggle" class="lg:hidden p-2 text-slate-600 hover:text-[#123B5D] transition">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+      </div>
 
- <div class="input-field" style="margin-bottom: 16px;">
- <label>عنوان الفكرة أو المبادرة</label>
- <input type="text" id="prop-title" placeholder="اكتب عنواناً واضحاً وموجزاً..." style="width: 100%; padding: 12px 16px; border: 1.5px solid var(--line); border-radius: var(--radius-sm); font-family: var(--font-arabic); font-size: 14px;">
- </div>
+    </div>
 
- <div class="input-field" style="margin-bottom: 20px;">
- <label>تفاصيل الرؤية التشغيلية والقيمة المضافة</label>
- <textarea id="prop-desc" rows="4" placeholder="اشرح آليات التنفيذ، الفئة المستفيدة، والنتائج المتوقعة..." style="width: 100%; padding: 12px 16px; border: 1.5px solid var(--line); border-radius: var(--radius-sm); font-family: var(--font-arabic); font-size: 14px; line-height: 1.6;"></textarea>
- </div>
+    <!-- Mobile Navigation Overlay (Hidden by default) -->
+    <div id="mobile-nav" class="hidden lg:hidden bg-white border-t border-slate-200 shadow-xl absolute top-full left-0 w-full z-40 max-h-[80vh] overflow-y-auto">
+      <div class="flex flex-col p-4 space-y-4 font-bold text-[#123B5D]">
+        <a href="index.html" class="block pb-2 border-b border-slate-100">Home</a>
+        <a href="about.html" class="block pb-2 border-b border-slate-100">About</a>
+        <a href="courses.html" class="block pb-2 border-b border-slate-100 text-[#168C8C]">Programs &rarr;</a>
+        <a href="research.html" class="block pb-2 border-b border-slate-100 text-[#168C8C]">Research &rarr;</a>
+        <a href="institutions.html" class="block pb-2 border-b border-slate-100 text-[#168C8C]">Institutions &rarr;</a>
+        <a href="faculty.html" class="block pb-2 border-b border-slate-100">Faculty</a>
+        <a href="join.html" class="block text-center mt-4 px-5 py-3 rounded-xl bg-[#123B5D] text-white font-heading font-semibold text-sm shadow-md">
+          Join Our Network
+        </a>
+      </div>
+    </div>
+  </header>
 
- <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
- <span style="font-size: 13px; color: var(--teal); font-weight: 700;"> مكافأة فورية: +250 GP رصيد محفظة عند الإرسال</span>
- <button type="button" class="btn btn-primary" onclick="submitIdea()" style="padding: 12px 28px; font-size: 14.5px;">
- إرسال الفكرة لمجلس المنظومة 
- </button>
- </div>
+    <main class="flex-grow max-w-5xl mx-auto px-6 py-12 space-y-12">
+        <div class="text-center space-y-3 max-w-3xl mx-auto">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan/10 border border-cyan/30 text-xs font-mono text-cyan font-bold">
+                ACADEMIC BRAIN TRUST & PROPOSALS
+            </div>
+            <h1 class="text-3xl sm:text-5xl font-black text-slate-900 leading-tight">
+                مجلس الأفكار وتطوير المناهج<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan to-blue-600">منظومة GemIInI الأكاديمية</span>
+            </h1>
+            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                مساحة تشاركية للأطباء والباحثين وأعضاء هيئة التدريس لتقديم مقترحات ورش العمل، بنوك الحالات السريرية، والمشاريع البحثية الموجهة للمنظومة.
+            </p>
+        </div>
 
- <div id="prop-success-msg" style="display: none; margin-top: 16px; padding: 14px; background: #ECFDF5; border: 1px solid #A7F3D0; border-radius: var(--radius-sm); color: #065F46; font-size: 14px; font-weight: 700; text-align: center;">
- • تم إيداع فكرتك بنجاح في مجلس الأفكار وتمت إضافة 250 GP إلى رصيدك!
- </div>
- </div>
+        <!-- Submission Box -->
+        <div class="glass-panel p-8 rounded-3xl space-y-6 max-w-3xl mx-auto border-2 border-cyan/20">
+            <h3 class="text-lg font-bold text-slate-900 border-b border-slate-200 pb-3">إيداع مقترح أو مبادرة تدريبية جديدة:</h3>
 
- <!-- Active Community Ideas Feed -->
- <h3 style="font-size: 22px; font-weight: 900; color: var(--purple-dark); margin-bottom: 20px;">
- أحدث الأفكار والمناقشات المعتمدة من أعضاء المنظومة:
- </h3>
+            <form id="idea-form" onsubmit="submitIdeaProposal(event)" class="space-y-4 text-xs">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="space-y-1">
+                        <label for="prop-author" class="font-bold text-slate-700">الاسم الكريم أو المعرف (GA-ID)</label>
+                        <input type="text" id="prop-author" required placeholder="مثال: د. سارة أحمد / GA-1025" class="w-full p-3 rounded-xl border border-slate-300 focus:outline-none focus:border-cyan">
+                    </div>
+                    <div class="space-y-1">
+                        <label for="prop-category" class="font-bold text-slate-700">تصنيف المقترح</label>
+                        <select id="prop-category" class="w-full p-3 rounded-xl border border-slate-300 focus:outline-none focus:border-cyan font-sans font-semibold">
+                            <option value="smc">بنوك وسيناريوهات المجلس الطبي (SMC)</option>
+                            <option value="research">مقترح بحث جينومي / وبائي متعدد المراكز</option>
+                            <option value="workshop">ورشة تدريب سريرية أو جراحية جديدة</option>
+                            <option value="stem">برامج الناشئة والـ Pre-Med</option>
+                        </select>
+                    </div>
+                </div>
 
- <div id="ideas-feed" style="display: flex; flex-direction: column; gap: 16px;">
- 
- <!-- Idea 1 -->
- <div class="idea-card" style="border-right: 5px solid #0EA5E9;">
- <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
- <strong style="font-size: 16px; color: var(--purple-dark);">معسكر الجينوم الصيفي واستكشاف مستشفى 57357 لطلاب الصف التاسع</strong>
- <span class="cert-tag" style="background: #E0F2FE; color: #0369A1; font-size: 14.5px;"> معسكرات الناشئة</span>
- </div>
- <p style="font-size: 13.5px; color: var(--text-muted); line-height: 1.7; margin: 0 0 12px;">
- مقترح لتنظيم زيارة ميدانية تفاعلية إلى مستشفى 57357 ومتحف التشريح الطبي، مع تطبيق عملي لاستخلاص الحمض النووي من الفواكه لطلاب المرحلة المتوسطة والثانوية لغرس الشغف بالعلوم الطبية مبكراً.
- </p>
- <div style="display: flex; justify-content: space-between; align-items: center; font-size: 14.5px; color: var(--text-muted);">
- <span>بواسطة: <strong>د. إيمان - منسقة برامج الناشئة</strong></span>
- <span style="color: #059669; font-weight: 700;">• مقترح قيد التنفيذ • +48 تأييد</span>
- </div>
- </div>
+                <div class="space-y-1">
+                    <label for="prop-title" class="font-bold text-slate-700">عنوان المقترح أو المبادرة</label>
+                    <input type="text" id="prop-title" required placeholder="اكتب عنواناً موجزاً ومحدداً..." class="w-full p-3 rounded-xl border border-slate-300 focus:outline-none focus:border-cyan">
+                </div>
 
- <!-- Idea 2 -->
- <div class="idea-card" style="border-right: 5px solid var(--gold);">
- <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
- <strong style="font-size: 16px; color: var(--purple-dark);">إضافة محاكي الحالات الإسعافية الطارئة لأسئلة RAW 2 في الجراحة</strong>
- <span class="cert-tag" style="background: var(--gold-light); color: var(--gold-dark); font-size: 14.5px;"> بنوك SMC</span>
- </div>
- <p style="font-size: 13.5px; color: var(--text-muted); line-height: 1.7; margin: 0 0 12px;">
- تضمين توقيت زمني يحاكي سرعة اتخاذ القرار في طوارئ الحوادث والبطن الحاد لرفع معدل النجاح في الجزء العملي لامتحان التسجيل الدائم.
- </p>
- <div style="display: flex; justify-content: space-between; align-items: center; font-size: 14.5px; color: var(--text-muted);">
- <span>بواسطة: <strong>د. محمد - طبيب امتياز (GA5408)</strong></span>
- <span style="color: #059669; font-weight: 700;">• معتمد ومدمج بالمنصة • +72 تأييد</span>
- </div>
- </div>
+                <div class="space-y-1">
+                    <label for="prop-desc" class="font-bold text-slate-700">تفاصيل الرؤية التشغيلية والأثر المتوقع</label>
+                    <textarea id="prop-desc" rows="4" required placeholder="اشرح الفئة المستفيدة، المنهجية، والمخرجات التعليمية المتوقعة..." class="w-full p-3 rounded-xl border border-slate-300 focus:outline-none focus:border-cyan"></textarea>
+                </div>
 
- <!-- Idea 3 -->
- <div class="idea-card" style="border-right: 5px solid var(--teal);">
- <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
- <strong style="font-size: 16px; color: var(--purple-dark);">ربط وكلاء جلوميت ببورتسودان وعطبرة بنظام التوريد السحابي المباشر</strong>
- <span class="cert-tag" style="background: var(--teal-light); color: var(--teal); font-size: 14.5px;"> تجهيز GLOMEt</span>
- </div>
- <p style="font-size: 13.5px; color: var(--text-muted); line-height: 1.7; margin: 0 0 12px;">
- تسهيل طلب المحاليل والكواشف عبر شاشة موحدة تتيح للوكلاء المعتمدين تتبع شحنات سلاسل التبريد والتخزين الآمن مع الدعم الهندسي الفوري.
- </p>
- <div style="display: flex; justify-content: space-between; align-items: center; font-size: 14.5px; color: var(--text-muted);">
- <span>بواسطة: <strong>م. المنذر - شريك جلوميت المعتمد</strong></span>
- <span style="color: #059669; font-weight: 700;">• قيد التوسيع الميداني • +35 تأييد</span>
- </div>
- </div>
+                <div class="text-center pt-2">
+                    <button type="submit" id="prop-btn" class="px-8 py-3.5 bg-cyan text-white font-bold rounded-xl hover:bg-cyan-600 transition-all font-mono">
+                        إرسال المقترح للجنة الأكاديمية ➔
+                    </button>
+                </div>
+                <div id="prop-msg" class="hidden p-4 rounded-xl text-center font-bold"></div>
+            </form>
+        </div>
 
- </div>
+        <!-- Approved Proposals Feed -->
+        <div class="space-y-4 max-w-3xl mx-auto">
+            <h3 class="text-xl font-bold text-slate-900">أحدث المبادرات والمقترحات قيد الدراسة:</h3>
 
- </main>
+            <div class="space-y-4">
+                <div class="glass-panel p-6 rounded-2xl border-r-4 border-r-cyan space-y-2">
+                    <div class="flex items-center justify-between">
+                        <h4 class="font-bold text-slate-900 text-sm sm:text-base">محاكي سيناريوهات الطوارئ الجراحية (Acute Abdomen Simulations)</h4>
+                        <span class="px-2.5 py-1 bg-cyan/10 text-cyan text-xs font-mono font-bold rounded-lg">SMC Bank</span>
+                    </div>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        تضمين سيناريوهات زمنية تفاعلية لقرارات الطوارئ الجراحية والإنعاش لرفع جاهزية نواب الجراحة قبل امتحانات التسجيل.
+                    </p>
+                    <div class="flex items-center justify-between text-xs text-slate-400 pt-2 border-t border-slate-100 font-mono">
+                        <span>بواسطة: د. محمد (طبيب امتياز)</span>
+                        <span class="text-emerald-600 font-bold">✓ قيد المراجعة السريرية</span>
+                    </div>
+                </div>
 
- <!-- Footer -->
- <footer class="footer">
- <div class="container footer-grid">
- <div class="footer-brand">
- <h3>مجلس الأفكار • منظومة GEMIINI السيادية</h3>
- <p>حاضنة الابتكار الأكاديمي والسريري وبناء المناهج المتقدمة برعاية أكاديمية الجينات.</p>
- </div>
- <div class="footer-col">
- <h4>نوافذ المنظومة المخصصة</h4>
- <ul>
- <li><a href="index.html">الرئيسية</a></li>
- <li><a href="join.html">انضم الآن</a></li>
- <li><a href="stem.html">معسكرات الناشئة</a></li>
- <li><a href="smc.html">امتحان المجلس SMC</a></li>
- </ul>
- </div>
- <div class="footer-col">
- <h4>أمانة المجلس والتحصيل</h4>
- <div style="font-family: var(--font-mono); font-size: 16px; color: var(--gold); font-weight: 700; margin: 8px 0;">
- +20 101 592 2628
- </div>
- <p style="font-size: 14.5px; color: #EDE8F5;">Geneacademy & GLOMEt Sovereign Conglomerate</p>
- </div>
- </div>
- <div class="footer-bottom container">
- &copy; 2026 GemIInI Sovereign Platform. All rights reserved. Directed by Dr. Mohamed Gibbril.
- </div>
- </footer>
+                <div class="glass-panel p-6 rounded-2xl border-r-4 border-r-purple-600 space-y-2">
+                    <div class="flex items-center justify-between">
+                        <h4 class="font-bold text-slate-900 text-sm sm:text-base">مجموعات التوجيه للأمراض الوراثية النادرة عند الأطفال</h4>
+                        <span class="px-2.5 py-1 bg-purple-100 text-purple-700 text-xs font-mono font-bold rounded-lg">Research Pod</span>
+                    </div>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        تأسيس قاعدة بيانات جينومية مشتركة لحالات التمثيل الغذائي الوراثية النادرة بالتعاون مع مستشفيات الأطفال.
+                    </p>
+                    <div class="flex items-center justify-between text-xs text-slate-400 pt-2 border-t border-slate-100 font-mono">
+                        <span>بواسطة: أطباء أطفال ونواب وراثة</span>
+                        <span class="text-emerald-600 font-bold">✓ معتمد ومدمج بمصفوفة الأبحاث</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 
- <script>
- function submitIdea() {
- const author = document.getElementById('prop-author')?.value.trim() || 'عضو المنظومة';
- const cat = document.getElementById('prop-category')?.value;
- const title = document.getElementById('prop-title')?.value.trim();
- const desc = document.getElementById('prop-desc')?.value.trim();
- const msg = document.getElementById('prop-success-msg');
- const feed = document.getElementById('ideas-feed');
+    <!-- FOOTER -->
+<footer class="bg-[#0B1E2E] text-slate-400 py-16 text-xs border-t border-slate-800">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      
+      <!-- Column 1: Brand & Bio -->
+      <div class="space-y-4">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-lg bg-[#123B5D] text-white font-mono font-bold flex items-center justify-center text-sm border border-slate-700">
+            GA
+          </div>
+          <span class="text-base font-bold font-heading text-white">Gene Academy</span>
+        </div>
+        <p class="text-slate-400 leading-relaxed max-w-sm">
+          A Independent medical and academic consortium delivering continuous clinical education, and verifiable academic credentialing.
+        </p>
+      </div>
 
- if (!title || !desc) {
- alert('يرجى كتابة عنوان الفكرة وتفاصيلها قبل الإرسال.');
- return;
- }
+      <!-- Column 2: Explore -->
+      <div class="space-y-3">
+        <div class="font-bold text-white font-heading uppercase text-xs tracking-wider">Explore</div>
+        <ul class="space-y-2">
+          <li><a href="about.html" class="hover:text-white transition">About</a></li>
+          <li><a href="courses.html" class="hover:text-white transition">Programs</a></li>
+          <li><a href="research.html" class="hover:text-white transition">Research</a></li>
+          <li><a href="faculty.html" class="hover:text-white transition">Faculty</a></li>
+          <li><a href="institutions.html" class="hover:text-white transition">Institutions</a></li>
+        </ul>
+      </div>
 
- const catLabels = {
- stem: ' معسكرات الناشئة',
- smc: ' بنوك SMC',
- research: ' مقترح بحثي',
- glomet: ' تجهيز GLOMEt',
- curriculum: ' تطوير المناهج'
- };
+      <!-- Column 3: Participate -->
+      <div class="space-y-3">
+        <div class="font-bold text-white font-heading uppercase text-xs tracking-wider">Participate</div>
+        <ul class="space-y-2">
+          <li><a href="join.html" class="text-teal-400 hover:text-white font-bold transition">Join Our Network</a></li>
+          <li><a href="courses.html" class="hover:text-white transition">Clinical Training</a></li>
+          <li><a href="stem.html" class="hover:text-white transition">Junior STEM</a></li>
+          <li><a href="ideas.html" class="hover:text-white transition">Submit a Research Idea</a></li>
+        </ul>
+      </div>
 
- const newCard = document.createElement('div');
- newCard.className = 'idea-card';
- newCard.style.borderRight = '5px solid var(--purple-brand)';
- newCard.innerHTML = `
- <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
- <strong style="font-size: 16px; color: var(--purple-dark);">${title}</strong>
- <span class="cert-tag" style="background: var(--purple-light); color: var(--purple-brand); font-size: 14.5px;">${catLabels[cat] || ' مبادرة جديدة'}</span>
- </div>
- <p style="font-size: 13.5px; color: var(--text-muted); line-height: 1.7; margin: 0 0 12px;">${desc}</p>
- <div style="display: flex; justify-content: space-between; align-items: center; font-size: 14.5px; color: var(--text-muted);">
- <span>بواسطة: <strong>${author}</strong></span>
- <span style="color: #059669; font-weight: 700;">• مقترح مسجل حديثاً • +1 تأييد فوري</span>
- </div>
- `;
+      <!-- Column 4: Trust & Support -->
+      <div class="space-y-3">
+        <div class="font-bold text-white font-heading uppercase text-xs tracking-wider">Trust and support</div>
+        <ul class="space-y-2">
+          <li><a href="verify.html" class="hover:text-white transition">Verify a Credential</a></li>
+          <li><a href="#contact" class="hover:text-white transition">Contact</a></li>
+          <li><a href="#" class="hover:text-white transition">Privacy Policy</a></li>
+          <li><a href="#" class="hover:text-white transition">Terms of Use</a></li>
+          <li><a href="#" class="hover:text-white transition">Safeguarding</a></li>
+        </ul>
+      </div>
 
- if (feed) feed.prepend(newCard);
+    </div>
 
- // Reward points in localStorage
- let currentGp = parseInt(localStorage.getItem('gem_doctor_gp') || '500', 10);
- currentGp += 250;
- localStorage.setItem('gem_doctor_gp', currentGp.toString());
+    <div class="border-t border-slate-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-slate-500">
+      <div>
+        &copy; 2026/2027 Gene Academy &bull; SudaGene Medical Consortium.
+      </div>
+      <div class="flex gap-4">
+        <span class="hidden sm:inline">Made with precision.</span>
+      </div>
+    </div>
 
- if (msg) {
- msg.style.display = 'block';
- setTimeout(() => { msg.style.display = 'none'; }, 4000);
- }
+  </div>
+</footer>
 
- document.getElementById('prop-title').value = '';
- document.getElementById('prop-desc').value = '';
- }
- </script>
+    <script>
+      function submitIdeaProposal(e) {
+        e.preventDefault();
+        const msg = document.getElementById('prop-msg');
+        const author = document.getElementById('prop-author').value;
+        const title = document.getElementById('prop-title').value;
+        
+        msg.classList.remove('hidden', 'bg-red-100', 'text-red-700', 'bg-emerald-100', 'text-emerald-800');
+        msg.classList.add('bg-emerald-100', 'text-emerald-800');
+        msg.innerText = `✓ شكراً د. ${author}، تم استلام مقترحك ("${title}") بنجاح وإحالته لأمانة المجلس الأكاديمي.`;
+        document.getElementById('idea-form').reset();
+      }
+    </script>
+<!-- Minimal Script for Mobile Menu -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const mobileBtn = document.getElementById('mobile-menu-toggle');
+    const mobileNav = document.getElementById('mobile-nav');
+    if(mobileBtn && mobileNav) {
+      mobileBtn.addEventListener('click', () => {
+        mobileNav.classList.toggle('hidden');
+      });
+    }
+  });
+</script>
 </body>
 </html>

@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /data/
+Disallow: /backend/
+Disallow: /google_apps_script/
+
+Sitemap: https://geneacademy.net/sitemap.xml

@@ -1,278 +1,454 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Service Catalog & Accredited Offerings | GemIInI Sovereign OS</title>
-  <meta name="description" content="الدليل الأكاديمي والخدمي المعتمد: مصفوفة البرامج التراكمية بنظام الساعات الأوروبية ECTS.">
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+  <title>Medical Programs &amp; Clinical Workshops | Gene Academy</title>
+  <meta name="description" content="Explore Gene Academy clinical licensure prep, wet-lab surgical workshops, AHA BLS resuscitation training, and genomic research tracks.">
+
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-H1Q67PP2DJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-H1Q67PP2DJ', { 'anonymize_ip': true });
+  </script>
+
+  <!-- Canonical Design Tokens & Fonts -->
   <link rel="stylesheet" href="styles.css">
-
-  <style>
-    .catalog-container {
-      max-width: 1200px;
-      margin: 30px auto 90px;
-      padding: 0 20px;
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              navy: '#123B5D',
+              teal: '#168C8C',
+              gold: '#C9A227',
+              bg: '#F7FAFC',
+              card: '#FFFFFF',
+              dark: '#1F2937',
+              muted: '#64748B',
+              emerald: '#16805B'
+            }
+          },
+          fontFamily: {
+            heading: ['Montserrat', 'Tajawal', 'sans-serif'],
+            body: ['Inter', 'Cairo', 'sans-serif'],
+            mono: ['"IBM Plex Mono"', 'monospace']
+          }
+        }
+      }
     }
-    .catalog-header {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-    .catalog-header h1 {
-      font-size: 32px;
-      font-weight: 900;
-      color: var(--purple-dark);
-      margin-bottom: 8px;
-    }
-    .catalog-header p {
-      font-size: 15.5px;
-      color: var(--text-muted);
-    }
-
-    /* Filter Tabs */
-    .filter-tabs {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 45px;
-      flex-wrap: wrap;
-    }
-    .filter-btn {
-      background: #FFFFFF;
-      border: 1.5px solid rgba(88, 28, 135, 0.1);
-      color: var(--text-body);
-      font-size: 13.5px;
-      font-weight: 800;
-      padding: 8px 20px;
-      border-radius: var(--radius-pill);
-      cursor: pointer;
-      transition: all 0.2s ease;
-      box-shadow: var(--shadow-sm);
-    }
-    .filter-btn:hover, .filter-btn.active {
-      background: var(--purple-brand);
-      color: #FFFFFF;
-      border-color: var(--purple-brand);
-      box-shadow: var(--shadow-purple);
-    }
-
-    /* Desktop Constraint: Strict Max 3 Cards Per Row */
-    .catalog-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 26px;
-      margin-bottom: 60px;
-    }
-    @media (max-width: 960px) {
-      .catalog-grid { grid-template-columns: 1fr; }
-    }
-
-    .program-card {
-      background: #FFFFFF;
-      border: 1.5px solid rgba(88, 28, 135, 0.08);
-      border-radius: var(--radius-lg);
-      padding: 30px 26px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      box-shadow: var(--shadow-md);
-      transition: all 0.25s ease;
-      position: relative;
-    }
-    .program-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-lg);
-      border-color: var(--rose-soft);
-    }
-    .p-code-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: var(--purple-light);
-      color: var(--purple-brand);
-      font-family: var(--font-mono);
-      font-size: 11.5px;
-      font-weight: 800;
-      padding: 3px 10px;
-      border-radius: 6px;
-      margin-bottom: 14px;
-    }
-    .p-credit-badge {
-      display: inline-flex;
-      align-items: center;
-      background: var(--gold-light);
-      color: var(--gold-main);
-      font-family: var(--font-mono);
-      font-size: 11.5px;
-      font-weight: 800;
-      padding: 3px 10px;
-      border-radius: 6px;
-      margin-bottom: 14px;
-      margin-right: 6px;
-    }
-    .p-title {
-      font-size: 18px;
-      font-weight: 800;
-      color: var(--purple-dark);
-      margin-bottom: 8px;
-      line-height: 1.4;
-    }
-    .p-instructor {
-      font-size: 12.5px;
-      font-weight: 700;
-      color: var(--rose-accent);
-      margin-bottom: 14px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .p-desc {
-      font-size: 13.5px;
-      color: var(--text-muted);
-      line-height: 1.7;
-      margin-bottom: 22px;
-    }
-    .p-footer {
-      border-top: 1px solid rgba(88, 28, 135, 0.08);
-      padding-top: 16px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: auto;
-    }
-  </style>
+  </script>
 </head>
-<body>
 
-  <!-- NAVBAR -->
-  <nav class="navbar">
-    <div class="nav-content">
-      <a href="index.html" class="brand-logo">
-        <div class="brand-symbol">SG</div>
-        <div class="brand-text">
-          <h1>SudaGene</h1>
-          <span>Medical Group</span>
+<body class="bg-[#F7FAFC] text-[#1F2937] font-body antialiased selection:bg-teal-100 selection:text-teal-900">
+
+  <!-- TOP UTILITY BAR -->
+  <div class="bg-[#123B5D] text-slate-200 text-xs py-2 px-4 border-b border-slate-700 font-mono">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-2 hidden md:flex">
+        <span class="w-2 h-2 rounded-full bg-[#16805B]"></span>
+        <span>GENE ACADEMY &bull; Independent MEDICAL ECOSYSTEM</span>
+      </div>
+      <div class="flex items-center gap-4 ml-auto">
+        <div class="flex items-center gap-1 font-bold">
+          <span class="text-white">English</span>
+          <span class="text-slate-500">/</span>
+          <a href="index_ar.html" class="text-slate-300 hover:text-white transition font-sans">العربية</a>
         </div>
-      </a>
-      <ul class="nav-links">
-        <li><a href="index.html">الرئيسية</a></li>
-        <li><a href="programs.html" class="active">المصفوفة الخدمية 77+</a></li>
-        <li><a href="smc.html">محاكي MTC™ السريري</a></li>
-        <li><a href="glomet.html">شركاء GLOMEt</a></li>
-        <li><a href="research.html">مصفوفة الأبحاث 15:5:1</a></li>
-        <li><a href="dashboard.html">لوحة التحكم السريرية 🪪</a></li>
-      </ul>
-      <div>
-        <a href="https://member.geneacademy.net" target="_blank" class="btn-primary" style="padding: 8px 18px; font-size: 13.5px;">دخول LMS 🎓</a>
+        <span class="text-slate-500 hidden sm:inline">|</span>
+        <a href="auth.html" class="text-slate-300 hover:text-white font-bold transition flex items-center gap-1">
+          Member Sign In <span aria-hidden="true">&rarr;</span>
+        </a>
       </div>
     </div>
-  </nav>
+  </div>
 
-  <div class="catalog-container">
+  <!-- MAIN HEADER & NAVIGATION -->
+  <header class="bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="index.html" class="flex items-center gap-3 shrink-0 group">
+        <div class="w-11 h-11 rounded-xl bg-[#123B5D] text-white font-black flex items-center justify-center font-mono text-base shadow-sm group-hover:bg-[#168C8C] transition-colors">
+          GA
+        </div>
+        <div>
+          <span class="text-xl font-bold font-heading text-[#123B5D] tracking-tight block">Gene Academy</span>
+          <span class="text-[10px] font-mono text-[#64748B] block tracking-wider uppercase">MEDICAL &amp; GENOMIC CONSORTIUM</span>
+        </div>
+      </a>
 
-    <div class="catalog-header">
-      <h1>الدليل الأكاديمي والخدمي المعتمد</h1>
-      <p>تصفح المناهج المعتمدة بنظام الساعات الأوروبية ECTS والنموذج المعرفي MTC™</p>
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden lg:flex items-center gap-6 text-sm font-semibold text-[#1F2937]" id="desktop-nav">
+        
+        <!-- Programs Dropdown -->
+        <div class="relative group">
+          <button class="hover:text-[#168C8C] transition pb-1 flex items-center gap-1">
+            Programs
+            <svg class="w-4 h-4 text-slate-400 group-hover:text-[#168C8C] transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div class="absolute left-0 top-full pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-64 z-50">
+            <div class="bg-white border border-slate-200 rounded-xl shadow-xl overflow-hidden flex flex-col py-2">
+              <a href="courses.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Clinical Training</a>
+              <a href="smc.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">SMC Preparation</a>
+              <a href="molecular.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Molecular Medicine</a>
+              <a href="research.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Research Training</a>
+              <a href="stem.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Junior STEM</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Professional Identity Dropdown -->
+        <div class="relative group">
+          <button class="hover:text-[#168C8C] transition pb-1 flex items-center gap-1">
+            Professional Identity
+            <svg class="w-4 h-4 text-slate-400 group-hover:text-[#168C8C] transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div class="absolute left-0 top-full pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-64 z-50">
+            <div class="bg-white border border-slate-200 rounded-xl shadow-xl overflow-hidden flex flex-col py-2">
+              <a href="identity.html#how-it-works" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">How It Works</a>
+              <a href="identity.html#training-records" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Training Records</a>
+              <a href="verify.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Verification</a>
+              <a href="identity.html#progress" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Member Progress</a>
+              <a href="identity.html#employer" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Employer & Institutional Use</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Research Dropdown -->
+        <div class="relative group">
+          <button class="hover:text-[#168C8C] transition pb-1 flex items-center gap-1">
+            Research
+            <svg class="w-4 h-4 text-slate-400 group-hover:text-[#168C8C] transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div class="absolute left-0 top-full pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-64 z-50">
+            <div class="bg-white border border-slate-200 rounded-xl shadow-xl overflow-hidden flex flex-col py-2">
+              <a href="journal.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Reach Journal</a>
+              <a href="index.html#services" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">GLOMEt</a>
+              <a href="research.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">SudaGene Research Centre</a>
+              <div class="border-t border-slate-100 my-1"></div>
+              <a href="ideas.html" class="px-4 py-2 hover:bg-slate-50 font-bold text-[#123B5D] hover:text-[#168C8C] transition">Submit a Research Idea</a>
+            </div>
+          </div>
+        </div>
+
+        <a href="universities.html" class="hover:text-[#168C8C] transition pb-1">Universities</a>
+
+        <!-- Institutions Dropdown -->
+        <div class="relative group">
+          <button class="hover:text-[#168C8C] transition pb-1 flex items-center gap-1">
+            Institutions
+            <svg class="w-4 h-4 text-slate-400 group-hover:text-[#168C8C] transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div class="absolute left-0 top-full pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-72 z-50">
+            <div class="bg-white border border-slate-200 rounded-xl shadow-xl overflow-hidden flex flex-col py-2">
+              <a href="academic-solutions.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Academic Solutions</a>
+              <a href="partnerships.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Training Partnerships</a>
+              <a href="academic-solutions.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Curriculum Support</a>
+              <div class="border-t border-slate-100 my-1"></div>
+              <a href="institutions.html" class="px-4 py-2 hover:bg-slate-50 font-bold text-[#123B5D] hover:text-[#168C8C] transition">Request a Partnership Briefing</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <!-- CTA & Mobile Menu Button -->
+      <div class="flex items-center gap-4 shrink-0">
+        <a href="join.html" class="hidden sm:inline-flex px-5 py-2.5 rounded-xl bg-[#123B5D] hover:bg-[#0E2E49] text-white font-heading font-semibold text-xs sm:text-sm shadow-md transition-all">
+          Join Our Network
+        </a>
+        
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobile-menu-toggle" class="lg:hidden p-2 text-slate-600 hover:text-[#123B5D] transition">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+      </div>
+
     </div>
 
-    <!-- FILTER TABS -->
-    <div class="filter-tabs" id="filterTabs">
-      <button class="filter-btn active" onclick="filterCategory('ALL')">جميع المناهج (All)</button>
-      <button class="filter-btn" onclick="filterCategory('Level 1')">المستوى 1: التأسيس الطبي</button>
-      <button class="filter-btn" onclick="filterCategory('Level 2')">المستوى 2: العلوم الأساسية</button>
-      <button class="filter-btn" onclick="filterCategory('Level 3')">المستوى 3: السريري MTC™</button>
-      <button class="filter-btn" onclick="filterCategory('Level 4')">المستوى 4: الطب الجزيئي</button>
-      <button class="filter-btn" onclick="filterCategory('Level 5')">المستوى 5: الامتحانات والجراحة</button>
+    <!-- Mobile Navigation Overlay (Hidden by default) -->
+    <div id="mobile-nav" class="hidden lg:hidden bg-white border-t border-slate-200 shadow-xl absolute top-full left-0 w-full z-40 max-h-[80vh] overflow-y-auto">
+      <div class="flex flex-col p-4 space-y-4 font-bold text-[#123B5D]">
+        <a href="courses.html" class="block pb-2 border-b border-slate-100 text-[#168C8C]">Programs &rarr;</a>
+        <a href="verify.html" class="block pb-2 border-b border-slate-100 text-[#168C8C]">Professional Identity &rarr;</a>
+        <a href="research.html" class="block pb-2 border-b border-slate-100 text-[#168C8C]">Research &rarr;</a>
+        <a href="universities.html" class="block pb-2 border-b border-slate-100">Universities</a>
+        <a href="institutions.html" class="block pb-2 border-b border-slate-100 text-[#168C8C]">Institutions &rarr;</a>
+        <a href="join.html" class="block text-center mt-4 px-5 py-3 rounded-xl bg-[#123B5D] text-white font-heading font-semibold text-sm shadow-md">
+          Join Our Network
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-12">
+
+    <!-- PAGE HEADER -->
+    <div class="space-y-4 max-w-3xl">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-[#0284C7] font-mono text-xs font-bold uppercase">
+        <span class="w-2 h-2 rounded-full bg-[#0284C7]"></span>
+        MEDICAL EDUCATION TRACKS
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-bold font-heading text-[#0B1426] tracking-tight">
+        Programs, Clinical Workshops &amp; Licensure Prep
+      </h1>
+      <p class="text-base sm:text-lg text-[#64748B] leading-relaxed">
+        Structured clinical tracks answering what you will learn, how it is delivered, and how your competency is verified.
+      </p>
     </div>
 
-    <!-- DYNAMIC CATALOG GRID (MAX 3 CARDS PER ROW) -->
-    <div class="catalog-grid" id="catalogGrid">
-      <!-- Rendered dynamically by JavaScript -->
+    <!-- FILTER BAR (AVAILABLE NOW / UPCOMING / PLANNED) -->
+    <div class="flex flex-wrap gap-2 pt-2 border-b border-slate-200 pb-4">
+      <button onclick="filterPrograms('all')" class="filter-btn active px-4 py-2 rounded-lg bg-[#0B1426] text-white text-xs font-heading font-bold shadow-sm">
+        All Tracks
+      </button>
+      <button onclick="filterPrograms('now')" class="filter-btn px-4 py-2 rounded-lg bg-slate-100 hover:bg-slate-200 text-[#1E293B] text-xs font-heading font-bold transition">
+        Available Now
+      </button>
+      <button onclick="filterPrograms('upcoming')" class="filter-btn px-4 py-2 rounded-lg bg-slate-100 hover:bg-slate-200 text-[#1E293B] text-xs font-heading font-bold transition">
+        Upcoming Intake
+      </button>
+      <button onclick="filterPrograms('planned')" class="filter-btn px-4 py-2 rounded-lg bg-slate-100 hover:bg-slate-200 text-[#1E293B] text-xs font-heading font-bold transition">
+        Planned Future Scope
+      </button>
+    </div>
+
+    <!-- PROGRAM CARDS GRID (ANSWERING 5 MANDATORY QUESTIONS) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="programs-container">
+
+      <!-- Card 1: AHA BLS Workshop (Available Now) -->
+      <div class="academic-card p-8 bg-white space-y-6 flex flex-col justify-between program-card" data-category="now">
+        <div class="space-y-4">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+            <span class="font-mono text-xs font-bold text-[#059669]">AHA STC 1549</span>
+            <span class="badge-status badge-verified">Available Now</span>
+          </div>
+
+          <h3 class="text-xl font-bold font-heading text-[#0B1426]">AHA Basic Life Support (BLS) Workshop</h3>
+          
+          <div class="space-y-3 text-xs leading-relaxed text-[#1E293B]">
+            <div><strong>1. What is it?</strong> Official American Heart Association hands-on CPR and automated defibrillator (AED) resuscitation training.</div>
+            <div><strong>2. Who is it for?</strong> Doctors, medical students, nurses, and healthcare professionals preparing for hospital rotations.</div>
+            <div><strong>3. What will I learn?</strong> High-quality adult/pediatric CPR, multi-rescuer resuscitation protocols, and AED deployment.</div>
+            <div><strong>4. How is it delivered?</strong> 1-day in-person simulation workshop at the Dokki Training Center (Cairo) under Dr. Mohamed Sabri.</div>
+            <div><strong>5. What happens after?</strong> Receive an official AHA 2-year certification card and SudaPass™ digital credential (+500 GP).</div>
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+          <span class="text-xs font-mono font-bold text-[#0B1426]">3,000 EGP / 12 Seats</span>
+          <a href="bls.html" class="btn-clinical text-xs py-2 px-4">Register for BLS ➔</a>
+        </div>
+      </div>
+
+      <!-- Card 2: SMC Exam Simulator (Available Now) -->
+      <div class="academic-card p-8 bg-white space-y-6 flex flex-col justify-between program-card" data-category="now">
+        <div class="space-y-4">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+            <span class="font-mono text-xs font-bold text-[#0284C7]">NATIONAL LICENSURE</span>
+            <span class="badge-status badge-verified">Available Now</span>
+          </div>
+
+          <h3 class="text-xl font-bold font-heading text-[#0B1426]">Sudan Medical Council (SMC) Exam Preparation</h3>
+          
+          <div class="space-y-3 text-xs leading-relaxed text-[#1E293B]">
+            <div><strong>1. What is it?</strong> High-yield examination simulation bank covering all 8 clinical domains of the national licensing exam.</div>
+            <div><strong>2. Who is it for?</strong> Medical graduates preparing for the SMC permanent registration examination.</div>
+            <div><strong>3. What will I learn?</strong> Diagnostic algorithms, high-yield pharmacology, obstetrics, internal medicine, and pediatrics cases.</div>
+            <div><strong>4. How is it delivered?</strong> Interactive digital platform with weekly live case rounds led by registrar faculty.</div>
+            <div><strong>5. What happens after?</strong> Telemetry tracking identifying weak clinical domains and granting accredited readiness scores.</div>
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+          <span class="text-xs font-mono font-bold text-[#0B1426]">Modular Access</span>
+          <a href="join.html" class="btn-primary text-xs py-2 px-4">Enroll in SMC ➔</a>
+        </div>
+      </div>
+
+      <!-- Card 3: MRCS & BSS Surgical Skills (Upcoming) -->
+      <div class="academic-card p-8 bg-white space-y-6 flex flex-col justify-between program-card" data-category="upcoming">
+        <div class="space-y-4">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+            <span class="font-mono text-xs font-bold text-[#B48028]">ROYAL COLLEGE MENTORSHIP</span>
+            <span class="badge-status badge-inprogress">Upcoming Intake</span>
+          </div>
+
+          <h3 class="text-xl font-bold font-heading text-[#0B1426]">Basic Surgical Skills (BSS-2) &amp; MRCS Mentorship</h3>
+          
+          <div class="space-y-3 text-xs leading-relaxed text-[#1E293B]">
+            <div><strong>1. What is it?</strong> Comprehensive preparation for MRCS Part A/B combined with hands-on wet-lab surgical training.</div>
+            <div><strong>2. Who is it for?</strong> Surgical trainees, house officers, and aspiring surgical registrars.</div>
+            <div><strong>3. What will I learn?</strong> Tissue handling, instrument ergonomics, safe suturing, knot tying, and applied surgical anatomy.</div>
+            <div><strong>4. How is it delivered?</strong> Clinical theory webinars + in-person wet-lab sessions supervised by Dr. Alaa Farah (FMRCS).</div>
+            <div><strong>5. What happens after?</strong> Logbook endorsement and SudaPass™ surgical workshop verification (+500 GP).</div>
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+          <span class="text-xs font-mono font-bold text-[#0B1426]">Cairo Wet-Lab</span>
+          <a href="join.html" class="btn-primary text-xs py-2 px-4">Apply for BSS-2 ➔</a>
+        </div>
+      </div>
+
+      <!-- Card 4: Pre-Med Foundation (Upcoming) -->
+      <div class="academic-card p-8 bg-white space-y-6 flex flex-col justify-between program-card" data-category="upcoming">
+        <div class="space-y-4">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+            <span class="font-mono text-xs font-bold text-[#0D9488]">STUDENT PATHWAY</span>
+            <span class="badge-status badge-inprogress">Upcoming Intake</span>
+          </div>
+
+          <h3 class="text-xl font-bold font-heading text-[#0B1426]">Pre-Med Scholars Foundation (15:5:1 Pods)</h3>
+          
+          <div class="space-y-3 text-xs leading-relaxed text-[#1E293B]">
+            <div><strong>1. What is it?</strong> Foundational 12-week clinical thinking, medical genetics, and terminology incubator for pre-meds.</div>
+            <div><strong>2. Who is it for?</strong> High school graduates and 1st-year medical students transitioning into clinical medicine.</div>
+            <div><strong>3. What will I learn?</strong> How to analyze clinical cases, scientific paper reading, and medical genetics foundations.</div>
+            <div><strong>4. How is it delivered?</strong> 15-student pods mentored by 5 registrar tutors and 1 lead consultant.</div>
+            <div><strong>5. What happens after?</strong> SudaPass™ verified portfolio certificate supporting university admissions.</div>
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+          <span class="text-xs font-mono font-bold text-[#0B1426]">12-Week Pod</span>
+          <a href="foundation.html" class="btn-clinical text-xs py-2 px-4">Explore Foundation ➔</a>
+        </div>
+      </div>
+
+      <!-- Card 5: BSS-3 Laparoscopy (Planned) -->
+      <div class="academic-card p-8 bg-white space-y-6 flex flex-col justify-between program-card" data-category="planned">
+        <div class="space-y-4">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+            <span class="font-mono text-xs font-bold text-[#64748B]">ADVANCED SURGERY</span>
+            <span class="badge-status badge-planned">Planned Future Scope</span>
+          </div>
+
+          <h3 class="text-xl font-bold font-heading text-[#0B1426]">BSS-3 Advanced Minimally Invasive Laparoscopy</h3>
+          
+          <div class="space-y-3 text-xs leading-relaxed text-[#1E293B]">
+            <div><strong>1. What is it?</strong> Box-trainer and simulation-based laparoscopic dexterity and camera navigation course.</div>
+            <div><strong>2. Who is it for?</strong> Surgical residents and junior registrars advancing their minimally invasive skills.</div>
+            <div><strong>3. What will I learn?</strong> 2D-to-3D hand-eye coordination, intracorporeal suturing, and electrosurgical safety.</div>
+            <div><strong>4. How is it delivered?</strong> High-fidelity simulation manikins powered by GLOMEt hardware suites.</div>
+            <div><strong>5. What happens after?</strong> Advanced laparoscopic skills logbook verification.</div>
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+          <span class="text-xs font-mono text-[#64748B]">Curriculum in Review</span>
+          <span class="text-xs text-[#64748B]">Opening late 2026</span>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <script>
+    function filterPrograms(category) {
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.remove('bg-[#0B1426]', 'text-white');
+        btn.classList.add('bg-slate-100', 'text-[#1E293B]');
+      });
+      event.target.classList.remove('bg-slate-100', 'text-[#1E293B]');
+      event.target.classList.add('bg-[#0B1426]', 'text-white');
+
+      const cards = document.querySelectorAll('.program-card');
+      cards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+
+  <!-- FOOTER -->
+<footer class="bg-[#0B1E2E] text-slate-400 py-16 text-xs border-t border-slate-800">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      
+      <!-- Column 1: Brand & Bio -->
+      <div class="space-y-4">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-lg bg-[#123B5D] text-white font-mono font-bold flex items-center justify-center text-sm border border-slate-700">
+            GA
+          </div>
+          <span class="text-base font-bold font-heading text-white">Gene Academy</span>
+        </div>
+        <p class="text-slate-400 leading-relaxed max-w-sm">
+          A Independent medical and academic consortium delivering continuous clinical education, and verifiable academic credentialing.
+        </p>
+      </div>
+
+      <!-- Column 2: Explore -->
+      <div class="space-y-3">
+        <div class="font-bold text-white font-heading uppercase text-xs tracking-wider">Explore</div>
+        <ul class="space-y-2">
+          <li><a href="about.html" class="hover:text-white transition">About</a></li>
+          <li><a href="courses.html" class="hover:text-white transition">Programs</a></li>
+          <li><a href="research.html" class="hover:text-white transition">Research</a></li>
+          <li><a href="faculty.html" class="hover:text-white transition">Faculty</a></li>
+          <li><a href="institutions.html" class="hover:text-white transition">Institutions</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Participate -->
+      <div class="space-y-3">
+        <div class="font-bold text-white font-heading uppercase text-xs tracking-wider">Participate</div>
+        <ul class="space-y-2">
+          <li><a href="join.html" class="text-teal-400 hover:text-white font-bold transition">Join Our Network</a></li>
+          <li><a href="courses.html" class="hover:text-white transition">Clinical Training</a></li>
+          <li><a href="stem.html" class="hover:text-white transition">Junior STEM</a></li>
+          <li><a href="ideas.html" class="hover:text-white transition">Submit a Research Idea</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 4: Trust & Support -->
+      <div class="space-y-3">
+        <div class="font-bold text-white font-heading uppercase text-xs tracking-wider">Trust and support</div>
+        <ul class="space-y-2">
+          <li><a href="verify.html" class="hover:text-white transition">Verify a Credential</a></li>
+          <li><a href="#contact" class="hover:text-white transition">Contact</a></li>
+          <li><a href="#" class="hover:text-white transition">Privacy Policy</a></li>
+          <li><a href="#" class="hover:text-white transition">Terms of Use</a></li>
+          <li><a href="#" class="hover:text-white transition">Safeguarding</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="border-t border-slate-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-slate-500">
+      <div>
+        &copy; 2026/2027 Gene Academy &bull; SudaGene Medical Consortium.
+      </div>
+      <div class="flex gap-4">
+        <span class="hidden sm:inline">Made with precision.</span>
+      </div>
     </div>
 
   </div>
+</footer>
 
-  <footer class="signature-footer">
-    <div class="container">
-      <div class="signature-seal-strip">
-        <div class="signature-brand-mark">GemIInI Academy · Powered by geneacademy.net</div>
-        <div>Dynamic Service Catalog Engine • European ECTS Aligned Architecture</div>
-      </div>
-    </div>
-  </footer>
-
-  <script src="js/programs_data.js"></script>
-  <script src="js/ga_data.js"></script>
-  <script src="api.js"></script>
-  <script>
-    let allPrograms = [];
-
-    async function loadPrograms() {
-      try {
-        const res = await fetch('data/programs.json');
-        if (res.ok) {
-          allPrograms = await res.json();
-        } else {
-          allPrograms = typeof PROGRAMS_DATABASE !== 'undefined' ? PROGRAMS_DATABASE : [];
-        }
-      } catch (e) {
-        allPrograms = typeof PROGRAMS_DATABASE !== 'undefined' ? PROGRAMS_DATABASE : [];
-      }
-
-      // Sort by sort_order
-      allPrograms.sort((a, b) => (a.sort_order || 0) - (b.sort_order || 0));
-      renderCatalog(allPrograms);
-    }
-
-    function renderCatalog(items) {
-      const grid = document.getElementById('catalogGrid');
-      grid.innerHTML = '';
-
-      if (!items || items.length === 0) {
-        grid.innerHTML = '<div style="grid-column: 1/-1; text-align:center; padding:40px; color:var(--text-muted);">لا توجد برامج متاحة لهذا التصنيف حالياً.</div>';
-        return;
-      }
-
-      items.forEach(p => {
-        const card = document.createElement('div');
-        card.className = 'program-card';
-        card.innerHTML = `
-          <div>
-            <div>
-              <span class="p-code-badge">${p.code}</span>
-              <span class="p-credit-badge">${p.ects} ECTS / ${p.sch} SCH</span>
-            </div>
-            <h3 class="p-title">${p.title_ar || p.title}</h3>
-            <div class="p-instructor">👨‍⚕️ ${p.instructor || 'Faculty Board'}</div>
-            <p class="p-desc">${p.description}</p>
-          </div>
-          <div class="p-footer">
-            <span style="font-family: var(--font-mono); font-size: 12px; color: var(--text-muted); font-weight:700;">⏱️ ${p.hours} ساعة معتمدة</span>
-            <a href="https://member.geneacademy.net" target="_blank" class="btn-secondary" style="padding: 6px 14px; font-size: 12.5px;">دخول LMS 🎓</a>
-          </div>
-        `;
-        grid.appendChild(card);
+<!-- Minimal Script for Mobile Menu -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const mobileBtn = document.getElementById('mobile-menu-toggle');
+    const mobileNav = document.getElementById('mobile-nav');
+    if(mobileBtn && mobileNav) {
+      mobileBtn.addEventListener('click', () => {
+        mobileNav.classList.toggle('hidden');
       });
     }
-
-    function filterCategory(catKey) {
-      const btns = document.querySelectorAll('.filter-btn');
-      btns.forEach(b => b.classList.remove('active'));
-      event.target.classList.add('active');
-
-      if (catKey === 'ALL') {
-        renderCatalog(allPrograms);
-      } else {
-        const filtered = allPrograms.filter(p => p.category && p.category.includes(catKey));
-        renderCatalog(filtered);
-      }
-    }
-
-    document.addEventListener('DOMContentLoaded', loadPrograms);
-  </script>
+  });
+</script>
 </body>
 </html>

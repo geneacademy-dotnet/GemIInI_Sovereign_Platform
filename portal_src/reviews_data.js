@@ -1,5 +1,5 @@
 /**
- * GemIInI Sovereign Platform — Verified Operational Reviews
+ * GemIInI SudaGene Platform — Verified Operational Reviews
  * All PII (Emails/Phones) securely stripped for public rendering.
  */
 

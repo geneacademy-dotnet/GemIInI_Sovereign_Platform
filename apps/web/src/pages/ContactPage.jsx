@@ -44,7 +44,7 @@ export default function ContactPage() {
         const text = encodeURIComponent(
             `Hello GemIInI Coordination Desk! 👋\n\n• Name: ${form.name || 'Doctor/Colleague'}\n• Subject: ${form.subject}\n• Message: ${form.message || 'I would like to inquire about courses and simulation wet-labs.'}`
         );
-        return `https://wa.me/201015922628?text=${text}`;
+        return `https://wa.me/2+20 101 592 2628?text=${text}`;
     };
 
     const hubs = [
@@ -225,7 +225,7 @@ export default function ContactPage() {
                                                 onChange={(e) => setForm({ ...form, subject: e.target.value })}
                                                 className={`${inputClass} appearance-none cursor-pointer`}
                                             >
-                                                <option value="Cairo BLS Workshop">{isRtl ? 'ورشة الإنعاش القلبي بالقاهرة (BLS)' : 'Cairo BLS Workshop (Aug 28)'}</option>
+                                                <option value="Cairo BLS Workshop">{isRtl ? 'البرنامج التدريبي المتقدم للإنعاش القلبي الرئوي الأساسي (AHA BLS Provider) بالقاهرة (BLS)' : 'Cairo BLS Workshop (Aug 28)'}</option>
                                                 <option value="Sudan BLS Workshop">{isRtl ? 'ورشة الإنعاش بالسودان (BLS)' : 'Sudan BLS Workshop (Sept 10)'}</option>
                                                 <option value="Surgical BSS Training">{isRtl ? 'التدريب الجراحي ومعامل المهارات (BSS)' : 'Surgical Skills Wet Labs (BSS)'}</option>
                                                 <option value="Fast-Track Concierge Visa">{isRtl ? 'تأشيرات وترتيبات امتحانات مصر السريعة' : 'Egypt Exam Travel & Fast-Track'}</option>

@@ -1,5 +1,5 @@
 /**
- * GemIInI Sovereign Platform - Fail-Closed Sync Engine
+ * GemIInI SudaGene Platform - Fail-Closed Sync Engine
  * ZERO FAKE IDS. Guaranteed local queuing with LockService wait-lock compatibility.
  */
 
@@ -97,7 +97,7 @@ class GeminiSyncEngine {
                 queuedRecord,
                 isOfflineQueued: true,
                 recoveryCode: payload.idempotencyKey,
-                contactWhatsApp: '+201015922628'
+                contactWhatsApp: '+2+20 101 592 2628'
             };
         }
     }

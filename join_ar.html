@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>انضم إلى شبكتنا | GeneAcademy</title>
+  <meta name="description" content="اكتشف مسارك السريري والأكاديمي في GeneAcademy.">
+  
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-H1Q67PP2DJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-H1Q67PP2DJ');
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <style>
+    :root {
+      --bg-dark: #F7FAFC;
+      --navy: #123B5D;
+      --teal: #168C8C;
+      --gold: #C9A227;
+      --text-main: #1F2937;
+      --text-muted: #64748B;
+    }
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: 'Cairo', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .mono {
+      font-family: 'IBM Plex Mono', monospace;
+    }
+
+    /* Minimal Header */
+    .top-nav {
+      padding: 20px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(247, 250, 252, 0.95);
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      backdrop-filter: blur(10px);
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      font-size: 1.1rem;
+      text-decoration: none;
+      color: var(--navy);
+    }
+    .brand-badge {
+      background: var(--navy);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 5px 10px;
+      border-radius: 8px;
+      font-family: 'IBM Plex Mono', monospace;
+    }
+    .nav-actions a {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 600;
+      margin-right: 16px;
+      transition: color 0.2s;
+    }
+    .nav-actions a:hover {
+      color: var(--navy);
+    }
+
+    /* Main Container */
+    .container {
+      width: 100%;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 24px 20px 80px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Progress Indicator */
+    .progress-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 40px;
+      position: relative;
+      padding: 0 10px;
+    }
+    .progress-line {
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      left: 10px;
+      height: 2px;
+      background-color: #E2E8F0;
+      z-index: 1;
+      transform: translateY(-50%);
+    }
+    .progress-line-fill {
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      height: 2px;
+      background-color: var(--teal);
+      z-index: 2;
+      transform: translateY(-50%);
+      transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+      width: 0%;
+    }
+    .progress-dot {
+      width: 10px;
+      height: 10px;
+      background-color: #E2E8F0;
+      border-radius: 50%;
+      z-index: 3;
+      position: relative;
+      transition: all 0.4s ease;
+    }
+    .progress-dot.active {
+      background-color: var(--teal);
+      box-shadow: 0 0 0 4px rgba(22, 140, 140, 0.15);
+    }
+    .progress-dot.completed {
+      background-color: var(--teal);
+    }
+
+    /* Form Screens */
+    .screen {
+      display: none;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .screen.active {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .screen-title {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+    .screen-sub {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+
+    /* Selection Cards (Single Select) */
+    .selection-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .select-card {
+      background: #FFFFFF;
+      border: 1.5px solid #E2E8F0;
+      border-radius: 16px;
+      padding: 20px 24px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-weight: 700;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .select-card:hover {
+      border-color: #CBD5E1;
+      background: #F8FAFC;
+    }
+    .select-card.selected {
+      border-color: var(--teal);
+      background: rgba(22, 140, 140, 0.04);
+      color: var(--navy);
+    }
+    .select-card .check-icon {
+      opacity: 0;
+      color: var(--teal);
+      transition: opacity 0.2s;
+    }
+    .select-card.selected .check-icon {
+      opacity: 1;
+    }
+
+    /* Chips (Multi Select) */
+    .chip-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .chip {
+      background: #FFFFFF;
+      border: 1.5px solid #E2E8F0;
+      border-radius: 99px;
+      padding: 12px 20px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-weight: 700;
+      color: var(--text-main);
+      font-size: 0.95rem;
+      user-select: none;
+    }
+    .chip:hover {
+      border-color: #CBD5E1;
+      background: #F8FAFC;
+    }
+    .chip.selected {
+      border-color: var(--teal);
+      background: var(--teal);
+      color: #FFFFFF;
+    }
+
+    /* Standard Inputs */
+    .field {
+      margin-bottom: 24px;
+    }
+    .field label {
+      display: block;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+    .field input, .field select {
+      width: 100%;
+      background: #FFFFFF;
+      border: 1.5px solid #E2E8F0;
+      border-radius: 12px;
+      padding: 14px 16px;
+      font-family: 'Cairo', sans-serif;
+      font-size: 1rem;
+      color: var(--text-main);
+      outline: none;
+      transition: all 0.2s;
+    }
+    .field input:focus, .field select:focus {
+      border-color: var(--teal);
+      box-shadow: 0 0 0 4px rgba(22, 140, 140, 0.1);
+    }
+    
+    /* Navigation Buttons */
+    .nav-buttons {
+      display: flex;
+      gap: 16px;
+      margin-top: 40px;
+    }
+    .btn {
+      padding: 16px 24px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cairo', sans-serif;
+    }
+    .btn-primary {
+      background: var(--navy);
+      color: #fff;
+      flex-grow: 1;
+    }
+    .btn-primary:hover {
+      background: #0d2b45;
+    }
+    .btn-primary:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+    .btn-secondary {
+      background: #E2E8F0;
+      color: var(--text-main);
+      flex-basis: 120px;
+      flex-shrink: 0;
+    }
+    .btn-secondary:hover {
+      background: #CBD5E1;
+    }
+
+    /* Soft response text */
+    .soft-response {
+      font-size: 1rem;
+      color: var(--teal);
+      font-weight: 700;
+      margin-top: -16px;
+      margin-bottom: 32px;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    .soft-response.show {
+      opacity: 1;
+    }
+
+    /* Summary Card */
+    .summary-box {
+      background: #FFFFFF;
+      border: 1.5px solid #E2E8F0;
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 32px;
+    }
+    .summary-item {
+      margin-bottom: 16px;
+    }
+    .summary-item:last-child {
+      margin-bottom: 0;
+    }
+    .summary-label {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .summary-value {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+    
+    .consent-wrap {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 32px;
+      padding: 16px;
+      background: rgba(22, 140, 140, 0.04);
+      border-radius: 12px;
+    }
+    .consent-wrap input[type="checkbox"] {
+      margin-top: 6px;
+      width: 18px;
+      height: 18px;
+      accent-color: var(--teal);
+    }
+    .consent-text {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Success state */
+    .success-container {
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .success-icon {
+      width: 64px;
+      height: 64px;
+      background: rgba(22, 128, 91, 0.1);
+      color: #16805B;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+    }
+    .success-icon svg {
+      width: 32px;
+      height: 32px;
+    }
+    .ref-box {
+      display: inline-block;
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      padding: 16px 24px;
+      border-radius: 12px;
+      margin: 32px 0;
+    }
+    .ref-label {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+    .ref-value {
+      font-size: 1.25rem;
+      color: var(--navy);
+      font-weight: 700;
+      direction: ltr;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Minimal Header -->
+  <nav class="top-nav">
+    <a href="index_ar.html" class="brand">
+      <span class="brand-badge">GA</span>
+      <span>GeneAcademy</span>
+    </a>
+    <div class="nav-actions">
+      <a href="join.html">English</a>
+      <a href="#" onclick="saveAndExit(); return false;">حفظ والخروج</a>
+    </div>
+  </nav>
+
+  <main class="container">
+    
+    <!-- Progress Indicator -->
+    <div class="progress-container" id="progressContainer">
+      <div class="progress-line"></div>
+      <div class="progress-line-fill" id="progressFill"></div>
+      <div class="progress-dot active" data-index="0"></div>
+      <div class="progress-dot" data-index="1"></div>
+      <div class="progress-dot" data-index="2"></div>
+      <div class="progress-dot" data-index="3"></div>
+      <div class="progress-dot" data-index="4"></div>
+    </div>
+
+    <form id="pathwayForm" onsubmit="return false;">
+      
+      <!-- SCREEN 1: Welcome -->
+      <div class="screen active" data-screen="1">
+        <h1 class="screen-title">لنكتشف مكانك في الشبكة</h1>
+        <p class="screen-sub">لا تحتاج إلى أن تكون قد حددت كل شيء بعد. أخبرنا قليلاً عن نفسك، وسنساعدك على اكتشاف مسار GeneAcademy الأنسب لك.</p>
+        
+        <p class="text-sm text-slate-500 mb-8 font-semibold">تأخذ هذه العملية بضع خطوات بسيطة. يمكنك العودة في أي وقت.</p>
+
+        <div class="nav-buttons">
+          <button type="button" class="btn btn-primary" onclick="nextScreen()">ابدأ بهدوء</button>
+        </div>
+      </div>
+
+      <!-- SCREEN 2: Applicant Type -->
+      <div class="screen" data-screen="2">
+        <h2 class="screen-title">أين أنت في مسارك؟</h2>
+        <p class="screen-sub">اختر الوصف الأقرب إلى وضعك الحالي.</p>
+
+        <div class="selection-grid" id="typeSelection">
+          <div class="select-card" data-val="طالب طب">
+            <span>طالب طب</span>
+            <svg class="check-icon" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+          </div>
+          <div class="select-card" data-val="طبيب خريج">
+            <span>طبيب خريج</span>
+            <svg class="check-icon" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+          </div>
+          <div class="select-card" data-val="طبيب أو مهني صحي">
+            <span>طبيب أو مهني صحي</span>
+            <svg class="check-icon" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+          </div>
+          <div class="select-card" data-val="باحث">
+            <span>باحث</span>
+            <svg class="check-icon" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+          </div>
+          <div class="select-card" data-val="مختص مختبرات">
+            <span>مختص مختبرات</span>
+            <svg class="check-icon" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+          </div>
+          <div class="select-card" data-val="معلم أو مرشد">
+            <span>معلم أو مرشد</span>
+            <svg class="check-icon" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+          </div>
+          <div class="select-card" data-val="جامعة أو مستشفى أو مؤسسة">
+            <span>جامعة أو مستشفى أو مؤسسة</span>
+            <svg class="check-icon" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+          </div>
+          <div class="select-card" data-val="ما زلت أستكشف الخيارات">
+            <span>ما زلت أستكشف الخيارات</span>
+            <svg class="check-icon" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+          </div>
+        </div>
+
+        <div class="nav-buttons">
+          <button type="button" class="btn btn-secondary" onclick="prevScreen()">السابق</button>
+          <button type="button" class="btn btn-primary" onclick="nextScreen()" id="btnTypeNext" disabled>المتابعة</button>
+        </div>
+      </div>
+
+      <!-- SCREEN 3: Interests -->
+      <div class="screen" data-screen="3">
+        <h2 class="screen-title">ما الذي ترغب في استكشافه؟</h2>
+        <p class="screen-sub">يمكنك اختيار أكثر من مجال.</p>
+
+        <div class="chip-grid" id="interestSelection">
+          <div class="chip" data-val="المهارات السريرية">المهارات السريرية</div>
+          <div class="chip" data-val="التحضير للامتحانات">التحضير للامتحانات</div>
+          <div class="chip" data-val="الطب الجزيئي">الطب الجزيئي</div>
+          <div class="chip" data-val="البحث الجينومي">البحث الجينومي</div>
+          <div class="chip" data-val="التعاون البحثي">التعاون البحثي</div>
+          <div class="chip" data-val="التدريس والتوجيه">التدريس والتوجيه</div>
+          <div class="chip" data-val="الشراكات المؤسسية">الشراكات المؤسسية</div>
+          <div class="chip" data-val="برامج STEM للناشئين">برامج STEM للناشئين</div>
+        </div>
+
+        <div class="soft-response" id="interestResponse">بدأنا نفهم اتجاهك المهني.</div>
+
+        <div class="nav-buttons">
+          <button type="button" class="btn btn-secondary" onclick="prevScreen()">السابق</button>
+          <button type="button" class="btn btn-primary" onclick="nextScreen()">المتابعة</button>
+        </div>
+      </div>
+
+      <!-- SCREEN 4: Next Step -->
+      <div class="screen" data-screen="4">
+        <h2 class="screen-title">ما الخطوة الأكثر فائدة لك الآن؟</h2>
+        <p class="screen-sub">يساعدنا هذا في تخصيص خطوتك التالية.</p>
+
+        <div class="selection-grid" id="nextStepSelection">
+          <div class="select-card" data-val="اكتشاف البرامج المناسبة">
+            <span>اكتشاف البرامج المناسبة</span>
+            <svg class="check-icon" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+          </div>
+          <div class="select-card" data-val="الانضمام إلى الشبكة المهنية">
+            <span>الانضمام إلى الشبكة المهنية</span>
+            <svg class="check-icon" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+          </div>
+          <div class="select-card" data-val="التحدث مع مرشد">
+            <span>التحدث مع مرشد</span>
+            <svg class="check-icon" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+          </div>
+          <div class="select-card" data-val="استكشاف فرص البحث">
+            <span>استكشاف فرص البحث</span>
+            <svg class="check-icon" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+          </div>
+          <div class="select-card" data-val="مناقشة شراكة مؤسسية">
+            <span>مناقشة شراكة مؤسسية</span>
+            <svg class="check-icon" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+          </div>
+          <div class="select-card" data-val="تلقي تحديثات البرامج المستقبلية">
+            <span>تلقي تحديثات البرامج المستقبلية</span>
+            <svg class="check-icon" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+          </div>
+        </div>
+
+        <div class="nav-buttons">
+          <button type="button" class="btn btn-secondary" onclick="prevScreen()">السابق</button>
+          <button type="button" class="btn btn-primary" onclick="nextScreen()" id="btnStepNext" disabled>المتابعة</button>
+        </div>
+      </div>
+
+      <!-- SCREEN 5: Contact Details -->
+      <div class="screen" data-screen="5">
+        <h2 class="screen-title">كيف يمكننا التواصل معك؟</h2>
+        <p class="screen-sub">معلوماتك تبقى آمنة وخاصة.</p>
+
+        <div class="field">
+          <label for="f_name">الاسم المفضل</label>
+          <input type="text" id="f_name" placeholder="كيف تفضل أن نناديك؟" required>
+        </div>
+        
+        <div class="field">
+          <label for="f_email">البريد الإلكتروني</label>
+          <input type="email" id="f_email" placeholder="name@example.com" dir="ltr" required>
+        </div>
+
+        <div class="field">
+          <label for="f_phone">رقم واتساب أو الهاتف</label>
+          <input type="tel" id="f_phone" placeholder="+44 7700 900000" dir="ltr" required>
+        </div>
+
+        <div class="field">
+          <label for="f_country">الدولة</label>
+          <select id="f_country" required>
+            <option value="" disabled selected>اختر دولتك...</option>
+            <option value="Sudan">السودان</option>
+            <option value="Egypt">مصر</option>
+            <option value="Saudi Arabia">المملكة العربية السعودية</option>
+            <option value="UAE">الإمارات العربية المتحدة</option>
+            <option value="Qatar">قطر</option>
+            <option value="UK">المملكة المتحدة</option>
+            <option value="Ireland">أيرلندا</option>
+            <option value="Other">أخرى</option>
+          </select>
+        </div>
+
+        <div class="field" id="institution_wrapper" style="display: none;">
+          <label for="f_institution">المؤسسة أو الجامعة</label>
+          <input type="text" id="f_institution" placeholder="أين تدرس أو تعمل؟">
+        </div>
+
+        <div class="nav-buttons">
+          <button type="button" class="btn btn-secondary" onclick="prevScreen()">السابق</button>
+          <button type="button" class="btn btn-primary" onclick="validateAndNext()">مراجعة البيانات</button>
+        </div>
+      </div>
+
+      <!-- SCREEN 6: Review & Join -->
+      <div class="screen" data-screen="6">
+        <h2 class="screen-title">هل تبدو هذه المعلومات صحيحة؟</h2>
+        <p class="screen-sub">راجع معلوماتك قبل الانضمام إلى الشبكة.</p>
+
+        <div class="summary-box">
+          <div class="summary-item">
+            <div class="summary-label">دورك</div>
+            <div class="summary-value" id="sum_role">-</div>
+          </div>
+          <div class="summary-item">
+            <div class="summary-label">اهتماماتك</div>
+            <div class="summary-value" id="sum_interests">-</div>
+          </div>
+          <div class="summary-item">
+            <div class="summary-label">خطوتك التالية المفضلة</div>
+            <div class="summary-value" id="sum_step">-</div>
+          </div>
+          <div class="summary-item">
+            <div class="summary-label">بيانات التواصل</div>
+            <div class="summary-value" id="sum_contact" dir="ltr">-</div>
+          </div>
+        </div>
+
+        <div class="consent-wrap">
+          <input type="checkbox" id="f_consent">
+          <label for="f_consent" class="consent-text">
+            أوافق على التواصل معي بشأن برامج GeneAcademy وفرص البحث وأنشطة الشبكة ذات الصلة.
+          </label>
+        </div>
+
+        <div class="nav-buttons">
+          <button type="button" class="btn btn-secondary" onclick="prevScreen()">السابق</button>
+          <button type="button" class="btn btn-primary" id="btnSubmit" onclick="submitApplication()">انضم إلى شبكتنا</button>
+        </div>
+      </div>
+
+    </form>
+
+    <!-- SUCCESS SCREEN -->
+    <div class="screen" id="successScreen">
+      <div class="success-container">
+        <div class="success-icon">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+        </div>
+        <h2 class="screen-title text-center">أصبحت الآن جزءاً من شبكة GeneAcademy</h2>
+        <p class="screen-sub text-center max-w-md mx-auto mb-2">شكراً لانضمامك إلى شبكتنا. تم استلام معلوماتك وسنراجع اهتماماتك لنرشدك إلى الخطوة التالية الأنسب.</p>
+        
+        <div class="ref-box" id="refBox" style="display:none;">
+          <div class="ref-label">مرجع الطلب</div>
+          <div class="ref-value mono" id="dispRef">GA-0000</div>
+        </div>
+
+        <div class="mt-8 flex flex-col sm:flex-row justify-center gap-4">
+          <a href="courses.html" class="btn btn-primary" style="flex:none; padding:14px 32px;">استكشف البرامج</a>
+          <a href="index_ar.html" class="btn btn-secondary" style="flex:none; padding:14px 32px; background:transparent; border:1px solid #E2E8F0;">العودة للصفحة الرئيسية</a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="api.js"></script>
+  <script>
+    const TOTAL_SCREENS = 6;
+    let currentScreen = 1;
+    
+    // State object for selections
+    const appState = {
+      role: '',
+      interests: new Set(),
+      nextStep: '',
+      contact: {}
+    };
+
+    // Load saved progress
+    document.addEventListener('DOMContentLoaded', () => {
+      const saved = localStorage.getItem('ga_join_state_ar');
+      if (saved) {
+        try {
+          const parsed = JSON.parse(saved);
+          if (parsed.role) selectCard('typeSelection', parsed.role);
+          if (parsed.nextStep) selectCard('nextStepSelection', parsed.nextStep);
+          if (parsed.interests) {
+            parsed.interests.forEach(i => {
+              const chip = document.querySelector(`#interestSelection .chip[data-val="${i}"]`);
+              if (chip) toggleChip(chip);
+            });
+          }
+          if (parsed.contact) {
+            document.getElementById('f_name').value = parsed.contact.name || '';
+            document.getElementById('f_email').value = parsed.contact.email || '';
+            document.getElementById('f_phone').value = parsed.contact.phone || '';
+            document.getElementById('f_country').value = parsed.contact.country || '';
+            document.getElementById('f_institution').value = parsed.contact.institution || '';
+          }
+        } catch(e) {}
+      }
+    });
+
+    function saveAndExit() {
+      appState.contact = {
+        name: document.getElementById('f_name').value,
+        email: document.getElementById('f_email').value,
+        phone: document.getElementById('f_phone').value,
+        country: document.getElementById('f_country').value,
+        institution: document.getElementById('f_institution').value
+      };
+      
+      const toSave = {
+        role: appState.role,
+        interests: Array.from(appState.interests),
+        nextStep: appState.nextStep,
+        contact: appState.contact
+      };
+      
+      localStorage.setItem('ga_join_state_ar', JSON.stringify(toSave));
+      alert("تم حفظ تقدمك بأمان في متصفحك. يمكنك العودة لاحقاً.");
+      window.location.href = "index_ar.html";
+    }
+
+    // Logic for Single Select Cards
+    function setupSingleSelect(containerId, stateKey, nextBtnId) {
+      const container = document.getElementById(containerId);
+      const cards = container.querySelectorAll('.select-card');
+      cards.forEach(card => {
+        card.addEventListener('click', () => {
+          cards.forEach(c => c.classList.remove('selected'));
+          card.classList.add('selected');
+          appState[stateKey] = card.dataset.val;
+          document.getElementById(nextBtnId).disabled = false;
+        });
+      });
+    }
+    
+    // Helper to manually select for restored state
+    function selectCard(containerId, value) {
+      const container = document.getElementById(containerId);
+      const card = container.querySelector(`.select-card[data-val="${value}"]`);
+      if (card) card.click();
+    }
+
+    setupSingleSelect('typeSelection', 'role', 'btnTypeNext');
+    setupSingleSelect('nextStepSelection', 'nextStep', 'btnStepNext');
+
+    // Logic for Multi-select Chips
+    const interestChips = document.querySelectorAll('#interestSelection .chip');
+    interestChips.forEach(chip => {
+      chip.addEventListener('click', () => toggleChip(chip));
+    });
+
+    function toggleChip(chip) {
+      const val = chip.dataset.val;
+      if (appState.interests.has(val)) {
+        appState.interests.delete(val);
+        chip.classList.remove('selected');
+      } else {
+        appState.interests.add(val);
+        chip.classList.add('selected');
+      }
+      
+      const responseText = document.getElementById('interestResponse');
+      if (appState.interests.size > 0) {
+        responseText.classList.add('show');
+      } else {
+        responseText.classList.remove('show');
+      }
+    }
+
+    // Navigation Logic
+    function updateProgress() {
+      const dotIndex = currentScreen > 5 ? 4 : currentScreen - 1;
+      
+      document.querySelectorAll('.progress-dot').forEach((dot, idx) => {
+        if (idx < dotIndex) {
+          dot.classList.add('completed');
+          dot.classList.remove('active');
+        } else if (idx === dotIndex) {
+          dot.classList.add('active');
+          dot.classList.remove('completed');
+        } else {
+          dot.classList.remove('completed', 'active');
+        }
+      });
+
+      // For RTL, we can keep the fill percentage calculation the same if we positioned it right: 0
+      const fillPercentage = (dotIndex / 4) * 100;
+      document.getElementById('progressFill').style.width = `${fillPercentage}%`;
+      
+      if (currentScreen > 1) {
+        document.getElementById('progressContainer').style.opacity = '1';
+      }
+    }
+
+    function showScreen(num) {
+      document.querySelectorAll('.screen').forEach(s => {
+        s.classList.remove('active');
+      });
+      
+      // Conditional Logic for Screen 5
+      if (num === 5) {
+        const role = appState.role;
+        const instWrap = document.getElementById('institution_wrapper');
+        const instInput = document.getElementById('f_institution');
+        
+        if (role.includes('طالب') || role.includes('خريج') || role.includes('مؤسسة') || role.includes('معلم')) {
+          instWrap.style.display = 'block';
+        } else {
+          instWrap.style.display = 'none';
+          instInput.value = ''; // clear if not needed
+        }
+      }
+      
+      // Populate Summary on Screen 6
+      if (num === 6) {
+        document.getElementById('sum_role').innerText = appState.role || 'غير محدد';
+        document.getElementById('sum_interests').innerText = appState.interests.size > 0 ? Array.from(appState.interests).join('، ') : 'غير محدد';
+        document.getElementById('sum_step').innerText = appState.nextStep || 'غير محدد';
+        
+        const name = document.getElementById('f_name').value;
+        const email = document.getElementById('f_email').value;
+        document.getElementById('sum_contact').innerText = `${name} (${email})`;
+      }
+
+      document.querySelector(`.screen[data-screen="${num}"]`).classList.add('active');
+      currentScreen = num;
+      updateProgress();
+      window.scrollTo(0,0);
+    }
+
+    function nextScreen() {
+      if (currentScreen < TOTAL_SCREENS) {
+        showScreen(currentScreen + 1);
+      }
+    }
+
+    function prevScreen() {
+      if (currentScreen > 1) {
+        showScreen(currentScreen - 1);
+      }
+    }
+
+    function validateAndNext() {
+      const name = document.getElementById('f_name').value.trim();
+      const email = document.getElementById('f_email').value.trim();
+      const phone = document.getElementById('f_phone').value.trim();
+      const country = document.getElementById('f_country').value;
+      
+      if (!name || !email || !phone || !country) {
+        alert("يرجى ملء جميع بيانات التواصل المطلوبة.");
+        return;
+      }
+      nextScreen();
+    }
+
+    async function submitApplication() {
+      const consent = document.getElementById('f_consent').checked;
+      if (!consent) {
+        alert("يرجى الموافقة على التواصل للمتابعة.");
+        return;
+      }
+
+      const btn = document.getElementById('btnSubmit');
+      btn.disabled = true;
+      btn.innerText = 'جارٍ الاتصال...';
+
+      const name = document.getElementById('f_name').value.trim();
+      const email = document.getElementById('f_email').value.trim();
+      const phone = document.getElementById('f_phone').value.trim();
+      const country = document.getElementById('f_country').value;
+      const institution = document.getElementById('f_institution').value.trim() || 'Not specified';
+
+      const payload = {
+        action: 'REGISTER_USER',
+        legalName: name, 
+        email: email,
+        phone: phone,
+        location: country,
+        university: institution,
+        careerStage: appState.role, 
+        peerReferral: ''
+      };
+
+      try {
+        const result = await executeGemIInISync(payload);
+        const gaId = result.gaId || 'PENDING';
+        
+        const feedbackPayload = {
+          action: 'SUBMIT_FEEDBACK',
+          gaId: gaId,
+          email: email,
+          phone: phone,
+          targetModules: Array.from(appState.interests).join('; '),
+          targetPathways: `[Next Step: ${appState.nextStep}]`
+        };
+        try { await executeGemIInISync(feedbackPayload); } catch(e) {}
+        
+        localStorage.removeItem('ga_join_state_ar');
+
+        document.getElementById('pathwayForm').style.display = 'none';
+        document.getElementById('progressContainer').style.display = 'none';
+        
+        if (gaId && gaId.startsWith('GA-')) {
+          document.getElementById('refBox').style.display = 'inline-block';
+          document.getElementById('dispRef').innerText = gaId;
+        }
+        
+        document.getElementById('successScreen').classList.add('active');
+        
+        if (typeof gtag === 'function') {
+          gtag('event', 'sign_up', { method: 'Pathway_Discovery_AR' });
+        }
+
+      } catch (err) {
+        alert('واجهنا مشكلة مؤقتة في الشبكة. بياناتك محفوظة بأمان. يرجى المحاولة مرة أخرى.');
+        btn.disabled = false; 
+        btn.innerText = 'انضم إلى شبكتنا';
+      }
+    }
+  </script>
+</body>
+</html>

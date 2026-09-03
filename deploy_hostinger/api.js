@@ -1,88 +1,60 @@
 /**
- * api.js — GemIInI Academy Master Ledger & Verification Client
- * SudaGene Consortium · GemIInI Academy
- *
- * ZERO FAKE SUCCESS POLICY:
- * If the backend ledger cannot be reached, the system NEVER mints a fake ID.
- * It returns an explicit error with transaction recovery instructions and direct WhatsApp desk contact.
+ * ============================================================================
+ * GENEACADEMY & SUDAGENE RESILIENT API CLIENT (V4.6 ENTERPRISE)
+ * Target: Hostinger Production Edge • Unified Apps Script Single Source of Truth
+ * Active Endpoint: AKfycbwe3rUYJgtSjcnPaKxJOiPsmA19yglrXyWJtAVq0fy4rPi1zLUIacZaWpC4Yhg0x5Ux
+ * ============================================================================
  */
 
-const APPS_SCRIPT_API_URL = "https://script.google.com/macros/s/AKfycbxAVR42yEQlQMkOBhlcka622FNbSD_3_pIJrNL1bktLyN8TqIYGC2P5cGpUqeZcoql8/exec";
-const GEMIINI_SESSION_KEY = "gemiini_presence_id";
-const GEMIINI_PROFILE_KEY = "gemiini_member_profile";
+const GEMIINI_CONFIG = {
+  ENDPOINT: 'https://script.google.com/macros/s/AKfycbwe3rUYJgtSjcnPaKxJOiPsmA19yglrXyWJtAVq0fy4rPi1zLUIacZaWpC4Yhg0x5Ux/exec',
+  TIMEOUT_MS: 15000
+};
 
 /**
- * Stores active session ID and profile
- */
-function applyGemIInISession(gaId, profileData) {
-    if (!gaId) return;
-    localStorage.setItem(GEMIINI_SESSION_KEY, gaId);
-    if (profileData) {
-        localStorage.setItem(GEMIINI_PROFILE_KEY, JSON.stringify(profileData));
-    }
-}
-
-/**
- * Retrieves current active session ID
- */
-function getActiveGemIInIId() {
-    return localStorage.getItem(GEMIINI_SESSION_KEY) || null;
-}
-
-/**
- * Dispatches registration payload to Google Apps Script.
- * Fails loudly on network or server error to prevent silent data loss.
+ * Central transactional dispatcher to the Google Apps Script backend.
+ * 🔒 FAIL-CLOSED GUARANTEE: Never returns a fabricated success or fake GA-ID on network failure.
+ * Throws a real Error on network/server errors so caller handles real error states.
  */
 async function executeGemIInISync(payload) {
-    try {
-        const response = await fetch(APPS_SCRIPT_API_URL, {
-            method: "POST",
-            headers: { "Content-Type": "text/plain;charset=utf-8" },
-            body: JSON.stringify(payload)
-        });
+  if (!payload || (!payload.action && !payload.formCode)) {
+    throw new Error('INVALID_PAYLOAD: action or formCode is required');
+  }
 
-        if (!response.ok) {
-            throw new Error(`Ledger responded with status ${response.status}`);
-        }
+  // Attach client metadata
+  payload.clientTimestamp = new Date().toISOString();
+  payload.userAgent = navigator.userAgent || 'Unknown';
 
-        const data = await response.json();
-        
-        if (data.status === "error") {
-            throw new Error(data.message || "Ledger returned an error processing your intake.");
-        }
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), GEMIINI_CONFIG.TIMEOUT_MS);
 
-        return data;
-    } catch (err) {
-        console.error("Ledger sync failure:", err);
-        // Explicit failure return — NO RANDOM / FAKE ID MINTING
-        return {
-            status: "error",
-            error: true,
-            message: "تعذر الاتصال بالسجل المركزي لتأكيد العملية. يرجى التواصل فوراً مع المكتب الأكاديمي عبر واتساب لتأكيد قيدك يدوياً.",
-            rawError: err.message || err.toString()
-        };
+  try {
+    const response = await fetch(GEMIINI_CONFIG.ENDPOINT, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'text/plain;charset=utf-8' // Avoid CORS preflight overhead with GAS
+      },
+      body: JSON.stringify(payload),
+      signal: controller.signal
+    });
+
+    clearTimeout(timeoutId);
+
+    if (!response.ok) {
+      throw new Error(`HTTP_${response.status}: ${response.statusText || 'Server Error'}`);
     }
-}
 
-/**
- * Queries the real master ledger for public verification.
- * Returns found: false if the ID does not exist in the database.
- */
-async function lookupGemIInIId(searchId) {
-    if (!searchId) return { found: false, message: "No ID provided" };
-    try {
-        const url = `${APPS_SCRIPT_API_URL}?action=lookup&id=${encodeURIComponent(searchId)}`;
-        const response = await fetch(url);
-        if (!response.ok) throw new Error(`Lookup failed with status ${response.status}`);
-        return await response.json();
-    } catch (err) {
-        console.error("Lookup error:", err);
-        return { found: false, error: true, message: "تعذر التحقق من السجل حالياً. يرجى المحاولة لاحقاً." };
+    const data = await response.json();
+
+    if (!data || data.success !== true) {
+      throw new Error(data.error || data.message || 'TRANSACTION_REJECTED_BY_SERVER');
     }
-}
 
-// Expose globally
-window.applyGemIInISession = applyGemIInISession;
-window.getActiveGemIInIId = getActiveGemIInIId;
-window.executeGemIInISync = executeGemIInISync;
-window.lookupGemIInIId = lookupGemIInIId;
+    return data;
+  } catch (error) {
+    clearTimeout(timeoutId);
+    console.error('GemIInI API Sync Error:', error);
+    // Explicitly rethrow error — NEVER return fake success or placeholder ID
+    throw new Error(error.name === 'AbortError' ? 'NETWORK_TIMEOUT: Server took too long to respond' : error.message);
+  }
+}

@@ -81,7 +81,7 @@ html[dir="rtl"] .font-display {
     linear-gradient(160deg, hsl(215 58% 7%), hsl(215 60% 4%));
 }
 
-.sovereign-grid {
+.Independent-grid {
   background-image:
     linear-gradient(hsl(183 100% 50% / 0.05) 1px, transparent 1px),
     linear-gradient(90deg, hsl(183 100% 50% / 0.05) 1px, transparent 1px);

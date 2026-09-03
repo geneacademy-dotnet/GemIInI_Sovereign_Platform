@@ -1,6 +1,6 @@
 /**
  * phoneLookupService.js
- * Sovereign Ledger Phone Lookup & Contact Intelligence Module
+ * Independent Ledger Phone Lookup & Contact Intelligence Module
  * SudaGene Consortium — GemIInI Academy · Gene Academy
  */
 
@@ -11,7 +11,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+4917621316983",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA005",
@@ -19,7 +19,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+249912933618",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GAUniversityOfBleNile",
@@ -27,7 +27,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+249900373273",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA-146",
@@ -35,7 +35,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+249990281166",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA?",
@@ -43,7 +43,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA000",
@@ -51,7 +51,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+201270192777",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA002",
@@ -59,7 +59,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+971503731722",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA004hamadamahadi",
@@ -67,7 +67,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "GA004hamadamahadi@gmail.com",
     "phone": "+96550872572",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA0047",
@@ -75,7 +75,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+201028812815",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA008",
@@ -83,7 +83,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+249912708829",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA010",
@@ -91,7 +91,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+249912369551",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA0100",
@@ -99,7 +99,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+249911108700",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA01000",
@@ -107,7 +107,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+201552833864",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA011Amjadgorashi32",
@@ -115,7 +115,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "GA011Amjadgorashi32@gmail.com",
     "phone": "+966550476176",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA0118",
@@ -123,7 +123,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+249990952703",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA0119",
@@ -131,7 +131,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+249127156978",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA012",
@@ -139,7 +139,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+4917662362522",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA014",
@@ -147,7 +147,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+201015482751",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA016",
@@ -155,7 +155,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+201555693552",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA017Shimm726",
@@ -163,7 +163,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "GA017Shimm726@gmail.com",
     "phone": "+201102734062",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA019",
@@ -171,7 +171,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+249155830007",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA020",
@@ -179,7 +179,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+97466179642",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA021waleedalhaj",
@@ -187,7 +187,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "GA021waleedalhaj@iend.org",
     "phone": "+447984213742",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA02100",
@@ -195,7 +195,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+201051084860",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA022",
@@ -203,7 +203,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+20112533736",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA023",
@@ -211,7 +211,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+249910018308",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA0232alafiaaltaib04",
@@ -219,7 +219,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "GA0232alafiaaltaib04@gmail.com0116479521",
     "phone": "",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA024",
@@ -227,7 +227,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+249118776786",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA025",
@@ -235,7 +235,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+201013703766",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA026",
@@ -243,7 +243,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+249906379244",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA027",
@@ -251,7 +251,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+249999114452",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA028",
@@ -259,7 +259,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+249996127173",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA029",
@@ -267,7 +267,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+24014323714",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA030",
@@ -275,7 +275,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+249919378954",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA031",
@@ -283,7 +283,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+249114876156",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA034",
@@ -291,7 +291,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+201556635571",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA035",
@@ -299,7 +299,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+201004226493",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA036",
@@ -307,7 +307,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+249905758446",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA037",
@@ -315,7 +315,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+249100980187",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA038",
@@ -323,7 +323,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+249903762948",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA039",
@@ -331,7 +331,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+249960102234",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA040",
@@ -339,7 +339,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+249913565828",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA041",
@@ -347,7 +347,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+249115964308",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA042",
@@ -355,7 +355,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+201010906001",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA043",
@@ -363,7 +363,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+201153131516",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA044",
@@ -371,7 +371,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+97433948354",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA045",
@@ -379,7 +379,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+201026394021",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA046",
@@ -387,7 +387,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+249904208445",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA047",
@@ -395,7 +395,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+201093086653",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA048",
@@ -403,7 +403,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+201500148048",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA049",
@@ -411,7 +411,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+201157768627",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA050",
@@ -419,7 +419,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+201090612181",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA051",
@@ -427,7 +427,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+201067951662",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA052",
@@ -435,7 +435,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+201154066413",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA053",
@@ -443,7 +443,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+201069194886",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA054",
@@ -451,7 +451,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+249993278990",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA056",
@@ -459,7 +459,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+201554335004",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA057",
@@ -467,7 +467,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+249905233777",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA058",
@@ -475,7 +475,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+218927261043",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA059",
@@ -483,7 +483,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+249912230525",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA060",
@@ -491,7 +491,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+249122032608",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA061",
@@ -499,7 +499,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+201027347456",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA062",
@@ -507,7 +507,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+249902148501",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA063",
@@ -515,7 +515,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+249124566671",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA065",
@@ -523,7 +523,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+249122496851",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA066",
@@ -531,7 +531,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+249999075509",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA067",
@@ -539,7 +539,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+201100928760",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA068",
@@ -547,7 +547,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+996555258117",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA069",
@@ -555,7 +555,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+201554802173",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA070",
@@ -563,7 +563,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+249128501211",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA071",
@@ -571,7 +571,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+201154017847",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA072",
@@ -579,7 +579,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+249115641717",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA073",
@@ -587,7 +587,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+97466411939",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA074",
@@ -595,7 +595,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+201040772490",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA075",
@@ -603,7 +603,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+966557938514",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA076",
@@ -611,7 +611,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+201125951801",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA077aladdinabdelhai",
@@ -619,7 +619,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "GA077aladdinabdelhai@gmail.com",
     "phone": "+201032302501",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA078",
@@ -627,7 +627,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+249123740141",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA079",
@@ -635,7 +635,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+201552488814",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA080",
@@ -643,7 +643,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+251905018406",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA081",
@@ -651,7 +651,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+249909999965",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA082",
@@ -659,7 +659,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+201126554903",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA083",
@@ -667,7 +667,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+249908383085",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA084",
@@ -675,7 +675,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+201555038754",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA085",
@@ -683,7 +683,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+249900259329",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA086",
@@ -691,7 +691,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+201095713013",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA087",
@@ -699,7 +699,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "a***5@gmail.com",
     "phone": "+201500948114",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA088",
@@ -707,7 +707,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "n***6@gmail.com",
     "phone": "+249112807813",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA089",
@@ -715,7 +715,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "m***7@gmail.com",
     "phone": "+249912440112",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA089",
@@ -723,7 +723,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "m***7@gmail.com",
     "phone": "+249960452223",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA090",
@@ -731,7 +731,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+249960078611",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA091",
@@ -739,7 +739,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "o***r@icloud.com",
     "phone": "+97450741484",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA092",
@@ -747,7 +747,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+249915258567",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA093",
@@ -755,7 +755,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+249966931060",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA094",
@@ -763,7 +763,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "b***m@gmail.com",
     "phone": "+249117717050",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA095",
@@ -771,7 +771,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+249908915259",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA096",
@@ -779,7 +779,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+249993350953",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA097",
@@ -787,7 +787,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+249963884042",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA098",
@@ -795,7 +795,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "h***i@gmail.com",
     "phone": "+201070247560",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA099",
@@ -803,7 +803,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "",
     "phone": "+201096290049",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   },
   {
     "id": "GA0998",
@@ -811,7 +811,7 @@ export const MASTER_LEDGER_CONTACTS = [
     "email": "a***d@gmail.com",
     "phone": "+201096290049",
     "univ": "كليات الطب والمستشفيات السريرية المعتمدة",
-    "sourceFound": "Sovereign Phone Intelligence Ledger"
+    "sourceFound": "Independent Phone Intelligence Ledger"
   }
 ];
 
@@ -851,7 +851,7 @@ export function lookupByPhoneNumber(phoneNumber) {
     return {
         found: false,
         query: phoneNumber,
-        message: 'No matching record found for this phone number in the local sovereign ledger.'
+        message: 'No matching record found for this phone number in the local Independent Ledger.'
     };
 }
 

@@ -212,7 +212,7 @@ export default function HomePage() {
                   className="group relative inline-flex items-center gap-2.5 rounded-full bg-white px-8 py-4 text-sm sm:text-base font-bold text-slate-950 transition-all duration-300 hover:bg-[#00F2FE] hover:shadow-[0_0_30px_rgba(0,242,254,0.4)] active:scale-95 shadow-xl"
                 >
                   <MapPin className="w-4 h-4 text-slate-950" />
-                  <span>{isRtl ? 'حجز مقعد: القاهرة (٢٨ أغسطس)' : 'Book Cairo Hub (Aug 28)'}</span>
+                  <span>{isRtl ? 'تثبيت التسجيل السريري: القاهرة (٢٨ أغسطس)' : 'Book Cairo Hub (Aug 28)'}</span>
                 </Link>
 
                 <Link
@@ -220,7 +220,7 @@ export default function HomePage() {
                   className="inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/5 px-8 py-4 text-sm sm:text-base font-bold text-white backdrop-blur-xl transition-all duration-300 hover:bg-white/10 hover:border-white/20 active:scale-95 shadow-xl"
                 >
                   <MapPin className="w-4 h-4 text-[#00F2FE]" />
-                  <span>{isRtl ? 'حجز مقعد: السودان (١٠ سبتمبر)' : 'Book Sudan Hub (Sept 10)'}</span>
+                  <span>{isRtl ? 'تثبيت التسجيل السريري: السودان (١٠ سبتمبر)' : 'Book Sudan Hub (Sept 10)'}</span>
                 </Link>
               </div>
 

@@ -72,7 +72,7 @@ When responding to the user, format the output using this polished structure:
 ```markdown
 # 🏛️ Virtual Advisory Board Deliberation
 **Topic:** [User Decision / Dilemma Summary]
-**Date & Session:** Sovereign Strategy Session
+**Date & Session:** Independent Strategy Session
 
 ---
 
@@ -142,4 +142,4 @@ The user can adjust panel behavior using shorthand triggers:
 - `rapid` or `quick take`: Deliver punchy 1-paragraph takes per advisor with an instant verdict table.
 - `deep dive`: Conduct comprehensive multi-stage analysis with detailed financial models, operational Gantt charts, and adversarial red-teaming.
 - `red team`: Expand **The Skeptic** into a 3-agent adversarial attack council (Technical, Regulatory, Market) designed to find catastrophic vulnerabilities.
-- `clinical / sovereign`: Calibrate personas specifically for medical licensure, healthcare infrastructure, and clinical credential governance.
+- `clinical / Independent`: Calibrate personas specifically for medical licensure, healthcare infrastructure, and clinical credential governance.

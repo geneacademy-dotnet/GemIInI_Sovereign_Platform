@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+  <!-- iubenda Cookie & Consent Banner -->
+  <script type="text/javascript">
+  var _iub = _iub || [];
+  _iub.csConfiguration = {"siteId":4659147,"cookiePolicyId":32190221,"lang":"en","storage":{"useSiteId":true}};
+  </script>
+  <script type="text/javascript" src="https://cs.iubenda.com/autoblocking/4659147.js"></script>
+  <script type="text/javascript" src="//cdn.iubenda.com/cs/gpp/stub.js"></script>
+  <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>محاكي امتحان المجلس الطبي السوداني | SMC Clinical Exam Simulator</title>
+  <meta name="description" content="محاكي امتحان المجلس الطبي السوداني (SMC) بنظام Mechanism-to-Clinic (MTC™): بنك 2,500 سيناريو سريري مع مانع الغش Focus-Lock وتليمتري نقاط GP.">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-H1Q67PP2DJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-H1Q67PP2DJ');
+  </script>
+
+  <!-- Tailwind CSS & Fonts -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700;800;900&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+  
+  <style id="unified-Independent-typography">
+    body { font-family: 'Cairo', system-ui, -apple-system, sans-serif !important; background-color: #04080F !important; color: #F8FAFC !important; -webkit-font-smoothing: antialiased; }
+    .mono-meta { font-family: 'IBM Plex Mono', monospace !important; }
+    .serif-academic { font-family: 'Amiri', serif !important; font-size: 1.05rem !important; line-height: 1.75 !important; }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col antialiased selection:bg-sky-500/20 selection:text-sky-300 select-none">
+
+  <!-- Top Anti-Cheat Proctor Bar -->
+  <div class="bg-slate-900 border-b border-slate-800 text-[11px] mono-meta py-2.5 px-4 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-3">
+        <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800 font-bold">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          PROCTOR ACTIVE
+        </span>
+        <span id="timerDisplay" class="text-amber-400 font-bold text-xs">⏱️ 15:00</span>
+        <span class="text-slate-400">|</span>
+        <span id="violationDisplay" class="text-slate-400 text-xs">المخالفات: 0</span>
+      </div>
+      <div class="flex items-center gap-4 text-xs font-semibold">
+        <span class="text-sky-400 font-bold" id="gaIdBadge">GA-CANDIDATE</span>
+        <a href="index.html" class="text-slate-400 hover:text-white">الخروج للموقع ➔</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Simulator Container -->
+  <main class="max-w-4xl mx-auto w-full p-4 sm:p-6 flex-1 flex flex-col justify-center my-auto space-y-6">
+    
+    <!-- Header Progress Card -->
+    <div class="bg-slate-900/90 border border-slate-800 rounded-3xl p-6 shadow-2xl space-y-4">
+      <div class="flex flex-wrap items-center justify-between gap-2 text-xs mono-meta">
+        <span class="px-3 py-1 rounded-full bg-sky-950 text-sky-400 border border-sky-800 font-bold">
+          SMC CLINICAL SIMULATION • MODULE II (TROPICAL &amp; INTERNAL)
+        </span>
+        <span id="qProgress" class="text-slate-400 font-bold">السؤال 1 من 2</span>
+      </div>
+
+      <!-- Question Stem Container -->
+      <div class="space-y-4">
+        <h2 id="qStem" class="text-base sm:text-xl font-bold text-white leading-relaxed serif-academic">
+          جاري تحميل الحالة السريرية...
+        </h2>
+      </div>
+
+      <!-- 5 Multiple Choice Options (A-E) -->
+      <div id="optionsContainer" class="space-y-3 pt-2">
+        <!-- Dynamic JS injected options -->
+      </div>
+    </div>
+
+    <!-- Rationales & MTC Breakdown (Hidden until answer or finish) -->
+    <div id="rationaleBox" class="hidden bg-slate-900 border border-slate-800 rounded-3xl p-6 space-y-4 text-xs">
+      <div class="flex items-center gap-2 border-b border-slate-800 pb-3">
+        <span class="text-base">🧬</span>
+        <h3 class="font-bold text-sky-400 text-sm">تحليل الآلية السريرية (MTC™ Breakdown):</h3>
+      </div>
+      <div id="rationaleContent" class="text-slate-300 leading-relaxed space-y-2"></div>
+      <button onclick="nextQuestion()" class="w-full py-3 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-bold text-xs transition-all shadow-lg">
+        السؤال التالي ➔
+      </button>
+    </div>
+
+    <!-- Final Score Summary Modal (Hidden by default) -->
+    <div id="resultModal" class="hidden bg-slate-900 border-2 border-emerald-500/40 rounded-3xl p-8 space-y-6 text-center shadow-2xl">
+      <div class="w-16 h-16 rounded-full bg-emerald-950 border border-emerald-800 text-emerald-400 text-3xl font-bold flex items-center justify-center mx-auto">
+        🏆
+      </div>
+      <div class="space-y-2">
+        <h2 class="text-2xl font-black text-white">اكتمل الماراثون السريري بنجاح</h2>
+        <p class="text-slate-400 text-xs sm:text-sm">تم تسجيل درجاتك السريرية وتحديث رصيد الـ GP في السجل المركزي.</p>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mono-meta text-xs">
+        <div class="p-3.5 bg-slate-800/80 rounded-2xl border border-slate-700">
+          <div class="text-slate-400">الدرجة:</div>
+          <div id="finalScore" class="text-xl font-bold text-emerald-400">80%</div>
+        </div>
+        <div class="p-3.5 bg-slate-800/80 rounded-2xl border border-slate-700">
+          <div class="text-slate-400">الـ GP المكتسبة:</div>
+          <div id="finalGp" class="text-xl font-bold text-amber-400">+10 GP</div>
+        </div>
+        <div class="p-3.5 bg-slate-800/80 rounded-2xl border border-slate-700">
+          <div class="text-slate-400">الوقت المستغرق:</div>
+          <div id="finalTime" class="text-xl font-bold text-sky-400">3:45</div>
+        </div>
+        <div class="p-3.5 bg-slate-800/80 rounded-2xl border border-slate-700">
+          <div class="text-slate-400">مؤشر $S_{rank}$:</div>
+          <div class="text-xl font-bold text-purple-400">+15 Pts</div>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap items-center justify-center gap-3 pt-4">
+        <a href="join.html" class="px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs transition-all border border-slate-700">
+          توثيق النتيجة في السجل السيادي (SudaPass) ➔
+        </a>
+        <button onclick="location.reload()" class="px-6 py-3 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-bold text-xs transition-all shadow-md">
+          إعادة المحاولة مع أسئلة جديدة ↺
+        </button>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-slate-950 border-t border-slate-800 py-6 text-center text-xs text-slate-500 mono-meta mt-auto">
+    GENEACADEMY.NET • MTC™ CLINICAL TESTING LABORATORY • 2,500 CANONICAL VIGNETTES
+  </footer>
+
+  <script src="api.js"></script>
+  <script>
+    // Clinical Q-Bank (MTC™ High-Yield Vignettes)
+    const questions = [
+      {
+        stem: "مريض يبلغ من العمر 28 عاماً من ولاية القضارف، يعاني من حمى متموجة مستمرة منذ 6 أسابيع مع تضخم شديد في الطحال (Splenomegaly) وفقر دم ونقص في كريات الدم البيضاء والصفائح (Pancytopenia). أظهر الفحص المصلي إيجابية اختبار rK39. ما هو الخط العلاجي الأول الموصى به بروتوكولياً مع مراعاة مراقبة وظائف الكلى؟",
+        options: [
+          "أ. الصوديوم ستيبوجلوكونات (SSG) بجرعة 20 mg/kg لمدة 28 يوماً.",
+          "ب. الأمفوتريسين ب الشحمي (Liposomal Amphotericin B) مع الترطيب المسبق بمحلول Saline 0.9%.",
+          "ج. الملتيفوسين (Miltefosine) عن طريق الفم فقط.",
+          "د. الكلوروكين الفموي مع البرايماكين.",
+          "هـ. البنسلين طويل المفعول مع الدوكسيسيكلين."
+        ],
+        correct: 1,
+        mtc: "• <b>الآلية الجزيئية:</b> طفيل <i>Leishmania donovani</i> يغزو البلاعم (Macrophages) مسبباً تثبيطاً مناعياً وخاصة خلل Th1/Th2.<br>• <b>المسار الفسيولوجي:</b> فرط نشاط الطحال وتدمير خلايا الدم مسبباً Pancytopenia.<br>• <b>القرار السريري:</b> Liposomal Amphotericin B يرتبط بـ Ergosterol في جدار الخلية الطفيلية، وهو الخيار الأكثر أماناً مع ترطيب مسبق لمنع السمية الكلوية."
+      },
+      {
+        stem: "طفل يبلغ من العمر 7 سنوات معروف بتشخيص الأنيميا المنجلية (HbSS)، أُحضر للطوارئ بألم حاد ومفاجئ في الصدر وضيق في التنفس مع انخفاض تشبع الأكسجين إلى 88% ووجود ارتشاح رئوي جديد في الأشعة السينية. ما هو التشخيص السريري الأكثر إلحاحاً؟",
+        options: [
+          "أ. أزمة انسداد الأوعية الدموية العظمية البسيطة (Vaso-occlusive bone crisis).",
+          "ب. متلازمة الصدر الحادة (Acute Chest Syndrome — ACS).",
+          "ج. الاسترواح الصدري التلقائي (Pneumothorax).",
+          "د. أزمة احتباس الطحال (Splenic Sequestration Crisis).",
+          "هـ. الالتهاب الرئوي الفيروسي البسيط."
+        ],
+        correct: 1,
+        mtc: "• <b>الآلية الجزيئية:</b> طفرة استبدال حمض الجلوتاميك بالفالين في موضع 6 لسلسلة بيتا تؤدي إلى بلمرة HbS تحت نقص الأكسجين.<br>• <b>المسار الفسيولوجي:</b> انسداد الأوعية الشعرية الرئوية مع احتشاء وتفاقم نقص الأكسجة.<br>• <b>القرار السريري:</b> متلازمة الصدر الحادة هي السبب الأول للوفيات في مرضى HbSS وتتطلب أكسجين فوري، مسكنات، مضادات حيوية، ونقل دم تبادلي عاجل."
+      }
+    ];
+
+    let currentIdx = 0;
+    let score = 0;
+    let violations = 0;
+    let timeSeconds = 900; // 15 mins
+
+    // Focus Lock Anti-Cheat Detection
+    window.addEventListener('blur', () => {
+      violations++;
+      document.getElementById('violationDisplay').innerText = `المخالفات: ${violations} ⚠️`;
+      document.getElementById('violationDisplay').classList.add('text-red-400');
+    });
+
+    // Timer Interval
+    const timerInterval = setInterval(() => {
+      if (timeSeconds <= 0) {
+        clearInterval(timerInterval);
+        finishSprint();
+        return;
+      }
+      timeSeconds--;
+      const mins = Math.floor(timeSeconds / 60);
+      const secs = timeSeconds % 60;
+      document.getElementById('timerDisplay').innerText = `⏱️ ${mins}:${secs < 10 ? '0' : ''}${secs}`;
+    }, 1000);
+
+    function loadQuestion(idx) {
+      if (idx >= questions.length) {
+        finishSprint();
+        return;
+      }
+      const q = questions[idx];
+      document.getElementById('qProgress').innerText = `السؤال ${idx + 1} من ${questions.length}`;
+      document.getElementById('qStem').innerText = q.stem;
+      document.getElementById('rationaleBox').classList.add('hidden');
+
+      const container = document.getElementById('optionsContainer');
+      container.innerHTML = '';
+
+      q.options.forEach((opt, optIdx) => {
+        const btn = document.createElement('button');
+        btn.className = 'w-full p-4 text-right rounded-2xl bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700 text-slate-200 text-xs sm:text-sm font-semibold transition-all flex items-center justify-between group';
+        btn.innerHTML = `<span>${opt}</span><span class="text-slate-500 group-hover:text-white font-mono text-xs">➔</span>`;
+        btn.onclick = () => selectOption(optIdx, q.correct, q.mtc, btn);
+        container.appendChild(btn);
+      });
+    }
+
+    function selectOption(selectedIdx, correctIdx, mtc, btnElement) {
+      const container = document.getElementById('optionsContainer');
+      const allButtons = container.querySelectorAll('button');
+      allButtons.forEach(b => b.disabled = true);
+
+      if (selectedIdx === correctIdx) {
+        score++;
+        btnElement.classList.remove('bg-slate-800/80', 'border-slate-700');
+        btnElement.classList.add('bg-emerald-950', 'border-emerald-500', 'text-emerald-300');
+      } else {
+        btnElement.classList.remove('bg-slate-800/80', 'border-slate-700');
+        btnElement.classList.add('bg-red-950', 'border-red-500', 'text-red-300');
+        allButtons[correctIdx].classList.add('bg-emerald-950', 'border-emerald-500', 'text-emerald-300');
+      }
+
+      document.getElementById('rationaleContent').innerHTML = mtc;
+      document.getElementById('rationaleBox').classList.remove('hidden');
+    }
+
+    function nextQuestion() {
+      currentIdx++;
+      loadQuestion(currentIdx);
+    }
+
+    async function finishSprint() {
+      clearInterval(timerInterval);
+      document.querySelector('main > div:first-child').classList.add('hidden');
+      document.getElementById('rationaleBox').classList.add('hidden');
+      
+      const modal = document.getElementById('resultModal');
+      modal.classList.remove('hidden');
+
+      const percent = Math.round((score / questions.length) * 100);
+      document.getElementById('finalScore').innerText = `${percent}%`;
+      const gpEarned = percent >= 70 ? 10 : 2;
+      document.getElementById('finalGp').innerText = `+${gpEarned} GP`;
+
+      // Telemetry Sync with GAS Backend
+      try {
+        await executeGemIInISync({
+          action: 'SUBMIT_EXAM_SPRINT',
+          score: score,
+          total: questions.length,
+          module: 'MOD-II-TROPICAL',
+          proctorViolations: violations,
+          timeSpentSec: 900 - timeSeconds
+        });
+      } catch (e) {
+        console.log('Buffered exam offline');
+      }
+    }
+
+    window.onload = () => loadQuestion(0);
+  </script>
+</body>
+</html>

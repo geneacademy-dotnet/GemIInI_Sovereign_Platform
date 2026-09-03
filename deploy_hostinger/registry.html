@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl" class="dark scroll-smooth">
 <head>
+
+<script type="text/javascript">
+var _iub = _iub || [];
+_iub.csConfiguration = {"siteId":4659147,"cookiePolicyId":32190221,"lang":"en","storage":{"useSiteId":true}};
+</script>
+<script type="text/javascript" src="https://cs.iubenda.com/autoblocking/4659147.js"></script>
+<script type="text/javascript" src="//cdn.iubenda.com/cs/gpp/stub.js"></script>
+<script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>السجل الأكاديمي والتحقق من الهوية السريرية | GemIInI Academy</title>
@@ -25,7 +34,7 @@
             GemIInI<span class="text-cyan-400">.Academy</span>
         </a>
         <div class="flex items-center gap-3 text-xs font-mono">
-            <a href="bls.html" class="px-3.5 py-1.5 rounded-xl bg-red-500/20 text-red-300 border border-red-500/40 font-bold hover:bg-red-500/30">ورشة BLS ➔</a>
+            <a href="bls.html" class="px-3.5 py-1.5 rounded-xl bg-red-500/20 text-red-300 border border-red-500/40 font-bold hover:bg-red-500/30">البرنامج التدريبي المتقدم (AHA BLS Provider) ➔</a>
             <a href="dashboard.html" class="px-3.5 py-1.5 rounded-xl bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400">لوحة العضو</a>
         </div>
     </nav>
@@ -111,7 +120,7 @@
                 المعرف الرقمي المدخل غير مسجل أو لم يستكمل تدقيق الاعتماد السريري. يرجى التأكد من صحة رقم القيد (GA-ID).
             </p>
             <div class="pt-2">
-                <a href="https://wa.me/201015922628" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-red-500/20 text-red-300 border border-red-500/40 text-xs font-mono font-bold hover:bg-red-500/30">
+                <a href="https://wa.me/2+20 101 592 2628" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-red-500/20 text-red-300 border border-red-500/40 text-xs font-mono font-bold hover:bg-red-500/30">
                     طلب تدقيق الاعتماد عبر واتساب (+20 101 592 2628) ➔
                 </a>
             </div>
@@ -126,10 +135,16 @@
     <script>
         // Seed bedrock records for instant offline resolution
         const LOCAL_BEDROCK = {
-            'GA000': { id: 'GA-000', name: 'د. محمد جبريل', role: 'Founder & CEO — SudaGene Consortium', univ: 'جامعة كرري | Karary University (KU 0089958 2021)', gp: 2500, verified: true },
+            'GA000': { id: 'GA-000', name: 'د. محمد جبريل', role: 'Founder & Executive President — SudaGene Consortium & GemIInI', univ: 'جامعة الخرطوم | Faculty of Medicine, University of Khartoum', gp: 2500, verified: true },
             'GA001': { id: 'GA-001', name: 'د. علاء مرسي النور', role: 'Co-Founder & COO', univ: 'FRCSI Letterkenny General Hospital', gp: 2500, verified: true },
-            'GA004': { id: 'GA-004', name: 'د. صفاء الحسن', role: 'Senior Academic Officer', univ: 'جامعة أم درمان الإسلامية | OIU 2016', gp: 1200, verified: true },
-            'GA011': { id: 'GA-011', name: 'م. أمجد قرشي', role: 'Systems & GIS Operations Expert', univ: 'Alzaiem Alazhari University (AAU 2017)', gp: 1500, verified: true },
+            'GA002': { id: 'GA-002', name: 'البروفيسور سهل المرضي', role: 'Strategic Member (Head of Educational Programs)', univ: 'عميد سابق - جامعة مانو', gp: 2500, verified: true },
+            'GA003': { id: 'GA-003', name: 'د. محمد مهدي مبوي', role: 'Strategic Member (FMRCS)', univ: '-', gp: 2500, verified: true },
+            'GA004': { id: 'GA-004', name: 'د. صفاء الحسن', role: 'Senior Academic Officer (Operational)', univ: 'جامعة أم درمان الإسلامية | OIU 2016', gp: 1200, verified: true },
+            'GA005': { id: 'GA-005', name: 'د. محمد يحيى فضل طاهر', role: 'Strategic Member (ECFMG, Neuro Resident)', univ: '-', gp: 2500, verified: true },
+            'GA006': { id: 'GA-006', name: 'د. محمد صبري', role: 'Strategic Member (SMC Rep)', univ: '-', gp: 2500, verified: true },
+            'GA010': { id: 'GA-010', name: 'البروفيسور عصام الخضر', role: 'Strategic Member', univ: 'جامعة الخرطوم', gp: 2500, verified: true },
+            'GA011': { id: 'GA-011', name: 'م. أمجد قرشي', role: 'Systems & GIS Operations Expert (Operational)', univ: 'Alzaiem Alazhari University (AAU 2017)', gp: 1500, verified: true },
+            'GA015': { id: 'GA-015', name: 'د. جبريل وليد', role: 'Strategic Member (IEND)', univ: 'IEND', gp: 2500, verified: true },
             'GA087': { id: 'GA-087', name: 'د. عزية عماد', role: 'طبيب سريري معتمد (BLS Certified)', univ: 'كليات الطب والمستشفيات السريرية', gp: 250, verified: true },
             'GA088': { id: 'GA-088', name: 'د. مهاد مصطفى', role: 'طبيب سريري معتمد (BLS Certified)', univ: 'كليات الطب والمستشفيات السريرية', gp: 250, verified: true },
             'GA089': { id: 'GA-089', name: 'د. موز ادم', role: 'طبيب سريري معتمد (BLS Certified)', univ: 'كليات الطب والمستشفيات السريرية', gp: 250, verified: true }

@@ -1,7 +1,10 @@
 /**
  * SUDAGENE S_OS — GLOMEt HQ CORE TELEMETRY AUDITING ENGINE
  * DATA INTERCHANGE FORMAT VALIDATOR & INGESTION NODE
+ * v2.0 — Independent Telemetry UI Layer appended below the lab engine.
  */
+
+// ─── SECTION 1: GLOMEt Laboratory Equipment Telemetry Engine ─────────────────
 
 export const GLOMEtTelemetryEngine = {
     // Verified Registry Parameters
@@ -49,18 +52,16 @@ export const GLOMEtTelemetryEngine = {
                 console.error("DATA POINT MISSING: Quantitative Hematological Calibration Metrics.");
                 return { status: "REJECTED", error: "INCOMPLETE_HEMATOLOGY_DATA" };
             }
-            // Enforce unified microfluidic layout notation (Strict unit spacing rules)
             structuredResult.metrics.whiteBloodCellCount = `${parseFloat(sampleData.wbcCount).toFixed(2)} x10^9/L`;
-            structuredResult.metrics.redBloodCellCount = `${parseFloat(sampleData.rbcCount).toFixed(2)} x10^12/L`;
-        } 
-        
+            structuredResult.metrics.redBloodCellCount   = `${parseFloat(sampleData.rbcCount).toFixed(2)} x10^12/L`;
+        }
+
         else if (sampleData.hardwareSku === "GLM-CC-REF-450") {
             let currentTemp = parseFloat(sampleData.internalTemperature);
             if (isNaN(currentTemp)) {
                 console.error("DATA POINT MISSING: Accurate Internal Thermal Reading Constant.");
                 return { status: "REJECTED", error: "INVALID_TEMPERATURE_VALUE" };
             }
-            // Continuous cold-chain auditing: Verification check against biological standard bounds
             if (currentTemp < 2.0 || currentTemp > 8.0) {
                 structuredResult.coldChainWarning = "CRITICAL COLD CHAIN BREAK DETECTED: Out of enzyme stabilization bounds.";
             }
@@ -77,4 +78,108 @@ export const GLOMEtTelemetryEngine = {
 
 if (typeof window !== "undefined") {
     window.GLOMEtTelemetryEngine = GLOMEtTelemetryEngine;
+}
+
+
+// ─── SECTION 2: Independent Telemetry UI Renderer (5-Pillar Dashboard) ─────────
+//
+// Called after geneApi.js / Code.gs returns a verified member record.
+// Maps SSOT columns directly to the 5 institutional identity pillars.
+//
+// Column mapping (mirrors Code.gs registry schema):
+//   gaId           → Col 1  GA_ID
+//   careerStage    → Col 6  CAREER_STAGE
+//   certification  → Col 16 CERT
+//   sudaPassHash   → Col 8  SUDAPASS_HASH
+//   status         → Col 4  STATUS
+//   modulesCompleted → MTC diagnostic log aggregation
+//   gpPoints       → Student Tracker GP column
+// ─────────────────────────────────────────────────────────────────────────────
+
+/**
+ * Renders the 5-pillar Independent Telemetry Dashboard.
+ * Fails silently per pillar — a missing data field never crashes the page.
+ *
+ * @param {Object} userData - Normalised member payload from geneApi.js
+ * @param {string}  userData.gaId
+ * @param {string}  userData.careerStage
+ * @param {string}  [userData.certification]
+ * @param {number}  [userData.modulesCompleted]
+ * @param {string}  [userData.sudaPassHash]
+ * @param {string}  [userData.status]          — "ACTIVE" | "PROVISIONAL" | "SUSPENDED"
+ * @param {number}  [userData.gpPoints]
+ */
+function renderIndependentTelemetry(userData) {
+    if (!userData) {
+        console.error("[GLOMEt] renderIndependentTelemetry called with null payload.");
+        return;
+    }
+
+    // ── Pillar 1: Identity (GA-ID + Career Stage) ──────────────────────────
+    const identityEl = document.getElementById('data-identity');
+    if (identityEl) {
+        const stage = userData.careerStage ? ` \u2022 ${userData.careerStage}` : '';
+        identityEl.textContent = userData.gaId
+            ? `${userData.gaId}${stage}`
+            : 'Unregistered';
+        identityEl.style.color = userData.gaId ? '#0284C7' : '#94A3B8';
+    }
+
+    // ── Pillar 2: Training (Certification record from Col 16) ───────────────
+    const trainingEl = document.getElementById('data-training');
+    if (trainingEl) {
+        trainingEl.textContent = userData.certification
+            ? userData.certification
+            : 'In Progress';
+        trainingEl.style.color = userData.certification ? '#0F172A' : '#94A3B8';
+    }
+
+    // ── Pillar 3: Skills (MTC diagnostic log aggregation) ──────────────────
+    const skillsEl = document.getElementById('data-skills');
+    if (skillsEl) {
+        if (userData.modulesCompleted !== undefined && userData.modulesCompleted !== null) {
+            skillsEl.textContent = `${userData.modulesCompleted} Clinical Case${userData.modulesCompleted !== 1 ? 's' : ''} Solved`;
+            skillsEl.style.color = '#0F172A';
+        } else {
+            skillsEl.textContent = 'No Cases Logged';
+            skillsEl.style.color = '#94A3B8';
+        }
+    }
+
+    // ── Pillar 4: Evidence (SudaPass SHA-256 gate) ─────────────────────────
+    const evidenceEl = document.getElementById('data-evidence');
+    if (evidenceEl) {
+        const isVerified = userData.sudaPassHash && userData.status === 'ACTIVE';
+        if (isVerified) {
+            evidenceEl.innerHTML = '<span class="telemetry-verified">SudaPass Verified</span>';
+        } else if (userData.status === 'PROVISIONAL') {
+            evidenceEl.innerHTML = '<span class="telemetry-pending">Pending KYC</span>';
+        } else {
+            evidenceEl.innerHTML = '<span class="telemetry-pending">Pending KYC</span>';
+        }
+    }
+
+    // ── Pillar 5: Progress (Gene Points from Student Tracker) ──────────────
+    const progressEl = document.getElementById('data-progress');
+    if (progressEl) {
+        if (userData.gpPoints !== undefined && userData.gpPoints !== null) {
+            const formatted = Number(userData.gpPoints).toLocaleString('en-US');
+            progressEl.textContent = `${formatted} GP`;
+            progressEl.style.color = userData.gpPoints >= 500 ? '#059669' : '#0F172A';
+        } else {
+            progressEl.textContent = '0 GP';
+            progressEl.style.color = '#94A3B8';
+        }
+    }
+
+    // ── Highlight the active card border when data is present ──────────────
+    ['identity', 'training', 'skills', 'evidence', 'progress'].forEach(pillar => {
+        const card = document.getElementById(`card-${pillar}`);
+        if (card) card.classList.add('telemetry-card--loaded');
+    });
+}
+
+// Expose globally for inline script usage in verify.html and dashboard.html
+if (typeof window !== "undefined") {
+    window.renderIndependentTelemetry = renderIndependentTelemetry;
 }

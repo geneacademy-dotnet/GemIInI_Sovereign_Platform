@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Gene Academy &amp; SudaGene Research Centre | Independent Medical Ecosystem</title>
+  <meta name="description" content="Learn about Gene Academy and SudaGene Research Centre (SGRC) — our story, mission, five areas of work, leadership roster, verified milestones, and SudaPass™ verification.">
+
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-H1Q67PP2DJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-H1Q67PP2DJ', { 'anonymize_ip': true });
+  </script>
+
+  <!-- Canonical Design Tokens & Fonts -->
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              navy: '#123B5D',
+              teal: '#168C8C',
+              gold: '#C9A227',
+              bg: '#F7FAFC',
+              card: '#FFFFFF',
+              dark: '#1F2937',
+              muted: '#64748B',
+              emerald: '#16805B'
+            }
+          },
+          fontFamily: {
+            heading: ['Montserrat', 'Tajawal', 'sans-serif'],
+            body: ['Inter', 'Cairo', 'sans-serif'],
+            mono: ['"IBM Plex Mono"', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-[#F7FAFC] text-[#1F2937] font-body antialiased selection:bg-teal-100 selection:text-teal-900">
+
+  <!-- TOP UTILITY BAR -->
+  <div class="bg-[#123B5D] text-slate-200 text-xs py-2 px-4 border-b border-slate-700 font-mono">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-2 hidden md:flex">
+        <span class="w-2 h-2 rounded-full bg-[#16805B]"></span>
+        <span>GENE ACADEMY &bull; Independent MEDICAL ECOSYSTEM</span>
+      </div>
+      <div class="flex items-center gap-4 ml-auto">
+        <div class="flex items-center gap-1 font-bold">
+          <span class="text-white">English</span>
+          <span class="text-slate-500">/</span>
+          <a href="index_ar.html" class="text-slate-300 hover:text-white transition font-sans">العربية</a>
+        </div>
+        <span class="text-slate-500 hidden sm:inline">|</span>
+        <a href="auth.html" class="text-slate-300 hover:text-white font-bold transition flex items-center gap-1">
+          Member Sign In <span aria-hidden="true">&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN HEADER & NAVIGATION -->
+  <header class="bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="index.html" class="flex items-center gap-3 shrink-0 group">
+        <div class="w-11 h-11 rounded-xl bg-[#123B5D] text-white font-black flex items-center justify-center font-mono text-base shadow-sm group-hover:bg-[#168C8C] transition-colors">
+          GA
+        </div>
+        <div>
+          <span class="text-xl font-bold font-heading text-[#123B5D] tracking-tight block">Gene Academy</span>
+          <span class="text-[10px] font-mono text-[#64748B] block tracking-wider uppercase">MEDICAL &amp; GENOMIC CONSORTIUM</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden lg:flex items-center gap-6 text-sm font-semibold text-[#1F2937]" id="desktop-nav">
+        
+        <!-- Programs Dropdown -->
+        <div class="relative group">
+          <button class="hover:text-[#168C8C] transition pb-1 flex items-center gap-1">
+            Programs
+            <svg class="w-4 h-4 text-slate-400 group-hover:text-[#168C8C] transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div class="absolute left-0 top-full pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-64 z-50">
+            <div class="bg-white border border-slate-200 rounded-xl shadow-xl overflow-hidden flex flex-col py-2">
+              <a href="courses.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Clinical Training</a>
+              <a href="smc.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">SMC Preparation</a>
+              <a href="molecular.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Molecular Medicine</a>
+              <a href="research.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Research Training</a>
+              <a href="stem.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Junior STEM</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Professional Identity Dropdown -->
+        <div class="relative group">
+          <button class="hover:text-[#168C8C] transition pb-1 flex items-center gap-1">
+            Professional Identity
+            <svg class="w-4 h-4 text-slate-400 group-hover:text-[#168C8C] transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div class="absolute left-0 top-full pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-64 z-50">
+            <div class="bg-white border border-slate-200 rounded-xl shadow-xl overflow-hidden flex flex-col py-2">
+              <a href="identity.html#how-it-works" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">How It Works</a>
+              <a href="identity.html#training-records" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Training Records</a>
+              <a href="verify.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Verification</a>
+              <a href="identity.html#progress" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Member Progress</a>
+              <a href="identity.html#employer" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Employer & Institutional Use</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Research Dropdown -->
+        <div class="relative group">
+          <button class="hover:text-[#168C8C] transition pb-1 flex items-center gap-1">
+            Research
+            <svg class="w-4 h-4 text-slate-400 group-hover:text-[#168C8C] transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div class="absolute left-0 top-full pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-64 z-50">
+            <div class="bg-white border border-slate-200 rounded-xl shadow-xl overflow-hidden flex flex-col py-2">
+              <a href="journal.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Reach Journal</a>
+              <a href="index.html#services" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">GLOMEt</a>
+              <a href="research.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">SudaGene Research Centre</a>
+              <div class="border-t border-slate-100 my-1"></div>
+              <a href="ideas.html" class="px-4 py-2 hover:bg-slate-50 font-bold text-[#123B5D] hover:text-[#168C8C] transition">Submit a Research Idea</a>
+            </div>
+          </div>
+        </div>
+
+        <a href="universities.html" class="hover:text-[#168C8C] transition pb-1">Universities</a>
+
+        <!-- Institutions Dropdown -->
+        <div class="relative group">
+          <button class="hover:text-[#168C8C] transition pb-1 flex items-center gap-1">
+            Institutions
+            <svg class="w-4 h-4 text-slate-400 group-hover:text-[#168C8C] transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div class="absolute left-0 top-full pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-72 z-50">
+            <div class="bg-white border border-slate-200 rounded-xl shadow-xl overflow-hidden flex flex-col py-2">
+              <a href="academic-solutions.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Academic Solutions</a>
+              <a href="partnerships.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Training Partnerships</a>
+              <a href="academic-solutions.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Curriculum Support</a>
+              <div class="border-t border-slate-100 my-1"></div>
+              <a href="institutions.html" class="px-4 py-2 hover:bg-slate-50 font-bold text-[#123B5D] hover:text-[#168C8C] transition">Request a Partnership Briefing</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <!-- CTA & Mobile Menu Button -->
+      <div class="flex items-center gap-4 shrink-0">
+        <a href="join.html" class="hidden sm:inline-flex px-5 py-2.5 rounded-xl bg-[#123B5D] hover:bg-[#0E2E49] text-white font-heading font-semibold text-xs sm:text-sm shadow-md transition-all">
+          Join Our Network
+        </a>
+        
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobile-menu-toggle" class="lg:hidden p-2 text-slate-600 hover:text-[#123B5D] transition">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Navigation Overlay (Hidden by default) -->
+    <div id="mobile-nav" class="hidden lg:hidden bg-white border-t border-slate-200 shadow-xl absolute top-full left-0 w-full z-40 max-h-[80vh] overflow-y-auto">
+      <div class="flex flex-col p-4 space-y-4 font-bold text-[#123B5D]">
+        <a href="courses.html" class="block pb-2 border-b border-slate-100 text-[#168C8C]">Programs &rarr;</a>
+        <a href="verify.html" class="block pb-2 border-b border-slate-100 text-[#168C8C]">Professional Identity &rarr;</a>
+        <a href="research.html" class="block pb-2 border-b border-slate-100 text-[#168C8C]">Research &rarr;</a>
+        <a href="universities.html" class="block pb-2 border-b border-slate-100">Universities</a>
+        <a href="institutions.html" class="block pb-2 border-b border-slate-100 text-[#168C8C]">Institutions &rarr;</a>
+        <a href="join.html" class="block text-center mt-4 px-5 py-3 rounded-xl bg-[#123B5D] text-white font-heading font-semibold text-sm shadow-md">
+          Join Our Network
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="space-y-20 py-12">
+
+    <!-- 1. INTRO & OUR STORY -->
+    <section class="max-w-5xl mx-auto px-4 sm:px-6 space-y-6">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-[#123B5D] font-mono text-xs font-bold uppercase">
+        <span class="w-2 h-2 rounded-full bg-[#168C8C]"></span>
+        SECTION 01 &bull; ABOUT US
+      </div>
+
+      <h1 class="text-3xl sm:text-5xl font-bold font-heading text-[#123B5D] tracking-tight leading-tight">
+        Building a stronger future for medical education, clinical practice, and genomic research
+      </h1>
+
+      <div class="academic-card p-8 bg-white border-l-4 border-l-[#123B5D] space-y-4">
+        <p class="text-base sm:text-lg text-[#1F2937] leading-relaxed">
+          <strong>GeneAcademy™</strong> and the <strong>SudaGene Research Centre (SGRC)</strong> were established as an integrated medical and academic ecosystem. Together, they connect clinical education, practical simulation, professional examination preparation, genomic research, digital credential verification, and institutional support.
+        </p>
+        <p class="text-sm sm:text-base text-[#64748B] leading-relaxed">
+          Our purpose is to help healthcare professionals and learners move from knowledge to confident practice while giving universities, hospitals, and research teams access to structured academic and clinical solutions.
+        </p>
+        <p class="text-sm sm:text-base text-[#64748B] leading-relaxed">
+          We believe that modern healthcare education must be practical, evidence-informed, measurable, and connected to real professional opportunities. That belief guides every program, research initiative, credential, and partnership we develop.
+        </p>
+      </div>
+
+      <div class="pt-8">
+        <h2 class="text-2xl font-bold font-heading text-[#123B5D] mb-4">Our Story</h2>
+        <div class="space-y-4 text-[#64748B] leading-relaxed">
+          <p>
+            GeneAcademy™ was created to address a clear need: medical learners and healthcare professionals require more than theoretical instruction. They need opportunities to practise clinical skills, prepare systematically for professional examinations, document their achievements, and continue developing throughout their careers.
+          </p>
+          <p>
+            SGRC extends this mission into molecular medicine, genetics, oncology, bioinformatics, and research training. The two organizations work together to create a connected pathway from learning and simulation to research, professional identity, and institutional impact.
+          </p>
+          <p>
+            From clinical skills workshops and licensing-exam preparation to genomic analysis and academic program support, our work is designed to make professional development more organized, verifiable, and relevant to the realities of modern healthcare.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. MISSION, VISION & PRINCIPLES -->
+    <section class="max-w-5xl mx-auto px-4 sm:px-6 space-y-8">
+      <div class="text-center max-w-3xl mx-auto space-y-2">
+        <span class="text-xs font-mono font-bold text-[#168C8C] uppercase tracking-wider">PURPOSE &amp; GOVERNANCE</span>
+        <h2 class="text-2xl sm:text-4xl font-bold font-heading text-[#123B5D]">Mission &amp; Vision</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="academic-card p-8 bg-white space-y-4">
+          <div class="w-12 h-12 rounded-xl bg-blue-50 text-[#123B5D] flex items-center justify-center font-bold text-xl">🎯</div>
+          <h3 class="text-xl font-bold font-heading text-[#123B5D]">Our Mission</h3>
+          <p class="text-sm text-[#64748B] leading-relaxed">
+            To strengthen medical education and healthcare capacity through practical clinical training, high-quality academic preparation, genomic research, trusted credentialing, and sustainable institutional partnerships.
+          </p>
+        </div>
+
+        <div class="academic-card p-8 bg-white space-y-4">
+          <div class="w-12 h-12 rounded-xl bg-teal-50 text-[#168C8C] flex items-center justify-center font-bold text-xl">🔭</div>
+          <h3 class="text-xl font-bold font-heading text-[#123B5D]">Our Vision</h3>
+          <p class="text-sm text-[#64748B] leading-relaxed">
+            To become a trusted medical and academic ecosystem connecting healthcare professionals, researchers, universities, hospitals, and learners across Sudan and internationally.
+          </p>
+        </div>
+      </div>
+
+      <div class="pt-12">
+        <div class="text-center max-w-3xl mx-auto space-y-2 mb-8">
+          <h2 class="text-2xl sm:text-3xl font-bold font-heading text-[#123B5D]">What We Stand For</h2>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="academic-card p-6 bg-white space-y-2">
+            <h4 class="font-bold font-heading text-[#123B5D]">Clinical competence</h4>
+            <p class="text-sm text-[#64748B] leading-relaxed">We focus on practical learning that helps professionals develop confidence, sound judgement, and safe clinical performance.</p>
+          </div>
+          <div class="academic-card p-6 bg-white space-y-2">
+            <h4 class="font-bold font-heading text-[#123B5D]">Academic integrity</h4>
+            <p class="text-sm text-[#64748B] leading-relaxed">Our programs and research activities are built around structured learning, responsible scholarship, transparent standards, and continuous improvement.</p>
+          </div>
+          <div class="academic-card p-6 bg-white space-y-2">
+            <h4 class="font-bold font-heading text-[#123B5D]">Verifiable achievement</h4>
+            <p class="text-sm text-[#64748B] leading-relaxed">Professional development should be documented in a way that is clear, durable, and easy to verify. Our digital credentialing approach is designed to support that principle.</p>
+          </div>
+          <div class="academic-card p-6 bg-white space-y-2">
+            <h4 class="font-bold font-heading text-[#123B5D]">Research and innovation</h4>
+            <p class="text-sm text-[#64748B] leading-relaxed">We support the development of research skills, genomic knowledge, and evidence-based innovation that can contribute to better healthcare decisions.</p>
+          </div>
+          <div class="academic-card p-6 bg-white space-y-2">
+            <h4 class="font-bold font-heading text-[#123B5D]">Institutional partnership</h4>
+            <p class="text-sm text-[#64748B] leading-relaxed">We work with universities, hospitals, laboratories, and healthcare organizations to strengthen programs, improve training systems, and support long-term capacity building.</p>
+          </div>
+          <div class="academic-card p-6 bg-white space-y-2">
+            <h4 class="font-bold font-heading text-[#123B5D]">Access and professional growth</h4>
+            <p class="text-sm text-[#64748B] leading-relaxed">We aim to make high-quality medical education, career development, and research opportunities more accessible to motivated learners and professionals.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. FIVE AREAS OF WORK -->
+    <section class="py-20 bg-slate-100 border-y border-slate-200">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        <div class="text-center max-w-3xl mx-auto space-y-3">
+          <span class="text-xs font-mono font-bold text-[#123B5D] uppercase tracking-wider">OPERATIONAL SCOPE</span>
+          <h2 class="text-2xl sm:text-4xl font-bold font-heading text-[#123B5D]">Our Five Areas of Work</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="academic-card p-6 bg-white space-y-3">
+            <span class="font-mono text-xs font-bold text-[#123B5D] bg-blue-50 px-2.5 py-1 rounded">AREA 01</span>
+            <h3 class="text-lg font-bold font-heading text-[#123B5D]">Clinical training and simulation</h3>
+            <p class="text-sm text-[#64748B] leading-relaxed">
+              We organize practical clinical workshops that help participants develop essential skills in a supervised learning environment. Our training portfolio includes resuscitation education, basic surgical skills, clinical simulation, and practical preparation for healthcare settings.
+            </p>
+            <p class="text-xs text-[#64748B] leading-relaxed pt-2 border-t border-slate-100">
+              Where applicable, programs are delivered with qualified instructors and partner organizations. Course accreditation, licensing, and delivery arrangements are stated clearly for each individual program.
+            </p>
+          </div>
+
+          <div class="academic-card p-6 bg-white space-y-3">
+            <span class="font-mono text-xs font-bold text-[#168C8C] bg-teal-50 px-2.5 py-1 rounded">AREA 02</span>
+            <h3 class="text-lg font-bold font-heading text-[#123B5D]">Medical licensing and fellowship preparation</h3>
+            <p class="text-sm text-[#64748B] leading-relaxed">
+              Our Medical Training and Cases platform, MTC™, supports structured preparation for professional examinations and international pathways. It uses clinical cases and a mechanism-to-clinic learning approach to help learners connect scientific reasoning with practical decision-making.
+            </p>
+            <p class="text-xs text-[#64748B] leading-relaxed pt-2 border-t border-slate-100">
+              The preparation areas may include the Sudan Medical Council pathway, MRCS-related preparation, USMLE-related study support, OET preparation, and other professional examinations. Program eligibility, curriculum scope, and examination relationships are specified on the relevant program page.
+            </p>
+          </div>
+
+          <div class="academic-card p-6 bg-white space-y-3">
+            <span class="font-mono text-xs font-bold text-[#C9A227] bg-amber-50 px-2.5 py-1 rounded">AREA 03</span>
+            <h3 class="text-lg font-bold font-heading text-[#123B5D]">Digital professional identity and verification</h3>
+            <p class="text-sm text-[#64748B] leading-relaxed">
+              SudaPass™ is our digital credential and professional identity concept. It is designed to support the documentation of training, professional achievements, continuing development, and relevant credentials through a structured digital record.
+            </p>
+            <p class="text-xs text-[#64748B] leading-relaxed pt-2 border-t border-slate-100">
+              The system is intended to make verification clearer for professionals, institutions, and authorized third parties. Each credential and verification process should be assessed according to the specific evidence and issuing authority associated with it.
+            </p>
+          </div>
+
+          <div class="academic-card p-6 bg-white space-y-3 md:col-span-2 lg:col-span-2">
+            <span class="font-mono text-xs font-bold text-[#16805B] bg-emerald-50 px-2.5 py-1 rounded">AREA 04</span>
+            <h3 class="text-lg font-bold font-heading text-[#123B5D]">University and hospital solutions</h3>
+            <p class="text-sm text-[#64748B] leading-relaxed">
+              We support universities, hospitals, laboratories, and healthcare organizations with academic and operational solutions. These may include curriculum recovery, examination organization, training coordination, digital systems, diagnostic equipment support, and professional development programs.
+            </p>
+            <p class="text-xs text-[#64748B] leading-relaxed pt-2 border-t border-slate-100">
+              Our institutional work begins with understanding the organization’s needs and then designing a practical, measurable response that fits its academic, clinical, and operational environment.
+            </p>
+          </div>
+
+          <div class="academic-card p-6 bg-white space-y-3">
+            <span class="font-mono text-xs font-bold text-purple-700 bg-purple-50 px-2.5 py-1 rounded">AREA 05</span>
+            <h3 class="text-lg font-bold font-heading text-[#123B5D]">Molecular medicine and genomic research</h3>
+            <p class="text-sm text-[#64748B] leading-relaxed">
+              Through SGRC, we support learning and research in molecular medicine, genetics, oncology, genomics, bioinformatics, and related disciplines.
+            </p>
+            <p class="text-xs text-[#64748B] leading-relaxed pt-2 border-t border-slate-100">
+              Our research-oriented activities may include molecular medicine education, research-group development, scientific writing, genomic data analysis, research supervision, and preparation for publication in peer-reviewed journals. All research outputs, affiliations, and publication claims are subject to appropriate academic and ethical review.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. LEADERSHIP ROSTER -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      <div class="text-center max-w-3xl mx-auto space-y-2">
+        <span class="text-xs font-mono font-bold text-[#123B5D] uppercase tracking-wider">CONSORTIUM GOVERNANCE</span>
+        <h2 class="text-2xl sm:text-4xl font-bold font-heading text-[#123B5D]">Leadership</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Dr. Mohamed Gibbril -->
+        <div class="academic-card p-6 bg-white space-y-3 border-t-2 border-t-[#123B5D]">
+          <h3 class="text-lg font-bold font-heading text-[#123B5D]">Dr Mohamed Ahmed Abdel Fattah Gibbril</h3>
+          <p class="text-xs font-bold text-[#64748B] uppercase tracking-wider">Founder and Chief Executive Officer</p>
+          <p class="text-sm text-[#1F2937] leading-relaxed pt-2 border-t border-slate-100">
+            Dr Mohamed Gibbril is a physician and molecular-medicine and bioinformatics researcher. He leads the development of GeneAcademy’s interactive clinical training model, the SudaPass™ credentialing concept, the molecular medicine diploma, and the research development framework.
+          </p>
+        </div>
+
+        <!-- Dr. Alaa Farah -->
+        <div class="academic-card p-6 bg-white space-y-3 border-t-2 border-t-[#C9A227]">
+          <h3 class="text-lg font-bold font-heading text-[#123B5D]">Dr Alaa Abdelhafiz Mursi Farah</h3>
+          <p class="text-xs font-bold text-[#64748B] uppercase tracking-wider">Co-Founder and Medical Director</p>
+          <p class="text-sm text-[#1F2937] leading-relaxed pt-2 border-t border-slate-100">
+            Dr Alaa Farah is a surgeon and medical educator who contributes to international fellowship pathways, surgical skills training, and professional preparation for doctors pursuing opportunities in the United Kingdom, Ireland, and other international settings.
+          </p>
+        </div>
+
+        <!-- Dr. Safaa Elhassan -->
+        <div class="academic-card p-6 bg-white space-y-3 border-t-2 border-t-[#168C8C]">
+          <h3 class="text-lg font-bold font-heading text-[#123B5D]">Dr Safaa Abdelgadir Al Hassan</h3>
+          <p class="text-xs font-bold text-[#64748B] uppercase tracking-wider">Academic Dean</p>
+          <p class="text-sm text-[#1F2937] leading-relaxed pt-2 border-t border-slate-100">
+            Dr Safaa Al Hassan oversees academic development, learning resources, and the review of selected examination-preparation materials, including pharmacology and Sudan Medical Council-related modules.
+          </p>
+        </div>
+
+        <!-- Dr. Mohamed Sabri -->
+        <div class="academic-card p-6 bg-white space-y-3 border-t-2 border-t-[#16805B]">
+          <h3 class="text-lg font-bold font-heading text-[#123B5D]">Dr Mohamed Sabri Mohamed Ahmed</h3>
+          <p class="text-xs font-bold text-[#64748B] uppercase tracking-wider">Director of Training and Simulation</p>
+          <p class="text-sm text-[#1F2937] leading-relaxed pt-2 border-t border-slate-100">
+            Dr Mohamed Sabri leads clinical simulation and practical training activities, including resuscitation education and supervised skills development.
+          </p>
+        </div>
+
+        <!-- Eng. Amjad Qureshi -->
+        <div class="academic-card p-6 bg-white space-y-3 border-t-2 border-t-slate-700 md:col-span-2 lg:col-span-2">
+          <h3 class="text-lg font-bold font-heading text-[#123B5D]">Eng. Amjad Qureshi Ahmed Mohamed</h3>
+          <p class="text-xs font-bold text-[#64748B] uppercase tracking-wider">Head of Operations and Systems</p>
+          <p class="text-sm text-[#1F2937] leading-relaxed pt-2 border-t border-slate-100">
+            Eng. Amjad Qureshi supports operational systems, digital-record infrastructure, data processes, and the central admissions function.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 5. EVIDENCE & VERIFIED MILESTONES -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      <div class="text-center max-w-3xl mx-auto space-y-2">
+        <span class="text-xs font-mono font-bold text-[#16805B] uppercase tracking-wider">INSTITUTIONAL RECORD</span>
+        <h2 class="text-2xl sm:text-4xl font-bold font-heading text-[#123B5D]">Documented Milestones</h2>
+        <p class="text-sm text-[#64748B]">Our supplied institutional record identifies the following milestones:</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-center font-mono">
+        <div class="academic-card p-6 bg-white space-y-2 border-t-2 border-t-[#123B5D] flex flex-col justify-center h-full">
+          <div class="text-3xl font-black text-[#123B5D]">55</div>
+          <div class="text-sm font-sans font-bold text-[#1F2937]">Listed &amp; registered medical colleges</div>
+        </div>
+
+        <div class="academic-card p-6 bg-white space-y-2 border-t-2 border-t-[#C9A227] flex flex-col justify-center h-full">
+          <div class="text-3xl font-black text-[#C9A227]">35</div>
+          <div class="text-sm font-sans font-bold text-[#1F2937]">Graduates in Basic Surgical Skills training</div>
+          <div class="text-xs text-[#64748B] font-sans">April 2025 cohort</div>
+        </div>
+
+        <div class="academic-card p-6 bg-white space-y-2 border-t-2 border-t-[#16805B] flex flex-col justify-center h-full">
+          <div class="text-3xl font-black text-[#16805B]">7</div>
+          <div class="text-sm font-sans font-bold text-[#1F2937]">Graduates in Basic Life Support training</div>
+          <div class="text-xs text-[#64748B] font-sans">April 2025 cohort</div>
+        </div>
+
+        <div class="academic-card p-6 bg-white space-y-2 border-t-2 border-t-[#168C8C] flex flex-col justify-center h-full">
+          <div class="text-3xl font-black text-[#168C8C]">3</div>
+          <div class="text-sm font-sans font-bold text-[#1F2937]">Molecular and immunology laboratory technicians</div>
+          <div class="text-xs text-[#64748B] font-sans">April 2025 cohort</div>
+        </div>
+      </div>
+
+      <div class="max-w-3xl mx-auto mt-6 text-center">
+        <p class="text-xs text-[#64748B] italic">
+          These figures should be reviewed and approved by the relevant program or institutional owner before publication. Current figures should be updated as new cohorts and partnerships are completed.
+        </p>
+      </div>
+    </section>
+
+    <!-- 6. OUR COMMITMENT & CALL TO ACTION -->
+    <section id="contact" class="py-16 bg-[#123B5D] text-white text-center">
+      <div class="max-w-4xl mx-auto px-4 space-y-8">
+        <div class="space-y-4">
+          <span class="badge-verified bg-white/10 text-white border-none">Our Commitment</span>
+          <p class="text-base sm:text-lg text-slate-200 leading-relaxed max-w-3xl mx-auto">
+            GeneAcademy™ and SGRC are committed to building a professional environment where learning leads to action, training leads to competence, and achievement can be documented responsibly.
+          </p>
+          <p class="text-sm text-slate-300 leading-relaxed max-w-2xl mx-auto">
+            We will continue developing practical education, research opportunities, professional verification, and institutional partnerships that help healthcare professionals and organizations prepare for the future of medicine.
+          </p>
+        </div>
+
+        <div class="pt-8 border-t border-[#1a5180] space-y-6">
+          <h2 class="text-2xl sm:text-3xl font-bold font-heading">Start Your Journey</h2>
+          <p class="text-sm text-slate-300 max-w-xl mx-auto">
+            Whether you are preparing for a professional examination, developing clinical skills, exploring genomic research, seeking institutional support, or building a verifiable professional record, GeneAcademy™ can help you identify the next step.
+          </p>
+          <div class="flex flex-wrap justify-center gap-4 pt-2">
+            <a href="courses.html" class="px-7 py-3.5 rounded-xl bg-[#168C8C] hover:bg-[#127272] text-white font-heading font-bold text-sm shadow transition">
+              Explore our programs
+            </a>
+            <a href="institutions.html" class="px-7 py-3.5 rounded-xl bg-white hover:bg-slate-100 text-[#123B5D] font-heading font-bold text-sm shadow transition">
+              Speak with our team
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+<footer class="bg-[#0B1E2E] text-slate-400 py-16 text-xs border-t border-slate-800">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      
+      <!-- Column 1: Brand & Bio -->
+      <div class="space-y-4">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-lg bg-[#123B5D] text-white font-mono font-bold flex items-center justify-center text-sm border border-slate-700">
+            GA
+          </div>
+          <span class="text-base font-bold font-heading text-white">Gene Academy</span>
+        </div>
+        <p class="text-slate-400 leading-relaxed max-w-sm">
+          A Independent medical and academic consortium delivering continuous clinical education, and verifiable academic credentialing.
+        </p>
+      </div>
+
+      <!-- Column 2: Explore -->
+      <div class="space-y-3">
+        <div class="font-bold text-white font-heading uppercase text-xs tracking-wider">Explore</div>
+        <ul class="space-y-2">
+          <li><a href="about.html" class="hover:text-white transition">About</a></li>
+          <li><a href="courses.html" class="hover:text-white transition">Programs</a></li>
+          <li><a href="research.html" class="hover:text-white transition">Research</a></li>
+          <li><a href="faculty.html" class="hover:text-white transition">Faculty</a></li>
+          <li><a href="institutions.html" class="hover:text-white transition">Institutions</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Participate -->
+      <div class="space-y-3">
+        <div class="font-bold text-white font-heading uppercase text-xs tracking-wider">Participate</div>
+        <ul class="space-y-2">
+          <li><a href="join.html" class="text-teal-400 hover:text-white font-bold transition">Join Our Network</a></li>
+          <li><a href="courses.html" class="hover:text-white transition">Clinical Training</a></li>
+          <li><a href="stem.html" class="hover:text-white transition">Junior STEM</a></li>
+          <li><a href="ideas.html" class="hover:text-white transition">Submit a Research Idea</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 4: Trust & Support -->
+      <div class="space-y-3">
+        <div class="font-bold text-white font-heading uppercase text-xs tracking-wider">Trust and support</div>
+        <ul class="space-y-2">
+          <li><a href="verify.html" class="hover:text-white transition">Verify a Credential</a></li>
+          <li><a href="#contact" class="hover:text-white transition">Contact</a></li>
+          <li><a href="#" class="hover:text-white transition">Privacy Policy</a></li>
+          <li><a href="#" class="hover:text-white transition">Terms of Use</a></li>
+          <li><a href="#" class="hover:text-white transition">Safeguarding</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="border-t border-slate-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-slate-500">
+      <div>
+        &copy; 2026/2027 Gene Academy &bull; SudaGene Medical Consortium.
+      </div>
+      <div class="flex gap-4">
+        <span class="hidden sm:inline">Made with precision.</span>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+<!-- Minimal Script for Mobile Menu -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const mobileBtn = document.getElementById('mobile-menu-toggle');
+    const mobileNav = document.getElementById('mobile-nav');
+    if(mobileBtn && mobileNav) {
+      mobileBtn.addEventListener('click', () => {
+        mobileNav.classList.toggle('hidden');
+      });
+    }
+  });
+</script>
+</body>
+</html>

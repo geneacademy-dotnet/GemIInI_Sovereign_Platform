@@ -1,0 +1,85 @@
+{
+  "id": "SURG-201-SPRINT",
+  "title": "SMC National Surgery Mock Examination Sprint",
+  "title_ar": "الاختبار السريري الوطني - الجراحة العامة (SURG-201)",
+  "track": "General Surgery (SMC-201)",
+  "difficulty": "SMC Licensing Standard",
+  "total_questions_expected": 100,
+  "time_limit_minutes": 150,
+  "vignette": {
+    "en": "This is a comprehensive 100-question national mock examination sprint designed for SMC licensing preparation. Ensure you are in a quiet environment. The timer cannot be paused.",
+    "ar": "هذا اختبار وطني شامل يضم 100 سؤال مصمم للتحضير لامتحان رخصة المجلس الطبي (SMC). تأكد من تواجدك في بيئة هادئة. لا يمكن إيقاف المؤقت."
+  },
+  "steps": [
+    {
+      "stepNumber": 1,
+      "title": "Question 1",
+      "title_ar": "السؤال ١",
+      "question": {
+        "en": "A 45-year-old female presents with right upper quadrant pain radiating to the right scapula, fever, and leukocytosis. Ultrasound shows a thickened gallbladder wall with pericholecystic fluid. What is the definitive management?",
+        "ar": "مريضة تبلغ من العمر 45 عاماً تعاني من ألم في الربع العلوي الأيمن يمتد إلى لوح الكتف الأيمن، حمى، وزيادة في كريات الدم البيضاء. أظهرت الموجات فوق الصوتية جدار مرارة سميك مع سائل حول المرارة. ما هو التدخل النهائي الأمثل؟"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": { "en": "Intravenous antibiotics and observation", "ar": "مضادات حيوية وريدية والملاحظة" },
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": { "en": "Laparoscopic cholecystectomy within 72 hours", "ar": "استئصال المرارة بالمنظار خلال 72 ساعة" },
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": { "en": "Percutaneous cholecystostomy tube placement", "ar": "وضع أنبوب فغر المرارة عبر الجلد" },
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": { "en": "Endoscopic retrograde cholangiopancreatography (ERCP)", "ar": "تصوير البنكرياس والقنوات الصفراوية بالمنظار (ERCP)" },
+          "correct": false
+        }
+      ],
+      "explanation": {
+        "en": "The presentation is classic for acute cholecystitis. Early laparoscopic cholecystectomy (within 72 hours of symptom onset) is the gold standard treatment to prevent complications like gangrene or perforation.",
+        "ar": "الأعراض كلاسيكية لالتهاب المرارة الحاد. التدخل الذهبي هو استئصال المرارة المبكر بالمنظار (خلال 72 ساعة من بداية الأعراض) لمنع المضاعفات كالغرغرينا أو الانثقاب."
+      }
+    },
+    {
+      "stepNumber": 2,
+      "title": "Question 2",
+      "title_ar": "السؤال ٢",
+      "question": {
+        "en": "Which of the following is the most common cause of large bowel obstruction in adults?",
+        "ar": "ما هو السبب الأكثر شيوعاً لانسداد الأمعاء الغليظة لدى البالغين؟"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": { "en": "Adhesions", "ar": "الالتصاقات" },
+          "correct": false
+        },
+        {
+          "id": "B",
+          "text": { "en": "Colorectal carcinoma", "ar": "سرطان القولون والمستقيم" },
+          "correct": true
+        },
+        {
+          "id": "C",
+          "text": { "en": "Volvulus", "ar": "الانفتال المعوي" },
+          "correct": false
+        },
+        {
+          "id": "D",
+          "text": { "en": "Diverticulitis", "ar": "التهاب الرتوج" },
+          "correct": false
+        }
+      ],
+      "explanation": {
+        "en": "Colorectal carcinoma is the most common cause of large bowel obstruction in adults. Adhesions are the most common cause of small bowel obstruction.",
+        "ar": "سرطان القولون والمستقيم هو السبب الأكثر شيوعاً لانسداد الأمعاء الغليظة. بينما تعتبر الالتصاقات السبب الأشهر لانسداد الأمعاء الدقيقة."
+      }
+    }
+  ]
+}

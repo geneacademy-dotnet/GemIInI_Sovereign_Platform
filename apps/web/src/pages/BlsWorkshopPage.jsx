@@ -86,13 +86,13 @@ export default function BlsWorkshopPage() {
     const text = encodeURIComponent(
       `Hello GemIInI Team! 👋\n\nI have reserved my seat for the Cairo BLS Workshop (Aug 28):\n• Name: Dr. ${name}${coffeeText}\n• Phone: ${form.phone}\n• ${tx}\n\nPlease confirm my seat registration.`
     );
-    return `https://wa.me/201015922628?text=${text}`;
+    return `https://wa.me/2+20 101 592 2628?text=${text}`;
   };
 
   return (
     <Layout>
       <Helmet>
-        <title>{isRtl ? 'ورشة الإنعاش القلبي والرئوي المتقدمة (BLS) | القاهرة | أكاديمية جيميني' : 'Advanced BLS Clinical Resuscitation Workshop | Cairo Dokki'}</title>
+        <title>{isRtl ? 'البرنامج التدريبي المتقدم للإنعاش القلبي الرئوي الأساسي (AHA BLS Provider) والرئوي المتقدمة (BLS) | القاهرة | أكاديمية جيميني' : 'Advanced BLS Clinical Resuscitation Workshop | Cairo Dokki'}</title>
       </Helmet>
 
       <div className="bg-[#04080F] text-slate-100 min-h-screen py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden" dir={isRtl ? 'rtl' : 'ltr'}>
@@ -137,7 +137,7 @@ export default function BlsWorkshopPage() {
                   </h3>
                   <p className="text-sm text-slate-300 max-w-md mx-auto leading-relaxed">
                     {isRtl
-                      ? 'تم حجز مقعدك المبدئي في ورشة القاهرة (٢٨ أغسطس). لتأكيد المقعد فوراً، يرجى مشاركة إشعار التحويل عبر الواتساب مع فريق التنسيق:'
+                      ? 'تم تثبيت التسجيل السريريك المبدئي في ورشة القاهرة (٢٨ أغسطس). لتأكيد المقعد فوراً، يرجى مشاركة إشعار التحويل عبر الواتساب مع فريق التنسيق:'
                       : 'Your provisional seat in the Cairo Dokki Workshop (Aug 28) is securely logged. To confirm immediately, share your payment receipt with our coordination desk:'}
                   </p>
                 </div>
