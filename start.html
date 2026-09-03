@@ -419,13 +419,18 @@
     function renderStep4() {
       const t = tracks[selectedTrack];
       if (!t) return;
-      document.getElementById('step4Title').textContent = 'ØªÙØ¹ÙŠÙ„ Ù…Ø³Ø§Ø±: ' + t.name;
+      document.getElementById('step4Title').textContent = 'تفعيل المسار: ' + t.name;
       const content = document.getElementById('step4Content');
 
       let html = `
-        <div class="p-4 rounded-xl bg-emerald-950/60 border border-emerald-800 text-emerald-200 text-xs space-y-1">
-          <div class="font-bold text-emerald-400 text-sm">âœ… ØªÙ… ØªØ­Ø¯ÙŠØ¯ Ø§Ù„Ù…Ø³Ø§Ø± Ø¨Ù†Ø¬Ø§Ø­</div>
+        <div class="p-4 rounded-xl bg-emerald-950/60 border border-emerald-800 text-emerald-200 text-xs space-y-2">
+          <div class="font-bold text-emerald-400 text-sm">✓ تم تحديد المسار وتأكيد التقييم بنجاح</div>
           <p class="leading-relaxed">${t.free}</p>
+          <div class="pt-2">
+            <a href="https://members.geneacademy.net" target="_blank" class="inline-block px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs transition">
+              الانتقال إلى بوابة الأعضاء (members.geneacademy.net) وتفعيل نقاط GP ➔
+            </a>
+          </div>
         </div>
       `;
 
