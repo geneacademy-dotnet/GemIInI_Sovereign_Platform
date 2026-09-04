@@ -1175,26 +1175,39 @@ function handleUniversityStats(params, ss) {
   }
 
   const facultyMap = {};
-  let totalRegistered = 0;
+/**
+ * Known placeholder/fallback strings that must NEVER count as a real institution.
+ * Sourced directly from confirmed defaults in Code.gs and confirmed placeholder
+ * text found in the live MASTER_AUTH data (the 1,924-row generic-university issue).
+ */
+const PLACEHOLDER_UNIVERSITY_VALUES = new Set([
+  '',
+  'unspecified medical faculty',
+  'candidate institution',
+  'not specified',
+  'sudanese medical faculty / institution',
+  'كليات الطب والمستشفيات السريرية',
+  'other canonical sudanese faculty'  // "Other" selection, not a real named institution
+]);
+
+function isRealInstitutionName(raw) {
+  const normalized = String(raw || '').trim().toLowerCase();
+  if (!normalized) return false;
+  if (PLACEHOLDER_UNIVERSITY_VALUES.has(normalized)) return false;
+  return true;
+}
+
+function handleUnivStats(ss) {
+  const authData = getOrCreateSheet(ss, CONFIG.SHEET_AUTH).getDataRange().getValues();
+
   let totalVerified = 0;
+  const institutionMap = {}; // normalized name -> { displayName, memberCount }
 
   for (let i = 1; i < authData.length; i++) {
-    const gaId = String(authData[i][0] || '').trim().toUpperCase();
+    const status = String(authData[i][8] || '').toUpperCase();
+    if (['ACTIVE', 'VERIFIED', 'ACCREDITED'].includes(status)) totalVerified++;
+
     const rawUniv = String(authData[i][4] || '').trim();
-    const status = String(authData[i][8] || '').trim().toUpperCase();
-    if (!rawUniv || rawUniv.includes('BYE')) continue;
-
-    totalRegistered++;
-    const isVerified = ['VERIFIED', 'ACCREDITED'].includes(status);
-    if (isVerified) totalVerified++;
-
-    if (!facultyMap[rawUniv]) {
-      facultyMap[rawUniv] = { name: rawUniv, registeredCount: 0, verifiedCount: 0, scores: [] };
-    }
-    facultyMap[rawUniv].registeredCount++;
-    if (isVerified) facultyMap[rawUniv].verifiedCount++;
-
-    if (examMap[gaId]) {
       facultyMap[rawUniv].scores.push(...examMap[gaId]);
     }
   }

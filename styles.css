@@ -2,13 +2,13 @@
    GENEACADEMY CANONICAL DESIGN SYSTEM (CONSISTENT CLINICAL-ACADEMIC)
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Tajawal:wght@500;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
 :root {
   /* Color Palette */
   --navy-deep: #0B1426;         /* Primary brand: headers, headings, primary buttons */
   --blue-clinical: #0284C7;     /* Clinical focus, primary highlights */
-  --teal-digital: #0D9488;      /* Digital & genomic accents (used sparingly) */
+  --teal-digital: #0D9488;      /* Digital & genomic accents */
   --gold-academic: #B48028;     /* Academic excellence, certificates */
   --emerald-verified: #059669;  /* Verified, completed, successful states */
   --bg-clinical: #F8FAFC;       /* Soft clinical white */
@@ -17,10 +17,10 @@
   --text-muted: #64748B;        /* Slate 500: secondary text */
   --border-subtle: #E2E8F0;     /* Slate 200: subtle borders */
   
-  /* Typography Families */
-  --font-en-heading: 'Plus Jakarta Sans', 'Montserrat', system-ui, sans-serif;
+  /* Typography Families - Strict English Prioritization */
+  --font-en-heading: 'Plus Jakarta Sans', 'Outfit', system-ui, -apple-system, sans-serif;
   --font-en-body: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-ar-heading: 'Cairo', 'Tajawal', system-ui, sans-serif;
+  --font-ar-heading: 'Cairo', system-ui, sans-serif;
   --font-ar-body: 'Cairo', system-ui, sans-serif;
   --font-mono: 'IBM Plex Mono', monospace;
 }
@@ -142,4 +142,45 @@ h1, h2, h3, h4, h5, h6 {
 .btn-clinical:hover {
   background-color: #0369A1;
   box-shadow: 0 4px 12px rgba(2, 132, 199, 0.2);
+}
+
+/* Container & Grid Alignment System */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+.container-aligned {
+  width: 100%;
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container-aligned {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-aligned {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Equal Height Flex Grid Cards */
+.grid-aligned-cards {
+  display: grid;
+  align-items: stretch;
+}
+
+.grid-aligned-cards > * {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 
@@ -14,6 +14,11 @@ _iub.csConfiguration = {"siteId":4659147,"cookiePolicyId":32190221,"lang":"en","
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <title>MolecularGemIInI Research Masterclass (MM 1.0 - 8.0) | Multi-Omics & PCR</title>
  <link rel="stylesheet" href="css/styles.css">
+  <!-- Canonical Design Tokens & Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -59,19 +64,19 @@ _iub.csConfiguration = {"siteId":4659147,"cookiePolicyId":32190221,"lang":"en","
  <div class="sso-info">
  <h4>
  <span id="sso-doctor-name">Dr. Authenticated Member</span>
- <span style="color: #85e0a3; font-size: 14.5px;">â€” Verified</span>
+ <span style="color: #85e0a3; font-size: 14.5px;">— Verified</span>
  </h4>
  <p>
- ID: <strong id="sso-doctor-id" style="color: #00E5FF;">GA-0000</strong> â€¢ 
- Wallet: <strong id="sso-doctor-gp" style="color: #F59E0B;">500 GP</strong> â€¢ 
+ ID: <strong id="sso-doctor-id" style="color: #00E5FF;">GA-0000</strong> • 
+ Wallet: <strong id="sso-doctor-gp" style="color: #F59E0B;">500 GP</strong> • 
  <span id="sso-doctor-univ">University</span>
  </p>
  </div>
  </div>
  <div class="sso-actions">
- <button type="button" onclick="logoutGemIInISession()" style="background:none; border:none; color: #94A3B8; font-size: 14.5px; cursor:pointer; text-decoration:underline;">ØªØ¨Ø¯ÙŠÙ„ Ø§Ù„Ø­Ø³Ø§Ø¨ (Switch)</button>
+ <button type="button" onclick="logoutGemIInISession()" style="background:none; border:none; color: #94A3B8; font-size: 14.5px; cursor:pointer; text-decoration:underline;">تبديل الحساب (Switch)</button>
  <a href="https://members.geneacademy.net" id="sso-teleport-link" target="_blank" class="btn-teleport">
- Ø¯Ø®ÙˆÙ„ Ù„ÙˆØ­Ø© Ø§Ù„ØªØ­ÙƒÙ… (members.geneacademy.net) â†’
+ دخول لوحة التحكم (members.geneacademy.net) →
  </a>
  </div>
  </div>
@@ -79,12 +84,12 @@ _iub.csConfiguration = {"siteId":4659147,"cookiePolicyId":32190221,"lang":"en","
  <!-- UNAUTHENTICATED STATE -->
  <div id="sso-unauth-view" style="display: flex; width: 100%; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
  <div>
- <span style="font-family: var(--font-mono, monospace); font-size: 14.5px; color: #F59E0B; text-transform: uppercase; font-weight: 700;">Ø¨ÙˆØ§Ø¨Ø© Ø§Ù„Ø¹Ø¨ÙˆØ± Ø§Ù„Ø³ÙŠØ§Ø¯ÙŠØ© (Independent SSO Gateway):</span>
- <p style="font-size: 13px; color: #E2E8F0; margin: 2px 0 0;">Ù‡Ù„ ØªÙ…ØªÙ„Ùƒ Ø±Ù‚Ù… Ù…Ø¹Ø±Ù Ø³ÙŠØ§Ø¯ÙŠ (GA#) Ù…Ø³Ø¨Ù‚Ø§Ù‹ØŸ Ù‚Ù… Ø¨Ù…Ø²Ø§Ù…Ù†Ø© Ø­Ø³Ø§Ø¨Ùƒ Ù„Ù„Ø¹Ø¨ÙˆØ± Ø§Ù„ÙÙˆØ±ÙŠ Ø¥Ù„Ù‰ Ø§Ù„Ù…Ù†ØµØ© Ø§Ù„Ø£Ø¹Ø¶Ø§Ø¡.</p>
+ <span style="font-family: var(--font-mono, monospace); font-size: 14.5px; color: #F59E0B; text-transform: uppercase; font-weight: 700;">بوابة العبور المستقلة (Independent SSO Gateway):</span>
+ <p style="font-size: 13px; color: #E2E8F0; margin: 2px 0 0;">هل تمتلك رقم معرف سيادي (GA#) مسبقاً؟ قم بمزامنة حسابك للعبور الفوري إلى المنصة الأعضاء.</p>
  </div>
  <div class="sso-input-unauth">
  <input type="text" id="sso-quick-id" placeholder="GA-####" onkeydown="if(event.key==='Enter') executeGemIInISync()">
- <button type="button" class="btn-sso-sync" onclick="executeGemIInISync()">Ù…Ø²Ø§Ù…Ù†Ø© â†’</button>
+ <button type="button" class="btn-sso-sync" onclick="executeGemIInISync()">مزامنة →</button>
  </div>
  </div>
  </div>
@@ -98,7 +103,7 @@ _iub.csConfiguration = {"siteId":4659147,"cookiePolicyId":32190221,"lang":"en","
  </div>
  
  <h1 class="hero-title" style="font-size: 42px; margin-bottom: 16px;">
- MolecularGemIInI Full Masterclass (MM 1.0 â€“ MM 8.0)
+ MolecularGemIInI Full Masterclass (MM 1.0 "“ MM 8.0)
  </h1>
  
  <p style="font-size: 16px; color: var(--text-muted); line-height: 1.7; max-width: 800px; margin: 0 auto 30px;">
@@ -116,7 +121,7 @@ _iub.csConfiguration = {"siteId":4659147,"cookiePolicyId":32190221,"lang":"en","
  </div>
 
  <a href="#molecular-enroll" class="btn btn-primary" style="padding: 14px 28px; font-size: 15px;">
- Enroll in MolecularGemIInI Now â†’
+ Enroll in MolecularGemIInI Now →
  </a>
  </div>
  </section>
@@ -133,7 +138,7 @@ _iub.csConfiguration = {"siteId":4659147,"cookiePolicyId":32190221,"lang":"en","
  <div class="workbench-grid">
  <div>
  <div class="input-group">
- <label for="primer-sequence" class="input-label">Enter Primer Nucleotide Sequence (5' â†’ 3')</label>
+ <label for="primer-sequence" class="input-label">Enter Primer Nucleotide Sequence (5' → 3')</label>
  <input type="text" id="primer-sequence" class="input-control" value="ATGCGATCGATCGATCGATCG" style="font-family: var(--font-mono); font-size: 15px; letter-spacing: 1px;">
  </div>
 
@@ -147,7 +152,7 @@ _iub.csConfiguration = {"siteId":4659147,"cookiePolicyId":32190221,"lang":"en","
  <span class="stat-label">GC Content</span>
  </div>
  <div class="stat-box">
- <span id="tm-output" class="stat-number" style="font-size: 20px; color: var(--accent-gold);">61 Â°C</span>
+ <span id="tm-output" class="stat-number" style="font-size: 20px; color: var(--accent-gold);">61 °C</span>
  <span class="stat-label">Melting Temp ($T_m$)</span>
  </div>
  </div>
@@ -252,7 +257,7 @@ _iub.csConfiguration = {"siteId":4659147,"cookiePolicyId":32190221,"lang":"en","
  </div>
 
  <a href="join.html" class="btn btn-primary" style="padding: 14px 28px; font-size: 15px;">
- Proceed to Guided Registration Form â†’
+ Proceed to Guided Registration Form →
  </a>
  </div>
  </section>

@@ -1,58 +1,7 @@
-# ==============================================================================
-# GemIInI Sovereign Platform — Hostinger Edge Production .htaccess (SECURE V4.6)
-# Domain: geneacademy.net | Clean URL Routing, HTTPS, Compression, PII Defense
-# ==============================================================================
-RewriteEngine On
+# Force UTF-8 Character Encoding for Hostinger Apache Server
+AddDefaultCharset UTF-8
+AddCharset UTF-8 .html .css .js .json .xml
 
-# 1. Force HTTPS
-RewriteCond %{HTTPS} off
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-
-# 2. Security Headers
 <IfModule mod_headers.c>
-    Header always set X-Content-Type-Options "nosniff"
-    Header always set X-Frame-Options "SAMEORIGIN"
-    Header always set X-XSS-Protection "1; mode=block"
-    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header set Content-Type "text/html; charset=UTF-8"
 </IfModule>
-
-# 3. GZIP / Deflate Compression (Fast Mobile Load)
-<IfModule mod_deflate.c>
-    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json application/xml image/svg+xml font/woff2
-</IfModule>
-
-# 4. Clean URL Routing (remove .html extensions)
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}\.html -f
-RewriteRule ^([^\.]+)$ $1.html [NC,L]
-
-# 5. Core Institutional Aliases
-RewriteRule ^bls/?$ bls.html [L]
-RewriteRule ^universities/?$ universities.html [L]
-RewriteRule ^courses/?$ courses.html [L]
-RewriteRule ^journal/?$ journal.html [L]
-RewriteRule ^pedigree/?$ pedigree.html [L]
-RewriteRule ^verify/?$ verify.html [L]
-RewriteRule ^join/?$ join.html [L]
-RewriteRule ^about/?$ about.html [L]
-RewriteRule ^reviews/?$ reviews.html [L]
-
-# 6. Sensitive Data & Privacy Protection (Strict PII Defense)
-# A) Whitelist public taxonomy (universities.json) while blocking all sensitive data
-RewriteCond %{REQUEST_URI} ^/(deploy_hostinger/)?data/universities\.json$ [NC]
-RewriteRule ^ - [L]
-
-RewriteRule ^data(/.*)?$ - [F,L,NC]
-RewriteRule ^database(/.*)?$ - [F,L,NC]
-RewriteRule ^google_apps_script(/.*)?$ - [F,L,NC]
-RewriteRule ^scratch(/.*)?$ - [F,L,NC]
-
-# B) Block direct access to raw CSV, database, and backend script files
-RewriteRule \.(csv|tsv|log|gs|bak|sql|env|config)$ - [F,L,NC]
-
-# C) Explicitly block raw contact/PII export files by name, regardless of location
-RewriteRule ^(js/)?(contacts_data|Export_Contacts|master_ga_registry|master_directory|Code\.gs|WellPlanAPIReceiver\.gs)\.(js|json|csv)$ - [F,L,NC]
-
-# 7. Error Fallback
-ErrorDocument 404 /index.html
-ErrorDocument 500 /index.html

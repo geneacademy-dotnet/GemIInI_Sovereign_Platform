@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
@@ -19,6 +19,11 @@
     }
   </style>
   <link rel="stylesheet" href="styles.css">
+  <!-- Canonical Design Tokens & Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body class="bg-[#F7FAFC] text-[#1F2937] font-body antialiased selection:bg-teal-100 selection:text-teal-900">
 
@@ -33,7 +38,7 @@
         <div class="flex items-center gap-1 font-bold">
           <span class="text-white">English</span>
           <span class="text-slate-500">/</span>
-          <a href="index_ar.html" class="text-slate-300 hover:text-white transition font-sans">Ø§Ù„Ø¹Ø±Ø¨ÙŠØ©</a>
+          <a href="index_ar.html" class="text-slate-300 hover:text-white transition font-sans">العربية</a>
         </div>
         <span class="text-slate-500 hidden sm:inline">|</span>
         <a href="auth.html" class="text-slate-300 hover:text-white font-bold transition flex items-center gap-1">
@@ -86,11 +91,11 @@
           </button>
           <div class="absolute left-0 top-full pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-64 z-50">
             <div class="bg-white border border-slate-200 rounded-xl shadow-xl overflow-hidden flex flex-col py-2">
-              <a href="identity.html#how-it-works" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">How It Works</a>
-              <a href="identity.html#training-records" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Training Records</a>
+              <a href="verify.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">How It Works</a>
+              <a href="verify.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Training Records</a>
               <a href="verify.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Verification</a>
-              <a href="identity.html#progress" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Member Progress</a>
-              <a href="identity.html#employer" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Employer & Institutional Use</a>
+              <a href="verify.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Member Progress</a>
+              <a href="verify.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Employer & Institutional Use</a>
             </div>
           </div>
         </div>
@@ -189,10 +194,10 @@
       <!-- CTA Row -->
       <div class="flex flex-wrap justify-center gap-4 pt-4">
         <a href="#briefing-form" class="btn-gold text-sm py-3 px-8 shadow-md" data-track-event="partnership_briefing_start">
-          Request a Partnership Briefing âž”
+          Request a Partnership Briefing 
         </a>
         <a href="#pillars" class="btn-primary text-sm py-3 px-6 bg-slate-800 text-slate-200 hover:bg-slate-700" data-track-event="partnership_pillar_view">
-          Explore Our Institutional Model âž”
+          Explore Our Institutional Model 
         </a>
       </div>
 
@@ -209,11 +214,11 @@
         </div>
         <h4 class="text-base font-bold text-white">One partnership framework. Multiple institutional needs.</h4>
         <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-slate-300 mt-2">
-          <li class="flex items-center gap-2"><span class="text-amber-400">âœ”</span> Clinical and laboratory workforce development</li>
-          <li class="flex items-center gap-2"><span class="text-amber-400">âœ”</span> Molecular medicine and research capacity</li>
-          <li class="flex items-center gap-2"><span class="text-amber-400">âœ”</span> Simulation-led education and assessment</li>
-          <li class="flex items-center gap-2"><span class="text-amber-400">âœ”</span> Structured professional pathways</li>
-          <li class="flex items-center gap-2"><span class="text-amber-400">âœ”</span> Evidence-led reporting and verification</li>
+          <li class="flex items-center gap-2"><span class="text-amber-400">✓</span> Clinical and laboratory workforce development</li>
+          <li class="flex items-center gap-2"><span class="text-amber-400">✓</span> Molecular medicine and research capacity</li>
+          <li class="flex items-center gap-2"><span class="text-amber-400">✓</span> Simulation-led education and assessment</li>
+          <li class="flex items-center gap-2"><span class="text-amber-400">✓</span> Structured professional pathways</li>
+          <li class="flex items-center gap-2"><span class="text-amber-400">✓</span> Evidence-led reporting and verification</li>
         </ul>
       </div>
 
@@ -247,7 +252,7 @@
   <section id="pillars" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
     <div class="text-center max-w-3xl mx-auto space-y-3">
       <span class="badge-gold">PARTNERSHIP ARCHITECTURE</span>
-      <h2 class="text-2xl sm:text-4xl font-black text-slate-950">A partnership designed around your institutionâ€™s real priorities.</h2>
+      <h2 class="text-2xl sm:text-4xl font-black text-slate-950">A partnership designed around your institution's real priorities.</h2>
       <p class="text-sm sm:text-base text-slate-600">
         Every institution begins from a different position. We start with your operational and academic priorities, then shape the partnership around the capabilities you need to develop, the people you need to reach, and the outcomes you need to monitor.
       </p>
@@ -436,7 +441,7 @@
         <div class="card-Independent p-6 space-y-2 bg-white text-center">
           <span class="font-mono font-bold text-xs text-sky-700 bg-sky-100 px-3 py-1 rounded-full">STEP 01</span>
           <h4 class="font-bold text-slate-900 text-sm mt-3">Understand your priorities</h4>
-          <p class="text-xs text-slate-600">We review your institutionâ€™s workforce, laboratory, clinical, research, or academic development needs.</p>
+          <p class="text-xs text-slate-600">We review your institution's workforce, laboratory, clinical, research, or academic development needs.</p>
         </div>
 
         <div class="card-Independent p-6 space-y-2 bg-white text-center">
@@ -460,7 +465,7 @@
 
       <div class="text-center pt-4">
         <a href="#briefing-form" class="btn-gold text-sm py-3 px-8 shadow-sm" data-track-event="partnership_briefing_start">
-          Request a Partnership Briefing âž”
+          Request a Partnership Briefing 
         </a>
       </div>
     </div>
@@ -538,7 +543,7 @@
       
       <!-- Objection 1 -->
       <div class="card-Independent p-6 sm:p-8 bg-white border border-slate-200 space-y-2">
-        <h3 class="text-lg font-bold text-slate-900">â€œWe already have internal training.â€</h3>
+        <h3 class="text-lg font-bold text-slate-900">"We already have internal training."</h3>
         <p class="text-sm text-slate-600 leading-relaxed">
           Gene Academy does not need to replace what is already working. The partnership can focus on the gaps between existing training, applied practice, research development, verification, and progression.
         </p>
@@ -546,7 +551,7 @@
 
       <!-- Objection 2 -->
       <div class="card-Independent p-6 sm:p-8 bg-white border border-slate-200 space-y-2">
-        <h3 class="text-lg font-bold text-slate-900">â€œWe need a specific laboratory or research solution.â€</h3>
+        <h3 class="text-lg font-bold text-slate-900">"We need a specific laboratory or research solution."</h3>
         <p class="text-sm text-slate-600 leading-relaxed">
           Begin with a briefing focused on the actual capability gap. The first step is to understand the scientific, workforce, and institutional context before proposing a pathway.
         </p>
@@ -554,7 +559,7 @@
 
       <!-- Objection 3 -->
       <div class="card-Independent p-6 sm:p-8 bg-white border border-slate-200 space-y-2">
-        <h3 class="text-lg font-bold text-slate-900">â€œWe cannot commit to a large program immediately.â€</h3>
+        <h3 class="text-lg font-bold text-slate-900">"We cannot commit to a large program immediately."</h3>
         <p class="text-sm text-slate-600 leading-relaxed">
           A partnership can begin with a defined pilot, one cohort, one workshop, or one research-learning objective. Expansion should follow evidence of usefulness.
         </p>
@@ -562,7 +567,7 @@
 
       <!-- Objection 4 -->
       <div class="card-Independent p-6 sm:p-8 bg-white border border-slate-200 space-y-2">
-        <h3 class="text-lg font-bold text-slate-900">â€œHow do we know what is verified?â€</h3>
+        <h3 class="text-lg font-bold text-slate-900">"How do we know what is verified?"</h3>
         <p class="text-sm text-slate-600 leading-relaxed">
           The website and partnership brief should clearly distinguish verified figures, historical activity, internal counts, targets, and information still under review.
         </p>
@@ -570,7 +575,7 @@
 
       <!-- Objection 5 -->
       <div class="card-Independent p-6 sm:p-8 bg-white border border-slate-200 space-y-2">
-        <h3 class="text-lg font-bold text-slate-900">â€œWill this work across different professional backgrounds?â€</h3>
+        <h3 class="text-lg font-bold text-slate-900">"Will this work across different professional backgrounds?"</h3>
         <p class="text-sm text-slate-600 leading-relaxed">
           The pathway can be structured by role, baseline knowledge, intended outcome, and institutional need rather than treating every participant as the same learner.
         </p>
@@ -674,7 +679,7 @@
         </div>
 
         <button type="submit" id="b_submit_btn" class="w-full btn-gold py-4 text-sm font-bold shadow-lg" data-track-event="partnership_briefing_submit">
-          Request My Partnership Briefing âž”
+          Request My Partnership Briefing 
         </button>
       </form>
 
@@ -684,17 +689,17 @@
   <!-- FINAL CTA SECTION -->
   <section class="py-16 bg-slate-950 text-white text-center space-y-6 border-t border-slate-800">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
-      <h2 class="text-2xl sm:text-4xl font-black">Letâ€™s identify the first capability worth building together.</h2>
+      <h2 class="text-2xl sm:text-4xl font-black">Let's identify the first capability worth building together.</h2>
       <p class="text-sm text-slate-300 leading-relaxed">
         Whether your priority is laboratory development, molecular research, clinical education, simulation, or institutional learning infrastructure, the right starting point is a clear briefing.
       </p>
       <div class="pt-2">
         <a href="#briefing-form" class="btn-gold text-sm py-3 px-8 shadow-md" data-track-event="partnership_briefing_start">
-          Request a Partnership Briefing âž”
+          Request a Partnership Briefing 
         </a>
       </div>
       <p class="text-xs font-mono text-slate-400 pt-2">
-        No generic package. No premature commitment. One focused conversation about your institutionâ€™s next meaningful step.
+        No generic package. No premature commitment. One focused conversation about your institution's next meaningful step.
       </p>
     </div>
   </section>
@@ -805,7 +810,7 @@
         alert('Thank you. Your enquiry has been registered and our institutional partnerships desk will contact you within 24 business hours.');
       } finally {
         btn.disabled = false;
-        btn.innerText = 'Request My Partnership Briefing âž”';
+        btn.innerText = 'Request My Partnership Briefing';
       }
     }
   </script>

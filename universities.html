@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl" class="scroll-smooth bg-[#F8FAFC] text-slate-900">
 <head>
   <script type="text/javascript">
@@ -11,7 +11,7 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Ø¯Ù„ÙŠÙ„ Ø§Ù„Ø¬Ø§Ù…Ø¹Ø§Øª ÙˆØ§Ù„ÙƒÙ„ÙŠØ§Øª Ø§Ù„Ø·Ø¨ÙŠØ© | Universities and Medical Faculties Directory</title>
+  <title>دليل الجامعات والكليات الطبية | Universities and Medical Faculties Directory</title>
   <meta name="description" content="Search a growing directory of medical universities and faculties. Explore locations, institution types, and review status.">
 
   <!-- Google tag (gtag.js) -->
@@ -70,6 +70,11 @@
     }
   </style>
   <link rel="stylesheet" href="styles.css">
+  <!-- Canonical Design Tokens & Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body class="min-h-screen flex flex-col antialiased selection:bg-sky-100 selection:text-sky-900 pb-16 lg:pb-0">
 
@@ -84,7 +89,7 @@
         <div class="flex items-center gap-1 font-bold">
           <span class="text-white">English</span>
           <span class="text-slate-500">/</span>
-          <a href="index_ar.html" class="text-slate-300 hover:text-white transition font-sans">Ø§Ù„Ø¹Ø±Ø¨ÙŠØ©</a>
+          <a href="index_ar.html" class="text-slate-300 hover:text-white transition font-sans">العربية</a>
         </div>
         <span class="text-slate-500 hidden sm:inline">|</span>
         <a href="auth.html" class="text-slate-300 hover:text-white font-bold transition flex items-center gap-1">
@@ -137,11 +142,11 @@
           </button>
           <div class="absolute left-0 top-full pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-64 z-50">
             <div class="bg-white border border-slate-200 rounded-xl shadow-xl overflow-hidden flex flex-col py-2">
-              <a href="identity.html#how-it-works" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">How It Works</a>
-              <a href="identity.html#training-records" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Training Records</a>
+              <a href="verify.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">How It Works</a>
+              <a href="verify.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Training Records</a>
               <a href="verify.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Verification</a>
-              <a href="identity.html#progress" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Member Progress</a>
-              <a href="identity.html#employer" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Employer & Institutional Use</a>
+              <a href="verify.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Member Progress</a>
+              <a href="verify.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Employer & Institutional Use</a>
             </div>
           </div>
         </div>
@@ -214,9 +219,9 @@
 
   <!-- Breadcrumb -->
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 text-xs font-semibold text-slate-500 flex items-center gap-2">
-    <a href="index.html" class="hover:text-sky-700 transition"><span data-lang="en">Home</span><span data-lang="ar" style="display:none;">Ø§Ù„Ø±Ø¦ÙŠØ³ÙŠØ©</span></a>
+    <a href="index.html" class="hover:text-sky-700 transition"><span data-lang="en">Home</span><span data-lang="ar" style="display:none;">الرئيسية</span></a>
     <span class="text-slate-300 rtl:rotate-180 inline-block">&rarr;</span>
-    <span class="text-slate-800"><span data-lang="en">Universities and Medical Faculties</span><span data-lang="ar" style="display:none;">Ø¯Ù„ÙŠÙ„ Ø§Ù„Ø¬Ø§Ù…Ø¹Ø§Øª ÙˆØ§Ù„ÙƒÙ„ÙŠØ§Øª Ø§Ù„Ø·Ø¨ÙŠØ©</span></span>
+    <span class="text-slate-800"><span data-lang="en">Universities and Medical Faculties</span><span data-lang="ar" style="display:none;">دليل الجامعات والكليات الطبية</span></span>
   </div>
 
   <!-- Hero Header -->
@@ -224,11 +229,11 @@
     <div class="max-w-4xl mx-auto text-center space-y-4">
       <h1 class="text-3xl sm:text-5xl font-black text-slate-900 leading-tight">
         <span data-lang="en">Explore Medical Education Institutions</span>
-        <span data-lang="ar" style="display:none;">Ø§Ø³ØªÙƒØ´Ù Ù…Ø¤Ø³Ø³Ø§Øª Ø§Ù„ØªØ¹Ù„ÙŠÙ… Ø§Ù„Ø·Ø¨ÙŠ</span>
+        <span data-lang="ar" style="display:none;">استكشف مؤسسات التعليم الطبي</span>
       </h1>
       <p class="text-slate-600 text-base max-w-2xl mx-auto leading-relaxed">
         <span data-lang="en">Search a growing directory of universities and medical faculties. Explore locations, institution types, available information, and review status in one clear place.</span>
-        <span data-lang="ar" style="display:none;">Ø§Ø¨Ø­Ø« ÙÙŠ Ø¯Ù„ÙŠÙ„ Ù…ØªÙ†Ø§Ù…Ù Ù„Ù„Ø¬Ø§Ù…Ø¹Ø§Øª ÙˆØ§Ù„ÙƒÙ„ÙŠØ§Øª Ø§Ù„Ø·Ø¨ÙŠØ©. Ø§Ø³ØªÙƒØ´Ù Ø§Ù„Ù…ÙˆØ§Ù‚Ø¹ ÙˆØ£Ù†ÙˆØ§Ø¹ Ø§Ù„Ù…Ø¤Ø³Ø³Ø§Øª ÙˆØ§Ù„Ù…Ø¹Ù„ÙˆÙ…Ø§Øª Ø§Ù„Ù…ØªØ§Ø­Ø© ÙˆØ­Ø§Ù„Ø© Ø§Ù„Ù…Ø±Ø§Ø¬Ø¹Ø© ÙÙŠ Ù…ÙƒØ§Ù† ÙˆØ§Ø­Ø¯ ÙˆØ§Ø¶Ø­.</span>
+        <span data-lang="ar" style="display:none;">ابحث في دليل متنامٍ للجامعات والكليات الطبية. استكشف المواقع وأنواع المؤسسات والمعلومات المتاحة وحالة المراجعة في مكان واحد واضح.</span>
       </p>
       
       <div class="mt-6 mx-auto max-w-2xl bg-slate-50 border border-slate-200 text-slate-600 rounded-xl p-4 text-xs leading-relaxed font-sans text-center">
@@ -236,7 +241,7 @@
           This directory is informational. Institutional status, accreditation, admission requirements, and examination outcomes should be confirmed with the relevant institution or authority.
         </span>
         <span data-lang="ar" style="display:none;">
-          Ù‡Ø°Ø§ Ø§Ù„Ø¯Ù„ÙŠÙ„ Ù‡Ùˆ Ù„Ù„Ø¥Ø­Ø§Ø·Ø© Ø§Ù„Ù…Ø¹Ù„ÙˆÙ…Ø§ØªÙŠØ©. ÙŠØ¬Ø¨ ØªØ£ÙƒÙŠØ¯ Ø­Ø§Ù„Ø© Ø§Ù„Ù…Ø¤Ø³Ø³Ø© ÙˆØ§Ù„Ø§Ø¹ØªÙ…Ø§Ø¯ ÙˆÙ…ØªØ·Ù„Ø¨Ø§Øª Ø§Ù„Ù‚Ø¨ÙˆÙ„ ÙˆÙ†ØªØ§Ø¦Ø¬ Ø§Ù„Ø§Ù…ØªØ­Ø§Ù†Ø§Øª Ù…Ø¹ Ø§Ù„Ù…Ø¤Ø³Ø³Ø© Ø£Ùˆ Ø§Ù„Ø³Ù„Ø·Ø© Ø§Ù„Ù…Ø¹Ù†ÙŠØ©.
+          هذا الدليل هو للإحاطة المعلوماتية. يجب تأكيد حالة المؤسسة والاعتماد ومتطلبات القبول ونتائج الامتحانات مع المؤسسة أو السلطة المعنية.
         </span>
       </div>
     </div>
@@ -247,25 +252,26 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center divide-y md:divide-y-0 md:divide-x rtl:md:divide-x-reverse divide-slate-200">
         <div class="py-2">
-          <div class="text-3xl font-black text-slate-900 font-mono mb-1">63</div>
-          <div class="text-sm font-bold text-slate-700"><span data-lang="en">Institutions listed</span><span data-lang="ar" style="display:none;">Ù…Ø¤Ø³Ø³Ø§Øª Ù…ÙØ¯Ø±Ø¬Ø©</span></div>
-          <div class="text-[10px] text-slate-400 mt-1 uppercase tracking-wider"><span data-lang="en">Institutions currently included in the directory</span><span data-lang="ar" style="display:none;">Ø§Ù„Ù…Ø¤Ø³Ø³Ø§Øª Ø§Ù„Ù…Ø¯Ø±Ø¬Ø© Ø­Ø§Ù„ÙŠÙ‹Ø§ ÙÙŠ Ø§Ù„Ø¯Ù„ÙŠÙ„</span></div>
+          <div class="text-3xl font-black text-slate-900 font-mono mb-1" id="heroInstitutionsCount">63</div>
+          <div class="text-sm font-bold text-slate-700"><span data-lang="en">Institutions listed</span><span data-lang="ar" style="display:none;">Ù…Ø¤Ø³Ø³Ø§Øª Ù…Ù Ø¯Ø±Ø¬Ø©</span></div>
+          <div class="text-[10px] text-slate-400 mt-1 uppercase tracking-wider"><span data-lang="en">Institutions currently included in the directory</span><span data-lang="ar" style="display:none;">Ø§Ù„Ù…Ø¤Ø³Ø³Ø§Øª Ø§Ù„Ù…Ø¯Ø±Ø¬Ø© Ø­Ø§Ù„ÙŠÙ‹Ø§ Ù ÙŠ Ø§Ù„Ø¯Ù„ÙŠÙ„</span></div>
         </div>
         <div class="py-2">
           <div class="text-3xl font-black text-slate-900 font-mono mb-1">18</div>
-          <div class="text-sm font-bold text-slate-700"><span data-lang="en">Regions represented</span><span data-lang="ar" style="display:none;">Ù…Ù†Ø§Ø·Ù‚ Ù…Ù…Ø«Ù„Ø©</span></div>
-          <div class="text-[10px] text-slate-400 mt-1 uppercase tracking-wider"><span data-lang="en">States and geographical locations</span><span data-lang="ar" style="display:none;">Ø§Ù„ÙˆÙ„Ø§ÙŠØ§Øª ÙˆØ§Ù„Ù…ÙˆØ§Ù‚Ø¹ Ø§Ù„Ø¬ØºØ±Ø§ÙÙŠØ©</span></div>
+          <div class="text-sm font-bold text-slate-700"><span data-lang="en">Regions represented</span><span data-lang="ar" style="display:none;">مناطق ممثلة</span></div>
+          <div class="text-[10px] text-slate-400 mt-1 uppercase tracking-wider"><span data-lang="en">States and geographical locations</span><span data-lang="ar" style="display:none;">الولايات والمواقع الجغرافية</span></div>
         </div>
         <div class="py-2">
           <div class="text-3xl font-black text-slate-900 font-mono mb-1" id="lastReviewedDate">Aug 2026</div>
-          <div class="text-sm font-bold text-slate-700"><span data-lang="en">Records reviewed</span><span data-lang="ar" style="display:none;">Ø³Ø¬Ù„Ø§Øª ØªÙ…Øª Ù…Ø±Ø§Ø¬Ø¹ØªÙ‡Ø§</span></div>
-          <div class="text-[10px] text-slate-400 mt-1 uppercase tracking-wider"><span data-lang="en">Last directory update date</span><span data-lang="ar" style="display:none;">ØªØ§Ø±ÙŠØ® Ø¢Ø®Ø± ØªØ­Ø¯ÙŠØ« Ù„Ù„Ø¯Ù„ÙŠÙ„</span></div>
+          <div class="text-sm font-bold text-slate-700"><span data-lang="en">Records reviewed</span><span data-lang="ar" style="display:none;">سجلات تمت مراجعتها</span></div>
+          <div class="text-[10px] text-slate-400 mt-1 uppercase tracking-wider"><span data-lang="en">Last directory update date</span><span data-lang="ar" style="display:none;">تاريخ آخر تحديث للدليل</span></div>
         </div>
       </div>
     </div>
   </div>
 
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex-grow w-full">
+    <div id="telemetryAlert"></div>
     
     <div class="flex flex-col lg:flex-row gap-8">
       
@@ -275,14 +281,14 @@
         <!-- Search -->
         <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
           <label for="searchInput" class="block text-xs font-bold text-slate-700 mb-2 uppercase tracking-wide">
-            <span data-lang="en">Search Directory</span><span data-lang="ar" style="display:none;">Ø¨Ø­Ø« ÙÙŠ Ø§Ù„Ø¯Ù„ÙŠÙ„</span>
+            <span data-lang="en">Search Directory</span><span data-lang="ar" style="display:none;">بحث في الدليل</span>
           </label>
-          <input type="text" id="searchInput" placeholder="Search by university or faculty name" data-placeholder-ar="Ø§Ø¨Ø­Ø« Ø¨Ø§Ø³Ù… Ø§Ù„Ø¬Ø§Ù…Ø¹Ø© Ø£Ùˆ Ø§Ù„ÙƒÙ„ÙŠØ©" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm font-semibold outline-none focus:border-sky-500 transition-colors">
+          <input type="text" id="searchInput" placeholder="Search by university or faculty name" data-placeholder-ar="ابحث باسم الجامعة أو الكلية" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm font-semibold outline-none focus:border-sky-500 transition-colors">
         </div>
 
         <div class="flex items-center justify-between">
-          <h3 class="text-base font-bold text-slate-900"><span data-lang="en">Filters</span><span data-lang="ar" style="display:none;">Ø§Ù„ÙÙ„Ø§ØªØ±</span></h3>
-          <button id="clearFiltersBtn" class="text-xs text-sky-600 hover:text-sky-800 font-semibold" style="display:none;"><span data-lang="en">Clear all</span><span data-lang="ar" style="display:none;">Ù…Ø³Ø­ Ø§Ù„ÙƒÙ„</span></button>
+          <h3 class="text-base font-bold text-slate-900"><span data-lang="en">Filters</span><span data-lang="ar" style="display:none;">الفلاتر</span></h3>
+          <button id="clearFiltersBtn" class="text-xs text-sky-600 hover:text-sky-800 font-semibold" style="display:none;"><span data-lang="en">Clear all</span><span data-lang="ar" style="display:none;">مسح الكل</span></button>
         </div>
 
         <!-- Filter Sections -->
@@ -291,7 +297,7 @@
           <!-- Location -->
           <div class="p-4">
             <button class="flex items-center justify-between w-full text-left font-bold text-sm text-slate-800 focus:outline-none" onclick="toggleFilter('filter-location')">
-              <span data-lang="en">State or region</span><span data-lang="ar" style="display:none;">Ø§Ù„ÙˆÙ„Ø§ÙŠØ© Ø£Ùˆ Ø§Ù„Ù…Ù†Ø·Ù‚Ø©</span>
+              <span data-lang="en">State or region</span><span data-lang="ar" style="display:none;">الولاية أو المنطقة</span>
               <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </button>
             <div id="filter-location" class="pt-3 space-y-2 text-sm text-slate-600">
@@ -302,41 +308,41 @@
           <!-- Type -->
           <div class="p-4">
             <button class="flex items-center justify-between w-full text-left font-bold text-sm text-slate-800 focus:outline-none" onclick="toggleFilter('filter-type')">
-              <span data-lang="en">Institution type</span><span data-lang="ar" style="display:none;">Ù†ÙˆØ¹ Ø§Ù„Ù…Ø¤Ø³Ø³Ø©</span>
+              <span data-lang="en">Institution type</span><span data-lang="ar" style="display:none;">نوع المؤسسة</span>
               <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </button>
             <div id="filter-type" class="pt-3 space-y-2 text-sm text-slate-600 hidden">
-              <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" value="University" class="filter-checkbox filter-type-chk"> <span data-lang="en">University</span><span data-lang="ar" style="display:none;">Ø¬Ø§Ù…Ø¹Ø©</span></label>
-              <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" value="Medical Faculty" class="filter-checkbox filter-type-chk"> <span data-lang="en">Medical Faculty</span><span data-lang="ar" style="display:none;">ÙƒÙ„ÙŠØ© Ø·Ø¨</span></label>
-              <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" value="Teaching Hospital" class="filter-checkbox filter-type-chk"> <span data-lang="en">Teaching Hospital</span><span data-lang="ar" style="display:none;">Ù…Ø³ØªØ´ÙÙ‰ ØªØ¹Ù„ÙŠÙ…ÙŠ</span></label>
-              <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" value="Research Institution" class="filter-checkbox filter-type-chk"> <span data-lang="en">Research Institution</span><span data-lang="ar" style="display:none;">Ù…Ø¤Ø³Ø³Ø© Ø¨Ø­Ø«ÙŠØ©</span></label>
+              <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" value="University" class="filter-checkbox filter-type-chk"> <span data-lang="en">University</span><span data-lang="ar" style="display:none;">جامعة</span></label>
+              <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" value="Medical Faculty" class="filter-checkbox filter-type-chk"> <span data-lang="en">Medical Faculty</span><span data-lang="ar" style="display:none;">كلية طب</span></label>
+              <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" value="Teaching Hospital" class="filter-checkbox filter-type-chk"> <span data-lang="en">Teaching Hospital</span><span data-lang="ar" style="display:none;">مستشفى تعليمي</span></label>
+              <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" value="Research Institution" class="filter-checkbox filter-type-chk"> <span data-lang="en">Research Institution</span><span data-lang="ar" style="display:none;">مؤسسة بحثية</span></label>
             </div>
           </div>
 
           <!-- Ownership -->
           <div class="p-4">
             <button class="flex items-center justify-between w-full text-left font-bold text-sm text-slate-800 focus:outline-none" onclick="toggleFilter('filter-ownership')">
-              <span data-lang="en">Ownership</span><span data-lang="ar" style="display:none;">Ø§Ù„Ù…Ù„ÙƒÙŠØ©</span>
+              <span data-lang="en">Ownership</span><span data-lang="ar" style="display:none;">الملكية</span>
               <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </button>
             <div id="filter-ownership" class="pt-3 space-y-2 text-sm text-slate-600 hidden">
-              <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" value="Public" class="filter-checkbox filter-own-chk"> <span data-lang="en">Public</span><span data-lang="ar" style="display:none;">Ø­ÙƒÙˆÙ…ÙŠØ©</span></label>
-              <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" value="Private" class="filter-checkbox filter-own-chk"> <span data-lang="en">Private</span><span data-lang="ar" style="display:none;">Ø®Ø§ØµØ© Ø£Ùˆ Ø£Ù‡Ù„ÙŠØ©</span></label>
+              <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" value="Public" class="filter-checkbox filter-own-chk"> <span data-lang="en">Public</span><span data-lang="ar" style="display:none;">حكومية</span></label>
+              <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" value="Private" class="filter-checkbox filter-own-chk"> <span data-lang="en">Private</span><span data-lang="ar" style="display:none;">خاصة أو أهلية</span></label>
             </div>
           </div>
 
           <!-- Directory Record Status -->
           <div class="p-4">
             <button class="flex items-center justify-between w-full text-left font-bold text-sm text-slate-800 focus:outline-none" onclick="toggleFilter('filter-status')">
-              <span data-lang="en">Directory record status</span><span data-lang="ar" style="display:none;">Ø­Ø§Ù„Ø© Ø§Ù„Ø³Ø¬Ù„ ÙÙŠ Ø§Ù„Ø¯Ù„ÙŠÙ„</span>
+              <span data-lang="en">Directory record status</span><span data-lang="ar" style="display:none;">حالة السجل في الدليل</span>
               <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </button>
             <div id="filter-status" class="pt-3 space-y-2 text-sm text-slate-600 hidden">
-              <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" value="Institution-confirmed information" class="filter-checkbox filter-status-chk"> <span data-lang="en">Institution-confirmed</span><span data-lang="ar" style="display:none;">Ù…Ø¹Ù„ÙˆÙ…Ø§Øª Ù…Ø¤ÙƒØ¯Ø© Ù…Ù† Ø§Ù„Ù…Ø¤Ø³Ø³Ø©</span></label>
-              <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" value="Reviewed by GeneAcademy" class="filter-checkbox filter-status-chk"> <span data-lang="en">Reviewed by GeneAcademy</span><span data-lang="ar" style="display:none;">ØªÙ…Øª Ø§Ù„Ù…Ø±Ø§Ø¬Ø¹Ø© Ø¨ÙˆØ§Ø³Ø·Ø© GeneAcademy</span></label>
-              <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" value="Publicly listed" class="filter-checkbox filter-status-chk"> <span data-lang="en">Publicly listed</span><span data-lang="ar" style="display:none;">Ù…Ø¯Ø±Ø¬Ø© ÙÙŠ Ø§Ù„Ù…ØµØ§Ø¯Ø± Ø§Ù„Ø¹Ø§Ù…Ø©</span></label>
-              <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" value="Awaiting review" class="filter-checkbox filter-status-chk"> <span data-lang="en">Awaiting review</span><span data-lang="ar" style="display:none;">Ø¨Ø§Ù†ØªØ¸Ø§Ø± Ø§Ù„Ù…Ø±Ø§Ø¬Ø¹Ø©</span></label>
-              <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" value="Historical information" class="filter-checkbox filter-status-chk"> <span data-lang="en">Historical information</span><span data-lang="ar" style="display:none;">Ù…Ø¹Ù„ÙˆÙ…Ø§Øª ØªØ§Ø±ÙŠØ®ÙŠØ©</span></label>
+              <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" value="Institution-confirmed information" class="filter-checkbox filter-status-chk"> <span data-lang="en">Institution-confirmed</span><span data-lang="ar" style="display:none;">معلومات مؤكدة من المؤسسة</span></label>
+              <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" value="Reviewed by GeneAcademy" class="filter-checkbox filter-status-chk"> <span data-lang="en">Reviewed by GeneAcademy</span><span data-lang="ar" style="display:none;">تمت المراجعة بواسطة GeneAcademy</span></label>
+              <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" value="Publicly listed" class="filter-checkbox filter-status-chk"> <span data-lang="en">Publicly listed</span><span data-lang="ar" style="display:none;">مدرجة في المصادر العامة</span></label>
+              <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" value="Awaiting review" class="filter-checkbox filter-status-chk"> <span data-lang="en">Awaiting review</span><span data-lang="ar" style="display:none;">بانتظار المراجعة</span></label>
+              <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" value="Historical information" class="filter-checkbox filter-status-chk"> <span data-lang="en">Historical information</span><span data-lang="ar" style="display:none;">معلومات تاريخية</span></label>
             </div>
           </div>
 
@@ -353,7 +359,7 @@
         </div>
 
         <div class="flex items-center justify-between text-sm font-semibold text-slate-500 pb-2 border-b border-slate-200">
-          <div><span id="resultsCount">63</span> <span data-lang="en">results</span><span data-lang="ar" style="display:none;">Ù†ØªÙŠØ¬Ø©</span></div>
+          <div><span id="resultsCount">63</span> <span data-lang="en">results</span><span data-lang="ar" style="display:none;">نتيجة</span></div>
         </div>
 
         <!-- Grid -->
@@ -367,14 +373,14 @@
             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
           </div>
           <h3 class="text-lg font-bold text-slate-800 mb-2">
-            <span data-lang="en">No results found</span><span data-lang="ar" style="display:none;">Ù„Ø§ ØªÙˆØ¬Ø¯ Ù†ØªØ§Ø¦Ø¬</span>
+            <span data-lang="en">No results found</span><span data-lang="ar" style="display:none;">لا توجد نتائج</span>
           </h3>
           <p class="text-sm text-slate-500 max-w-sm mx-auto">
             <span data-lang="en">We could not find an institution matching these filters. Try a broader search or suggest an institution for review.</span>
-            <span data-lang="ar" style="display:none;">Ù„Ù… Ù†ØªÙ…ÙƒÙ† Ù…Ù† Ø§Ù„Ø¹Ø«ÙˆØ± Ø¹Ù„Ù‰ Ù…Ø¤Ø³Ø³Ø© ØªØ·Ø§Ø¨Ù‚ Ù‡Ø°Ù‡ Ø§Ù„ÙÙ„Ø§ØªØ±. Ø¬Ø±Ø¨ Ø¨Ø­Ø«Ù‹Ø§ Ø£ÙˆØ³Ø¹ Ø£Ùˆ Ø§Ù‚ØªØ±Ø­ Ù…Ø¤Ø³Ø³Ø© Ù„Ù„Ù…Ø±Ø§Ø¬Ø¹Ø©.</span>
+            <span data-lang="ar" style="display:none;">لم نتمكن من العثور على مؤسسة تطابق هذه الفلاتر. جرب بحثًا أوسع أو اقترح مؤسسة للمراجعة.</span>
           </p>
           <button onclick="openSuggestModal()" class="mt-6 px-4 py-2 border border-slate-300 rounded-lg text-sm font-semibold text-slate-700 hover:bg-slate-50 transition">
-            <span data-lang="en">Suggest an institution</span><span data-lang="ar" style="display:none;">Ø§Ù‚ØªØ±Ø§Ø­ Ù…Ø¤Ø³Ø³Ø©</span>
+            <span data-lang="en">Suggest an institution</span><span data-lang="ar" style="display:none;">اقتراح مؤسسة</span>
           </button>
         </div>
 
@@ -388,15 +394,15 @@
   <section class="bg-white py-16 border-t border-slate-200">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
       <h3 class="text-xl font-black text-slate-900 mb-6 text-center">
-        <span data-lang="en">Institutions by region</span><span data-lang="ar" style="display:none;">Ø§Ù„Ù…Ø¤Ø³Ø³Ø§Øª Ø­Ø³Ø¨ Ø§Ù„Ù…Ù†Ø·Ù‚Ø©</span>
+        <span data-lang="en">Institutions by region</span><span data-lang="ar" style="display:none;">المؤسسات حسب المنطقة</span>
       </h3>
       <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 h-80 relative">
         <canvas id="regionChart"></canvas>
       </div>
       <div class="text-[10px] text-slate-400 font-mono text-center space-y-1">
-        <div><span data-lang="en">Source: GeneAcademy Public Directory Data</span><span data-lang="ar" style="display:none;">Ø§Ù„Ù…ØµØ¯Ø±: Ø¨ÙŠØ§Ù†Ø§Øª Ø¯Ù„ÙŠÙ„ GeneAcademy Ø§Ù„Ø¹Ø§Ù…Ø©</span></div>
-        <div><span data-lang="en">Date: August 2026</span><span data-lang="ar" style="display:none;">Ø§Ù„ØªØ§Ø±ÙŠØ®: Ø£ØºØ³Ø·Ø³ 2026</span></div>
-        <div><span data-lang="en">Definition: "Listed" refers to institutions documented in the public directory view. Chart implies geographical distribution only, not quality or ranking.</span><span data-lang="ar" style="display:none;">Ø§Ù„ØªØ¹Ø±ÙŠÙ: ØªØ´ÙŠØ± ÙƒÙ„Ù…Ø© "Ù…Ø¯Ø±Ø¬Ø©" Ø¥Ù„Ù‰ Ø§Ù„Ù…Ø¤Ø³Ø³Ø§Øª Ø§Ù„Ù…ÙˆØ«Ù‚Ø© ÙÙŠ Ø§Ù„Ø¯Ù„ÙŠÙ„ Ø§Ù„Ø¹Ø§Ù…. Ø§Ù„Ø±Ø³Ù… Ø§Ù„Ø¨ÙŠØ§Ù†ÙŠ ÙŠÙˆØ¶Ø­ Ø§Ù„ØªÙˆØ²ÙŠØ¹ Ø§Ù„Ø¬ØºØ±Ø§ÙÙŠ ÙÙ‚Ø·ØŒ ÙˆÙ„ÙŠØ³ Ø§Ù„Ø¬ÙˆØ¯Ø© Ø£Ùˆ Ø§Ù„ØªØµÙ†ÙŠÙ.</span></div>
+        <div><span data-lang="en">Source: GeneAcademy Public Directory Data</span><span data-lang="ar" style="display:none;">المصدر: بيانات دليل GeneAcademy العامة</span></div>
+        <div><span data-lang="en">Date: August 2026</span><span data-lang="ar" style="display:none;">التاريخ: أغسطس 2026</span></div>
+        <div><span data-lang="en">Definition: "Listed" refers to institutions documented in the public directory view. Chart implies geographical distribution only, not quality or ranking.</span><span data-lang="ar" style="display:none;">التعريف: تشير كلمة "مدرجة" إلى المؤسسات الموثقة في الدليل العام. الرسم البياني يوضح التوزيع الجغرافي فقط، وليس الجودة أو التصنيف.</span></div>
       </div>
     </div>
   </section>
@@ -413,9 +419,9 @@
           </p>
         </div>
         <div class="space-y-4 text-right" dir="rtl">
-          <h4 class="text-sm font-bold text-white font-mono uppercase tracking-widest">ÙƒÙŠÙ ÙŠØ¹Ù…Ù„ Ù‡Ø°Ø§ Ø§Ù„Ø¯Ù„ÙŠÙ„ØŸ</h4>
+          <h4 class="text-sm font-bold text-white font-mono uppercase tracking-widest">كيف يعمل هذا الدليل؟</h4>
           <p class="text-xs leading-relaxed text-slate-400 font-sans">
-            ØªØ­ØªÙØ¸ GeneAcademy Ø¨Ù‡Ø°Ø§ Ø§Ù„Ø¯Ù„ÙŠÙ„ Ø¨Ø§Ø¹ØªØ¨Ø§Ø±Ù‡ Ù…ÙˆØ±Ø¯Ø§Ù‹ Ù…Ø¹Ù„ÙˆÙ…Ø§ØªÙŠØ§Ù‹. ÙˆÙ‚Ø¯ ØªÙØ¯Ø±Ø¬ Ø§Ù„Ù…Ø¤Ø³Ø³Ø§Øª Ø£Ùˆ ØªÙØ±Ø§Ø¬Ø¹ Ø£Ùˆ ØªÙØ­Ø¯Ù‘Ø« Ø§Ø³ØªÙ†Ø§Ø¯Ø§Ù‹ Ø¥Ù„Ù‰ Ø§Ù„Ù…Ø¹Ù„ÙˆÙ…Ø§Øª Ø§Ù„Ø¹Ø§Ù…Ø© Ø§Ù„Ù…ØªØ§Ø­Ø© ÙˆØ§Ù„Ø¨ÙŠØ§Ù†Ø§Øª Ø§Ù„Ù…Ù‚Ø¯Ù…Ø© Ù…Ù† Ø§Ù„Ù…Ø¤Ø³Ø³Ø§Øª. ÙˆÙ„Ø§ ÙŠØ¹Ù†ÙŠ Ø¥Ø¯Ø±Ø§Ø¬ Ø§Ù„Ù…Ø¤Ø³Ø³Ø© ÙÙŠ Ø§Ù„Ø¯Ù„ÙŠÙ„ ÙˆØ­Ø¯Ù‡ ØªØ£ÙƒÙŠØ¯ Ø§Ø¹ØªÙ…Ø§Ø¯Ù‡Ø§ Ø£Ùˆ Ø£Ù‡Ù„ÙŠØ© Ø§Ù„Ù‚Ø¨ÙˆÙ„ ÙÙŠÙ‡Ø§ Ø£Ùˆ Ø£Ø¯Ø§Ø¡ Ø§Ù„Ø§Ù…ØªØ­Ø§Ù†Ø§Øª Ø£Ùˆ Ø§Ø¹ØªÙ…Ø§Ø¯ GeneAcademy Ù„Ù‡Ø§.
+            تحتفظ GeneAcademy بهذا الدليل باعتباره مورداً معلوماتياً. وقد تُدرج المؤسسات أو تُراجع أو تُحدّث استناداً إلى المعلومات العامة المتاحة والبيانات المقدمة من المؤسسات. ولا يعني إدراج المؤسسة في الدليل وحده تأكيد اعتمادها أو أهلية القبول فيها أو أداء الامتحانات أو اعتماد GeneAcademy لها.
           </p>
         </div>
       </div>
@@ -434,13 +440,13 @@
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
           </div>
           <h3 class="text-xl font-black text-slate-900">
-            <span data-lang="en">Looking for your next pathway?</span><span data-lang="ar" style="display:none;">ØªØ¨Ø­Ø« Ø¹Ù† Ù…Ø³Ø§Ø±Ùƒ Ø§Ù„Ù…Ù‡Ù†ÙŠ Ø§Ù„Ù‚Ø§Ø¯Ù…ØŸ</span>
+            <span data-lang="en">Looking for your next pathway?</span><span data-lang="ar" style="display:none;">تبحث عن مسارك المهني القادم؟</span>
           </h3>
           <p class="text-sm text-slate-500">
-            <span data-lang="en">Join the GeneAcademy network and explore professional learning opportunities.</span><span data-lang="ar" style="display:none;">Ø§Ù†Ø¶Ù… Ø¥Ù„Ù‰ Ø´Ø¨ÙƒØ© GeneAcademy ÙˆØ§Ø³ØªÙƒØ´Ù ÙØ±Øµ Ø§Ù„ØªØ¹Ù„Ù… Ø§Ù„Ù…Ù‡Ù†ÙŠ.</span>
+            <span data-lang="en">Join the GeneAcademy network and explore professional learning opportunities.</span><span data-lang="ar" style="display:none;">انضم إلى شبكة GeneAcademy واستكشف فرص التعلم المهني.</span>
           </p>
           <a href="join.html" class="mt-2 inline-block px-6 py-3 rounded-xl bg-[#123B5D] text-white font-bold text-sm shadow-md hover:bg-[#0d2a42] transition">
-            <span data-lang="en">Join Our Network</span><span data-lang="ar" style="display:none;">Ø§Ù†Ø¶Ù… Ø¥Ù„Ù‰ Ø´Ø¨ÙƒØªÙ†Ø§</span>
+            <span data-lang="en">Join Our Network</span><span data-lang="ar" style="display:none;">انضم إلى شبكتنا</span>
           </a>
         </div>
 
@@ -450,13 +456,13 @@
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
           </div>
           <h3 class="text-xl font-black text-slate-900">
-            <span data-lang="en">Want to update your institutionâ€™s info?</span><span data-lang="ar" style="display:none;">ØªØ±ÙŠØ¯ ØªØ­Ø¯ÙŠØ« Ù…Ø¹Ù„ÙˆÙ…Ø§Øª Ù…Ø¤Ø³Ø³ØªÙƒØŸ</span>
+            <span data-lang="en">Want to update your institution's info?</span><span data-lang="ar" style="display:none;">تريد تحديث معلومات مؤسستك؟</span>
           </h3>
           <p class="text-sm text-slate-500">
-            <span data-lang="en">Discuss collaboration, verify faculty data, or suggest an update to the directory.</span><span data-lang="ar" style="display:none;">Ù†Ø§Ù‚Ø´ Ø§Ù„ØªØ¹Ø§ÙˆÙ†ØŒ Ø£Ùˆ ØªØ­Ù‚Ù‚ Ù…Ù† Ø¨ÙŠØ§Ù†Ø§Øª Ø§Ù„ÙƒÙ„ÙŠØ©ØŒ Ø£Ùˆ Ø§Ù‚ØªØ±Ø­ ØªØ­Ø¯ÙŠØ«Ù‹Ø§ Ù„Ù„Ø¯Ù„ÙŠÙ„.</span>
+            <span data-lang="en">Discuss collaboration, verify faculty data, or suggest an update to the directory.</span><span data-lang="ar" style="display:none;">ناقش التعاون، أو تحقق من بيانات الكلية، أو اقترح تحديثًا للدليل.</span>
           </p>
           <a href="institutions.html#briefing-form" class="mt-2 inline-block px-6 py-3 rounded-xl bg-amber-500 text-white font-bold text-sm shadow-md hover:bg-amber-600 transition">
-            <span data-lang="en">Request a Partnership Briefing</span><span data-lang="ar" style="display:none;">Ø§Ø·Ù„Ø¨ Ø¥Ø­Ø§Ø·Ø© Ø´Ø±Ø§ÙƒØ©</span>
+            <span data-lang="en">Request a Partnership Briefing</span><span data-lang="ar" style="display:none;">اطلب إحاطة شراكة</span>
           </a>
         </div>
 
@@ -496,13 +502,13 @@
         <!-- Status Section -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
-            <h4 class="text-[10px] uppercase font-bold text-slate-400 mb-2"><span data-lang="en">Directory Record Status</span><span data-lang="ar" style="display:none;">Ø­Ø§Ù„Ø© Ø§Ù„Ø³Ø¬Ù„ ÙÙŠ Ø§Ù„Ø¯Ù„ÙŠÙ„</span></h4>
+            <h4 class="text-[10px] uppercase font-bold text-slate-400 mb-2"><span data-lang="en">Directory Record Status</span><span data-lang="ar" style="display:none;">حالة السجل في الدليل</span></h4>
             <div class="flex items-center gap-2 mb-1" id="m_directoryStatus"></div>
             <p class="text-[10px] text-slate-500 font-mono mt-2" id="m_lastReviewed"></p>
           </div>
           
           <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
-            <h4 class="text-[10px] uppercase font-bold text-slate-400 mb-2"><span data-lang="en">Official Institutional Status</span><span data-lang="ar" style="display:none;">Ø§Ù„ÙˆØ¶Ø¹ Ø§Ù„Ø±Ø³Ù…ÙŠ Ù„Ù„Ù…Ø¤Ø³Ø³Ø©</span></h4>
+            <h4 class="text-[10px] uppercase font-bold text-slate-400 mb-2"><span data-lang="en">Official Institutional Status</span><span data-lang="ar" style="display:none;">الوضع الرسمي للمؤسسة</span></h4>
             <p class="text-xs font-semibold text-slate-700" id="m_officialStatus"></p>
           </div>
         </div>
@@ -511,17 +517,17 @@
           <svg class="w-4 h-4 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
           <p>
             <span data-lang="en">This status describes the reliability and review stage of the information displayed in this directory. It does not independently confirm accreditation, admission eligibility, examination performance, or institutional endorsement.</span>
-            <span data-lang="ar" style="display:none;">ØªØµÙ Ù‡Ø°Ù‡ Ø§Ù„Ø­Ø§Ù„Ø© Ù…ÙˆØ«ÙˆÙ‚ÙŠØ© ÙˆÙ…Ø±Ø­Ù„Ø© Ù…Ø±Ø§Ø¬Ø¹Ø© Ø§Ù„Ù…Ø¹Ù„ÙˆÙ…Ø§Øª Ø§Ù„Ù…Ø¹Ø±ÙˆØ¶Ø© ÙÙŠ Ù‡Ø°Ø§ Ø§Ù„Ø¯Ù„ÙŠÙ„. ÙˆÙ„Ø§ ØªØ¤ÙƒØ¯ Ø¨Ø´ÙƒÙ„ Ù…Ø³ØªÙ‚Ù„ Ø§Ù„Ø§Ø¹ØªÙ…Ø§Ø¯ Ø£Ùˆ Ø£Ù‡Ù„ÙŠØ© Ø§Ù„Ù‚Ø¨ÙˆÙ„ Ø£Ùˆ Ø£Ø¯Ø§Ø¡ Ø§Ù„Ø§Ù…ØªØ­Ø§Ù†Ø§Øª Ø£Ùˆ Ø§Ø¹ØªÙ…Ø§Ø¯ Ø§Ù„Ù…Ø¤Ø³Ø³Ø©.</span>
+            <span data-lang="ar" style="display:none;">تصف هذه الحالة موثوقية ومرحلة مراجعة المعلومات المعروضة في هذا الدليل. ولا تؤكد بشكل مستقل الاعتماد أو أهلية القبول أو أداء الامتحانات أو اعتماد المؤسسة.</span>
           </p>
         </div>
 
         <div>
-          <h4 class="text-sm font-bold text-slate-900 mb-2 border-b border-slate-100 pb-1"><span data-lang="en">Overview</span><span data-lang="ar" style="display:none;">Ù†Ø¸Ø±Ø© Ø¹Ø§Ù…Ø©</span></h4>
+          <h4 class="text-sm font-bold text-slate-900 mb-2 border-b border-slate-100 pb-1"><span data-lang="en">Overview</span><span data-lang="ar" style="display:none;">نظرة عامة</span></h4>
           <p class="text-sm text-slate-600 leading-relaxed" id="m_desc"></p>
         </div>
 
         <div>
-          <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2"><span data-lang="en">Academic Information</span><span data-lang="ar" style="display:none;">Ù…Ø¹Ù„ÙˆÙ…Ø§Øª Ø£ÙƒØ§Ø¯ÙŠÙ…ÙŠØ©</span></h4>
+          <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2"><span data-lang="en">Academic Information</span><span data-lang="ar" style="display:none;">معلومات أكاديمية</span></h4>
           <ul class="text-sm text-slate-700 space-y-1 list-disc list-inside" id="m_confirmedList"></ul>
         </div>
       </div>
@@ -529,11 +535,11 @@
       <!-- Modal Footer -->
       <div class="p-6 bg-slate-50 border-t border-slate-200 rounded-b-3xl flex flex-col sm:flex-row justify-between items-center gap-4">
         <div class="text-xs text-slate-500 max-w-sm">
-          <strong class="text-slate-700 block mb-0.5"><span data-lang="en">Is something inaccurate?</span><span data-lang="ar" style="display:none;">Ù‡Ù„ ÙŠÙˆØ¬Ø¯ Ø®Ø·Ø£ ÙÙŠ Ø§Ù„Ù…Ø¹Ù„ÙˆÙ…Ø§ØªØŸ</span></strong>
-          <span data-lang="en">Suggest a correction with a supporting reference.</span><span data-lang="ar" style="display:none;">Ø§Ù‚ØªØ±Ø­ ØªØµØ­ÙŠØ­Ù‹Ø§ Ù…Ø¹ ØªÙ‚Ø¯ÙŠÙ… Ù…Ø±Ø¬Ø¹ Ø¯Ø§Ø¹Ù….</span>
+          <strong class="text-slate-700 block mb-0.5"><span data-lang="en">Is something inaccurate?</span><span data-lang="ar" style="display:none;">هل يوجد خطأ في المعلومات؟</span></strong>
+          <span data-lang="en">Suggest a correction with a supporting reference.</span><span data-lang="ar" style="display:none;">اقترح تصحيحًا مع تقديم مرجع داعم.</span>
         </div>
         <button onclick="openSuggestModal()" class="px-5 py-2.5 rounded-lg border border-slate-300 bg-white text-sm font-semibold text-slate-700 hover:bg-slate-100 transition whitespace-nowrap">
-          <span data-lang="en">Suggest a correction</span><span data-lang="ar" style="display:none;">Ø§Ù‚ØªØ±Ø§Ø­ ØªØµØ­ÙŠØ­</span>
+          <span data-lang="en">Suggest a correction</span><span data-lang="ar" style="display:none;">اقتراح تصحيح</span>
         </button>
       </div>
     </div>
@@ -543,15 +549,15 @@
   <script>
     // Data Setup
     const directoryData = [
-      { id: '1', nameAr: 'Ø¬Ø§Ù…Ø¹Ø© Ø§Ù„Ø®Ø±Ø·ÙˆÙ… - ÙƒÙ„ÙŠØ© Ø§Ù„Ø·Ø¨', nameEn: 'University of Khartoum - Faculty of Medicine', city: 'Ø§Ù„Ø®Ø±Ø·ÙˆÙ…', state: 'Khartoum', type: 'University', ownership: 'Public', status: 'Institution-confirmed information', officialStatus: 'Accredited by Sudan Medical Council', lastRev: 'August 2026', source: 'Institutional Submission', desc: 'The oldest medical school in Sudan, established in 1924 as the Kitchener School of Medicine.', confirmed: ['Medicine Program', 'Teaching Hospital', 'Postgraduate Studies'] },
-      { id: '2', nameAr: 'Ø¬Ø§Ù…Ø¹Ø© Ø§Ù„Ø¬Ø²ÙŠØ±Ø© - ÙƒÙ„ÙŠØ© Ø§Ù„Ø·Ø¨', nameEn: 'University of Gezira - Faculty of Medicine', city: 'ÙˆØ¯ Ù…Ø¯Ù†ÙŠ', state: 'Gezira', type: 'University', ownership: 'Public', status: 'Reviewed by GeneAcademy', officialStatus: 'Official status not assessed by GeneAcademy', lastRev: 'August 2026', source: 'Public Source', desc: 'Pioneer of community-oriented medical education in Sudan.', confirmed: ['Medicine Program', 'Community Medicine Dept'] },
-      { id: '3', nameAr: 'Ø¬Ø§Ù…Ø¹Ø© Ø£Ù… Ø¯Ø±Ù…Ø§Ù† Ø§Ù„Ø¥Ø³Ù„Ø§Ù…ÙŠØ©', nameEn: 'Omdurman Islamic University', city: 'Ø£Ù… Ø¯Ø±Ù…Ø§Ù†', state: 'Khartoum', type: 'University', ownership: 'Public', status: 'Publicly listed', officialStatus: 'Official status not assessed by GeneAcademy', lastRev: 'July 2026', source: 'Public Source', desc: 'Major public university providing medical and health sciences education.', confirmed: ['Medicine Program'] },
-      { id: '4', nameAr: 'Ø¬Ø§Ù…Ø¹Ø© Ø§Ù„Ø¹Ù„ÙˆÙ… ÙˆØ§Ù„ØªÙƒÙ†ÙˆÙ„ÙˆØ¬ÙŠØ§', nameEn: 'University of Science and Technology', city: 'Ø£Ù… Ø¯Ø±Ù…Ø§Ù†', state: 'Khartoum', type: 'University', ownership: 'Private', status: 'Institution-confirmed information', officialStatus: 'Official status not assessed by GeneAcademy', lastRev: 'August 2026', source: 'Institutional Submission', desc: 'Prominent private university offering degrees in medicine, dentistry, and pharmacy.', confirmed: ['Medicine Program', 'Dentistry Program', 'Pharmacy Program'] },
-      { id: '5', nameAr: 'Ø¬Ø§Ù…Ø¹Ø© Ø§Ù„Ø£Ø­ÙØ§Ø¯ Ù„Ù„Ø¨Ù†Ø§Øª', nameEn: 'Ahfad University for Women', city: 'Ø£Ù… Ø¯Ø±Ù…Ø§Ù†', state: 'Khartoum', type: 'University', ownership: 'Private', status: 'Reviewed by GeneAcademy', officialStatus: 'Official status not assessed by GeneAcademy', lastRev: 'August 2026', source: 'Public Source', desc: 'Dedicated to womenâ€™s education and rural development.', confirmed: ['Medicine Program'] },
-      { id: '6', nameAr: 'Ø¬Ø§Ù…Ø¹Ø© Ø§Ù„ÙØ§Ø´Ø±', nameEn: 'Al Fashir University', city: 'Ø§Ù„ÙØ§Ø´Ø±', state: 'North Darfur', type: 'University', ownership: 'Public', status: 'Publicly listed', officialStatus: 'Official status not assessed by GeneAcademy', lastRev: 'June 2026', source: 'Public Source', desc: 'State university serving the Darfur region.', confirmed: ['Medicine Program'] },
-      { id: '7', nameAr: 'Ø¬Ø§Ù…Ø¹Ø© ÙƒØ³Ù„Ø§', nameEn: 'Kassala University', city: 'ÙƒØ³Ù„Ø§', state: 'Kassala', type: 'University', ownership: 'Public', status: 'Publicly listed', officialStatus: 'Official status not assessed by GeneAcademy', lastRev: 'June 2026', source: 'Public Source', desc: 'Public university in Eastern Sudan.', confirmed: ['Medicine Program'] },
-      { id: '8', nameAr: 'Ø¬Ø§Ù…Ø¹Ø© Ø§Ù„Ù†ÙŠÙ„ÙŠÙ†', nameEn: 'Al Neelain University', city: 'Ø§Ù„Ø®Ø±Ø·ÙˆÙ…', state: 'Khartoum', type: 'University', ownership: 'Public', status: 'Awaiting review', officialStatus: 'Official status not assessed by GeneAcademy', lastRev: 'Pending', source: 'Pending', desc: 'Pending verification of academic programs.', confirmed: [] },
-      { id: '9', nameAr: 'ÙƒÙ„ÙŠØ© Ø¨ÙˆØ±ØªØ³ÙˆØ¯Ø§Ù† Ø§Ù„Ø£Ù‡Ù„ÙŠØ©', nameEn: 'Port Sudan Ahlia College', city: 'Ø¨ÙˆØ±ØªØ³ÙˆØ¯Ø§Ù†', state: 'Red Sea', type: 'Medical Faculty', ownership: 'Private', status: 'Historical information', officialStatus: 'Official status not assessed by GeneAcademy', lastRev: 'January 2025', source: 'Archived Data', desc: 'Historical listing; current operating status requires update.', confirmed: [] }
+      { id: '1', nameAr: 'جامعة الخرطوم - كلية الطب', nameEn: 'University of Khartoum - Faculty of Medicine', city: 'الخرطوم', state: 'Khartoum', type: 'University', ownership: 'Public', status: 'Institution-confirmed information', officialStatus: 'Accredited by Sudan Medical Council', lastRev: 'August 2026', source: 'Institutional Submission', desc: 'The oldest medical school in Sudan, established in 1924 as the Kitchener School of Medicine.', confirmed: ['Medicine Program', 'Teaching Hospital', 'Postgraduate Studies'] },
+      { id: '2', nameAr: 'جامعة الجزيرة - كلية الطب', nameEn: 'University of Gezira - Faculty of Medicine', city: 'ود مدني', state: 'Gezira', type: 'University', ownership: 'Public', status: 'Reviewed by GeneAcademy', officialStatus: 'Official status not assessed by GeneAcademy', lastRev: 'August 2026', source: 'Public Source', desc: 'Pioneer of community-oriented medical education in Sudan.', confirmed: ['Medicine Program', 'Community Medicine Dept'] },
+      { id: '3', nameAr: 'جامعة أم درمان الإسلامية', nameEn: 'Omdurman Islamic University', city: 'أم درمان', state: 'Khartoum', type: 'University', ownership: 'Public', status: 'Publicly listed', officialStatus: 'Official status not assessed by GeneAcademy', lastRev: 'July 2026', source: 'Public Source', desc: 'Major public university providing medical and health sciences education.', confirmed: ['Medicine Program'] },
+      { id: '4', nameAr: 'جامعة العلوم والتكنولوجيا', nameEn: 'University of Science and Technology', city: 'أم درمان', state: 'Khartoum', type: 'University', ownership: 'Private', status: 'Institution-confirmed information', officialStatus: 'Official status not assessed by GeneAcademy', lastRev: 'August 2026', source: 'Institutional Submission', desc: 'Prominent private university offering degrees in medicine, dentistry, and pharmacy.', confirmed: ['Medicine Program', 'Dentistry Program', 'Pharmacy Program'] },
+      { id: '5', nameAr: 'جامعة الأحفاد للبنات', nameEn: 'Ahfad University for Women', city: 'أم درمان', state: 'Khartoum', type: 'University', ownership: 'Private', status: 'Reviewed by GeneAcademy', officialStatus: 'Official status not assessed by GeneAcademy', lastRev: 'August 2026', source: 'Public Source', desc: 'Dedicated to women's education and rural development.', confirmed: ['Medicine Program'] },
+      { id: '6', nameAr: 'جامعة الفاشر', nameEn: 'Al Fashir University', city: 'الفاشر', state: 'North Darfur', type: 'University', ownership: 'Public', status: 'Publicly listed', officialStatus: 'Official status not assessed by GeneAcademy', lastRev: 'June 2026', source: 'Public Source', desc: 'State university serving the Darfur region.', confirmed: ['Medicine Program'] },
+      { id: '7', nameAr: 'جامعة كسلا', nameEn: 'Kassala University', city: 'كسلا', state: 'Kassala', type: 'University', ownership: 'Public', status: 'Publicly listed', officialStatus: 'Official status not assessed by GeneAcademy', lastRev: 'June 2026', source: 'Public Source', desc: 'Public university in Eastern Sudan.', confirmed: ['Medicine Program'] },
+      { id: '8', nameAr: 'جامعة النيلين', nameEn: 'Al Neelain University', city: 'الخرطوم', state: 'Khartoum', type: 'University', ownership: 'Public', status: 'Awaiting review', officialStatus: 'Official status not assessed by GeneAcademy', lastRev: 'Pending', source: 'Pending', desc: 'Pending verification of academic programs.', confirmed: [] },
+      { id: '9', nameAr: 'كلية بورتسودان الأهلية', nameEn: 'Port Sudan Ahlia College', city: 'بورتسودان', state: 'Red Sea', type: 'Medical Faculty', ownership: 'Private', status: 'Historical information', officialStatus: 'Official status not assessed by GeneAcademy', lastRev: 'January 2025', source: 'Archived Data', desc: 'Historical listing; current operating status requires update.', confirmed: [] }
     ];
 
     let currentLang = 'ar';
@@ -656,30 +662,33 @@
     }
 
     function getStatusInfo(status) {
+      if(status === 'Live Telemetry Active') {
+        return { icon: '<svg class="w-4 h-4 shrink-0 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>', cls: 'status-confirmed', ar: 'مؤسسة نشطة في التتبع المباشر', en: 'Live Telemetry Active' };
+      }
       if(status === 'Institution-confirmed information') {
-        return { icon: '<svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>', cls: 'status-confirmed', ar: 'Ù…Ø¹Ù„ÙˆÙ…Ø§Øª Ù…Ø¤ÙƒØ¯Ø© Ù…Ù† Ø§Ù„Ù…Ø¤Ø³Ø³Ø©', en: 'Institution-confirmed information' };
+        return { icon: '<svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>', cls: 'status-confirmed', ar: 'معلومات مؤكدة من المؤسسة', en: 'Institution-confirmed information' };
       }
       if(status === 'Reviewed by GeneAcademy') {
-        return { icon: '<svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>', cls: 'status-reviewed', ar: 'ØªÙ…Øª Ø§Ù„Ù…Ø±Ø§Ø¬Ø¹Ø© Ø¨ÙˆØ§Ø³Ø·Ø© GeneAcademy', en: 'Reviewed by GeneAcademy' };
+        return { icon: '<svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>', cls: 'status-reviewed', ar: 'تمت المراجعة بواسطة GeneAcademy', en: 'Reviewed by GeneAcademy' };
       }
       if(status === 'Publicly listed') {
-        return { icon: '<svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>', cls: 'status-listed', ar: 'Ù…Ø¯Ø±Ø¬Ø© ÙÙŠ Ø§Ù„Ù…ØµØ§Ø¯Ø± Ø§Ù„Ø¹Ø§Ù…Ø©', en: 'Publicly listed' };
+        return { icon: '<svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>', cls: 'status-listed', ar: 'مدرجة في المصادر العامة', en: 'Publicly listed' };
       }
       if(status === 'Awaiting review') {
-        return { icon: '<svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>', cls: 'status-awaiting', ar: 'Ø¨Ø§Ù†ØªØ¸Ø§Ø± Ø§Ù„Ù…Ø±Ø§Ø¬Ø¹Ø©', en: 'Awaiting review' };
+        return { icon: '<svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>', cls: 'status-awaiting', ar: 'بانتظار المراجعة', en: 'Awaiting review' };
       }
-      return { icon: '<svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"></path></svg>', cls: 'status-historical', ar: 'Ù…Ø¹Ù„ÙˆÙ…Ø§Øª ØªØ§Ø±ÙŠØ®ÙŠØ©', en: 'Historical information' };
+      return { icon: '<svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"></path></svg>', cls: 'status-historical', ar: 'معلومات تاريخية', en: 'Historical information' };
     }
 
     function translateType(type, lang) {
       if(lang === 'en') return type;
-      const map = {'University':'Ø¬Ø§Ù…Ø¹Ø©','Medical Faculty':'ÙƒÙ„ÙŠØ© Ø·Ø¨','Teaching Hospital':'Ù…Ø³ØªØ´ÙÙ‰ ØªØ¹Ù„ÙŠÙ…ÙŠ','Research Institution':'Ù…Ø¤Ø³Ø³Ø© Ø¨Ø­Ø«ÙŠØ©'};
+      const map = {'University':'جامعة','Medical Faculty':'كلية طب','Teaching Hospital':'مستشفى تعليمي','Research Institution':'مؤسسة بحثية'};
       return map[type] || type;
     }
 
     function translateOwnership(own, lang) {
       if(lang === 'en') return own;
-      return own === 'Public' ? 'Ø­ÙƒÙˆÙ…ÙŠØ©' : 'Ø®Ø§ØµØ©/Ø£Ù‡Ù„ÙŠØ©';
+      return own === 'Public' ? 'حكومية' : 'خاصة/أهلية';
     }
 
     function generateCardHTML(d) {
@@ -688,20 +697,27 @@
       const typName = translateType(d.type, currentLang);
       const ownName = translateOwnership(d.ownership, currentLang);
       
-      const officialStatusAr = d.officialStatus === 'Official status not assessed by GeneAcademy' ? 'Ù„Ù… ØªÙ‚Ù… GeneAcademy Ø¨ØªÙ‚ÙŠÙŠÙ… Ø§Ù„ÙˆØ¶Ø¹ Ø§Ù„Ø±Ø³Ù…ÙŠ Ù„Ù„Ù…Ø¤Ø³Ø³Ø©' : d.officialStatus;
+      const officialStatusAr = d.officialStatus === 'Official status not assessed by GeneAcademy' ? 'لم تقم GeneAcademy بتقييم الوضع الرسمي للمؤسسة' : d.officialStatus;
       const officialStatusText = currentLang === 'en' ? d.officialStatus : officialStatusAr;
 
-      const vBtn = currentLang === 'en' ? 'View Institution' : 'Ø§Ø³ØªØ¹Ø±Ø§Ø¶ Ø§Ù„Ù…Ø¤Ø³Ø³Ø©';
-      const sBtn = currentLang === 'en' ? 'Suggest a Correction' : 'Ø§Ù‚ØªØ±Ø­ ØªØµØ­ÙŠØ­Ù‹Ø§';
-      const lrStr = currentLang === 'en' ? `Last reviewed: ${d.lastRev}` : `ØªØ§Ø±ÙŠØ® Ø§Ù„Ù…Ø±Ø§Ø¬Ø¹Ø©: ${d.lastRev}`;
-      const officialStatusLabel = currentLang === 'en' ? `Official accreditation information:` : `Ù…Ø¹Ù„ÙˆÙ…Ø§Øª Ø§Ù„Ø§Ø¹ØªÙ…Ø§Ø¯ Ø§Ù„Ø±Ø³Ù…ÙŠØ©:`;
+      const vBtn = currentLang === 'en' ? 'View Institution' : 'استعراض المؤسسة';
+      const sBtn = currentLang === 'en' ? 'Suggest a Correction' : 'اقترح تصحيحًا';
+      const lrStr = currentLang === 'en' ? `Last reviewed: ${d.lastRev}` : `تاريخ المراجعة: ${d.lastRev}`;
+      const officialStatusLabel = currentLang === 'en' ? `Official accreditation information:` : `معلومات الاعتماد الرسمية:`;
+
+      const nodeBadgeHTML = d.isNodeActive || (d.liveMembers && d.liveMembers > 0)
+        ? `<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-700 text-[10px] font-mono font-bold border border-emerald-500/30"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> ${d.liveMembers || 1} candidate(s) represented</span>`
+        : `<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-100 text-slate-400 text-[10px] font-mono font-semibold">Node Inert</span>`;
 
       return `
         <div class="card-institution rounded-2xl p-6 flex flex-col justify-between space-y-6">
           
           <div class="space-y-1">
-            <h3 class="text-lg font-black text-slate-900 leading-snug">${currentLang === 'ar' ? d.nameAr : d.nameEn}</h3>
-            <p class="text-sm text-slate-500 font-mono">${currentLang === 'ar' ? `${d.city}ØŒ ${d.state}ØŒ Ø§Ù„Ø³ÙˆØ¯Ø§Ù†` : `${d.city}, ${d.state}, Sudan`}</p>
+            <div class="flex items-center justify-between gap-2 mb-1">
+              <h3 class="text-lg font-black text-slate-900 leading-snug">${currentLang === 'ar' ? d.nameAr : d.nameEn}</h3>
+              ${nodeBadgeHTML}
+            </div>
+            <p class="text-sm text-slate-500 font-mono">${currentLang === 'ar' ? `${d.city}، ${d.state}، السودان` : `${d.city}, ${d.state}, Sudan`}</p>
             <p class="text-xs font-semibold text-slate-400 mt-1">${ownName} &bull; ${typName}</p>
           </div>
           
@@ -734,77 +750,163 @@
       `;
     }
 
-    function renderChips() {
-      const container = document.getElementById('activeFilters');
-      let chipsHTML = '';
-      let hasFilters = false;
+    const CANONICAL_SUDAN_UNIS = [
+      { keywords: ['khartoum', 'الخرطوم'], nameEn: 'University of Khartoum - Faculty of Medicine', nameAr: 'جامعة الخرطوم - كلية الطب', state: 'Khartoum', city: 'Khartoum', type: 'University', ownership: 'Public' },
+      { keywords: ['gezira', 'الجزيرة'], nameEn: 'University of Gezira - Faculty of Medicine', nameAr: 'جامعة الجزيرة - كلية الطب', state: 'Gezira', city: 'Wad Medani', type: 'University', ownership: 'Public' },
+      { keywords: ['omdurman islamic', 'أم درمان الإسلامية'], nameEn: 'Omdurman Islamic University', nameAr: 'جامعة أم درمان الإسلامية', state: 'Khartoum', city: 'Omdurman', type: 'University', ownership: 'Public' },
+      { keywords: ['science and technology', 'العلوم والتكنولوجيا'], nameEn: 'University of Science and Technology', nameAr: 'جامعة العلوم والتكنولوجيا', state: 'Khartoum', city: 'Omdurman', type: 'University', ownership: 'Private' },
+      { keywords: ['ahfad', 'الأحفاد'], nameEn: 'Ahfad University for Women', nameAr: 'جامعة الأحفاد للبنات', state: 'Khartoum', city: 'Omdurman', type: 'University', ownership: 'Private' },
+      { keywords: ['fasher', 'الفاشر'], nameEn: 'University of El Fasher', nameAr: 'جامعة الفاشر', state: 'North Darfur', city: 'El Fasher', type: 'University', ownership: 'Public' },
+      { keywords: ['kassala', 'كسلا'], nameEn: 'University of Kassala', nameAr: 'جامعة كسلا', state: 'Kassala', city: 'Kassala', type: 'University', ownership: 'Public' },
+      { keywords: ['neelain', 'النيلين'], nameEn: 'Al-Neelain University', nameAr: 'جامعة النيلين', state: 'Khartoum', city: 'Khartoum', type: 'University', ownership: 'Public' },
+      { keywords: ['port sudan', 'بورتسودان'], nameEn: 'Port Sudan Ahlia College', nameAr: 'كلية بورتسودان الأهلية', state: 'Red Sea', city: 'Port Sudan', type: 'Medical Faculty', ownership: 'Private' },
+      { keywords: ['karary', 'كرري'], nameEn: 'Karary University', nameAr: 'جامعة كرري', state: 'Khartoum', city: 'Omdurman', type: 'University', ownership: 'Public' },
+      { keywords: ['azhari', 'الأزهري'], nameEn: 'Alzaiem Alazhari University', nameAr: 'جامعة الزعيم الأزهري', state: 'Khartoum', city: 'Khartoum North', type: 'University', ownership: 'Public' },
+      { keywords: ['bahri', 'بحري'], nameEn: 'University of Bahri', nameAr: 'جامعة بحري', state: 'Khartoum', city: 'Khartoum North', type: 'University', ownership: 'Public' },
+      { keywords: ['kordofan', 'كردفان'], nameEn: 'University of Kordofan', nameAr: 'جامعة كردفان', state: 'North Kordofan', city: 'El Obeid', type: 'University', ownership: 'Public' },
+      { keywords: ['shendi', 'شندي'], nameEn: 'University of Shendi', nameAr: 'جامعة شندي', state: 'River Nile', city: 'Shendi', type: 'University', ownership: 'Public' },
+      { keywords: ['gadarif', 'القضارف'], nameEn: 'University of Gadarif', nameAr: 'جامعة القضارف', state: 'Gadarif', city: 'Gadarif', type: 'University', ownership: 'Public' },
+      { keywords: ['red sea', 'البحر الأحمر'], nameEn: 'Red Sea University', nameAr: 'جامعة البحر الأحمر', state: 'Red Sea', city: 'Port Sudan', type: 'University', ownership: 'Public' },
+      { keywords: ['nyala', 'نيالا'], nameEn: 'University of Nyala', nameAr: 'جامعة نيالا', state: 'South Darfur', city: 'Nyala', type: 'University', ownership: 'Public' },
+      { keywords: ['dongola', 'دنقلا'], nameEn: 'University of Dongola', nameAr: 'جامعة دنقلا', state: 'Northern', city: 'Dongola', type: 'University', ownership: 'Public' },
+      { keywords: ['sinnar', 'سنار'], nameEn: 'University of Sinnar', nameAr: 'جامعة سنار', state: 'Sennar', city: 'Sennar', type: 'University', ownership: 'Public' }
+    ];
 
-      Object.keys(activeFilters).forEach(category => {
-        activeFilters[category].forEach(val => {
-          hasFilters = true;
-          let disp = val;
-          if(currentLang === 'ar') {
-             if(category === 'type') disp = translateType(val, 'ar');
-             if(category === 'ownership') disp = translateOwnership(val, 'ar');
-             if(category === 'status') {
-               const st = getStatusInfo(val);
-               disp = st.ar;
-             }
-          }
-          chipsHTML += `
-            <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-800 text-white text-[10px] font-semibold">
-              ${disp}
-              <button onclick="removeFilter('${category}', '${val}')" class="hover:text-red-400"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
-            </div>
-          `;
-        });
+    function resolveInstitutionMetadata(rawName) {
+      const lower = String(rawName || '').toLowerCase();
+      const matched = CANONICAL_SUDAN_UNIS.find(c => c.keywords.some(k => lower.includes(k)));
+      if (matched) {
+        return { ...matched };
+      }
+      return {
+        nameEn: rawName,
+        nameAr: rawName,
+        state: 'Other / Regional',
+        city: 'Sudan',
+        type: lower.includes('hospital') ? 'Teaching Hospital' : (lower.includes('college') ? 'Medical Faculty' : 'University'),
+        ownership: lower.includes('private') || lower.includes('خاص') ? 'Private' : 'Public'
+      };
+    }
+
+    let regionChartInstance = null;
+
+    function updateLiveRegionChart() {
+      const canvas = document.getElementById('regionChart');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      
+      const counts = {};
+      directoryData.forEach(d => {
+        const s = d.state || 'Sudan';
+        counts[s] = (counts[s] || 0) + 1;
       });
 
-      container.innerHTML = chipsHTML;
-      document.getElementById('clearFiltersBtn').style.display = hasFilters ? 'block' : 'none';
+      const labels = Object.keys(counts);
+      const values = Object.values(counts);
+
+      if (regionChartInstance) {
+        regionChartInstance.destroy();
+      }
+
+      regionChartInstance = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: labels,
+          datasets: [{
+            label: currentLang === 'ar' ? 'المؤسسات النشطة' : 'Active Institutions',
+            data: values,
+            backgroundColor: '#0284C7',
+            borderRadius: 4
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { display: false } },
+          scales: {
+            y: { beginAtZero: true, grid: { color: '#F1F5F9' }, ticks: { font: {family: 'IBM Plex Mono'} } },
+            x: { grid: { display: false }, ticks: { font: {family: 'Cairo'} } }
+          }
+        }
+      });
     }
 
-    function removeFilter(category, val) {
-      activeFilters[category] = activeFilters[category].filter(v => v !== val);
-      document.querySelector(`input[value="${val}"]`).checked = false;
-      renderDirectory();
+    async function loadLiveUnivStats() {
+      const alertContainer = document.getElementById('telemetryAlert');
+      try {
+        const url = 'https://script.google.com/macros/s/AKfycbwagVvADiYJ58WChvd_AUCYKrjqWJ5kKHIe2pIOPi1Nx2nE_4BVyVV3ifYkmib3Hbvk/exec?action=UNIV_STATS';
+        const res = await fetch(url);
+        const data = await res.json();
+        if (data.success && Array.isArray(data.institutions)) {
+          const liveCount = typeof data.facultiesCount === 'number' ? data.facultiesCount : data.institutions.length;
+          
+          const heroEl = document.getElementById('heroInstitutionsCount');
+          if (heroEl) heroEl.innerText = liveCount;
+          const countEl = document.getElementById('resultsCount');
+          if (countEl) countEl.innerText = liveCount;
+
+          if (alertContainer) alertContainer.innerHTML = '';
+
+          if (data.institutions.length > 0) {
+            directoryData.length = 0; // Pure Option A dynamic node listing
+            data.institutions.forEach((inst, index) => {
+              const meta = resolveInstitutionMetadata(inst.displayName);
+              directoryData.push({
+                id: 'telemetry-' + (index + 1),
+                nameAr: meta.nameAr,
+                nameEn: meta.nameEn,
+                city: meta.city,
+                state: meta.state,
+                type: meta.type,
+                ownership: meta.ownership,
+                status: 'Live Telemetry Active',
+                officialStatus: 'Active Candidate Telemetry',
+                lastRev: 'Live',
+                source: 'MASTER_AUTH Telemetry',
+                desc: `Verified institution node registered in SudaGene telemetry with ${inst.memberCount} candidate(s).`,
+                confirmed: [`${inst.memberCount} Verified Candidate(s)`],
+                liveMembers: inst.memberCount,
+                isNodeActive: true
+              });
+            });
+          }
+          initFilters();
+          renderDirectory();
+          updateLiveRegionChart();
+        }
+      } catch (e) {
+        console.warn('Live node-lighting telemetry offline fallback:', e);
+        if (alertContainer) {
+          alertContainer.innerHTML = `
+            <div class="bg-amber-500/10 border border-amber-500/30 text-amber-800 rounded-xl p-4 text-xs font-semibold text-center mb-6">
+              ⚠️ Telemetry Sync Offline — Displaying cached directory fallback.
+            </div>
+          `;
+        }
+        directoryData.forEach(d => {
+          d.status = 'Awaiting review';
+          d.officialStatus = 'Cached Directory Fallback (Offline)';
+          d.isNodeActive = false;
+        });
+        const heroEl = document.getElementById('heroInstitutionsCount');
+        if (heroEl) heroEl.innerText = directoryData.length;
+        initFilters();
+        renderDirectory();
+        updateLiveRegionChart();
+      }
     }
 
-    function openModal(id) {
-      const d = directoryData.find(x => x.id === id);
-      if(!d) return;
-
-      const st = getStatusInfo(d.status);
-      const statName = currentLang === 'en' ? st.en : st.ar;
-      const typName = translateType(d.type, currentLang);
-      const ownName = translateOwnership(d.ownership, currentLang);
-      
-      const officialStatusAr = d.officialStatus === 'Official status not assessed by GeneAcademy' ? 'Ù„Ù… ØªÙ‚Ù… GeneAcademy Ø¨ØªÙ‚ÙŠÙŠÙ… Ø§Ù„ÙˆØ¶Ø¹ Ø§Ù„Ø±Ø³Ù…ÙŠ Ù„Ù„Ù…Ø¤Ø³Ø³Ø©' : d.officialStatus;
-      const officialStatusText = currentLang === 'en' ? d.officialStatus : officialStatusAr;
-
-      document.getElementById('m_nameAr').innerText = currentLang === 'ar' ? d.nameAr : d.nameEn;
-      document.getElementById('m_nameEn').innerText = currentLang === 'ar' ? d.nameEn : d.nameAr;
-      
-      const loc = currentLang === 'en' ? `${d.city}, ${d.state}, Sudan` : `${d.city}ØŒ ${d.state}ØŒ Ø§Ù„Ø³ÙˆØ¯Ø§Ù†`;
-      const rev = currentLang === 'en' ? `Last reviewed: ${d.lastRev}` : `ØªØ§Ø±ÙŠØ® Ø§Ù„Ù…Ø±Ø§Ø¬Ø¹Ø©: ${d.lastRev}`;
-      document.getElementById('m_location').innerText = loc;
-      document.getElementById('m_type').innerText = typName + ' â€¢ ' + ownName;
-      
-      document.getElementById('m_directoryStatus').innerHTML = `
-        <span class="${st.cls}">${st.icon}</span>
-        <span class="font-bold text-slate-800">${statName}</span>
-      `;
-      document.getElementById('m_lastReviewed').innerText = rev;
-      
-      document.getElementById('m_officialStatus').innerText = officialStatusText;
-      
-      document.getElementById('m_desc').innerText = d.desc;
+    document.addEventListener('DOMContentLoaded', () => {
+      setLang('ar');
+      initFilters();
+      loadLiveUnivStats();
+    });nnerText = d.desc;
       
       const ul = document.getElementById('m_confirmedList');
       if(d.confirmed.length > 0) {
         ul.innerHTML = d.confirmed.map(c => `<li>${c}</li>`).join('');
       } else {
-        ul.innerHTML = currentLang === 'en' ? '<li class="text-slate-400 italic">No confirmed academic details</li>' : '<li class="text-slate-400 italic">Ù„Ø§ ØªÙˆØ¬Ø¯ ØªÙØ§ØµÙŠÙ„ Ø£ÙƒØ§Ø¯ÙŠÙ…ÙŠØ© Ù…Ø¤ÙƒØ¯Ø©</li>';
+        ul.innerHTML = currentLang === 'en' ? '<li class="text-slate-400 italic">No confirmed academic details</li>' : '<li class="text-slate-400 italic">لا توجد تفاصيل أكاديمية مؤكدة</li>';
       }
 
       const m = document.getElementById('detailModal');
@@ -819,7 +921,7 @@
     }
 
     function openSuggestModal() {
-      alert(currentLang === 'en' ? "This will open the correction suggestion form." : "Ø³ÙŠØ¤Ø¯ÙŠ Ù‡Ø°Ø§ Ø¥Ù„Ù‰ ÙØªØ­ Ù†Ù…ÙˆØ°Ø¬ Ø§Ù‚ØªØ±Ø§Ø­ Ø§Ù„ØªØµØ­ÙŠØ­.");
+      alert(currentLang === 'en' ? "This will open the correction suggestion form." : "سيؤدي هذا إلى فتح نموذج اقتراح التصحيح.");
     }
 
     function initChart() {
@@ -838,7 +940,7 @@
         'Kordofan (All)': 6
       };
 
-      const labels = currentLang === 'ar' ? ['Ø§Ù„Ø®Ø±Ø·ÙˆÙ…', 'Ø§Ù„Ø¬Ø²ÙŠØ±Ø©', 'Ø§Ù„Ø¨Ø­Ø± Ø§Ù„Ø£Ø­Ù…Ø±', 'Ø§Ù„Ø´Ù…Ø§Ù„ÙŠØ©', 'Ù†Ù‡Ø± Ø§Ù„Ù†ÙŠÙ„', 'ÙƒØ³Ù„Ø§', 'Ø³Ù†Ø§Ø±', 'Ø§Ù„Ù†ÙŠÙ„ Ø§Ù„Ø£Ø¨ÙŠØ¶', 'Ø¯Ø§Ø±ÙÙˆØ±', 'ÙƒØ±Ø¯ÙØ§Ù†'] : Object.keys(regionData);
+      const labels = currentLang === 'ar' ? ['الخرطوم', 'الجزيرة', 'البحر الأحمر', 'الشمالية', 'نهر النيل', 'كسلا', 'سنار', 'النيل الأبيض', 'دارفور', 'كردفان'] : Object.keys(regionData);
       const values = Object.values(regionData);
 
       new Chart(ctx, {
@@ -846,7 +948,7 @@
         data: {
           labels: labels,
           datasets: [{
-            label: currentLang === 'ar' ? 'Ø§Ù„Ù…Ø¤Ø³Ø³Ø§Øª Ø§Ù„Ù…Ø¯Ø±Ø¬Ø©' : 'Listed Institutions',
+            label: currentLang === 'ar' ? 'المؤسسات المدرجة' : 'Listed Institutions',
             data: values,
             backgroundColor: '#0284C7',
             borderRadius: 4
@@ -864,11 +966,77 @@
       });
     }
 
+    async function loadLiveUnivStats() {
+      const alertContainer = document.getElementById('telemetryAlert');
+      try {
+        const url = 'https://script.google.com/macros/s/AKfycbwagVvADiYJ58WChvd_AUCYKrjqWJ5kKHIe2pIOPi1Nx2nE_4BVyVV3ifYkmib3Hbvk/exec?action=UNIV_STATS';
+        const res = await fetch(url);
+        const data = await res.json();
+        if (data.success && Array.isArray(data.institutions)) {
+          const liveCount = typeof data.facultiesCount === 'number' ? data.facultiesCount : data.institutions.length;
+          
+          const heroEl = document.getElementById('heroInstitutionsCount');
+          if (heroEl) heroEl.innerText = liveCount;
+          const countEl = document.getElementById('resultsCount');
+          if (countEl) countEl.innerText = liveCount;
+
+          if (alertContainer) alertContainer.innerHTML = '';
+
+          if (data.institutions.length > 0) {
+            directoryData.length = 0; // Pure Option A dynamic node listing
+            data.institutions.forEach((inst, index) => {
+              const meta = resolveInstitutionMetadata(inst.displayName);
+              directoryData.push({
+                id: 'telemetry-' + (index + 1),
+                nameAr: meta.nameAr,
+                nameEn: meta.nameEn,
+                city: meta.city,
+                state: meta.state,
+                type: meta.type,
+                ownership: meta.ownership,
+                status: 'Live Telemetry Active',
+                officialStatus: 'Active Candidate Telemetry',
+                lastRev: 'Live',
+                source: 'MASTER_AUTH Telemetry',
+                desc: `Verified institution node registered in SudaGene telemetry with ${inst.memberCount} candidate(s).`,
+                confirmed: [`${inst.memberCount} Verified Candidate(s)`],
+                liveMembers: inst.memberCount,
+                isNodeActive: true
+              });
+            });
+          }
+          initFilters();
+          renderDirectory();
+          updateLiveRegionChart();
+        }
+      } catch (e) {
+        console.warn('Live node-lighting telemetry offline fallback:', e);
+        if (alertContainer) {
+          alertContainer.innerHTML = `
+            <div class="bg-amber-500/10 border border-amber-500/30 text-amber-800 rounded-xl p-4 text-xs font-semibold text-center mb-6">
+              ⚠️ Telemetry Sync Offline — Displaying cached directory fallback.
+            </div>
+          `;
+        }
+        directoryData.forEach(d => {
+          d.status = 'Awaiting review';
+          d.officialStatus = 'Cached Directory Fallback (Offline)';
+          d.isNodeActive = false;
+        });
+        const heroEl = document.getElementById('heroInstitutionsCount');
+        if (heroEl) heroEl.innerText = directoryData.length;
+        initFilters();
+        renderDirectory();
+        updateLiveRegionChart();
+      }
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
       setLang('ar');
       initFilters();
-      initChart();
+      loadLiveUnivStats();
     });
   </script>
+  <script src="js/assistant.js"></script>
 </body>
 </html>

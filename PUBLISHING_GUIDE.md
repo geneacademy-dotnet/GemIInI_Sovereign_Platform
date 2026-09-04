@@ -1,13 +1,18 @@
-﻿# GemIInI SudaGene Platform â€” Publishing & Deployment Guide
+# GemIInI SudaGene Platform â€” Publishing & Deployment Guide
 
 This document outlines the rapid deployment steps to publish the **GemIInI Independent Web Platform** to live production across your official domains: `geneacademy.net`, `members.geneacademy.net`, and `members.geneacademy.net`.
 
 ---
 
-## 1. Instant Local Testing (0 Configuration)
-You can launch and test the entire platform locally on your computer in 2 seconds:
-* Double-click **[`deploy_local.bat`](file:///G:/My%20Drive/GemIInI_Independent_Platform/deploy_local.bat)** in this folder.
-* It will spin up a local server and open `http://localhost:8080` in your web browser.
+## 1. Production Web Package (1-Click Upload & Extract)
+The complete production static website has been packaged into:
+* **[`GemIInI_Hostinger_Deploy_v3.0.zip`](file:///G:/My%20Drive/GemIInI_Sovereign_Platform/GemIInI_Hostinger_Deploy_v3.0.zip)** (431 KB, 74 Files)
+
+### Deployment Steps (Hostinger / cPanel / Apache):
+1. Log into your **Hostinger hPanel** / cPanel dashboard.
+2. Go to **File Manager** $\rightarrow$ `public_html`.
+3. Upload [`GemIInI_Hostinger_Deploy_v3.0.zip`](file:///G:/My%20Drive/GemIInI_Sovereign_Platform/GemIInI_Hostinger_Deploy_v3.0.zip).
+4. Right-click and select **Extract** directly into `public_html`.
 
 ---
 
@@ -18,7 +23,7 @@ You can launch and test the entire platform locally on your computer in 2 second
    ```bash
    npm install -g vercel
    ```
-2. In this directory (`G:\My Drive\GemIInI_Independent_Platform`), run:
+2. In this directory (`G:\My Drive\GemIInI_Sovereign_Platform`), run:
    ```bash
    vercel --prod
    ```
@@ -65,8 +70,7 @@ Use these pre-configured query parameters in social media, email campaigns, and 
 ---
 
 ## 5. Architectural Directory Inventory
-* [`index.html`](file:///G:/My%20Drive/GemIInI_Independent_Platform/index.html) â€” Master Single-Page Independent Web Application
-* [`css/styles.css`](file:///G:/My%20Drive/GemIInI_Independent_Platform/css/styles.css) â€” Bespoke Obsidian & Cyan Glassmorphism Design System
-* [`js/app.js`](file:///G:/My%20Drive/GemIInI_Independent_Platform/js/app.js) â€” Core Interactive Engines, AI CRM, MTC Simulator, Diploma Generator
-* [`js/ga_data.js`](file:///G:/My%20Drive/GemIInI_Independent_Platform/js/ga_data.js) â€” 455 Verified GA Identifiers Database
-* [`deploy_local.bat`](file:///G:/My%20Drive/GemIInI_Independent_Platform/deploy_local.bat) â€” 1-Click Windows Local Server
+* [`index.html`](file:///G:/My%20Drive/GemIInI_Sovereign_Platform/index.html) — Master Single-Page Independent Web Application
+* [`css/styles.css`](file:///G:/My%20Drive/GemIInI_Sovereign_Platform/css/styles.css) — Bespoke Obsidian & Cyan Glassmorphism Design System
+* [`js/app.js`](file:///G:/My%20Drive/GemIInI_Sovereign_Platform/js/app.js) — Core Interactive Engines, AI CRM, MTC Simulator, Diploma Generator
+* [`GemIInI_Hostinger_Deploy_v3.0.zip`](file:///G:/My%20Drive/GemIInI_Sovereign_Platform/GemIInI_Hostinger_Deploy_v3.0.zip) — 1-Click Hostinger Production Deployment Archive

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
@@ -406,6 +406,11 @@
       direction: ltr;
     }
   </style>
+  <!-- Canonical Design Tokens & Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -440,11 +445,55 @@
       <div class="screen active" data-screen="1">
         <h1 class="screen-title">لنكتشف مكانك في الشبكة</h1>
         <p class="screen-sub">لا تحتاج إلى أن تكون قد حددت كل شيء بعد. أخبرنا قليلاً عن نفسك، وسنساعدك على اكتشاف مسار GeneAcademy الأنسب لك.</p>
+
+        <!-- DYNAMIC FAST-TRACK SCHEDULE & PAYMENT PANEL ARABIC -->
+        <div id="fastTrackPanel" style="display:none;" class="mb-8 p-6 bg-white rounded-2xl border-2 border-[#168C8C] shadow-lg">
+          <div class="flex items-center justify-between gap-3 mb-4 pb-3 border-b border-slate-100">
+            <div>
+              <span id="fastTrackTag" class="text-xs font-mono text-[#168C8C] font-bold uppercase tracking-wider block">⚡ المسار السريع المباشر مفعّل</span>
+              <h3 id="fastTrackTitle" class="text-lg font-bold text-[#123B5D]">برنامج الزمالات الدولية والتمكين المهني OET Mobility</h3>
+            </div>
+            <span class="px-3 py-1 bg-emerald-100 text-emerald-800 text-xs font-bold rounded-full font-mono">جاهز للتسجيل</span>
+          </div>
+
+          <div class="space-y-3 mb-6">
+            <div class="text-xs font-semibold text-slate-700 flex items-center gap-2">
+              <span>📅</span> <span id="fastTrackSchedule"><strong>جدول الدفعة:</strong> الانضمام لدفعة الخميس &bull; محاضرات تفاعلية أسبوعية وتشخيص أكاديمي</span>
+            </div>
+            <div class="text-xs font-semibold text-slate-700 flex items-center gap-2">
+              <span>👤</span> <span id="fastTrackLead"><strong>المشرف الأكاديمي:</strong> د. آلاء مرسي (GA-001) / د. محمد صبري (GA-5405)</span>
+            </div>
+          </div>
+
+          <!-- Direct Payment Methods Box -->
+          <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-3 mb-5">
+            <div class="font-bold text-xs text-[#123B5D] uppercase tracking-wider">💳 طرق الدفع الفوري المتاحة:</div>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs">
+              <div class="p-2.5 bg-white rounded-lg border border-slate-200">
+                <div class="font-bold text-slate-800">فودافون كاش (Vodafone Cash)</div>
+                <div class="font-mono text-emerald-700 font-bold text-xs mt-1" dir="ltr">+20 101 592 2628</div>
+              </div>
+              <div class="p-2.5 bg-white rounded-lg border border-slate-200">
+                <div class="font-bold text-slate-800">انستا باي (InstaPay)</div>
+                <div class="font-mono text-sky-700 font-bold text-xs mt-1" dir="ltr">a.mursifarah@instapay</div>
+              </div>
+              <div class="p-2.5 bg-white rounded-lg border border-slate-200">
+                <div class="font-bold text-slate-800">بنك الخرطوم (BOK / تحويل)</div>
+                <div class="font-mono text-indigo-700 font-bold text-xs mt-1" dir="ltr">3466488</div>
+              </div>
+            </div>
+          </div>
+
+          <a id="fastTrackWaBtn" href="https://wa.me/201015922628?text=مرحباً%20د.%20آلاء،%20أود%20تأكيد%20تسجيلي%20في%20مسار%20OET%20وإرسال%20إيصال%20السداد." target="_blank" class="w-full py-3 rounded-xl bg-[#25D366] hover:bg-[#1EBE5D] text-white font-bold text-sm text-center flex items-center justify-center gap-2 shadow transition">
+            💬 إرسال إيصال السداد وتأكيد الحجز فوراً عبر الواتساب (&rlm;+20 101 592 2628)
+          </a>
+        </div>
+        <!-- /DYNAMIC FAST-TRACK PANEL ARABIC -->
         
-        <p class="text-sm text-slate-500 mb-8 font-semibold">تأخذ هذه العملية بضع خطوات بسيطة. يمكنك العودة في أي وقت.</p>
+        <p class="text-sm text-slate-500 mb-8 font-semibold">أو اتبع دليل الاستكشاف التدريجي أدناه. يمكنك العودة في أي وقت.</p>
 
         <div class="nav-buttons">
-          <button type="button" class="btn btn-primary" onclick="nextScreen()">ابدأ بهدوء</button>
+          <button type="button" class="btn btn-primary" onclick="nextScreen()">ابدأ دليل الاستكشاف</button>
         </div>
       </div>
 
@@ -677,11 +726,58 @@
       contact: {}
     };
 
-    // Load saved progress
+    // Load saved progress & handle ref=oet / ref=bls / ref=smc parameters
     document.addEventListener('DOMContentLoaded', () => {
-      const saved = localStorage.getItem('ga_join_state_ar');
-      if (saved) {
-        try {
+      try {
+        // Check if user is already registered
+        const savedGa = localStorage.getItem('gemiini_user_ga');
+        if (savedGa && savedGa.startsWith('GA-')) {
+          document.getElementById('pathwayForm').style.display = 'none';
+          document.getElementById('progressContainer').style.display = 'none';
+          document.getElementById('refBox').style.display = 'inline-block';
+          document.getElementById('dispRef').innerText = savedGa;
+          document.getElementById('successScreen').classList.add('active');
+          return;
+        }
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const ref = (urlParams.get('ref') || '').toLowerCase();
+        const fastPanel = document.getElementById('fastTrackPanel');
+
+        if (ref === 'oet') {
+          appState.role = 'طبيب خريج';
+          appState.interests.add('التحضير للامتحانات');
+          appState.interests.add('المهارات السريرية');
+          appState.nextStep = 'اكتشاف البرامج المناسبة';
+          appState.oetTag = 'TRACK_OET_MOBILITY';
+          if (fastPanel) fastPanel.style.display = 'block';
+        } else if (ref === 'bls') {
+          appState.role = 'طبيب أو مهني صحي';
+          appState.interests.add('المهارات السريرية');
+          appState.nextStep = 'الانضمام إلى الشبكة المهنية';
+          appState.oetTag = 'TRACK_BLS_PROVIDER';
+          if (fastPanel) {
+            fastPanel.style.display = 'block';
+            document.getElementById('fastTrackTitle').innerText = 'دورة الإنعاش القلبي الرئوي الأساسي (AHA BLS Provider) بالقاهرة';
+            document.getElementById('fastTrackSchedule').innerHTML = '<strong>جدول الورشة:</strong> الخميس / الجمعة (28 أغسطس 2026) &bull; مركز د. صبري بالدقي، القاهرة';
+            document.getElementById('fastTrackLead').innerHTML = '<strong>مدير التدريب:</strong> د. محمد صبري، مدرب معتمد AHA (ترخيص 1549)';
+            document.getElementById('fastTrackWaBtn').href = 'https://wa.me/20117099150?text=مرحباً%20د.%20محمد%20صبري،%20أود%20تأكيد%20حجز%20مقعدي%20في%20ورشة%20BLS%20بالقاهرة%20وإرسال%20إيصال%20السداد.';
+          }
+        } else if (ref === 'smc') {
+          appState.role = 'طبيب خريج';
+          appState.interests.add('التحضير للامتحانات');
+          appState.nextStep = 'اكتشاف البرامج المناسبة';
+          appState.oetTag = 'TRACK_SMC_MARATHON';
+          if (fastPanel) {
+            fastPanel.style.display = 'block';
+            document.getElementById('fastTrackTitle').innerText = 'ماراثون امتحانات المجلس الطبي SMC وتليمتري MTC';
+            document.getElementById('fastTrackSchedule').innerHTML = '<strong>الوصول:</strong> دخول فوري &bull; بنك 2,500 سيناريو سريري';
+            document.getElementById('fastTrackLead').innerHTML = '<strong>المشرف:</strong> د. آلاء مرسي (GA-001)';
+          }
+        }
+
+        const saved = localStorage.getItem('ga_join_state_ar');
+        if (saved) {
           const parsed = JSON.parse(saved);
           if (parsed.role) selectCard('typeSelection', parsed.role);
           if (parsed.nextStep) selectCard('nextStepSelection', parsed.nextStep);
@@ -698,8 +794,8 @@
             document.getElementById('f_country').value = parsed.contact.country || '';
             document.getElementById('f_institution').value = parsed.contact.institution || '';
           }
-        } catch(e) {}
-      }
+        }
+      } catch(e) {}
     });
 
     function saveAndExit() {
@@ -882,7 +978,7 @@
         location: country,
         university: institution,
         careerStage: appState.role, 
-        peerReferral: ''
+        peerReferral: appState.oetTag || ''
       };
 
       try {
@@ -895,11 +991,15 @@
           email: email,
           phone: phone,
           targetModules: Array.from(appState.interests).join('; '),
-          targetPathways: `[Next Step: ${appState.nextStep}]`
+          targetPathways: `[Next Step: ${appState.nextStep}]` + (appState.oetTag ? ' [TAG: TRACK_OET_MOBILITY]' : '')
         };
         try { await executeGemIInISync(feedbackPayload); } catch(e) {}
         
         localStorage.removeItem('ga_join_state_ar');
+        if (gaId && gaId.startsWith('GA-')) {
+          localStorage.setItem('gemiini_user_ga', gaId);
+          localStorage.setItem('gemiini_user_name', name);
+        }
 
         document.getElementById('pathwayForm').style.display = 'none';
         document.getElementById('progressContainer').style.display = 'none';
@@ -922,5 +1022,6 @@
       }
     }
   </script>
+  <script src="js/assistant.js"></script>
 </body>
 </html>

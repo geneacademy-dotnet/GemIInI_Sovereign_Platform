@@ -1,12 +1,13 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>University Partnership Case Study â€” Gene Academy Ã— GLOMEt</title>
+<title>University Partnership Case Study — Gene Academy × GLOMEt</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 <style>
   :root{
     --bg:#F8FAFC;
@@ -36,10 +37,10 @@
     -webkit-font-smoothing:antialiased;
   }
   h1,h2,h3{
-    font-family:'Fraunces',serif;
+    font-family:'Plus Jakarta Sans','Fraunces',serif;
     color:var(--navy);
     margin:0 0 16px 0;
-    font-weight:600;
+    font-weight:700;
     letter-spacing:-0.01em;
   }
   p{margin:0 0 16px 0; max-width:66ch;}
@@ -55,7 +56,7 @@
     background:var(--panel);
     position:sticky; top:0; z-index:10;
   }
-  .wordmark{font-family:'Fraunces',serif; font-weight:600; color:var(--navy); font-size:15px;}
+  .wordmark{font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; color:var(--navy); font-size:16px;}
   .wordmark .x{color:var(--gold); margin:0 2px;}
   .draft-flag{
     font-size:13px; font-weight:600; color:var(--amber-text);
@@ -65,7 +66,7 @@
   .draft-flag:hover{background:var(--gold-soft);}
 
   /* hero */
-  .hero{padding:88px 0 64px 0;}
+  .hero{padding:64px 0 48px 0;}
   .hero .wrap{max-width:760px; margin:0; padding-left:clamp(20px,5vw,48px);}
   .badge{
     display:inline-flex; align-items:center; gap:8px;
@@ -77,8 +78,9 @@
   .hero h1{
     font-size:clamp(32px,4.4vw,48px);
     line-height:1.15;
-    max-width:16ch;
+    max-width:20ch;
     margin-bottom:22px;
+    color:var(--navy);
   }
   .hero .sub{font-size:18px; color:var(--slate); max-width:56ch; margin-bottom:32px;}
   .cta-row{display:flex; flex-wrap:wrap; gap:14px;}
@@ -124,8 +126,7 @@
     position:relative; padding-left:26px; font-size:14.5px; color:var(--ink);
   }
   .checklist li::before{
-    content:''; position:absolute; left:0; top:4px; width:14px; height:14px;
-    border:1.5px solid var(--amber-border); border-radius:3px; background:#fff;
+    content:'✓'; position:absolute; left:0; top:0; color:var(--gold); font-weight:700;
   }
   .hard-rule{
     margin-top:20px; padding:14px 16px; background:#fff; border-left:3px solid var(--amber-text);
@@ -144,7 +145,7 @@
   }
   .ledger-item:first-child{border-left:none; padding-left:0;}
   .ledger-item .num{
-    display:block; font-family:'Fraunces',serif; font-weight:600; font-size:38px; color:var(--gold); line-height:1;
+    display:block; font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:38px; color:var(--gold); line-height:1;
   }
   .ledger-item .label{display:block; font-size:14px; color:var(--slate); margin-top:8px; max-width:22ch;}
   .chips{display:flex; flex-wrap:wrap; gap:12px; padding:24px 0 40px 0;}
@@ -167,7 +168,7 @@
   .steps li::before{
     counter-increment:step; content:counter(step);
     position:absolute; left:0; top:0; width:34px; height:34px; border-radius:50%;
-    background:var(--navy); color:#fff; font-family:'Fraunces',serif; font-weight:600; font-size:14px;
+    background:var(--navy); color:#fff; font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:14px;
     display:flex; align-items:center; justify-content:center;
   }
   .steps{counter-reset:step;}
@@ -183,7 +184,7 @@
     display:grid; grid-template-columns:1fr 1fr; gap:6px 24px; list-style:none; padding:0; margin:16px 0 20px 0;
   }
   .equipment li{padding-left:16px; position:relative; font-size:15px; color:var(--ink);}
-  .equipment li::before{content:'â€”'; position:absolute; left:0; color:var(--gold);}
+  .equipment li::before{content:'—'; position:absolute; left:0; color:var(--gold);}
 
   /* result */
   .result{padding:64px 0; background:var(--navy); color:#EAF0F8;}
@@ -195,7 +196,7 @@
     max-width:62ch;
   }
   .result blockquote p{
-    font-family:'Fraunces',serif; font-weight:500; font-size:24px; line-height:1.4; color:#fff; margin-bottom:12px;
+    font-family:'Plus Jakarta Sans',serif; font-weight:600; font-size:24px; line-height:1.4; color:#fff; margin-bottom:12px;
   }
   .result cite{
     display:inline-block; font-style:normal; font-size:13px; font-weight:600; color:var(--amber-text);
@@ -208,7 +209,7 @@
     list-style:none; padding:0; margin:20px 0 24px 0; display:grid; grid-template-columns:1fr 1fr; gap:10px 24px;
   }
   .why-grid li{position:relative; padding-left:22px; font-size:15px; color:var(--ink);}
-  .why-grid li::before{content:'âœ“'; position:absolute; left:0; color:var(--gold); font-weight:700;}
+  .why-grid li::before{content:'✓'; position:absolute; left:0; color:var(--gold); font-weight:700;}
 
   /* final cta */
   .cta-final{padding:64px 0; background:var(--blue); color:#fff; text-align:left;}
@@ -247,25 +248,25 @@
 <body>
 
 <div class="utility-bar">
-  <span class="wordmark">Gene Academy <span class="x">Ã—</span> GLOMEt</span>
-  <a class="draft-flag" href="#approvals">Draft â€” pending approval</a>
+  <a href="index.html" class="wordmark" style="text-decoration:none;">Gene Academy <span class="x">×</span> GLOMEt</a>
+  <a class="draft-flag" href="#approvals">Draft — pending approval</a>
 </div>
 
 <header class="hero">
   <div class="wrap">
-    <span class="badge">Featured university partnership Â· Academic restoration</span>
+    <span class="badge">Featured university partnership &bull; Academic restoration</span>
     <h1>Restoring academic continuity for 40 displaced Molecular Medicine candidates.</h1>
     <p class="sub">When conflict disrupted university systems and interrupted postgraduate training, Gene Academy helped organize the evidence, identify the cohort's academic gaps, and prepare a structured plan for the continuation of the Molecular Medicine program.</p>
     <div class="cta-row">
-      <a class="btn btn-primary" href="partner-with-us.html">Request a university partnership briefing</a>
-      <a class="btn btn-ghost" href="partner-with-us.html">Discuss a cohort restoration pathway</a>
+      <a class="btn btn-primary" href="institutions.html">Request a university partnership briefing</a>
+      <a class="btn btn-ghost" href="start.html">Discuss a cohort restoration pathway</a>
     </div>
   </div>
 </header>
 
 <section id="approvals" class="internal-panel">
   <div class="wrap">
-    <span class="internal-label">Internal review â€” not for the public site</span>
+    <span class="internal-label">Internal review — not for the public site</span>
     <h2>Confirm before this goes live</h2>
     <p>This page uses draft copy. The items below need written confirmation before publication.</p>
     <ul class="checklist">
@@ -276,7 +277,7 @@
       <li>The number and recipients of supplied devices and equipment, and whether that's safe to publish</li>
       <li>Whether candidate information must be anonymized</li>
       <li>Approved final wording for the result statement below (currently draft)</li>
-      <li>How to label the equipment support â€” direct, partner-funded, donated, loaned, or program-supplied</li>
+      <li>How to label the equipment support — direct, partner-funded, donated, loaned, or program-supplied</li>
       <li>Whether to attach an "Institutionally documented case study" label</li>
     </ul>
     <div class="hard-rule">Hard rule regardless of approvals: never publish student names, contact details, medical information, academic records, or private telemetry.</div>
@@ -369,7 +370,7 @@
     <p>The Academic Plan and Mandates provided the basis for the IEND Academic Council to guide the restoration and continuation of the Molecular Medicine program.</p>
     <blockquote>
       <p>Gene Academy transformed fragmented cohort information into a structured academic restoration plan for 40 displaced Molecular Medicine candidates, giving academic leadership a clearer basis for coordinated completion.</p>
-      <cite>Draft wording â€” pending institutional approval</cite>
+      <cite>Draft wording — pending institutional approval</cite>
     </blockquote>
   </div>
 </section>
@@ -396,8 +397,8 @@
     <h2>Is your institution trying to restore, strengthen, or expand a training pathway?</h2>
     <p>Begin with a focused briefing about your students, faculty, academic objectives, and operational constraints.</p>
     <div class="cta-row">
-      <a class="btn btn-primary-inverse" href="partner-with-us.html">Request a university partnership briefing</a>
-      <a class="btn btn-ghost-inverse" href="partner-with-us.html">Discuss a cohort restoration or training pathway</a>
+      <a class="btn btn-primary-inverse" href="institutions.html">Request a university partnership briefing</a>
+      <a class="btn btn-ghost-inverse" href="start.html">Discuss a cohort restoration or training pathway</a>
     </div>
     <p class="form-prompt">Tell us what your institution is trying to restore, improve, or build. Include the learner group, academic or professional pathway, main challenge, and desired timeframe.</p>
   </div>
@@ -405,19 +406,19 @@
 
 <section class="components">
   <div class="wrap">
-    <span class="internal-label">Also drafted â€” for use elsewhere on the site</span>
+    <span class="internal-label">Also drafted — for use elsewhere on the site</span>
     <div class="component-grid">
       <div class="component-card">
         <span class="tag">Homepage card</span>
         <h3>Academic restoration in practice</h3>
         <p>When conflict disrupted the Molecular Medicine pathway for 40 postgraduate candidates, Gene Academy consolidated cohort evidence, completed a gap analysis, and prepared an Academic Plan and Mandates for academic-council implementation.</p>
-        <a href="university-partnership-case-study.html">Read the case study â†’</a>
+        <a href="university-partnership-case-study.html">Read the case study →</a>
       </div>
       <div class="component-card">
         <span class="tag">Partnership page teaser</span>
         <h3>From fragmented records to an accountable academic plan</h3>
         <p>Gene Academy supported the restoration of a disrupted Molecular Medicine cohort involving 40 postgraduate candidates. By consolidating available progress information, identifying academic gaps, and preparing a formal restoration plan for council implementation, the partnership gave academic leadership a clearer route toward candidate completion.</p>
-        <a href="partner-with-us.html">Request a university partnership briefing â†’</a>
+        <a href="institutions.html">Request a university partnership briefing →</a>
       </div>
     </div>
   </div>
@@ -425,7 +426,7 @@
 
 <footer>
   <div class="wrap">
-    <p>Gene Academy Ã— GLOMEt â€” university partnership case study, draft for internal review.</p>
+    <p>© 2026/2027 Gene Academy × GLOMEt — University Partnership Case Study. SudaGene Consortium Network.</p>
   </div>
 </footer>
 

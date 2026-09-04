@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl" class="scroll-smooth">
 <head>
   <!-- iubenda Cookie & Consent Banner -->
@@ -12,8 +12,8 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Ù…Ø­Ø§ÙƒÙŠ Ø§Ù…ØªØ­Ø§Ù† Ø§Ù„Ù…Ø¬Ù„Ø³ Ø§Ù„Ø·Ø¨ÙŠ Ø§Ù„Ø³ÙˆØ¯Ø§Ù†ÙŠ | SMC Clinical Exam Simulator</title>
-  <meta name="description" content="Ù…Ø­Ø§ÙƒÙŠ Ø§Ù…ØªØ­Ø§Ù† Ø§Ù„Ù…Ø¬Ù„Ø³ Ø§Ù„Ø·Ø¨ÙŠ Ø§Ù„Ø³ÙˆØ¯Ø§Ù†ÙŠ (SMC) Ø¨Ù†Ø¸Ø§Ù… Mechanism-to-Clinic (MTCâ„¢): Ø¨Ù†Ùƒ 2,500 Ø³ÙŠÙ†Ø§Ø±ÙŠÙˆ Ø³Ø±ÙŠØ±ÙŠ Ù…Ø¹ Ù…Ø§Ù†Ø¹ Ø§Ù„ØºØ´ Focus-Lock ÙˆØªÙ„ÙŠÙ…ØªØ±ÙŠ Ù†Ù‚Ø§Ø· GP.">
+  <title>محاكي امتحان المجلس الطبي السوداني | SMC Clinical Exam Simulator</title>
+  <meta name="description" content="محاكي امتحان المجلس الطبي السوداني (SMC) بنظام Mechanism-to-Clinic (MTC بنك 2,500 سيناريو سريري مع مانع الغش Focus-Lock وتليمتري نقاط GP.">
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-H1Q67PP2DJ"></script>
@@ -34,6 +34,11 @@
     .serif-academic { font-family: 'Amiri', serif !important; font-size: 1.05rem !important; line-height: 1.75 !important; }
   </style>
   <link rel="stylesheet" href="styles.css">
+  <!-- Canonical Design Tokens & Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body class="min-h-screen flex flex-col antialiased selection:bg-sky-500/20 selection:text-sky-300 select-none">
 
@@ -47,11 +52,11 @@
         </span>
         <span id="timerDisplay" class="text-amber-400 font-bold text-xs">15:00</span>
         <span class="text-slate-400">|</span>
-        <span id="violationDisplay" class="text-slate-400 text-xs">Ø§Ù„Ù…Ø®Ø§Ù„ÙØ§Øª: 0</span>
+        <span id="violationDisplay" class="text-slate-400 text-xs">المخالفات: 0</span>
       </div>
       <div class="flex items-center gap-4 text-xs font-semibold">
         <span class="text-sky-400 font-bold" id="gaIdBadge">GA-CANDIDATE</span>
-        <a href="index.html" class="text-slate-400 hover:text-white">Ø§Ù„Ø®Ø±ÙˆØ¬ Ù„Ù„Ù…ÙˆÙ‚Ø¹ &rarr;</a>
+        <a href="index.html" class="text-slate-400 hover:text-white">الخروج للموقع &rarr;</a>
       </div>
     </div>
   </div>
@@ -63,15 +68,15 @@
     <div class="bg-slate-900/90 border border-slate-800 rounded-3xl p-6 shadow-2xl space-y-4">
       <div class="flex flex-wrap items-center justify-between gap-2 text-xs mono-meta">
         <span class="px-3 py-1 rounded-full bg-sky-950 text-sky-400 border border-sky-800 font-bold">
-          SMC CLINICAL SIMULATION â€¢ MODULE II (TROPICAL &amp; INTERNAL)
+          SMC CLINICAL SIMULATION • MODULE II (TROPICAL &amp; INTERNAL)
         </span>
-        <span id="qProgress" class="text-slate-400 font-bold">Ø§Ù„Ø³Ø¤Ø§Ù„ 1 Ù…Ù† 2</span>
+        <span id="qProgress" class="text-slate-400 font-bold">السؤال 1 من 2</span>
       </div>
 
       <!-- Question Stem Container -->
       <div class="space-y-4">
         <h2 id="qStem" class="text-base sm:text-xl font-bold text-white leading-relaxed serif-academic">
-          Ø¬Ø§Ø±ÙŠ ØªØ­Ù…ÙŠÙ„ Ø§Ù„Ø­Ø§Ù„Ø© Ø§Ù„Ø³Ø±ÙŠØ±ÙŠØ©...
+          جاري تحميل الحالة السريرية...
         </h2>
       </div>
 
@@ -85,11 +90,11 @@
     <div id="rationaleBox" class="hidden bg-slate-900 border border-slate-800 rounded-3xl p-6 space-y-4 text-xs">
       <div class="flex items-center gap-2 border-b border-slate-800 pb-3">
         <svg class="w-4 h-4 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-        <h3 class="font-bold text-sky-400 text-sm">ØªØ­Ù„ÙŠÙ„ Ø§Ù„Ø¢Ù„ÙŠØ© Ø§Ù„Ø³Ø±ÙŠØ±ÙŠØ© (MTCâ„¢ Breakdown):</h3>
+        <h3 class="font-bold text-sky-400 text-sm">تحليل الآلية السريرية (MTC Breakdown):</h3>
       </div>
       <div id="rationaleContent" class="text-slate-300 leading-relaxed space-y-2"></div>
       <button onclick="nextQuestion()" class="w-full py-3 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-bold text-xs transition-all shadow-lg flex items-center justify-center gap-2">
-        <span>Ø§Ù„Ø³Ø¤Ø§Ù„ Ø§Ù„ØªØ§Ù„ÙŠ</span>
+        <span>السؤال التالي</span>
         <span>&rarr;</span>
       </button>
     </div>
@@ -100,35 +105,35 @@
         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
       </div>
       <div class="space-y-2">
-        <h2 class="text-2xl font-black text-white">Ø§ÙƒØªÙ…Ù„ Ø§Ù„Ù…Ø§Ø±Ø§Ø«ÙˆÙ† Ø§Ù„Ø³Ø±ÙŠØ±ÙŠ Ø¨Ù†Ø¬Ø§Ø­</h2>
-        <p class="text-slate-400 text-xs sm:text-sm">ØªÙ… ØªØ³Ø¬ÙŠÙ„ Ø¯Ø±Ø¬Ø§ØªÙƒ Ø§Ù„Ø³Ø±ÙŠØ±ÙŠØ© ÙˆØªØ­Ø¯ÙŠØ« Ø±ØµÙŠØ¯ Ø§Ù„Ù€ GP ÙÙŠ Ø§Ù„Ø³Ø¬Ù„ Ø§Ù„Ù…Ø±ÙƒØ²ÙŠ.</p>
+        <h2 class="text-2xl font-black text-white">اكتمل الماراثون السريري بنجاح</h2>
+        <p class="text-slate-400 text-xs sm:text-sm">تم تسجيل درجاتك السريرية وتحديث رصيد الـ GP في السجل المركزي.</p>
       </div>
 
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mono-meta text-xs">
         <div class="p-3.5 bg-slate-800/80 rounded-2xl border border-slate-700">
-          <div class="text-slate-400">Ø§Ù„Ø¯Ø±Ø¬Ø©:</div>
+          <div class="text-slate-400">الدرجة:</div>
           <div id="finalScore" class="text-xl font-bold text-emerald-400">80%</div>
         </div>
         <div class="p-3.5 bg-slate-800/80 rounded-2xl border border-slate-700">
-          <div class="text-slate-400">Ø§Ù„Ù€ GP Ø§Ù„Ù…ÙƒØªØ³Ø¨Ø©:</div>
+          <div class="text-slate-400">الـ GP المكتسبة:</div>
           <div id="finalGp" class="text-xl font-bold text-amber-400">+10 GP</div>
         </div>
         <div class="p-3.5 bg-slate-800/80 rounded-2xl border border-slate-700">
-          <div class="text-slate-400">Ø§Ù„ÙˆÙ‚Øª Ø§Ù„Ù…Ø³ØªØºØ±Ù‚:</div>
+          <div class="text-slate-400">الوقت المستغرق:</div>
           <div id="finalTime" class="text-xl font-bold text-sky-400">3:45</div>
         </div>
         <div class="p-3.5 bg-slate-800/80 rounded-2xl border border-slate-700">
-          <div class="text-slate-400">Ù…Ø¤Ø´Ø± $S_{rank}$:</div>
+          <div class="text-slate-400">مؤشر $S_{rank}$:</div>
           <div class="text-xl font-bold text-purple-400">+15 Pts</div>
         </div>
       </div>
 
       <div class="flex flex-wrap items-center justify-center gap-3 pt-4">
         <a href="join.html" class="px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs transition-all border border-slate-700">
-          ØªÙˆØ«ÙŠÙ‚ Ø§Ù„Ù†ØªÙŠØ¬Ø© ÙÙŠ Ø§Ù„Ø³Ø¬Ù„ Ø§Ù„Ø³ÙŠØ§Ø¯ÙŠ (SudaPass) &rarr;
+          توثيق النتيجة في السجل السيادي (SudaPass) &rarr;
         </a>
         <button onclick="location.reload()" class="px-6 py-3 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-bold text-xs transition-all shadow-md">
-          Ø¥Ø¹Ø§Ø¯Ø© Ø§Ù„Ù…Ø­Ø§ÙˆÙ„Ø© Ù…Ø¹ Ø£Ø³Ø¦Ù„Ø© Ø¬Ø¯ÙŠØ¯Ø© &circlearrowright;
+          إعادة المحاولة مع أسئلة جديدة &circlearrowright;
         </button>
       </div>
     </div>
@@ -137,37 +142,37 @@
 
   <!-- Footer -->
   <footer class="bg-slate-950 border-t border-slate-800 py-6 text-center text-xs text-slate-500 mono-meta mt-auto">
-    GENEACADEMY.NET â€¢ MTCâ„¢ CLINICAL TESTING LABORATORY â€¢ 2,500 CANONICAL VIGNETTES
+    GENEACADEMY.NET • MTC CLINICAL TESTING LABORATORY • 2,500 CANONICAL VIGNETTES
   </footer>
 
   <script src="api.js"></script>
   <script src="analytics.js"></script>
   <script>
-    // Clinical Q-Bank (MTCâ„¢ High-Yield Vignettes)
+    // Clinical Q-Bank (MTC High-Yield Vignettes)
     const questions = [
       {
-        stem: "Ù…Ø±ÙŠØ¶ ÙŠØ¨Ù„Øº Ù…Ù† Ø§Ù„Ø¹Ù…Ø± 28 Ø¹Ø§Ù…Ø§Ù‹ Ù…Ù† ÙˆÙ„Ø§ÙŠØ© Ø§Ù„Ù‚Ø¶Ø§Ø±ÙØŒ ÙŠØ¹Ø§Ù†ÙŠ Ù…Ù† Ø­Ù…Ù‰ Ù…ØªÙ…ÙˆØ¬Ø© Ù…Ø³ØªÙ…Ø±Ø© Ù…Ù†Ø° 6 Ø£Ø³Ø§Ø¨ÙŠØ¹ Ù…Ø¹ ØªØ¶Ø®Ù… Ø´Ø¯ÙŠØ¯ ÙÙŠ Ø§Ù„Ø·Ø­Ø§Ù„ (Splenomegaly) ÙˆÙÙ‚Ø± Ø¯Ù… ÙˆÙ†Ù‚Øµ ÙÙŠ ÙƒØ±ÙŠØ§Øª Ø§Ù„Ø¯Ù… Ø§Ù„Ø¨ÙŠØ¶Ø§Ø¡ ÙˆØ§Ù„ØµÙØ§Ø¦Ø­ (Pancytopenia). Ø£Ø¸Ù‡Ø± Ø§Ù„ÙØ­Øµ Ø§Ù„Ù…ØµÙ„ÙŠ Ø¥ÙŠØ¬Ø§Ø¨ÙŠØ© Ø§Ø®ØªØ¨Ø§Ø± rK39. Ù…Ø§ Ù‡Ùˆ Ø§Ù„Ø®Ø· Ø§Ù„Ø¹Ù„Ø§Ø¬ÙŠ Ø§Ù„Ø£ÙˆÙ„ Ø§Ù„Ù…ÙˆØµÙ‰ Ø¨Ù‡ Ø¨Ø±ÙˆØªÙˆÙƒÙˆÙ„ÙŠØ§Ù‹ Ù…Ø¹ Ù…Ø±Ø§Ø¹Ø§Ø© Ù…Ø±Ø§Ù‚Ø¨Ø© ÙˆØ¸Ø§Ø¦Ù Ø§Ù„ÙƒÙ„Ù‰ØŸ",
+        stem: "مريض يبلغ من العمر 28 عاماً من ولاية القضارف، يعاني من حمى متموجة مستمرة منذ 6 أسابيع مع تضخم شديد في الطحال (Splenomegaly) وفقر دم ونقص في كريات الدم البيضاء والصفائح (Pancytopenia). أظهر الفحص المصلي إيجابية اختبار rK39. ما هو الخط العلاجي الأول الموصى به بروتوكولياً مع مراعاة مراقبة وظائف الكلى؟",
         options: [
-          "Ø£. Ø§Ù„ØµÙˆØ¯ÙŠÙˆÙ… Ø³ØªÙŠØ¨ÙˆØ¬Ù„ÙˆÙƒÙˆÙ†Ø§Øª (SSG) Ø¨Ø¬Ø±Ø¹Ø© 20 mg/kg Ù„Ù…Ø¯Ø© 28 ÙŠÙˆÙ…Ø§Ù‹.",
-          "Ø¨. Ø§Ù„Ø£Ù…ÙÙˆØªØ±ÙŠØ³ÙŠÙ† Ø¨ Ø§Ù„Ø´Ø­Ù…ÙŠ (Liposomal Amphotericin B) Ù…Ø¹ Ø§Ù„ØªØ±Ø·ÙŠØ¨ Ø§Ù„Ù…Ø³Ø¨Ù‚ Ø¨Ù…Ø­Ù„ÙˆÙ„ Saline 0.9%.",
-          "Ø¬. Ø§Ù„Ù…Ù„ØªÙŠÙÙˆØ³ÙŠÙ† (Miltefosine) Ø¹Ù† Ø·Ø±ÙŠÙ‚ Ø§Ù„ÙÙ… ÙÙ‚Ø·.",
-          "Ø¯. Ø§Ù„ÙƒÙ„ÙˆØ±ÙˆÙƒÙŠÙ† Ø§Ù„ÙÙ…ÙˆÙŠ Ù…Ø¹ Ø§Ù„Ø¨Ø±Ø§ÙŠÙ…Ø§ÙƒÙŠÙ†.",
-          "Ù‡Ù€. Ø§Ù„Ø¨Ù†Ø³Ù„ÙŠÙ† Ø·ÙˆÙŠÙ„ Ø§Ù„Ù…ÙØ¹ÙˆÙ„ Ù…Ø¹ Ø§Ù„Ø¯ÙˆÙƒØ³ÙŠØ³ÙŠÙƒÙ„ÙŠÙ†."
+          "أ. الصوديوم ستيبوجلوكونات (SSG) بجرعة 20 mg/kg لمدة 28 يوماً.",
+          "ب. الأمفوتريسين ب الشحمي (Liposomal Amphotericin B) مع الترطيب المسبق بمحلول Saline 0.9%.",
+          "ج. الملتيفوسين (Miltefosine) عن طريق الفم فقط.",
+          "د. الكلوروكين الفموي مع البرايماكين.",
+          "هـ. البنسلين طويل المفعول مع الدوكسيسيكلين."
         ],
         // correct key stripped for client-side security
-        mtc: "â€¢ <b>Ø§Ù„Ø¢Ù„ÙŠØ© Ø§Ù„Ø¬Ø²ÙŠØ¦ÙŠØ©:</b> Ø·ÙÙŠÙ„ <i>Leishmania donovani</i> ÙŠØºØ²Ùˆ Ø§Ù„Ø¨Ù„Ø§Ø¹Ù… (Macrophages) Ù…Ø³Ø¨Ø¨Ø§Ù‹ ØªØ«Ø¨ÙŠØ·Ø§Ù‹ Ù…Ù†Ø§Ø¹ÙŠØ§Ù‹ ÙˆØ®Ø§ØµØ© Ø®Ù„Ù„ Th1/Th2.<br>â€¢ <b>Ø§Ù„Ù…Ø³Ø§Ø± Ø§Ù„ÙØ³ÙŠÙˆÙ„ÙˆØ¬ÙŠ:</b> ÙØ±Ø· Ù†Ø´Ø§Ø· Ø§Ù„Ø·Ø­Ø§Ù„ ÙˆØªØ¯Ù…ÙŠØ± Ø®Ù„Ø§ÙŠØ§ Ø§Ù„Ø¯Ù… Ù…Ø³Ø¨Ø¨Ø§Ù‹ Pancytopenia.<br>â€¢ <b>Ø§Ù„Ù‚Ø±Ø§Ø± Ø§Ù„Ø³Ø±ÙŠØ±ÙŠ:</b> Liposomal Amphotericin B ÙŠØ±ØªØ¨Ø· Ø¨Ù€ Ergosterol ÙÙŠ Ø¬Ø¯Ø§Ø± Ø§Ù„Ø®Ù„ÙŠØ© Ø§Ù„Ø·ÙÙŠÙ„ÙŠØ©ØŒ ÙˆÙ‡Ùˆ Ø§Ù„Ø®ÙŠØ§Ø± Ø§Ù„Ø£ÙƒØ«Ø± Ø£Ù…Ø§Ù†Ø§Ù‹ Ù…Ø¹ ØªØ±Ø·ÙŠØ¨ Ù…Ø³Ø¨Ù‚ Ù„Ù…Ù†Ø¹ Ø§Ù„Ø³Ù…ÙŠØ© Ø§Ù„ÙƒÙ„ÙˆÙŠØ©."
+        mtc: "• <b>Ø§Ù„Ø¢Ù„ÙŠØ© Ø§Ù„Ø¬Ø²ÙŠØ¦ÙŠØ©:</b> Ø·ÙÙŠÙ„ <i>Leishmania donovani</i> ÙŠØºØ²Ùˆ Ø§Ù„Ø¨Ù„Ø§Ø¹Ù… (Macrophages) Ù…Ø³Ø¨Ø¨Ø§Ù‹ ØªØ«Ø¨ÙŠØ·Ø§Ù‹ Ù…Ù†Ø§Ø¹ÙŠØ§Ù‹ ÙˆØ®Ø§ØµØ© Ø®Ù„Ù„ Th1/Th2.<br>• <b>Ø§Ù„Ù…Ø³Ø§Ø± Ø§Ù„ÙØ³ÙŠÙˆÙ„ÙˆØ¬ÙŠ:</b> ÙØ±Ø· Ù†Ø´Ø§Ø· Ø§Ù„Ø·Ø­Ø§Ù„ ÙˆØªØ¯Ù…ÙŠØ± Ø®Ù„Ø§ÙŠØ§ Ø§Ù„Ø¯Ù… Ù…Ø³Ø¨Ø¨Ø§Ù‹ Pancytopenia.<br>• <b>Ø§Ù„Ù‚Ø±Ø§Ø± Ø§Ù„Ø³Ø±ÙŠØ±ÙŠ:</b> Liposomal Amphotericin B ÙŠØ±ØªØ¨Ø· Ø¨Ù€ Ergosterol ÙÙŠ Ø¬Ø¯Ø§Ø± Ø§Ù„Ø®Ù„ÙŠØ© Ø§Ù„Ø·ÙÙŠÙ„ÙŠØ©ØŒ ÙˆÙ‡Ùˆ Ø§Ù„Ø®ÙŠØ§Ø± Ø§Ù„Ø£ÙƒØ«Ø± Ø£Ù…Ø§Ù†Ø§Ù‹ Ù…Ø¹ ØªØ±Ø·ÙŠØ¨ Ù…Ø³Ø¨Ù‚ Ù„Ù…Ù†Ø¹ Ø§Ù„Ø³Ù…ÙŠØ© Ø§Ù„ÙƒÙ„ÙˆÙŠØ©."
       },
       {
-        stem: "Ø·ÙÙ„ ÙŠØ¨Ù„Øº Ù…Ù† Ø§Ù„Ø¹Ù…Ø± 7 Ø³Ù†ÙˆØ§Øª Ù…Ø¹Ø±ÙˆÙ Ø¨ØªØ´Ø®ÙŠØµ Ø§Ù„Ø£Ù†ÙŠÙ…ÙŠØ§ Ø§Ù„Ù…Ù†Ø¬Ù„ÙŠØ© (HbSS)ØŒ Ø£ÙØ­Ø¶Ø± Ù„Ù„Ø·ÙˆØ§Ø±Ø¦ Ø¨Ø£Ù„Ù… Ø­Ø§Ø¯ ÙˆÙ…ÙØ§Ø¬Ø¦ ÙÙŠ Ø§Ù„ØµØ¯Ø± ÙˆØ¶ÙŠÙ‚ ÙÙŠ Ø§Ù„ØªÙ†ÙØ³ Ù…Ø¹ Ø§Ù†Ø®ÙØ§Ø¶ ØªØ´Ø¨Ø¹ Ø§Ù„Ø£ÙƒØ³Ø¬ÙŠÙ† Ø¥Ù„Ù‰ 88% ÙˆÙˆØ¬ÙˆØ¯ Ø§Ø±ØªØ´Ø§Ø­ Ø±Ø¦ÙˆÙŠ Ø¬Ø¯ÙŠØ¯ ÙÙŠ Ø§Ù„Ø£Ø´Ø¹Ø© Ø§Ù„Ø³ÙŠÙ†ÙŠØ©. Ù…Ø§ Ù‡Ùˆ Ø§Ù„ØªØ´Ø®ÙŠØµ Ø§Ù„Ø³Ø±ÙŠØ±ÙŠ Ø§Ù„Ø£ÙƒØ«Ø± Ø¥Ù„Ø­Ø§Ø­Ø§Ù‹ØŸ",
+        stem: "طفل يبلغ من العمر 7 سنوات معروف بتشخيص الأنيميا المنجلية (HbSS)، أُحضر للطوارئ بألم حاد ومفاجئ في الصدر وضيق في التنفس مع انخفاض تشبع الأكسجين إلى 88% ووجود ارتشاح رئوي جديد في الأشعة السينية. ما هو التشخيص السريري الأكثر إلحاحاً؟",
         options: [
-          "Ø£. Ø£Ø²Ù…Ø© Ø§Ù†Ø³Ø¯Ø§Ø¯ Ø§Ù„Ø£ÙˆØ¹ÙŠØ© Ø§Ù„Ø¯Ù…ÙˆÙŠØ© Ø§Ù„Ø¹Ø¸Ù…ÙŠØ© Ø§Ù„Ø¨Ø³ÙŠØ·Ø© (Vaso-occlusive bone crisis).",
-          "Ø¨. Ù…ØªÙ„Ø§Ø²Ù…Ø© Ø§Ù„ØµØ¯Ø± Ø§Ù„Ø­Ø§Ø¯Ø© (Acute Chest Syndrome â€” ACS).",
-          "Ø¬. Ø§Ù„Ø§Ø³ØªØ±ÙˆØ§Ø­ Ø§Ù„ØµØ¯Ø±ÙŠ Ø§Ù„ØªÙ„Ù‚Ø§Ø¦ÙŠ (Pneumothorax).",
-          "Ø¯. Ø£Ø²Ù…Ø© Ø§Ø­ØªØ¨Ø§Ø³ Ø§Ù„Ø·Ø­Ø§Ù„ (Splenic Sequestration Crisis).",
-          "Ù‡Ù€. Ø§Ù„Ø§Ù„ØªÙ‡Ø§Ø¨ Ø§Ù„Ø±Ø¦ÙˆÙŠ Ø§Ù„ÙÙŠØ±ÙˆØ³ÙŠ Ø§Ù„Ø¨Ø³ÙŠØ·."
+          "أ. أزمة انسداد الأوعية الدموية العظمية البسيطة (Vaso-occlusive bone crisis).",
+          "Ø¨. Ù…ØªÙ„Ø§Ø²Ù…Ø© Ø§Ù„ØµØ¯Ø± Ø§Ù„Ø­Ø§Ø¯Ø© (Acute Chest Syndrome — ACS).",
+          "ج. الاسترواح الصدري التلقائي (Pneumothorax).",
+          "د. أزمة احتباس الطحال (Splenic Sequestration Crisis).",
+          "هـ. الالتهاب الرئوي الفيروسي البسيط."
         ],
         // correct key stripped for client-side security
-        mtc: "â€¢ <b>Ø§Ù„Ø¢Ù„ÙŠØ© Ø§Ù„Ø¬Ø²ÙŠØ¦ÙŠØ©:</b> Ø·ÙØ±Ø© Ø§Ø³ØªØ¨Ø¯Ø§Ù„ Ø­Ù…Ø¶ Ø§Ù„Ø¬Ù„ÙˆØªØ§Ù…ÙŠÙƒ Ø¨Ø§Ù„ÙØ§Ù„ÙŠÙ† ÙÙŠ Ù…ÙˆØ¶Ø¹ 6 Ù„Ø³Ù„Ø³Ù„Ø© Ø¨ÙŠØªØ§ ØªØ¤Ø¯ÙŠ Ø¥Ù„Ù‰ Ø¨Ù„Ù…Ø±Ø© HbS ØªØ­Øª Ù†Ù‚Øµ Ø§Ù„Ø£ÙƒØ³Ø¬ÙŠÙ†.<br>â€¢ <b>Ø§Ù„Ù…Ø³Ø§Ø± Ø§Ù„ÙØ³ÙŠÙˆÙ„ÙˆØ¬ÙŠ:</b> Ø§Ù†Ø³Ø¯Ø§Ø¯ Ø§Ù„Ø£ÙˆØ¹ÙŠØ© Ø§Ù„Ø´Ø¹Ø±ÙŠØ© Ø§Ù„Ø±Ø¦ÙˆÙŠØ© Ù…Ø¹ Ø§Ø­ØªØ´Ø§Ø¡ ÙˆØªÙØ§Ù‚Ù… Ù†Ù‚Øµ Ø§Ù„Ø£ÙƒØ³Ø¬Ø©.<br>â€¢ <b>Ø§Ù„Ù‚Ø±Ø§Ø± Ø§Ù„Ø³Ø±ÙŠØ±ÙŠ:</b> Ù…ØªÙ„Ø§Ø²Ù…Ø© Ø§Ù„ØµØ¯Ø± Ø§Ù„Ø­Ø§Ø¯Ø© Ù‡ÙŠ Ø§Ù„Ø³Ø¨Ø¨ Ø§Ù„Ø£ÙˆÙ„ Ù„Ù„ÙˆÙÙŠØ§Øª ÙÙŠ Ù…Ø±Ø¶Ù‰ HbSS ÙˆØªØªØ·Ù„Ø¨ Ø£ÙƒØ³Ø¬ÙŠÙ† ÙÙˆØ±ÙŠØŒ Ù…Ø³ÙƒÙ†Ø§ØªØŒ Ù…Ø¶Ø§Ø¯Ø§Øª Ø­ÙŠÙˆÙŠØ©ØŒ ÙˆÙ†Ù‚Ù„ Ø¯Ù… ØªØ¨Ø§Ø¯Ù„ÙŠ Ø¹Ø§Ø¬Ù„."
+        mtc: "• <b>Ø§Ù„Ø¢Ù„ÙŠØ© Ø§Ù„Ø¬Ø²ÙŠØ¦ÙŠØ©:</b> Ø·ÙØ±Ø© Ø§Ø³ØªØ¨Ø¯Ø§Ù„ Ø­Ù…Ø¶ Ø§Ù„Ø¬Ù„ÙˆØªØ§Ù…ÙŠÙƒ Ø¨Ø§Ù„ÙØ§Ù„ÙŠÙ† ÙÙŠ Ù…ÙˆØ¶Ø¹ 6 Ù„Ø³Ù„Ø³Ù„Ø© Ø¨ÙŠØªØ§ ØªØ¤Ø¯ÙŠ Ø¥Ù„Ù‰ Ø¨Ù„Ù…Ø±Ø© HbS ØªØ­Øª Ù†Ù‚Øµ Ø§Ù„Ø£ÙƒØ³Ø¬ÙŠÙ†.<br>• <b>Ø§Ù„Ù…Ø³Ø§Ø± Ø§Ù„ÙØ³ÙŠÙˆÙ„ÙˆØ¬ÙŠ:</b> Ø§Ù†Ø³Ø¯Ø§Ø¯ Ø§Ù„Ø£ÙˆØ¹ÙŠØ© Ø§Ù„Ø´Ø¹Ø±ÙŠØ© Ø§Ù„Ø±Ø¦ÙˆÙŠØ© Ù…Ø¹ Ø§Ø­ØªØ´Ø§Ø¡ ÙˆØªÙØ§Ù‚Ù… Ù†Ù‚Øµ Ø§Ù„Ø£ÙƒØ³Ø¬Ø©.<br>• <b>Ø§Ù„Ù‚Ø±Ø§Ø± Ø§Ù„Ø³Ø±ÙŠØ±ÙŠ:</b> Ù…ØªÙ„Ø§Ø²Ù…Ø© Ø§Ù„ØµØ¯Ø± Ø§Ù„Ø­Ø§Ø¯Ø© Ù‡ÙŠ Ø§Ù„Ø³Ø¨Ø¨ Ø§Ù„Ø£ÙˆÙ„ Ù„Ù„ÙˆÙÙŠØ§Øª ÙÙŠ Ù…Ø±Ø¶Ù‰ HbSS ÙˆØªØªØ·Ù„Ø¨ Ø£ÙƒØ³Ø¬ÙŠÙ† ÙÙˆØ±ÙŠØŒ Ù…Ø³ÙƒÙ†Ø§ØªØŒ Ù…Ø¶Ø§Ø¯Ø§Øª Ø­ÙŠÙˆÙŠØ©ØŒ ÙˆÙ†Ù‚Ù„ Ø¯Ù… ØªØ¨Ø§Ø¯Ù„ÙŠ Ø¹Ø§Ø¬Ù„."
       }
     ];
 
@@ -179,7 +184,7 @@
     // Focus Lock Anti-Cheat Detection
     window.addEventListener('blur', () => {
       violations++;
-      document.getElementById('violationDisplay').innerText = `Ø§Ù„Ù…Ø®Ø§Ù„ÙØ§Øª: ${violations}`;
+      document.getElementById('violationDisplay').innerText = `المخالفات: ${violations}`;
       document.getElementById('violationDisplay').classList.add('text-red-400');
     });
 
@@ -202,7 +207,7 @@
         return;
       }
       const q = questions[idx];
-      document.getElementById('qProgress').innerText = `Ø§Ù„Ø³Ø¤Ø§Ù„ ${idx + 1} Ù…Ù† ${questions.length}`;
+      document.getElementById('qProgress').innerText = `السؤال ${idx + 1} من ${questions.length}`;
       document.getElementById('qStem').innerText = q.stem;
       document.getElementById('rationaleBox').classList.add('hidden');
 
@@ -212,7 +217,7 @@
       q.options.forEach((opt, optIdx) => {
         const btn = document.createElement('button');
         btn.className = 'w-full p-4 text-right rounded-2xl bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700 text-slate-200 text-xs sm:text-sm font-semibold transition-all flex items-center justify-between group';
-        btn.innerHTML = `<span>${opt}</span><span class="text-slate-500 group-hover:text-white font-mono text-xs">âž”</span>`;
+        btn.innerHTML = `<span>${opt}</span><span class="text-slate-500 group-hover:text-white font-mono text-xs"></span>`;
         btn.onclick = () => selectOption(optIdx, q.correct, q.mtc, btn);
         container.appendChild(btn);
       });
@@ -276,11 +281,12 @@
           console.error("Payload delivery failed:", e);
           const offlineBackupKey = `OFFLINE_EXAM_CANDIDATE_${Date.now()}`;
           localStorage.setItem(offlineBackupKey, JSON.stringify(payload));
-          alert("Ø§Ù†Ù‚Ø·Ø¹ Ø§Ù„Ø§ØªØµØ§Ù„ Ø¨Ø§Ù„Ø®Ø§Ø¯Ù…. ØªÙ… Ø­ÙØ¸ Ø¥Ø¬Ø§Ø¨Ø§ØªÙƒ ÙˆÙ†ØªÙŠØ¬ØªÙƒ Ù…Ø­Ù„ÙŠØ§Ù‹ ÙÙŠ Ø°Ø§ÙƒØ±Ø© Ø¬Ù‡Ø§Ø²Ùƒ. ÙŠÙØ±Ø¬Ù‰ Ø§Ù„ØªÙ‚Ø§Ø· ØµÙˆØ±Ø© Ù„Ù‡Ø°Ù‡ Ø§Ù„Ø´Ø§Ø´Ø© ÙˆØ§Ù„ØªÙˆØ§ØµÙ„ Ù…Ø¹ Ø§Ù„Ø¯Ø¹Ù… Ø§Ù„ÙÙ†ÙŠ: " + offlineBackupKey);
+          alert("انقطع الاتصال بالخادم. تم حفظ إجاباتك ونتيجتك محلياً في ذاكرة جهازك. يُرجى التقاط صورة لهذه الشاشة والتواصل مع الدعم الفني: " + offlineBackupKey);
         }
     }
 
     window.onload = () => loadQuestion(0);
   </script>
+  <script src="js/assistant.js"></script>
 </body>
 </html>

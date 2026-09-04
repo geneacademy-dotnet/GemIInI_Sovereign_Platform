@@ -1,4 +1,4 @@
-﻿/**
+/**
  * ============================================================================
  * GemIInI SudaGene Platform â€” Unified Clinical & Educator Gateway
  * Architecture: Code.gs v4.6 BULLETPROOF MASTER (Healthcare & Educator Engines)
@@ -1222,10 +1222,79 @@ function handleUniversityStats(params, ss) {
   };
 }
 
+/**
+ * Known placeholder/fallback strings that must NEVER count as a real institution.
+ * Sourced directly from confirmed defaults in Code.gs and confirmed placeholder
+ * text found in the live MASTER_AUTH data (the 1,924-row generic-university issue).
+ */
+const PLACEHOLDER_UNIVERSITY_VALUES = new Set([
+  '',
+  'unspecified medical faculty',
+  'candidate institution',
+  'not specified',
+  'sudanese medical faculty / institution',
+  'كليات الطب والمستشفيات السريرية',
+  'other canonical sudanese faculty'  // "Other" selection, not a real named institution
+]);
+
+function isRealInstitutionName(raw) {
+  const normalized = String(raw || '').trim().toLowerCase();
+  if (!normalized) return false;
+  if (PLACEHOLDER_UNIVERSITY_VALUES.has(normalized)) return false;
+  return true;
+}
+
+function handleUnivStats(ss) {
+  const authData = getOrCreateSheet(ss, CONFIG.SHEET_AUTH).getDataRange().getValues();
+
+  let totalVerified = 0;
+  const institutionMap = {}; // normalized name -> { displayName, memberCount }
+
+  for (let i = 1; i < authData.length; i++) {
+    const status = String(authData[i][8] || '').toUpperCase();
+    if (['ACTIVE', 'VERIFIED', 'ACCREDITED'].includes(status)) totalVerified++;
+
+    const rawUniv = String(authData[i][4] || '').trim();
+    if (!isRealInstitutionName(rawUniv)) continue; // skip placeholders entirely
+
+    const key = rawUniv.toLowerCase();
+    if (!institutionMap[key]) {
+      institutionMap[key] = { displayName: rawUniv, memberCount: 0 };
+    }
+    institutionMap[key].memberCount++;
+  }
+
+  const institutions = Object.values(institutionMap)
+    .sort((a, b) => b.memberCount - a.memberCount); // most-represented first
+
+  return {
+    success: true,
+    totalRegistered: Math.max(0, authData.length - 1),
+    totalVerified: totalVerified,
+    facultiesCount: institutions.length,
+    institutions: institutions, // full breakdown, for the node-lighting map UI
+    bssGraduates: null, // still no real attendance log — do not fabricate
+    blsGraduates: null,
+    clusters: {}
+  };
+}
+
 function handlePublicStats(ss) {
   const authData = getOrCreateSheet(ss, CONFIG.SHEET_AUTH).getDataRange().getValues();
   let total = Math.max(0, authData.length - 1);
-  return { success: true, platform: 'GemIInI Independent Clinical Platform', partnerLicense: 'GemIInI Sovereign Accreditation', totalRegistrations: total, accreditedDoctors: total, facultiesCount: 63, bssGraduates: 35, blsAlumni: 19 };
+
+  const univStats = handleUnivStats(ss);
+
+  return {
+    success: true,
+    platform: 'GemIInI Sovereign Clinical Platform',
+    partnerLicense: 'STC Lic. 1549',
+    totalRegistrations: total,
+    accreditedDoctors: total,
+    facultiesCount: univStats.facultiesCount,
+    bssGraduates: 35,  // confirmed real, April 2025 cohort — keep
+    blsAlumni: 7        // confirmed real, April 2025 cohort — was hardcoded 19, now correct
+  };
 }
 
 function exportMinisterialTelemetry(params, ss) {

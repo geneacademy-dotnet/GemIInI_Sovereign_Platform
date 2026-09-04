@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" dir="ltr" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
@@ -48,8 +48,8 @@
           },
           {
             "@type": "Periodical",
-            "name": "GemIInI Journal of Medical Research",
-            "alternateName": "GJMR"
+            "name": "SudaGene Scientific Journal (SGSJ)",
+            "alternateName": "SGSJ"
           }
         ]
       }
@@ -77,8 +77,8 @@
             }
           },
           fontFamily: {
-            heading: ['Montserrat', 'Tajawal', 'sans-serif'],
-            body: ['Inter', 'Cairo', 'sans-serif'],
+            heading: ['"Plus Jakarta Sans"', 'Outfit', 'sans-serif'],
+            body: ['Inter', 'system-ui', 'sans-serif'],
             mono: ['"IBM Plex Mono"', 'monospace']
           }
         }
@@ -110,160 +110,226 @@
     </div>
   </div>
 
-  <!-- MAIN HEADER & NAVIGATION -->
+  <!-- MAIN HEADER & NAVIGATION (Segmented by Level & Interest) -->
   <header class="bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
       
       <!-- Brand Logo -->
       <a href="index.html" class="flex items-center gap-3 shrink-0 group">
-        <div class="w-11 h-11 rounded-xl bg-[#123B5D] text-white font-black flex items-center justify-center font-mono text-base shadow-sm group-hover:bg-[#168C8C] transition-colors">
+        <div class="w-11 h-11 rounded-xl bg-[#0B1426] text-white font-black flex items-center justify-center font-mono text-base shadow-sm group-hover:bg-[#0284C7] transition-colors">
           GA
         </div>
         <div>
-          <span class="text-xl font-bold font-heading text-[#123B5D] tracking-tight block">Gene Academy</span>
+          <span class="text-xl font-bold font-heading text-[#0B1426] tracking-tight block">Gene Academy</span>
           <span class="text-[10px] font-mono text-[#64748B] block tracking-wider uppercase">MEDICAL &amp; GENOMIC CONSORTIUM</span>
         </div>
       </a>
 
-      <!-- Desktop Navigation Links -->
+      <!-- Segmented Desktop Navigation (By Level & Interest) -->
       <nav class="hidden lg:flex items-center gap-6 text-sm font-semibold text-[#1F2937]" id="desktop-nav">
         
-        <!-- Programs Dropdown -->
+        <!-- Level & Pathways Dropdown -->
         <div class="relative group">
-          <button class="hover:text-[#168C8C] transition pb-1 flex items-center gap-1">
-            Programs
-            <svg class="w-4 h-4 text-slate-400 group-hover:text-[#168C8C] transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          <button class="hover:text-[#0284C7] transition py-2 flex items-center gap-1">
+            Pathways &amp; Levels
+            <svg class="w-4 h-4 text-slate-400 group-hover:text-[#0284C7] transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
           </button>
-          <div class="absolute left-0 top-full pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-64 z-50">
+          <div class="absolute left-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-72 z-50">
             <div class="bg-white border border-slate-200 rounded-xl shadow-xl overflow-hidden flex flex-col py-2">
-              <a href="courses.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Clinical Training</a>
-              <a href="smc.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">SMC Preparation</a>
-              <a href="molecular.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Molecular Medicine</a>
-              <a href="research.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Research Training</a>
-              <a href="stem.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Junior STEM</a>
+              <div class="px-4 py-1.5 text-[10px] font-mono text-slate-400 uppercase tracking-wider font-bold">1. Pre-Medical / High School</div>
+              <a href="stem.html" class="px-4 py-2 hover:bg-slate-50 text-slate-800 hover:text-[#0284C7] transition">Junior STEM &amp; Biology Fellowship</a>
+              
+              <div class="px-4 py-1.5 text-[10px] font-mono text-slate-400 uppercase tracking-wider font-bold border-t border-slate-100 mt-1">2. Medical Students &amp; Graduates</div>
+              <a href="smc.html" class="px-4 py-2 hover:bg-slate-50 text-slate-800 hover:text-[#0284C7] transition">SMC Council Licensing Exam</a>
+              <a href="oet.html" class="px-4 py-2 hover:bg-slate-50 text-slate-800 hover:text-[#0284C7] font-bold text-teal-700 transition">OET International Fellowship &amp; Mobility</a>
+              <a href="bls.html" class="px-4 py-2 hover:bg-slate-50 text-slate-800 hover:text-[#0284C7] transition">Cairo AHA BLS Resuscitation Workshop</a>
+
+              <div class="px-4 py-1.5 text-[10px] font-mono text-slate-400 uppercase tracking-wider font-bold border-t border-slate-100 mt-1">3. Specialist &amp; Fellowship</div>
+              <a href="courses.html" class="px-4 py-2 hover:bg-slate-50 text-slate-800 hover:text-[#0284C7] transition">MRCS Surgery &amp; Molecular Medicine</a>
             </div>
           </div>
         </div>
 
-        <!-- Professional Identity Dropdown -->
-        <div class="relative group">
-          <button class="hover:text-[#168C8C] transition pb-1 flex items-center gap-1">
-            Professional Identity
-            <svg class="w-4 h-4 text-slate-400 group-hover:text-[#168C8C] transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-          </button>
-          <div class="absolute left-0 top-full pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-64 z-50">
-            <div class="bg-white border border-slate-200 rounded-xl shadow-xl overflow-hidden flex flex-col py-2">
-              <a href="identity.html#how-it-works" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">How It Works</a>
-              <a href="identity.html#training-records" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Training Records</a>
-              <a href="verify.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Verification</a>
-              <a href="identity.html#progress" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Member Progress</a>
-              <a href="identity.html#employer" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Employer & Institutional Use</a>
-            </div>
-          </div>
-        </div>
+        <!-- Ecosystem Portals -->
+        <a href="universities.html" class="hover:text-[#0284C7] transition py-2">63+ Faculties</a>
+        <a href="bls.html" class="hover:text-[#0284C7] transition py-2 flex items-center gap-1">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          BLS Cairo
+        </a>
 
-        <!-- Research Dropdown -->
-        <div class="relative group">
-          <button class="hover:text-[#168C8C] transition pb-1 flex items-center gap-1">
-            Research
-            <svg class="w-4 h-4 text-slate-400 group-hover:text-[#168C8C] transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-          </button>
-          <div class="absolute left-0 top-full pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-64 z-50">
-            <div class="bg-white border border-slate-200 rounded-xl shadow-xl overflow-hidden flex flex-col py-2">
-              <a href="journal.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">GJMR (Medical Journal)</a>
-              <a href="index.html#services" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">GLOMEt</a>
-              <a href="research.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">SudaGene Research Centre</a>
-              <div class="border-t border-slate-100 my-1"></div>
-              <a href="ideas.html" class="px-4 py-2 hover:bg-slate-50 font-bold text-[#123B5D] hover:text-[#168C8C] transition">Submit a Research Idea</a>
-            </div>
-          </div>
-        </div>
+        <!-- Scientific Journal (SGSJ) -->
+        <a href="journal.html" class="hover:text-[#0284C7] transition py-2 flex items-center gap-1.5">
+          <span>SGSJ Journal</span>
+          <span class="px-1.5 py-0.5 rounded text-[10px] font-mono bg-teal-100 text-teal-800 border border-teal-200 font-bold">INDEPENDENT</span>
+        </a>
 
-        <a href="universities.html" class="hover:text-[#168C8C] transition pb-1">Universities</a>
-
-        <!-- Institutions Dropdown -->
-        <div class="relative group">
-          <button class="hover:text-[#168C8C] transition pb-1 flex items-center gap-1">
-            Institutions
-            <svg class="w-4 h-4 text-slate-400 group-hover:text-[#168C8C] transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-          </button>
-          <div class="absolute left-0 top-full pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-72 z-50">
-            <div class="bg-white border border-slate-200 rounded-xl shadow-xl overflow-hidden flex flex-col py-2">
-              <a href="academic-solutions.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Academic Solutions</a>
-              <a href="partnerships.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Training Partnerships</a>
-              <a href="academic-solutions.html" class="px-4 py-2 hover:bg-slate-50 text-slate-700 hover:text-[#168C8C] transition">Curriculum Support</a>
-              <div class="border-t border-slate-100 my-1"></div>
-              <a href="institutions.html" class="px-4 py-2 hover:bg-slate-50 font-bold text-[#123B5D] hover:text-[#168C8C] transition">Request a Partnership Briefing</a>
-            </div>
-          </div>
-        </div>
+        <!-- Alumni Identity & Verification -->
+        <a href="alumni.html" class="hover:text-[#0284C7] transition py-2">Alumni Identity</a>
+        <a href="verify.html" class="hover:text-[#0284C7] transition py-2">Verify SudaPass™</a>
       </nav>
 
       <!-- CTA & Mobile Menu Button -->
-      <div class="flex items-center gap-4 shrink-0">
-        <a href="join.html" class="hidden sm:inline-flex px-5 py-2.5 rounded-xl bg-[#123B5D] hover:bg-[#0E2E49] text-white font-heading font-semibold text-xs sm:text-sm shadow-md transition-all">
-          Join Our Network
+      <div class="flex items-center gap-3 shrink-0">
+        <a href="https://members.geneacademy.net" target="_blank" class="hidden sm:inline-flex px-4 py-2 rounded-xl bg-[#0B1426] hover:bg-[#0284C7] text-white font-heading font-semibold text-xs sm:text-sm shadow-sm transition-all">
+          Member LMS Sign In &rarr;
+        </a>
+        <a href="start.html" class="px-4 py-2 rounded-xl bg-[#0284C7] hover:bg-[#0369A1] text-white font-heading font-semibold text-xs sm:text-sm shadow-sm transition-all">
+          Join Pathway
         </a>
         
         <!-- Mobile Menu Toggle Button -->
-        <button id="mobile-menu-toggle" class="lg:hidden p-2 text-slate-600 hover:text-[#123B5D] transition">
+        <button id="mobile-menu-toggle" aria-label="Toggle Menu" class="lg:hidden p-2 text-slate-600 hover:text-[#0B1426] transition rounded-lg border border-slate-200">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
         </button>
       </div>
 
     </div>
 
-    <!-- Mobile Navigation Overlay (Hidden by default) -->
-    <div id="mobile-nav" class="hidden lg:hidden bg-white border-t border-slate-200 shadow-xl absolute top-full left-0 w-full z-40 max-h-[80vh] overflow-y-auto">
-      <div class="flex flex-col p-4 space-y-4 font-bold text-[#123B5D]">
-        <a href="courses.html" class="block pb-2 border-b border-slate-100 text-[#168C8C]">Programs &rarr;</a>
-        <a href="verify.html" class="block pb-2 border-b border-slate-100 text-[#168C8C]">Professional Identity &rarr;</a>
-        <a href="research.html" class="block pb-2 border-b border-slate-100 text-[#168C8C]">Research &rarr;</a>
-        <a href="universities.html" class="block pb-2 border-b border-slate-100">Universities</a>
-        <a href="institutions.html" class="block pb-2 border-b border-slate-100 text-[#168C8C]">Institutions &rarr;</a>
-        <a href="join.html" class="block text-center mt-4 px-5 py-3 rounded-xl bg-[#123B5D] text-white font-heading font-semibold text-sm shadow-md">
-          Join Our Network
-        </a>
+    <!-- Mobile Navigation Drawer (Segmented) -->
+    <div id="mobile-nav" class="hidden lg:hidden bg-white border-t border-slate-200 shadow-xl absolute top-full left-0 w-full z-50 max-h-[85vh] overflow-y-auto">
+      <div class="flex flex-col p-5 space-y-3 font-semibold text-slate-800">
+        <div class="text-[10px] font-mono text-slate-400 uppercase tracking-wider font-bold">Level-Segmented Pathways</div>
+        <a href="stem.html" class="py-2 px-3 rounded-lg hover:bg-slate-50 text-slate-700">1. Junior STEM &amp; Biology</a>
+        <a href="smc.html" class="py-2 px-3 rounded-lg hover:bg-slate-50 text-slate-700">2. SMC Licensing &amp; OET Prep</a>
+        <a href="courses.html" class="py-2 px-3 rounded-lg hover:bg-slate-50 text-slate-700">3. MRCS Surgery &amp; Molecular</a>
+        
+        <div class="pt-2 border-t border-slate-100 text-[10px] font-mono text-slate-400 uppercase tracking-wider font-bold">Consortium Ecosystem</div>
+        <a href="bls.html" class="py-2 px-3 rounded-lg hover:bg-slate-50 text-emerald-700 font-bold">AHA BLS Cairo Workshop (Dokki)</a>
+        <a href="universities.html" class="py-2 px-3 rounded-lg hover:bg-slate-50">63+ Sudanese Faculties Directory</a>
+        <a href="journal.html" class="py-2 px-3 rounded-lg hover:bg-slate-50 text-amber-700 font-bold">SGSJ Scientific Journal</a>
+        <a href="alumni.html" class="py-2 px-3 rounded-lg hover:bg-slate-50 text-[#0284C7] font-bold">Alumni Digital Identity</a>
+        <a href="verify.html" class="py-2 px-3 rounded-lg hover:bg-slate-50">Verify SudaPass™ GA-ID</a>
+        
+        <div class="pt-3 border-t border-slate-100 flex flex-col gap-2">
+          <a href="https://members.geneacademy.net" target="_blank" class="w-full text-center py-2.5 rounded-xl bg-[#0B1426] text-white font-bold text-sm">Member LMS Sign In &rarr;</a>
+          <a href="start.html" class="w-full text-center py-2.5 rounded-xl bg-[#0284C7] text-white font-bold text-sm">Join Pathway Now</a>
+        </div>
       </div>
     </div>
   </header>
 
+  <!-- ALUMNI DIGITAL IDENTITY ANNOUNCEMENT BANNER -->
+  <div class="bg-gradient-to-r from-amber-500 via-amber-600 to-amber-700 text-slate-950 py-3.5 px-4 font-heading border-b border-amber-800 shadow-sm">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+      <div class="flex items-center gap-2">
+        <span class="text-xl">🎓</span>
+        <div class="text-xs sm:text-sm font-extrabold tracking-tight">
+          ATTENTION GEMIINI ALUMNI: Complete your professional digital identity and claim your verifiable GA-ID ledger record.
+        </div>
+      </div>
+      <a href="alumni.html" class="px-4 py-1.5 rounded-lg bg-slate-950 hover:bg-slate-900 text-amber-300 font-bold text-xs shrink-0 shadow transition-all">
+        Complete Digital Identity &rarr;
+      </a>
+    </div>
+  </div>
+
   <!-- 1. HERO SECTION -->
-  <section class="relative bg-gradient-to-b from-[#123B5D] to-[#0D2A42] text-white py-20 lg:py-28 overflow-hidden">
+  <section class="relative bg-gradient-to-b from-[#0B1426] via-[#0F1D38] to-[#0B1426] text-white py-20 lg:py-24 overflow-hidden border-b border-slate-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         
         <div class="space-y-6 text-center lg:text-left">
-          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 text-teal-300 font-mono text-xs font-bold uppercase tracking-wider">
-            <span class="w-2 h-2 rounded-full bg-[#168C8C]"></span>
-            TRUSTED MEDICAL EDUCATION
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 text-sky-300 font-mono text-xs font-bold uppercase tracking-wider">
+            <span class="w-2 h-2 rounded-full bg-[#0284C7] animate-pulse"></span>
+            SUDAGENE MEDICAL &amp; CLINICAL CONSORTIUM
           </div>
 
-          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-bold font-heading tracking-tight leading-tight">
-            Turn Today’s Training into Your <span class="text-teal-300">Professional Pathway</span>
+          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold font-heading tracking-tight leading-tight text-white">
+            Turn Clinical Education into Your <span class="text-sky-400">Verifiable Professional Identity</span>
           </h1>
 
-          <p class="text-base sm:text-lg text-slate-200 leading-relaxed max-w-xl">
-            Build a verified professional profile that connects your learning, skills, credentials, research interests, and future development.
+          <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-xl">
+            Build a verified independent profile that connects your clinical training, skills, credentials, SGSJ research contributions, and future career pathway.
           </p>
 
           <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
-            <a href="join.html" class="px-7 py-3.5 rounded-xl bg-[#168C8C] hover:bg-[#127272] text-white font-heading font-semibold text-sm shadow-md transition-all">
+            <a href="start.html" class="px-7 py-3.5 rounded-xl bg-[#0284C7] hover:bg-[#0369A1] text-white font-heading font-semibold text-sm shadow-md transition-all">
               Join Our Network
             </a>
-            <a href="identity.html#how-it-works" class="px-7 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white font-heading font-semibold text-sm shadow-md transition-all">
-              See How Professional Identity Works
+            <a href="verify.html" class="px-7 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white font-heading font-semibold text-sm shadow-md transition-all">
+              Verify SudaPass™ Ledger
             </a>
           </div>
         </div>
 
-        <div class="relative hidden lg:block">
-          <div class="absolute inset-0 bg-gradient-to-tr from-[#168C8C]/20 to-transparent rounded-3xl blur-2xl"></div>
-          <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=800" alt="Medical researchers in a modern laboratory" class="relative rounded-3xl shadow-2xl border border-white/10 object-cover aspect-[4/3]">
+        <!-- AHA BLS CAIRO WORKSHOP MOVING PICTURE SHOWCASE CAROUSEL -->
+        <div class="relative">
+          <div class="absolute inset-0 bg-gradient-to-tr from-[#0284C7]/20 to-amber-500/10 rounded-3xl blur-2xl"></div>
+          
+          <div class="relative bg-slate-900 border border-slate-800 rounded-3xl p-4 shadow-2xl space-y-4">
+            <div class="flex items-center justify-between px-2 text-xs font-mono text-slate-400">
+              <span class="flex items-center gap-1.5 text-emerald-400 font-bold">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                LIVE SHOWCASE: AHA BLS CAIRO WORKSHOP
+              </span>
+              <span>Dokki Center &bull; Lic. 1549</span>
+            </div>
+
+            <!-- Moving Pictures Carousel Container -->
+            <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-slate-950 border border-slate-800 group">
+              <!-- Moving Animated Images -->
+              <img id="bls-carousel-img" src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=800" 
+                   alt="AHA BLS Cairo Workshop Simulation" 
+                   class="w-full h-full object-cover transition-all duration-700 ease-in-out group-hover:scale-105">
+              
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent flex flex-col justify-end p-6 space-y-2">
+                <span class="px-2.5 py-1 rounded bg-amber-500/90 text-slate-950 font-mono text-[10px] font-bold w-max uppercase">September 1 Cohort Telemetry</span>
+                <h3 class="text-lg font-bold font-heading text-white" id="bls-carousel-title">Cairo AHA Basic Life Support Hands-On Training</h3>
+                <p class="text-xs text-slate-300 line-clamp-2" id="bls-carousel-desc">Dr. Mohamed Sabri's clinical simulation team executing 1:1 CPR manikin resuscitation at Dokki Center.</p>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between text-xs font-mono text-slate-400 pt-1">
+              <span>Next Workshop Seat Capacity: <strong class="text-amber-400">12 Seats (3,000 EGP)</strong></span>
+              <a href="bls.html" class="text-sky-400 hover:text-sky-300 font-bold">Reserve Seat &rarr;</a>
+            </div>
+          </div>
         </div>
+
       </div>
     </div>
   </section>
+
+  <!-- MOVING PICTURE SHOWCASE CAROUSEL JAVASCRIPT -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const images = [
+        {
+          src: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=800",
+          title: "Cairo AHA Basic Life Support Hands-On Training",
+          desc: "Dr. Mohamed Sabri's clinical simulation team executing 1:1 CPR manikin resuscitation at Dokki Center."
+        },
+        {
+          src: "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&q=80&w=800",
+          title: "AHA Lic. 1549 Hardware & Simulation Protocol",
+          desc: "1:1 hardware ratio with AED defibrillator trainer deployment and airway management."
+        },
+        {
+          src: "https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&q=80&w=800",
+          title: "Sudanese Medical Graduates & 500 GP Pathfinder Bump",
+          desc: "Verified graduates earning their SudaPass AHA BLS credential and lifelong consortium membership."
+        }
+      ];
+
+      let idx = 0;
+      const imgEl = document.getElementById('bls-carousel-img');
+      const titleEl = document.getElementById('bls-carousel-title');
+      const descEl = document.getElementById('bls-carousel-desc');
+
+      if (imgEl && titleEl && descEl) {
+        setInterval(() => {
+          idx = (idx + 1) % images.length;
+          imgEl.style.opacity = '0.3';
+          setTimeout(() => {
+            imgEl.src = images[idx].src;
+            titleEl.innerText = images[idx].title;
+            descEl.innerText = images[idx].desc;
+            imgEl.style.opacity = '1';
+          }, 350);
+        }, 4500);
+      }
+    });
+  </script>
 
   <!-- 2. IMMEDIATE BRIDGE -->
   <section class="py-16 bg-white border-b border-slate-200">
@@ -531,9 +597,9 @@
         </div>
 
         <div class="p-6 space-y-4 border border-slate-100 rounded-2xl shadow-sm hover:shadow-md transition">
-          <div class="w-16 h-16 mx-auto bg-slate-800 text-white rounded-2xl flex items-center justify-center font-bold text-2xl shadow-md text-amber-500">GJMR</div>
-          <h3 class="text-lg font-bold font-heading text-[#123B5D]">GJMR</h3>
-          <p class="text-xs text-[#64748B]">GemIInI Journal of Medical Research. Our scholarly citadel dedicated to evidence synthesis, the 100 Project Paper Marathon, and formal policy white papers. GJMR operates under the core practices established by the Committee on Publication Ethics (COPE) and the International Committee of Medical Journal Editors (ICMJE). It provides a blind peer-reviewed harbor for quantitative evidence syntheses, PRISMA-compliant meta-analyses, and clinical trials conducted in resource-constrained environments.</p>
+          <div class="w-16 h-16 mx-auto bg-slate-800 text-white rounded-2xl flex items-center justify-center font-bold text-2xl shadow-md text-amber-500">SGSJ</div>
+          <h3 class="text-lg font-bold font-heading text-[#123B5D]">SGSJ</h3>
+          <p class="text-xs text-[#64748B]">SudaGene Scientific Journal (SGSJ). Our scholarly citadel dedicated to evidence synthesis, the 100 Project Paper Marathon, and formal policy white papers. SGSJ operates under the core practices established by the Committee on Publication Ethics (COPE) and the International Committee of Medical Journal Editors (ICMJE). It provides a blind peer-reviewed harbor for quantitative evidence syntheses, PRISMA-compliant meta-analyses, and clinical trials conducted in resource-constrained environments.</p>
           <a href="journal.html" class="text-xs font-bold text-[#123B5D] hover:underline">Read the Journal →</a>
         </div>
       </div>
@@ -713,5 +779,6 @@
     }
   });
 </script>
+<script src="js/assistant.js"></script>
 </body>
 </html>
