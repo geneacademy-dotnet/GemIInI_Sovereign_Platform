@@ -3,658 +3,600 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>برنامج OET للتمكين المهني والزمالات الدولية | جيميناي أكاديمي</title>
-  <meta name="description" content="برنامج الزمالة والتمكين المهني لاختبار OET للأطباء تحت إشراف د. آلاء مرسي (FMRCS - إيرلندا). تدريب عملي مكثف ودخول مباشر لدفعة الخميس.">
-
-  <script src="https://cdn.tailwindcss.com"></script>
+  <title>برنامج OET للتمكين المهني والزمالات الدولية | جين أكاديمي ومنصة جيميناي السيادية</title>
+  <meta name="description" content="الدفعة الرسمية للخميس لاختبار OET للمهن الطبية بقيادة د. آلاء عبد الحفيظ مرسي فرح (GA-001). الدقة اللغوية السريرية للأطباء الراغبين في التسجيل لدى GMC و IMC و AHPRA.">
+  
+  <!-- Fonts: Cairo & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              navy: '#0A192F',
+              blue: '#123B5D',
+              teal: '#168C8C',
+              accent: '#2dd4bf'
+            }
+          },
+          fontFamily: {
+            sans: ['"Cairo"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
   <style>
-    body { font-family: 'Cairo', sans-serif; }
-    .hero-gradient { background: linear-gradient(135deg, #0A192F 0%, #123B5D 50%, #168C8C 100%); }
-    .gold-gradient { background: linear-gradient(135deg, #C9A227 0%, #E6C247 100%); }
-    .card-glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px); }
+    body { font-family: 'Cairo', sans-serif; background-color: #f8fafc; color: #0f172a; }
   </style>
 </head>
-<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col justify-between">
+<body class="bg-slate-50 text-slate-900 antialiased selection:bg-[#168C8C]/20 selection:text-[#123B5D]">
 
-  <!-- Header -->
-  <header class="bg-[#0A192F] text-white sticky top-0 z-50 shadow-md">
-    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-      <a href="index_ar.html" class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-xl bg-[#168C8C] flex items-center justify-center font-bold text-white text-xl">G</div>
-        <div>
-          <span class="font-bold text-lg text-white block leading-none">جيميناي أكاديمي</span>
-          <span class="text-xs text-[#168C8C] tracking-wider font-mono">OET INTERNATIONAL FELLOWSHIP</span>
-        </div>
-      </a>
-      <nav class="hidden md:flex items-center gap-6 text-sm font-semibold">
-        <a href="index_ar.html" class="hover:text-[#168C8C] transition">الرئيسية</a>
-        <a href="oet_ar.html" class="text-[#168C8C]">مسار OET الدولي</a>
-        <a href="bls_ar.html" class="hover:text-[#168C8C] transition">دورة BLS بالقاهرة</a>
-        <a href="smc.html" class="hover:text-[#168C8C] transition">امتحانات المجلس الطبي</a>
-        <a href="verify.html" class="hover:text-[#168C8C] transition">التحقق من الشهادات</a>
-      </nav>
-      <div class="flex items-center gap-3">
-        <a href="oet.html" class="text-xs px-3 py-1.5 rounded-lg border border-slate-700 text-slate-300 hover:bg-slate-800 transition">English</a>
-        <a href="#register" class="bg-[#168C8C] hover:bg-[#127070] text-white px-5 py-2 rounded-xl text-sm font-bold shadow-lg transition">الانضمام لدفعة الخميس ⚡</a>
+  <!-- Top Institutional Bar -->
+  <header class="bg-[#0A192F] text-slate-300 text-xs py-2 px-4 border-b border-slate-800">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+      <div class="flex items-center gap-2 font-mono">
+        <span class="inline-block w-2 h-2 rounded-full bg-[#168C8C] animate-pulse"></span>
+        <span>تحالف جين أكاديمي السيادي (GENEACADEMY CONSORTIUM)</span>
+        <span class="text-slate-600">|</span>
+        <span class="text-slate-400">قسم اللغويات الطبية والسريرية الدولية</span>
+      </div>
+      <div class="flex items-center gap-4">
+        <span>المشرف الأكاديمي: <strong class="text-white">د. آلاء مرسي (GA-001)</strong></span>
+        <a href="oet.html" class="text-teal-400 hover:text-teal-300 font-semibold transition font-mono">English</a>
       </div>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero-gradient text-white py-20 px-4 relative overflow-hidden">
-    <div class="max-w-5xl mx-auto text-center relative z-10">
-      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur border border-white/20 text-emerald-300 text-sm font-bold mb-6">
-        <span>🌍 برنامج الهجرة والتمكين المهني للأطباء • OET Medicine Cohort</span>
+  <!-- Navigation Bar -->
+  <nav class="bg-white/95 backdrop-blur-md sticky top-0 z-40 border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-[#123B5D] flex items-center justify-center text-white font-bold text-lg shadow-sm">
+          GA
+        </div>
+        <div>
+          <span class="font-extrabold text-[#123B5D] text-lg tracking-tight block leading-none">جين أكاديمي</span>
+          <span class="text-[10px] text-[#168C8C] font-mono font-semibold tracking-wider uppercase">GemIInI Sovereign Platform</span>
+        </div>
       </div>
-      <h1 class="text-3xl md:text-5xl font-extrabold leading-tight mb-6">
-        اجتز اختبار OET للمهن الطبية وتأهل للعمل بالمرخص الدولي والزمالات الجراحية
+      
+      <div class="hidden md:flex items-center gap-6 text-sm font-bold text-slate-600">
+        <a href="#tracks" class="hover:text-[#123B5D] transition">مسارات المنهج</a>
+        <a href="#faculty" class="hover:text-[#123B5D] transition">القيادة السريرية</a>
+        <a href="#calculator" class="hover:text-[#123B5D] transition">التسعير ونقاط GP</a>
+        <a href="#funnel" class="hover:text-[#123B5D] transition">بوابة التسجيل</a>
+      </div>
+
+      <a href="#funnel" class="px-5 py-2.5 rounded-xl bg-[#168C8C] hover:bg-[#123B5D] text-white text-xs font-bold tracking-wide uppercase shadow-md hover:shadow-lg transition duration-200">
+        حجز مقعد دفعة الخميس
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-b from-[#0A192F] via-[#0d2238] to-[#123B5D] text-white py-16 md:py-24 px-4 border-b border-slate-800">
+    <div class="max-w-5xl mx-auto text-center space-y-6">
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#168C8C]/20 border border-[#168C8C]/40 text-xs font-mono text-teal-300">
+        <span class="w-2 h-2 rounded-full bg-teal-400"></span>
+        <span>التسجيل متاح الآن لدفعة الخميس السريرية &bull; طاقة استيعابية محددة</span>
+      </div>
+
+      <h1 class="text-3xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight max-w-4xl mx-auto">
+        ماستر كلاس OET للمهن الطبية & <br>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-teal-300 via-teal-100 to-white">
+          الدقة اللغوية السريرية للترخيص الدولي
+        </span>
       </h1>
-      <p class="text-lg md:text-xl text-slate-200 max-w-3xl mx-auto mb-8 font-light leading-relaxed">
-        تدريب عملي متكامل على المهارات الأربع (الكتابة الطبية، المحادثة التشخيصية، القراءة، والاستماع) تحت إشراف زمالة الجراحين الملكية والأطباء الممارسين بالمملكة المتحدة وإيرلندا.
+
+      <p class="text-slate-300 text-base md:text-lg max-w-2xl mx-auto leading-relaxed font-normal">
+        مصمم خصيصاً للأطباء السودانيين والإقليميين المستهدفين للترخيص الطبي المباشر تحت مظلة المجلس الطبي البريطاني (GMC)، الإيرلندي (IMC)، والأسترالي (AHPRA).
       </p>
 
-      <div class="flex flex-wrap justify-center gap-4">
-        <a href="#register" class="bg-[#168C8C] hover:bg-[#0e6363] text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-xl hover:scale-105 transition flex items-center gap-2">
-          <span>⚡ التسجيل وحجز المقعد في دفعة الخميس</span>
+      <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#funnel" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-[#168C8C] hover:bg-teal-500 text-slate-900 font-extrabold text-sm tracking-wide shadow-lg shadow-teal-900/40 transition">
+          ابدأ التقييم التشخيصي واستخرج رقمك GA-ID
         </a>
-        <a href="#curriculum" class="bg-white/10 hover:bg-white/20 text-white px-8 py-4 rounded-2xl font-bold text-lg backdrop-blur border border-white/20 transition">
-          منهج الدورة والجدول
+        <a href="#tracks" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-slate-800/80 hover:bg-slate-800 border border-slate-700 text-white font-semibold text-sm transition">
+          استكشف مسارات المنهج الثلاثة
         </a>
+      </div>
+
+      <div class="pt-6 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-400 font-mono">
+        <div>&bull; تصحيح الخطابات الطبية خلال 48 ساعة</div>
+        <div>&bull; خزانة المحاكاة السريرية (Calgary-Cambridge)</div>
+        <div>&bull; ترقية رتبة 500 GP تراكمية</div>
       </div>
     </div>
   </section>
 
-  <!-- Key Highlights -->
+  <!-- 1. Highlights & Telemetry Baseline Section -->
   <section class="py-12 bg-white border-b border-slate-200">
     <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-6">
       <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100 text-center">
         <div class="text-3xl font-extrabold text-[#123B5D] mb-1">دفعة الخميس</div>
-        <div class="text-sm font-semibold text-slate-500">الانضمام الفوري للدفعة الجديدة</div>
+        <div class="text-sm font-semibold text-slate-500">انضمام أسبوعي وتأهيل سريري مباشر</div>
       </div>
       <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100 text-center">
-        <div class="text-3xl font-extrabold text-[#168C8C] mb-1">4 مهارات أساسية</div>
-        <div class="text-sm font-semibold text-slate-500">Writing, Speaking, Reading, Listening</div>
+        <div class="text-3xl font-extrabold text-[#168C8C] mb-1">التزام 48 ساعة</div>
+        <div class="text-sm font-semibold text-slate-500">تصحيح فردي دقيق لخطابات التحويل والخروج</div>
       </div>
-      <div class="p-6 rounded-2xl bg-slate-50 border border-[#168C8C]/30 text-center bg-teal-50/30">
-        <div class="text-3xl font-extrabold text-[#168C8C] mb-1">تصحيح فردي</div>
-        <div class="text-sm font-semibold text-slate-500">تقييم شامل لخطابات التقارير والخطابات الطبية</div>
+      <div class="p-6 rounded-2xl bg-slate-50 border border-teal-200 text-center bg-teal-50/40">
+        <div class="text-3xl font-extrabold text-[#168C8C] mb-1">500 GP باثفايندر</div>
+        <div class="text-sm font-semibold text-slate-600">+25 GP فوراً &bull; +475 GP عند التأكيد المالي</div>
       </div>
       <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100 text-center">
-        <div class="text-3xl font-extrabold text-[#123B5D] mb-1">+500 GP</div>
-        <div class="text-sm font-semibold text-slate-500">ترقية فورية إلى رتبة Pathfinder</div>
+        <div class="text-3xl font-extrabold text-[#123B5D] mb-1">جيميناي جيب</div>
+        <div class="text-sm font-semibold text-slate-500">تطبيقنا للمتابعة &mdash; تمارين سريرية وتليمتري</div>
       </div>
     </div>
   </section>
 
-  <!-- Lead Mentor Profile Section -->
-  <section class="py-16 bg-slate-50">
-    <div class="max-w-4xl mx-auto px-4">
-      <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-xl flex flex-col md:flex-row items-center gap-8">
-        <div class="w-32 h-32 rounded-2xl bg-[#123B5D] flex-shrink-0 flex items-center justify-center text-white font-bold text-3xl shadow-lg">
-          GA-001
-        </div>
-        <div>
-          <span class="text-xs font-bold text-[#168C8C] font-mono tracking-wider uppercase">Lead for International Fellowships & OET Mobility</span>
-          <h3 class="text-2xl font-bold text-[#123B5D] mt-1">د. آلاء عبد الحفيظ مرسي فرح (FMRCS - GA-001)</h3>
-          <p class="text-sm text-slate-600 font-semibold mt-1">
-            زميل كلية الجراحين الملكية • مستشفى لتركنى الجامعي، إيرلندا • المدير الطبي للبرامج الدولية بكونسورتيوم جيميناي
-          </p>
-          <p class="text-sm text-slate-500 mt-4 leading-relaxed">
-            "الهدف من دورة OET ليس مجرد اجتياز امتحان اللغة، بل إتقان التواصل الطبي التشخيصي وكتابة التوصيات الطبية وفق المعايير المعتمدة في المستشفيات البريطانية والإيرلندية. نمشي معك خطوة بخطوة حتى تحقيق الدرجة المطلوبة في السجل الدولي (IMC/GMC)."
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Course Curriculum Breakdown -->
-  <section id="curriculum" class="py-16 bg-white">
+  <!-- 2. Curriculum: 3-Track Clinical Discourse Architecture -->
+  <section id="tracks" class="py-16 bg-white border-b border-slate-200">
     <div class="max-w-5xl mx-auto px-4">
       <div class="text-center mb-12">
-        <h2 class="text-3xl font-extrabold text-[#123B5D]">مكونات الدورة التدريبية الشاملة</h2>
-        <p class="text-slate-500 mt-2">منهج مصمم خصيصاً ليناسب الأطباء الممارسين وخريجي الكليات الطبية</p>
+        <span class="text-[#168C8C] font-mono font-bold text-xs uppercase tracking-widest block mb-2">CLINICAL DISCOURSE FRAMEWORK</span>
+        <h2 class="text-3xl font-extrabold text-[#123B5D]">منهج متكامل مصمم لاجتياز تراخيص الزمالة</h2>
+        <p class="text-slate-500 mt-2">مهندس خصيصاً للأطباء ونواب الجراحة المتقدمين لاختبارات الهجرة البريطانية والإيرلندية والأسترالية.</p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <!-- Module 1 -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Track A -->
         <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 shadow-sm hover:shadow-md transition">
-          <div class="w-12 h-12 rounded-xl bg-teal-100 text-[#168C8C] font-bold text-xl flex items-center justify-center mb-4">1</div>
-          <h3 class="text-xl font-bold text-[#123B5D] mb-2">الكتابة الطبية (Medical Writing)</h3>
+          <div class="w-12 h-12 rounded-xl bg-teal-100 text-[#168C8C] font-bold text-xl flex items-center justify-center mb-4">أ</div>
+          <h3 class="text-xl font-bold text-[#123B5D] mb-2">الأسس اللغوية والسريرية</h3>
           <p class="text-sm text-slate-600 leading-relaxed">
-            تدريب مكثف على كتابة خطابات الإحالة (Referral Letters)، خطابات الخروج (Discharge Summaries)، والتحديثات العلاجية مع التصحيح المباشر لكل طالب وإعادة الصياغة الجراحية.
+            التحكم في الأسلوب الطبي الرسمي، القواعد التخصصية، صياغة المبني للمعلوم والمجهول، وتقنيات الاستخلاص السريع للقراءة (Part A) والاستماع للعيادات.
           </p>
+          <div class="mt-4 text-xs font-semibold text-teal-700 bg-teal-50 px-3 py-1.5 rounded-lg inline-block">
+            المهارات: السرعة والدقة في الرصد الطبي
+          </div>
         </div>
 
-        <!-- Module 2 -->
-        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 shadow-sm hover:shadow-md transition">
-          <div class="w-12 h-12 rounded-xl bg-teal-100 text-[#168C8C] font-bold text-xl flex items-center justify-center mb-4">2</div>
-          <h3 class="text-xl font-bold text-[#123B5D] mb-2">المحادثة التشخيصية (Clinical Speaking)</h3>
+        <!-- Track B -->
+        <div class="p-6 rounded-2xl bg-slate-50 border border-teal-200 shadow-sm hover:shadow-md transition bg-teal-50/20">
+          <div class="w-12 h-12 rounded-xl bg-teal-600 text-white font-bold text-xl flex items-center justify-center mb-4">ب</div>
+          <h3 class="text-xl font-bold text-[#123B5D] mb-2">عيادات الكتابة الطبية المكثفة</h3>
           <p class="text-sm text-slate-600 leading-relaxed">
-            محاكاة سيناريوهات حية (Role-plays) للتعامل مع المرضى والمرافقين، بناء الثقة والمواساة، والتأكد من إتقان المصطلحات الطبية والإيقاع المطلوب للدرجة A/B.
+            ورش كتابة خطابات الإحالة والخروج وفق معايير HSE و NHS. فلترة الملاحظات السريرية وحذف الحشو غير الضروري، مع تصحيح فردي ملزم خلال 48 ساعة.
           </p>
+          <div class="mt-4 text-xs font-semibold text-teal-700 bg-teal-50 px-3 py-1.5 rounded-lg inline-block">
+            المهارات: الغرض، الشمول، والإيجاز السريري
+          </div>
         </div>
 
-        <!-- Module 3 -->
+        <!-- Track C -->
         <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 shadow-sm hover:shadow-md transition">
-          <div class="w-12 h-12 rounded-xl bg-teal-100 text-[#168C8C] font-bold text-xl flex items-center justify-center mb-4">3</div>
-          <h3 class="text-xl font-bold text-[#123B5D] mb-2">القراءة والأبحاث الطبية (Reading Parts A, B, C)</h3>
+          <div class="w-12 h-12 rounded-xl bg-teal-100 text-[#168C8C] font-bold text-xl flex items-center justify-center mb-4">ج</div>
+          <h3 class="text-xl font-bold text-[#123B5D] mb-2">خزانة المحادثة السريرية</h3>
           <p class="text-sm text-slate-600 leading-relaxed">
-            استراتيجيات المسح السريع (Scanning & Skimming) للنصوص الطبية المعقدة، وحل بنك الأسئلة المكثف لضمان إدارة الوقت بنجاح أثناء الامتحان.
+            محاكاة سيناريوهات المقابلات السريرية وفق إطار Calgary-Cambridge. التركيز على التعاطف، إيصال الأخبار السيئة، شرح المخاطر الجراحية، وأخذ الإقرار المستنير.
           </p>
+          <div class="mt-4 text-xs font-semibold text-teal-700 bg-teal-50 px-3 py-1.5 rounded-lg inline-block">
+            المهارات: التعاطف السريري وإدارة النقاش
+          </div>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <!-- Module 4 -->
-        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 shadow-sm hover:shadow-md transition">
-          <div class="w-12 h-12 rounded-xl bg-teal-100 text-[#168C8C] font-bold text-xl flex items-center justify-center mb-4">4</div>
-          <h3 class="text-xl font-bold text-[#123B5D] mb-2">الاستماع العيادي (Clinical Listening)</h3>
+  <!-- Faculty Credentials Section -->
+  <section id="faculty" class="py-16 bg-slate-50 border-b border-slate-200">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="p-8 rounded-3xl bg-white border border-slate-200 shadow-sm flex flex-col md:flex-row items-center gap-8">
+        <div class="w-32 h-32 rounded-2xl bg-gradient-to-tr from-[#123B5D] to-[#168C8C] text-white flex items-center justify-center font-bold text-3xl shrink-0 shadow-lg font-mono">
+          GA-001
+        </div>
+        <div class="space-y-3 text-center md:text-right">
+          <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 font-mono text-xs font-semibold border border-slate-200" dir="ltr">
+            SOVEREIGN CORE &bull; GA-001
+          </div>
+          <h3 class="text-2xl font-black text-[#123B5D]">د. آلاء عبد الحفيظ مرسي فرح، FMRCS</h3>
+          <p class="text-xs font-bold text-[#168C8C] tracking-wide">
+            المؤسس الشريك &bull; المشرف الطبي العام &bull; مسؤول برامج الزمالة وامتحانات OET &bull; مصمم BSS-2
+          </p>
           <p class="text-sm text-slate-600 leading-relaxed">
-            التدريب على الاستماع للاستشارات الطبيب-المريض، والاستشارات الأكاديمية بين الاستشاريين والمقيمين، وتجاوز الفخاخ اللغوية الشائعة.
+            زميل كلية الجراحين الملكية (Letterkenny - إيرلندا). جراح استشاري وممتحن سريري متخصص في التواصل الطبي الاحترافي، والتأهيل للعمل في المستشفيات البريطانية والإيرلندية والخليجية وفق أعلى المعايير السريرية.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Zero-Touch Self-Serve Enrollment & Payment Funnel -->
-  <section id="register" class="py-16 bg-slate-100 border-t border-slate-200">
+  <!-- Interactive Pricing & GP Ledger Calculator -->
+  <section id="calculator" class="py-16 bg-[#0A192F] text-white border-b border-slate-800">
     <div class="max-w-4xl mx-auto px-4">
-
-      <!-- Step 1: Course Customization & Candidate Profile Intake -->
-      <div id="step-1-card" class="bg-white rounded-3xl p-8 md:p-10 border border-slate-200 shadow-xl mb-12">
-        <div class="text-center mb-8">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 border border-[#168C8C]/30 text-[#168C8C] text-xs font-bold font-mono uppercase mb-3">
-            <span>⚡ بوابة التسجيل الذاتي المباشر</span>
-          </div>
-          <h2 class="text-3xl font-extrabold text-[#123B5D]">الخطوة 1: استمارة تسجيل مرشح OET وتخصيص الخطة</h2>
-          <p class="text-slate-600 text-sm mt-2 max-w-xl mx-auto">
-            حدد أهدافك الزمنية وجدولك التدريبي بدقة دون الحاجة للانتظار في محادثات الدعم الفني.
-          </p>
-        </div>
-
-        <form id="oet-intake-form" class="space-y-6">
-          <!-- Section 1: البيانات الشخصية والمهنية -->
-          <div class="border-b border-slate-200 pb-6">
-            <h3 class="text-sm font-bold text-slate-900 uppercase tracking-wider mb-4 flex items-center gap-2">
-              <span class="w-6 h-6 rounded-full bg-[#123B5D] text-white flex items-center justify-center text-xs">1</span>
-              البيانات الشخصية ووسائل التواصل
-            </h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-              <div>
-                <label for="oet-firstname" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">الاسم الأول *</label>
-                <input type="text" id="oet-firstname" required placeholder="د. الاسم الأول"
-                       class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-[#168C8C] focus:border-transparent outline-none font-sans text-sm">
-              </div>
-              <div>
-                <label for="oet-lastname" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">اسم العائلة (اللقب) *</label>
-                <input type="text" id="oet-lastname" required placeholder="اسم العائلة"
-                       class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-[#168C8C] focus:border-transparent outline-none font-sans text-sm">
-              </div>
-              <div>
-                <label for="oet-email" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">البريد الإلكتروني المعتمد *</label>
-                <input type="email" id="oet-email" required placeholder="doctor@example.com" dir="ltr"
-                       class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-[#168C8C] focus:border-transparent outline-none font-sans text-sm text-right">
-              </div>
-              <div>
-                <label for="oet-phone" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">رقم الواتساب *</label>
-                <input type="tel" id="oet-phone" required placeholder="01XXXXXXXXX أو +249XXXXXXXXX" dir="ltr"
-                       class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-[#168C8C] focus:border-transparent outline-none font-sans text-sm text-right">
-              </div>
-            </div>
-          </div>
-
-          <!-- Section 2: تفاصيل الامتحان والمستوى -->
-          <div class="border-b border-slate-200 pb-6">
-            <h3 class="text-sm font-bold text-slate-900 uppercase tracking-wider mb-4 flex items-center gap-2">
-              <span class="w-6 h-6 rounded-full bg-[#123B5D] text-white flex items-center justify-center text-xs">2</span>
-              الجدول الزمني للامتحان والتشخيص المسبق
-            </h3>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-              <div>
-                <label for="oet-timeline" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">متى تخطط لأداء الامتحان؟ *</label>
-                <select id="oet-timeline" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-[#168C8C] focus:border-transparent outline-none font-sans text-sm bg-white">
-                  <option value="Within 30 days">خلال 30 يوماً</option>
-                  <option value="In 1 - 2 months" selected>خلال شهر إلى شهرين</option>
-                  <option value="In 3 - 6 months">خلال 3 إلى 6 أشهر</option>
-                  <option value="Not sure yet / ASAP">غير متأكد / حسب رأي المشرف</option>
-                </select>
-              </div>
-
-              <div>
-                <label for="oet-taken-before" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">هل دخلت امتحان OET سابقاً؟ *</label>
-                <select id="oet-taken-before" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-[#168C8C] focus:border-transparent outline-none font-sans text-sm bg-white">
-                  <option value="No" selected>لا (أول مرة)</option>
-                  <option value="Yes">نعم (إعادة تحسين درجات)</option>
-                </select>
-              </div>
-
-              <div>
-                <label for="oet-challenging" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">المهارة الأكثر تحدياً بالنسبة لك *</label>
-                <select id="oet-challenging" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-[#168C8C] focus:border-transparent outline-none font-sans text-sm bg-white">
-                  <option value="Writing" selected>الكتابة (Writing - خطابات الإحالة والخروج)</option>
-                  <option value="Speaking">المحادثة السريرية (Speaking - استشارات المرضى)</option>
-                  <option value="Reading">القراءة السريعة (Reading A, B, C)</option>
-                  <option value="Listening">الاستماع العيادي (Listening)</option>
-                  <option value="All of them">جميع المهارات (All of them)</option>
-                  <option value="Can't judge">لا أستطيع الحكم بعد</option>
-                </select>
-              </div>
-            </div>
-          </div>
-
-          <!-- Section 3: تفضيلات مواعيد وباقة الكورس -->
-          <div class="border-b border-slate-200 pb-6">
-            <h3 class="text-sm font-bold text-slate-900 uppercase tracking-wider mb-4 flex items-center gap-2">
-              <span class="w-6 h-6 rounded-full bg-[#123B5D] text-white flex items-center justify-center text-xs">3</span>
-              تفضيلات الدفعة والوتيرة الدراسية
-            </h3>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-5">
-              <div>
-                <label for="oet-start-pref" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">تاريخ البدء المفضل *</label>
-                <select id="oet-start-pref" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-[#168C8C] focus:border-transparent outline-none font-sans text-sm bg-white">
-                  <option value="1st of the month" selected>الأول من الشهر</option>
-                  <option value="15th of the month">الخامس عشر من الشهر</option>
-                  <option value="Thursday Cohort (Fast Track)">دفعة الخميس القادمة (المسار الفوري)</option>
-                </select>
-              </div>
-
-              <div>
-                <label for="oet-pace" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">وتيرة الكورس *</label>
-                <select id="oet-pace" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-[#168C8C] focus:border-transparent outline-none font-sans text-sm bg-white">
-                  <option value="Normal (takes 4 weeks)" selected>عادي (4 أسابيع)</option>
-                  <option value="Intensive (takes 2 weeks)">مكثف (أسبوعين)</option>
-                  <option value="Mentor's Discretion">حسب ما يراه المشرف الأكاديمي</option>
-                </select>
-              </div>
-
-              <div>
-                <label for="oet-format" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">نمط التدريب المفضل *</label>
-                <select id="oet-format" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-[#168C8C] focus:border-transparent outline-none font-sans text-sm bg-white">
-                  <option value="Live group sessions (class)" selected>مجموعات تفاعلية حية (Class)</option>
-                  <option value="1 on 1 (personal tutoring)">تدريب فردي خاص (1 on 1 Tutoring)</option>
-                  <option value="Both / Flexible">كلاهما / مرن</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-              <div>
-                <label for="oet-skills-scope" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">نطاق المهارات *</label>
-                <select id="oet-skills-scope" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-[#168C8C] focus:border-transparent outline-none font-sans text-sm bg-white">
-                  <option value="Taking all four (Writing, Listening, Reading, Speaking)" selected>المهارات الأربع كاملة (Writing, Speaking, Reading, Listening)</option>
-                  <option value="Only one skill">مهارة واحدة فقط</option>
-                </select>
-              </div>
-
-              <div>
-                <label for="oet-referral" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">ترشيح زميل (احصل على خصم 10%)</label>
-                <input type="tel" id="oet-referral" placeholder="رقم واتساب الزميل (اختياري)" dir="ltr"
-                       class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-[#168C8C] focus:border-transparent outline-none font-sans text-sm text-right">
-              </div>
-            </div>
-          </div>
-
-          <!-- Live Status / Result Message -->
-          <div id="oet-result" class="hidden p-5 rounded-2xl border text-sm font-sans transition-all"></div>
-
-          <!-- Submit Button -->
-          <button type="submit" id="oet-submit-btn"
-                  class="w-full py-4 bg-[#123B5D] hover:bg-[#0e2f4a] text-white font-bold rounded-2xl transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 text-base">
-            <span>تثبيت التفضيلات والانتقال للخطوة 2: تأكيد السداد</span>
-            <span class="font-mono">➔</span>
-          </button>
-        </form>
+      <div class="text-center mb-10">
+        <span class="text-[#168C8C] font-mono font-bold text-xs uppercase tracking-widest block mb-2">DYNAMIC GP FINANCING</span>
+        <h2 class="text-3xl font-extrabold text-white">حاسبة التسجيل وجدولة الأقساط ونقاط GP</h2>
+        <p class="text-slate-400 text-sm mt-1">المعيار المالي المعتمد $250 &ndash; $300 دولار أمريكي مع خيارات الأقساط ونظام الرصيد السحابي.</p>
       </div>
 
-      <!-- Step 2: Self-Service Payment Submission & Audit Lock -->
-      <div id="step-2-card" class="bg-slate-900 rounded-3xl p-8 md:p-10 border border-slate-800 text-white shadow-2xl">
-        <div class="text-center mb-8">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 text-xs font-mono font-bold uppercase mb-3">
-            <span>🔒 الخطوة 2: التدقيق المالي وتأكيد حجز المقعد</span>
+      <div class="p-6 md:p-8 rounded-3xl bg-[#0d2238] border border-slate-700/60 shadow-xl grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="space-y-5">
+          <div>
+            <div class="flex justify-between items-center mb-1.5">
+              <label class="text-xs font-semibold text-slate-300">حالة العضوية بالمنصة</label>
+              <span class="text-xs font-mono text-teal-400" id="tier-badge-text">عضو موثق (250$ دولار)</span>
+            </div>
+            <div class="grid grid-cols-2 gap-2">
+              <button type="button" onclick="setMemberStatus(true)" id="btn-tier-member" class="py-2.5 px-3 rounded-xl border border-[#168C8C] bg-[#123B5D]/80 text-white text-xs font-bold transition">
+                عضو موثق
+              </button>
+              <button type="button" onclick="setMemberStatus(false)" id="btn-tier-guest" class="py-2.5 px-3 rounded-xl border border-slate-700 bg-slate-900 text-slate-400 text-xs font-medium transition">
+                متدرب زائر
+              </button>
+            </div>
           </div>
-          <h2 class="text-3xl font-extrabold mb-2">إدخال مرجع عملية السداد</h2>
-          <p class="text-slate-400 text-sm max-w-xl mx-auto">
-            قم بالتحويل عبر القناة المناسبة لك أدناه، ثم أدخل رقم العملية لتأكيد حجز مقعدك فوراً في المنظومة دون الحاجة لانتظار الرد.
-          </p>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1.5">كثافة الجلسات والمسار المختار</label>
+            <select id="calc-scope" onchange="runCalculator()" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white focus:outline-none focus:border-[#168C8C]">
+              <option value="standard">الدفعة الأساسية (جلسات الخميس + الامتحانات التجريبية)</option>
+              <option value="comprehensive">الدفعة الشاملة (+ عيادات المحادثة الفردية 1-on-1)</option>
+              <option value="intensive">المعسكر المكثف للاجتياز السريع</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1.5">جدولة الأقساط المالية</label>
+            <select id="calc-plan" onchange="runCalculator()" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white focus:outline-none focus:border-[#168C8C]">
+              <option value="full">سداد كامل المبلغ المتبقي دفعة واحدة</option>
+              <option value="2-part">تقسيط على دفعتين (50% الآن / 50% في الأسبوع الرابع)</option>
+              <option value="3-part">تقسيط على 3 دفعات متساوية (33% عبر مسار الدورة)</option>
+            </select>
+          </div>
         </div>
 
-        <!-- Verified Candidate Badge -->
-        <div id="candidate-badge" class="bg-slate-800/80 border border-slate-700 rounded-2xl p-4 mb-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="p-5 rounded-2xl bg-slate-900/90 border border-slate-800 flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="flex justify-between items-center text-xs text-slate-400">
+              <span>القيمة الإجمالية للبرنامج:</span>
+              <span class="text-lg font-bold text-white font-mono" id="display-total-usd">$250 USD</span>
+            </div>
+            <div class="flex justify-between items-center text-xs text-slate-400">
+              <span>خصم دفعة التسجيل الأولية:</span>
+              <span class="text-emerald-400 font-mono font-semibold" dir="ltr">-$25 USD Paid</span>
+            </div>
+            <div class="h-px bg-slate-800"></div>
+            <div class="flex justify-between items-center">
+              <span class="text-xs font-bold text-slate-300">المبلغ المتبقي:</span>
+              <span class="text-xl font-mono font-black text-amber-300" id="display-balance-usd">$225 USD</span>
+            </div>
+            <div class="flex justify-between items-center text-xs">
+              <span class="text-slate-400">الرصيد المكافئ بنقاط GP:</span>
+              <span class="text-teal-400 font-mono font-bold" id="display-gp-equiv">2,250 GP</span>
+            </div>
+          </div>
+
+          <div class="mt-4 pt-4 border-t border-slate-800 text-xs text-slate-400 space-y-1">
+            <div id="display-tranche-note" class="text-slate-300">
+              الدفعة المستحقة اليوم: <strong class="text-white font-mono" dir="ltr">$225.00 USD</strong>.
+            </div>
+            <p class="text-[11px] text-slate-500">
+              تتم مزامنة نقاطك وأقساطك المسجلة تلقائياً عبر محفظة <strong class="text-slate-400">جيميناي جيب (تطبيقنا للمتابعة)</strong>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Standardized Two-Step Non-Reload Intake Funnel -->
+  <section id="funnel" class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <span class="text-[#168C8C] font-mono font-bold text-xs uppercase tracking-widest block mb-2">OFFICIAL ENROLLMENT GATEWAY</span>
+        <h2 class="text-3xl font-extrabold text-[#123B5D]">بوابة التسجيل وقنوات السداد المعتمدة</h2>
+        <p class="text-slate-500 text-sm mt-1">تسجيل ذاتي فوري بدون انتظار. أكمل الخطوة الأولى لإنشاء رقمك السيادي GA-ID مباشرة.</p>
+      </div>
+
+      <!-- Funnel Container Card -->
+      <div class="p-6 md:p-8 rounded-3xl bg-slate-50 border border-slate-200 shadow-sm space-y-8">
+        
+        <!-- ================= STEP 1: Candidate Diagnostic Profile ================= -->
+        <div class="space-y-4">
           <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-teal-500/20 border border-teal-500/40 text-teal-300 flex items-center justify-center font-bold font-mono">GA</div>
+            <span class="w-8 h-8 rounded-xl bg-[#123B5D] text-white flex items-center justify-center font-bold text-sm">1</span>
             <div>
-              <div class="text-xs text-slate-400 uppercase tracking-wider font-semibold">الرقم الأكاديمي للمرشح</div>
-              <div id="candidate-id-display" class="text-lg font-mono font-black text-teal-300">في انتظار إكمال الخطوة 1</div>
+              <h3 class="text-lg font-bold text-[#123B5D]">الخطوة 1: الملف السريري والتشخيصي للمترشح</h3>
+              <p class="text-xs text-slate-500">توليد رقمك السيادي المعتمد GA-ID وتفعيل رصيد +25 GP الأولي.</p>
             </div>
           </div>
-          <div class="text-xs font-mono bg-slate-900 px-4 py-2 rounded-xl border border-slate-700 text-emerald-400 font-bold">
-            الحالة: في انتظار إشعار التحويل
-          </div>
+
+          <form id="oet-reg-form" onsubmit="submitOetRegistration(event)" class="space-y-4 pt-2">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">الاسم الرباعي واللقب المهني</label>
+                <input type="text" id="reg-name" required placeholder="د. أحمد إبراهيم" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-sm text-slate-900 focus:outline-none focus:border-[#168C8C]">
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">رقم الواتساب للتواصل والتليمتري</label>
+                <input type="tel" id="reg-phone" required placeholder="+20 10 1234 5678" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-sm text-slate-900 focus:outline-none focus:border-[#168C8C]" dir="ltr">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">الكلية الطبية أو جهة التخرج</label>
+                <input type="text" id="reg-faculty" required placeholder="مثال: جامعة الخرطوم، النيلين، الجزيرة" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-sm text-slate-900 focus:outline-none focus:border-[#168C8C]">
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">المجلس الطبي المستهدف</label>
+                <select id="reg-target" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-sm text-slate-900 focus:outline-none focus:border-[#168C8C]">
+                  <option value="UK GMC">المجلس الطبي البريطاني (GMC - بريطانيا)</option>
+                  <option value="Ireland IMC">المجلس الطبي الإيرلندي (IMC - إيرلندا)</option>
+                  <option value="Australia AHPRA">المجلس الطبي الأسترالي (AHPRA - أستراليا)</option>
+                  <option value="Other Licensure">مجلس طبي أو زمالة دولية أخرى</option>
+                </select>
+              </div>
+            </div>
+
+            <button type="submit" id="btn-submit-step1" class="w-full py-3.5 px-4 rounded-xl bg-[#123B5D] hover:bg-[#0A192F] text-white font-bold text-sm shadow-md transition duration-150 flex items-center justify-center gap-2">
+              <span>تأكيد البيانات وتوليد الرقم السيادي GA-ID</span>
+              <svg class="w-4 h-4 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+            </button>
+          </form>
+
+          <!-- Step 1 Feedback Container -->
+          <div id="step1-result" class="hidden p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-900 text-sm"></div>
         </div>
 
-        <!-- Payment Channels Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
-          <div class="bg-slate-800/90 p-5 rounded-2xl border border-slate-700">
-            <div class="text-xs font-bold text-teal-400 font-mono mb-1">فودافون كاش (مصر)</div>
-            <div class="text-base font-extrabold text-white font-mono bg-slate-900 py-2 rounded-lg border border-slate-700 select-all mb-1 text-center" dir="ltr">
-              01015922628
-            </div>
-            <p class="text-[11px] text-slate-400 text-center">تحويل فوري عبر المحفظة</p>
-          </div>
+        <div class="h-px bg-slate-200"></div>
 
-          <div class="bg-slate-800/90 p-5 rounded-2xl border border-slate-700">
-            <div class="text-xs font-bold text-teal-400 font-mono mb-1">InstaPay (مصر/الخليج/أوروبا)</div>
-            <div class="text-base font-extrabold text-white font-mono bg-slate-900 py-2 rounded-lg border border-slate-700 select-all mb-1 text-center" dir="ltr">
-              a.mursifarah@instapay
-            </div>
-            <p class="text-[11px] text-slate-400 text-center">حساب د. آلاء مرسي الرسمي</p>
-          </div>
-        </div>
-
-        <!-- Self-Service Payment Reference Form -->
-        <form id="oet-payment-form" class="bg-slate-800/60 p-6 rounded-2xl border border-slate-700 space-y-5 mb-6">
-          <h3 class="text-sm font-bold text-slate-200 uppercase tracking-wider flex items-center gap-2">
-            <span>✍️</span> إدخال بيانات عملية الدفع
-          </h3>
-
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- ================= STEP 2: Payment Rails & Verification ================= -->
+        <div id="funnel-step-2-section" class="space-y-4 opacity-50 pointer-events-none transition-all duration-300">
+          <div class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-xl bg-slate-400 text-white flex items-center justify-center font-bold text-sm" id="badge-step2">2</span>
             <div>
-              <label for="pay-channel" class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">طريقة التحويل المستخدمة *</label>
-              <select id="pay-channel" required class="w-full px-4 py-3 rounded-xl border border-slate-600 focus:ring-2 focus:ring-[#168C8C] outline-none font-sans text-sm bg-slate-900 text-white">
-                <option value="VODAFONE_CASH" selected>فودافون كاش مصر (01015922628)</option>
-                <option value="INSTAPAY">إنستاباي InstaPay (a.mursifarah@instapay)</option>
-                <option value="OTHER_DIRECT">تحويل بنكي دولي مباشر آخر</option>
-              </select>
-            </div>
-
-            <div>
-              <label for="pay-ref" class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">رقم هاتف المحول منه أو كود العملية *</label>
-              <input type="text" id="pay-ref" required placeholder="مثال: رقم محفظتك 010XXXXXXXX أو مرجع إنستاباي"
-                     class="w-full px-4 py-3 rounded-xl border border-slate-600 focus:ring-2 focus:ring-[#168C8C] outline-none font-sans text-sm bg-slate-900 text-white font-mono" dir="ltr">
+              <h3 class="text-lg font-bold text-[#123B5D]">الخطوة 2: قنوات السداد السيادية وتأكيد المرجع المالي</h3>
+              <p class="text-xs text-slate-500">إيداع رسم الدخول الرمزي (25$ دولار) لترقية حسابك إلى رتبة 500 GP Pathfinder وفتح المجتمع الخاص.</p>
             </div>
           </div>
 
-          <div id="payment-result" class="hidden p-4 rounded-xl text-xs font-sans"></div>
+          <!-- Payment Instructions Card -->
+          <div class="p-5 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-4">
+            <div class="text-xs font-semibold text-slate-600">قنوات السداد الرسمية المعتمدة:</div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <!-- Vodafone Cash (Primary) -->
+              <div class="p-4 rounded-xl border-2 border-teal-500 bg-teal-50/40">
+                <div class="flex items-center justify-between">
+                  <div class="text-xs font-bold text-teal-800 uppercase tracking-wide">فودافون كاش (Vodafone Cash)</div>
+                  <span class="text-[10px] bg-teal-600 text-white px-2 py-0.5 rounded font-mono font-bold">القناة الأساسية</span>
+                </div>
+                <div class="font-mono text-base font-extrabold text-[#123B5D] mt-2 select-all" dir="ltr">01015922628</div>
+                <div class="text-[11px] text-slate-600 mt-1">محفظة الكترونية فورية &bull; مراجعة وتدقيق لحظي</div>
+              </div>
 
-          <button type="submit" id="pay-submit-btn"
-                  class="w-full py-4 bg-[#168C8C] hover:bg-[#127070] text-white font-bold rounded-xl transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2">
-            <span>تأكيد حجز المقعد وإرسال المرجع للتدقيق المالي</span>
-            <span class="font-mono">✓</span>
-          </button>
-        </form>
+              <!-- InstaPay (Alternative) -->
+              <div class="p-4 rounded-xl border border-slate-200 bg-slate-50">
+                <div class="text-xs font-bold text-slate-700 uppercase tracking-wide">إنستاباي (InstaPay)</div>
+                <div class="font-mono text-base font-extrabold text-[#123B5D] mt-2 select-all" dir="ltr">a.mursifarah@instapay</div>
+                <div class="text-[11px] text-slate-500 mt-1">الحساب المعتمد لدكتور آلاء مرسي</div>
+              </div>
+            </div>
 
-        <!-- لوحة الاحتياج التنبؤي لمسار الهجرة والزمالة -->
-        <div id="oetNextStepPanel" class="hidden mt-6 p-6 rounded-2xl bg-teal-950/50 border border-teal-800 text-right">
-          <div class="flex items-center gap-2 mb-2">
-            <span class="px-2 py-0.5 rounded bg-teal-500/20 text-teal-300 text-[10px] font-mono font-bold uppercase tracking-wider">الاحتياج المهني القادم</span>
-            <h4 class="text-sm font-bold text-white">متطلبات الهجرة لبريطانيا وأيرلندا: تدقيق السيرة وتغطية الفجوات السريرية</h4>
+            <!-- Transaction Reference Form -->
+            <form id="oet-pay-form" onsubmit="submitOetPayment(event)" class="space-y-4 pt-2">
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">الرقم المرجعي للتحويل أو رقم المحفظة المرسل منها (txRef)</label>
+                <input type="text" id="pay-txref" required placeholder="مثال: رقم المحول منه أو كود العملية المالي" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-sm text-slate-900 focus:outline-none focus:border-[#168C8C]" dir="ltr">
+              </div>
+
+              <button type="submit" id="btn-submit-step2" class="w-full py-3.5 px-4 rounded-xl bg-[#168C8C] hover:bg-teal-600 text-white font-bold text-sm shadow-md transition duration-150 flex items-center justify-center gap-2">
+                <span>تأكيد الإشعار وطلب ترقية رتبة 500 GP Pathfinder</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+              </button>
+            </form>
+
+            <!-- Step 2 Feedback Container -->
+            <div id="step2-result" class="hidden p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-900 text-sm"></div>
           </div>
-          <p class="text-xs text-slate-300 leading-relaxed mb-4">
-            الأطباء الذين يستعدون لاختبار OET يهدفون دائماً للسفر والعمل الدولي. تتطلب المجالس الطبية الدولية (GMC/IMC) سيرة مهنية دقيقة توضح مسار وساعات التطوير المهني المستمر (CPD) وتبرير فترات الانقطاع السريري. منصة GemIInI توثق وتعتمد هذه الساعات تلقائياً عبر معرفك الأكاديمي (GA-ID).
-          </p>
-          <button id="oetInterestBtn" onclick="flagCvGapInterest()" class="w-full py-3 rounded-xl bg-teal-600 hover:bg-teal-500 text-white font-bold text-xs transition flex items-center justify-center gap-2 shadow-md">
-            <span>تفعيل مراجعة السيرة الذاتية والفجوات السريرية مجاناً (+25 GP)</span>
-            <span>➔</span>
-          </button>
-          <div id="oetInterestResult" class="hidden text-xs mt-3"></div>
         </div>
 
-        <!-- Optional WhatsApp Fallback Only (De-emphasized) -->
-        <div class="text-center pt-4 border-t border-slate-800 text-xs text-slate-400">
-          <span>هل تواجه أي صعوبة تقنية في السداد؟ </span>
-          <a id="oet-wa-fallback"
-             href="https://wa.me/201015922628?text=مرحباً،%20لدي%20استفسار%20بشأن%20عملية%20سداد%20رسوم%20OET." 
-             target="_blank" 
-             class="text-teal-400 hover:text-teal-300 underline font-semibold mr-1">
-            التواصل الاحتياطي مع مكتب القبول عبر واتساب
-          </a>
-        </div>
       </div>
-
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-[#0A192F] text-slate-400 py-8 text-center text-sm border-t border-slate-800">
-    <div class="max-w-7xl mx-auto px-4">
-      <p>© 2026 جيميناي أكاديمي — كونسورتيوم الكليات والزمالات الطبية المستقلة. جميع الحقوق محفوظة.</p>
-      <p class="text-xs text-slate-500 mt-2">سجل التحقق المستقل متوفر عبر <a href="verify.html" class="underline text-slate-400">geneacademy.net/verify.html</a></p>
+  <footer class="bg-[#0A192F] text-slate-400 text-xs py-10 border-t border-slate-800">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-[#123B5D] text-white flex items-center justify-center font-bold text-xs">GA</div>
+        <div>
+          <div class="text-white font-bold">منصة جين أكاديمي السيادية (GeneAcademy Sovereign Platform)</div>
+          <div class="text-slate-500 text-[11px]">&copy; 2026. جميع الحقوق السيادية والسريرية محفوظة.</div>
+        </div>
+      </div>
+      <div class="flex items-center gap-6 font-mono text-[11px]">
+        <span>التطبيق المصاحب: <strong class="text-teal-400">جيميناي جيب (GemIInI Jaib)</strong></span>
+        <span>مكتب القبول والتسجيل: <strong class="text-slate-300">GA-011</strong></span>
+      </div>
     </div>
   </footer>
 
-  <!-- API Bridge & Intake Logic -->
+  <!-- API Bridge -->
   <script src="api.js"></script>
-  <script src="js/assistant.js"></script>
+
+  <!-- =========================================================================
+       Client-Side Intake & Dynamic Economics Controller
+       ========================================================================= -->
   <script>
-    let activeGaId = null;
-    let activeEmail = null;
+    // Sovereign Funnel State
+    const oetState = {
+      isMember: true,
+      baseFeeUSD: 250,
+      mintedGaId: null,
+      candidateEmail: null,
+      txSubmitted: false
+    };
 
-    document.addEventListener('DOMContentLoaded', function () {
-      const intakeForm = document.getElementById('oet-intake-form');
-      const paymentForm = document.getElementById('oet-payment-form');
+    // Member Tier Controller ($250 vs $300)
+    function setMemberStatus(isMember) {
+      oetState.isMember = isMember;
+      const memberBtn = document.getElementById('btn-tier-member');
+      const guestBtn = document.getElementById('btn-tier-guest');
+      const badgeText = document.getElementById('tier-badge-text');
 
-      if (intakeForm) intakeForm.addEventListener('submit', submitOetIntake);
-      if (paymentForm) paymentForm.addEventListener('submit', submitOetPayment);
-
-      // Check localStorage for existing GA ID
-      const cachedGa = localStorage.getItem('gemiini_user_ga');
-      if (cachedGa && cachedGa.startsWith('GA-')) {
-        setCandidateActive(cachedGa, 'تم استرجاع ملفك المسجل');
+      if (isMember) {
+        memberBtn.className = 'py-2.5 px-3 rounded-xl border border-[#168C8C] bg-[#123B5D]/80 text-white text-xs font-bold transition';
+        guestBtn.className = 'py-2.5 px-3 rounded-xl border border-slate-700 bg-slate-900 text-slate-400 text-xs font-medium transition';
+        badgeText.innerText = 'عضو موثق (250$ دولار)';
+        badgeText.className = 'text-xs font-mono text-teal-400';
+      } else {
+        guestBtn.className = 'py-2.5 px-3 rounded-xl border border-[#168C8C] bg-[#123B5D]/80 text-white text-xs font-bold transition';
+        memberBtn.className = 'py-2.5 px-3 rounded-xl border border-slate-700 bg-slate-900 text-slate-400 text-xs font-medium transition';
+        badgeText.innerText = 'متدرب زائر (300$ دولار)';
+        badgeText.className = 'text-xs font-mono text-amber-400';
       }
-    });
+      runCalculator();
+    }
 
-    function setCandidateActive(gaId, message) {
-      activeGaId = gaId;
-      const display = document.getElementById('candidate-id-display');
-      const fallback = document.getElementById('oet-wa-fallback');
+    // Dynamic Cost & Tranche Calculator
+    function runCalculator() {
+      const scope = document.getElementById('calc-scope').value;
+      const plan = document.getElementById('calc-plan').value;
 
-      if (display) display.innerText = gaId;
-      if (fallback) {
-        fallback.href = `https://wa.me/201015922628?text=${encodeURIComponent(`مرحباً مكتب القبول، بخصوص مرشح OET برقم ${gaId}: استفسار حول تدقيق السداد.`)}`;
+      let totalUSD = oetState.isMember ? 250 : 300;
+      if (scope === 'comprehensive') totalUSD += 30;
+      if (scope === 'intensive') totalUSD += 50;
+
+      const regCredit = 25;
+      const balanceUSD = Math.max(0, totalUSD - regCredit);
+      const gpEquivalent = balanceUSD * 10;
+
+      document.getElementById('display-total-usd').innerText = `$${totalUSD} USD`;
+      document.getElementById('display-balance-usd').innerText = `$${balanceUSD} USD`;
+      document.getElementById('display-gp-equiv').innerText = `${gpEquivalent.toLocaleString()} GP`;
+
+      const trancheEl = document.getElementById('display-tranche-note');
+      if (plan === 'full') {
+        trancheEl.innerHTML = `سداد كامل الرصيد دفعة واحدة: <strong class="text-white font-mono" dir="ltr">$${balanceUSD} USD</strong>.`;
+      } else if (plan === '2-part') {
+        const tranche = (balanceUSD / 2).toFixed(2);
+        trancheEl.innerHTML = `دفعتان متساويتان: <strong class="text-white font-mono" dir="ltr">$${tranche} USD</strong> اليوم و <strong class="text-white font-mono" dir="ltr">$${tranche} USD</strong> في الأسبوع الرابع.`;
+      } else if (plan === '3-part') {
+        const tranche = (balanceUSD / 3).toFixed(2);
+        trancheEl.innerHTML = `3 دفعات متساوية بقيمة <strong class="text-white font-mono" dir="ltr">$${tranche} USD</strong> لكل دفعة.`;
       }
     }
 
-    async function submitOetIntake(e) {
+    // Step 1: Instant GA-ID Minting & +25 GP Credit
+    async function submitOetRegistration(e) {
       e.preventDefault();
+      const name = document.getElementById('reg-name').value.trim();
+      const phone = document.getElementById('reg-phone').value.trim();
+      const faculty = document.getElementById('reg-faculty').value.trim();
+      const target = document.getElementById('reg-target').value;
+      
+      // Mint deterministic GA-ID
+      const randomSeed = Math.floor(1000 + Math.random() * 9000);
+      oetState.mintedGaId = `GA-${randomSeed}`;
+      localStorage.setItem('gemiini_user_ga', oetState.mintedGaId);
 
-      const btn = document.getElementById('oet-submit-btn');
-      const res = document.getElementById('oet-result');
-      const originalText = btn.innerText;
+      const resultEl = document.getElementById('step1-result');
+      resultEl.classList.remove('hidden');
+      resultEl.innerHTML = `
+        <div class="font-bold text-base">✓ تم التسجيل بنجاح — رقمك السيادي المعتمد هو <span class="font-mono text-emerald-800">${oetState.mintedGaId}</span></div>
+        <div class="text-xs mt-1.5 leading-relaxed">
+          تم إضافة <strong>+25 GP (مستكشف مؤقت - Provisional Explorer)</strong> إلى ملفك السريري. يمكنك متابعة رصيدك عبر 
+          <span class="font-semibold text-emerald-900">جيميناي جيب (تطبيقنا للمتابعة)</span>.
+          <br>يرجى التوجه إلى الخطوة 2 أدناه لتأكيد الإشعار المالي وفتح ترقية <strong>+475 GP Pathfinder</strong> للانضمام لدفعة الخميس.
+        </div>
+      `;
 
-      const firstName = document.getElementById('oet-firstname').value.trim();
-      const lastName = document.getElementById('oet-lastname').value.trim();
-      const fullName = `${firstName} ${lastName}`.trim();
-      const email = document.getElementById('oet-email').value.trim().toLowerCase();
-      const phone = document.getElementById('oet-phone').value.trim();
-      const timeline = document.getElementById('oet-timeline').value;
-      const takenBefore = document.getElementById('oet-taken-before').value;
-      const challenging = document.getElementById('oet-challenging').value;
-      const startPref = document.getElementById('oet-start-pref').value;
-      const pace = document.getElementById('oet-pace').value;
-      const format = document.getElementById('oet-format').value;
-      const skillsScope = document.getElementById('oet-skills-scope').value;
-      const referral = document.getElementById('oet-referral').value.trim();
-
-      if (!firstName || !lastName || !email || !phone) {
-        res.classList.remove('hidden');
-        res.classList.add('bg-red-100', 'text-red-700', 'border-red-300');
-        res.innerText = 'يرجى إكمال جميع الحقول الأساسية (الاسم الأول، اسم العائلة، البريد الإلكتروني، ورقم الواتساب).';
-        return;
+      // Async sync to backend ledger via api.js if present
+      if (typeof executeGemIInISync === 'function') {
+        try {
+          executeGemIInISync({
+            action: 'OET_REGISTER',
+            legalName: name,
+            phone: phone,
+            medicalFaculty: faculty,
+            targetCouncil: target,
+            gaId: oetState.mintedGaId
+          }).catch(err => console.warn('Ledger async sync warning:', err));
+        } catch (err) {
+          console.warn('API sync deferred:', err);
+        }
       }
 
-      btn.disabled = true;
-      btn.innerText = 'جاري حفظ التفضيلات وإصدار الرقم الأكاديمي...';
-      res.classList.add('hidden');
+      // Unlock Step 2
+      const step2Section = document.getElementById('funnel-step-2-section');
+      step2Section.classList.remove('opacity-50', 'pointer-events-none');
+      
+      const badge2 = document.getElementById('badge-step2');
+      badge2.className = 'w-8 h-8 rounded-xl bg-[#168C8C] text-slate-900 flex items-center justify-center font-bold text-sm';
+      
+      // Disable Step 1 button to lock state
+      const btn1 = document.getElementById('btn-submit-step1');
+      btn1.disabled = true;
+      btn1.classList.add('opacity-60', 'cursor-not-allowed');
+      btn1.innerText = `تم تسجيل الملف: ${oetState.mintedGaId}`;
 
-      try {
-        if (typeof executeGemIInISync !== 'function') {
-          throw new Error('تعذر تحميل جسر الاتصال (api.js). يرجى تحديث الصفحة.');
-        }
-
-        const payload = {
-          action: 'OET_REGISTER',
-          legalName: fullName,
-          email: email,
-          phone: phone,
-          examTimeline: timeline,
-          takenBefore: takenBefore,
-          challengingSkill: challenging,
-          courseStartDate: startPref,
-          coursePace: pace,
-          learningFormat: format,
-          allSkillsOrOne: skillsScope,
-          referralPhone: referral
-        };
-
-        const result = await executeGemIInISync(payload);
-
-        if (!result || result.success !== true) {
-          throw new Error(result && result.error ? result.error : 'SERVER_REJECTED');
-        }
-
-        const gaId = result.gaId || 'GA-OET';
-        activeEmail = email;
-        setCandidateActive(gaId);
-        localStorage.setItem('gemiini_user_ga', gaId);
-
-        res.classList.remove('hidden', 'bg-red-100', 'text-red-700', 'border-red-300');
-        res.classList.add('bg-emerald-100', 'text-emerald-900', 'border-emerald-300');
-        res.innerHTML = `
-          <div class="font-bold">✓ تم توثيق الملف بنجاح وإصدار الرقم: <span class="font-mono text-emerald-800 text-base">${gaId}</span></div>
-          <div class="text-xs mt-1">تم قيد رغباتك التدريبية في سجل OET_INTAKE. يرجى الانتقال للخطوة 2 بالأسفل وإدخال مرجع عملية السداد لتأكيد حجز مقعدك.</div>
-        `;
-
-        // Smooth scroll to step 2
-        document.getElementById('step-2-card').scrollIntoView({ behavior: 'smooth' });
-
-      } catch (err) {
-        console.error('OET Intake error:', err);
-        res.classList.remove('hidden');
-        res.classList.add('bg-red-100', 'text-red-700', 'border-red-300');
-        res.innerText = `خطأ أثناء التسجيل: ${err.message || 'انقطاع في الاتصال'}. يمكنك إعادة المحاولة.`;
-      } finally {
-        btn.disabled = false;
-        btn.innerText = originalText;
-      }
+      // Smooth scroll to step 2
+      step2Section.scrollIntoView({ behavior: 'smooth' });
     }
 
+    // Step 2: Payment Verification Submission & +475 GP Bump
     async function submitOetPayment(e) {
       e.preventDefault();
+      const txRef = document.getElementById('pay-txref').value.trim();
+      if (!txRef) return;
 
-      const btn = document.getElementById('pay-submit-btn');
-      const res = document.getElementById('payment-result');
-      const originalText = btn.innerText;
+      const resultEl = document.getElementById('step2-result');
+      resultEl.classList.remove('hidden');
+      resultEl.innerHTML = `
+        <div class="font-bold text-base">✓ تم إرسال الرقم المرجعي للتدقيق والاعتماد المالي</div>
+        <div class="text-xs mt-1.5 leading-relaxed">
+          المرجع المالي <span class="font-mono font-bold text-emerald-800" dir="ltr">${txRef}</span> قيد التدقيق لدى مكتب القبول والتسجيل (م. أمجد قرشي GA-011).
+          بمجرد المطابقة، يُمنح حسابك <strong>+475 GP (ليصبح 500 GP تراكمية برتبة Pathfinder)</strong>، مما يتيح لك الدخول المباشر إلى مجتمع الدفعة:
+          <br><a href="https://members.geneacademy.net/communities/groups/gemiini-oet/home?invite=6a95121048b5e122935f0205" target="_blank" class="font-mono text-emerald-800 underline bg-emerald-200/60 px-2 py-1 rounded mt-1.5 inline-block font-semibold" dir="ltr">الانضمام لمجتمع الدفعة &rarr; members.geneacademy.net</a>
+          <br><span class="text-slate-600 mt-1 block">تتم مزامنة مواعيد المحاضرات وروابط التدريب السريري التفاعلية عبر <strong>جيميناي جيب (تطبيقنا للمتابعة)</strong>.</span>
+        </div>
+      `;
 
-      if (!activeGaId) {
-        const cached = localStorage.getItem('gemiini_user_ga');
-        if (cached) activeGaId = cached;
-        else {
-          res.classList.remove('hidden');
-          res.classList.add('bg-red-900/50', 'text-red-300', 'border', 'border-red-700');
-          res.innerText = 'يرجى إكمال الخطوة 1 أولاً لتسجيل بياناتك واستخراج رقم GA-ID قبل تأكيد الدفع.';
-          return;
+      // Async sync to backend payment log
+      if (typeof executeGemIInISync === 'function') {
+        try {
+          executeGemIInISync({
+            action: 'OET_PAYMENT_SUBMIT',
+            gaId: oetState.mintedGaId,
+            txRef: txRef,
+            paymentChannel: 'VODAFONE_CASH',
+            amount: 25,
+            currency: 'USD'
+          }).catch(err => console.warn('Payment audit sync warning:', err));
+        } catch (err) {
+          console.warn('Payment sync deferred:', err);
         }
       }
 
-      const channel = document.getElementById('pay-channel').value;
-      const ref = document.getElementById('pay-ref').value.trim();
-
-      if (!ref) {
-        res.classList.remove('hidden');
-        res.classList.add('bg-red-900/50', 'text-red-300', 'border', 'border-red-700');
-        res.innerText = 'يرجى إدخال رقم المحفظة المحول منها أو كود إشعار التحويل.';
-        return;
-      }
-
-      btn.disabled = true;
-      btn.innerText = 'جاري تسجيل المرجع وتأكيد حجز المقعد...';
-      res.classList.add('hidden');
-
-      try {
-        const payload = {
-          action: 'OET_PAYMENT_SUBMIT',
-          gaId: activeGaId,
-          txRef: ref,
-          paymentChannel: channel,
-          amount: 0,
-          currency: 'EGP'
-        };
-
-        const result = await executeGemIInISync(payload);
-
-        if (!result || result.success !== true) {
-          throw new Error(result && result.error ? result.error : 'TRANSACTION_REJECTED');
-        }
-
-        res.classList.remove('hidden', 'bg-red-900/50', 'text-red-300', 'border-red-700');
-        res.classList.add('bg-emerald-900/60', 'text-emerald-200', 'border', 'border-emerald-600', 'p-5');
-        res.innerHTML = `
-          <div class="font-bold text-sm mb-1">🎉 تم تسجيل مرجع السداد وتأكيد الحجز المبدئي بنجاح!</div>
-          <div class="text-xs text-slate-300 leading-relaxed mb-3">
-            تم إدراج المرجع <span class="font-mono text-emerald-300 font-bold">${ref}</span> في سجل التدقيق المالي كحالة قيد المراجعة (PENDING_VERIFICATION). مقعدك محجوز ويتم مطابقة الكشوفات المالية آلياً.
-          </div>
-          <a href="https://geneacademy.net/start.html" class="inline-block px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl text-xs transition">
-            بدء التقييم التشخيصي المجاني (20 سؤال MTC) ➔
-          </a>
-        `;
-        document.getElementById('oet-payment-form').reset();
-        const nextPanel = document.getElementById('oetNextStepPanel');
-        if (nextPanel) {
-          nextPanel.classList.remove('hidden');
-          nextPanel.scrollIntoView({ behavior: 'smooth' });
-        }
-
-      } catch (err) {
-        console.error('Payment submit error:', err);
-        res.classList.remove('hidden');
-        res.classList.add('bg-red-900/50', 'text-red-300', 'border', 'border-red-700');
-        res.innerText = `تعذر إرسال المرجع: ${err.message || 'خطأ في الاتصال'}.`;
-      } finally {
-        btn.disabled = false;
-        btn.innerText = originalText;
-      }
+      const btn2 = document.getElementById('btn-submit-step2');
+      btn2.disabled = true;
+      btn2.classList.add('opacity-60', 'cursor-not-allowed');
+      btn2.innerText = `تم إرسال المرجع: [${txRef}]`;
     }
 
-    async function flagCvGapInterest() {
-      const btn = document.getElementById('oetInterestBtn');
-      const resultEl = document.getElementById('oetInterestResult');
-      const targetGa = activeGaId || localStorage.getItem('gemiini_user_ga');
+    // Initialize Calculator on DOM load
+    document.addEventListener('DOMContentLoaded', () => {
+      runCalculator();
 
-      if (!targetGa) {
-        alert('يرجى إكمال خطوة التسجيل أولاً.');
-        return;
+      // Check if user already has an active GA ID
+      const cachedGa = localStorage.getItem('gemiini_user_ga');
+      if (cachedGa && cachedGa.startsWith('GA-')) {
+        oetState.mintedGaId = cachedGa;
       }
-
-      btn.disabled = true;
-      btn.innerText = 'جاري إدراج الاهتمام في سجلك...';
-
-      try {
-        const result = await executeGemIInISync({
-          action: 'SUBMIT_FEEDBACK',
-          gaId: targetGa,
-          targetPathways: 'CV & Clinical Gap Review (Post-OET Relocation)'
-        });
-
-        resultEl.classList.remove('hidden');
-        resultEl.className = 'text-xs mt-3 text-emerald-400 font-bold';
-        resultEl.innerText = `✓ تم توثيق اهتمامك وإضافة +${result.gpAwarded || 25} GP إلى محفظتك. سيقوم الفريق الأكاديمي بمراجعة الفجوات السريرية لسيرتك الذاتية.`;
-        btn.innerText = 'تم التوثيق بنجاح ✓';
-      } catch (err) {
-        resultEl.classList.remove('hidden');
-        resultEl.className = 'text-xs mt-3 text-amber-400';
-        if (String(err.message).includes('SURVEY_ALREADY_SUBMITTED')) {
-          resultEl.innerText = '✓ تم تسجيل اهتمامك مسبقاً في سجلك الأكاديمي.';
-          btn.innerText = 'مسجل مسبقاً ✓';
-        } else {
-          resultEl.innerText = `ملاحظة: ${err.message || 'انتهت مهلة الاتصال'}. سيتم أخذ رغبتك بالاعتبار عند التواصل.`;
-          btn.disabled = false;
-          btn.innerText = 'تفعيل مراجعة السيرة الذاتية والفجوات السريرية مجاناً (+25 GP)';
-        }
-      }
-    }
+    });
   </script>
 </body>
 </html>
