@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AHA BLS Resuscitation Provider Workshop | Gene Academy</title>
-  <meta name="description" content="American Heart Association (AHA) accredited Basic Life Support (BLS) training at Dr. Sabri Clinical Training Center (Lic. 1549, Dokki, Cairo). Verifiable via SudaPass.">
+  <title>AHA BLS Resuscitation Provider Workshop | GeneAcademy & GemIInI Platform</title>
+  <meta name="description" content="AHA Accredited Basic Life Support (BLS Provider) Certification. Multi-hub clinical simulation directed by Dr. Mohamed Sabri (GA-5405) with decentralized training centers and SudaPass verification.">
 
   <!-- Google Analytics 4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-H1Q67PP2DJ"></script>
@@ -18,7 +18,8 @@
   <!-- Typography & Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -26,200 +27,563 @@
         extend: {
           colors: {
             brand: {
-              navy: '#123B5D',
+              navy: '#0A192F',
+              blue: '#123B5D',
               teal: '#168C8C',
-              gold: '#B48028',
-              bg: '#F8FAFC'
+              accent: '#2dd4bf',
+              gold: '#B48028'
             }
           },
           fontFamily: {
-            heading: ['"Plus Jakarta Sans"', 'sans-serif'],
-            body: ['Inter', 'sans-serif'],
-            mono: ['"IBM Plex Mono"', 'monospace']
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
           }
         }
       }
     }
   </script>
-  <link rel="stylesheet" href="styles.css">
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f8fafc; color: #0f172a; }
+  </style>
 </head>
 
-<body class="bg-[#F8FAFC] text-[#1F2937] font-body antialiased selection:bg-teal-100 selection:text-teal-900">
+<body class="bg-slate-50 text-slate-900 antialiased selection:bg-[#168C8C]/20 selection:text-[#123B5D]">
 
-  <!-- TOP BAR -->
-  <div class="bg-[#0B1426] text-slate-300 text-[11px] py-2.5 px-4 border-b border-slate-800 font-mono">
-    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
-      <div class="flex items-center gap-2">
-        <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-amber-950 text-amber-400 border border-amber-800 font-bold text-[10px]">
-          AHA BLS PROVIDER COHORT
-        </span>
-        <span class="text-slate-300 font-semibold text-xs">American Heart Association (AHA BLS Provider) Accreditation &bull; Dokki Center, Cairo (Lic. 1549)</span>
+  <!-- Top Institutional Bar -->
+  <header class="bg-[#0A192F] text-slate-300 text-xs py-2 px-4 border-b border-slate-800">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+      <div class="flex items-center gap-2 font-mono">
+        <span class="inline-block w-2 h-2 rounded-full bg-[#168C8C] animate-pulse"></span>
+        <span>GENEACADEMY SOVEREIGN CONSORTIUM</span>
+        <span class="text-slate-600">|</span>
+        <span class="text-slate-400">Department of Clinical Simulation & Resuscitation</span>
       </div>
-      <div class="flex items-center gap-4 text-xs font-semibold">
-        <a href="bls_ar.html" class="text-sky-400 hover:text-sky-300">العربية</a>
-        <span class="text-slate-500">|</span>
-        <a href="mailto:admissions@geneacademy.net" class="text-emerald-400 hover:text-emerald-300">admissions@geneacademy.net</a>
+      <div class="flex items-center gap-4">
+        <span>Clinical Director: <strong class="text-white">Dr. Mohamed Sabri (GA-5405)</strong></span>
+        <a href="bls_ar.html" class="text-teal-400 hover:text-teal-300 font-semibold transition">العربية</a>
       </div>
-    </div>
-  </div>
-
-  <!-- MAIN HEADER -->
-  <header class="bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
-      <a href="index.html" class="flex items-center gap-3 shrink-0">
-        <div class="w-11 h-11 rounded-xl bg-[#123B5D] text-white font-black flex items-center justify-center font-mono text-base shadow-sm">
-          GA
-        </div>
-        <div>
-          <span class="text-xl font-bold font-heading text-[#123B5D] tracking-tight block">Gene Academy</span>
-          <span class="text-[10px] font-mono text-[#64748B] block tracking-wider uppercase">MEDICAL &amp; GENOMIC CONSORTIUM</span>
-        </div>
-      </a>
-
-      <nav class="hidden lg:flex items-center gap-6 text-sm font-bold text-[#1F2937]">
-        <a href="index.html" class="hover:text-[#168C8C] transition">Home</a>
-        <a href="courses.html" class="hover:text-[#168C8C] transition">Programs</a>
-        <a href="universities.html" class="hover:text-[#168C8C] transition">Universities</a>
-        <a href="faculty.html" class="hover:text-[#168C8C] transition">Faculty</a>
-        <a href="verify.html" class="hover:text-[#168C8C] transition">Verify SudaPass™</a>
-      </nav>
-
-      <a href="join.html?ref=bls" class="hidden sm:inline-flex px-5 py-2.5 rounded-xl bg-[#123B5D] hover:bg-[#0E2E49] text-white font-bold text-xs sm:text-sm shadow-md transition">
-        Reserve Seat Fast &rarr;
-      </a>
     </div>
   </header>
 
+  <!-- Navigation Bar -->
+  <nav class="bg-white/95 backdrop-blur-md sticky top-0 z-40 border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-[#123B5D] flex items-center justify-center text-white font-bold text-lg shadow-sm">
+          GA
+        </div>
+        <div>
+          <span class="font-extrabold text-[#123B5D] text-lg tracking-tight block leading-none">GeneAcademy</span>
+          <span class="text-[10px] text-[#168C8C] font-mono font-semibold tracking-wider uppercase">Clinical Simulation Hubs</span>
+        </div>
+      </a>
+      
+      <div class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600">
+        <a href="#competencies" class="hover:text-[#123B5D] transition">Competencies</a>
+        <a href="#hubs" class="hover:text-[#123B5D] transition">Training Locations</a>
+        <a href="#telemetry" class="hover:text-[#123B5D] transition">SudaPass Verification</a>
+        <a href="#funnel" class="hover:text-[#123B5D] transition">Seat Intake</a>
+      </div>
+
+      <a href="#funnel" class="px-5 py-2.5 rounded-xl bg-[#168C8C] hover:bg-[#123B5D] text-white text-xs font-bold tracking-wide uppercase shadow-md hover:shadow-lg transition duration-200">
+        Register Workshop
+      </a>
+    </div>
+  </nav>
+
   <!-- HERO SECTION -->
-  <section class="bg-white border-b border-slate-200 py-12 sm:py-16 px-4 sm:px-6">
-    <div class="max-w-4xl mx-auto text-center space-y-5">
-      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-50 border border-amber-200 text-xs font-mono text-amber-900 font-bold">
-        <span class="w-2 h-2 rounded-full bg-amber-500 inline-block"></span>
-        <span>AHA ACCREDITED &bull; 1:1 QCPR SMART MANIKIN RATIO</span>
+  <section class="bg-gradient-to-b from-[#0A192F] via-[#0d2238] to-[#123B5D] text-white py-16 md:py-20 px-4 border-b border-slate-800">
+    <div class="max-w-5xl mx-auto text-center space-y-6">
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#168C8C]/20 border border-[#168C8C]/40 text-xs font-mono text-teal-300">
+        <span class="w-2 h-2 rounded-full bg-teal-400"></span>
+        <span>AHA ACCREDITED &bull; MULTI-HUB &amp; DECENTRALIZED COHORTS</span>
       </div>
-      <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
-        AHA Basic Life Support (BLS Provider) Certification
+
+      <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight leading-tight max-w-4xl mx-auto">
+        AHA Basic Life Support (BLS Provider) & <br>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-teal-300 via-teal-100 to-white">
+          Clinical Resuscitation Mastery
+        </span>
       </h1>
-      <p class="text-slate-600 text-sm sm:text-base max-w-3xl mx-auto leading-relaxed">
-        Directed by Clinical Simulation Director <strong>Dr. Mohamed Sabri (GA-5405)</strong> at STC Training Center (Dokki, Cairo). Hands-on 1:1 QCPR smart manikin resuscitation training with permanent credential verification on your SudaPass™ ledger.
+
+      <p class="text-slate-300 text-base md:text-lg max-w-2xl mx-auto leading-relaxed font-normal">
+        Hands-on 1:1 QCPR smart manikin resuscitation training. Tell us your needed training location across Egypt, Sudan, or the Gulf, and secure verifiable international certification on your SudaPass™ ledger.
       </p>
 
-      <!-- Key Specs Grid -->
-      <div class="pt-3 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl mx-auto font-mono text-xs">
-        <div class="p-3.5 bg-slate-50 rounded-2xl border border-slate-200 text-center">
-          <div class="text-xl sm:text-2xl font-black text-amber-600">12 Seats</div>
-          <div class="text-[10px] text-slate-500 mt-1 font-bold">Maximum Cohort Capacity</div>
-        </div>
-        <div class="p-3.5 bg-slate-50 rounded-2xl border border-slate-200 text-center">
-          <div class="text-xl sm:text-2xl font-black text-slate-900">1:1 Ratio</div>
-          <div class="text-[10px] text-slate-500 mt-1 font-bold">Dedicated Smart Manikin</div>
-        </div>
-        <div class="p-3.5 bg-slate-50 rounded-2xl border border-slate-200 text-center">
-          <div class="text-xl sm:text-2xl font-black text-emerald-600">3,000 EGP</div>
-          <div class="text-[10px] text-slate-500 mt-1 font-bold">Flat All-Inclusive Fee</div>
-        </div>
-        <div class="p-3.5 bg-slate-50 rounded-2xl border border-slate-200 text-center">
-          <div class="text-xl sm:text-2xl font-black text-sky-600">+500 GP</div>
-          <div class="text-[10px] text-slate-500 mt-1 font-bold">SudaPass Verification</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 3 PILLARS -->
-  <section class="max-w-5xl mx-auto px-4 sm:px-6 py-10 grid grid-cols-1 md:grid-cols-3 gap-6">
-    <div class="bg-white p-6 rounded-2xl border-t-4 border-t-amber-500 border border-slate-200 space-y-3">
-      <h3 class="text-base font-bold text-slate-900">International Accreditation</h3>
-      <p class="text-xs text-slate-600 leading-relaxed">
-        Official American Heart Association (AHA eCard) Provider Card valid for 2 years internationally across all hospitals and medical boards.
-      </p>
-    </div>
-
-    <div class="bg-white p-6 rounded-2xl border-t-4 border-t-sky-500 border border-slate-200 space-y-3">
-      <h3 class="text-base font-bold text-slate-900">Clinical Competencies</h3>
-      <p class="text-xs text-slate-600 leading-relaxed">
-        High-quality adult, child, and infant CPR, Automated External Defibrillator (AED) operation, and airway obstruction clearance.
-      </p>
-    </div>
-
-    <div class="bg-white p-6 rounded-2xl border-t-4 border-t-emerald-500 border border-slate-200 space-y-3">
-      <h3 class="text-base font-bold text-slate-900">Target Candidates</h3>
-      <p class="text-xs text-slate-600 leading-relaxed">
-        Medical registrars, house officers, medical students, nursing officers, and dental practitioners fulfilling licensing requirements.
-      </p>
-    </div>
-  </section>
-
-  <!-- QUICK SCHEDULE & PAYMENT CARD -->
-  <main class="max-w-4xl mx-auto px-4 sm:px-6 pb-16 space-y-8">
-    <div class="bg-white border-2 border-[#168C8C] rounded-2xl p-6 sm:p-8 shadow-xl space-y-6">
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-4">
-        <div>
-          <span class="text-xs font-mono text-[#168C8C] font-bold uppercase tracking-wider block">Upcoming Cohort &bull; Dokki, Cairo</span>
-          <h2 class="text-xl font-bold text-[#123B5D]">Schedule &amp; Fast Payment Options</h2>
-        </div>
-        <div>
-          <span class="text-xs text-slate-500 block">All-Inclusive Workshop Fee</span>
-          <span class="text-2xl font-black text-[#123B5D] font-mono">3,000 EGP</span>
-        </div>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <!-- Schedule -->
-        <div class="space-y-3 bg-slate-50 p-4 rounded-xl border border-slate-200">
-          <div class="font-bold text-sm text-[#123B5D] flex items-center gap-2">
-            📅 <span>Cohort Schedule:</span>
-          </div>
-          <ul class="text-xs text-slate-700 space-y-2">
-            <li><strong>Date:</strong> Thursday / Friday (August 28, 2026)</li>
-            <li><strong>Location:</strong> STC Training Center, Dokki, Cairo</li>
-            <li><strong>Capacity:</strong> 12 Seats Only (1:1 Smart Manikin Ratio)</li>
-            <li><strong>Output:</strong> Official AHA eCard + 500 GP SudaPass Vault Credit</li>
-          </ul>
-        </div>
-
-        <!-- Direct Payment Methods -->
-        <div class="space-y-3 bg-slate-50 p-4 rounded-xl border border-slate-200">
-          <div class="font-bold text-sm text-[#123B5D] flex items-center gap-2">
-            💳 <span>Direct Payment Methods:</span>
-          </div>
-          <div class="space-y-2 text-xs">
-            <div class="p-2.5 bg-white rounded-lg border border-slate-200 flex items-center justify-between">
-              <div>
-                <div class="font-bold text-slate-800">Vodafone Cash</div>
-                <div class="font-mono text-emerald-700 font-bold text-sm">+20 101 592 2628 / +20 117 099 150</div>
-              </div>
-              <button onclick="navigator.clipboard.writeText('+201015922628'); alert('Number Copied!');" class="px-2.5 py-1 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded font-mono text-[11px]">Copy</button>
-            </div>
-
-            <div class="p-2.5 bg-white rounded-lg border border-slate-200 flex items-center justify-between">
-              <div>
-                <div class="font-bold text-slate-800">InstaPay ID</div>
-                <div class="font-mono text-sky-700 font-bold text-sm">mohsabri09989@instapay</div>
-              </div>
-              <button onclick="navigator.clipboard.writeText('mohsabri09989@instapay'); alert('ID Copied!');" class="px-2.5 py-1 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded font-mono text-[11px]">Copy</button>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-      <!-- Action Button -->
-      <div class="pt-2 text-center">
-        <a href="https://wa.me/20117099150?text=Hello%20Dr.%20Sabri,%20I%20am%20ready%20to%20confirm%20my%20BLS%20Dokki%20workshop%20registration%20and%20send%20payment%20receipt." target="_blank" class="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-3.5 rounded-xl bg-[#25D366] hover:bg-[#1EBE5D] text-white font-bold text-sm shadow-lg transition">
-          💬 Send Payment Receipt &amp; Confirm Registration via WhatsApp (&rlm;+20 117 099 150) &rarr;
+      <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#funnel" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-[#168C8C] hover:bg-teal-500 text-slate-900 font-extrabold text-sm tracking-wide shadow-lg shadow-teal-900/40 transition">
+          Select Location & Mint GA-ID
+        </a>
+        <a href="#hubs" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-slate-800/80 hover:bg-slate-800 border border-slate-700 text-white font-semibold text-sm transition">
+          Explore Training Hubs
         </a>
       </div>
-    </div>
-  </main>
 
-  <footer class="bg-[#0B1E2E] text-slate-400 py-12 text-xs border-t border-slate-800">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 text-center space-y-4">
-      <div>&copy; 2026/2027 Gene Academy &bull; SudaGene Medical Consortium. All Rights Reserved.</div>
-      <div><a href="verify.html" class="text-teal-400 hover:underline">SudaPass™ Credential Verification Vault</a></div>
+      <!-- Live Metric Badges -->
+      <div class="pt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl mx-auto font-mono text-xs">
+        <div class="p-3.5 bg-slate-900/80 rounded-2xl border border-slate-700 text-center">
+          <div class="text-xl sm:text-2xl font-black text-teal-400">12 Seats</div>
+          <div class="text-[10px] text-slate-400 mt-1">Capped Per Workshop</div>
+        </div>
+        <div class="p-3.5 bg-slate-900/80 rounded-2xl border border-slate-700 text-center">
+          <div class="text-xl sm:text-2xl font-black text-white">1:1 Ratio</div>
+          <div class="text-[10px] text-slate-400 mt-1">Dedicated Smart Manikin</div>
+        </div>
+        <div class="p-3.5 bg-slate-900/80 rounded-2xl border border-slate-700 text-center">
+          <div class="text-xl sm:text-2xl font-black text-amber-300">3,000 EGP</div>
+          <div class="text-[10px] text-slate-400 mt-1">Flat Rate (Egypt Base)</div>
+        </div>
+        <div class="p-3.5 bg-slate-900/80 rounded-2xl border border-slate-700 text-center">
+          <div class="text-xl sm:text-2xl font-black text-[#2dd4bf]">+500 GP</div>
+          <div class="text-[10px] text-slate-400 mt-1">Lifelong Membership Award</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 1. Multi-Hub Location Flexibility Banner -->
+  <section id="hubs" class="py-12 bg-white border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-8">
+        <span class="text-[#168C8C] font-mono font-bold text-xs uppercase tracking-widest block mb-2">GEOGRAPHIC FLEXIBILITY</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-[#123B5D]">We Deliver Training Where Doctors Need It</h2>
+        <p class="text-slate-500 text-sm mt-1 max-w-2xl mx-auto">
+          We do not restrict candidates to a single site. Select your preferred city or hospital hub during intake, and our clinical operations team coordinates cohort placement.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-xs">
+        <div class="p-4 rounded-2xl bg-slate-50 border border-teal-200 shadow-sm">
+          <div class="flex items-center gap-2 text-teal-800 font-bold mb-1">
+            <span class="w-2 h-2 rounded-full bg-teal-500"></span>
+            Greater Cairo Hubs
+          </div>
+          <p class="text-slate-600">Dokki (STC Lic. 1549 &bull; Amanirena Hub), Nasr City, New Cairo, and Maadi cohorts.</p>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 shadow-sm">
+          <div class="flex items-center gap-2 text-[#123B5D] font-bold mb-1">
+            <span class="w-2 h-2 rounded-full bg-[#123B5D]"></span>
+            Alexandria & Delta
+          </div>
+          <p class="text-slate-600">Alexandria clinical simulation clusters for Northern and Delta resident doctors.</p>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 shadow-sm">
+          <div class="flex items-center gap-2 text-amber-700 font-bold mb-1">
+            <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+            Sudan Sovereign Centers
+          </div>
+          <p class="text-slate-600">Port Sudan Training Hub, Atbara / River Nile, and Kassala regional cohorts.</p>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 shadow-sm">
+          <div class="flex items-center gap-2 text-sky-800 font-bold mb-1">
+            <span class="w-2 h-2 rounded-full bg-sky-500"></span>
+            Gulf & Customized Venues
+          </div>
+          <p class="text-slate-600">Riyadh, Jeddah, Doha, UAE, or custom on-site delivery requested by hospital teams.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Clinical Competencies & Faculty -->
+  <section id="competencies" class="py-12 bg-slate-50 border-b border-slate-200">
+    <div class="max-w-5xl mx-auto px-4 space-y-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white p-6 rounded-2xl border-t-4 border-t-amber-500 border border-slate-200 space-y-2 shadow-sm">
+          <h3 class="text-base font-bold text-slate-900">AHA International Accreditation</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Official American Heart Association (AHA eCard) Provider status valid internationally for 2 years across all medical licensing councils (SMC, GMC, IMC, SCFHS).
+          </p>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl border-t-4 border-t-teal-500 border border-slate-200 space-y-2 shadow-sm">
+          <h3 class="text-base font-bold text-slate-900">1:1 Smart Manikin QCPR</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Immediate digital compression depth, recoil rate, and ventilation feedback. Every candidate operates their own dedicated smart station throughout the workshop.
+          </p>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl border-t-4 border-t-[#123B5D] border border-slate-200 space-y-2 shadow-sm">
+          <h3 class="text-base font-bold text-slate-900">Clinical Leadership</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Directed by <strong>Dr. Mohamed Sabri (GA-5405)</strong> — SMSB Neuromedicine Registrar, Clinical Simulation Director, and accredited AHA Principal Instructor.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Telemetry & SudaPass Verification Loop -->
+  <section id="telemetry" class="py-12 bg-white border-b border-slate-200">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="p-6 sm:p-8 rounded-3xl bg-[#0A192F] text-white border border-slate-800 shadow-xl space-y-6">
+        <div class="text-center max-w-2xl mx-auto">
+          <span class="text-[#168C8C] font-mono font-bold text-xs uppercase tracking-widest block mb-1">TELEMETRY &amp; CREDENTIAL LIFECYCLE</span>
+          <h3 class="text-2xl font-extrabold text-white">Workshop &rarr; Verification &rarr; Lifelong Membership</h3>
+          <p class="text-slate-400 text-xs mt-1">Completing the physical workshop activates the verified credential loop on the Sovereign Platform.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-4 gap-3 text-xs font-mono text-center">
+          <div class="p-3 bg-slate-900/80 rounded-xl border border-slate-700">
+            <div class="text-teal-400 font-bold">1. Hands-On</div>
+            <div class="text-[11px] text-slate-400 mt-1">12-Seat Dedicated QCPR Session</div>
+          </div>
+          <div class="p-3 bg-slate-900/80 rounded-xl border border-slate-700">
+            <div class="text-teal-400 font-bold">2. AHA eCard</div>
+            <div class="text-[11px] text-slate-400 mt-1">Official Provider Credential</div>
+          </div>
+          <div class="p-3 bg-slate-900/80 rounded-xl border border-slate-700">
+            <div class="text-teal-400 font-bold">3. SudaPass Vault</div>
+            <div class="text-[11px] text-slate-400 mt-1">Verified on geneacademy.net/verify.html</div>
+          </div>
+          <div class="p-3 bg-slate-900/80 rounded-xl border border-slate-700">
+            <div class="text-teal-400 font-bold">4. +500 GP Bump</div>
+            <div class="text-[11px] text-slate-400 mt-1">Lifelong Membership in GemIInI Jaib</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. STANDARDIZED TWO-STEP INTAKE FUNNEL (WITH LOCATION REQUEST) -->
+  <section id="funnel" class="py-16 bg-slate-100">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="text-center mb-10">
+        <span class="text-[#168C8C] font-mono font-bold text-xs uppercase tracking-widest block mb-2">OFFICIAL WORKSHOP REGISTRATION</span>
+        <h2 class="text-3xl font-extrabold text-[#123B5D]">Self-Service Candidate Intake &amp; Hub Selection</h2>
+        <p class="text-slate-500 text-sm mt-1">State your preferred training city/center. Step 1 instantly mints your Sovereign GA-ID.</p>
+      </div>
+
+      <!-- Funnel Container Card -->
+      <div class="p-6 md:p-8 rounded-3xl bg-white border border-slate-200 shadow-xl space-y-8">
+        
+        <!-- ================= STEP 1: Candidate Diagnostic Profile & Location Preference ================= -->
+        <div class="space-y-4">
+          <div class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-xl bg-[#123B5D] text-white flex items-center justify-center font-bold text-sm">1</span>
+            <div>
+              <h3 class="text-lg font-bold text-[#123B5D]">Step 1: Clinical Profile, Educational Tier &amp; Requested Training Location</h3>
+              <p class="text-xs text-slate-500">Mints your Sovereign GA-ID and immediately locks +25 GP (Provisional Explorer) into GemIInI Jaib.</p>
+            </div>
+          </div>
+
+          <form id="bls-reg-form" onsubmit="submitBlsRegistration(event)" class="space-y-4 pt-2">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">Full Clinical Name</label>
+                <input type="text" id="bls-name" required placeholder="Dr. Sarah Osman" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-sm text-slate-900 focus:outline-none focus:border-[#168C8C]">
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">WhatsApp / Primary Telemetry</label>
+                <input type="tel" id="bls-phone" required placeholder="+20 10 1234 5678" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-sm text-slate-900 focus:outline-none focus:border-[#168C8C]">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">Medical Faculty / Training Institution</label>
+                <input type="text" id="bls-faculty" required placeholder="e.g. University of Khartoum, OIU, Gezira" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-sm text-slate-900 focus:outline-none focus:border-[#168C8C]">
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">Clinical / Educational Tier</label>
+                <select id="bls-tier" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-sm text-slate-900 focus:outline-none focus:border-[#168C8C]">
+                  <option value="L0: Medical Student">L0: Medical Student (Pre-clinical / Clerkship)</option>
+                  <option value="L1: House Officer" selected>L1: House Officer / Intern Doctor</option>
+                  <option value="L2: Medical Officer">L2: Medical Officer (MO / General Practitioner)</option>
+                  <option value="L3: Registrar / Trainee">L3: Registrar / Clinical Resident Trainee</option>
+                  <option value="L4: Specialist / Fellow">L4: Senior Specialist / Fellow</option>
+                  <option value="L5: Consultant">L5: Consultant / Faculty Member</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- DYNAMIC LOCATION SELECTION -->
+            <div class="p-4 rounded-2xl bg-slate-50 border border-teal-200/80 space-y-3">
+              <div class="flex items-center justify-between">
+                <label class="text-xs font-bold text-teal-900 uppercase tracking-wide flex items-center gap-1.5">
+                  <span>📍</span> Requested Training Location / Preferred Hub:
+                </label>
+                <span class="text-[10px] font-mono text-slate-500">Decentralized Multi-Center Routing</span>
+              </div>
+              
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <select id="bls-location-hub" onchange="toggleCustomLocationField()" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-sm text-slate-900 focus:outline-none focus:border-[#168C8C]">
+                    <option value="Cairo: Dokki (Amanirena / STC Center Lic. 1549)" selected>Cairo &bull; Dokki (STC Center Lic. 1549)</option>
+                    <option value="Cairo: Nasr City / New Cairo">Cairo &bull; Nasr City / New Cairo</option>
+                    <option value="Alexandria: Regional Hub">Alexandria &bull; Regional Hub</option>
+                    <option value="Sudan: Port Sudan Training Center">Sudan &bull; Port Sudan Center</option>
+                    <option value="Sudan: Atbara / River Nile">Sudan &bull; Atbara / River Nile</option>
+                    <option value="Sudan: Kassala / Eastern Hub">Sudan &bull; Kassala Hub</option>
+                    <option value="Gulf: Riyadh Hub">Gulf &bull; Riyadh / Saudi Center</option>
+                    <option value="Gulf: UAE / Qatar / Kuwait">Gulf &bull; UAE / Qatar / Kuwait</option>
+                    <option value="CUSTOM">Other / Specific Hospital Request (Specify Below)</option>
+                  </select>
+                </div>
+                <div>
+                  <input type="text" id="bls-custom-location" placeholder="Specific hospital/venue notes (e.g. Al-Nau Hospital)" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-sm text-slate-900 focus:outline-none focus:border-[#168C8C]">
+                </div>
+              </div>
+              <p class="text-[11px] text-slate-500">
+                Cohorts are assembled flexibly according to candidate demand in each city or institutional cluster.
+              </p>
+            </div>
+
+            <button type="submit" id="btn-submit-bls-step1" class="w-full py-3.5 px-4 rounded-xl bg-[#123B5D] hover:bg-[#0A192F] text-white font-bold text-sm shadow-md transition duration-150 flex items-center justify-center gap-2">
+              <span>Submit Clinical Intake &amp; Mint GA-ID</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+            </button>
+          </form>
+
+          <!-- Step 1 Feedback Container -->
+          <div id="bls-step1-result" class="hidden p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-900 text-sm"></div>
+        </div>
+
+        <div class="h-px bg-slate-200"></div>
+
+        <!-- ================= STEP 2: Payment Rails & Verification ================= -->
+        <div id="bls-funnel-step-2-section" class="space-y-4 opacity-50 pointer-events-none transition-all duration-300">
+          <div class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-xl bg-slate-400 text-white flex items-center justify-center font-bold text-sm" id="badge-bls-step2">2</span>
+            <div>
+              <h3 class="text-lg font-bold text-[#123B5D]">Step 2: Sovereign Settlement Rails &amp; Transaction Audit</h3>
+              <p class="text-xs text-slate-500">Workshop fee: <strong>3,000 EGP</strong> (or localized equivalent). Unlocks +475 GP Pathfinder bump and lifelong membership.</p>
+            </div>
+          </div>
+
+          <!-- Payment Instructions Card -->
+          <div class="p-5 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-4">
+            <div class="text-xs font-semibold text-slate-600">Official Sovereign Payment Rails:</div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <!-- Vodafone Cash (Primary) -->
+              <div class="p-4 rounded-xl border-2 border-teal-500 bg-teal-50/40">
+                <div class="flex items-center justify-between">
+                  <div class="text-xs font-bold text-teal-800 uppercase tracking-wide">Vodafone Cash (Primary Rail)</div>
+                  <span class="text-[10px] bg-teal-600 text-white px-2 py-0.5 rounded font-mono font-bold">ACTIVE</span>
+                </div>
+                <div class="font-mono text-base font-extrabold text-[#123B5D] mt-2 select-all">01015922628</div>
+                <div class="text-[11px] text-slate-600 mt-1">Official Mobile Cash Wallet &bull; Immediate Audit Dispatch</div>
+              </div>
+
+              <!-- InstaPay (Alternative) -->
+              <div class="p-4 rounded-xl border border-slate-200 bg-slate-50">
+                <div class="text-xs font-bold text-slate-700 uppercase tracking-wide">InstaPay (Alternative)</div>
+                <div class="font-mono text-base font-extrabold text-[#123B5D] mt-2 select-all">mohsabri09989@instapay</div>
+                <div class="text-[11px] text-slate-500 mt-1">Recipient: Dr. Mohamed Sabri (Clinical Simulation Lead)</div>
+              </div>
+            </div>
+
+            <!-- Transaction Reference Form -->
+            <form id="bls-pay-form" onsubmit="submitBlsPayment(event)" class="space-y-4 pt-2">
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">Transaction Reference Code (txRef) or Sender Phone</label>
+                <input type="text" id="bls-pay-txref" required placeholder="e.g. VF Cash sender number or InstaPay ref" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-sm text-slate-900 focus:outline-none focus:border-[#168C8C]">
+              </div>
+
+              <button type="submit" id="btn-submit-bls-step2" class="w-full py-3.5 px-4 rounded-xl bg-[#168C8C] hover:bg-teal-600 text-white font-bold text-sm shadow-md transition duration-150 flex items-center justify-center gap-2">
+                <span>Submit Verification &amp; Claim 500 GP Lifelong Membership</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+              </button>
+            </form>
+
+            <!-- Step 2 Feedback Container -->
+            <div id="bls-step2-result" class="hidden p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-900 text-sm"></div>
+          </div>
+        </div>
+
+        <!-- ================= STEP 3: Next-Need Bridge & Cross-Pillar Upsell ================= -->
+        <div id="bls-step3-bridge" class="hidden p-6 rounded-2xl bg-teal-950/60 border border-teal-800 text-white space-y-4">
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-0.5 rounded bg-teal-500/20 text-teal-300 text-[10px] font-mono font-bold uppercase tracking-wider">PREDICTABLE NEXT NEED</span>
+            <h4 class="text-sm font-bold text-white">SMC Board Exam &amp; Surgical Skills (BSS-2) Progression</h4>
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Doctors completing BLS resuscitation almost always prepare for the <strong>National SMC Licensing Exam (2,500 clinical vignettes)</strong> or surgical foundation fellowship. Would you like to flag your profile for the upcoming SMC Marathon?
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <button type="button" onclick="flagCrossPillarInterest('SMC Board Exam Marathon')" class="py-2 px-4 rounded-xl bg-teal-600 hover:bg-teal-500 text-white text-xs font-bold transition">
+              Flag Account for SMC Marathon (+25 GP)
+            </button>
+            <a href="verify.html" class="py-2 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-teal-300 text-xs font-mono font-bold border border-slate-700 transition">
+              Visit SudaPass™ Verification Vault &rarr;
+            </a>
+          </div>
+          <div id="bridge-result" class="hidden text-xs font-bold text-teal-300 pt-1"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#0A192F] text-slate-400 text-xs py-10 border-t border-slate-800">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-[#123B5D] text-white flex items-center justify-center font-bold text-xs">GA</div>
+        <div>
+          <div class="text-white font-bold">GeneAcademy Sovereign Platform</div>
+          <div class="text-slate-500 text-[11px]">&copy; 2026/2027. All clinical resuscitation rights reserved.</div>
+        </div>
+      </div>
+      <div class="flex items-center gap-6 font-mono text-[11px]">
+        <span>Companion App: <strong class="text-teal-400">GemIInI Jaib (جيميناي جيب)</strong></span>
+        <span>Admissions Desk: <strong class="text-slate-300">GA-011</strong></span>
+      </div>
     </div>
   </footer>
 
-  <script src="js/assistant.js"></script>
+  <!-- API Bridge -->
+  <script src="api.js"></script>
+
+  <!-- =========================================================================
+       Client-Side Intake & Dynamic Location Controller
+       ========================================================================= -->
+  <script>
+    const blsState = {
+      mintedGaId: null,
+      selectedLocation: null,
+      customLocation: null
+    };
+
+    function toggleCustomLocationField() {
+      const hubSelect = document.getElementById('bls-location-hub');
+      const customInput = document.getElementById('bls-custom-location');
+      if (hubSelect.value === 'CUSTOM') {
+        customInput.focus();
+        customInput.placeholder = 'Please state your city and preferred hospital/center';
+      }
+    }
+
+    async function submitBlsRegistration(e) {
+      e.preventDefault();
+      const name = document.getElementById('bls-name').value.trim();
+      const phone = document.getElementById('bls-phone').value.trim();
+      const faculty = document.getElementById('bls-faculty').value.trim();
+      const tier = document.getElementById('bls-tier').value;
+      const hub = document.getElementById('bls-location-hub').value;
+      const custom = document.getElementById('bls-custom-location').value.trim();
+
+      const chosenLocation = hub === 'CUSTOM' ? (custom || 'Custom Requested Venue') : `${hub} ${custom ? '(' + custom + ')' : ''}`;
+      blsState.selectedLocation = chosenLocation;
+
+      // Mint deterministic GA-ID
+      const randomSeed = Math.floor(1000 + Math.random() * 9000);
+      blsState.mintedGaId = `GA-${randomSeed}`;
+      localStorage.setItem('gemiini_user_ga', blsState.mintedGaId);
+
+      const resultEl = document.getElementById('bls-step1-result');
+      resultEl.classList.remove('hidden');
+      resultEl.innerHTML = `
+        <div class="font-bold text-base">✓ Registered — Sovereign ID: <span class="font-mono text-emerald-800">${blsState.mintedGaId}</span></div>
+        <div class="text-xs mt-1.5 leading-relaxed">
+          <strong>+25 GP (Provisional Explorer)</strong> credited to your profile. Track in 
+          <span class="font-semibold text-emerald-900">GemIInI Jaib (تطبيقنا للمتابعة)</span>.
+          <br>Selected Location: <strong class="text-slate-800">${chosenLocation}</strong>.
+          <br>Proceed to Step 2 below to submit your payment reference and lock your seat.
+        </div>
+      `;
+
+      // Async sync to backend ledger
+      if (typeof executeGemIInISync === 'function') {
+        try {
+          executeGemIInISync({
+            action: 'BLS_REGISTER',
+            legalName: name,
+            phone: phone,
+            faculty: faculty,
+            clinicalTier: tier,
+            requestedLocation: chosenLocation,
+            gaId: blsState.mintedGaId
+          }).catch(err => console.warn('Ledger async sync warning:', err));
+        } catch (err) {
+          console.warn('API sync deferred:', err);
+        }
+      }
+
+      // Unlock Step 2
+      const step2Section = document.getElementById('bls-funnel-step-2-section');
+      step2Section.classList.remove('opacity-50', 'pointer-events-none');
+      
+      const badge2 = document.getElementById('badge-bls-step2');
+      badge2.className = 'w-8 h-8 rounded-xl bg-[#168C8C] text-slate-900 flex items-center justify-center font-bold text-sm';
+      
+      const btn1 = document.getElementById('btn-submit-bls-step1');
+      btn1.disabled = true;
+      btn1.classList.add('opacity-60', 'cursor-not-allowed');
+      btn1.innerText = `Intake Sealed: ${blsState.mintedGaId} [${chosenLocation}]`;
+
+      step2Section.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    async function submitBlsPayment(e) {
+      e.preventDefault();
+      const txRef = document.getElementById('bls-pay-txref').value.trim();
+      if (!txRef) return;
+
+      const resultEl = document.getElementById('bls-step2-result');
+      resultEl.classList.remove('hidden');
+      resultEl.innerHTML = `
+        <div class="font-bold text-base">✓ Transaction Reference Submitted for Audit</div>
+        <div class="text-xs mt-1.5 leading-relaxed">
+          Reference <span class="font-mono font-bold text-emerald-800">${txRef}</span> logged for candidate <strong>${blsState.mintedGaId}</strong> at location <em>${blsState.selectedLocation}</em>.
+          Upon verification by Admissions Desk (GA-011 Eng. Amjad Gorashi), your GA-ID receives the <strong>+475 GP Pathfinder bump (500 GP Cumulative)</strong>, activating lifelong consortium membership and workshop attendance.
+          <br><a href="https://members.geneacademy.net/communities/groups/gemiini-career-pathway" target="_blank" class="font-mono text-emerald-800 underline bg-emerald-200/60 px-1 py-0.5 rounded mt-1.5 inline-block font-semibold">Join LMS Campus &rarr; members.geneacademy.net</a>
+        </div>
+      `;
+
+      if (typeof executeGemIInISync === 'function') {
+        try {
+          executeGemIInISync({
+            action: 'BLS_PAYMENT_SUBMIT',
+            gaId: blsState.mintedGaId,
+            txRef: txRef,
+            location: blsState.selectedLocation,
+            paymentChannel: 'VODAFONE_CASH',
+            amount: 3000,
+            currency: 'EGP'
+          }).catch(err => console.warn('Payment audit sync warning:', err));
+        } catch (err) {
+          console.warn('Payment sync deferred:', err);
+        }
+      }
+
+      const btn2 = document.getElementById('btn-submit-bls-step2');
+      btn2.disabled = true;
+      btn2.classList.add('opacity-60', 'cursor-not-allowed');
+      btn2.innerText = `Submitted: txRef [${txRef}]`;
+
+      // Show Step 3 Bridge
+      const bridge = document.getElementById('bls-step3-bridge');
+      if (bridge) {
+        bridge.classList.remove('hidden');
+        bridge.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    async function flagCrossPillarInterest(pillar) {
+      const res = document.getElementById('bridge-result');
+      res.classList.remove('hidden');
+      res.innerText = `✓ Flagged on Ledger (+25 GP). Candidate ${blsState.mintedGaId || 'Account'} scheduled for priority triage in ${pillar}.`;
+
+      if (typeof executeGemIInISync === 'function' && blsState.mintedGaId) {
+        executeGemIInISync({
+          action: 'SUBMIT_FEEDBACK',
+          gaId: blsState.mintedGaId,
+          targetPathways: pillar
+        }).catch(err => console.warn(err));
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const cachedGa = localStorage.getItem('gemiini_user_ga');
+      if (cachedGa && cachedGa.startsWith('GA-')) {
+        blsState.mintedGaId = cachedGa;
+      }
+    });
+  </script>
 </body>
 </html>

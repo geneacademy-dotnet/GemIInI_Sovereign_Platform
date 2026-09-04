@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>اعتماد الإنعاش القلبي (AHA BLS Provider) | Gene Academy</title>
-  <meta name="description" content="الاعتماد الرسمي للإنعاش القلبي الرئوي الأساسي (AHA BLS Provider) بمركز د. صبري بالقاهرة (الدقي، ترخيص 1549). شهادة دولية موثقة في SudaPass.">
+  <title>اعتماد الإنعاش القلبي (AHA BLS Provider) | جين أكاديمي ومنصة جيميناي السيادية</title>
+  <meta name="description" content="الاعتماد الدولي للإنعاش القلبي الرئوي الأساسي (AHA BLS Provider) بمراكز تدريب متعددة بإشراف د. محمد صبري (GA-5405). اختر مدينتك أو مركزك التدريبي مع التوثيق المباشر عبر SudaPass.">
 
   <!-- Google Analytics 4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-H1Q67PP2DJ"></script>
@@ -15,10 +15,11 @@
     gtag('config', 'G-H1Q67PP2DJ', { 'anonymize_ip': true });
   </script>
 
-  <!-- Canonical Design Tokens & Fonts -->
+  <!-- Typography & Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -26,151 +27,563 @@
         extend: {
           colors: {
             brand: {
-              navy: '#123B5D',
+              navy: '#0A192F',
+              blue: '#123B5D',
               teal: '#168C8C',
-              gold: '#C9A227',
-              bg: '#F7FAFC'
+              accent: '#2dd4bf',
+              gold: '#C9A227'
             }
           },
           fontFamily: {
-            body: ['Cairo', 'sans-serif'],
-            mono: ['"IBM Plex Mono"', 'monospace']
+            sans: ['"Cairo"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
           }
         }
       }
     }
   </script>
-  <link rel="stylesheet" href="styles.css">
+  <style>
+    body { font-family: 'Cairo', sans-serif; background-color: #f8fafc; color: #0f172a; }
+  </style>
 </head>
 
-<body class="bg-[#F7FAFC] text-[#1F2937] font-body antialiased selection:bg-teal-100 selection:text-teal-900">
+<body class="bg-slate-50 text-slate-900 antialiased selection:bg-[#168C8C]/20 selection:text-[#123B5D]">
 
-  <!-- TOP BAR -->
-  <div class="bg-[#123B5D] text-slate-200 text-xs py-2.5 px-4 border-b border-slate-700 font-mono">
-    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
-      <div class="flex items-center gap-2">
-        <span class="w-2 h-2 rounded-full bg-[#16805B]"></span>
-        <span>اعتماد جمعية القلب الأمريكية (AHA BLS Provider) &bull; مركز د. صبري بالقاهرة (الدقي، ترخيص 1549)</span>
+  <!-- Top Institutional Bar -->
+  <header class="bg-[#0A192F] text-slate-300 text-xs py-2 px-4 border-b border-slate-800">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+      <div class="flex items-center gap-2 font-mono">
+        <span class="inline-block w-2 h-2 rounded-full bg-[#168C8C] animate-pulse"></span>
+        <span>تحالف جين أكاديمي السيادي (GENEACADEMY CONSORTIUM)</span>
+        <span class="text-slate-600">|</span>
+        <span class="text-slate-400">قسم المحاكاة السريرية والإنعاش القلبي</span>
       </div>
-      <div class="flex items-center gap-4 ml-auto">
-        <a href="bls.html" class="text-slate-300 hover:text-white font-bold transition">English</a>
-        <span class="text-slate-500">|</span>
-        <a href="auth.html" class="text-slate-300 hover:text-white font-bold transition">تسجيل الدخول &rarr;</a>
+      <div class="flex items-center gap-4">
+        <span>المشرف السريري: <strong class="text-white">د. محمد صبري (GA-5405)</strong></span>
+        <a href="bls.html" class="text-teal-400 hover:text-teal-300 font-semibold transition font-mono">English</a>
       </div>
-    </div>
-  </div>
-
-  <!-- HEADER -->
-  <header class="bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
-      <a href="index_ar.html" class="flex items-center gap-3 shrink-0">
-        <div class="w-11 h-11 rounded-xl bg-[#123B5D] text-white font-black flex items-center justify-center font-mono text-base shadow-sm">
-          GA
-        </div>
-        <div>
-          <span class="text-xl font-bold font-heading text-[#123B5D] tracking-tight block">Gene Academy</span>
-          <span class="text-[10px] font-mono text-[#64748B] block tracking-wider uppercase">تحالف التعليم الطبي المستقل</span>
-        </div>
-      </a>
-
-      <nav class="hidden lg:flex items-center gap-6 text-sm font-bold text-[#1F2937]">
-        <a href="index_ar.html" class="hover:text-[#168C8C] transition">الرئيسية</a>
-        <a href="courses.html" class="hover:text-[#168C8C] transition">البرامج السريرية</a>
-        <a href="universities.html" class="hover:text-[#168C8C] transition">دليل الكليات</a>
-        <a href="faculty.html" class="hover:text-[#168C8C] transition">الهيئة الأكاديمية</a>
-        <a href="verify.html" class="hover:text-[#168C8C] transition">بوابة SudaPass™</a>
-      </nav>
-
-      <a href="join_ar.html?ref=bls" class="hidden sm:inline-flex px-5 py-2.5 rounded-xl bg-[#123B5D] hover:bg-[#0E2E49] text-white font-bold text-xs sm:text-sm shadow-md transition">
-        احجز مقعدك فوراً
-      </a>
     </div>
   </header>
 
-  <!-- HERO SECTION -->
-  <main class="max-w-5xl mx-auto px-4 sm:px-6 py-12 space-y-12">
-    <div class="text-center space-y-4 max-w-3xl mx-auto">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 font-mono text-xs font-bold uppercase">
-        <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-        اعتماد AHA دولي &bull; ترخيص 1549 (القاهرة / الدقي)
-      </div>
-      <h1 class="text-3xl sm:text-5xl font-extrabold text-[#123B5D] leading-tight">
-        دورة الإنعاش القلبي الرئوي الأساسي (AHA BLS Provider)
-      </h1>
-      <p class="text-base sm:text-lg text-slate-600 leading-relaxed">
-        تحت إشراف مدير التدريب السريري <strong>د. محمد صبري (GA-5405)</strong> بمركز STC للتدريب بالقاهرة. تدريب عملي 1:1 على دمى المحاكاة الذكية QCPR مع توثيق الشهادة الدولية في سجل SudaPass™.
-      </p>
-    </div>
-
-    <!-- QUICK SCHEDULE & PAYMENT CARD -->
-    <div class="bg-white border-2 border-[#168C8C] rounded-2xl p-6 sm:p-8 shadow-xl space-y-6">
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-4">
+  <!-- Navigation Bar -->
+  <nav class="bg-white/95 backdrop-blur-md sticky top-0 z-40 border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+      <a href="index_ar.html" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-[#123B5D] flex items-center justify-center text-white font-bold text-lg shadow-sm">
+          GA
+        </div>
         <div>
-          <span class="text-xs font-mono text-[#168C8C] font-bold uppercase tracking-wider block">الدفعة القادمة &bull; القاهرة</span>
-          <h2 class="text-xl font-bold text-[#123B5D]">مواعيد الورشة وطرق السداد المباشر</h2>
+          <span class="font-extrabold text-[#123B5D] text-lg tracking-tight block leading-none">جين أكاديمي</span>
+          <span class="text-[10px] text-[#168C8C] font-mono font-semibold tracking-wider uppercase">مراكز المحاكاة السريرية</span>
         </div>
-        <div class="text-right sm:text-left">
-          <span class="text-xs text-slate-500 block">رسوم الدورة الشاملة</span>
-          <span class="text-2xl font-black text-[#123B5D] font-mono">3,000 EGP</span>
-        </div>
+      </a>
+      
+      <div class="hidden md:flex items-center gap-6 text-sm font-bold text-slate-600">
+        <a href="#competencies" class="hover:text-[#123B5D] transition">الكفاءات السريرية</a>
+        <a href="#hubs" class="hover:text-[#123B5D] transition">المراكز والمدن</a>
+        <a href="#telemetry" class="hover:text-[#123B5D] transition">توثيق SudaPass</a>
+        <a href="#funnel" class="hover:text-[#123B5D] transition">حجز المقعد</a>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <!-- Column 1: Schedule -->
-        <div class="space-y-3 bg-slate-50 p-4 rounded-xl border border-slate-200">
-          <div class="font-bold text-sm text-[#123B5D] flex items-center gap-2">
-            📅 <span>جدول الدفعة القادمة:</span>
-          </div>
-          <ul class="text-xs text-slate-700 space-y-2">
-            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#168C8C]"></span> <strong>الموعد:</strong> الخميس / الجمعة (28 أغسطس 2026)</li>
-            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#168C8C]"></span> <strong>الموقع:</strong> مركز د. صبري للتدريب (STC)، الدقي، القاهرة</li>
-            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#168C8C]"></span> <strong>السعة:</strong> 12 مقعداً فقط (تدريب عملي مكثف)</li>
-            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#168C8C]"></span> <strong>المكتسبات:</strong> كارت AHA BLS Provider + 500 GP في SudaPass</li>
-          </ul>
-        </div>
+      <a href="#funnel" class="px-5 py-2.5 rounded-xl bg-[#168C8C] hover:bg-[#123B5D] text-white text-xs font-bold tracking-wide uppercase shadow-md hover:shadow-lg transition duration-200">
+        تسجيل الورشة
+      </a>
+    </div>
+  </nav>
 
-        <!-- Column 2: Direct Payment Methods -->
-        <div class="space-y-3 bg-slate-50 p-4 rounded-xl border border-slate-200">
-          <div class="font-bold text-sm text-[#123B5D] flex items-center gap-2">
-            💳 <span>طرق الدفع وتأكيد الحجز الفوري:</span>
-          </div>
-          <div class="space-y-2 text-xs">
-            <div class="p-2.5 bg-white rounded-lg border border-slate-200 flex items-center justify-between">
-              <div>
-                <div class="font-bold text-slate-800">Vodafone Cash (فودافون كاش)</div>
-                <div class="font-mono text-emerald-700 font-bold text-sm">+20 101 592 2628 / +20 117 099 150</div>
-              </div>
-              <button onclick="navigator.clipboard.writeText('+201015922628'); alert('تم نسخ الرقم!');" class="px-2.5 py-1 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded font-mono text-[11px]">نسخ</button>
-            </div>
-
-            <div class="p-2.5 bg-white rounded-lg border border-slate-200 flex items-center justify-between">
-              <div>
-                <div class="font-bold text-slate-800">InstaPay (انستا باي)</div>
-                <div class="font-mono text-sky-700 font-bold text-sm">mohsabri09989@instapay</div>
-              </div>
-              <button onclick="navigator.clipboard.writeText('mohsabri09989@instapay'); alert('تم نسخ المعرف!');" class="px-2.5 py-1 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded font-mono text-[11px]">نسخ</button>
-            </div>
-
-          </div>
-        </div>
+  <!-- HERO SECTION -->
+  <section class="bg-gradient-to-b from-[#0A192F] via-[#0d2238] to-[#123B5D] text-white py-16 md:py-20 px-4 border-b border-slate-800">
+    <div class="max-w-5xl mx-auto text-center space-y-6">
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#168C8C]/20 border border-[#168C8C]/40 text-xs font-mono text-teal-300">
+        <span class="w-2 h-2 rounded-full bg-teal-400"></span>
+        <span>اعتماد جمعية القلب الأمريكية (AHA) &bull; مراكز تدريب متعددة ومرنة</span>
       </div>
 
-      <!-- Action Button -->
-      <div class="pt-2 text-center">
-        <a href="https://wa.me/20117099150?text=مرحباً%20د.%20محمد%20صبري،%20أود%20تأكيد%20حجز%20مقعدي%20في%20ورشة%20BLS%20بالقاهرة%20وإرسال%20إيصال%20السداد." target="_blank" class="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-3.5 rounded-xl bg-[#25D366] hover:bg-[#1EBE5D] text-white font-bold text-sm shadow-lg transition">
-          💬 إرسال إيصال السداد وتأكيد الحجز فوراً عبر الواتساب (&rlm;+20 117 099 150)
+      <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight leading-tight max-w-4xl mx-auto">
+        دورة الإنعاش القلبي الرئوي المتقدم (AHA BLS Provider) & <br>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-teal-300 via-teal-100 to-white">
+          إتقان المحاكاة السريرية والإنقاذ
+        </span>
+      </h1>
+
+      <p class="text-slate-300 text-base md:text-lg max-w-2xl mx-auto leading-relaxed font-normal">
+        تدريب عملي تفاعلي 1:1 على أحدث المانيكانات الذكية (QCPR). حدد مدينتك أو مركز التدريب الأنسب لك في مصر، السودان، أو الخليج، واحصل على شهادتك الدولية الموثقة بسجل SudaPass™.
+      </p>
+
+      <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#funnel" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-[#168C8C] hover:bg-teal-500 text-slate-900 font-extrabold text-sm tracking-wide shadow-lg shadow-teal-900/40 transition">
+          اختر مكان التدريب واستخرج GA-ID
+        </a>
+        <a href="#hubs" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-slate-800/80 hover:bg-slate-800 border border-slate-700 text-white font-semibold text-sm transition">
+          استكشف المراكز المتاحة
         </a>
       </div>
-    </div>
-  </main>
 
-  <footer class="bg-[#0B1E2E] text-slate-400 py-12 text-xs border-t border-slate-800 mt-16">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 text-center space-y-4">
-      <div>&copy; 2026/2027 Gene Academy &bull; SudaGene Medical Consortium. جميع الحقوق محفوظة.</div>
-      <div><a href="verify.html" class="text-teal-400 hover:underline">التحقق من الشهادات SudaPass™</a></div>
+      <!-- Live Metric Badges -->
+      <div class="pt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl mx-auto font-mono text-xs">
+        <div class="p-3.5 bg-slate-900/80 rounded-2xl border border-slate-700 text-center">
+          <div class="text-xl sm:text-2xl font-black text-teal-400">12 مقعداً</div>
+          <div class="text-[10px] text-slate-400 mt-1">الحد الأقصى لكل ورشة</div>
+        </div>
+        <div class="p-3.5 bg-slate-900/80 rounded-2xl border border-slate-700 text-center">
+          <div class="text-xl sm:text-2xl font-black text-white">نسبة 1:1</div>
+          <div class="text-[10px] text-slate-400 mt-1">مانيكان ذكي مخصص لكل طبيب</div>
+        </div>
+        <div class="p-3.5 bg-slate-900/80 rounded-2xl border border-slate-700 text-center">
+          <div class="text-xl sm:text-2xl font-black text-amber-300">3,000 ج.م</div>
+          <div class="text-[10px] text-slate-400 mt-1">الرسوم الشاملة (قاعدة مصر)</div>
+        </div>
+        <div class="p-3.5 bg-slate-900/80 rounded-2xl border border-slate-700 text-center">
+          <div class="text-xl sm:text-2xl font-black text-[#2dd4bf]">+500 GP</div>
+          <div class="text-[10px] text-slate-400 mt-1">تفعيل العضوية الدائمة</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 1. Multi-Hub Location Flexibility Banner -->
+  <section id="hubs" class="py-12 bg-white border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-8">
+        <span class="text-[#168C8C] font-mono font-bold text-xs uppercase tracking-widest block mb-2">مرونة جغرافية لامركزية</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-[#123B5D]">نوفر التدريب السريري أينما يتواجد الأطباء</h2>
+        <p class="text-slate-500 text-sm mt-1 max-w-2xl mx-auto">
+          لا نحصر الأطباء في مقر تدريبي واحد. حدد مدينتك أو مستشفاك المفضل وسيقوم فريق العمليات بتنسيق دفعتك في المركز الأقرب إليك.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-xs">
+        <div class="p-4 rounded-2xl bg-slate-50 border border-teal-200 shadow-sm">
+          <div class="flex items-center gap-2 text-teal-800 font-bold mb-1">
+            <span class="w-2 h-2 rounded-full bg-teal-500"></span>
+            مراكز القاهرة الكبرى
+          </div>
+          <p class="text-slate-600">الدقي (مركز STC ترخيص 1549 &bull; Amanirena Hub)، مدينة نصر، القاهرة الجديدة، والمعادي.</p>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 shadow-sm">
+          <div class="flex items-center gap-2 text-[#123B5D] font-bold mb-1">
+            <span class="w-2 h-2 rounded-full bg-[#123B5D]"></span>
+            الإسكندرية والدلتا
+          </div>
+          <p class="text-slate-600">تجمعات تدريبية لأطباء الإسكندرية والبحيرة ومدن الدلتا مع تجهيز القاعات السريرية.</p>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 shadow-sm">
+          <div class="flex items-center gap-2 text-amber-700 font-bold mb-1">
+            <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+            مراكز السودان السيادية
+          </div>
+          <p class="text-slate-600">مركز بورتسودان التدريبي، عطبرة ونهر النيل، ومركز كسلا الإقليمي لخدمة الأطباء الممارسين.</p>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 shadow-sm">
+          <div class="flex items-center gap-2 text-sky-800 font-bold mb-1">
+            <span class="w-2 h-2 rounded-full bg-sky-500"></span>
+            الخليج والطلبات الخاصة
+          </div>
+          <p class="text-slate-600">الرياض، جدة، الدوحة، الإمارات، أو تدريب مباشر داخل مستشفيات الفرق الطبية المتعاقدة.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Clinical Competencies & Faculty -->
+  <section id="competencies" class="py-12 bg-slate-50 border-b border-slate-200">
+    <div class="max-w-5xl mx-auto px-4 space-y-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white p-6 rounded-2xl border-t-4 border-t-amber-500 border border-slate-200 space-y-2 shadow-sm">
+          <h3 class="text-base font-bold text-slate-900">اعتماد AHA الدولي الرسمي</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            بطاقة AHA eCard رسمية معتمدة صالحة لمدة سنتين دولياً ومقبولة لدى المجالس الطبية وهيئات التخصصات (SMC، GMC، IMC، الهيئة السعودية).
+          </p>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl border-t-4 border-t-teal-500 border border-slate-200 space-y-2 shadow-sm">
+          <h3 class="text-base font-bold text-slate-900">محاكاة 1:1 بالمانيكان الذكي QCPR</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            قياس رقمي فوري لعمق الضغطات الصدرية، معدل الارتداد، وكفاءة التهوية. يتدرب كل طبيب على مانيكان مخصص طوال ساعات الورشة.
+          </p>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl border-t-4 border-t-[#123B5D] border border-slate-200 space-y-2 shadow-sm">
+          <h3 class="text-base font-bold text-slate-900">إشراف وتدريب قيادي</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            بإشراف <strong>د. محمد صبري محمد أحمد (GA-5405)</strong> — نائب طب المخ والأعصاب، مدير المحاكاة السريرية، ومدرب AHA المعتمد.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Telemetry & SudaPass Verification Loop -->
+  <section id="telemetry" class="py-12 bg-white border-b border-slate-200">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="p-6 sm:p-8 rounded-3xl bg-[#0A192F] text-white border border-slate-800 shadow-xl space-y-6">
+        <div class="text-center max-w-2xl mx-auto">
+          <span class="text-[#168C8C] font-mono font-bold text-xs uppercase tracking-widest block mb-1">دورة التوثيق والتليمتري</span>
+          <h3 class="text-2xl font-extrabold text-white">الورشة &larr; توثيق الشهادة &larr; العضوية الدائمة</h3>
+          <p class="text-slate-400 text-xs mt-1">اجتياز الورشة السريرية يفعل حلقة الاعتماد الرسمية على المنصة السيادية.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-4 gap-3 text-xs font-mono text-center">
+          <div class="p-3 bg-slate-900/80 rounded-xl border border-slate-700">
+            <div class="text-teal-400 font-bold">1. تدريب عملي</div>
+            <div class="text-[11px] text-slate-400 mt-1">جلسة 12 مقعداً مع مانيكان ذكي</div>
+          </div>
+          <div class="p-3 bg-slate-900/80 rounded-xl border border-slate-700">
+            <div class="text-teal-400 font-bold">2. بطاقة AHA</div>
+            <div class="text-[11px] text-slate-400 mt-1">الشهادة الدولية المعتمدة</div>
+          </div>
+          <div class="p-3 bg-slate-900/80 rounded-xl border border-slate-700">
+            <div class="text-teal-400 font-bold">3. سجل SudaPass</div>
+            <div class="text-[11px] text-slate-400 mt-1">التوثيق عبر verify.html</div>
+          </div>
+          <div class="p-3 bg-slate-900/80 rounded-xl border border-slate-700">
+            <div class="text-teal-400 font-bold">4. إضافة +500 GP</div>
+            <div class="text-[11px] text-slate-400 mt-1">تفعيل العضوية في جيميناي جيب</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. STANDARDIZED TWO-STEP INTAKE FUNNEL (WITH LOCATION REQUEST) -->
+  <section id="funnel" class="py-16 bg-slate-100">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="text-center mb-10">
+        <span class="text-[#168C8C] font-mono font-bold text-xs uppercase tracking-widest block mb-2">بوابة التسجيل الرسمية للورشة</span>
+        <h2 class="text-3xl font-extrabold text-[#123B5D]">التسجيل الذاتي وتحديد المركز التدريبي المطلوب</h2>
+        <p class="text-slate-500 text-sm mt-1">حدد المدينة أو المركز الأنسب لك. الخطوة 1 تصدر رقمك السيادي GA-ID مباشرة.</p>
+      </div>
+
+      <!-- Funnel Container Card -->
+      <div class="p-6 md:p-8 rounded-3xl bg-white border border-slate-200 shadow-xl space-y-8">
+        
+        <!-- ================= STEP 1: Candidate Diagnostic Profile & Location Preference ================= -->
+        <div class="space-y-4">
+          <div class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-xl bg-[#123B5D] text-white flex items-center justify-center font-bold text-sm">1</span>
+            <div>
+              <h3 class="text-lg font-bold text-[#123B5D]">الخطوة 1: الملف السريري، المستوى التعليمي، والمركز التدريبي المفضل</h3>
+              <p class="text-xs text-slate-500">توليد رقمك السيادي GA-ID وإضافة +25 GP (مستكشف مؤقت) فوراً إلى محفظة جيميناي جيب.</p>
+            </div>
+          </div>
+
+          <form id="bls-reg-form" onsubmit="submitBlsRegistration(event)" class="space-y-4 pt-2">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">الاسم الرباعي واللقب المهني</label>
+                <input type="text" id="bls-name" required placeholder="د. سارة عثمان" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-sm text-slate-900 focus:outline-none focus:border-[#168C8C]">
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">رقم الواتساب للتواصل والتليمتري</label>
+                <input type="tel" id="bls-phone" required placeholder="+20 10 1234 5678" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-sm text-slate-900 focus:outline-none focus:border-[#168C8C]" dir="ltr">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">الكلية الطبية أو جهة التخرج</label>
+                <input type="text" id="bls-faculty" required placeholder="مثال: جامعة الخرطوم، أم درمان الإسلامية، الجزيرة" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-sm text-slate-900 focus:outline-none focus:border-[#168C8C]">
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">المستوى المهني والسريري</label>
+                <select id="bls-tier" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-sm text-slate-900 focus:outline-none focus:border-[#168C8C]">
+                  <option value="L0: Medical Student">L0: طالب طب (المرحلة السريرية / الامتياز الأكاديمي)</option>
+                  <option value="L1: House Officer" selected>L1: طبيب امتياز (House Officer)</option>
+                  <option value="L2: Medical Officer">L2: طبيب عمومي (Medical Officer)</option>
+                  <option value="L3: Registrar / Trainee">L3: نائب اختصاصي / طبيب مقيم (Registrar)</option>
+                  <option value="L4: Specialist / Fellow">L4: اختصاصي / زميل سريري (Specialist)</option>
+                  <option value="L5: Consultant">L5: استشاري / عضو هيئة تدريس (Consultant)</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- DYNAMIC LOCATION SELECTION -->
+            <div class="p-4 rounded-2xl bg-slate-50 border border-teal-200/80 space-y-3">
+              <div class="flex items-center justify-between">
+                <label class="text-xs font-bold text-teal-900 uppercase tracking-wide flex items-center gap-1.5">
+                  <span>📍</span> المدينة أو المقر التدريبي المطلوب لحضور الورشة:
+                </label>
+                <span class="text-[10px] font-mono text-slate-500">توجيه لامركزي مرن</span>
+              </div>
+              
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <select id="bls-location-hub" onchange="toggleCustomLocationField()" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-sm text-slate-900 focus:outline-none focus:border-[#168C8C]">
+                    <option value="القاهرة: الدقي (مركز STC ترخيص 1549)" selected>القاهرة &bull; الدقي (مركز STC ترخيص 1549)</option>
+                    <option value="القاهرة: مدينة نصر / التجمع">القاهرة &bull; مدينة نصر / التجمع الخامس</option>
+                    <option value="الإسكندرية: المركز الإقليمي">الإسكندرية &bull; المركز الإقليمي</option>
+                    <option value="السودان: مركز بورتسودان">السودان &bull; مركز بورتسودان التدريبي</option>
+                    <option value="السودان: عطبرة / نهر النيل">السودان &bull; عطبرة / نهر النيل</option>
+                    <option value="السودان: مركز كسلا">السودان &bull; مركز كسلا</option>
+                    <option value="الخليج: الرياض">الخليج &bull; مركز الرياض / السعودية</option>
+                    <option value="الخليج: الإمارات / قطر / الكويت">الخليج &bull; الإمارات / قطر / الكويت</option>
+                    <option value="CUSTOM">مدينة أو مستشفى آخر (حدد التفاصيل بالأسفل)</option>
+                  </select>
+                </div>
+                <div>
+                  <input type="text" id="bls-custom-location" placeholder="اكتب اسم المستشفى أو المدينة المفضلة (مثال: مستشفى النو)" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-sm text-slate-900 focus:outline-none focus:border-[#168C8C]">
+                </div>
+              </div>
+              <p class="text-[11px] text-slate-500">
+                يتم تنظيم وترتيب الدفعات بمرونة تامة بناءً على كثافة طلبات الأطباء المسجلين في كل مدينة أو مستشفى.
+              </p>
+            </div>
+
+            <button type="submit" id="btn-submit-bls-step1" class="w-full py-3.5 px-4 rounded-xl bg-[#123B5D] hover:bg-[#0A192F] text-white font-bold text-sm shadow-md transition duration-150 flex items-center justify-center gap-2">
+              <span>تأكيد البيانات وتوليد الرقم السيادي GA-ID</span>
+              <svg class="w-4 h-4 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+            </button>
+          </form>
+
+          <!-- Step 1 Feedback Container -->
+          <div id="bls-step1-result" class="hidden p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-900 text-sm"></div>
+        </div>
+
+        <div class="h-px bg-slate-200"></div>
+
+        <!-- ================= STEP 2: Payment Rails & Verification ================= -->
+        <div id="bls-funnel-step-2-section" class="space-y-4 opacity-50 pointer-events-none transition-all duration-300">
+          <div class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-xl bg-slate-400 text-white flex items-center justify-center font-bold text-sm" id="badge-bls-step2">2</span>
+            <div>
+              <h3 class="text-lg font-bold text-[#123B5D]">الخطوة 2: قنوات السداد السيادية وتدقيق الإشعار المالي</h3>
+              <p class="text-xs text-slate-500">رسوم الورشة الشاملة: <strong>3,000 ج.م</strong> (أو ما يعادلها). تمنحك ترقية +475 GP والعضوية الدائمة.</p>
+            </div>
+          </div>
+
+          <!-- Payment Instructions Card -->
+          <div class="p-5 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-4">
+            <div class="text-xs font-semibold text-slate-600">قنوات السداد الرسمية المعتمدة:</div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <!-- Vodafone Cash (Primary) -->
+              <div class="p-4 rounded-xl border-2 border-teal-500 bg-teal-50/40">
+                <div class="flex items-center justify-between">
+                  <div class="text-xs font-bold text-teal-800 uppercase tracking-wide">فودافون كاش (Vodafone Cash)</div>
+                  <span class="text-[10px] bg-teal-600 text-white px-2 py-0.5 rounded font-mono font-bold">القناة الأساسية</span>
+                </div>
+                <div class="font-mono text-base font-extrabold text-[#123B5D] mt-2 select-all" dir="ltr">01015922628</div>
+                <div class="text-[11px] text-slate-600 mt-1">محفظة الكترونية فورية &bull; مراجعة وتدقيق لحظي</div>
+              </div>
+
+              <!-- InstaPay (Alternative) -->
+              <div class="p-4 rounded-xl border border-slate-200 bg-slate-50">
+                <div class="text-xs font-bold text-slate-700 uppercase tracking-wide">إنستاباي (InstaPay)</div>
+                <div class="font-mono text-base font-extrabold text-[#123B5D] mt-2 select-all" dir="ltr">mohsabri09989@instapay</div>
+                <div class="text-[11px] text-slate-500 mt-1">الحساب المعتمد لدكتور محمد صبري (مدير التدريب)</div>
+              </div>
+            </div>
+
+            <!-- Transaction Reference Form -->
+            <form id="bls-pay-form" onsubmit="submitBlsPayment(event)" class="space-y-4 pt-2">
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">الرقم المرجعي للتحويل أو رقم المحفظة المرسل منها (txRef)</label>
+                <input type="text" id="bls-pay-txref" required placeholder="مثال: رقم المحول منه أو كود العملية المالي" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-sm text-slate-900 focus:outline-none focus:border-[#168C8C]" dir="ltr">
+              </div>
+
+              <button type="submit" id="btn-submit-bls-step2" class="w-full py-3.5 px-4 rounded-xl bg-[#168C8C] hover:bg-teal-600 text-white font-bold text-sm shadow-md transition duration-150 flex items-center justify-center gap-2">
+                <span>تأكيد الإشعار وتفعيل ترقية العضوية الدائمة (+500 GP)</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+              </button>
+            </form>
+
+            <!-- Step 2 Feedback Container -->
+            <div id="bls-step2-result" class="hidden p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-900 text-sm"></div>
+          </div>
+        </div>
+
+        <!-- ================= STEP 3: Next-Need Bridge & Cross-Pillar Upsell ================= -->
+        <div id="bls-step3-bridge" class="hidden p-6 rounded-2xl bg-teal-950/60 border border-teal-800 text-white space-y-4">
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-0.5 rounded bg-teal-500/20 text-teal-300 text-[10px] font-mono font-bold uppercase tracking-wider">الاحتياج السريري التالي المتوقع</span>
+            <h4 class="text-sm font-bold text-white">ماراثون المجلس الطبي (SMC) وتأهيل المهارات الجراحية (BSS-2)</h4>
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            الأطباء الذين يكملون ورشة الإنعاش يستعدون غالباً لامتحان <strong>المجلس الطبي القومي (2,500 سيناريو سريري)</strong> أو برامج الزمالة والمهارات الجراحية التأسيسية. هل ترغب في تسجيل اهتمامك للانضمام لدورات المراجعة المكثفة؟
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <button type="button" onclick="flagCrossPillarInterest('ماراثون امتحانات المجلس الطبي SMC')" class="py-2 px-4 rounded-xl bg-teal-600 hover:bg-teal-500 text-white text-xs font-bold transition">
+              تسجيل الاهتمام بماراثون SMC (+25 GP)
+            </button>
+            <a href="verify.html" class="py-2 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-teal-300 text-xs font-mono font-bold border border-slate-700 transition">
+              بوابة التحقق السحابي SudaPass™ &larr;
+            </a>
+          </div>
+          <div id="bridge-result" class="hidden text-xs font-bold text-teal-300 pt-1"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#0A192F] text-slate-400 text-xs py-10 border-t border-slate-800">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-[#123B5D] text-white flex items-center justify-center font-bold text-xs">GA</div>
+        <div>
+          <div class="text-white font-bold">منصة جين أكاديمي السيادية (GeneAcademy Sovereign Platform)</div>
+          <div class="text-slate-500 text-[11px]">&copy; 2026/2027. جميع الحقوق السريرية محفوظة.</div>
+        </div>
+      </div>
+      <div class="flex items-center gap-6 font-mono text-[11px]">
+        <span>التطبيق المصاحب: <strong class="text-teal-400">جيميناي جيب (GemIInI Jaib)</strong></span>
+        <span>مكتب القبول والتسجيل: <strong class="text-slate-300">GA-011</strong></span>
+      </div>
     </div>
   </footer>
 
-  <script src="js/assistant.js"></script>
+  <!-- API Bridge -->
+  <script src="api.js"></script>
+
+  <!-- =========================================================================
+       Client-Side Intake & Dynamic Location Controller
+       ========================================================================= -->
+  <script>
+    const blsState = {
+      mintedGaId: null,
+      selectedLocation: null,
+      customLocation: null
+    };
+
+    function toggleCustomLocationField() {
+      const hubSelect = document.getElementById('bls-location-hub');
+      const customInput = document.getElementById('bls-custom-location');
+      if (hubSelect.value === 'CUSTOM') {
+        customInput.focus();
+        customInput.placeholder = 'يرجى تحديد مدينتك أو مستشفاك المفضل بالتفصيل';
+      }
+    }
+
+    async function submitBlsRegistration(e) {
+      e.preventDefault();
+      const name = document.getElementById('bls-name').value.trim();
+      const phone = document.getElementById('bls-phone').value.trim();
+      const faculty = document.getElementById('bls-faculty').value.trim();
+      const tier = document.getElementById('bls-tier').value;
+      const hub = document.getElementById('bls-location-hub').value;
+      const custom = document.getElementById('bls-custom-location').value.trim();
+
+      const chosenLocation = hub === 'CUSTOM' ? (custom || 'مقر مخصص مطلوب') : `${hub} ${custom ? '(' + custom + ')' : ''}`;
+      blsState.selectedLocation = chosenLocation;
+
+      // Mint deterministic GA-ID
+      const randomSeed = Math.floor(1000 + Math.random() * 9000);
+      blsState.mintedGaId = `GA-${randomSeed}`;
+      localStorage.setItem('gemiini_user_ga', blsState.mintedGaId);
+
+      const resultEl = document.getElementById('bls-step1-result');
+      resultEl.classList.remove('hidden');
+      resultEl.innerHTML = `
+        <div class="font-bold text-base">✓ تم التسجيل بنجاح — رقمك السيادي المعتمد: <span class="font-mono text-emerald-800">${blsState.mintedGaId}</span></div>
+        <div class="text-xs mt-1.5 leading-relaxed">
+          تم إضافة <strong>+25 GP (مستكشف مؤقت)</strong> لملفك السريري. يمكنك متابعته عبر 
+          <span class="font-semibold text-emerald-900">جيميناي جيب (تطبيقنا للمتابعة)</span>.
+          <br>المقر التدريبي المختار: <strong class="text-slate-800">${chosenLocation}</strong>.
+          <br>يرجى التوجه إلى الخطوة 2 أدناه لتأكيد الإشعار المالي وتثبيت حجز المقعد.
+        </div>
+      `;
+
+      // Async sync to backend ledger
+      if (typeof executeGemIInISync === 'function') {
+        try {
+          executeGemIInISync({
+            action: 'BLS_REGISTER',
+            legalName: name,
+            phone: phone,
+            faculty: faculty,
+            clinicalTier: tier,
+            requestedLocation: chosenLocation,
+            gaId: blsState.mintedGaId
+          }).catch(err => console.warn('Ledger async sync warning:', err));
+        } catch (err) {
+          console.warn('API sync deferred:', err);
+        }
+      }
+
+      // Unlock Step 2
+      const step2Section = document.getElementById('bls-funnel-step-2-section');
+      step2Section.classList.remove('opacity-50', 'pointer-events-none');
+      
+      const badge2 = document.getElementById('badge-bls-step2');
+      badge2.className = 'w-8 h-8 rounded-xl bg-[#168C8C] text-slate-900 flex items-center justify-center font-bold text-sm';
+      
+      const btn1 = document.getElementById('btn-submit-bls-step1');
+      btn1.disabled = true;
+      btn1.classList.add('opacity-60', 'cursor-not-allowed');
+      btn1.innerText = `تم تسجيل الحجز: ${blsState.mintedGaId} [${chosenLocation}]`;
+
+      step2Section.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    async function submitBlsPayment(e) {
+      e.preventDefault();
+      const txRef = document.getElementById('bls-pay-txref').value.trim();
+      if (!txRef) return;
+
+      const resultEl = document.getElementById('bls-step2-result');
+      resultEl.classList.remove('hidden');
+      resultEl.innerHTML = `
+        <div class="font-bold text-base">✓ تم إرسال الرقم المرجعي للتدقيق والاعتماد المالي</div>
+        <div class="text-xs mt-1.5 leading-relaxed">
+          المرجع المالي <span class="font-mono font-bold text-emerald-800" dir="ltr">${txRef}</span> مسجل للمترشح <strong>${blsState.mintedGaId}</strong> في مقر <em>${blsState.selectedLocation}</em>.
+          بمجرد المطابقة من مكتب القبول (م. أمجد قرشي GA-011)، يمنح حسابك <strong>+475 GP (ليصبح 500 GP تراكمية)</strong>، مما يفعل العضوية الدائمة وتأكيد حضور الورشة.
+          <br><a href="https://members.geneacademy.net/communities/groups/gemiini-career-pathway" target="_blank" class="font-mono text-emerald-800 underline bg-emerald-200/60 px-1 py-0.5 rounded mt-1.5 inline-block font-semibold">بوابة الحرم السحابي &rarr; members.geneacademy.net</a>
+        </div>
+      `;
+
+      if (typeof executeGemIInISync === 'function') {
+        try {
+          executeGemIInISync({
+            action: 'BLS_PAYMENT_SUBMIT',
+            gaId: blsState.mintedGaId,
+            txRef: txRef,
+            location: blsState.selectedLocation,
+            paymentChannel: 'VODAFONE_CASH',
+            amount: 3000,
+            currency: 'EGP'
+          }).catch(err => console.warn('Payment audit sync warning:', err));
+        } catch (err) {
+          console.warn('Payment sync deferred:', err);
+        }
+      }
+
+      const btn2 = document.getElementById('btn-submit-bls-step2');
+      btn2.disabled = true;
+      btn2.classList.add('opacity-60', 'cursor-not-allowed');
+      btn2.innerText = `تم إرسال المرجع: [${txRef}]`;
+
+      // Show Step 3 Bridge
+      const bridge = document.getElementById('bls-step3-bridge');
+      if (bridge) {
+        bridge.classList.remove('hidden');
+        bridge.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    async function flagCrossPillarInterest(pillar) {
+      const res = document.getElementById('bridge-result');
+      res.classList.remove('hidden');
+      res.innerText = `✓ تم تسجيل رغبتك على السجل (+25 GP). تم جدولة حساب المترشح ${blsState.mintedGaId || ''} لأولوية الالتحاق بـ ${pillar}.`;
+
+      if (typeof executeGemIInISync === 'function' && blsState.mintedGaId) {
+        executeGemIInISync({
+          action: 'SUBMIT_FEEDBACK',
+          gaId: blsState.mintedGaId,
+          targetPathways: pillar
+        }).catch(err => console.warn(err));
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const cachedGa = localStorage.getItem('gemiini_user_ga');
+      if (cachedGa && cachedGa.startsWith('GA-')) {
+        blsState.mintedGaId = cachedGa;
+      }
+    });
+  </script>
 </body>
 </html>
