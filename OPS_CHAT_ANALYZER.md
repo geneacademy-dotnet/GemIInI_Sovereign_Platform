@@ -23,7 +23,6 @@ graph TD
     
     D --> D1["InstaPay: a.mursifarah@instapay"]
     D --> D2["Vodafone Cash: +20 101 592 2628"]
-    D --> D3["Bank of Khartoum: 3466488"]
     D --> D4["Instant WhatsApp Confirmation to Dr. Alaa GA-001"]
 
     style C fill:#168C8C,color:#fff
@@ -49,7 +48,6 @@ graph TD
 * **Payment Gateways Configured on Web Portals:**
   - **InstaPay (Egypt/UK/EU):** `a.mursifarah@instapay` (Dr. Alaa Mursi Official)
   - **Vodafone Cash:** `+20 101 592 2628` (Instant Wallet Transfer)
-  - **Bank of Khartoum (Sudan):** `3466488` (Unified Registration Account)
 * **Single-Click WhatsApp Receipt Dispatch:**  
   Candidates click one button to dispatch payment receipt directly to Dr. Alaa (`GA-001`) and Admissions Desk (`GA-011`):  
   `https://wa.me/201015922628?text=مرحباً%20د.%20آلاء،%20أود%20تأكيد%20تسجيلي%20في%20دفعة%20OET%20وإرسال%20إيصال%20السداد.`
@@ -82,7 +80,7 @@ graph TD
     A --> D[3. Tech Infrastructure]
 
     B --> B1[Send oet_ar.html Link to All Waiting OET Candidates]
-    B --> B2[Verify Payment Receipts on InstaPay/Vodafone/Bankak]
+    B --> B2[Verify Payment Receipts on InstaPay/Vodafone]
 
     C --> C1[Conduct Thursday Cohort Onboarding Session]
     C --> C2[Assign First Referral Letters for Diagnostic Grading]

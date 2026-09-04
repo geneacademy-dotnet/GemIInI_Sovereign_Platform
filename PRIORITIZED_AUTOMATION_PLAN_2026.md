@@ -1,4 +1,4 @@
-﻿# ðŸ›ï¸ GemIInI SudaGene Platform â€” Prioritized Automation Plan (2026â€“2027)
+# ðŸ›ï¸ GemIInI SudaGene Platform â€” Prioritized Automation Plan (2026â€“2027)
 **Effective Date:** September 1, 2026  
 **Operational Mandate:** Automate Movement Â· Template Communication Â· Ground Human Approval
 
@@ -12,7 +12,7 @@ The GemIInI SudaGene Platform and GeneAcademy operate as a medical and life-scie
 3. Clinical education, simulations, exams, and mentorship
 4. Physical clinical workshops (STC Dokki, AHA Lic. 1549)
 5. Admissions and credential verification (SudaPassâ„¢ SHA-256)
-6. Multi-channel payments (Vodafone Cash, Bankak)
+6. Sovereign payment rail (Vodafone Cash)
 7. Institutional partnerships and ministerial reporting
 
 ### âš–ï¸ The Governing Architecture:

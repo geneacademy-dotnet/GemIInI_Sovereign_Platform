@@ -1,4 +1,4 @@
-﻿// Independent-config.js
+// Independent-config.js
 // Authoritative Independent Governance Charter (GA20 Protocol).
 // All leadership, founded date (19 April 2025), Operational Year 2, and Coffee-Parity pricing locked.
 
@@ -183,7 +183,6 @@ export const Independent_ECOSYSTEM = {
     // ---- Live Dispatch & Payment Endpoints -----------------------------------
     channels: {
         vodafoneCash: '+20 101 592 2628',
-        bankakName: 'Gene Academy / GemIInI Medical',
         // Primary Inquiry Lines (Handled by Safaa/Amjad)
         whatsapp: 'https://wa.me/201270192777', // Default frontend contact
         whatsapp_kwt: 'https://wa.me/9650872572',

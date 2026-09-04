@@ -751,7 +751,7 @@ function handleOetPaymentSubmit(payload, ss) {
 /**
  * ============================================================================
  * Post-Payment Verification & Automated Candidate Activation Engine
- * Reconciles submitted payments against banking records (Vodafone Cash, InstaPay, Bankak),
+ * Reconciles submitted payments against banking records (Vodafone Cash, InstaPay),
  * activates candidate to ACCREDITED status, credits +475 GP (to 500 GP Pathfinder),
  * updates program intake rosters, and dispatches zero-touch onboarding email.
  * ============================================================================

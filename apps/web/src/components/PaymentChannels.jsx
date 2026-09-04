@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { Banknote, QrCode, ShieldCheck, Smartphone, CheckCircle2, Copy, Check, Coffee } from 'lucide-react';
 import { useLang } from '@/i18n/LanguageContext';
 import { SOVEREIGN_ECOSYSTEM } from '@/data/sovereign-config';
@@ -25,16 +25,7 @@ const PaymentChannels = ({ selectedMethod, onSelectMethod, compact = false }) =>
             icon: Smartphone,
             color: 'border-red-500/40 bg-red-500/5 text-red-400'
         },
-        {
-            key: 'bankak',
-            name: 'Ø¨Ù†ÙƒÙƒ (Bankak - Ø¨Ù†Ùƒ Ø§Ù„Ø®Ø±Ø·ÙˆÙ…)',
-            nameEn: 'Bankak (Bank of Khartoum - Sudan)',
-            desc: `3,000 â€“ 5,000 SDG (${pricing.concept})`,
-            account: channels.bankakName,
-            code: 'ØªØ·Ø¨ÙŠÙ‚ Ø¨Ù†ÙƒÙƒ Ù…Ø¨Ø§Ø´Ø±Ø©',
-            icon: Banknote,
-            color: 'border-emerald-500/40 bg-emerald-500/5 text-emerald-400'
-        },
+
         {
             key: 'gulf',
             name: 'ØªØ­ÙˆÙŠÙ„ Ø§Ù„Ø®Ù„ÙŠØ¬ (Saudi / Gulf Direct)',

@@ -66,7 +66,7 @@ Analyze the following operational snapshot of GemIInI Academy (SudaGene Medical 
    - Requirement: Enforce single-link canonical intake and define strict Google Form deprecation protocols.
 
 4. CROSS-BORDER FINANCIAL FLOW & REVENUE CAPTURE:
-   - Revenue flows through 3 channels: InstaPay (Egypt/UK/EU: a.mursifarah@instapay), Vodafone Cash (+20 101 592 2628), and Bank of Khartoum (Sudan: 3466488).
+   - Revenue flows through sovereign channels: Vodafone Cash (+20 101 592 2628) and InstaPay (a.mursifarah@instapay).
    - Requirement: Design a unified 1-line accounting protocol and instant receipt confirmation workflow via WhatsApp/Email.
 
 5. ROLE DIVISION (TEACHING VS. OPERATIONS):

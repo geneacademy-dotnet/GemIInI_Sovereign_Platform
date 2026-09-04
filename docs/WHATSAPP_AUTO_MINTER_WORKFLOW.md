@@ -1,4 +1,4 @@
-﻿# ðŸ›ï¸ Secondary Automation Workflow: WhatsApp Receipt âž” GA-ID Auto-Minter
+# ðŸ›ï¸ Secondary Automation Workflow: WhatsApp Receipt âž” GA-ID Auto-Minter
 
 ## ðŸ“‹ EXECUTIVE WORKFLOW OVERVIEW
 This secondary automation workflow eliminates manual administrative friction by connecting inbound WhatsApp payment receipts directly to the **GemIInI Master Ledger (`Code.gs`)**, automatically verifying transactions, minting sequential **GA-XXXX IDs**, crediting living points (**200 GP / 250 GP**), and dispatching an instant cryptographic credential back to the candidate.
@@ -33,7 +33,7 @@ This secondary automation workflow eliminates manual administrative friction by 
 ## âš™ï¸ STEP-BY-STEP OPERATIONAL STAGES
 
 ### Stage 1: Receipt Capture & Parsing
-When a candidate completes payment (Vodafone Cash, InstaPay, or Bankak) and messages the Academic Desk (`+20 101 592 2628`), the inbound webhook extracts:
+When a candidate completes payment (Vodafone Cash or InstaPay) and messages the Academic Desk (`+20 101 592 2628`), the inbound webhook extracts:
 * **Candidate Phone Number:** Extracted from WhatsApp metadata (e.g., `+2+20 101 592 2628`).
 * **Candidate Full Name:** From WhatsApp profile or message text.
 * **Transaction Reference ID:** Extracted via regex pattern matching (`TRX-[A-Z0-9]+` or 6â€“12 digit banking ref).

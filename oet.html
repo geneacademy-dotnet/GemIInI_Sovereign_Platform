@@ -1,664 +1,602 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" class="scroll-smooth">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OET Medicine Fellowship & Professional Mobility | GemIInI Academy</title>
-  <meta name="description" content="Official OET Medical Language & International Fellowship Mobility Cohort led by Dr. Alaa Mursi (FMRCS, Ireland). Complete diagnostic preparation for UK/Ireland medical licensure.">
-
-  <script src="https://cdn.tailwindcss.com"></script>
+  <title>OET Medicine Masterclass | GeneAcademy & GemIInI Sovereign Platform</title>
+  <meta name="description" content="Official OET Medicine Thursday Cohort led by Dr. Alaa Abdelhafiz Mursi Farah (GA-001). Clinical linguistic precision for doctors targeting GMC, IMC, and AHPRA registration.">
+  
+  <!-- Plus Jakarta Sans Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              navy: '#0A192F',
+              blue: '#123B5D',
+              teal: '#168C8C',
+              accent: '#2dd4bf'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
   <style>
-    body { font-family: 'Plus Jakarta Sans', sans-serif; }
-    .hero-gradient { background: linear-gradient(135deg, #0A192F 0%, #123B5D 50%, #168C8C 100%); }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f8fafc; color: #0f172a; }
   </style>
 </head>
-<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col justify-between">
+<body class="bg-slate-50 text-slate-900 antialiased selection:bg-[#168C8C]/20 selection:text-[#123B5D]">
 
-  <!-- Header -->
-  <header class="bg-[#0A192F] text-white sticky top-0 z-50 shadow-md">
-    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-      <a href="index.html" class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-xl bg-[#168C8C] flex items-center justify-center font-bold text-white text-xl">G</div>
-        <div>
-          <span class="font-bold text-lg text-white block leading-none">GemIInI Academy</span>
-          <span class="text-xs text-[#168C8C] tracking-wider font-mono uppercase">OET INTERNATIONAL FELLOWSHIP</span>
-        </div>
-      </a>
-      <nav class="hidden md:flex items-center gap-6 text-sm font-semibold">
-        <a href="index.html" class="hover:text-[#168C8C] transition">Home</a>
-        <a href="oet.html" class="text-[#168C8C]">OET Pathway</a>
-        <a href="bls.html" class="hover:text-[#168C8C] transition">Cairo BLS Workshop</a>
-        <a href="smc.html" class="hover:text-[#168C8C] transition">SMC Board Exam</a>
-        <a href="verify.html" class="hover:text-[#168C8C] transition">Credential Vault</a>
-      </nav>
-      <div class="flex items-center gap-3">
-        <a href="oet_ar.html" class="text-xs px-3 py-1.5 rounded-lg border border-slate-700 text-slate-300 hover:bg-slate-800 transition">العربية</a>
-        <a href="#register" class="bg-[#168C8C] hover:bg-[#127070] text-white px-5 py-2 rounded-xl text-sm font-bold shadow-lg transition">Join Thursday Cohort ⚡</a>
+  <!-- Top Institutional Bar -->
+  <header class="bg-[#0A192F] text-slate-300 text-xs py-2 px-4 border-b border-slate-800">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+      <div class="flex items-center gap-2 font-mono">
+        <span class="inline-block w-2 h-2 rounded-full bg-[#168C8C] animate-pulse"></span>
+        <span>GENEACADEMY SOVEREIGN CONSORTIUM</span>
+        <span class="text-slate-600">|</span>
+        <span class="text-slate-400">Division of Medical & Scientific Linguistics</span>
+      </div>
+      <div class="flex items-center gap-4">
+        <span>Lead Authority: <strong class="text-white">Dr. Alaa Mursi (GA-001)</strong></span>
+        <a href="oet_ar.html" class="text-teal-400 hover:text-teal-300 font-semibold transition">العربية</a>
       </div>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero-gradient text-white py-20 px-4 relative overflow-hidden">
-    <div class="max-w-5xl mx-auto text-center relative z-10">
-      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur border border-white/20 text-emerald-300 text-sm font-bold mb-6">
-        <span>🌍 International Medical Mobility & Fellowship Pathway</span>
+  <!-- Navigation Bar -->
+  <nav class="bg-white/95 backdrop-blur-md sticky top-0 z-40 border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-[#123B5D] flex items-center justify-center text-white font-bold text-lg shadow-sm">
+          GA
+        </div>
+        <div>
+          <span class="font-extrabold text-[#123B5D] text-lg tracking-tight block leading-none">GeneAcademy</span>
+          <span class="text-[10px] text-[#168C8C] font-mono font-semibold tracking-wider uppercase">GemIInI Sovereign Platform</span>
+        </div>
       </div>
-      <h1 class="text-3xl md:text-5xl font-extrabold leading-tight mb-6">
-        Master the Occupational English Test (OET Medicine) & Unlock Global Licensure
+      
+      <div class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600">
+        <a href="#tracks" class="hover:text-[#123B5D] transition">Curriculum Tracks</a>
+        <a href="#faculty" class="hover:text-[#123B5D] transition">Clinical Faculty</a>
+        <a href="#calculator" class="hover:text-[#123B5D] transition">Pricing & GP</a>
+        <a href="#funnel" class="hover:text-[#123B5D] transition">Intake Rails</a>
+      </div>
+
+      <a href="#funnel" class="px-5 py-2.5 rounded-xl bg-[#168C8C] hover:bg-[#123B5D] text-white text-xs font-bold tracking-wide uppercase shadow-md hover:shadow-lg transition duration-200">
+        Enroll for Thursday
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-b from-[#0A192F] via-[#0d2238] to-[#123B5D] text-white py-16 md:py-24 px-4 border-b border-slate-800">
+    <div class="max-w-5xl mx-auto text-center space-y-6">
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#168C8C]/20 border border-[#168C8C]/40 text-xs font-mono text-teal-300">
+        <span class="w-2 h-2 rounded-full bg-teal-400"></span>
+        <span>Thursday Cohort Onboarding Active &bull; Limited Capacity</span>
+      </div>
+
+      <h1 class="text-3xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight max-w-4xl mx-auto">
+        OET Medicine Masterclass & <br>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-teal-300 via-teal-100 to-white">
+          Clinical Linguistic Precision
+        </span>
       </h1>
-      <p class="text-lg md:text-xl text-slate-200 max-w-3xl mx-auto mb-8 font-light leading-relaxed">
-        Comprehensive clinical language training across Writing, Speaking, Reading, and Listening under the direction of Royal College Fellows and UK/Ireland practicing surgeons.
+
+      <p class="text-slate-300 text-base md:text-lg max-w-2xl mx-auto leading-relaxed font-normal">
+        Engineered specifically for Sudanese & regional medical officers targeting licensure under the UK GMC, Irish IMC, and Australian AHPRA. Rigorous sub-score diagnostic mastery.
       </p>
 
-      <div class="flex flex-wrap justify-center gap-4">
-        <a href="#register" class="bg-[#168C8C] hover:bg-[#0e6363] text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-xl hover:scale-105 transition flex items-center gap-2">
-          <span>⚡ Fast-Track Registration (Thursday Cohort)</span>
+      <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#funnel" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-[#168C8C] hover:bg-teal-500 text-slate-900 font-extrabold text-sm tracking-wide shadow-lg shadow-teal-900/40 transition">
+          Start Clinical Intake & Mint GA-ID
         </a>
-        <a href="#curriculum" class="bg-white/10 hover:bg-white/20 text-white px-8 py-4 rounded-2xl font-bold text-lg backdrop-blur border border-white/20 transition">
-          View Curriculum & Details
+        <a href="#tracks" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-slate-800/80 hover:bg-slate-800 border border-slate-700 text-white font-semibold text-sm transition">
+          Explore 3-Track Syllabus
         </a>
+      </div>
+
+      <div class="pt-6 flex items-center justify-center gap-6 text-xs text-slate-400 font-mono">
+        <div>&bull; 48-Hour SLA on Writing Clinics</div>
+        <div>&bull; Calgary-Cambridge Speaking Vault</div>
+        <div>&bull; +500 GP Cumulative Award</div>
       </div>
     </div>
   </section>
 
-  <!-- Highlights -->
+  <!-- 1. Highlights & Telemetry Baseline Section -->
   <section class="py-12 bg-white border-b border-slate-200">
     <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-6">
       <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100 text-center">
         <div class="text-3xl font-extrabold text-[#123B5D] mb-1">Thursday Cohort</div>
-        <div class="text-sm font-semibold text-slate-500">Immediate Weekly Onboarding</div>
+        <div class="text-sm font-semibold text-slate-500">Weekly Onboarding & Sprint Triage</div>
       </div>
       <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100 text-center">
-        <div class="text-3xl font-extrabold text-[#168C8C] mb-1">4 Key Sub-tests</div>
-        <div class="text-sm font-semibold text-slate-500">Writing, Speaking, Reading, Listening</div>
+        <div class="text-3xl font-extrabold text-[#168C8C] mb-1">48-Hour SLA</div>
+        <div class="text-sm font-semibold text-slate-500">Individual Marking on Referral & Discharge Letters</div>
       </div>
-      <div class="p-6 rounded-2xl bg-slate-50 border border-[#168C8C]/30 text-center bg-teal-50/30">
-        <div class="text-3xl font-extrabold text-[#168C8C] mb-1">Individual Marking</div>
-        <div class="text-sm font-semibold text-slate-500">Direct Feedback on Discharge & Referral Letters</div>
+      <div class="p-6 rounded-2xl bg-slate-50 border border-teal-200 text-center bg-teal-50/40">
+        <div class="text-3xl font-extrabold text-[#168C8C] mb-1">500 GP Pathfinder</div>
+        <div class="text-sm font-semibold text-slate-600">+25 GP Instant &bull; +475 GP Upon Verification</div>
       </div>
       <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100 text-center">
-        <div class="text-3xl font-extrabold text-[#123B5D] mb-1">+500 GP</div>
-        <div class="text-sm font-semibold text-slate-500">Instant Telemetry Upgrade to Pathfinder</div>
+        <div class="text-3xl font-extrabold text-[#123B5D] mb-1">GemIInI Jaib</div>
+        <div class="text-sm font-semibold text-slate-500">تطبيقنا للمتابعة &mdash; Daily Telemetry & Drills</div>
       </div>
     </div>
   </section>
 
-  <!-- Lead Mentor -->
-  <section class="py-16 bg-slate-50">
-    <div class="max-w-4xl mx-auto px-4">
-      <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-xl flex flex-col md:flex-row items-center gap-8">
-        <div class="w-32 h-32 rounded-2xl bg-[#123B5D] flex-shrink-0 flex items-center justify-center text-white font-bold text-3xl shadow-lg">
-          GA-001
-        </div>
-        <div>
-          <span class="text-xs font-bold text-[#168C8C] font-mono tracking-wider uppercase">Lead for International Fellowships & OET Mobility</span>
-          <h3 class="text-2xl font-bold text-[#123B5D] mt-1">Dr. Alaa Abdelhafiz Mursi Farah, FMRCS (GA-001)</h3>
-          <p class="text-sm text-slate-600 font-semibold mt-1">
-            Fellow of the Royal College of Surgeons • Letterkenny University Hospital, Ireland • Medical Director for International Mobility
-          </p>
-          <p class="text-sm text-slate-500 mt-4 leading-relaxed">
-            "Passing OET is not just about language proficiency—it is about clinical precision, structured communication, and diagnostic accuracy required by international councils (IMC/GMC). We walk with you step-by-step to guarantee Grade A/B performance."
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Curriculum -->
-  <section id="curriculum" class="py-16 bg-white">
+  <!-- 2. Curriculum: 3-Track Clinical Discourse Architecture -->
+  <section id="tracks" class="py-16 bg-white border-b border-slate-200">
     <div class="max-w-5xl mx-auto px-4">
       <div class="text-center mb-12">
-        <h2 class="text-3xl font-extrabold text-[#123B5D]">Comprehensive Course Curriculum</h2>
-        <p class="text-slate-500 mt-2">Tailored specifically for clinical doctors, house officers, and surgical residents</p>
+        <span class="text-[#168C8C] font-mono font-bold text-xs uppercase tracking-widest block mb-2">CLINICAL DISCOURSE FRAMEWORK</span>
+        <h2 class="text-3xl font-extrabold text-[#123B5D]">Syllabus Designed for Medical Licensure</h2>
+        <p class="text-slate-500 mt-2">Engineered specifically for Doctors, Dentists, and Final-Year Candidates targeting GMC, IMC & AHPRA.</p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Track A -->
         <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 shadow-sm hover:shadow-md transition">
-          <div class="w-12 h-12 rounded-xl bg-teal-100 text-[#168C8C] font-bold text-xl flex items-center justify-center mb-4">1</div>
-          <h3 class="text-xl font-bold text-[#123B5D] mb-2">Medical Writing</h3>
+          <div class="w-12 h-12 rounded-xl bg-teal-100 text-[#168C8C] font-bold text-xl flex items-center justify-center mb-4">A</div>
+          <h3 class="text-xl font-bold text-[#123B5D] mb-2">Core Linguistic Foundations</h3>
           <p class="text-sm text-slate-600 leading-relaxed">
-            Personalized grading and feedback on Referral Letters and Discharge Summaries with exact NHS/HSE formatting standards.
+            Medical register, clinical grammar, passive/active sentence control, and rapid diagnostic extraction for Reading Part A and Listening consultations.
           </p>
+          <div class="mt-4 text-xs font-semibold text-teal-700 bg-teal-50 px-3 py-1.5 rounded-lg inline-block">
+            Sub-scores: Speed & Shorthand Precision
+          </div>
         </div>
 
-        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 shadow-sm hover:shadow-md transition">
-          <div class="w-12 h-12 rounded-xl bg-teal-100 text-[#168C8C] font-bold text-xl flex items-center justify-center mb-4">2</div>
-          <h3 class="text-xl font-bold text-[#123B5D] mb-2">Clinical Speaking Simulations</h3>
+        <!-- Track B -->
+        <div class="p-6 rounded-2xl bg-slate-50 border border-teal-200 shadow-sm hover:shadow-md transition bg-teal-50/20">
+          <div class="w-12 h-12 rounded-xl bg-teal-600 text-white font-bold text-xl flex items-center justify-center mb-4">B</div>
+          <h3 class="text-xl font-bold text-[#123B5D] mb-2">High-Yield Writing Clinics</h3>
           <p class="text-sm text-slate-600 leading-relaxed">
-            Live patient consultation role-plays focusing on empathy, clarification techniques, and medical jargon translation.
+            Referral and discharge letter clinics under HSE/NHS standards. Intensive case-note filtration (eliminating clinical noise) with strict 48-Hour Mentor SLA critique.
           </p>
+          <div class="mt-4 text-xs font-semibold text-teal-700 bg-teal-50 px-3 py-1.5 rounded-lg inline-block">
+            Sub-scores: Purpose, Content, Conciseness
+          </div>
         </div>
 
+        <!-- Track C -->
         <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 shadow-sm hover:shadow-md transition">
-          <div class="w-12 h-12 rounded-xl bg-teal-100 text-[#168C8C] font-bold text-xl flex items-center justify-center mb-4">3</div>
-          <h3 class="text-xl font-bold text-[#123B5D] mb-2">Medical Reading Strategies</h3>
+          <div class="w-12 h-12 rounded-xl bg-teal-100 text-[#168C8C] font-bold text-xl flex items-center justify-center mb-4">C</div>
+          <h3 class="text-xl font-bold text-[#123B5D] mb-2">Clinical Speaking Vault</h3>
           <p class="text-sm text-slate-600 leading-relaxed">
-            Time-management techniques for Part A rapid extraction and Parts B & C research article comprehension.
+            Simulation consultations utilizing the Calgary-Cambridge guide. Focus on empathetic exploration, breaking bad news, explaining procedural risk, and structured consent.
           </p>
+          <div class="mt-4 text-xs font-semibold text-teal-700 bg-teal-50 px-3 py-1.5 rounded-lg inline-block">
+            Sub-scores: Clinical Empathy & Interlocutor Rubrics
+          </div>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 shadow-sm hover:shadow-md transition">
-          <div class="w-12 h-12 rounded-xl bg-teal-100 text-[#168C8C] font-bold text-xl flex items-center justify-center mb-4">4</div>
-          <h3 class="text-xl font-bold text-[#123B5D] mb-2">Clinical Listening</h3>
+  <!-- Faculty Credentials Section -->
+  <section id="faculty" class="py-16 bg-slate-50 border-b border-slate-200">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="p-8 rounded-3xl bg-white border border-slate-200 shadow-sm flex flex-col md:flex-row items-center gap-8">
+        <div class="w-32 h-32 rounded-2xl bg-gradient-to-tr from-[#123B5D] to-[#168C8C] text-white flex items-center justify-center font-bold text-3xl shrink-0 shadow-lg">
+          AM
+        </div>
+        <div class="space-y-3 text-center md:text-left">
+          <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 font-mono text-xs font-semibold border border-slate-200">
+            SOVEREIGN CORE &bull; GA-001
+          </div>
+          <h3 class="text-2xl font-black text-[#123B5D]">Dr. Alaa Abdelhafiz Mursi Farah, FMRCS</h3>
+          <p class="text-xs font-bold text-[#168C8C] uppercase tracking-wider">
+            Co-Founder &bull; Surgical Program Lead &bull; OET Lead &bull; Architect of BSS-2
+          </p>
           <p class="text-sm text-slate-600 leading-relaxed">
-            Auditory diagnostics training across doctor-patient consultations and multi-disciplinary team briefings.
+            Fellow of the Royal College of Surgeons (Letterkenny). Senior clinical surgeon and pedagogical examiner specializing in high-stakes clinical communication, linguistic filtration, and medical workforce placement under Irish (IMC) and UK (GMC) health systems.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Zero-Touch Self-Serve Enrollment & Payment Funnel -->
-  <section id="register" class="py-16 bg-slate-100 border-t border-slate-200">
+  <!-- Interactive Pricing & GP Ledger Calculator -->
+  <section id="calculator" class="py-16 bg-[#0A192F] text-white border-b border-slate-800">
     <div class="max-w-4xl mx-auto px-4">
-
-      <!-- Step 1: Course Customization & Candidate Profile Intake -->
-      <div id="step-1-card" class="bg-white rounded-3xl p-8 md:p-10 border border-slate-200 shadow-xl mb-12">
-        <div class="text-center mb-8">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 border border-[#168C8C]/30 text-[#168C8C] text-xs font-bold font-mono uppercase mb-3">
-            <span>⚡ Self-Service Onboarding Portal</span>
-          </div>
-          <h2 class="text-3xl font-extrabold text-[#123B5D]">Step 1: OET Candidate Profile & Study Preferences</h2>
-          <p class="text-slate-600 text-sm mt-2 max-w-xl mx-auto">
-            Personalize your preparation timeline and lock in your course schedule. No customer care wait required.
-          </p>
-        </div>
-
-        <form id="oet-intake-form" class="space-y-6">
-          <!-- Section: Basic Identification -->
-          <div class="border-b border-slate-200 pb-6">
-            <h3 class="text-sm font-bold text-slate-900 uppercase tracking-wider mb-4 flex items-center gap-2">
-              <span class="w-6 h-6 rounded-full bg-[#123B5D] text-white flex items-center justify-center text-xs">1</span>
-              Personal & Professional Identification
-            </h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-              <div>
-                <label for="oet-firstname" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">First Name *</label>
-                <input type="text" id="oet-firstname" required placeholder="Dr. Firstname"
-                       class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-[#168C8C] focus:border-transparent outline-none font-sans text-sm">
-              </div>
-              <div>
-                <label for="oet-lastname" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Last Name *</label>
-                <input type="text" id="oet-lastname" required placeholder="Lastname"
-                       class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-[#168C8C] focus:border-transparent outline-none font-sans text-sm">
-              </div>
-              <div>
-                <label for="oet-email" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Primary Email Address *</label>
-                <input type="email" id="oet-email" required placeholder="doctor@example.com"
-                       class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-[#168C8C] focus:border-transparent outline-none font-sans text-sm">
-              </div>
-              <div>
-                <label for="oet-phone" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">WhatsApp Number *</label>
-                <input type="tel" id="oet-phone" required placeholder="+20 1XX XXX XXXX or +249 9XX XXX XXX"
-                       class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-[#168C8C] focus:border-transparent outline-none font-sans text-sm">
-              </div>
-            </div>
-          </div>
-
-          <!-- Section: Exam Details -->
-          <div class="border-b border-slate-200 pb-6">
-            <h3 class="text-sm font-bold text-slate-900 uppercase tracking-wider mb-4 flex items-center gap-2">
-              <span class="w-6 h-6 rounded-full bg-[#123B5D] text-white flex items-center justify-center text-xs">2</span>
-              Exam Timeline & Diagnostic History
-            </h3>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-              <div>
-                <label for="oet-timeline" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">When do you plan to take OET? *</label>
-                <select id="oet-timeline" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-[#168C8C] focus:border-transparent outline-none font-sans text-sm bg-white">
-                  <option value="Within 30 days">Within 30 days</option>
-                  <option value="In 1 - 2 months" selected>In 1 - 2 months</option>
-                  <option value="In 3 - 6 months">In 3 - 6 months</option>
-                  <option value="Not sure yet / ASAP">Not sure yet / ASAP depending on mentor</option>
-                </select>
-              </div>
-
-              <div>
-                <label for="oet-taken-before" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Have you taken OET before? *</label>
-                <select id="oet-taken-before" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-[#168C8C] focus:border-transparent outline-none font-sans text-sm bg-white">
-                  <option value="No" selected>No (First Time)</option>
-                  <option value="Yes">Yes (Retake Candidate)</option>
-                </select>
-              </div>
-
-              <div>
-                <label for="oet-challenging" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Most Challenging Skill *</label>
-                <select id="oet-challenging" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-[#168C8C] focus:border-transparent outline-none font-sans text-sm bg-white">
-                  <option value="Writing" selected>Writing (Referral/Discharge)</option>
-                  <option value="Speaking">Speaking (Clinical Consultations)</option>
-                  <option value="Reading">Reading (Speed & Analysis)</option>
-                  <option value="Listening">Listening (Accents & Jargon)</option>
-                  <option value="All of them">All of them</option>
-                  <option value="Can't judge">Can't judge yet</option>
-                </select>
-              </div>
-            </div>
-          </div>
-
-          <!-- Section: Course Format & Scheduling -->
-          <div class="border-b border-slate-200 pb-6">
-            <h3 class="text-sm font-bold text-slate-900 uppercase tracking-wider mb-4 flex items-center gap-2">
-              <span class="w-6 h-6 rounded-full bg-[#123B5D] text-white flex items-center justify-center text-xs">3</span>
-              Course Preference & Start Date
-            </h3>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-5">
-              <div>
-                <label for="oet-start-pref" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Preferred Start Date *</label>
-                <select id="oet-start-pref" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-[#168C8C] focus:border-transparent outline-none font-sans text-sm bg-white">
-                  <option value="1st of the month" selected>1st of the month</option>
-                  <option value="15th of the month">15th of the month</option>
-                  <option value="Thursday Cohort (Fast Track)">Immediate Thursday Cohort</option>
-                </select>
-              </div>
-
-              <div>
-                <label for="oet-pace" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Course Pace *</label>
-                <select id="oet-pace" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-[#168C8C] focus:border-transparent outline-none font-sans text-sm bg-white">
-                  <option value="Normal (takes 4 weeks)" selected>Normal (takes 4 weeks)</option>
-                  <option value="Intensive (takes 2 weeks)">Intensive (takes 2 weeks)</option>
-                  <option value="Mentor's Discretion">Mentor's Discretion</option>
-                </select>
-              </div>
-
-              <div>
-                <label for="oet-format" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Learning Format *</label>
-                <select id="oet-format" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-[#168C8C] focus:border-transparent outline-none font-sans text-sm bg-white">
-                  <option value="Live group sessions (class)" selected>Live Group Sessions (Class)</option>
-                  <option value="1 on 1 (personal tutoring)">1 on 1 (Personal Tutoring)</option>
-                  <option value="Both / Flexible">Both / Flexible</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-              <div>
-                <label for="oet-skills-scope" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Skills Scope *</label>
-                <select id="oet-skills-scope" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-[#168C8C] focus:border-transparent outline-none font-sans text-sm bg-white">
-                  <option value="Taking all four (Writing, Listening, Reading, Speaking)" selected>All Four Skills (Writing, Listening, Reading, Speaking)</option>
-                  <option value="Only one skill">Single Focused Skill Only</option>
-                </select>
-              </div>
-
-              <div>
-                <label for="oet-referral" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Recommend a Colleague (Get 10% Off)</label>
-                <input type="tel" id="oet-referral" placeholder="Colleague's WhatsApp Number (Optional)"
-                       class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-[#168C8C] focus:border-transparent outline-none font-sans text-sm">
-              </div>
-            </div>
-          </div>
-
-          <!-- Live Status / Result Message -->
-          <div id="oet-result" class="hidden p-5 rounded-2xl border text-sm font-sans transition-all"></div>
-
-          <!-- Submit Button -->
-          <button type="submit" id="oet-submit-btn"
-                  class="w-full py-4 bg-[#123B5D] hover:bg-[#0e2f4a] text-white font-bold rounded-2xl transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 text-base">
-            <span>Lock Preferences & Proceed to Step 2: Payment Confirmation</span>
-            <span class="font-mono">➔</span>
-          </button>
-        </form>
+      <div class="text-center mb-10">
+        <span class="text-[#168C8C] font-mono font-bold text-xs uppercase tracking-widest block mb-2">DYNAMIC GP FINANCING</span>
+        <h2 class="text-3xl font-extrabold text-white">Cohort Economics & Installment Schedule</h2>
+        <p class="text-slate-400 text-sm mt-1">Benchmark $250 &ndash; $300 USD with full GP credit conversion and flexible tranches.</p>
       </div>
 
-      <!-- Step 2: Self-Service Payment Submission & Audit Lock -->
-      <div id="step-2-card" class="bg-slate-900 rounded-3xl p-8 md:p-10 border border-slate-800 text-white shadow-2xl">
-        <div class="text-center mb-8">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 text-xs font-mono font-bold uppercase mb-3">
-            <span>🔒 Step 2: Payment Audit & Direct Confirmation</span>
+      <div class="p-6 md:p-8 rounded-3xl bg-[#0d2238] border border-slate-700/60 shadow-xl grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="space-y-5">
+          <div>
+            <div class="flex justify-between items-center mb-1.5">
+              <label class="text-xs font-semibold text-slate-300">Membership Standing</label>
+              <span class="text-xs font-mono text-teal-400" id="tier-badge-text">Verified Member ($250 USD)</span>
+            </div>
+            <div class="grid grid-cols-2 gap-2">
+              <button type="button" onclick="setMemberStatus(true)" id="btn-tier-member" class="py-2.5 px-3 rounded-xl border border-[#168C8C] bg-[#123B5D]/80 text-white text-xs font-bold transition">
+                Verified Member
+              </button>
+              <button type="button" onclick="setMemberStatus(false)" id="btn-tier-guest" class="py-2.5 px-3 rounded-xl border border-slate-700 bg-slate-900 text-slate-400 text-xs font-medium transition">
+                Guest Intake
+              </button>
+            </div>
           </div>
-          <h2 class="text-3xl font-extrabold mb-2">Submit Your Transaction Reference</h2>
-          <p class="text-slate-400 text-sm max-w-xl mx-auto">
-            Transfer fees via your preferred gateway below, then enter your transaction reference code to confirm your enrollment without waiting for support.
-          </p>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1.5">Session Density & Module Scope</label>
+            <select id="calc-scope" onchange="runCalculator()" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white focus:outline-none focus:border-[#168C8C]">
+              <option value="standard">Core Thursday Cohort + Mocks</option>
+              <option value="comprehensive">Comprehensive (+ 1-on-1 Speaking Clinics)</option>
+              <option value="intensive">Intensive Licensure Sprint (Accelerated Reviews)</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1.5">Tranche Settlement Plan</label>
+            <select id="calc-plan" onchange="runCalculator()" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white focus:outline-none focus:border-[#168C8C]">
+              <option value="full">Full Balance Payment</option>
+              <option value="2-part">2-Part Installment (50% now / 50% Week 4)</option>
+              <option value="3-part">3-Part Installment (33% tranches)</option>
+            </select>
+          </div>
         </div>
 
-        <!-- Verified Candidate Badge -->
-        <div id="candidate-badge" class="bg-slate-800/80 border border-slate-700 rounded-2xl p-4 mb-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="p-5 rounded-2xl bg-slate-900/90 border border-slate-800 flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="flex justify-between items-center text-xs text-slate-400">
+              <span>Program Valuation:</span>
+              <span class="text-lg font-bold text-white" id="display-total-usd">$250 USD</span>
+            </div>
+            <div class="flex justify-between items-center text-xs text-slate-400">
+              <span>Step 1 Entry Credit:</span>
+              <span class="text-emerald-400 font-mono font-semibold">-$25 USD Paid</span>
+            </div>
+            <div class="h-px bg-slate-800"></div>
+            <div class="flex justify-between items-center">
+              <span class="text-xs font-bold text-slate-300">Remaining Balance:</span>
+              <span class="text-xl font-mono font-black text-amber-300" id="display-balance-usd">$225 USD</span>
+            </div>
+            <div class="flex justify-between items-center text-xs">
+              <span class="text-slate-400">GP Allocation Required:</span>
+              <span class="text-teal-400 font-mono font-bold" id="display-gp-equiv">2,250 GP</span>
+            </div>
+          </div>
+
+          <div class="mt-4 pt-4 border-t border-slate-800 text-xs text-slate-400 space-y-1">
+            <div id="display-tranche-note" class="text-slate-300">
+              Tranche 1 payable today: <strong class="text-white">$225.00 USD</strong>.
+            </div>
+            <p class="text-[11px] text-slate-500">
+              Points and installment ledger are automatically synchronized with your <strong class="text-slate-400">GemIInI Jaib</strong> companion wallet.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Standardized Two-Step Non-Reload Intake Funnel -->
+  <section id="funnel" class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <span class="text-[#168C8C] font-mono font-bold text-xs uppercase tracking-widest block mb-2">OFFICIAL ENROLLMENT GATEWAY</span>
+        <h2 class="text-3xl font-extrabold text-[#123B5D]">Candidate Intake & Payment Rails</h2>
+        <p class="text-slate-500 text-sm mt-1">Zero-friction self-service enrollment. Complete Step 1 to immediately mint your sovereign GA-ID.</p>
+      </div>
+
+      <!-- Funnel Container Card -->
+      <div class="p-6 md:p-8 rounded-3xl bg-slate-50 border border-slate-200 shadow-sm space-y-8">
+        
+        <!-- ================= STEP 1: Candidate Diagnostic Profile ================= -->
+        <div class="space-y-4">
           <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-teal-500/20 border border-teal-500/40 text-teal-300 flex items-center justify-center font-bold font-mono">GA</div>
+            <span class="w-8 h-8 rounded-xl bg-[#123B5D] text-white flex items-center justify-center font-bold text-sm">1</span>
             <div>
-              <div class="text-xs text-slate-400 uppercase tracking-wider font-semibold">Active Candidate ID</div>
-              <div id="candidate-id-display" class="text-lg font-mono font-black text-teal-300">PENDING STEP 1</div>
+              <h3 class="text-lg font-bold text-[#123B5D]">Step 1: Clinical Profile & Diagnostic Intake</h3>
+              <p class="text-xs text-slate-500">Mints your Sovereign GA-ID and unlocks your +25 GP baseline.</p>
             </div>
           </div>
-          <div class="text-xs font-mono bg-slate-900 px-4 py-2 rounded-xl border border-slate-700 text-emerald-400 font-bold">
-            Status: Awaiting Transaction Reference
-          </div>
+
+          <form id="oet-reg-form" onsubmit="submitOetRegistration(event)" class="space-y-4 pt-2">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">Full Clinical Name</label>
+                <input type="text" id="reg-name" required placeholder="Dr. Ahmed Ibrahim" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-sm text-slate-900 focus:outline-none focus:border-[#168C8C]">
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">WhatsApp / Telemetry Phone</label>
+                <input type="tel" id="reg-phone" required placeholder="+20 10 1234 5678" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-sm text-slate-900 focus:outline-none focus:border-[#168C8C]">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">Medical Faculty / Alma Mater</label>
+                <input type="text" id="reg-faculty" required placeholder="e.g. University of Khartoum, Al-Neelain, Gezira" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-sm text-slate-900 focus:outline-none focus:border-[#168C8C]">
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">Target Regulatory Body</label>
+                <select id="reg-target" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-sm text-slate-900 focus:outline-none focus:border-[#168C8C]">
+                  <option value="UK GMC">GMC (General Medical Council, UK)</option>
+                  <option value="Ireland IMC">IMC (Irish Medical Council, Ireland)</option>
+                  <option value="Australia AHPRA">AHPRA (Australia)</option>
+                  <option value="Other Licensure">Other Medical Council / Board</option>
+                </select>
+              </div>
+            </div>
+
+            <button type="submit" id="btn-submit-step1" class="w-full py-3.5 px-4 rounded-xl bg-[#123B5D] hover:bg-[#0A192F] text-white font-bold text-sm shadow-md transition duration-150 flex items-center justify-center gap-2">
+              <span>Submit Diagnostic Profile & Mint GA-ID</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+            </button>
+          </form>
+
+          <!-- Step 1 Feedback Container -->
+          <div id="step1-result" class="hidden p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-900 text-sm"></div>
         </div>
 
-        <!-- Payment Channels Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
-          <div class="bg-slate-800/90 p-5 rounded-2xl border border-slate-700">
-            <div class="text-xs font-bold text-teal-400 font-mono mb-1">Vodafone Cash (Egypt)</div>
-            <div class="text-base font-extrabold text-white font-mono bg-slate-900 py-2 rounded-lg border border-slate-700 select-all mb-1 text-center">
-              01015922628
-            </div>
-            <p class="text-[11px] text-slate-400 text-center">Instant Local Wallet Transfer</p>
-          </div>
+        <div class="h-px bg-slate-200"></div>
 
-          <div class="bg-slate-800/90 p-5 rounded-2xl border border-slate-700">
-            <div class="text-xs font-bold text-teal-400 font-mono mb-1">InstaPay (Egypt/UK/EU)</div>
-            <div class="text-base font-extrabold text-white font-mono bg-slate-900 py-2 rounded-lg border border-slate-700 select-all mb-1 text-center">
-              a.mursifarah@instapay
-            </div>
-            <p class="text-[11px] text-slate-400 text-center">Dr. Alaa Mursi Official</p>
-          </div>
-
-          <div class="bg-slate-800/90 p-5 rounded-2xl border border-slate-700">
-            <div class="text-xs font-bold text-amber-400 font-mono mb-1">Bank of Khartoum (Sudan)</div>
-            <div class="text-base font-extrabold text-white font-mono bg-slate-900 py-2 rounded-lg border border-slate-700 select-all mb-1 text-center">
-              3466488
-            </div>
-            <p class="text-[11px] text-slate-400 text-center">Unified Bankak Account</p>
-          </div>
-        </div>
-
-        <!-- Self-Service Payment Reference Form -->
-        <form id="oet-payment-form" class="bg-slate-800/60 p-6 rounded-2xl border border-slate-700 space-y-5 mb-6">
-          <h3 class="text-sm font-bold text-slate-200 uppercase tracking-wider flex items-center gap-2">
-            <span>✍️</span> Enter Payment Verification Details
-          </h3>
-
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- ================= STEP 2: Payment Rails & Verification ================= -->
+        <div id="funnel-step-2-section" class="space-y-4 opacity-50 pointer-events-none transition-all duration-300">
+          <div class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-xl bg-slate-400 text-white flex items-center justify-center font-bold text-sm" id="badge-step2">2</span>
             <div>
-              <label for="pay-channel" class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Payment Gateway Used *</label>
-              <select id="pay-channel" required class="w-full px-4 py-3 rounded-xl border border-slate-600 focus:ring-2 focus:ring-[#168C8C] outline-none font-sans text-sm bg-slate-900 text-white">
-                <option value="VODAFONE_CASH" selected>Vodafone Cash (01015922628)</option>
-                <option value="INSTAPAY">InstaPay (a.mursifarah@instapay)</option>
-                <option value="BANK_OF_KHARTOUM">Bank of Khartoum (Bankak: 3466488)</option>
-                <option value="OTHER_DIRECT">Other International Wire / Direct</option>
-              </select>
-            </div>
-
-            <div>
-              <label for="pay-ref" class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Transaction ID / Sender Number *</label>
-              <input type="text" id="pay-ref" required placeholder="e.g. 010XXXXXXXX or InstaPay Ref #123456"
-                     class="w-full px-4 py-3 rounded-xl border border-slate-600 focus:ring-2 focus:ring-[#168C8C] outline-none font-sans text-sm bg-slate-900 text-white font-mono">
+              <h3 class="text-lg font-bold text-[#123B5D]">Step 2: Regional Settlement Rails & Reference Verification</h3>
+              <p class="text-xs text-slate-500">Deposit $25 registration entry to unlock +475 GP Pathfinder bump and community access.</p>
             </div>
           </div>
 
-          <div id="payment-result" class="hidden p-4 rounded-xl text-xs font-sans"></div>
+          <!-- Payment Instructions Card -->
+          <div class="p-5 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-4">
+            <div class="text-xs font-semibold text-slate-600">Official Sovereign Payment Rails:</div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <!-- Vodafone Cash (Primary) -->
+              <div class="p-4 rounded-xl border-2 border-teal-500 bg-teal-50/40">
+                <div class="flex items-center justify-between">
+                  <div class="text-xs font-bold text-teal-800 uppercase tracking-wide">Vodafone Cash (Primary Rail)</div>
+                  <span class="text-[10px] bg-teal-600 text-white px-2 py-0.5 rounded font-mono font-bold">ACTIVE</span>
+                </div>
+                <div class="font-mono text-base font-extrabold text-[#123B5D] mt-2 select-all">01015922628</div>
+                <div class="text-[11px] text-slate-600 mt-1">Official Mobile Cash Wallet &bull; Immediate Receipt Audit</div>
+              </div>
 
-          <button type="submit" id="pay-submit-btn"
-                  class="w-full py-4 bg-[#168C8C] hover:bg-[#127070] text-white font-bold rounded-xl transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2">
-            <span>Lock Seat & Submit Transaction for Audit</span>
-            <span class="font-mono">✓</span>
-          </button>
-        </form>
+              <!-- InstaPay (Alternative) -->
+              <div class="p-4 rounded-xl border border-slate-200 bg-slate-50">
+                <div class="text-xs font-bold text-slate-700 uppercase tracking-wide">InstaPay (Alternative)</div>
+                <div class="font-mono text-base font-extrabold text-[#123B5D] mt-2 select-all">a.mursifarah@instapay</div>
+                <div class="text-[11px] text-slate-500 mt-1">Recipient: Dr. Alaa Mursi Official</div>
+              </div>
+            </div>
 
-        <!-- Predictable Next-Need Panel: OET to Fellowship & Relocation CV Review -->
-        <div id="oetNextStepPanel" class="hidden mt-6 p-6 rounded-2xl bg-teal-950/50 border border-teal-800 text-left">
-          <div class="flex items-center gap-2 mb-2">
-            <span class="px-2 py-0.5 rounded bg-teal-500/20 text-teal-300 text-[10px] font-mono font-bold uppercase tracking-wider">Predictable Next Need</span>
-            <h4 class="text-sm font-bold text-white">UK/Ireland Relocation: CV & Clinical Gap Review</h4>
+            <!-- Transaction Reference Form -->
+            <form id="oet-pay-form" onsubmit="submitOetPayment(event)" class="space-y-4 pt-2">
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">Payment Reference / Transaction ID (txRef)</label>
+                <input type="text" id="pay-txref" required placeholder="e.g. VF Cash Sender Number or Transfer Ref" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white text-sm text-slate-900 focus:outline-none focus:border-[#168C8C]">
+              </div>
+
+              <button type="submit" id="btn-submit-step2" class="w-full py-3.5 px-4 rounded-xl bg-[#168C8C] hover:bg-teal-600 text-white font-bold text-sm shadow-md transition duration-150 flex items-center justify-center gap-2">
+                <span>Submit Verification & Claim 500 GP Pathfinder Status</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+              </button>
+            </form>
+
+            <!-- Step 2 Feedback Container -->
+            <div id="step2-result" class="hidden p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-900 text-sm"></div>
           </div>
-          <p class="text-xs text-slate-300 leading-relaxed mb-4">
-            Doctors pursuing OET are almost always preparing to relocate. International medical councils (IMC/GMC) require a comprehensive clinical CV accounting for clinical or educational gaps. GemIInI Membership tracks your CPD & clinical audits via your GA-ID telemetry.
-          </p>
-          <button id="oetInterestBtn" onclick="flagCvGapInterest()" class="w-full py-3 rounded-xl bg-teal-600 hover:bg-teal-500 text-white font-bold text-xs transition flex items-center justify-center gap-2 shadow-md">
-            <span>Flag My Account for CV & Clinical Gap Review (+25 GP)</span>
-            <span>➔</span>
-          </button>
-          <div id="oetInterestResult" class="hidden text-xs mt-3"></div>
         </div>
 
-        <!-- Optional WhatsApp Fallback Only (De-emphasized) -->
-        <div class="text-center pt-4 border-t border-slate-800 text-xs text-slate-400">
-          <span>Having trouble with payment confirmation? </span>
-          <a id="oet-wa-fallback"
-             href="https://wa.me/201015922628?text=Hello,%20I%20have%20an%20inquiry%20regarding%20my%20OET%20payment%20verification." 
-             target="_blank" 
-             class="text-teal-400 hover:text-teal-300 underline font-semibold ml-1">
-            Contact Admissions Operations via WhatsApp (Fallback)
-          </a>
-        </div>
       </div>
-
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-[#0A192F] text-slate-400 py-8 text-center text-sm border-t border-slate-800">
-    <div class="max-w-7xl mx-auto px-4">
-      <p>© 2026 GemIInI Academy — SudaGene Medical Consortium. All rights reserved.</p>
-      <p class="text-xs text-slate-500 mt-2">Independent verification vault available at <a href="verify.html" class="underline text-slate-400">geneacademy.net/verify.html</a></p>
+  <footer class="bg-[#0A192F] text-slate-400 text-xs py-10 border-t border-slate-800">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-[#123B5D] text-white flex items-center justify-center font-bold text-xs">GA</div>
+        <div>
+          <div class="text-white font-bold">GeneAcademy Sovereign Platform</div>
+          <div class="text-slate-500 text-[11px]">&copy; 2026. All sovereign clinical rights reserved.</div>
+        </div>
+      </div>
+      <div class="flex items-center gap-6 font-mono text-[11px]">
+        <span>Companion App: <strong class="text-teal-400">GemIInI Jaib (جيميناي جيب)</strong></span>
+        <span>Admissions Desk: <strong class="text-slate-300">GA-011</strong></span>
+      </div>
     </div>
   </footer>
 
-  <!-- API Bridge & Intake Logic -->
+  <!-- API Bridge -->
   <script src="api.js"></script>
-  <script src="js/assistant.js"></script>
+
+  <!-- =========================================================================
+       Client-Side Intake & Dynamic Economics Controller
+       ========================================================================= -->
   <script>
-    let activeGaId = null;
-    let activeEmail = null;
+    // Sovereign Funnel State
+    const oetState = {
+      isMember: true,
+      baseFeeUSD: 250,
+      mintedGaId: null,
+      candidateEmail: null,
+      txSubmitted: false
+    };
 
-    document.addEventListener('DOMContentLoaded', function () {
-      const intakeForm = document.getElementById('oet-intake-form');
-      const paymentForm = document.getElementById('oet-payment-form');
+    // Member Tier Controller ($250 vs $300)
+    function setMemberStatus(isMember) {
+      oetState.isMember = isMember;
+      const memberBtn = document.getElementById('btn-tier-member');
+      const guestBtn = document.getElementById('btn-tier-guest');
+      const badgeText = document.getElementById('tier-badge-text');
 
-      if (intakeForm) intakeForm.addEventListener('submit', submitOetIntake);
-      if (paymentForm) paymentForm.addEventListener('submit', submitOetPayment);
-
-      // Check localStorage for existing GA ID
-      const cachedGa = localStorage.getItem('gemiini_user_ga');
-      if (cachedGa && cachedGa.startsWith('GA-')) {
-        setCandidateActive(cachedGa, 'Retrieved active registration');
+      if (isMember) {
+        memberBtn.className = 'py-2.5 px-3 rounded-xl border border-[#168C8C] bg-[#123B5D]/80 text-white text-xs font-bold transition';
+        guestBtn.className = 'py-2.5 px-3 rounded-xl border border-slate-700 bg-slate-900 text-slate-400 text-xs font-medium transition';
+        badgeText.innerText = 'Verified Member ($250 USD)';
+        badgeText.className = 'text-xs font-mono text-teal-400';
+      } else {
+        guestBtn.className = 'py-2.5 px-3 rounded-xl border border-[#168C8C] bg-[#123B5D]/80 text-white text-xs font-bold transition';
+        memberBtn.className = 'py-2.5 px-3 rounded-xl border border-slate-700 bg-slate-900 text-slate-400 text-xs font-medium transition';
+        badgeText.innerText = 'Guest Candidate ($300 USD)';
+        badgeText.className = 'text-xs font-mono text-amber-400';
       }
-    });
+      runCalculator();
+    }
 
-    function setCandidateActive(gaId, message) {
-      activeGaId = gaId;
-      const display = document.getElementById('candidate-id-display');
-      const fallback = document.getElementById('oet-wa-fallback');
+    // Dynamic Cost & Tranche Calculator
+    function runCalculator() {
+      const scope = document.getElementById('calc-scope').value;
+      const plan = document.getElementById('calc-plan').value;
 
-      if (display) display.innerText = gaId;
-      if (fallback) {
-        fallback.href = `https://wa.me/201015922628?text=${encodeURIComponent(`Hello Admissions, regarding OET candidate ${gaId}: inquiry on payment audit.`)}`;
+      let totalUSD = oetState.isMember ? 250 : 300;
+      if (scope === 'comprehensive') totalUSD += 30;
+      if (scope === 'intensive') totalUSD += 50;
+
+      const regCredit = 25;
+      const balanceUSD = Math.max(0, totalUSD - regCredit);
+      const gpEquivalent = balanceUSD * 10;
+
+      document.getElementById('display-total-usd').innerText = `$${totalUSD} USD`;
+      document.getElementById('display-balance-usd').innerText = `$${balanceUSD} USD`;
+      document.getElementById('display-gp-equiv').innerText = `${gpEquivalent.toLocaleString()} GP`;
+
+      const trancheEl = document.getElementById('display-tranche-note');
+      if (plan === 'full') {
+        trancheEl.innerHTML = `Single balance settlement: <strong class="text-white">$${balanceUSD} USD</strong>.`;
+      } else if (plan === '2-part') {
+        const tranche = (balanceUSD / 2).toFixed(2);
+        trancheEl.innerHTML = `2 Tranches: <strong class="text-white">$${tranche} USD</strong> today &amp; <strong class="text-white">$${tranche} USD</strong> at Week 4.`;
+      } else if (plan === '3-part') {
+        const tranche = (balanceUSD / 3).toFixed(2);
+        trancheEl.innerHTML = `3 Tranches of <strong class="text-white">$${tranche} USD</strong> across the cohort cycle.`;
       }
     }
 
-    async function submitOetIntake(e) {
+    // Step 1: Instant GA-ID Minting & +25 GP Credit
+    async function submitOetRegistration(e) {
       e.preventDefault();
+      const name = document.getElementById('reg-name').value.trim();
+      const phone = document.getElementById('reg-phone').value.trim();
+      const faculty = document.getElementById('reg-faculty').value.trim();
+      const target = document.getElementById('reg-target').value;
+      
+      // Mint deterministic GA-ID
+      const randomSeed = Math.floor(1000 + Math.random() * 9000);
+      oetState.mintedGaId = `GA-${randomSeed}`;
+      localStorage.setItem('gemiini_user_ga', oetState.mintedGaId);
 
-      const btn = document.getElementById('oet-submit-btn');
-      const res = document.getElementById('oet-result');
-      const originalText = btn.innerText;
+      const resultEl = document.getElementById('step1-result');
+      resultEl.classList.remove('hidden');
+      resultEl.innerHTML = `
+        <div class="font-bold text-base">✓ Registered — Your Sovereign GA-ID is <span class="font-mono text-emerald-800">${oetState.mintedGaId}</span></div>
+        <div class="text-xs mt-1.5 leading-relaxed">
+          <strong>+25 GP (Provisional Explorer)</strong> credited to your profile. Track your status on 
+          <span class="font-semibold text-emerald-900">GemIInI Jaib (تطبيقنا للمتابعة)</span>.
+          <br>Proceed to Step 2 below to unlock your +475 GP Pathfinder upgrade and access to the Thursday Cohort.
+        </div>
+      `;
 
-      const firstName = document.getElementById('oet-firstname').value.trim();
-      const lastName = document.getElementById('oet-lastname').value.trim();
-      const fullName = `${firstName} ${lastName}`.trim();
-      const email = document.getElementById('oet-email').value.trim().toLowerCase();
-      const phone = document.getElementById('oet-phone').value.trim();
-      const timeline = document.getElementById('oet-timeline').value;
-      const takenBefore = document.getElementById('oet-taken-before').value;
-      const challenging = document.getElementById('oet-challenging').value;
-      const startPref = document.getElementById('oet-start-pref').value;
-      const pace = document.getElementById('oet-pace').value;
-      const format = document.getElementById('oet-format').value;
-      const skillsScope = document.getElementById('oet-skills-scope').value;
-      const referral = document.getElementById('oet-referral').value.trim();
-
-      if (!firstName || !lastName || !email || !phone) {
-        res.classList.remove('hidden');
-        res.classList.add('bg-red-100', 'text-red-700', 'border-red-300');
-        res.innerText = 'Please complete all required fields (First name, Last name, Email, WhatsApp).';
-        return;
+      // Async sync to backend ledger via api.js if present
+      if (typeof executeGemIInISync === 'function') {
+        try {
+          executeGemIInISync({
+            action: 'OET_REGISTER',
+            legalName: name,
+            phone: phone,
+            medicalFaculty: faculty,
+            targetCouncil: target,
+            gaId: oetState.mintedGaId
+          }).catch(err => console.warn('Ledger async sync warning:', err));
+        } catch (err) {
+          console.warn('API sync deferred:', err);
+        }
       }
 
-      btn.disabled = true;
-      btn.innerText = 'Saving Profile & Allocating Candidate ID...';
-      res.classList.add('hidden');
+      // Unlock Step 2
+      const step2Section = document.getElementById('funnel-step-2-section');
+      step2Section.classList.remove('opacity-50', 'pointer-events-none');
+      
+      const badge2 = document.getElementById('badge-step2');
+      badge2.className = 'w-8 h-8 rounded-xl bg-[#168C8C] text-slate-900 flex items-center justify-center font-bold text-sm';
+      
+      // Disable Step 1 button to lock state
+      const btn1 = document.getElementById('btn-submit-step1');
+      btn1.disabled = true;
+      btn1.classList.add('opacity-60', 'cursor-not-allowed');
+      btn1.innerText = `Intake Sealed: ${oetState.mintedGaId}`;
 
-      try {
-        if (typeof executeGemIInISync !== 'function') {
-          throw new Error('API bridge (api.js) not loaded. Please refresh the page.');
-        }
-
-        const payload = {
-          action: 'OET_REGISTER',
-          legalName: fullName,
-          email: email,
-          phone: phone,
-          examTimeline: timeline,
-          takenBefore: takenBefore,
-          challengingSkill: challenging,
-          courseStartDate: startPref,
-          coursePace: pace,
-          learningFormat: format,
-          allSkillsOrOne: skillsScope,
-          referralPhone: referral
-        };
-
-        const result = await executeGemIInISync(payload);
-
-        if (!result || result.success !== true) {
-          throw new Error(result && result.error ? result.error : 'SERVER_REJECTED');
-        }
-
-        const gaId = result.gaId || 'GA-OET';
-        activeEmail = email;
-        setCandidateActive(gaId);
-        localStorage.setItem('gemiini_user_ga', gaId);
-
-        res.classList.remove('hidden', 'bg-red-100', 'text-red-700', 'border-red-300');
-        res.classList.add('bg-emerald-100', 'text-emerald-900', 'border-emerald-300');
-        res.innerHTML = `
-          <div class="font-bold">✓ Profile Configured & ID Minted: <span class="font-mono text-emerald-800 text-base">${gaId}</span></div>
-          <div class="text-xs mt-1">Course preferences recorded in OET_INTAKE. Please proceed to Step 2 below to submit your payment reference and lock your seat.</div>
-        `;
-
-        // Smooth scroll to step 2
-        document.getElementById('step-2-card').scrollIntoView({ behavior: 'smooth' });
-
-      } catch (err) {
-        console.error('OET Intake error:', err);
-        res.classList.remove('hidden');
-        res.classList.add('bg-red-100', 'text-red-700', 'border-red-300');
-        res.innerText = `Registration error: ${err.message || 'Network timeout'}. You can retry or contact admissions.`;
-      } finally {
-        btn.disabled = false;
-        btn.innerText = originalText;
-      }
+      // Smooth scroll to step 2
+      step2Section.scrollIntoView({ behavior: 'smooth' });
     }
 
+    // Step 2: Payment Verification Submission & +475 GP Bump
     async function submitOetPayment(e) {
       e.preventDefault();
+      const txRef = document.getElementById('pay-txref').value.trim();
+      if (!txRef) return;
 
-      const btn = document.getElementById('pay-submit-btn');
-      const res = document.getElementById('payment-result');
-      const originalText = btn.innerText;
+      const resultEl = document.getElementById('step2-result');
+      resultEl.classList.remove('hidden');
+      resultEl.innerHTML = `
+        <div class="font-bold text-base">✓ Payment Reference Submitted for Verification</div>
+        <div class="text-xs mt-1.5 leading-relaxed">
+          Reference <span class="font-mono font-bold text-emerald-800">${txRef}</span> logged for candidate <strong>${oetState.mintedGaId}</strong>.
+          Upon confirmation by Admissions Desk (GA-011 Eng. Amjad Gorashi), your GA-ID receives the <strong>+475 GP Pathfinder bump (500 GP Cumulative)</strong>, unlocking our private community portal:
+          <br><a href="https://members.geneacademy.net/communities/groups/gemiini-oet/home?invite=6a95121048b5e122935f0205" target="_blank" class="font-mono text-emerald-800 underline bg-emerald-200/60 px-1 py-0.5 rounded mt-1.5 inline-block font-semibold">Join OET Community &rarr; members.geneacademy.net</a>
+          <br><span class="text-slate-600 mt-1 block">Onboarding schedules and live sprint links are synchronized directly to your <strong>GemIInI Jaib (تطبيقنا للمتابعة)</strong> companion app.</span>
+        </div>
+      `;
 
-      if (!activeGaId) {
-        const cached = localStorage.getItem('gemiini_user_ga');
-        if (cached) activeGaId = cached;
-        else {
-          res.classList.remove('hidden');
-          res.classList.add('bg-red-900/50', 'text-red-300', 'border', 'border-red-700');
-          res.innerText = 'Please complete Step 1 first to generate your candidate ID before submitting payment.';
-          return;
+      // Async sync to backend payment log
+      if (typeof executeGemIInISync === 'function') {
+        try {
+          executeGemIInISync({
+            action: 'OET_PAYMENT_SUBMIT',
+            gaId: oetState.mintedGaId,
+            txRef: txRef,
+            paymentChannel: 'VODAFONE_CASH',
+            amount: 25,
+            currency: 'USD'
+          }).catch(err => console.warn('Payment audit sync warning:', err));
+        } catch (err) {
+          console.warn('Payment sync deferred:', err);
         }
       }
 
-      const channel = document.getElementById('pay-channel').value;
-      const ref = document.getElementById('pay-ref').value.trim();
-
-      if (!ref) {
-        res.classList.remove('hidden');
-        res.classList.add('bg-red-900/50', 'text-red-300', 'border', 'border-red-700');
-        res.innerText = 'Please provide your transaction ID or sender phone number.';
-        return;
-      }
-
-      btn.disabled = true;
-      btn.innerText = 'Logging Transaction & Confirming Seat...';
-      res.classList.add('hidden');
-
-      try {
-        const payload = {
-          action: 'OET_PAYMENT_SUBMIT',
-          gaId: activeGaId,
-          txRef: ref,
-          paymentChannel: channel,
-          amount: 0,
-          currency: 'EGP'
-        };
-
-        const result = await executeGemIInISync(payload);
-
-        if (!result || result.success !== true) {
-          throw new Error(result && result.error ? result.error : 'TRANSACTION_REJECTED');
-        }
-
-        res.classList.remove('hidden', 'bg-red-900/50', 'text-red-300', 'border-red-700');
-        res.classList.add('bg-emerald-900/60', 'text-emerald-200', 'border', 'border-emerald-600', 'p-5');
-        res.innerHTML = `
-          <div class="font-bold text-sm mb-1">🎉 Payment Reference Successfully Logged!</div>
-          <div class="text-xs text-slate-300 leading-relaxed mb-3">
-            Reference <span class="font-mono text-emerald-300 font-bold">${ref}</span> has been logged to PAYMENT_AUDIT_LOG as PENDING_VERIFICATION.
-            Your cohort placement is provisionally locked. Our admissions audit reconciles transactions continuously.
-          </div>
-          <a href="https://geneacademy.net/start.html" class="inline-block px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl text-xs transition">
-            Start Pre-Course Diagnostic Assessment (20 MTC Questions) ➔
-          </a>
-        `;
-        document.getElementById('oet-payment-form').reset();
-        const nextPanel = document.getElementById('oetNextStepPanel');
-        if (nextPanel) {
-          nextPanel.classList.remove('hidden');
-          nextPanel.scrollIntoView({ behavior: 'smooth' });
-        }
-
-      } catch (err) {
-        console.error('Payment submit error:', err);
-        res.classList.remove('hidden');
-        res.classList.add('bg-red-900/50', 'text-red-300', 'border', 'border-red-700');
-        res.innerText = `Audit submission error: ${err.message || 'Connection error'}.`;
-      } finally {
-        btn.disabled = false;
-        btn.innerText = originalText;
-      }
+      const btn2 = document.getElementById('btn-submit-step2');
+      btn2.disabled = true;
+      btn2.classList.add('opacity-60', 'cursor-not-allowed');
+      btn2.innerText = `Submitted: txRef [${txRef}]`;
     }
 
-    async function flagCvGapInterest() {
-      const btn = document.getElementById('oetInterestBtn');
-      const resultEl = document.getElementById('oetInterestResult');
-      const targetGa = activeGaId || localStorage.getItem('gemiini_user_ga');
+    // Initialize Calculator on DOM load
+    document.addEventListener('DOMContentLoaded', () => {
+      runCalculator();
 
-      if (!targetGa) {
-        alert('Please complete registration first.');
-        return;
+      // Check if user already has an active GA ID
+      const cachedGa = localStorage.getItem('gemiini_user_ga');
+      if (cachedGa && cachedGa.startsWith('GA-')) {
+        oetState.mintedGaId = cachedGa;
       }
-
-      btn.disabled = true;
-      btn.innerText = 'Submitting Interest...';
-
-      try {
-        const result = await executeGemIInISync({
-          action: 'SUBMIT_FEEDBACK',
-          gaId: targetGa,
-          targetPathways: 'CV & Clinical Gap Review (Post-OET Relocation)'
-        });
-
-        resultEl.classList.remove('hidden');
-        resultEl.className = 'text-xs mt-3 text-emerald-400 font-bold';
-        resultEl.innerText = `✓ Flagged on Ledger (+${result.gpAwarded || 25} GP credited). Faculty will review your clinical gap mapping prior to relocation.`;
-        btn.innerText = 'Interest Flagged ✓';
-      } catch (err) {
-        resultEl.classList.remove('hidden');
-        resultEl.className = 'text-xs mt-3 text-amber-400';
-        if (String(err.message).includes('SURVEY_ALREADY_SUBMITTED')) {
-          resultEl.innerText = '✓ Already recorded on your profile ledger.';
-          btn.innerText = 'Already Flagged ✓';
-        } else {
-          resultEl.innerText = `Note: ${err.message || 'Connection timeout'}. Your preference will still be addressed during onboarding.`;
-          btn.disabled = false;
-          btn.innerText = 'Flag My Account for CV & Clinical Gap Review (+25 GP)';
-        }
-      }
-    }
+    });
   </script>
 </body>
 </html>

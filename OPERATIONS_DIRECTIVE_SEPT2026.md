@@ -1,4 +1,4 @@
-﻿# ðŸŽ¯ GemIInI SudaGene Platform â€” Master Operations Directive
+# ðŸŽ¯ GemIInI SudaGene Platform â€” Master Operations Directive
 **Effective Date:** September 1, 2026  
 **Operational Status:** ACTIVE PRODUCTION EXECUTION  
 **Authority:** Approved by GA-000 (Dr. Mohamed Gibbril)
@@ -9,7 +9,7 @@
 * **Member LMS Platform:** `members.geneacademy.net` (Kajabi-based, 14 communities, 486+ verified members).
 * **Public Gateway:** `geneacademy.net` (Hostinger Production Edge).
 * **Primary Funnel Flow:**
-  `start.html` $\rightarrow$ **Career Pathway Join (Mandatory First)** $\rightarrow$ **Track Community** $\rightarrow$ **Payment (Vodafone Cash 01015922628 / Bankak 3067891)** $\rightarrow$ **Confirmation to `admissions@geneacademy.net` (GA-011 Eng. Amjad Gorashi)**.
+  `start.html` $\rightarrow$ **Career Pathway Join (Mandatory First)** $\rightarrow$ **Track Community** $\rightarrow$ **Payment (Vodafone Cash 01015922628)** $\rightarrow$ **Confirmation to `admissions@geneacademy.net` (GA-011 Eng. Amjad Gorashi)**.
 
 ---
 

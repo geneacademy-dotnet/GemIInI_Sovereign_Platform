@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { useNavigate } from 'react-router-dom';
 import { 
@@ -339,7 +339,7 @@ export default function RegisterPage() {
                     type="text"
                     value={formData.txRef}
                     onChange={(e) => setFormData({ ...formData, txRef: e.target.value })}
-                    placeholder="e.g. VF-Cash / Bankak Reference #"
+                    placeholder="e.g. VF-Cash Reference #"
                     className="w-full px-4 py-3 bg-slate-950/70 border border-slate-700/70 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 text-sm font-mono transition"
                   />
                 </div>
