@@ -30,10 +30,11 @@
 ## 3. Verified Faculty Matrix & Delegation SOP
 | GA-ID | Name & Credentials | Role & Operational Boundary |
 | :--- | :--- | :--- |
-| **GA-000** | **Dr. Mohamed Gibbril, MBBS** | Founder & CEO, SGRC Lead. Focuses on research, curriculum, and high-level strategy. **Never answers raw WhatsApp support.** |
-| **GA-001** | **Dr. Alaa Mursi Farah, FMRCS** | Medical Director (Ireland). OET & MRCS Clinical Lead. Scheduled lectures and case reviews only. |
-| **GA-004** | **Dr. Safaa Mubarak Elhassan, MBBS, MSc** | Academic Dean (MBBS OIU 2014, MSc IMU Malaysia). Pharmacology & Molecular Medicine Lead. |
-| **GA-006** | **Dr. Mohamed Sabri Mohamed Ahmed** | Director of Clinical Simulation (STC Cairo, AHA Lic. 1549). Hands-on BLS/ACLS only. |
+| **GA-000** | **Dr. Mohamed Gibbril, MBBS, MSc** | Founder & CEO, SGRC Lead; Co-Lead Department of Genomic & Molecular Medicine. Curriculum, multi-omics research & high-level strategy. **Never answers raw WhatsApp support.** |
+| **GA-015** | **Dr. Waleed Gibbril, Double MSc, Double PhD** | Distinguished IEND Alumnus & Senior Research Fellow; Co-Lead Department of Genomic & Molecular Medicine. Research synthesis, multi-omics & genomics pipelines. |
+| **GA-001** | **Dr. Alaa Mursi Farah, FMRCS** | Medical Director (Ireland). Department of Medical Linguistics (OET) & MRCS Clinical Surgery Lead. |
+| **GA-004** | **Dr. Safaa Mubarak Elhassan, MBBS, MSc** | Academic Dean (MBBS OIU 2014, MSc IMU Malaysia). Pharmacology & Academic Audits. |
+| **GA-006** | **Dr. Mohamed Sabri Mohamed Ahmed** | Director of Clinical Simulation (STC Cairo, AHA Lic. 1549). Department of Clinical Simulation & Resuscitation (BLS). |
 | **GA-011** | **Eng. Amjad Gorashi** | Operations Director & Admissions Desk (`admissions@geneacademy.net`). Handles all support and candidate triage. |
 
 ---

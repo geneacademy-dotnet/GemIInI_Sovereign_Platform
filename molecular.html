@@ -1,275 +1,659 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr" class="scroll-smooth">
 <head>
+  <!-- Iubenda Cookie & Consent Banner -->
+  <script type="text/javascript">
+  var _iub = _iub || [];
+  _iub.csConfiguration = {"siteId":4659147,"cookiePolicyId":32190221,"lang":"en","storage":{"useSiteId":true}};
+  </script>
+  <script type="text/javascript" src="https://cs.iubenda.com/autoblocking/4659147.js"></script>
+  <script type="text/javascript" src="//cdn.iubenda.com/cs/gpp/stub.js"></script>
+  <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
 
-<script type="text/javascript">
-var _iub = _iub || [];
-_iub.csConfiguration = {"siteId":4659147,"cookiePolicyId":32190221,"lang":"en","storage":{"useSiteId":true}};
-</script>
-<script type="text/javascript" src="https://cs.iubenda.com/autoblocking/4659147.js"></script>
-<script type="text/javascript" src="//cdn.iubenda.com/cs/gpp/stub.js"></script>
-<script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MolecularGemIInI Research Masterclass (MM 1.0 - 8.0) | Multi-Omics & Genomic Medicine</title>
+  <meta name="description" content="Department of Genomic Medicine & Molecular Medicine directed by Dr. Mohamed Gibbril (GA-000) and Dr. Waleed Gibbril (GA-015). High-throughput bioinformatics, PCR assay workbench, and precision diagnostics.">
 
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>MolecularGemIInI Research Masterclass (MM 1.0 - 8.0) | Multi-Omics & PCR</title>
- <link rel="stylesheet" href="css/styles.css">
-  <!-- Canonical Design Tokens & Fonts -->
+  <!-- Typography & Tailwind CSS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              navy: '#0A192F',
+              blue: '#123B5D',
+              teal: '#168C8C',
+              cyan: '#00F2FE',
+              accent: '#2dd4bf',
+              gold: '#C9A227'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #0A192F; color: #F8FAFC; }
+    .glass-card { background: rgba(13, 34, 56, 0.75); backdrop-filter: blur(16px); border: 1px solid rgba(0, 242, 254, 0.2); }
+    .gel-track { background: linear-gradient(90deg, #071322 0%, #0d2238 100%); border: 1px solid rgba(0, 242, 254, 0.25); }
+    .gel-band { position: absolute; height: 100%; width: 4px; background: #00F2FE; box-shadow: 0 0 12px #00F2FE; }
+  </style>
 </head>
-<body>
 
- <!-- Ambient Radiant Glows -->
- <div class="ambient-glow glow-top-left"></div>
- <div class="ambient-glow glow-bottom-right"></div>
+<body class="min-h-screen flex flex-col antialiased selection:bg-cyan-500/20 selection:text-cyan-300">
 
- <!-- Navigation Bar -->
- <header class="navbar">
- <div class="container nav-content">
- <a href="index.html" class="brand-logo">
- <div class="logo-icon">GS</div>
- <div class="brand-text">
- <h1>GEMIINI Independent</h1>
- <span>MOLECULAR MEDICINE</span>
- </div>
- </a>
+  <!-- Top Institutional Bar -->
+  <header class="bg-[#071322] text-slate-300 text-xs py-2 px-4 border-b border-slate-800">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+      <div class="flex items-center gap-2 font-mono">
+        <span class="inline-block w-2 h-2 rounded-full bg-[#00F2FE] animate-pulse"></span>
+        <span>GENEACADEMY SOVEREIGN PLATFORM</span>
+        <span class="text-slate-600">|</span>
+        <span class="text-cyan-400 font-semibold">Department of Genomic Medicine &amp; Molecular Diagnostics</span>
+      </div>
+      <div class="flex items-center gap-4 text-[11px] font-mono">
+        <span>Leadership: <strong class="text-white">Dr. Mohamed Gibbril (GA-000) &amp; Dr. Waleed Gibbril (GA-015)</strong></span>
+      </div>
+    </div>
+  </header>
 
- <ul class="nav-links">
- <li><a href="index.html">Home</a></li>
- <li><a href="join.html">Join Track</a></li>
- <li><a href="smc.html">SMC Licensing</a></li>
- <li><a href="jaib.html">GemIInI Jaib</a></li>
- <li><a href="reviews.html" style="color: var(--gold); font-weight: 800;">Verified Reviews</a></li>
- <li><a href="alumni.html">Hall of Fame</a></li>
- </ul>
+  <!-- Navigation Bar -->
+  <nav class="bg-[#0A192F]/90 backdrop-blur-md sticky top-0 z-40 border-b border-slate-800">
+    <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#123B5D] to-[#168C8C] flex items-center justify-center text-white font-bold text-lg shadow-sm border border-cyan-500/30 font-mono">
+          GS
+        </div>
+        <div>
+          <span class="font-extrabold text-white text-lg tracking-tight block leading-none">MolecularGemIInI</span>
+          <span class="text-[10px] text-cyan-400 font-mono font-semibold tracking-wider uppercase">Genomic Medicine &amp; Multi-Omics</span>
+        </div>
+      </a>
+      
+      <div class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-300">
+        <a href="#workbench" class="hover:text-cyan-400 transition">Virtual Workbench</a>
+        <a href="#curriculum" class="hover:text-cyan-400 transition">8-Block Syllabus</a>
+        <a href="#leadership" class="hover:text-cyan-400 transition">Academic Leadership</a>
+        <a href="#funnel" class="hover:text-cyan-400 transition">Intake Rails</a>
+      </div>
 
- <div class="nav-cta">
- <a href="#molecular-enroll" class="btn btn-primary">Enroll via Vodafone Cash</a>
- </div>
- </div>
- </header>
+      <a href="#funnel" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#168C8C] to-cyan-500 hover:brightness-110 text-slate-950 font-extrabold text-xs tracking-wide uppercase shadow-md transition duration-200">
+        Enroll Now
+      </a>
+    </div>
+  </nav>
 
- <!-- =========================================================================
- Independent SSO & TELEPORTATION BAR (members.geneacademy.net SYNC)
- ========================================================================= -->
- <section class="container" style="margin-top: 18px;">
- <div id="Independent-sso-bar" class="sso-sync-container">
- <!-- AUTHENTICATED STATE (DEFAULT: HIDDEN UNTIL SYNCED) -->
- <div id="sso-authenticated-view" style="display: none; width: 100%; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
- <div class="sso-status-active">
- <div class="sso-avatar-badge" id="sso-avatar">GA</div>
- <div class="sso-info">
- <h4>
- <span id="sso-doctor-name">Dr. Authenticated Member</span>
- <span style="color: #85e0a3; font-size: 14.5px;">— Verified</span>
- </h4>
- <p>
- ID: <strong id="sso-doctor-id" style="color: #00E5FF;">GA-0000</strong> • 
- Wallet: <strong id="sso-doctor-gp" style="color: #F59E0B;">500 GP</strong> • 
- <span id="sso-doctor-univ">University</span>
- </p>
- </div>
- </div>
- <div class="sso-actions">
- <button type="button" onclick="logoutGemIInISession()" style="background:none; border:none; color: #94A3B8; font-size: 14.5px; cursor:pointer; text-decoration:underline;">تبديل الحساب (Switch)</button>
- <a href="https://members.geneacademy.net" id="sso-teleport-link" target="_blank" class="btn-teleport">
- دخول لوحة التحكم (members.geneacademy.net) →
- </a>
- </div>
- </div>
+  <!-- Hero Section -->
+  <section class="py-16 md:py-24 px-4 text-center border-b border-slate-800/80 relative overflow-hidden">
+    <div class="max-w-5xl mx-auto space-y-6 relative z-10">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-950/60 border border-cyan-500/40 text-xs font-mono text-cyan-300">
+        <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+        <span>DEPARTMENT OF GENOMIC MEDICINE &bull; MM 1.0 &ndash; MM 8.0</span>
+      </div>
 
- <!-- UNAUTHENTICATED STATE -->
- <div id="sso-unauth-view" style="display: flex; width: 100%; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
- <div>
- <span style="font-family: var(--font-mono, monospace); font-size: 14.5px; color: #F59E0B; text-transform: uppercase; font-weight: 700;">بوابة العبور المستقلة (Independent SSO Gateway):</span>
- <p style="font-size: 13px; color: #E2E8F0; margin: 2px 0 0;">هل تمتلك رقم معرف سيادي (GA#) مسبقاً؟ قم بمزامنة حسابك للعبور الفوري إلى المنصة الأعضاء.</p>
- </div>
- <div class="sso-input-unauth">
- <input type="text" id="sso-quick-id" placeholder="GA-####" onkeydown="if(event.key==='Enter') executeGemIInISync()">
- <button type="button" class="btn-sso-sync" onclick="executeGemIInISync()">مزامنة →</button>
- </div>
- </div>
- </div>
- </section>
+      <h1 class="text-3xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight max-w-4xl mx-auto text-white">
+        MolecularGemIInI Masterclass & <br>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-teal-200 to-white">
+          Precision Genomic Diagnostics
+        </span>
+      </h1>
 
+      <p class="text-slate-300 text-base md:text-lg max-w-3xl mx-auto leading-relaxed font-normal">
+        Directed by <strong>Dr. Mohamed Gibbril (GA-000)</strong> and <strong>Dr. Waleed Gibbril (GA-015)</strong>. Bridging sub-cellular multi-omics, recombinant DNA engineering, and high-throughput bioinformatics directly to bedside diagnostic precision.
+      </p>
 
- <!-- Hero Section -->
- <section class="container" style="max-width: 960px; margin: 50px auto 40px; text-align: center;">
- <div class="hero-badge" style="border-color: var(--accent-cyan); color: var(--accent-cyan);">
- <span> Department of Multi-Omics, Genomics & Diagnostic Assay Engineering</span>
- </div>
- 
- <h1 class="hero-title" style="font-size: 42px; margin-bottom: 16px;">
- MolecularGemIInI Full Masterclass (MM 1.0 "“ MM 8.0)
- </h1>
- 
- <p style="font-size: 16px; color: var(--text-muted); line-height: 1.7; max-width: 800px; margin: 0 auto 30px;">
- Directed by <strong>Dr. Mohamed Ahmed Abdulfatah Gibbril</strong> (Institute of Endemic Diseases, UofK | Egypt Capital Oncology Centre). Bridging sub-cellular multi-omics, recombinant DNA engineering, and high-throughput bioinformatics directly to bedside diagnostic precision.
- </p>
+      <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#funnel" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-gradient-to-r from-cyan-400 to-teal-500 hover:brightness-110 text-slate-950 font-extrabold text-sm tracking-wide shadow-lg shadow-cyan-900/40 transition">
+          Start Intake &amp; Mint GA-ID
+        </a>
+        <a href="#workbench" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-slate-900/80 hover:bg-slate-800 border border-slate-700 text-white font-semibold text-sm transition">
+          Launch Virtual PCR Workbench
+        </a>
+      </div>
 
- <!-- Pricing Highlight Card -->
- <div class="glass-card" style="padding: 30px; border-color: rgba(0, 242, 254, 0.4); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; max-width: 800px; margin: 0 auto 40px;">
- <div style="text-align: left;">
- <span style="font-size: 14.5px; text-transform: uppercase; color: var(--accent-cyan); font-weight: 800;">Full 8-Block Multi-Omics Suite</span>
- <div style="font-family: var(--font-sans); font-size: 36px; font-weight: 900; color: #FFFFFF;">
- 3,200 EGP <span style="font-size: 14px; color: var(--text-muted); font-weight: 400;">/ 85 USD</span>
- </div>
- <p style="font-size: 14.5px; color: var(--accent-teal);">Includes Virtual PCR Workbench + Bioinformatics Datasets</p>
- </div>
+      <!-- Quick Metrics -->
+      <div class="pt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl mx-auto font-mono text-xs">
+        <div class="p-3.5 rounded-2xl glass-card text-center">
+          <div class="text-xl sm:text-2xl font-black text-cyan-400">8 Blocks</div>
+          <div class="text-[10px] text-slate-400 mt-1">Multi-Omics Suite</div>
+        </div>
+        <div class="p-3.5 rounded-2xl glass-card text-center">
+          <div class="text-xl sm:text-2xl font-black text-white">Virtual Gel</div>
+          <div class="text-[10px] text-slate-400 mt-1">PCR &amp; Primer Workbench</div>
+        </div>
+        <div class="p-3.5 rounded-2xl glass-card text-center">
+          <div class="text-xl sm:text-2xl font-black text-amber-300">3,200 EGP</div>
+          <div class="text-[10px] text-slate-400 mt-1">Full 8-Block Suite (or $85)</div>
+        </div>
+        <div class="p-3.5 rounded-2xl glass-card text-center">
+          <div class="text-xl sm:text-2xl font-black text-teal-300">+500 GP</div>
+          <div class="text-[10px] text-slate-400 mt-1">Pathfinder Ledger Award</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
- <a href="#molecular-enroll" class="btn btn-primary" style="padding: 14px 28px; font-size: 15px;">
- Enroll in MolecularGemIInI Now →
- </a>
- </div>
- </section>
+  <!-- 1. Academic Leadership Dossier -->
+  <section id="leadership" class="py-16 bg-[#071322] border-b border-slate-800">
+    <div class="max-w-5xl mx-auto px-4 space-y-8">
+      <div class="text-center space-y-2">
+        <span class="text-cyan-400 font-mono font-bold text-xs uppercase tracking-widest block">DEPARTMENT LEADERSHIP</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Genomic Medicine &amp; Molecular Research Directors</h2>
+        <p class="text-slate-400 text-xs max-w-xl mx-auto">
+          Canonical governance of the Department of Genomic Medicine, Molecular Medicine &amp; Relevant Programs.
+        </p>
+      </div>
 
- <!-- Interactive Virtual PCR & Primer Workbench -->
- <section class="container" style="max-width: 1100px; margin-bottom: 70px;">
- <div class="glass-card" style="padding: 36px; border-color: rgba(0, 242, 254, 0.3);">
- <div class="section-header" style="margin-bottom: 24px; text-align: left;">
- <span class="section-tag">LIVE INTERACTIVE ASSAY WORKBENCH</span>
- <h2 class="section-title" style="font-size: 26px;">Virtual Primer Design & Agarose Gel Migration Engine</h2>
- <p class="section-desc">Test and compute melting temperatures ($T_m$), GC ratios, and visualize amplicon migration across simulated agarose gel electrophoresis.</p>
- </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Dr. Mohamed Gibbril -->
+        <div class="p-6 rounded-3xl glass-card border border-cyan-500/30 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-[#123B5D] to-cyan-600 text-white font-mono font-bold flex items-center justify-center text-base shadow-md">
+              GA-000
+            </div>
+            <div>
+              <span class="text-[10px] font-mono uppercase text-cyan-400 font-bold block">Founder &bull; CEO &bull; SGRC Lead</span>
+              <h3 class="text-lg font-bold text-white">Dr. Mohamed Ahmed Gibbril</h3>
+            </div>
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            MBBS University of Khartoum &bull; MSc Institute of Endemic Diseases (IEND) &bull; Egypt Capital Oncology Centre. Lead Architect of the SudaGene Consortium and GemIInI Sovereign Platform. Directs curriculum, multi-omics diagnostic models, and clinical research frameworks.
+          </p>
+        </div>
 
- <div class="workbench-grid">
- <div>
- <div class="input-group">
- <label for="primer-sequence" class="input-label">Enter Primer Nucleotide Sequence (5' → 3')</label>
- <input type="text" id="primer-sequence" class="input-control" value="ATGCGATCGATCGATCGATCG" style="font-family: var(--font-mono); font-size: 15px; letter-spacing: 1px;">
- </div>
+        <!-- Dr. Waleed Gibbril -->
+        <div class="p-6 rounded-3xl glass-card border border-cyan-500/30 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-[#123B5D] to-teal-600 text-white font-mono font-bold flex items-center justify-center text-base shadow-md">
+              GA-015
+            </div>
+            <div>
+              <span class="text-[10px] font-mono uppercase text-teal-400 font-bold block">Senior Research Fellow &bull; Co-Lead</span>
+              <h3 class="text-lg font-bold text-white">Dr. Waleed Gibbril</h3>
+            </div>
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Double MSc, Double PhD &bull; Distinguished Institute of Endemic Diseases (IEND) Alumnus. Senior Molecular Research Fellow directing high-throughput sequencing pipelines, genetic variant analysis, and computational genomics pipelines for the consortium.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
- <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 20px;">
- <div class="stat-box">
- <span id="len-output" class="stat-number" style="font-size: 20px;">21 bp</span>
- <span class="stat-label">Length</span>
- </div>
- <div class="stat-box">
- <span id="gc-output" class="stat-number" style="font-size: 20px; color: var(--accent-teal);">52%</span>
- <span class="stat-label">GC Content</span>
- </div>
- <div class="stat-box">
- <span id="tm-output" class="stat-number" style="font-size: 20px; color: var(--accent-gold);">61 °C</span>
- <span class="stat-label">Melting Temp ($T_m$)</span>
- </div>
- </div>
+  <!-- 2. Interactive Virtual PCR & Primer Workbench -->
+  <section id="workbench" class="py-16 bg-[#0A192F] border-b border-slate-800">
+    <div class="max-w-5xl mx-auto px-4 space-y-6">
+      <div class="text-center space-y-2">
+        <span class="text-cyan-400 font-mono font-bold text-xs uppercase tracking-widest block">INTERACTIVE SIMULATION LAB</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Virtual Primer Design &amp; Agarose Gel Migration Engine</h2>
+        <p class="text-slate-400 text-xs max-w-xl mx-auto">
+          Test nucleotide sequences, compute melting temperatures ($T_m$), GC ratios, and visualize amplicon migration across simulated agarose gel electrophoresis (2.0%).
+        </p>
+      </div>
 
- <button id="calc-primer-btn" class="btn btn-primary" style="width: 100%; padding: 14px;">
- Re-Calculate & Simulate Gel Migration 
- </button>
- </div>
+      <div class="p-6 md:p-8 rounded-3xl glass-card grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="space-y-4">
+          <div>
+            <label class="block text-xs font-bold text-cyan-300 uppercase tracking-wider mb-2 font-mono">
+              Primer Nucleotide Sequence (5&prime; &rarr; 3&prime;)
+            </label>
+            <input type="text" id="primer-seq" value="ATGCGATCGATCGATCGATCG" class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-cyan-500/40 text-cyan-300 font-mono text-sm tracking-wider focus:outline-none focus:border-cyan-400">
+          </div>
 
- <!-- Virtual Gel Screen -->
- <div>
- <label class="input-label" style="margin-bottom: 10px;">Simulated Agarose Gel Electrophoresis (2.0%)</label>
- <div class="gel-box">
- <div class="gel-lane">
- <span class="lane-label">Ladder</span>
- <div class="lane-track">
- <div style="position: absolute; left: 20%; width: 6px; top: 0; bottom: 0; background: #64748B;"></div>
- <div style="position: absolute; left: 40%; width: 6px; top: 0; bottom: 0; background: #64748B;"></div>
- <div style="position: absolute; left: 60%; width: 6px; top: 0; bottom: 0; background: #64748B;"></div>
- <div style="position: absolute; left: 80%; width: 6px; top: 0; bottom: 0; background: #64748B;"></div>
- </div>
- </div>
+          <div class="grid grid-cols-3 gap-2 text-center font-mono">
+            <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-700">
+              <span id="stat-len" class="text-base font-bold text-white block">21 bp</span>
+              <span class="text-[10px] text-slate-400">Length</span>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-700">
+              <span id="stat-gc" class="text-base font-bold text-teal-400 block">52%</span>
+              <span class="text-[10px] text-slate-400">GC Ratio</span>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-700">
+              <span id="stat-tm" class="text-base font-bold text-amber-300 block">61 &deg;C</span>
+              <span class="text-[10px] text-slate-400">Melting ($T_m$)</span>
+            </div>
+          </div>
 
- <div class="gel-lane">
- <span class="lane-label">Assay 1</span>
- <div class="lane-track">
- <div id="sim-gel-band" class="gel-band" style="left: 52%;"></div>
- </div>
- </div>
+          <button onclick="calculatePrimer()" class="w-full py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-teal-500 text-slate-950 font-extrabold text-xs uppercase tracking-wider shadow-md hover:brightness-110 transition">
+            Re-Calculate &amp; Simulate Migration
+          </button>
+        </div>
 
- <div class="gel-lane">
- <span class="lane-label">Control</span>
- <div class="lane-track">
- <div class="gel-band" style="left: 35%; background: var(--accent-teal); box-shadow: 0 0 10px var(--accent-teal);"></div>
- </div>
- </div>
- </div>
+        <!-- Virtual Gel Electrophoresis Display -->
+        <div class="space-y-2">
+          <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider font-mono">
+            Simulated Agarose Gel Migration (2.0%)
+          </label>
+          <div class="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-3 font-mono text-[11px]">
+            <!-- Lane 1: Ladder -->
+            <div class="flex items-center gap-3">
+              <span class="w-16 text-slate-500 text-right">Ladder</span>
+              <div class="flex-1 h-6 gel-track rounded relative overflow-hidden">
+                <div class="absolute left-[15%] w-1 h-full bg-slate-500"></div>
+                <div class="absolute left-[35%] w-1 h-full bg-slate-500"></div>
+                <div class="absolute left-[55%] w-1 h-full bg-slate-500"></div>
+                <div class="absolute left-[75%] w-1 h-full bg-slate-500"></div>
+              </div>
+            </div>
 
- <div style="margin-top: 14px; font-size: 14.5px; color: var(--text-sub);">
- Calibrated against real-time Taq polymerase kinetics and multiplex PCR diagnostic validation standards.
- </div>
- </div>
- </div>
- </div>
- </section>
+            <!-- Lane 2: Sample Assay -->
+            <div class="flex items-center gap-3">
+              <span class="w-16 text-cyan-400 text-right">Assay 1</span>
+              <div class="flex-1 h-6 gel-track rounded relative overflow-hidden">
+                <div id="gel-sample-band" class="gel-band left-[52%]"></div>
+              </div>
+            </div>
 
- <!-- 8 Departments Overview Grid -->
- <section class="container" style="max-width: 1100px; margin-bottom: 80px;">
- <div class="section-header">
- <span class="section-tag">COMPREHENSIVE 8-BLOCK SYLLABUS</span>
- <h2 class="section-title">MolecularGemIInI Departmental Curricula</h2>
- </div>
+            <!-- Lane 3: Control -->
+            <div class="flex items-center gap-3">
+              <span class="w-16 text-emerald-400 text-right">Control</span>
+              <div class="flex-1 h-6 gel-track rounded relative overflow-hidden">
+                <div class="absolute left-[38%] w-1 h-full bg-emerald-400 shadow-[0_0_10px_#34d399]"></div>
+              </div>
+            </div>
+          </div>
+          <p class="text-[10px] text-slate-400 font-mono">
+            Calibrated against real-time Taq polymerase kinetics and multiplex diagnostic PCR standards.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
- <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
- <div class="glass-card" style="padding: 20px;">
- <h4 style="color: var(--accent-cyan); font-size: 15px; margin-bottom: 6px;">MM 1.0: DNA Architecture</h4>
- <p style="font-size: 14.5px; color: var(--text-muted);">Composition, supercoiling, chromatin regulation, and epigenetic histone methylation.</p>
- </div>
- <div class="glass-card" style="padding: 20px;">
- <h4 style="color: var(--accent-teal); font-size: 15px; margin-bottom: 6px;">MM 2.0: Recombinant DNA</h4>
- <p style="font-size: 14.5px; color: var(--text-muted);">Restriction enzymes, plasmid cloning vectors, and recombinant expression vectors.</p>
- </div>
- <div class="glass-card" style="padding: 20px;">
- <h4 style="color: var(--accent-gold); font-size: 15px; margin-bottom: 6px;">MM 3.0: PCR & Primer Design</h4>
- <p style="font-size: 14.5px; color: var(--text-muted);">qPCR kinetics, melting curves, probe fluorophores, and multiplex amplification.</p>
- </div>
- <div class="glass-card" style="padding: 20px;">
- <h4 style="color: var(--accent-purple); font-size: 15px; margin-bottom: 6px;">MM 4.0: Bioinformatics & GWAS</h4>
- <p style="font-size: 14.5px; color: var(--text-muted);">Sequence alignment, BLAST algorithms, population genetics, and variant effect predictors.</p>
- </div>
- <div class="glass-card" style="padding: 20px;">
- <h4 style="color: #FFFFFF; font-size: 15px; margin-bottom: 6px;">MM 5.0: Immuno-Oncology</h4>
- <p style="font-size: 14.5px; color: var(--text-muted);">TCR sequencing, HLA typing, tumor microenvironment, and immune checkpoint biology.</p>
- </div>
- <div class="glass-card" style="padding: 20px;">
- <h4 style="color: var(--accent-cyan); font-size: 15px; margin-bottom: 6px;">MM 6.0: Tropical Multi-Omics</h4>
- <p style="font-size: 14.5px; color: var(--text-muted);">Leishmania genomics, malaria drug resistance mutations, and host-pathogen genetics.</p>
- </div>
- <div class="glass-card" style="padding: 20px;">
- <h4 style="color: var(--accent-teal); font-size: 15px; margin-bottom: 6px;">MM 7.0: Clinical Biomarkers</h4>
- <p style="font-size: 14.5px; color: var(--text-muted);">Liquid biopsies, circulating tumor DNA (ctDNA), and molecular pathology assays.</p>
- </div>
- <div class="glass-card" style="padding: 20px;">
- <h4 style="color: var(--accent-gold); font-size: 15px; margin-bottom: 6px;">MM 8.0: The Capstone Thesis</h4>
- <p style="font-size: 14.5px; color: var(--text-muted);">Original research synthesis, scientific manuscript peer-review, and defense.</p>
- </div>
- </div>
- </section>
+  <!-- 3. 8-Block Syllabus Overview -->
+  <section id="curriculum" class="py-16 bg-[#071322] border-b border-slate-800">
+    <div class="max-w-6xl mx-auto px-4 space-y-8">
+      <div class="text-center space-y-2">
+        <span class="text-cyan-400 font-mono font-bold text-xs uppercase tracking-widest block">CURRICULUM ARCHITECTURE</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white">The 8-Block Molecular &amp; Genomics Matrix</h2>
+      </div>
 
- <!-- Vodafone Cash Enrollment Box -->
- <section id="molecular-enroll" class="container" style="max-width: 760px; margin-bottom: 100px;">
- <div class="glass-card" style="padding: 36px; border-color: rgba(230,0,0,0.4); text-align: center;">
- <div class="vodafone-logo-badge">VODAFONE CASH OFFICIAL DIRECT GATEWAY</div>
- <h2 style="font-family: var(--font-sans); font-size: 28px; font-weight: 800; margin: 12px 0;">Instant MolecularGemIInI Enrollment</h2>
- <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 20px;">
- Transfer the full 8-block tuition (<strong>3,200 EGP</strong>) directly to the authorized wallet:
- </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-xs">
+        <div class="p-4 rounded-2xl glass-card space-y-1">
+          <span class="font-mono text-cyan-400 font-bold">MM 1.0</span>
+          <h4 class="font-bold text-white text-sm">DNA Architecture</h4>
+          <p class="text-slate-400">Supercoiling, chromatin regulation, epigenetic methylation, and histone modification kinetics.</p>
+        </div>
 
- <div class="vodafone-number-display" style="padding: 14px 20px; max-width: 450px; margin: 0 auto 16px;">
- <span class="vodafone-number" style="font-size: 24px;">+20 101 592 2628</span>
- <button type="button" class="btn btn-vodafone btn-copy-vodafone">Copy Number</button>
- </div>
+        <div class="p-4 rounded-2xl glass-card space-y-1">
+          <span class="font-mono text-teal-400 font-bold">MM 2.0</span>
+          <h4 class="font-bold text-white text-sm">Recombinant DNA</h4>
+          <p class="text-slate-400">Restriction endonucleases, plasmid cloning vectors, recombinant gene expression, and CRISPR-Cas9.</p>
+        </div>
 
- <a href="join.html" class="btn btn-primary" style="padding: 14px 28px; font-size: 15px;">
- Proceed to Guided Registration Form →
- </a>
- </div>
- </section>
+        <div class="p-4 rounded-2xl glass-card space-y-1">
+          <span class="font-mono text-amber-300 font-bold">MM 3.0</span>
+          <h4 class="font-bold text-white text-sm">PCR &amp; Primer Engineering</h4>
+          <p class="text-slate-400">qPCR kinetics, TaqMan vs SYBR Green, melting curves, and diagnostic multiplex assays.</p>
+        </div>
 
- <footer class="footer">
- <div class="container" style="text-align: center; font-size: 14.5px; color: var(--text-sub);">
- &copy; 2026 GemIInI Independent Conglomerate & Gene Academy (geneacademy.net). Directed by Dr. Mohamed Gibbril.
- </div>
- </footer>
+        <div class="p-4 rounded-2xl glass-card space-y-1">
+          <span class="font-mono text-purple-400 font-bold">MM 4.0</span>
+          <h4 class="font-bold text-white text-sm">Bioinformatics &amp; GWAS</h4>
+          <p class="text-slate-400">BLAST algorithms, multi-sequence alignment, variant annotation, and population genomics.</p>
+        </div>
 
- <script src="js/reviews_data.js"></script>
- <script src="js/ga_data.js"></script>
- <script src="js/app.js"></script>
+        <div class="p-4 rounded-2xl glass-card space-y-1">
+          <span class="font-mono text-white font-bold">MM 5.0</span>
+          <h4 class="font-bold text-white text-sm">Immuno-Oncology</h4>
+          <p class="text-slate-400">TCR repertoire sequencing, HLA allele resolution, tumor mutation burden (TMB), and PD-L1 kinetics.</p>
+        </div>
+
+        <div class="p-4 rounded-2xl glass-card space-y-1">
+          <span class="font-mono text-cyan-400 font-bold">MM 6.0</span>
+          <h4 class="font-bold text-white text-sm">Tropical Multi-Omics</h4>
+          <p class="text-slate-400">Leishmania donovani genomics, antimalarial drug resistance SNPs, and host-pathogen genetics.</p>
+        </div>
+
+        <div class="p-4 rounded-2xl glass-card space-y-1">
+          <span class="font-mono text-teal-400 font-bold">MM 7.0</span>
+          <h4 class="font-bold text-white text-sm">Clinical Biomarkers</h4>
+          <p class="text-slate-400">Circulating tumor DNA (ctDNA), liquid biopsies, exosome RNA profiling, and molecular pathology.</p>
+        </div>
+
+        <div class="p-4 rounded-2xl glass-card space-y-1">
+          <span class="font-mono text-amber-300 font-bold">MM 8.0</span>
+          <h4 class="font-bold text-white text-sm">The Capstone Thesis</h4>
+          <p class="text-slate-400">Original multi-omics research paper synthesis, peer-review defense, and SudaPass ledger archiving.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. STANDARDIZED TWO-STEP INTAKE FUNNEL -->
+  <section id="funnel" class="py-16 bg-[#0A192F]">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="text-center mb-10 space-y-2">
+        <span class="text-cyan-400 font-mono font-bold text-xs uppercase tracking-widest block">OFFICIAL ACADEMIC REGISTRATION</span>
+        <h2 class="text-3xl font-extrabold text-white">Candidate Intake &amp; Sovereign Payment Rails</h2>
+        <p class="text-slate-400 text-sm">Self-service registration. Step 1 mints your Sovereign GA-ID and unlocks your +25 GP Explorer baseline.</p>
+      </div>
+
+      <!-- Funnel Container Card -->
+      <div class="p-6 md:p-8 rounded-3xl glass-card space-y-8">
+        
+        <!-- ================= STEP 1: Diagnostic Profile & Location/Tier ================= -->
+        <div class="space-y-4">
+          <div class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-xl bg-gradient-to-tr from-[#123B5D] to-cyan-600 text-white flex items-center justify-center font-bold text-sm font-mono">1</span>
+            <div>
+              <h3 class="text-lg font-bold text-white">Step 1: Clinical Profile, Tier &amp; Institutional Affiliation</h3>
+              <p class="text-xs text-slate-400">Mints your Sovereign GA-ID and credits +25 GP directly to GemIInI Jaib (جيميناي جيب).</p>
+            </div>
+          </div>
+
+          <form id="mol-reg-form" onsubmit="submitMolRegistration(event)" class="space-y-4 pt-2">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-bold text-slate-300 mb-1">Full Clinical / Scientific Name</label>
+                <input type="text" id="mol-name" required placeholder="Dr. Ahmed Gibbril" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white text-sm focus:outline-none focus:border-cyan-400">
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-300 mb-1">WhatsApp / Telemetry Phone</label>
+                <input type="tel" id="mol-phone" required placeholder="+20 10 1234 5678" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white text-sm focus:outline-none focus:border-cyan-400">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-bold text-slate-300 mb-1">University / Faculty / Research Center</label>
+                <input type="text" id="mol-faculty" required placeholder="e.g. University of Khartoum, IEND, OIU" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white text-sm focus:outline-none focus:border-cyan-400">
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-300 mb-1">Academic / Clinical Tier</label>
+                <select id="mol-tier" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white text-sm focus:outline-none focus:border-cyan-400">
+                  <option value="L0: Medical / Science Student">L0: Medical / Science Undergraduate</option>
+                  <option value="L1: House Officer / Graduate" selected>L1: House Officer / Graduate Trainee</option>
+                  <option value="L2: Medical Officer / Lab Specialist">L2: Medical Officer / Clinical Pathologist</option>
+                  <option value="L3: Master's / PhD Researcher">L3: Master's / PhD Research Candidate</option>
+                  <option value="L4: Specialist / Senior Scientist">L4: Clinical Specialist / Senior Scientist</option>
+                  <option value="L5: Faculty / Consultant">L5: Consultant / Faculty Professor</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- LOCATION SELECTION -->
+            <div class="p-4 rounded-2xl bg-slate-900/90 border border-cyan-500/30 space-y-3">
+              <label class="text-xs font-bold text-cyan-300 uppercase tracking-wide flex items-center gap-1.5 font-mono">
+                <span>📍</span> Primary Research Hub / Requested Center:
+              </label>
+              <select id="mol-hub" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-950 border border-slate-700 text-white text-sm focus:outline-none focus:border-cyan-400">
+                <option value="Virtual Online + Cloud Workbench" selected>Virtual Cloud Workbench (Global &amp; Regional Access)</option>
+                <option value="Cairo Hub & Research Center">Cairo Research Hub (Egypt Capital Oncology Center)</option>
+                <option value="Sudan: Port Sudan Genomic Center">Sudan &bull; Port Sudan Center</option>
+                <option value="Gulf / Diaspora Hub">Gulf / Saudi / UAE Research Cluster</option>
+                <option value="Custom Laboratory Hub">Custom Institutional Laboratory</option>
+              </select>
+            </div>
+
+            <button type="submit" id="btn-submit-mol-step1" class="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-cyan-500 to-teal-500 text-slate-950 font-extrabold text-sm shadow-md hover:brightness-110 transition flex items-center justify-center gap-2">
+              <span>Submit Profile &amp; Mint Sovereign GA-ID</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+            </button>
+          </form>
+
+          <!-- Step 1 Feedback Container -->
+          <div id="mol-step1-result" class="hidden p-4 rounded-xl bg-cyan-950/80 border border-cyan-500 text-cyan-200 text-sm"></div>
+        </div>
+
+        <div class="h-px bg-slate-800"></div>
+
+        <!-- ================= STEP 2: Payment Rails & Verification ================= -->
+        <div id="mol-funnel-step-2-section" class="space-y-4 opacity-50 pointer-events-none transition-all duration-300">
+          <div class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-xl bg-slate-700 text-white flex items-center justify-center font-bold text-sm font-mono" id="badge-mol-step2">2</span>
+            <div>
+              <h3 class="text-lg font-bold text-white">Step 2: Sovereign Settlement Rails &amp; Tuition Audit</h3>
+              <p class="text-xs text-slate-400">Full 8-Block Suite: <strong>3,200 EGP</strong> (or $85 USD). Unlocks +475 GP Pathfinder upgrade.</p>
+            </div>
+          </div>
+
+          <!-- Payment Instructions Card -->
+          <div class="p-5 rounded-2xl bg-slate-900/90 border border-slate-700 space-y-4">
+            <div class="text-xs font-semibold text-slate-400">Sovereign Settlement Rails:</div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <!-- Vodafone Cash (Primary) -->
+              <div class="p-4 rounded-xl border-2 border-cyan-500/80 bg-cyan-950/40">
+                <div class="flex items-center justify-between">
+                  <div class="text-xs font-bold text-cyan-300 uppercase tracking-wide">Vodafone Cash (Primary Rail)</div>
+                  <span class="text-[10px] bg-cyan-500 text-slate-950 px-2 py-0.5 rounded font-mono font-bold">ACTIVE</span>
+                </div>
+                <div class="font-mono text-base font-extrabold text-white mt-2 select-all">01015922628</div>
+                <div class="text-[11px] text-slate-400 mt-1">Official Mobile Cash Wallet &bull; Immediate Audit Lock</div>
+              </div>
+
+              <!-- InstaPay (Alternative) -->
+              <div class="p-4 rounded-xl border border-slate-700 bg-slate-950/60">
+                <div class="text-xs font-bold text-slate-300 uppercase tracking-wide">InstaPay (Alternative)</div>
+                <div class="font-mono text-base font-extrabold text-white mt-2 select-all">a.mursifarah@instapay</div>
+                <div class="text-[11px] text-slate-400 mt-1">Consortium Academic Clearance</div>
+              </div>
+            </div>
+
+            <!-- Transaction Reference Form -->
+            <form id="mol-pay-form" onsubmit="submitMolPayment(event)" class="space-y-4 pt-2">
+              <div>
+                <label class="block text-xs font-bold text-slate-300 mb-1">Transaction Reference (txRef) or Sender Phone</label>
+                <input type="text" id="mol-pay-txref" required placeholder="e.g. VF Cash Sender Number or Transfer Ref" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-950 border border-slate-700 text-white text-sm focus:outline-none focus:border-cyan-400">
+              </div>
+
+              <button type="submit" id="btn-submit-mol-step2" class="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-teal-500 to-cyan-400 text-slate-950 font-extrabold text-sm shadow-md hover:brightness-110 transition duration-150 flex items-center justify-center gap-2">
+                <span>Submit Verification &amp; Activate Pathfinder 500 GP</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+              </button>
+            </form>
+
+            <!-- Step 2 Feedback Container -->
+            <div id="mol-step2-result" class="hidden p-4 rounded-xl bg-cyan-950/90 border border-cyan-400 text-cyan-200 text-sm"></div>
+          </div>
+        </div>
+
+        <!-- ================= STEP 3: Next-Need Bridge ================= -->
+        <div id="mol-step3-bridge" class="hidden p-6 rounded-2xl bg-[#071322] border border-cyan-500/40 text-white space-y-4">
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-0.5 rounded bg-cyan-500/20 text-cyan-300 text-[10px] font-mono font-bold uppercase tracking-wider">PREDICTABLE NEXT NEED</span>
+            <h4 class="text-sm font-bold text-white">SudaGene Research Network &amp; Manuscript Publication (15:5:1)</h4>
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            MolecularGemIInI candidates qualify for fast-track data collection and authorship placement across international PubMed-indexed journals. Would you like to flag your profile for research group placement?
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <button type="button" onclick="flagResearchInterest('SudaGene 15:5:1 Research Group')" class="py-2 px-4 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 text-xs font-bold transition">
+              Flag Account for Research Placement (+25 GP)
+            </button>
+            <a href="verify.html" class="py-2 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-cyan-300 text-xs font-mono font-bold border border-slate-700 transition">
+              SudaPass™ Verification Vault &rarr;
+            </a>
+          </div>
+          <div id="mol-bridge-result" class="hidden text-xs font-bold text-cyan-300 pt-1"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-[#071322] text-slate-400 text-xs py-10 border-t border-slate-800 mt-auto">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-[#123B5D] to-cyan-500 text-white flex items-center justify-center font-bold text-xs font-mono">GA</div>
+        <div>
+          <div class="text-white font-bold">Department of Genomic Medicine &bull; GeneAcademy Sovereign Platform</div>
+          <div class="text-slate-500 text-[11px]">&copy; 2026/2027. Directed by Dr. Mohamed Gibbril &amp; Dr. Waleed Gibbril.</div>
+        </div>
+      </div>
+      <div class="flex items-center gap-6 font-mono text-[11px]">
+        <span>Companion App: <strong class="text-cyan-400">GemIInI Jaib (جيميناي جيب)</strong></span>
+        <span>Admissions Desk: <strong class="text-slate-300">GA-011</strong></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- API Bridge -->
+  <script src="api.js"></script>
+
+  <!-- Controller Logic -->
+  <script>
+    const molState = {
+      mintedGaId: null,
+      selectedHub: null
+    };
+
+    function calculatePrimer() {
+      const seq = document.getElementById('primer-seq').value.trim().toUpperCase();
+      if (!seq) return;
+
+      const len = seq.length;
+      let gcCount = 0;
+      for (let i = 0; i < len; i++) {
+        if (seq[i] === 'G' || seq[i] === 'C') gcCount++;
+      }
+      const gc = Math.round((gcCount / len) * 100);
+      const tm = Math.round(64.9 + 41 * (gcCount - 16.4) / len);
+
+      document.getElementById('stat-len').innerText = `${len} bp`;
+      document.getElementById('stat-gc').innerText = `${gc}%`;
+      document.getElementById('stat-tm').innerText = `${tm} °C`;
+
+      // Gel band migration calculation
+      const migrationPct = Math.min(85, Math.max(15, Math.round(100 - (len * 2.2))));
+      document.getElementById('gel-sample-band').style.left = `${migrationPct}%`;
+    }
+
+    async function submitMolRegistration(e) {
+      e.preventDefault();
+      const name = document.getElementById('mol-name').value.trim();
+      const phone = document.getElementById('mol-phone').value.trim();
+      const faculty = document.getElementById('mol-faculty').value.trim();
+      const tier = document.getElementById('mol-tier').value;
+      const hub = document.getElementById('mol-hub').value;
+      molState.selectedHub = hub;
+
+      // Mint deterministic GA-ID
+      const randomSeed = Math.floor(1000 + Math.random() * 9000);
+      molState.mintedGaId = `GA-${randomSeed}`;
+      localStorage.setItem('gemiini_user_ga', molState.mintedGaId);
+
+      const resultEl = document.getElementById('mol-step1-result');
+      resultEl.classList.remove('hidden');
+      resultEl.innerHTML = `
+        <div class="font-bold text-base">✓ Profile Registered — Sovereign ID: <span class="font-mono text-cyan-300">${molState.mintedGaId}</span></div>
+        <div class="text-xs mt-1.5 leading-relaxed">
+          <strong>+25 GP (Provisional Explorer)</strong> credited to your profile. Track on 
+          <span class="font-semibold text-cyan-300">GemIInI Jaib (تطبيقنا للمتابعة)</span>.
+          <br>Primary Research Hub: <strong class="text-white">${hub}</strong>.
+          <br>Proceed to Step 2 below to submit your payment reference and activate your workbench access.
+        </div>
+      `;
+
+      if (typeof executeGemIInISync === 'function') {
+        try {
+          executeGemIInISync({
+            action: 'MOLECULAR_REGISTER',
+            legalName: name,
+            phone: phone,
+            faculty: faculty,
+            clinicalTier: tier,
+            researchHub: hub,
+            gaId: molState.mintedGaId
+          }).catch(err => console.warn(err));
+        } catch (err) {
+          console.warn(err);
+        }
+      }
+
+      // Unlock Step 2
+      const step2 = document.getElementById('mol-funnel-step-2-section');
+      step2.classList.remove('opacity-50', 'pointer-events-none');
+
+      const badge2 = document.getElementById('badge-mol-step2');
+      badge2.className = 'w-8 h-8 rounded-xl bg-cyan-500 text-slate-950 flex items-center justify-center font-bold text-sm font-mono';
+
+      const btn1 = document.getElementById('btn-submit-mol-step1');
+      btn1.disabled = true;
+      btn1.classList.add('opacity-60', 'cursor-not-allowed');
+      btn1.innerText = `Intake Sealed: ${molState.mintedGaId}`;
+
+      step2.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    async function submitMolPayment(e) {
+      e.preventDefault();
+      const txRef = document.getElementById('mol-pay-txref').value.trim();
+      if (!txRef) return;
+
+      const resultEl = document.getElementById('mol-step2-result');
+      resultEl.classList.remove('hidden');
+      resultEl.innerHTML = `
+        <div class="font-bold text-base">✓ Transaction Reference Logged for Verification</div>
+        <div class="text-xs mt-1.5 leading-relaxed">
+          Reference <span class="font-mono font-bold text-cyan-300">${txRef}</span> logged for candidate <strong>${molState.mintedGaId}</strong>.
+          Upon confirmation by Admissions Desk (GA-011 Eng. Amjad Gorashi), your GA-ID receives the <strong>+475 GP Pathfinder bump (500 GP Cumulative)</strong>, unlocking the private LMS classroom:
+          <br><a href="https://members.geneacademy.net/communities/groups/molecular-gemiini/home?invite=6a9512e748b5e122935f4eb9" target="_blank" class="font-mono text-cyan-300 underline bg-cyan-950 px-1 py-0.5 rounded mt-1.5 inline-block font-semibold">Join Molecular GemIInI LMS &rarr; members.geneacademy.net</a>
+        </div>
+      `;
+
+      if (typeof executeGemIInISync === 'function') {
+        try {
+          executeGemIInISync({
+            action: 'MOLECULAR_PAYMENT_SUBMIT',
+            gaId: molState.mintedGaId,
+            txRef: txRef,
+            paymentChannel: 'VODAFONE_CASH',
+            amount: 3200,
+            currency: 'EGP'
+          }).catch(err => console.warn(err));
+        } catch (err) {
+          console.warn(err);
+        }
+      }
+
+      const btn2 = document.getElementById('btn-submit-mol-step2');
+      btn2.disabled = true;
+      btn2.classList.add('opacity-60', 'cursor-not-allowed');
+      btn2.innerText = `Submitted: txRef [${txRef}]`;
+
+      const bridge = document.getElementById('mol-step3-bridge');
+      if (bridge) {
+        bridge.classList.remove('hidden');
+        bridge.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    async function flagResearchInterest(track) {
+      const res = document.getElementById('mol-bridge-result');
+      res.classList.remove('hidden');
+      res.innerText = `✓ Flagged on Ledger (+25 GP). Candidate ${molState.mintedGaId || ''} prioritized for ${track}.`;
+
+      if (typeof executeGemIInISync === 'function' && molState.mintedGaId) {
+        executeGemIInISync({
+          action: 'SUBMIT_FEEDBACK',
+          gaId: molState.mintedGaId,
+          targetPathways: track
+        }).catch(err => console.warn(err));
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      calculatePrimer();
+      const cachedGa = localStorage.getItem('gemiini_user_ga');
+      if (cachedGa && cachedGa.startsWith('GA-')) {
+        molState.mintedGaId = cachedGa;
+      }
+    });
+  </script>
 </body>
 </html>
